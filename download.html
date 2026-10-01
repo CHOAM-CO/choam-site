@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>scheherazade download | CHOAM</title>
+<meta name="description" content="download scheherazade">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dl-page">
+<header class="bar">
+  <a class="brand" href="./">CHOAM</a>
+  <nav><a href="./#ours">ours</a>, <a href="./#contact">contact</a></nav>
+</header>
+<main class="work ai dl">
+  <div class="ai-txt">
+    <img class="ai-logo" src="assets/scheherazade.png" alt="Scheherazade" width="1024" height="1024">
+    <p class="kind">beta <span id="ver"></span></p>
+    <h2>scheherazade</h2>
+    <p class="phrase">smart enough to last even a thousand nights.</p>
+    <div class="dl-btns">
+      <a class="dlbtn" data-os="mac" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">mac <small>apple silicon</small></a>
+      <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">windows</a>
+      <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">linux <small>appimage</small></a>
+    </div>
+    <p class="dl-note">needs a claude account. <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">all releases [ &rarr; ]</a></p>
+  </div>
+</main>
+<script>
+// point each button straight at the newest installer
+fetch('https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/latest')
+  .then(r => r.json()).then(rel => {
+    const pick = { mac: /arm64\.dmg$/, win: /Setup-.*\.exe$/, linux: /\.AppImage$/ }
+    for (const a of document.querySelectorAll('.dlbtn')) {
+      const asset = (rel.assets || []).find(x => pick[a.dataset.os].test(x.name))
+      if (asset) a.href = asset.browser_download_url
+    }
+    if (rel.tag_name) document.getElementById('ver').textContent = '/ ' + rel.tag_name
+  }).catch(() => {})
+</script>
+</body>
+</html>

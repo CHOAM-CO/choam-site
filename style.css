@@ -74,3 +74,14 @@ img{display:block;max-width:100%}
   .slider .cap{bottom:calc(var(--pad) + 36px)}
   .restaurant img{object-position:50% 50%}
 }
+
+/* download page */
+.dl{min-height:100svh}
+.dl-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.dlbtn{display:inline-flex;align-items:baseline;gap:.5em;padding:.6em 1em;border:1px solid rgba(255,255,255,.85);font-size:clamp(20px,2vw,28px);font-weight:300;color:#fff;transition:background .2s,color .2s}
+.dlbtn small{font-size:.5em;font-weight:400;opacity:.7}
+.dlbtn:hover{background:#fff;color:#14213d}
+.dl-note{margin-top:22px;font-size:14px;font-weight:400;color:rgba(255,255,255,.7)}
+.dl-note a{color:#fff;margin-left:.6em}
+.dl-note a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:720px){.dlbtn{flex:1 1 100%;justify-content:space-between}}
