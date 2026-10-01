@@ -7,7 +7,6 @@ img{display:block}
 
 .bar{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:flex-start;padding:var(--pad);mix-blend-mode:difference;color:#fff;pointer-events:none}
 .bar a{pointer-events:auto}
-.bar .mk img{filter:invert(1)}
 .bar nav{display:flex;gap:28px;font-size:15px;letter-spacing:.5px;line-height:1}
 .bar nav a{padding:4px 0;border-bottom:1px solid transparent;transition:border-color .3s}
 .bar nav a:hover{border-color:#fff}
@@ -18,19 +17,26 @@ section{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:s
 
 .panel{border-top:1px solid #000}
 .art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.art img{filter:grayscale(1) contrast(1.05);max-width:min(46vw,560px);max-height:56vh;width:auto;height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.art img{max-width:min(46vw,560px);max-height:56vh;width:auto;height:auto;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .panel:hover .art img{transform:scale(1.03)}
+.game-card{isolation:isolate;background:#171514;color:#fff}
+.game-card .keyart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.game-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.28),transparent 22%,transparent 48%,rgba(0,0,0,.72));pointer-events:none}
+.game-card.ryokan .keyart{object-position:center}
+.game-card.restaurant .keyart{object-position:22% center}
+.game-card .bl{z-index:1;color:#fff}
+.game-card .bl p{color:rgba(255,255,255,.8)}
+.game-card .ln{color:#fff;border-color:#fff}
 .bl{position:absolute;left:var(--pad);bottom:var(--pad);line-height:1}
 .bl h2{font-weight:400;font-size:clamp(34px,5vw,72px);letter-spacing:.5px;margin-bottom:14px}
 .bl p{font-family:var(--sans);font-size:15px;letter-spacing:4px;color:#555;margin-bottom:14px}
 .ln{font-family:var(--sans);font-size:15px;letter-spacing:4px;color:#000;border-bottom:1px solid #000;padding-bottom:3px;transition:letter-spacing .4s}
 .ln:hover{letter-spacing:6px}
 
-.split{display:grid;grid-template-columns:1fr 1fr}
-.split>.tl{z-index:2}
+.split{display:block}
+.split>.tl{z-index:2;color:#fff;pointer-events:none}
 .cell{position:relative;min-height:100vh;min-height:100svh}
-.cell+.cell{border-left:1px solid #000}
-.art img.ghost{filter:none;width:clamp(96px,12vw,160px);height:auto;max-width:none;opacity:.9}
+.cell+.cell{border-left:0;border-top:1px solid #000}
 
 .contact{display:block}
 .mail{position:absolute;left:var(--pad);bottom:var(--pad);font-size:clamp(28px,6.4vw,104px);line-height:1;letter-spacing:.5px;border-bottom:1px solid transparent;transition:border-color .3s}
@@ -49,7 +55,8 @@ section{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:s
   .bar nav{gap:18px;font-size:14px}
   .art img{max-width:62vw;max-height:40vh}
   .art{align-items:center;padding-bottom:60px}
-  .split{display:block}
+  .game-card .keyart{max-width:none;max-height:none;width:100%;height:100%;object-fit:cover}
+  .game-card .bl h2{font-size:clamp(29px,8vw,42px)}
   .split>.tl{position:absolute}
   .cell{min-height:70vh;min-height:70svh}
   .cell+.cell{border-left:0;border-top:1px solid #000}
