@@ -24,6 +24,8 @@ section{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:s
 .game-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(0,0,0,.28),transparent 22%,transparent 48%,rgba(0,0,0,.72));pointer-events:none}
 .game-card.ryokan .keyart{object-position:center}
 .game-card.restaurant .keyart{object-position:22% center}
+@media (min-width:761px){.game-card.restaurant .keyart{object-fit:contain;background:#15100d}}
+@media (max-width:760px){.game-card.restaurant .keyart{object-position:20% center}}
 .game-card .bl{z-index:1;color:#fff}
 .game-card .bl p{color:rgba(255,255,255,.8)}
 .game-card .ln{color:#fff;border-color:#fff}
