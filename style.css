@@ -40,9 +40,18 @@ img{display:block;max-width:100%}
 .ai{background:#14213d}
 .ai-art img{width:100%;height:100%;object-fit:cover;transform:scale(1.32)}
 
-.ryokan2 img{object-position:50% 50%}
-.bleed::after{content:'';position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.45));pointer-events:none}
+.bleed::after,.slider::after{content:'';position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.45));pointer-events:none}
 .restaurant .cap{left:auto;right:var(--pad);text-align:right}
+
+/* multi-image work: slides left/right */
+.track{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track figure{flex:0 0 100%;height:100%;scroll-snap-align:start}
+.track img{width:100%;height:100%;object-fit:cover}
+.nav-s{position:absolute;right:var(--pad);bottom:var(--pad);z-index:2;display:flex;gap:14px;align-items:baseline;font-size:17px;font-weight:400}
+.nav-s button{background:none;border:0;color:#fff;font:inherit;cursor:pointer;padding:0}
+.nav-s button:disabled{opacity:.35;cursor:default}
+.nav-s button:not(:disabled):hover{text-decoration:underline;text-underline-offset:4px}
 
 /* contact: company again */
 .contact{min-height:70svh;padding:calc(var(--pad)*4) var(--pad) var(--pad);display:flex;flex-direction:column;justify-content:flex-end}
@@ -57,7 +66,8 @@ img{display:block;max-width:100%}
   .bar nav{font-size:15px}
   .side{display:none}
   .wm{top:46%}
-  .ryokan img{object-position:70% 50%}
-  .ryokan2 img{object-position:40% 50%}
+  .ryokan figure:first-child img{object-position:70% 50%}
+  .ryokan figure:nth-child(2) img{object-position:40% 50%}
+  .slider .cap{bottom:calc(var(--pad) + 36px)}
   .restaurant img{object-position:50% 50%}
 }

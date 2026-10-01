@@ -37,17 +37,17 @@
   </div>
 </section>
 
-<section id="games" class="work bleed ryokan">
-  <!-- Ryokan key art: assets/ryokan_kv_C2.webp (Mino ok 10-01) -->
-  <img src="assets/ryokan_kv_C2.webp" alt="Donguri Ryokan" width="2048" height="1152">
+<section id="games" class="work ryokan slider">
+  <!-- Ryokan key art: add a <figure> per image; it slides left/right -->
+  <div class="track">
+    <figure><img src="assets/ryokan_kv_C2.webp" alt="Donguri Ryokan" width="2048" height="1152"></figure>
+    <figure><img src="assets/ryokan_kv_B2.webp" alt="Donguri Ryokan" width="2048" height="1152" loading="lazy"></figure>
+  </div>
   <div class="cap">
     <p class="kind">game / coming soon</p>
     <h2>donguri ryokan</h2>
   </div>
-</section>
-
-<section class="work bleed ryokan2" aria-hidden="true">
-  <img src="assets/ryokan_kv_B2.webp" alt="" width="2048" height="1152">
+  <div class="nav-s"><button class="prev" aria-label="previous">[ &larr; ]</button><span class="count">1 / 2</span><button class="next" aria-label="next">[ &rarr; ]</button></div>
 </section>
 
 <section class="work bleed restaurant">
@@ -69,5 +69,6 @@
 <footer class="foot">
   <span class="f-wm">CHOAM</span><span>&copy; 2026</span>
 </footer>
+<script src="main.js"></script>
 </body>
 </html>
