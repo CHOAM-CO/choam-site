@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,14 +23,16 @@
 
 <section class="hero">
   <span class="line" aria-hidden="true"></span>
-  <h1 class="wm">CHOAM</h1>
+  <h1 class="wm" aria-label="CHOAM"><span>C</span><span>H</span><span>O</span><span>A</span><span>M</span></h1>
   <p class="motto">culture must flow</p>
   <p class="side" aria-hidden="true">ours</p>
+  <p class="clock" aria-hidden="true">seoul <span id="clock">--:--</span></p>
 </section>
 
 <section id="ours" class="work ai">
   <div class="ai-txt">
     <img class="ai-logo" src="assets/scheherazade.png" alt="Scheherazade" width="1024" height="1024">
+    <p class="idx">01 / 03</p>
     <p class="kind">beta</p>
     <h2>scheherazade</h2>
     <p class="phrase">smart enough to last even a thousand nights.</p>
@@ -46,6 +48,7 @@
     <figure><img src="assets/ryokan_kv_B2.webp" alt="Donguri Ryokan" width="2048" height="1152" loading="lazy"></figure>
   </div>
   <div class="cap">
+    <p class="idx">02 / 03</p>
     <p class="kind">coming soon</p>
     <h2>donguri ryokan</h2>
   </div>
@@ -55,6 +58,7 @@
 <section class="work bleed restaurant">
   <a href="https://donguri.run" target="_blank" rel="noopener" aria-label="Play Donguri Restaurant"><img src="assets/restaurant-keyart.png" alt="Donguri Restaurant" width="1200" height="630"></a>
   <div class="cap">
+    <p class="idx">03 / 03</p>
     <p class="kind">on the web</p>
     <h2>donguri restaurant</h2>
     <a class="go" href="https://donguri.run" target="_blank" rel="noopener">play <span>[ &rarr; ]</span></a>

@@ -26,7 +26,7 @@ img{display:block;max-width:100%}
 
 /* work screens: color only from the work */
 .work{position:relative;height:100svh;min-height:520px;overflow:hidden;background:#000;color:#fff}
-.bleed img,.bleed a{position:absolute;inset:0;width:100%;height:100%}
+.bleed img,.bleed > a{position:absolute;inset:0;width:100%;height:100%}
 .bleed img{object-fit:cover}
 .cap{position:absolute;left:var(--pad);bottom:var(--pad);z-index:2;text-shadow:0 0 24px rgba(0,0,0,.35)}
 .kind{font-size:13px;font-weight:400;letter-spacing:.04em;margin-bottom:10px}
@@ -43,6 +43,10 @@ img{display:block;max-width:100%}
 .ai h2{font-weight:200;font-size:clamp(40px,7vw,112px);line-height:.95;letter-spacing:-.025em}
 .phrase{margin-top:22px;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,32px);line-height:1.25;color:#e8c77a}
 .desc{margin-top:18px;max-width:560px;font-size:clamp(15px,1.15vw,18px);line-height:1.6;color:rgba(255,255,255,.82)}
+
+/* readable captions on bright art */
+.bleed::after,.slider::after{content:'';position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.55));pointer-events:none;z-index:1}
+.restaurant .cap{left:auto;right:var(--pad);text-align:right}
 
 /* multi-image work: slides left/right */
 .track{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
@@ -85,3 +89,26 @@ img{display:block;max-width:100%}
 .dl-note a{color:#fff;margin-left:.6em}
 .dl-note a:hover{text-decoration:underline;text-underline-offset:4px}
 @media (max-width:720px){.dlbtn{flex:1 1 100%;justify-content:space-between}}
+
+/* ---- motion & detail ---- */
+.wm span{display:inline-block}
+.clock{position:absolute;right:var(--pad);bottom:var(--pad);font-size:13px;font-weight:400;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.idx{font-size:12px;font-weight:400;letter-spacing:.12em;opacity:.7;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.ai .idx{color:#fff}
+@media (prefers-reduced-motion:no-preference){
+  .wm span{transform:translateY(105%);opacity:0;animation:rise 1.1s cubic-bezier(.2,.7,0,1) forwards}
+  .wm span:nth-child(2){animation-delay:.07s}.wm span:nth-child(3){animation-delay:.14s}
+  .wm span:nth-child(4){animation-delay:.21s}.wm span:nth-child(5){animation-delay:.28s}
+  .wm{clip-path:inset(-2% -2% -6% -2%)}
+  .line{transform:rotate(-34deg) scaleX(0);animation:draw 1.8s .5s cubic-bezier(.6,0,.2,1) forwards}
+  .motto,.side,.clock{opacity:0;animation:fade 1s .9s forwards}
+  @keyframes rise{to{transform:none;opacity:1}}
+  @keyframes draw{to{transform:rotate(-34deg) scaleX(1)}}
+  @keyframes fade{to{opacity:1}}
+  .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,0,1),transform 1s cubic-bezier(.2,.7,0,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+  .bleed img,.track img{transform:scale(1.08);transition:transform 2.4s cubic-bezier(.2,.7,0,1)}
+  .seen .bleed img,.bleed.seen img,.slider.seen .track img{transform:none}
+  .ai-logo{transition:transform .6s}
+}
