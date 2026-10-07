@@ -2,6 +2,7 @@ const actions = { scheherazade: ['get', 'download.html'], 'donguri-restaurant': 
 const galleries = [...document.querySelectorAll('.gallery')].map(gallery => {
   const track = gallery.querySelector('.track');
   const panels = [...track.children];
+  const projects = [...new Set(panels.map(panel => panel.dataset.project))];
   const prev = gallery.querySelector('.prev'), next = gallery.querySelector('.next');
   const count = gallery.querySelector('.count'), action = gallery.querySelector('.action');
   const at = () => Math.max(0, Math.min(panels.length - 1, Math.round(track.scrollLeft / track.clientWidth)));
@@ -10,7 +11,7 @@ const galleries = [...document.querySelectorAll('.gallery')].map(gallery => {
     prev.disabled = index === 0; next.disabled = index === panels.length - 1;
     count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(panels.length).padStart(2, '0')}`;
     const project = panels[index].dataset.project, target = actions[project];
-    gallery.querySelector('.project-count').textContent = `CHOAM / ${String(Math.floor(index / 2) + 1).padStart(2, '0')} — 05`;
+    gallery.querySelector('.project-count').textContent = `CHOAM / ${String(projects.indexOf(project) + 1).padStart(2, '0')} — ${String(projects.length).padStart(2, '0')}`;
     action.hidden = !target;
     if (target) { action.textContent = `${target[0]} ↗`; action.href = target[1]; action.setAttribute('aria-label', `${target[0]} ${project}`); }
     panels.forEach((panel, i) => panel.querySelectorAll('a').forEach(link => { link.tabIndex = i === index ? 0 : -1; }));
