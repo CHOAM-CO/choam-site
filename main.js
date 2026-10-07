@@ -13,7 +13,7 @@ const galleries = [...document.querySelectorAll('.gallery')].map(gallery => {
     const project = panels[index].dataset.project, target = actions[project];
     gallery.querySelector('.project-count').textContent = `CHOAM / ${String(projects.indexOf(project) + 1).padStart(2, '0')} — ${String(projects.length).padStart(2, '0')}`;
     action.hidden = !target;
-    if (target) { action.textContent = `${target[0]} ↗`; action.href = target[1]; action.setAttribute('aria-label', `${target[0]} ${project}`); }
+    if (target) { action.textContent = target[0]; action.href = target[1]; action.setAttribute('aria-label', `${target[0]} ${project}`); }
     panels.forEach((panel, i) => panel.querySelectorAll('a').forEach(link => { link.tabIndex = i === index ? 0 : -1; }));
   };
   let current = 0;

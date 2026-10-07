@@ -7,13 +7,13 @@
 <meta name="description" content="get scheherazade">
 <meta name="theme-color" content="#14213d">
 <link rel="icon" href="assets/mark.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="dl-page">
-<header class="bar"><a class="brand" href="./" aria-label="CHOAM home"><img src="assets/mark.svg" alt=""><span>CHOAM</span></a><p>culture must flow</p><a class="index-link" href="#contact">contact ↗</a></header><main class="work ai dl">
+<header class="bar"><a class="brand" href="./" aria-label="CHOAM home"><img src="assets/mark.svg" alt=""><span>CHOAM</span></a><p>CULTURE MUST FLOW</p><a class="index-link" href="#contact">contact</a></header><main class="work ai dl">
   <div class="ai-txt">
     <img class="ai-logo" src="assets/scheherazade.png" alt="Scheherazade" width="1024" height="1024">
     <p class="kind">beta <span id="ver"></span></p>
@@ -24,7 +24,7 @@
       <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">windows</a>
       <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">linux <small>appimage</small></a>
     </div>
-    <p class="dl-note">bring your own subscription: claude, chatgpt or ollama. <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">all releases [ &rarr; ]</a></p>
+    <p class="dl-note">bring your own subscription: claude, chatgpt or ollama. <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">all releases [ ]</a></p>
   </div>
 </main>
 <script>
@@ -39,5 +39,5 @@ fetch('https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/la
     if (rel.tag_name) document.getElementById('ver').textContent = '/ ' + rel.tag_name
   }).catch(() => {})
 </script>
-</body>
+<footer id="contact" class="foot"><a href="mailto:mino@choam.studio">contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer></body>
 </html>
