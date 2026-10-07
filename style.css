@@ -16,3 +16,16 @@
 .description .eyebrow{margin-top:0}
 .description .detail-link{margin-top:10px}
 @media(max-width:600px){.description{padding:74px 16px 92px}.description-copy{margin:0;padding:20px 18px}.description h3{font-size:36px;margin:12px 0}.description .phrase{font-size:23px;margin:14px 0}.description .placeholder{font-size:9px;margin-top:16px}.description .copy{font-size:14px;line-height:1.55}.description .detail-link{margin-top:8px}.description-art.donguri-ryokan{object-position:65% center}}
+
+/* Scheherazade: the icon stays left; its story arrives from the right. */
+.art.scheherazade,.description[data-project="scheherazade"]{background:#132039}
+.art.scheherazade img,.description[data-project="scheherazade"] .description-art{position:absolute;inset:auto;left:3%;top:50%;transform:translateY(-50%);width:28%;height:auto;max-height:65%;object-fit:contain;background:transparent}
+.description[data-project="scheherazade"]{padding:84px var(--pad) 100px}
+.description[data-project="scheherazade"]::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(235,235,235,0) 25%,rgba(235,235,235,.72) 52%,rgba(235,235,235,.85) 100%);opacity:0;transform:translateX(8%);transition:opacity .55s ease,transform .55s ease}
+.description[data-project="scheherazade"] .description-copy{margin:0 0 0 45%;width:55%;max-width:none;padding:24px 18px;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;color:#17191b;opacity:0;transform:translateX(40px);transition:opacity .55s ease,transform .55s ease}
+.description[data-project="scheherazade"].is-active::before,.description[data-project="scheherazade"].is-active .description-copy{opacity:1;transform:translateX(0)}
+.description[data-project="scheherazade"] h3{font-size:clamp(36px,4.4vw,64px)}
+.description[data-project="scheherazade"] .phrase{font-size:clamp(24px,2.5vw,36px)}
+.description[data-project="scheherazade"] .copy{color:#25282d}
+.description[data-project="scheherazade"] .placeholder{color:#665b45}
+@media(max-width:600px){.art.scheherazade img,.description[data-project="scheherazade"] .description-art{left:16px;top:80px;width:130px;height:130px;max-height:none;transform:none}.description[data-project="scheherazade"]{align-items:flex-end;padding:74px 16px 92px}.description[data-project="scheherazade"]::before{background:linear-gradient(0deg,rgba(235,235,235,.9) 0%,rgba(235,235,235,.85) 55%,rgba(235,235,235,0) 90%);transform:translateY(8%)}.description[data-project="scheherazade"] .description-copy{margin:0;width:100%;padding:16px 0 0;transform:translateY(28px)}.description[data-project="scheherazade"].is-active::before,.description[data-project="scheherazade"].is-active .description-copy{transform:translateY(0)}.description[data-project="scheherazade"] h3{font-size:36px}.description[data-project="scheherazade"] .phrase{font-size:23px}}

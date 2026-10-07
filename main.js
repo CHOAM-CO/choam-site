@@ -10,6 +10,7 @@ const galleries = [...document.querySelectorAll('.gallery')].map(gallery => {
     prev.disabled = index === 0; next.disabled = index === panels.length - 1;
     count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(panels.length).padStart(2, '0')}`;
     const project = panels[index].dataset.project, target = actions[project];
+    gallery.querySelector('.project-count').textContent = `CHOAM / ${String(Math.floor(index / 2) + 1).padStart(2, '0')} — 05`;
     action.hidden = !target;
     if (target) { action.textContent = `${target[0]} ↗`; action.href = target[1]; action.setAttribute('aria-label', `${target[0]} ${project}`); }
     panels.forEach((panel, i) => panel.querySelectorAll('a').forEach(link => { link.tabIndex = i === index ? 0 : -1; }));
@@ -22,7 +23,9 @@ const galleries = [...document.querySelectorAll('.gallery')].map(gallery => {
   [prev, next].forEach(button => button.addEventListener('pointerdown', event => event.preventDefault()));
   prev.onclick = () => go(-1); next.onclick = () => go(1);
   track.addEventListener('scroll', sync, {passive:true});
-  track.addEventListener('scrollend', () => { current = at(); sync(); });
+  const activate = () => panels.forEach((panel, i) => panel.classList.toggle('is-active', i === at()));
+  track.addEventListener('scrollend', () => { current = at(); sync(); activate(); });
+  activate();
   let width = track.clientWidth;
   new ResizeObserver(() => {
     const nextWidth = track.clientWidth;
