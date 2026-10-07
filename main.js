@@ -1,20 +1,24 @@
-// sliders: one screen per image, swipe or [ <- ] [ -> ]
-document.querySelectorAll('.slider').forEach(s => {
-  const t = s.querySelector('.track'), n = t.children.length
-  const prev = s.querySelector('.prev'), next = s.querySelector('.next'), c = s.querySelector('.count')
-  const at = () => Math.round(t.scrollLeft / t.clientWidth)
-  const sync = () => { const i = at(); c.textContent = `${i + 1} / ${n}`; prev.disabled = i === 0; next.disabled = i === n - 1 }
-  const go = d => t.scrollTo({ left: (at() + d) * t.clientWidth, behavior: 'smooth' })
-  prev.onclick = () => go(-1); next.onclick = () => go(1)
-  t.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true })
-  sync()
-})
-
-// seoul clock in the hero corner
-const ck = document.getElementById('clock')
-if (ck) { const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit' }); const tick = () => { ck.textContent = f.format(new Date()) }; tick(); setInterval(tick, 15000) }
-
-// captions rise in, images settle as each screen arrives
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add(e.target.matches('.work') ? 'seen' : 'in'); io.unobserve(e.target) } }), { threshold: .25 })
-document.querySelectorAll('.work').forEach(w => io.observe(w))
-document.querySelectorAll('.cap, .ai-txt, .nav-s, .contact').forEach(box => [...box.children].forEach((c, i) => { c.classList.add('rv', 'd' + Math.min(i, 4)); io.observe(c) }))
+const actions = { scheherazade: ['get', 'download.html'], 'donguri-restaurant': ['play', 'https://donguri.run'] };
+document.querySelectorAll('.gallery').forEach(gallery => {
+  const track = gallery.querySelector('.track');
+  const panels = [...track.children];
+  const prev = gallery.querySelector('.prev'), next = gallery.querySelector('.next');
+  const count = gallery.querySelector('.count'), action = gallery.querySelector('.action');
+  const at = () => Math.round(track.scrollLeft / track.clientWidth);
+  const sync = () => {
+    const index = Math.min(panels.length - 1, at());
+    prev.disabled = index === 0; next.disabled = index === panels.length - 1;
+    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(panels.length).padStart(2, '0')}`;
+    const project = panels[index].dataset.project, target = actions[project];
+    action.hidden = !target;
+    if (target) { action.textContent = `${target[0]} ↗`; action.href = target[1]; action.setAttribute('aria-label', `${target[0]} ${project}`); }
+    panels.forEach((panel, i) => { panel.querySelectorAll('a').forEach(link => { link.tabIndex = i === index ? 0 : -1; }); });
+  };
+  const go = direction => track.scrollTo({left: Math.max(0, Math.min(panels.length - 1, at() + direction)) * track.clientWidth, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  prev.onclick = () => go(-1); next.onclick = () => go(1);
+  gallery.addEventListener('keydown', event => { if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') { event.preventDefault(); go(event.key === 'ArrowLeft' ? -1 : 1); } });
+  track.addEventListener('scroll', sync, {passive:true});
+  let width = track.clientWidth;
+  new ResizeObserver(() => { const index = Math.round(track.scrollLeft / width); width = track.clientWidth; track.scrollLeft = index * width; sync(); }).observe(track);
+  sync();
+});
