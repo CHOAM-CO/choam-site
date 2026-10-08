@@ -3,79 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CHOAM</title>
-<meta name="description" content="culture must flow">
-<meta name="theme-color" content="#ffffff">
+<title>CHOAM | Culture must flow</title>
+<meta name="description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the art tools behind them: Scheherazade, DAT, Donguri Ryokan, Donguri Restaurant and 선잠 DOZE.">
+<meta name="theme-color" content="#0a0b0d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CHOAM">
+<meta property="og:title" content="CHOAM | Culture must flow">
+<meta property="og:description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the art tools behind them.">
+<meta property="og:url" content="https://choam.studio/">
 <link rel="icon" href="assets/mark.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; } .ns li { margin-bottom: 28px; } .ns a { font-weight: 850; font-size: 28px; text-transform: uppercase; } .ns p { color: rgba(243, 242, 239, .78); }</style></noscript>
 </head>
 <body>
-
-<header class="bar">
-  <a class="brand" href="#top">CHOAM</a>
-  <nav><a href="#ours">ours</a>, <a href="#contact">contact</a></nav>
+<h1 class="sr-only">CHOAM</h1>
+<header class="mast chrome">
+  <a class="brand" href="index.html" aria-label="CHOAM, home"><img src="assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
 </header>
 
-<main id="top">
+<main class="track" data-track aria-label="Ours" aria-roledescription="carousel"></main>
+<noscript>
+  <ul class="ns">
+    <li><a href="pages/scheherazade.html">Scheherazade</a><p>Agent stands more than 1001 nights</p></li>
+    <li><a href="pages/dat.html">DAT</a><p>Our house style, as a model</p></li>
+    <li><a href="pages/donguri-ryokan.html">Donguri Ryokan</a><p>Not every guest is human</p></li>
+    <li><a href="pages/donguri-restaurant.html">Donguri Restaurant</a><p>No menu. The field decides.</p></li>
+    <li><a href="pages/seonjam.html">선잠 DOZE</a><p>She remembers what you said</p></li>
+  </ul>
+</noscript>
 
-<section class="hero"><div class="grid-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  <span class="line" aria-hidden="true"></span>
-  <h1 class="wm" aria-label="CHOAM"><span>C</span><span>H</span><span>O</span><span>A</span><span>M</span></h1>
-  <p class="motto">culture must flow</p>
-  <div class="meta"><span>studio</span><span>seoul</span><span>est. 2026</span></div>
-  <p class="clock" aria-hidden="true">seoul <span id="clock">--:--</span></p>
-</section>
-
-<section id="ours" class="work ai">
-  <div class="ai-txt">
-    <img class="ai-logo" src="assets/scheherazade.png" alt="Scheherazade" width="1024" height="1024">
-    <p class="idx">01 / 03</p>
-    <p class="kind">beta</p>
-    <h2>scheherazade</h2>
-    <p class="phrase">smart enough to last even a thousand nights.</p>
-    <p class="desc">a companion agent that lives on your computer. it remembers what you tell it, keeps a journal of your days, dreams at night, and talks first. reach it in the app, or from your phone through discord, slack or telegram.</p>
-    <a class="go" href="download.html">download <span>[ &rarr; ]</span></a>
+<div class="deck chrome">
+  <div class="deck-row">
+    <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
+    <div class="segs" data-segments aria-label="Pages"></div>
+    <div class="pager">
+      <button type="button" class="text-btn" data-prev>Previous</button>
+      <button type="button" class="text-btn" data-next>Next</button>
+      <button type="button" class="text-btn" data-details>Details</button>
+    </div>
   </div>
-</section>
+  <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+</div>
 
-<section class="work ryokan slider">
-  <!-- Ryokan key art: add a <figure> per image; it slides left/right -->
-  <div class="track">
-    <figure><img src="assets/ryokan_kv_C2.webp" alt="Donguri Ryokan" width="2048" height="1152"></figure>
-    <figure><img src="assets/ryokan_kv_B2.webp" alt="Donguri Ryokan" width="2048" height="1152" loading="lazy"></figure>
-  </div>
-  <div class="cap grid">
-    <p class="idx">02 / 03</p>
-    <p class="kind">coming soon</p>
-    <h2>donguri ryokan</h2>
-  </div>
-  <div class="nav-s"><button class="prev" aria-label="previous">[ &larr; ]</button><span class="count">1 / 2</span><button class="next" aria-label="next">[ &rarr; ]</button></div>
-</section>
-
-<section class="work bleed restaurant">
-  <a href="https://donguri.run" target="_blank" rel="noopener" aria-label="Play Donguri Restaurant"><img src="assets/restaurant-keyart.png" alt="Donguri Restaurant" width="1200" height="630"></a>
-  <div class="cap grid">
-    <p class="idx">03 / 03</p>
-    <p class="kind">on the web</p>
-    <h2>donguri restaurant</h2>
-    <a class="go" href="https://donguri.run" target="_blank" rel="noopener">play <span>[ &rarr; ]</span></a>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <p class="kind">contact</p>
-  <a class="mailbtn" href="mailto:mino@choam.studio">send us a mail <span>[ &rarr; ]</span></a>
-  <p class="addr">mino@choam.studio</p>
-</section>
-
-</main>
-
-<footer class="foot">
-  <span class="f-wm">CHOAM</span><span>&copy; 2026</span>
-</footer>
+<a class="action is-hidden" data-action></a>
+<p class="sr-only" aria-live="polite" data-live></p>
 <script src="main.js"></script>
 </body>
 </html>

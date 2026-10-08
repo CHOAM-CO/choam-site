@@ -3,34 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>scheherazade download | CHOAM</title>
-<meta name="description" content="download scheherazade">
-<meta name="theme-color" content="#14213d">
+<title>Get Scheherazade | CHOAM</title>
+<meta name="description" content="Long-term memory for long projects. Run Scheherazade with Claude, Codex or Ollama, browse with her in Chrome, and see what turns up in her dreams.">
+<meta name="theme-color" content="#121d31">
 <link rel="icon" href="assets/mark.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter+Tight:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="dl-page">
-<header class="bar">
-  <a class="brand" href="./">CHOAM</a>
-  <nav><a href="./#ours">ours</a>, <a href="./#contact">contact</a></nav>
+<header class="mast">
+  <a class="brand" href="index.html" aria-label="CHOAM, home"><img src="assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
 </header>
-<main class="work ai dl">
-  <div class="ai-txt">
-    <img class="ai-logo" src="assets/scheherazade.png" alt="Scheherazade" width="1024" height="1024">
-    <p class="kind">beta <span id="ver"></span></p>
-    <h2>scheherazade</h2>
-    <p class="phrase">smart enough to last even a thousand nights.</p>
+<main class="dl">
+  <div class="sch-field"><img class="sch-icon" src="assets/scheherazade.png" alt="Scheherazade app icon" width="1024" height="1024"></div>
+  <div class="dl-body">
+    <p class="cap-meta"><span>Beta</span><span id="ver"></span></p>
+    <h1 class="cap-title">Scheherazade</h1>
+    <p class="cap-line">Agent stands more than 1001 nights</p>
     <div class="dl-btns">
-      <a class="dlbtn" data-os="mac" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">mac <small>apple silicon</small></a>
-      <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">windows</a>
-      <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">linux <small>appimage</small></a>
+      <a class="dlbtn" data-os="mac" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Mac <small>Apple silicon</small></a>
+      <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Windows</a>
+      <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Linux <small>AppImage</small></a>
     </div>
-    <p class="dl-note">bring your own subscription: claude, chatgpt or ollama. <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">all releases [ &rarr; ]</a></p>
+    <p class="dl-note">Bring your own subscription: Claude, ChatGPT or Ollama. <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">All releases</a></p>
   </div>
 </main>
+<footer class="foot dl-foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
 <script>
 // point each button straight at the newest installer
 fetch('https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/latest')
@@ -40,8 +41,9 @@ fetch('https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/la
       const asset = (rel.assets || []).find(x => pick[a.dataset.os].test(x.name))
       if (asset) a.href = asset.browser_download_url
     }
-    if (rel.tag_name) document.getElementById('ver').textContent = '/ ' + rel.tag_name
+    if (rel.tag_name) document.getElementById('ver').textContent = rel.tag_name
   }).catch(() => {})
 </script>
+<script src="main.js"></script>
 </body>
 </html>
