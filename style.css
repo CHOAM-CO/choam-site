@@ -1,7 +1,8 @@
 /* CHOAM site: full-bleed project gallery with a slim translucent masthead and a bottom chapter deck. */
 /* Pretendard Variable, SIL OFL 1.1 (assets/LICENSE-Pretendard.txt). Pages load choam-sans-subset.woff2, a renamed
-   subset (Latin, punctuation, arrows and the Hangul syllables the site uses: 구동랑레료리선스잠칸토). The full font only
-   loads for Hangul missing from the subset; when Korean copy changes, rebuild the subset (fontTools pyftsubset) and this list. */
+   subset (Latin, punctuation, arrows and every Hangul syllable in the site's html/js, Korean copy included: 326 syllables,
+   the Hangul codepoints at the end of its unicode-range). The full font only loads for Hangul missing from the subset;
+   when Korean copy changes, rebuild the subset (fontTools) and regenerate this unicode-range from the same syllable list. */
 @font-face {
   font-family: 'CHOAM Sans';
   src: url('assets/PretendardVariable.woff2') format('woff2-variations'), url('assets/PretendardVariable.woff2') format('woff2');
@@ -16,7 +17,8 @@
   font-weight: 45 920;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0020-007E, U+00A0-017F, U+2000-206F, U+20A9-20AC, U+2122, U+2190-2193, U+3000-3003, U+AD6C, U+B3D9, U+B791, U+B808, U+B8CC, U+B9AC, U+C120, U+C2A4, U+C7A0, U+CE78, U+D1A0;
+  unicode-range: U+0020-007E, U+00A0-017F, U+2000-206F, U+20A9-20AC, U+2122, U+2190-2193, U+3000-3003,
+    U+AC00-AC01, U+AC04, U+AC08, U+AC10, U+AC19, U+AC1C-AC1D, U+AC70, U+AC78, U+AC83, U+AC8C, U+ACA8, U+ACB0, U+ACB9, U+ACBD, U+ACC1, U+ACC4, U+ACE0, U+ACE8, U+ACF5, U+ACFC, U+AD00, U+AD1C, U+AD34, U+AD50, U+AD6C-AD6D, U+ADF8, U+AE08, U+AE0B, U+AE30, U+AE4A, U+AE4C, U+AE50, U+AE54, U+AED8, U+AFB8, U+AFC8, U+AFD4, U+B044, U+B054, U+B05D, U+B098, U+B0A0, U+B0A8, U+B0AE, U+B0B4, U+B0B8, U+B108, U+B118, U+B140-B141, U+B144, U+B178, U+B17C, U+B193, U+B1CC, U+B208, U+B220, U+B274, U+B294, U+B298, U+B2C8, U+B2D8, U+B2E4, U+B2E8, U+B2EC, U+B2F4, U+B2F9, U+B300, U+B354, U+B378, U+B3C4-B3C5, U+B3C8, U+B3D9, U+B418, U+B41C, U+B450, U+B458, U+B46C, U+B4A4, U+B4E0, U+B4E4, U+B4F1, U+B514, U+B518, U+B54C, U+B5A0, U+B6B1, U+B73B, U+B77C, U+B78C, U+B791, U+B798, U+B7EC, U+B7FC, U+B808, U+B824, U+B839, U+B85C, U+B8CC, U+B8E8, U+B8FB, U+B974, U+B978, U+B97C, U+B984, U+B9AC-B9AD, U+B9B0, U+B9B4, U+B9BC-B9BD, U+B9C1, U+B9C8, U+B9CC, U+B9D0, U+B9DE, U+BA3C, U+BA54, U+BA70, U+BA74, U+BA85, U+BA87, U+BAA8, U+BAB0, U+BAB8, U+BABB, U+BB34, U+BB38, U+BB3C, U+BBC8, U+BBF8, U+BC14, U+BC16, U+BC1B, U+BC24, U+BC29, U+BC2D, U+BC30, U+BC84, U+BC88, U+BCA0, U+BCA8, U+BCBD, U+BCC4, U+BCF4-BCF5, U+BCF8, U+BCFC, U+BD80, U+BD88, U+BE0C, U+BE44, U+BE4C, U+BFCC, U+C0AC, U+C0B0, U+C0B4, U+C0C1, U+C0C8, U+C0DD, U+C11C, U+C120, U+C124, U+C12F, U+C138, U+C14B, U+C170, U+C18C-C18D, U+C190, U+C218, U+C232, U+C2A4, U+C2B5, U+C2DC, U+C2E0, U+C2E4, U+C2EC, U+C368, U+C4F0, U+C528, U+C544, U+C548-C54A, U+C560, U+C571, U+C57C-C57D, U+C5B4-C5B5, U+C5B8, U+C5BB-C5BC, U+C5C5-C5C9, U+C5D0, U+C5EC, U+C5F0, U+C5F4, U+C5FF, U+C601, U+C606, U+C608, U+C61B, U+C624, U+C628, U+C62C, U+C640, U+C694, U+C6A9, U+C6B0, U+C6B4, U+C6B8, U+C6C3, U+C6D0, U+C6F9, U+C704, U+C720, U+C73C, U+C740, U+C744, U+C74C, U+C758, U+C774, U+C778, U+C77C-C77D, U+C784-C785, U+C788, U+C78A, U+C790-C791, U+C798, U+C7A0, U+C7A5, U+C7AC, U+C800-C801, U+C804, U+C808, U+C811, U+C815, U+C81C-C81D, U+C838, U+C870-C871, U+C885, U+C8FC, U+C900, U+C911, U+C9C0-C9C1, U+C9C4, U+C9C8, U+C9DC, U+C9F8, U+CC2E, U+CC3D, U+CC44, U+CC98-CC99, U+CC9C, U+CCAB, U+CCAD, U+CCB4, U+CCD0, U+CD08, U+CD9C, U+CDB0, U+CE58, U+CE5C, U+CE60, U+CE78, U+CE90, U+CEEC, U+CEF4, U+CF1C, U+CF54, U+CF58, U+D06C, U+D0A4, U+D0C0, U+D0ED, U+D130, U+D1A0, U+D207, U+D29C, U+D2B8-D2B9, U+D2BC, U+D2C0, U+D310, U+D398, U+D3B8, U+D3BC, U+D478, U+D4E8, U+D504, U+D50C, U+D544, U+D558, U+D55C, U+D560, U+D568, U+D574, U+D587, U+D5A5, U+D638, U+D63C, U+D648, U+D654, U+D68C, U+D6C4, U+D750, U+D788, U+D78C;
 }
 
 :root {
@@ -138,12 +140,32 @@ img { display: block; }
 .proj:hover, .proj.is-current { color: var(--paper); }
 .proj.is-current { border-bottom-color: var(--paper); }
 /* desktop row focus: the link fills the masthead height, so an outside ring is clipped at the top edge; draw it inset top/bottom, 8px clear of the letters left/right */
-@media (min-width: 961px) {
+@media (min-width: 1101px) {
   .proj { position: relative; }
   .proj:focus-visible { outline: none; }
   .proj:focus-visible::after { content: ''; position: absolute; inset: 4px -8px; border: 2px solid var(--gold); pointer-events: none; }
 }
 .menu-btn { display: none; }
+
+/* language picker: the current language (ENG / KR), opening a two-option list under the masthead's right edge */
+.lang { flex: none; }
+.lang-btn { display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 44px; height: 44px; font-weight: 800; font-size: 13px; letter-spacing: .12em; color: rgba(243, 242, 239, .86); }
+.lang-btn::after { content: ''; width: 5px; height: 5px; margin-top: -3px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.lang-btn:hover, .lang-open .lang-btn { color: var(--paper); }
+.lang-open .lang-btn::after { margin-top: 3px; transform: rotate(-135deg); }
+.lang-menu { display: none; position: absolute; top: 100%; right: var(--gutter); min-width: 176px; padding: 6px 0; background: rgb(22, 23, 26); border: 1px solid rgba(243, 242, 239, .14); border-top: 0; }
+.lang-open .lang-menu { display: block; }
+.lang-opt { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; min-height: 48px; padding: 0 18px; font-weight: 700; font-size: 15px; color: rgba(243, 242, 239, .7); text-align: left; }
+.lang-opt b { font-weight: 800; font-size: 11px; letter-spacing: .14em; opacity: .7; }
+.lang-opt:hover, .lang-opt[aria-current="true"] { color: var(--paper); }
+.lang-opt[aria-current="true"] { box-shadow: inset 3px 0 0 var(--gold); }
+.lang-opt:focus-visible { outline-offset: -4px; }
+
+/* Korean: Hangul reads poorly with the wide Latin tracking, and wraps between words rather than inside them.
+   CULTURE MUST FLOW and product names stay in their Latin setting. */
+:lang(ko) .menu-btn, :lang(ko) .cap-meta, :lang(ko) .intro-meta, :lang(ko) .intro-clock, :lang(ko) .foot a, :lang(ko) .prod-act,
+:lang(ko) .vis figcaption, :lang(ko) .dl-note a, :lang(ko) .dlbtn small, :lang(ko) .text-btn { letter-spacing: .04em; }
+:lang(ko) .cap-line, :lang(ko) .slide p, :lang(ko) .dl-note { word-break: keep-all; overflow-wrap: break-word; }
 
 /* ---------- bottom deck: gradient, chapter segments, text pager, footer line ---------- */
 .deck {
@@ -275,8 +297,8 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dl-note a { margin-left: .6em; color: var(--paper); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; border-bottom: 2px solid currentColor; }
 .dl-foot { position: fixed; inset: auto 0 0; z-index: 20; padding: 28px var(--gutter) 14px; background: linear-gradient(to top, rgba(10, 11, 13, .7), rgba(10, 11, 13, 0)); }
 
-/* ---------- phone and narrow tablet masthead: the five project links no longer fit in one row below ~900px ---------- */
-@media (max-width: 960px) {
+/* ---------- phone and tablet masthead: the five project links and the language picker no longer fit in one row below ~1080px ---------- */
+@media (max-width: 1100px) {
   .menu-btn { display: flex; align-items: center; min-height: 44px; margin-left: auto; font-weight: 800; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; padding: 12px 0; }
   .proj-nav { display: none; position: fixed; top: var(--mast-h); left: 0; right: 0; background: rgba(22, 23, 26, .86); padding: 6px var(--gutter) 16px; }
   .menu-open .proj-nav { display: block; }
@@ -319,16 +341,26 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .dlbtn { flex: 1 1 100%; justify-content: space-between; }
 }
 
-/* ---------- small phones: brand, the full catchphrase and Projects stay on one row inside the gutters ---------- */
+/* ---------- narrow phones: brand over the full catchphrase as one group, Projects and the language picker beside it ---------- */
+@media (max-width: 480px) {
+  .mast { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; grid-template-rows: auto auto; align-content: center; column-gap: 14px; row-gap: 2px; }
+  .brand { grid-area: 1 / 1; line-height: 1.2; }
+  .motto { grid-area: 2 / 1; line-height: 1.3; }
+  .menu-btn { grid-area: 1 / 2 / 3 / 3; margin-left: 0; }
+  .lang { grid-area: 1 / 3 / 3 / 4; }
+}
+
+/* ---------- small phones: tighter type so the group, Projects and the picker stay inside the gutters ---------- */
 @media (max-width: 400px) {
-  .mast { gap: 10px; }
+  .mast { column-gap: 10px; }
   .brand { gap: 8px; font-size: 18px; }
   .brand img { width: 22px; height: 22px; }
   .motto { font-size: 9px; letter-spacing: .12em; }
   .menu-btn { font-size: 10px; letter-spacing: .12em; }
+  .lang-btn { font-size: 11px; }
 }
 @media (max-width: 340px) {
-  .mast { gap: 8px; }
+  .mast { column-gap: 8px; }
   .brand { font-size: 17px; }
   .motto { letter-spacing: .08em; }
 }
