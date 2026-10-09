@@ -92,12 +92,13 @@
       ],
       ko: {
         status: '베타',
-        headline: '천하룻밤을 넘어 곁에 남는 에이전트',
+        headline: '', /* Korean shows no headline line (style.css hides an empty one); the copy carries the introduction */
         description: [
-          '오래 이어지는 작업을 위해 만들었어요. 며칠, 몇 달이 지나고 수정이 한 번 더 들어와도 Scheherazade는 사실과 내가 고쳐 준 내용, 아직 못 끝낸 일을 곁에 두고 있어요. 그래서 프로젝트를 처음부터 다시 설명하지 않고 바로 이어 갈 수 있어요. 사람처럼 기억하지만, 무엇을 기억하는지 직접 읽어 보고 잊으라고 할 수도 있어요. Autonomy를 켜 두면 그날의 기억을 밤사이 정리해요.',
-          '두뇌는 직접 골라요. Claude Code로 쓰는 Claude 구독, Codex로 쓰는 ChatGPT, 아니면 Ollama. 모델은 바꿔도 기억은 그대로예요. 기억은 내 컴퓨터에 남고, 모델을 바꾸기 전에는 다음 모델에게 편지를 남겨요. 새 모델에게 처음부터 다시 소개할 필요는 없어요.',
-          'Chrome에서 논문을 열었다가 YouTube로 잠깐 새도 괜찮아요. Browse with me를 켜 두면 지금 보는 탭을 같이 읽고 이야기를 나눠요. 눈 버튼으로 언제 함께 볼지 정할 수 있어요. 호기심에도 끄는 스위치는 있어야 하니까요.',
-          '가끔은 꿈도 꿔요. Autonomy를 켜 두면 오래된 일기가 뜻밖의 기억과 만나 다시 떠올라요. 한가한 오후가 지나면 그 조각 하나를 들고 올지도 몰라요. 다음 아이디어로 이어질 엉뚱한 생각일 수도 있어요. 영감은 시간을 가리지 않으니까요.'
+          ['Scheherazade는 며칠, 몇 달이 걸리는 프로젝트를 함께 진행하는 AI입니다\n함께 정한 내용과 아직 끝내지 못한 일을 기억하고, 다음에 만났을 때 하던 일을 이어갑니다',
+            '우리는 오래 걸리는 일을 같은 AI와 끝까지 이어가고 싶습니다\n모델을 고르는 선택 때문에 함께 쌓은 기록을 포기하지 않도록, 기억을 두뇌와 분리했습니다'],
+          'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다',
+          'Chrome에서는 같은 페이지를 보며 논문을 읽거나 자료를 놓고 의논합니다',
+          [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 꿈도 꿉니다\n꿈까지 업무 보고서일 필요는 없습니다']
         ]
       },
       action: { label: 'Get', href: 'download.html' },
@@ -122,11 +123,13 @@
         'We use it to finish character portraits and key visuals, with painterly textures and a particular attention to the eyes.'
       ],
       ko: {
-        headline: '모델로 만든 우리 그림체',
+        headline: '',
         description: [
-          '수채화와 유화, 서브컬처 그림 사이 어딘가에 있는 CHOAM의 일러스트 그림체를 담은 모델이에요.',
-          '캐릭터 초상화와 키 비주얼을 마무리할 때 써요. 회화 같은 질감을 살리고, 특히 눈에 공을 들여요.'
-        ]
+          'DAT는 캐릭터 초상화와 키 아트 제작에 쓰는 이미지 모델입니다\n마음에 드는 생성 이미지를 모아 학습시키고, 새로 나온 그림을 비교하며 조정합니다',
+          ['수채화와 유화, 서브컬처 일러스트 사이의 그림을 목표로 삼았습니다\n그중에서도 얼굴과 눈매가 취향에 맞는지를 가장 먼저 봅니다',
+            '지금은 선잠의 캐릭터와 키 아트를 마무리하는 데 쓰고 있습니다']
+        ],
+        art: [1, 0] /* the Korean opens on how DAT is made and used, then its style */
       },
       field: 'dat',
       art: [0, 1],
@@ -139,7 +142,7 @@
     {
       id: 'donguri-ryokan',
       title: 'Donguri Ryokan',
-      title_ko: '동구리료칸',
+      title_ko: '동구리 료칸',
       status: 'Coming soon',
       headline: 'Not every guest is human',
       description: [
@@ -148,10 +151,11 @@
       ],
       ko: {
         status: '출시 준비 중',
-        headline: '손님이 모두 사람은 아니에요',
+        headline: '',
         description: [
-          '여우 신령 셋이 너구리에게 돈을 빌려, 잊힌 산속 신사를 온천 여관으로 바꿔요. 100일 동안 밭을 가꾸고, 요리하고, 온천 배관을 깔고, 객실을 준비해요.',
-          '손님 중에는 사람인 척하는 요괴도 있어요. 요청을 잘 읽고 여기저기 물어본 다음, 체크아웃 때 판단해요.'
+          ['동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다\n찾아오는 사람이 끊긴 신사의 여우 신들이 빚을 내 료칸을 엽니다',
+            '하루 안에 경영과 추리가 계속 이어지는, 손이 바쁜 게임을 만들고 싶었습니다'],
+          '플레이어는 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다\n그 와중에 손님의 행동을 살펴 누가 요괴인지 알아내야 합니다'
         ]
       },
       art: [0, 1],
@@ -164,7 +168,7 @@
     {
       id: 'donguri-restaurant',
       title: 'Donguri Restaurant',
-      title_ko: '동구리레스토랑',
+      title_ko: '동구리 레스토랑',
       status: 'On the web',
       headline: 'No menu. The field decides.',
       description: [
@@ -174,11 +178,11 @@
       ],
       ko: {
         status: '웹에서 플레이',
-        headline: '메뉴판은 없어요. 밭이 정해요.',
+        headline: '',
         description: [
-          '셰프와 소믈리에, 아르바이트생이 꾸려 가는 숲속의 작은 레스토랑이에요.',
-          '예약판을 보고 올 손님에 맞춰 씨를 뿌리고, 밭이 내준 재료를 거둬서 코스와 와인 페어링을 짜요.',
-          '한 계절, 4주. 브라우저에서 바로 플레이해요.'
+          '동구리 레스토랑은 텃밭에서 기른 재료로 오마카세를 내는 레스토랑 경영 게임입니다\n그날 수확한 재료로 코스를 정하고, 손질과 조리를 거쳐 손님에게 냅니다\n손님은 메뉴를 받기 전까지 무엇을 먹게 될지 모릅니다',
+          '플레이어는 셰프, 소믈리에와 함께 일하는 단기 아르바이트생으로, 한 철 동안 가게를 운영하도록 설계했습니다',
+          '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다'
         ]
       },
       art: [0, 2, 3], /* key art, then in-game captures framed beside the copy so game UI never meets site UI */
@@ -201,10 +205,11 @@
         'You talk to her in your own words, and she carries what you said into the next day. Over one week, small things stop adding up.'
       ],
       ko: {
-        headline: '내가 한 말을 기억하는 그 애',
+        headline: '',
         description: [
-          '구교사 향토연구부를 배경으로 한 비주얼 노벨이에요. 방과 후면 예지가 창가에서 명부와 옛 사진을 정리해요.',
-          '내 말로 직접 말을 걸면, 예지는 그 말을 다음 날까지 기억해요. 일주일이 지나는 사이, 사소한 것들이 하나둘 어긋나기 시작해요.'
+          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다\n플레이어가 말을 입력하면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다',
+          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다\n긴 대화 속에서도 예지가 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다',
+            '예지가 있는 곳은 구교사 2층, 향토연구부 부실입니다']
         ]
       },
       art: [2, 0],
@@ -255,7 +260,7 @@
     ['.dl .cap-meta span:first-child', '', '베타'],
     ['.dl .cap-line', '', PROJECTS[0].ko.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘'],
-    ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해서 써요.'],
+    ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다'],
     ['.dl-note a', '', '전체 릴리스']
   ].flatMap(([sel, attr, k]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, en: attr ? el.getAttribute(attr) : el.textContent })));
   const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM' };
@@ -353,8 +358,16 @@
   const behavior = () => (reduce.matches ? 'instant' : 'smooth');
   const paras = p => [].concat(tr(p, 'description')); /* Korean keeps the same paragraph count, so the rail position carries over */
   const artFor = (p, k) => {
-    if (!p.art) return p.panels[0];
-    return p.panels[p.art[Math.min(k, p.art.length - 1)]];
+    const art = tr(p, 'art'); /* Korean may order the same visuals to follow its own copy */
+    if (!art) return p.panels[0];
+    return p.panels[art[Math.min(k, art.length - 1)]];
+  };
+  /* a segment: a string ('\n' breaks a line) or an array of paragraphs, each a string or { display } */
+  const blockEl = b => {
+    const el = document.createElement('p');
+    if (b && b.display != null) { el.className = 'display'; b = b.display; }
+    String(b).split('\n').forEach((line, i) => { if (i) el.appendChild(document.createElement('br')); el.appendChild(document.createTextNode(line)); });
+    return el;
   };
   /* one visual per paragraph: full-bleed art, or a framed in-game capture / feature graphic beside the copy */
   /* captions, alt text and copy are filled by labelSec, in the current language */
@@ -407,7 +420,7 @@
     set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${n}개` : `${T}, ${n} paragraphs`);
     sec.querySelectorAll('.slide').forEach((s, k) => {
       s.setAttribute('aria-label', ko() ? `${n}개 중 ${k + 1}번째` : `${k + 1} of ${n}`);
-      s.firstElementChild.textContent = ps[k];
+      s.replaceChildren(...[].concat(ps[k]).map(blockEl));
     });
     set('[data-rail-step="-1"]', 'aria-label', ko() ? `${T} 이전 문단` : `Previous paragraph, ${T}`);
     set('[data-rail-step="1"]', 'aria-label', ko() ? `${T} 다음 문단` : `Next paragraph, ${T}`);
