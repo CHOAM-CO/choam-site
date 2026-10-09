@@ -6,7 +6,7 @@
 
   /* Feature graphics: drawn diagrams of what the copy says, for products without approved imagery.
      They are labelled as graphics and are not app screenshots or model output. */
-  const ICON = () => url('assets/scheherazade.png');
+  const ICON = () => url('assets/scheherazade-256.png'); /* drawn at most ~85px wide; 256px covers 3x screens */
   const card = '<rect class="fc" x=".5" y=".5" width="599" height="459" rx="18"/>';
   const bars = (x, y, ws, step = 16) => ws.map((w, i) => `<rect class="b" x="${x}" y="${y + i * step}" width="${w}" height="8" rx="4"/>`).join('');
   const eye = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path class="st" d="M-16 0Q0-13 16 0Q0 13-16 0Z"/><circle class="bg" r="4.5"/></g>`;
