@@ -315,14 +315,44 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 
 /* ---------- vertical product sections (body.v): scroll the page to change product,
    swipe or arrow each product's rail to read one paragraph at a time ---------- */
-html:has(body.v) { scroll-snap-type: y proximity; }
+/* mandatory: every scroll gesture ends on a whole screen (proximity left the page resting between two products);
+   snap-stop: one screen per gesture. A screen taller than the viewport (below the 560px minimum) still scrolls inside. */
+html:has(body.v) { scroll-snap-type: y mandatory; }
 body.v { height: auto; overflow-x: hidden; overflow-y: auto; --deck-h: 60px; }
 body.v .track { position: static; display: block; overflow: visible; scroll-snap-type: none; touch-action: auto; }
 body.v .deck { padding: 26px var(--gutter) 10px; }
 body.v .segs, body.v .pager, body.v [data-action] { display: none; }
 body.v .deck-row { gap: 0; }
 body.v .foot { margin-top: 2px; }
-.prod { position: relative; height: 100vh; height: 100dvh; min-height: 560px; overflow: hidden; scroll-snap-align: start; }
+.prod { position: relative; height: 100vh; height: 100dvh; min-height: 560px; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; }
+
+/* opening (index only): the layout C front, CHOAM wordmark over the motto, studio meta and Seoul clock,
+   set in the current bold sans on ink */
+.intro {
+  position: relative; height: 100vh; height: 100dvh; min-height: 480px; overflow: hidden;
+  scroll-snap-align: start; scroll-snap-stop: always;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: calc(var(--mast-h) + 24px) var(--gutter) calc(var(--deck-h) + 28px);
+  background: var(--ink);
+}
+.grid-lines { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(5, 1fr); pointer-events: none; }
+.grid-lines i { border-left: 1px solid rgba(243, 242, 239, .07); }
+.grid-lines i:first-child { border: 0; }
+.intro-wm { position: relative; margin-left: -0.05em; font-weight: 900; font-size: min(24vw, 52vh); line-height: .8; letter-spacing: -0.035em; white-space: nowrap; }
+.intro-wm span { display: inline-block; }
+.intro-motto, .intro-meta, .intro-clock { font-weight: 750; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: rgba(243, 242, 239, .72); }
+.intro-motto { position: relative; margin-top: clamp(20px, 3.4vh, 36px); font-size: clamp(12px, 1vw, 16px); color: rgba(243, 242, 239, .86); }
+.intro-meta { position: absolute; right: var(--gutter); top: calc(var(--mast-h) + 28px); display: flex; flex-direction: column; gap: 6px; text-align: right; letter-spacing: .2em; }
+.intro-clock { position: absolute; right: var(--gutter); bottom: calc(var(--deck-h) + 28px); letter-spacing: .2em; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: no-preference) {
+  .intro-wm { clip-path: inset(-2% -2% -6% -2%); }
+  .intro-wm span { transform: translateY(105%); opacity: 0; animation: rise 1.1s cubic-bezier(.2, .7, 0, 1) forwards; }
+  .intro-wm span:nth-child(2) { animation-delay: .07s; } .intro-wm span:nth-child(3) { animation-delay: .14s; }
+  .intro-wm span:nth-child(4) { animation-delay: .21s; } .intro-wm span:nth-child(5) { animation-delay: .28s; }
+  .intro-motto, .intro-meta, .intro-clock { opacity: 0; animation: fade 1s .9s forwards; }
+  @keyframes rise { to { transform: none; opacity: 1; } }
+  @keyframes fade { to { opacity: 1; } }
+}
 .prod .media { position: absolute; inset: 0; opacity: 0; transition: opacity .6s var(--ease); }
 .prod .media.is-on { opacity: 1; }
 .prod-veil { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(270deg, rgba(10, 11, 13, .9) 0%, rgba(10, 11, 13, .72) 34%, rgba(10, 11, 13, 0) 68%); }

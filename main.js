@@ -269,8 +269,18 @@
   }).join('');
   const secs = [...track.querySelectorAll('.prod')];
 
+  /* ---------- opening (index only): no product is current while it fills the screen ---------- */
+  const intro = only ? null : document.querySelector('.intro');
+  const clock = document.querySelector('[data-clock]');
+  if (clock) {
+    const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit' });
+    const tick = () => { clock.textContent = f.format(new Date()); };
+    tick(); setInterval(tick, 15000);
+  }
+
   /* ---------- state ---------- */
   let cur = 0;
+  let atIntro = !!intro && !location.hash;
   const fromHash = () => {
     const parts = decodeURIComponent(location.hash.slice(1)).split('/');
     const [id, sub] = only ? [only, parts[parts.length - 1]] : parts;
@@ -298,7 +308,7 @@
       m.classList.toggle('is-on', on);
       if (on) m.removeAttribute('aria-hidden'); else m.setAttribute('aria-hidden', 'true');
     });
-    if (pi !== cur) return;
+    if (pi !== cur || atIntro) return;
     setText('[data-current-num]', numOf(p));
     setText('[data-current-title]', p.title);
     setText('[data-current-sub]', `${k + 1} / ${n}`);
@@ -318,9 +328,16 @@
     k = Math.max(0, Math.min(n - 1, k));
     r.scrollTo({ left: k * r.clientWidth, behavior: instant ? 'instant' : behavior() });
   };
+  const showIntro = () => {
+    atIntro = true;
+    ['[data-current-num]', '[data-current-title]', '[data-current-sub]'].forEach(sel => setText(sel, ''));
+    document.querySelectorAll('[data-go-project]').forEach(b => { b.classList.remove('is-current'); b.removeAttribute('aria-current'); });
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  };
   const goProd = (pi, k, instant) => {
     const sec = secs[pi]; if (!sec) return;
     cur = pi;
+    atIntro = false;
     scrollTo({ top: sec.offsetTop, behavior: instant ? 'instant' : behavior() });
     if (k != null) goSlide(sec, k, true);
     sync(sec);
@@ -340,9 +357,13 @@
 
   /* current product = the section covering the middle of the viewport */
   const io = new IntersectionObserver(entries => {
-    entries.forEach(en => { if (en.isIntersecting) { cur = secs.indexOf(en.target); sync(en.target); } });
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      if (en.target === intro) { showIntro(); return; }
+      atIntro = false; cur = secs.indexOf(en.target); sync(en.target);
+    });
   }, { rootMargin: '-50% 0px -50% 0px' });
-  secs.forEach(sec => io.observe(sec));
+  [intro, ...secs].forEach(el => el && io.observe(el));
 
   /* ---------- events ---------- */
   document.addEventListener('click', e => {
@@ -364,7 +385,7 @@
   document.addEventListener('keydown', e => {
     if (e.altKey || e.ctrlKey || e.metaKey || body.classList.contains('menu-open') || e.defaultPrevented) return;
     if (e.target.closest && e.target.closest('input, textarea, select')) return;
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !atIntro) {
       e.preventDefault();
       const sec = secs[cur];
       goSlide(sec, slideOf(sec) + (e.key === 'ArrowRight' ? 1 : -1));
@@ -378,5 +399,5 @@
   [track, ...secs.map(sec => sec.querySelector('.prod-copy'))].forEach(el => copyTop.observe(el));
 
   addEventListener('hashchange', () => { const [pi, k] = fromHash(); goProd(pi, k); });
-  if (location.hash) requestAnimationFrame(() => goProd(pi0, k0, true)); else sync(secs[0]);
+  if (location.hash) requestAnimationFrame(() => goProd(pi0, k0, true)); else if (intro) showIntro(); else sync(secs[0]);
 })();
