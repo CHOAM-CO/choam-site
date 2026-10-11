@@ -5,76 +5,49 @@
   const url = path => new URL(path, ROOT).href;
 
   /* Feature graphics: drawn diagrams of what the copy says, for products without approved imagery.
-     They are labelled as graphics and are not app screenshots or model output. */
-  const ICON = () => url('assets/scheherazade-256.png'); /* drawn at most ~85px wide; 256px covers 3x screens */
-  const card = '<rect class="fc" x=".5" y=".5" width="599" height="459" rx="18"/>';
-  const bars = (x, y, ws, step = 16) => ws.map((w, i) => `<rect class="b" x="${x}" y="${y + i * step}" width="${w}" height="8" rx="4"/>`).join('');
+     They are labelled as graphics and are not app screenshots or model output.
+     r2: the same diagrams unpacked from their card. No outer frame, no boxed rows: each one is set straight onto
+     the horizon plate at 720x540, lit by one pool of light, with type sized per screen in style.css. */
+  const ICON = () => url('assets/scheherazade.png');
+  const POOL = (id, cx, cy, rx, ry, a = .16) => `<defs><radialGradient id="${id}"><stop offset="0" stop-color="#d9a362" stop-opacity="${a}"/><stop offset="1" stop-color="#d9a362" stop-opacity="0"/></radialGradient></defs><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#${id})"/>`;
+  const bars = (x, y, ws, step = 22, h = 10) => ws.map((w, i) => `<rect class="b" x="${x}" y="${y + i * step}" width="${w}" height="${h}" rx="1"/>`).join('');
   const eye = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path class="st" d="M-16 0Q0-13 16 0Q0 13-16 0Z"/><circle class="bg" r="4.5"/></g>`;
   const moon = (x, y, s = 1) => `<path class="bg" transform="translate(${x} ${y}) scale(${s})" d="M4-11.3A12 12 0 1 0 4 11.3A13 13 0 0 1 4-11.3Z"/>`;
   const star = (x, y, s = 1) => `<path class="bg" transform="translate(${x} ${y}) scale(${s})" d="M0-16Q2-2 16 0Q2 2 0 16Q-2 2-16 0Q-2-2 0-16Z"/>`;
-  const journal = (x, y, rot, hl) => `<g transform="rotate(${rot} ${x + 85} ${y + 60})"><rect class="fj" x="${x}" y="${y}" width="170" height="120" rx="10"/><text class="k dim" x="${x + 18}" y="${y + 28}">JOURNAL</text>${[130, 118, 134, 90].map((w, i) => `<rect class="${i === hl ? 'bg' : 'b'}" x="${x + 18}" y="${y + 44 + i * 16}" width="${w}" height="8" rx="4"/>`).join('')}</g>`;
+  const journal = (x, y, rot, hl) => `<g transform="rotate(${rot} ${x + 105} ${y + 75})"><rect class="fj" x="${x}" y="${y}" width="210" height="150"/><text class="k dim" x="${x + 20}" y="${y + 36}">JOURNAL</text>${[160, 146, 166, 110].map((w, i) => `<rect class="${i === hl ? 'bg' : 'b'}" x="${x + 20}" y="${y + 58 + i * 20}" width="${w}" height="9" rx="1"/>`).join('')}</g>`;
   const FEAT = {
-    'sch-memory': () => `${card}
-      <text class="l" x="36" y="54">MEMORY</text><text class="s" x="564" y="54" text-anchor="end">Read it. Tell her to forget.</text>
-      <rect class="fr" x="36" y="84" width="528" height="80" rx="12"/><text class="l" x="60" y="114">THE FACTS</text>${bars(60, 128, [300, 210])}${eye(516, 124)}
-      <rect class="fr" x="36" y="184" width="528" height="80" rx="12"/><text class="l" x="60" y="214">YOUR CORRECTIONS</text>
-      <rect class="b" x="60" y="228" width="180" height="8" rx="4" opacity=".5"/><path class="st" d="M56 232H244" stroke-width="1.5"/><rect class="bg" x="256" y="228" width="200" height="8" rx="4" opacity=".75"/>${bars(60, 244, [240])}
-      <rect class="fr" x="36" y="284" width="528" height="80" rx="12"/><text class="l" x="60" y="314">UNFINISHED THREADS</text>${bars(60, 328, [230, 150])}<path class="sd" d="M298 332H410"/>
-      <rect class="chip" x="458" y="306" width="86" height="32" rx="16"/><text class="k" x="501" y="327" text-anchor="middle">FORGET</text>
-      ${moon(52, 410)}<text class="s" x="76" y="415">Autonomy on: the day’s memories, sorted overnight</text>`,
-    'sch-byos': () => `${card}
-      <text class="l" x="36" y="54">BRING YOUR OWN BRAIN</text>
-      <rect class="fr on" x="36" y="90" width="214" height="66" rx="14"/><text class="t" x="60" y="119">Claude</text><text class="s" x="60" y="141">via Claude Code</text>
-      <rect class="fr off" x="36" y="176" width="214" height="66" rx="14"/><text class="t" x="60" y="205">ChatGPT</text><text class="s" x="60" y="227">via Codex</text>
-      <rect class="fr off" x="36" y="262" width="214" height="66" rx="14"/><text class="t" x="60" y="302">Ollama</text>
-      <path class="st" d="M250 123C310 123 304 210 364 210"/><path class="sd" d="M250 209H364"/><path class="sd" d="M250 295C310 295 304 210 364 210"/><circle class="bg" cx="250" cy="123" r="4"/>
-      <rect class="fr on" x="364" y="110" width="200" height="200" rx="18"/><image href="${ICON()}" x="424" y="130" width="80" height="80"/>
-      <text class="t" x="464" y="252" text-anchor="middle">Memories</text><text class="s" x="464" y="276" text-anchor="middle">on your computer</text>
-      <text class="s" x="300" y="366" text-anchor="middle">Change the model; keep the memories.</text>
-      <g transform="translate(52 410)"><rect class="st" x="-13" y="-9" width="26" height="18" rx="2"/><path class="st" d="M-13-9L0 2L13-9"/></g><text class="s" x="76" y="415">She leaves a letter to her next self before a switch</text>`,
-    'sch-browse': () => `${card}
-      <text class="l" x="36" y="54">BROWSE WITH ME</text>
-      <rect class="fr on" x="466" y="30" width="98" height="34" rx="17"/>${eye(494, 47, .8)}<text class="k" x="542" y="52" text-anchor="middle">ON</text>
-      <rect class="fr" x="36" y="84" width="528" height="296" rx="14"/>
-      <rect class="tab" x="50" y="94" width="138" height="32" rx="8"/><text class="k" x="68" y="115">PAPER</text><text class="k dim" x="214" y="115">YOUTUBE</text><path class="hr" d="M36 134H564"/>
-      <rect class="hl" x="58" y="214" width="252" height="16" rx="3"/><rect class="b2" x="64" y="154" width="190" height="12" rx="4"/>${bars(64, 184, [262, 250, 258, 236, 254, 244, 256, 170], 18)}
-      <path class="st" d="M312 222C338 222 330 252 352 260" stroke-dasharray="4 5"/>
-      <rect class="bubble" x="352" y="232" width="196" height="132" rx="14"/><image href="${ICON()}" x="366" y="246" width="30" height="30"/><text class="k" x="404" y="266">TALK IT THROUGH</text>${bars(368, 294, [152, 140, 96], 18)}
-      <text class="s" x="36" y="422">The eye button decides when she’s looking.</text>`,
-    'sch-dream': () => `${card}
-      <text class="l" x="36" y="54">DREAMS</text>${moon(530, 58, 1.5)}${star(494, 40, .45)}${star(566, 92, .4)}${star(500, 94, .3)}
-      <path class="st" d="M140 166L300 368M454 176L300 368M300 286L300 368" stroke-dasharray="2 7" opacity=".8"/>
-      ${journal(56, 96, -6, 1)}${journal(374, 104, 4, 2)}${journal(215, 190, -2, 3)}
-      ${star(300, 370, 1.3)}<text class="s" x="300" y="426" text-anchor="middle">Old entries return in unexpected company</text>`,
-    'dat-style': () => `<defs>
-        <filter id="fg-wc" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="26"/></filter>
-        <radialGradient id="fg-wcg"><stop offset="0" stop-color="#9cc0de" stop-opacity=".9"/><stop offset=".7" stop-color="#6d93bf" stop-opacity=".6"/><stop offset="1" stop-color="#6d93bf" stop-opacity=".15"/></radialGradient>
-        <filter id="fg-oil"><feTurbulence type="turbulence" baseFrequency=".05 .012" numOctaves="2" seed="9"/><feDiffuseLighting surfaceScale="3" lighting-color="#e3a964"><feDistantLight azimuth="235" elevation="38"/></feDiffuseLighting><feComposite in2="SourceGraphic" operator="in"/></filter>
-        <pattern id="fg-dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="4.5" r="1.8" fill="rgba(10,11,13,.35)"/></pattern>
-      </defs>${card}
-      <text class="l" x="36" y="54">HOUSE STYLE</text>
-      <g class="blend"><circle cx="244" cy="196" r="108" fill="url(#fg-wcg)" filter="url(#fg-wc)"/><circle cx="368" cy="196" r="108" fill="#c98a4b" filter="url(#fg-oil)" opacity=".85"/>
-      <circle cx="300" cy="312" r="108" fill="#e48aa8" opacity=".78"/></g><circle cx="300" cy="312" r="108" fill="url(#fg-dots)"/><circle cx="300" cy="312" r="108" fill="none" stroke="#f3f2ef" stroke-width="3"/>
-      <text class="dt" x="300" y="250" text-anchor="middle">DAT</text>
-      <text class="k" x="40" y="96">WATERCOLOR</text><text class="k" x="560" y="96" text-anchor="end">OIL PAINTING</text><text class="k" x="300" y="446" text-anchor="middle">SUBCULTURE ART</text>`,
-    'dat-flow': () => `<defs>
-        <marker id="fg-ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#d9b45a"/></marker>
-        <filter id="fg-paint"><feTurbulence type="turbulence" baseFrequency=".06 .02" numOctaves="3" seed="2"/><feDiffuseLighting surfaceScale="2.5" lighting-color="#d9a27a"><feDistantLight azimuth="225" elevation="42"/></feDiffuseLighting><feComposite in2="SourceGraphic" operator="in"/></filter>
-        <radialGradient id="fg-iris"><stop offset="0" stop-color="#8fb5e8"/><stop offset=".7" stop-color="#34558f"/><stop offset="1" stop-color="#d9b45a"/></radialGradient>
-      </defs>${card}
-      <text class="l" x="36" y="54">WORKFLOW</text>
-      <rect class="fr" x="36" y="86" width="112" height="136" rx="8"/><circle class="sil" cx="92" cy="140" r="22"/><path class="sil" d="M52 222C56 186 74 172 92 172S128 186 132 222Z"/>
-      <text class="k" x="36" y="248">CHARACTER</text><text class="k" x="36" y="266">PORTRAITS</text>
-      <rect class="fr" x="36" y="294" width="160" height="96" rx="8"/><path class="sil" d="M37 389L86 334L112 360L146 318L195 389Z"/><circle class="bg" cx="170" cy="318" r="6" opacity=".7"/>
-      <text class="k" x="36" y="414">KEY VISUALS</text>
-      <path class="st" d="M154 154C214 154 222 206 262 212" marker-end="url(#fg-ah)"/><path class="st" d="M202 342C240 342 236 246 262 236" marker-end="url(#fg-ah)"/>
-      <circle class="fr on" cx="326" cy="224" r="58"/><text class="dt sm" x="326" y="232" text-anchor="middle">DAT</text><text class="k" x="326" y="256" text-anchor="middle">FINISH</text>
-      <path class="st" d="M386 208C414 198 418 150 438 142" marker-end="url(#fg-ah)"/><path class="st" d="M386 240C414 250 418 296 438 302" marker-end="url(#fg-ah)"/>
-      <rect x="446" y="86" width="118" height="96" rx="8" fill="#b9825a" filter="url(#fg-paint)"/><rect class="fr" x="446" y="86" width="118" height="96" rx="8" fill="none"/>
-      <text class="k" x="446" y="208">PAINTERLY</text><text class="k" x="446" y="226">TEXTURES</text>
-      <rect class="fr" x="446" y="254" width="118" height="96" rx="8"/><path d="M465 302Q505 270 545 302Q505 328 465 302Z" fill="#f3f2ef" opacity=".9"/>
-      <circle cx="505" cy="300" r="15" fill="url(#fg-iris)"/><circle cx="505" cy="300" r="6" fill="#0a0b0d"/><circle cx="510" cy="295" r="3" fill="#fff"/><path d="M461 300Q505 262 549 300" fill="none" stroke="#f3f2ef" stroke-width="3" stroke-linecap="round"/>
-      <text class="k" x="446" y="374">THE EYES</text>`
+    'sch-memory': () => `${POOL('pl-mem', 560, 300, 300, 200, .1)}
+      <text class="l" x="40" y="48">MEMORY</text><text class="s" x="680" y="48" text-anchor="end">Read it. Tell her to forget.</text>
+      <path class="hr" d="M40 112H680"/><text class="l" x="40" y="152">THE FACTS</text>${bars(40, 174, [360, 250])}${eye(636, 184, 1.6)}
+      <path class="hr" d="M40 238H680"/><text class="l" x="40" y="278">YOUR CORRECTIONS</text>
+      <rect class="b" x="40" y="300" width="210" height="10" rx="1" opacity=".5"/><path class="st" d="M34 305H256" stroke-width="2"/><rect class="bg" x="272" y="300" width="240" height="10" rx="1" opacity=".8"/>${bars(40, 322, [300])}
+      <path class="hr" d="M40 364H680"/><text class="l" x="40" y="404">UNFINISHED THREADS</text>${bars(40, 426, [280, 180])}<path class="sd" d="M330 431H470"/>
+      <rect class="chip" x="536" y="388" width="144" height="46" rx="23"/><text class="k" x="608" y="418" text-anchor="middle">FORGET</text>
+      ${moon(54, 508, 1.2)}<text class="s" x="80" y="515">Autonomy on: the day’s memories, sorted overnight</text>`,
+    'sch-byos': () => `${POOL('pl-byos', 560, 240, 230, 210, .22)}
+      <text class="l" x="40" y="48">BRING YOUR OWN BRAIN</text>
+      <text class="t" x="40" y="142">Claude</text><text class="s" x="40" y="172">via Claude Code</text><path class="st" d="M40 190H250"/>
+      <text class="t" x="40" y="262">ChatGPT</text><text class="s" x="40" y="292">via Codex</text><path class="hr" d="M40 310H250"/>
+      <text class="t" x="40" y="382">Ollama</text><path class="hr" d="M40 400H250"/>
+      <path class="st" d="M262 190C340 190 360 240 440 240"/><path class="sd" d="M262 310C340 310 360 240 440 240"/><path class="sd" d="M262 400C340 400 360 240 440 240"/><circle class="bg" cx="262" cy="190" r="5"/>
+      <image href="${ICON()}" x="430" y="86" width="260" height="260"/>
+      <text class="t" x="560" y="378" text-anchor="middle">Memories</text><text class="s" x="560" y="406" text-anchor="middle">on your computer</text>
+      <text class="s em" x="360" y="460" text-anchor="middle">Change the model; keep the memories.</text>
+      <g transform="translate(54 508) scale(1.1)"><rect class="st" x="-13" y="-9" width="26" height="18" rx="2"/><path class="st" d="M-13-9L0 2L13-9"/></g><text class="s" x="80" y="515">She leaves a letter to her next self before a switch</text>`,
+    'sch-browse': () => `${POOL('pl-brw', 540, 320, 260, 200, .14)}
+      <text class="l" x="40" y="48">BROWSE WITH ME</text>
+      <rect class="chip on" x="570" y="20" width="110" height="42" rx="21"/>${eye(604, 41, .9)}<text class="k" x="650" y="49" text-anchor="middle">ON</text>
+      <rect class="tab" x="40" y="96" width="160" height="40"/><text class="k" x="58" y="123">PAPER</text><text class="k dim" x="226" y="123">YOUTUBE</text><path class="hr" d="M40 144H680"/>
+      <rect class="hl" x="34" y="240" width="300" height="20" rx="1"/><rect class="b2" x="40" y="170" width="230" height="14" rx="1"/>${bars(40, 202, [330, 316, 326, 300, 322, 310, 324, 220], 22)}
+      <path class="st" d="M338 250C372 250 368 290 396 296" stroke-dasharray="4 6"/>
+      <rect class="bubble" x="398" y="214" width="282" height="206"/><image href="${ICON()}" x="410" y="226" width="60" height="60"/><text class="k" x="420" y="318">TALK IT THROUGH</text>${bars(420, 342, [220, 196, 140], 22)}
+      <text class="s" x="40" y="515">The eye button decides when she’s looking.</text>`,
+    'sch-dream': () => `${POOL('pl-drm', 360, 440, 300, 140, .2)}
+      <text class="l" x="40" y="48">DREAMS</text>${moon(648, 70, 2.2)}${star(590, 40, .55)}${star(690, 132, .45)}${star(600, 128, .35)}
+      <path class="st" d="M165 205L360 452M555 213L360 452M360 315L360 452" stroke-dasharray="2 8" opacity=".8"/>
+      ${journal(60, 110, -6, 1)}${journal(450, 118, 4, 2)}${journal(255, 220, -2, 3)}
+      ${star(360, 454, 1.7)}<text class="s" x="360" y="522" text-anchor="middle">Old entries return in unexpected company</text>`
+    /* DAT carries no diagrams: it shows real artwork only (kind 'gallery', p.reel) */
   };
 
   const PROJECTS = [
@@ -114,30 +87,57 @@
     },
     {
       id: 'dat',
-      title: 'DAT',
+      title: 'DAT',          /* nav, menu and deck keep the project name */
+      heading: 'Our Style',  /* r5: the section's own heading (Mino 10-10 20:00) */
       title_ko: '',
       status: '',
-      headline: 'Our house style, as a model',
+      headline: '',
+      description: ['We fine-tune open-source generative models to our own illustration style and create graphic assets.'],
+      ko: {
+        headline: '',
+        description: ['오픈소스 생성형 모델을 우리 그림체에 맞게 직접 파인튜닝해 그래픽 리소스를 만듭니다']
+      },
+      field: 'dat',
+      reel: true, /* results only: one artwork at a time; the rail controls step the artwork, not the copy */
+      /* r5: real, Mino-locked Seonjam production art, shown with no names or captions (provenance lives in the r5 receipt).
+         Each chain also uses other tools (Codex i2i / seedream / matting), so nothing here is presented as pure model output.
+         seoa  success_cases/seoa/seoa_handsback_v2.png                     decisions.log L450
+         yeji  success_cases/yeji/yeji_hero_blazer_v1.png                   decisions.log L297, LOCKED.md
+         daeun success_cases/daeun/daeun_scratch_v1.png                     decisions.log L469
+         kv    success_cases/group_scenes/seonjam_keyvisual_classroom_v2.png decisions.log L477, LOCKED.md
+         Standings are trimmed to their alpha and scaled; nothing is retouched (scripts/gallery-art.py). */
+      panels: [
+        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-seoa.webp', ar: 444 / 1300, alt: 'Character art: a girl with long silver hair in a navy sailor uniform, standing with her hands behind her back', altKo: '캐릭터 일러스트: 긴 은발에 남색 세일러 교복을 입고 뒷짐 진 채 서 있는 소녀' }] },
+        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-yeji.webp', ar: 461 / 1300, alt: 'Character art: a girl with long dark hair in a dark blazer, looking back over her shoulder', altKo: '캐릭터 일러스트: 긴 흑발에 짙은 블레이저 차림으로 어깨 너머 돌아보는 소녀' }] },
+        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-daeun.webp', ar: 408 / 1300, alt: 'Character art: a girl with short red hair in a sailor uniform, scratching her head', altKo: '캐릭터 일러스트: 짧은 빨간 머리에 세일러 교복 차림으로 머리를 긁는 소녀' }] },
+        { kind: 'gallery', items: [{ src: 'assets/dat-g-classroom.webp', ar: 1664 / 936, alt: 'Key visual: five girls in school uniform in a dark classroom lit by a green exit sign', altKo: '키 비주얼: 초록 비상구 불빛이 비치는 어두운 교실에 선 교복 차림의 소녀 다섯' }] }
+      ],
+      info: { kind: 'dat' }
+    },
+    {
+      id: 'seonjam',
+      title: '선잠 DOZE',
+      status: '',
+      headline: 'She remembers what you said',
       description: [
-        "A model for CHOAM's illustration style, between watercolor, oil painting and subculture art.",
-        'We use it to finish character portraits and key visuals, with painterly textures and a particular attention to the eyes.'
+        'A visual novel set in the local-history club of an old school building. After class, Yeji sorts rosters and old photos by the window.',
+        'You talk to her in your own words, and she carries what you said into the next day. Over one week, small things stop adding up.'
       ],
       ko: {
         headline: '',
         description: [
-          'DAT는 캐릭터 초상화와 키 아트 제작에 쓰는 이미지 모델입니다\n마음에 드는 생성 이미지를 모아 학습시키고, 새로 나온 그림을 비교하며 조정합니다',
-          ['수채화와 유화, 서브컬처 일러스트 사이의 그림을 목표로 삼았습니다\n그중에서도 얼굴과 눈매가 취향에 맞는지를 가장 먼저 봅니다',
-            '지금은 선잠의 캐릭터와 키 아트를 마무리하는 데 쓰고 있습니다']
-        ],
-        art: [1, 0] /* the Korean opens on how DAT is made and used, then its style */
+          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다\n플레이어가 말을 입력하면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다',
+          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다\n긴 대화 속에서도 예지가 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다',
+            '예지가 있는 곳은 구교사 2층, 향토연구부 부실입니다']
+        ]
       },
-      field: 'dat',
-      art: [0, 1],
+      art: [2, 0],
       panels: [
-        { kind: 'feat', feat: 'dat-style', cap: 'Feature graphic · House style', capKo: '설명 그림 · 그림체', altKo: '설명 그림, 모델 결과물 아님: 수채화, 유화, 서브컬처 그림이 겹치는 자리에 있는 DAT', alt: 'Feature graphic, not model output: DAT sits where watercolor, oil painting and subculture art overlap' },
-        { kind: 'feat', feat: 'dat-flow', cap: 'Feature graphic · Workflow', capKo: '설명 그림 · 작업 흐름', altKo: '설명 그림, 모델 결과물 아님: 캐릭터 초상화와 키 비주얼이 DAT 마무리를 거쳐 회화 같은 질감과 공들인 눈을 얻는 흐름', alt: 'Feature graphic, not model output: character portraits and key visuals pass through a DAT finish for painterly textures and attention to the eyes' }
+        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
+        { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
+        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 오후 햇살 속 구교사 옆 나무 울타리 곁에 선 예지', alt: '선잠 DOZE illustration: Yeji by a wooden fence beside the old school building in afternoon light', pos: '50% 50%', posM: '24% 50%' }
       ],
-      info: { kind: 'dat' }
+      info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '24% 50%', side: 'end' }
     },
     {
       id: 'donguri-ryokan',
@@ -188,37 +188,12 @@
       art: [0, 2, 3], /* key art, then in-game captures framed beside the copy so game UI never meets site UI */
       action: { label: 'Play', href: 'https://donguri.run' },
       panels: [
-        { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '50% 30%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '100% 30%', posM: '50% 50%' },
         { kind: 'raw', src: 'assets/restaurant-02.webp', ar: 1920 / 1080, cap: 'In-game capture · Opening night', capKo: '게임 화면 · 개업 첫날 밤', altKo: 'Donguri Restaurant 플레이 화면: 개업 첫날 밤 대화 중 마당에 선 세 직원', alt: 'Donguri Restaurant gameplay: the three staff standing in the yard at night during the opening dialogue', pos: '50% 50%', posM: '50% 50%', lift: 0.29 },
         { kind: 'raw', src: 'assets/restaurant-03.webp', ar: 1280 / 720, cap: 'In-game capture · Reservation board', capKo: '게임 화면 · 예약판', altKo: 'Donguri Restaurant 플레이 화면: 레스토랑 마당과 밭, 첫날 밤 손님이 적힌 예약판', alt: 'Donguri Restaurant gameplay: the restaurant yard and field, with the reservation board listing the first night’s guests', pos: '50% 50%', posM: '42% 50%', lift: 0.33 },
         { kind: 'raw', src: 'assets/restaurant-04.webp', ar: 1280 / 800, cap: 'In-game capture · Tonight’s course', capKo: '게임 화면 · 오늘 밤 코스', altKo: 'Donguri Restaurant 플레이 화면: 오늘 저녁 코스 메뉴가 요리별로 놓인 주방', alt: 'Donguri Restaurant gameplay: the kitchen with the evening’s course menu laid out dish by dish', pos: '50% 0%', posM: '50% 50%', lift: 0 }
       ],
       info: { kind: 'art', src: 'assets/restaurant-01.webp', pos: '50% 30%', posM: '62% 50%' }
-    },
-    {
-      id: 'seonjam',
-      title: '선잠 DOZE',
-      status: '',
-      headline: 'She remembers what you said',
-      description: [
-        'A visual novel set in the local-history club of an old school building. After class, Yeji sorts rosters and old photos by the window.',
-        'You talk to her in your own words, and she carries what you said into the next day. Over one week, small things stop adding up.'
-      ],
-      ko: {
-        headline: '',
-        description: [
-          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다\n플레이어가 말을 입력하면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다',
-          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다\n긴 대화 속에서도 예지가 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다',
-            '예지가 있는 곳은 구교사 2층, 향토연구부 부실입니다']
-        ]
-      },
-      art: [2, 0],
-      panels: [
-        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '56% 50%' },
-        { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
-        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 오후 햇살 속 구교사 옆 나무 울타리 곁에 선 예지', alt: '선잠 DOZE illustration: Yeji by a wooden fence beside the old school building in afternoon light', pos: '50% 50%', posM: '24% 50%' }
-      ],
-      info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '24% 50%', side: 'end' }
     }
   ];
 
@@ -248,7 +223,8 @@
     ['.intro-meta span:nth-child(1)', '', '스튜디오'],
     ['.intro-meta span:nth-child(2)', '', '서울'],
     ['.intro-meta span:nth-child(3)', '', '2026년 설립'],
-    ['.intro-next', 'aria-label', '프로젝트 둘러보기'],
+    ['.intro-next span', '', '프로젝트'],
+    ['[data-next-label]', '', '다음'],
     ['.intro-clock [data-city]', '', '서울'],
     ['main.track[aria-label="Ours"]', 'aria-label', '프로젝트'],
     ['[data-segments]', 'aria-label', '페이지'],
@@ -357,6 +333,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const behavior = () => (reduce.matches ? 'instant' : 'smooth');
   const paras = p => [].concat(tr(p, 'description')); /* Korean keeps the same paragraph count, so the rail position carries over */
+  const steps = p => (p.reel ? p.panels.length : paras(p).length); /* a reel (DAT) steps its artwork under one fixed line of copy */
   const artFor = (p, k) => {
     const art = tr(p, 'art'); /* Korean may order the same visuals to follow its own copy */
     if (!art) return p.panels[0];
@@ -373,37 +350,42 @@
   /* captions, alt text and copy are filled by labelSec, in the current language */
   const visual = (spec, j, i) => {
     const on = j === 0 ? ' is-on' : '', cap = spec.cap ? '<figcaption></figcaption>' : '';
-    if (spec.kind === 'feat') return `<figure class="media vis feat${on}" data-art="${i}"><svg viewBox="0 0 600 460" role="img" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
+    /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
+    if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
+      return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
+        <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
+    if (spec.kind === 'feat') return `<figure class="media vis feat${on}" data-art="${i}"><svg viewBox="0 0 720 540" role="img" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}`;
     if (spec.kind === 'raw') return `<figure class="media vis frame${on}" data-art="${i}" style="--ar:${spec.ar || 16 / 9}"><img ${img}>${cap}</figure>`;
     return `<img class="media${on}" data-art="${i}" ${img} style="--pos:${spec.pos};--pos-m:${spec.posM}">`;
   };
   const stage = p => {
-    const field = p.field === 'sch' ? '<div class="sch-field"></div>'
-      : p.field === 'dat' ? '<div class="dat-field" aria-hidden="true"><span class="dat-type">DAT</span></div>' : '';
-    const used = [...new Set(paras(p).map((_, k) => artFor(p, k)))];
+    /* horizon field: the same atmosphere as the opening, lit cold (Scheherazade) or warm (DAT) */
+    const field = p.field === 'sch' ? '<div class="field sch-field" aria-hidden="true"></div>'
+      : p.field === 'dat' ? '<div class="field dat-field" aria-hidden="true"><span class="dat-type">DAT</span></div>' : '';
+    const used = p.reel ? p.panels : [...new Set(paras(p).map((_, k) => artFor(p, k)))];
     return field + used.map((spec, j) => visual(spec, j, p.panels.indexOf(spec))).join('');
   };
 
   track.removeAttribute('aria-roledescription');
   track.innerHTML = shown.map(p => {
-    const ps = paras(p), n = ps.length, act = p.action;
+    const ps = paras(p), n = steps(p), act = p.action;
     const ext = act && /^https?:/.test(act.href);
-    return `<section class="prod p-${p.id} k-${p.field || p.panels[0].kind}" id="${p.id}" data-prod="${p.id}" aria-labelledby="t-${p.id}">
+    return `<section class="prod p-${p.id} k-${p.field || p.panels[0].kind}" id="${p.id}" data-prod="${p.id}"${p.reel ? ' data-reel' : ''} aria-labelledby="t-${p.id}">
       <div class="stage">${stage(p)}</div>
       <div class="prod-veil" aria-hidden="true"></div>
       <div class="prod-copy">
-        <p class="cap-meta"><span>${numOf(p)}</span>${p.status ? '<span data-status></span>' : ''}</p>
-        <h2 class="cap-title" id="t-${p.id}">${only ? esc(p.title) : `<a href="${pageOf(p)}">${esc(p.title)}</a>`}</h2>
+        <p class="cap-meta"><span class="ch">${numOf(p)}</span><span aria-hidden="true">/ ${pad(PROJECTS.length)}</span>${p.status ? '<span data-status></span>' : ''}</p>
+        <h2 class="cap-title" id="t-${p.id}">${only ? esc(p.heading || p.title) : `<a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>`}</h2>
         ${p.title_ko ? `<p class="cap-ko" lang="ko">${esc(p.title_ko)}</p>` : ''}
         <p class="cap-line"></p>
         <div class="rail" data-rail tabindex="0" role="region" aria-roledescription="carousel">
           ${ps.map(() => '<div class="slide" role="group" aria-roledescription="slide"><p></p></div>').join('')}
         </div>
         <div class="rail-ctl">
-          ${n > 1 ? `<button class="arrow" type="button" data-rail-step="-1">&#8592;</button>
-          <span class="dots">${ps.map((_, k) => `<button class="dot" type="button" data-rail-go="${k}"><i></i></button>`).join('')}</span>
-          <button class="arrow" type="button" data-rail-step="1">&#8594;</button>
+          ${n > 1 ? `<button class="text-btn" type="button" data-rail-step="-1"></button>
+          <span class="dots">${Array.from({ length: n }, (_, k) => `<button class="dot" type="button" data-rail-go="${k}"><i></i></button>`).join('')}</span>
+          <button class="text-btn" type="button" data-rail-step="1"></button>
           <span class="count" aria-hidden="true"><b data-count>1</b> / ${n}</span>` : ''}
           ${act ? `<a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a>` : ''}
         </div>
@@ -414,23 +396,26 @@
 
   /* every word in a section, in the current language; changes text in place so scroll and rail position stay put */
   const labelSec = (sec, p) => {
-    const ps = paras(p), n = ps.length, T = p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
+    const ps = paras(p), n = steps(p), T = p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
     const st = sec.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
     sec.querySelector('.cap-line').textContent = tr(p, 'headline');
-    set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${n}개` : `${T}, ${n} paragraphs`);
+    set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${ps.length}개` : `${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`);
+    const unit = p.reel ? (ko() ? '작품' : 'artwork') : (ko() ? '문단' : 'paragraph');
     sec.querySelectorAll('.slide').forEach((s, k) => {
-      s.setAttribute('aria-label', ko() ? `${n}개 중 ${k + 1}번째` : `${k + 1} of ${n}`);
+      s.setAttribute('aria-label', ko() ? `${ps.length}개 중 ${k + 1}번째` : `${k + 1} of ${ps.length}`);
       s.replaceChildren(...[].concat(ps[k]).map(blockEl));
     });
-    set('[data-rail-step="-1"]', 'aria-label', ko() ? `${T} 이전 문단` : `Previous paragraph, ${T}`);
-    set('[data-rail-step="1"]', 'aria-label', ko() ? `${T} 다음 문단` : `Next paragraph, ${T}`);
-    sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', ko() ? `${T}, ${n}개 중 ${k + 1}번째 문단` : `${T}, paragraph ${k + 1} of ${n}`));
+    sec.querySelectorAll('[data-rail-step]').forEach(b => { b.textContent = Number(b.dataset.railStep) < 0 ? (ko() ? '이전' : 'Prev') : (ko() ? '다음' : 'Next'); });
+    set('[data-rail-step="-1"]', 'aria-label', ko() ? `${T} 이전 ${unit}` : `Previous ${unit}, ${T}`);
+    set('[data-rail-step="1"]', 'aria-label', ko() ? `${T} 다음 ${unit}` : `Next ${unit}, ${T}`);
+    sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', ko() ? `${T}, ${n}개 중 ${k + 1}번째 ${unit}` : `${T}, ${unit} ${k + 1} of ${n}`));
     const a = sec.querySelector('.prod-act');
     if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = ko() && spec.altKo || spec.alt;
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
-      if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
+      if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = ko() && it.altKo || it.alt; const n = g.querySelector('.gn'); if (n) n.textContent = ko() && it.nameKo || it.name; }); }
+      else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
       if (cap) cap.textContent = ko() && spec.capKo || spec.cap;
     });
   };
@@ -457,19 +442,30 @@
     return [pi, k];
   };
 
-  const slideOf = sec => { const r = sec.querySelector('[data-rail]'); return Math.max(0, Math.round(r.scrollLeft / (r.clientWidth || 1))); };
+  const slideOf = sec => { if (sec.dataset.reel != null) return sec._k || 0; const r = sec.querySelector('[data-rail]'); return Math.max(0, Math.round(r.scrollLeft / (r.clientWidth || 1))); };
   const setText = (sel, text) => document.querySelectorAll(sel).forEach(el => { el.textContent = text; });
+  /* deck: the next chapter in PROJECTS order; on a project page it links to that project's page */
+  const nextCh = document.querySelector('[data-next-chapter]');
+  const setNext = from => {
+    if (!nextCh) return;
+    const i = from == null ? 0 : PROJECTS.indexOf(from) + 1, q = PROJECTS[i];
+    nextCh.hidden = !q;
+    if (!q) return;
+    nextCh.querySelector('[data-next-title]').textContent = q.title;
+    nextCh.href = only ? pageOf(q) : `#${q.id}/1`;
+    nextCh.setAttribute('aria-label', ko() ? `다음 프로젝트: ${q.title}` : `Next project: ${q.title}`);
+  };
 
-  const sync = sec => {
-    const pi = secs.indexOf(sec), p = shown[pi], k = slideOf(sec), n = paras(p).length;
+  const sync = (sec, auto) => {
+    const pi = secs.indexOf(sec), p = shown[pi], k = slideOf(sec), n = steps(p);
     sec.querySelectorAll('.dot').forEach((d, j) => {
       d.classList.toggle('is-current', j === k);
       if (j === k) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current');
     });
     sec.querySelectorAll('[data-rail-step]').forEach(b => { b.disabled = Number(b.dataset.railStep) < 0 ? k === 0 : k === n - 1; });
-    sec.querySelectorAll('.slide').forEach((el, j) => { el.inert = j !== k; });
+    sec.querySelectorAll('.slide').forEach((el, j) => { el.inert = p.reel ? false : j !== k; });
     const c = sec.querySelector('[data-count]'); if (c) c.textContent = k + 1;
-    const art = artFor(p, k);
+    const art = p.reel ? p.panels[k] : artFor(p, k);
     sec.dataset.vis = art.kind;
     sec.querySelectorAll('.media[data-art]').forEach(m => {
       const on = Number(m.dataset.art) === p.panels.indexOf(art);
@@ -480,6 +476,7 @@
     setText('[data-current-num]', numOf(p));
     setText('[data-current-title]', p.title);
     setText('[data-current-sub]', `${k + 1} / ${n}`);
+    setNext(p);
     document.querySelectorAll('[data-go-project]').forEach(b => {
       const on = b.dataset.goProject === p.id;
       b.classList.toggle('is-current', on);
@@ -488,10 +485,19 @@
     const hash = only ? `#${k + 1}` : `#${p.id}/${k + 1}`;
     if (location.hash !== hash) history.replaceState(null, '', hash);
     const live = document.querySelector('[data-live]');
-    if (live) live.textContent = ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 문단` : `${p.title}, paragraph ${k + 1} of ${n}`;
+    if (live && !auto) live.textContent = p.reel ? (ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 작품` : `${p.title}, artwork ${k + 1} of ${n}`)
+      : ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 문단` : `${p.title}, paragraph ${k + 1} of ${n}`;
   };
 
-  const goSlide = (sec, k, instant) => {
+  /* manual: a person stepped (buttons, dots, arrow keys); on a reel that ends its autoplay for this visit */
+  const goSlide = (sec, k, instant, manual) => {
+    if (sec.dataset.reel != null) {
+      const n = steps(shown[secs.indexOf(sec)]);
+      sec._k = Math.max(0, Math.min(n - 1, k));
+      if (manual) sec._manual = true;
+      sync(sec); if (sec._arm) sec._arm();
+      return;
+    }
     const r = sec.querySelector('[data-rail]'), n = r.children.length;
     k = Math.max(0, Math.min(n - 1, k));
     r.scrollTo({ left: k * r.clientWidth, behavior: instant ? 'instant' : behavior() });
@@ -499,6 +505,7 @@
   const showIntro = () => {
     atIntro = true;
     ['[data-current-num]', '[data-current-title]', '[data-current-sub]'].forEach(sel => setText(sel, ''));
+    setNext(null);
     document.querySelectorAll('[data-go-project]').forEach(b => { b.classList.remove('is-current'); b.removeAttribute('aria-current'); });
     if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   };
@@ -518,7 +525,7 @@
     let raf = 0;
     r.addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => sync(sec)); }, { passive: true });
     r.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); goSlide(sec, slideOf(sec) + (e.key === 'ArrowRight' ? 1 : -1)); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); goSlide(sec, slideOf(sec) + (e.key === 'ArrowRight' ? 1 : -1), false, true); }
     });
     sync(sec);
   });
@@ -538,8 +545,8 @@
     const t = e.target.closest('button, a');
     if (!t) return;
     const sec = t.closest('.prod');
-    if (t.matches('[data-rail-step]')) goSlide(sec, slideOf(sec) + Number(t.dataset.railStep));
-    else if (t.matches('[data-rail-go]')) goSlide(sec, Number(t.dataset.railGo));
+    if (t.matches('[data-rail-step]')) goSlide(sec, slideOf(sec) + Number(t.dataset.railStep), false, true);
+    else if (t.matches('[data-rail-go]')) goSlide(sec, Number(t.dataset.railGo), false, true);
     else if (t.matches('[data-go-project]')) {
       const pi = shown.findIndex(p => p.id === t.dataset.goProject);
       if (pi < 0) return; /* another project's page: let the link navigate */
@@ -556,8 +563,28 @@
     if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !atIntro) {
       e.preventDefault();
       const sec = secs[cur];
-      goSlide(sec, slideOf(sec) + (e.key === 'ArrowRight' ? 1 : -1));
+      goSlide(sec, slideOf(sec) + (e.key === 'ArrowRight' ? 1 : -1), false, true);
     }
+  });
+
+  /* ---------- reel autoplay (DAT only): the next artwork every 6 s while the section fills most of the screen and the tab
+     is visible. A manual step stops it for this visit, focus inside the section holds it, reduced motion never starts it. ---------- */
+  const AUTO_MS = 6000;
+  secs.forEach((sec, i) => {
+    const p = shown[i]; if (!p.reel) return;
+    let timer = 0, onscreen = false, held = false;
+    const arm = () => {
+      clearTimeout(timer); timer = 0;
+      if (!reduce.matches && !document.hidden && onscreen && !held && !sec._manual)
+        timer = setTimeout(() => { sec._k = ((sec._k || 0) + 1) % p.panels.length; sync(sec, true); arm(); }, AUTO_MS);
+      sec.dataset.auto = timer ? 'on' : 'off';
+    };
+    sec._arm = arm;
+    new IntersectionObserver(([en]) => { onscreen = en.intersectionRatio >= .6; arm(); }, { threshold: [0, .6] }).observe(sec);
+    document.addEventListener('visibilitychange', arm);
+    reduce.addEventListener('change', arm);
+    sec.addEventListener('focusin', () => { held = true; arm(); });
+    sec.addEventListener('focusout', e => { if (!sec.contains(e.relatedTarget)) { held = false; arm(); } });
   });
 
   /* ---------- size + deep link ---------- */
@@ -567,6 +594,6 @@
   [track, ...secs.map(sec => sec.querySelector('.prod-copy'))].forEach(el => copyTop.observe(el));
 
   addEventListener('hashchange', () => { const [pi, k] = fromHash(); goProd(pi, k); });
-  relabel.push(() => { labelAll(); if (!atIntro) sync(secs[cur]); });
+  relabel.push(() => { labelAll(); if (!atIntro) sync(secs[cur]); else setNext(null); });
   if (location.hash) requestAnimationFrame(() => goProd(pi0, k0, true)); else if (intro) showIntro(); else sync(secs[0]);
 })();

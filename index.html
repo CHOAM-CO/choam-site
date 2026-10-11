@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CHOAM | Culture must flow</title>
 <meta name="description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the art tools behind them: Scheherazade, DAT, Donguri Ryokan, Donguri Restaurant and 선잠 DOZE.">
-<meta name="theme-color" content="#0a0b0d">
+<meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="CHOAM | Culture must flow">
@@ -25,13 +25,18 @@
   <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
 </header>
 
-<!-- opening: the layout C front (7f00b07 / 1cf062f) in the current type -->
-<section class="intro">
-  <div class="grid-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="intro-meta"><span>studio</span><span>seoul</span><span>est. 2026</span><a class="arrow intro-next" href="#scheherazade/1" aria-label="Explore projects">&#8595;</a></div>
-  <h1 class="intro-wm" aria-label="CHOAM"><span>C</span><span>H</span><span>O</span><span>A</span><span>M</span></h1>
-  <p class="intro-motto">culture must flow</p>
-  <p class="intro-clock" aria-hidden="true"><span data-city>seoul</span> <span data-clock>--:--</span></p>
+<!-- opening: one wide shot. Canvas scene (scene.js) behind the CHOAM title; all text is real HTML -->
+<section class="intro" aria-label="CHOAM">
+  <canvas class="scene" aria-hidden="true"></canvas>
+  <div class="intro-title">
+    <h1 class="intro-wm" aria-label="CHOAM"><span>C</span><span>H</span><span>O</span><span>A</span><span>M</span></h1>
+    <p class="intro-motto">Culture must flow</p>
+  </div>
+  <div class="intro-foot">
+    <p class="intro-meta"><span>studio</span><span>seoul</span><span>est. 2026</span></p>
+    <a class="intro-next" href="#scheherazade/1"><span>Projects</span><i aria-hidden="true"></i></a>
+    <p class="intro-clock"><span data-city>seoul</span> <span data-clock>--:--</span></p>
+  </div>
 </section>
 
 <main class="track" data-track aria-label="Ours" aria-roledescription="carousel"></main>
@@ -39,27 +44,22 @@
   <ul class="ns">
     <li><a href="pages/scheherazade.html">Scheherazade</a><p>Agent stands more than 1001 nights</p></li>
     <li><a href="pages/dat.html">DAT</a><p>Our house style, as a model</p></li>
+    <li><a href="pages/seonjam.html">선잠 DOZE</a><p>She remembers what you said</p></li>
     <li><a href="pages/donguri-ryokan.html">Donguri Ryokan</a><p>Not every guest is human</p></li>
     <li><a href="pages/donguri-restaurant.html">Donguri Restaurant</a><p>No menu. The field decides.</p></li>
-    <li><a href="pages/seonjam.html">선잠 DOZE</a><p>She remembers what you said</p></li>
   </ul>
 </noscript>
 
 <div class="deck chrome">
-  <div class="deck-row">
-    <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
-    <div class="segs" data-segments aria-label="Pages"></div>
-    <div class="pager">
-      <button type="button" class="text-btn" data-prev>Previous</button>
-      <button type="button" class="text-btn" data-next>Next</button>
-      <button type="button" class="text-btn" data-details>Details</button>
-    </div>
-  </div>
+  <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
   <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+  <a class="next-ch" data-next-chapter href="#scheherazade/1"><small data-next-label>Next</small><span data-next-title>Scheherazade</span></a>
 </div>
 
 <a class="action is-hidden" data-action></a>
 <p class="sr-only" aria-live="polite" data-live></p>
+<div class="grain" aria-hidden="true"></div>
 <script src="main.js"></script>
+<script src="scene.js"></script>
 </body>
 </html>

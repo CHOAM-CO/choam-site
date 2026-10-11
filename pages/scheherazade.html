@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scheherazade | CHOAM</title>
 <meta name="description" content="Long-term memory for long projects. Run Scheherazade with Claude, Codex or Ollama, browse with her in Chrome, and see what turns up in her dreams.">
-<meta name="theme-color" content="#0a0b0d">
+<meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="Scheherazade | CHOAM">
@@ -32,20 +32,14 @@
 </noscript>
 
 <div class="deck chrome">
-  <div class="deck-row">
-    <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
-    <div class="segs" data-segments aria-label="Pages"></div>
-    <div class="pager">
-      <button type="button" class="text-btn" data-prev>Previous</button>
-      <button type="button" class="text-btn" data-next>Next</button>
-      <button type="button" class="text-btn" data-details>Details</button>
-    </div>
-  </div>
+  <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
   <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+  <a class="next-ch" data-next-chapter href="#"><small data-next-label>Next</small><span data-next-title></span></a>
 </div>
 
 <a class="action is-hidden" data-action></a>
 <p class="sr-only" aria-live="polite" data-live></p>
+<div class="grain" aria-hidden="true"></div>
 <script src="../main.js"></script>
 </body>
 </html>
