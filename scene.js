@@ -91,14 +91,15 @@
     const g = c.getContext('2d'), img = g.createImageData(160, 24);
     const lat = (w, h) => { const a = []; for (let i = 0; i < w * h; i++) a.push(rnd()); return a; };
     const A = lat(17, 4), B = lat(41, 7);
-    const sample = (arr, w, h, x, y) => {
+    /* p: the lattice wraps every p cells in x, matching the cells the 160px width spans, so the texture tiles without a seam */
+    const sample = (arr, w, h, x, y, p) => {
       const xi = Math.floor(x), yi = Math.floor(y), tx = x - xi, ty = y - yi, s = t => t * t * (3 - 2 * t);
-      const at = (i, j) => arr[((j % h) + h) % h * w + ((i % w) + w) % w];
+      const at = (i, j) => arr[((j % h) + h) % h * w + ((i % p) + p) % p];
       const a = at(xi, yi) + (at(xi + 1, yi) - at(xi, yi)) * s(tx), b = at(xi, yi + 1) + (at(xi + 1, yi + 1) - at(xi, yi + 1)) * s(tx);
       return a + (b - a) * s(ty);
     };
     for (let y = 0; y < 24; y++) for (let x = 0; x < 160; x++) {
-      const n = .65 * sample(A, 17, 4, x / 160 * 16, y / 24 * 3) + .35 * sample(B, 41, 7, x / 160 * 40, y / 24 * 6);
+      const n = .65 * sample(A, 17, 4, x / 160 * 16, y / 24 * 3, 16) + .35 * sample(B, 41, 7, x / 160 * 40, y / 24 * 6, 40);
       const edge = Math.sin(Math.PI * y / 23); /* fade at top and bottom of the band */
       const i = (y * 160 + x) * 4;
       img.data[i] = 205; img.data[i + 1] = 170; img.data[i + 2] = 128;
