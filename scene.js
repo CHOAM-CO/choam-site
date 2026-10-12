@@ -69,6 +69,7 @@
       grow(u, D, v, depth + 1, aim - h, half / 2, b);
       grow(u, D, v, depth + 1, aim + h, half / 2, b);
     };
+    if (W >= 701) { links = []; return; } // PC candidate: keep the doorway/light, remove the competing foreground web.
     grow(.002, 0, 0, 0, 0, .5, null);
     /* fine connections between neighbouring channels at the same distance */
     const pts = [];
@@ -132,6 +133,12 @@
     const c = ctx;
     c.globalCompositeOperation = 'source-over';
     c.globalAlpha = 1;
+    // Desktop keeps only the original wordmark/catchphrase sequence, without scenery.
+    if (W >= 701) {
+      c.fillStyle = '#08090b';
+      c.fillRect(0, 0, W, Hh);
+      return;
+    }
     /* sky and plain */
     let g = c.createLinearGradient(0, top, 0, y0);
     g.addColorStop(0, '#040506'); g.addColorStop(.45, '#0a0c0f'); g.addColorStop(.82, '#1a1917'); g.addColorStop(1, '#3d3226');
@@ -178,7 +185,7 @@
       const bandH = (Hh - top - bottom) * .2;
       [[.0045, .5, -.55, 1], [-.0028, .32, -.15, 1.4]].forEach(([sp, a, off, sc]) => {
         const tw = W * 2.2 * sc, x = (((t * sp * W) % tw) + tw) % tw;
-        c.globalAlpha = a * (.4 + .6 * E);
+        c.globalAlpha = a * (.4 + .6 * E) * (W >= 701 ? .3 : 1); // Less gold haze on PC; title sequence below is untouched.
         for (const ox of [x - tw, x]) c.drawImage(haze, ox, y0 + bandH * off, tw, bandH);
       });
       c.globalAlpha = 1;

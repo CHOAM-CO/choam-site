@@ -1,0 +1,28 @@
+/* PC mockup only; no hero, Sera or game selectors. Apple reference keeps one
+   generous image stage and understated underline tabs, rather than twin cards. */
+@media(min-width:701px){
+.dat-tabs-mockup .dat-clarity{display:block;min-height:900px;padding:94px 6vw 90px}
+.dat-tabs-mockup .dat-overview{max-width:none;text-align:center;margin:0 auto 14px}
+.dat-tabs-mockup .dat-overview>.cap-meta{font-size:12px;letter-spacing:.2em;justify-content:center}
+.dat-tabs-mockup .dat-purpose{font-size:40px;line-height:1.2;margin-top:14px;letter-spacing:-.035em}
+.dat-tabs-mockup .dat-process,.dat-tabs-mockup .dat-style-label,.dat-tabs-mockup .dat-results>header,.dat-tabs-mockup .evidence-title{display:none!important}
+.dat-tabs-mockup .dat-exhibition{position:relative;height:528px;max-width:1080px;margin:auto}
+.dat-tabs-mockup .dat-results{position:relative;inset:auto;padding:0;margin:0;border:0;height:100%;width:100%}
+.dat-tabs-mockup .dat-results[hidden],.dat-tabs-mockup .dat-exhibition>.stage[hidden]{display:none!important}
+.dat-tabs-mockup .character-orbit{height:480px;margin:0;border:0;overflow:hidden}
+.dat-tabs-mockup .orbit-character{left:calc(50% - 110px);top:15px;width:220px;height:440px}
+.dat-tabs-mockup .orbit-controls{position:absolute;left:calc(50% - 150px);right:calc(50% - 150px);bottom:12px;padding:0}
+.dat-tabs-mockup .orbit-controls button{width:40px;height:40px}
+.dat-tabs-mockup .dat-exhibition>.stage{position:relative;inset:auto;display:block;width:100%;height:100%;margin:0;min-width:0}
+.dat-tabs-mockup .dat-exhibition .dat-inline{position:relative;inset:auto;display:flex;flex-direction:column;gap:12px;opacity:1;max-width:850px;width:100%;height:100%;margin:auto}
+.dat-tabs-mockup .dat-cases{align-self:center;justify-content:center;margin:0}
+.dat-tabs-mockup .dat-reveal{width:min(600px,calc(360px * var(--case-ar)))!important;max-width:100%;flex-shrink:0;align-self:center}
+.dat-tabs-mockup .dat-zoom{width:600px;max-width:100%;align-self:center;gap:14px}
+.dat-tabs-mockup .dat-detail{height:84px}
+.dat-tabs-mockup .dat-zoom>div>span{font-size:12px;margin-bottom:6px}
+.dat-tabs-mockup .dat-tabnav{display:flex;justify-content:center;gap:56px;max-width:448px;margin:12px auto 0;border-bottom:1px solid var(--line)}
+.dat-tabs-mockup .dat-tabnav button{position:relative;padding:16px 0;font-size:18px;font-weight:600;color:var(--ash);background:none;line-height:1.3}
+.dat-tabs-mockup .dat-tabnav button[aria-selected=true]{color:var(--bone)}
+.dat-tabs-mockup .dat-tabnav button[aria-selected=true]::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--bone)}
+.dat-tabs-mockup .dat-tabnav button:focus-visible{outline:2px solid var(--ember);outline-offset:4px}
+}
