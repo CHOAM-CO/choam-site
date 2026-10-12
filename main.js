@@ -24,16 +24,6 @@
       <path class="hr" d="M40 364H680"/><text class="l" x="40" y="404">UNFINISHED THREADS</text>${bars(40, 426, [280, 180])}<path class="sd" d="M330 431H470"/>
       <rect class="chip" x="536" y="388" width="144" height="46" rx="23"/><text class="k" x="608" y="418" text-anchor="middle">FORGET</text>
       ${moon(54, 508, 1.2)}<text class="s" x="80" y="515">Autonomy on: the day’s memories, sorted overnight</text>`,
-    'sch-byos': () => `${POOL('pl-byos', 560, 240, 230, 210, .22)}
-      <text class="l" x="40" y="48">BRING YOUR OWN BRAIN</text>
-      <text class="t" x="40" y="142">Claude</text><text class="s" x="40" y="172">via Claude Code</text><path class="st" d="M40 190H250"/>
-      <text class="t" x="40" y="262">ChatGPT</text><text class="s" x="40" y="292">via Codex</text><path class="hr" d="M40 310H250"/>
-      <text class="t" x="40" y="382">Ollama</text><path class="hr" d="M40 400H250"/>
-      <path class="st" d="M262 190C340 190 360 240 440 240"/><path class="sd" d="M262 310C340 310 360 240 440 240"/><path class="sd" d="M262 400C340 400 360 240 440 240"/><circle class="bg" cx="262" cy="190" r="5"/>
-      <image href="${ICON()}" x="430" y="86" width="260" height="260"/>
-      <text class="t" x="560" y="378" text-anchor="middle">Memories</text><text class="s" x="560" y="406" text-anchor="middle">on your computer</text>
-      <text class="s em" x="360" y="460" text-anchor="middle">Change the model; keep the memories.</text>
-      <g transform="translate(54 508) scale(1.1)"><rect class="st" x="-13" y="-9" width="26" height="18" rx="2"/><path class="st" d="M-13-9L0 2L13-9"/></g><text class="s" x="80" y="515">She leaves a letter to her next self before a switch</text>`,
     'sch-browse': () => `${POOL('pl-brw', 540, 320, 260, 200, .14)}
       <text class="l" x="40" y="48">BROWSE WITH ME</text>
       <rect class="chip on" x="570" y="20" width="110" height="42" rx="21"/>${eye(604, 41, .9)}<text class="k" x="650" y="49" text-anchor="middle">ON</text>
@@ -47,8 +37,10 @@
       <path class="st" d="M165 205L360 452M555 213L360 452M360 315L360 452" stroke-dasharray="2 8" opacity=".8"/>
       ${journal(60, 110, -6, 1)}${journal(450, 118, 4, 2)}${journal(255, 220, -2, 3)}
       ${star(360, 454, 1.7)}<text class="s" x="360" y="522" text-anchor="middle">Old entries return in unexpected company</text>`
-    /* DAT carries no diagrams: it shows real artwork only (kind 'gallery', p.reel) */
   };
+  /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
+     shown as images so their own styles never meet the site's. Drawn concepts, labelled as graphics: not app internals
+     and not model output. Built from the approved Design mockups (Main/Sera) with the dark palette only; no text inside. */
 
   const PROJECTS = [
     {
@@ -79,7 +71,7 @@
       art: [0, 1, 2, 3],
       panels: [
         { kind: 'feat', feat: 'sch-memory', cap: 'Feature graphic · Memory', capKo: '설명 그림 · 기억', altKo: '설명 그림, 실제 앱 화면 아님: Scheherazade가 사실과 내가 고쳐 준 내용, 못 끝낸 일을 기억하고, 그 기억을 읽거나 잊게 할 수 있으며, Autonomy를 켜면 그날의 기억을 밤사이 정리하는 모습', alt: 'Feature graphic, not an app screenshot: Scheherazade keeps the facts, your corrections and unfinished threads; you can read them, tell her to forget, and with Autonomy on she sorts the day overnight' },
-        { kind: 'feat', feat: 'sch-byos', cap: 'Feature graphic · Bring your own brain', capKo: '설명 그림 · 두뇌는 직접 고르기', altKo: '설명 그림, 실제 앱 화면 아님: Claude Code의 Claude, Codex의 ChatGPT, Ollama 중 무엇을 연결해도 내 컴퓨터에 있는 같은 기억을 쓰고, 모델을 바꾸기 전에 다음 모델에게 편지를 남기는 모습', alt: 'Feature graphic, not an app screenshot: Claude via Claude Code, ChatGPT via Codex or Ollama connect to the same memories kept on your computer, with a letter to her next self before a switch' },
+        { kind: 'fig', src: 'assets/sera-memory.svg', ar: 686 / 494, cap: 'Feature graphic · New model, same memories', capKo: '설명 그림 · 모델을 바꿔도, 기억은 남게', altKo: '설명 그림, 실제 앱 화면이나 내부 구조 아님: 소켓에 꽂힌 엔진 카트리지는 빼서 다른 것으로 바꿀 수 있고, 종이 기억이 든 서랍장은 본체에 붙은 채 남아 새로 꽂힌 카트리지에 같은 기억을 넘겨주는 장치', alt: 'Feature graphic, not an app screenshot or the literal internals: an engine cartridge that can be pulled from its socket and swapped, beside a cabinet of paper memories that stays in place and feeds the same memories to whichever cartridge is plugged in' },
         { kind: 'feat', feat: 'sch-browse', cap: 'Feature graphic · Browse with me', capKo: '설명 그림 · Browse with me', altKo: '설명 그림, 실제 앱 화면 아님: 브라우저 탭에 논문을 열어 두고 Scheherazade와 같이 이야기하는 모습, 그리고 언제 볼지 정하는 눈 버튼', alt: 'Feature graphic, not an app screenshot: a browser tab with a paper open beside Scheherazade talking it through, and the eye button that decides when she is looking' },
         { kind: 'feat', feat: 'sch-dream', cap: 'Feature graphic · Dreams', capKo: '설명 그림 · 꿈', altKo: '설명 그림, 실제 앱 화면 아님: 오래된 일기들이 뜻밖에 이어져 새로운 조각 하나가 되는 모습', alt: 'Feature graphic, not an app screenshot: old journal entries joined in unexpected company into a new fragment' }
       ],
@@ -98,7 +90,7 @@
         description: ['오픈소스 생성형 모델을 우리 그림체에 맞게 직접 파인튜닝해 그래픽 리소스를 만듭니다']
       },
       field: 'dat',
-      reel: true, /* results only: one artwork at a time; the rail controls step the artwork, not the copy */
+      reel: true, /* one visual at a time: artwork, then how DAT works and one real result; the rail controls step the visual, not the copy */
       /* r5: real, Mino-locked Seonjam production art, shown with no names or captions (provenance lives in the r5 receipt).
          Each chain also uses other tools (Codex i2i / seedream / matting), so nothing here is presented as pure model output.
          seoa  success_cases/seoa/seoa_handsback_v2.png                     decisions.log L450
@@ -110,7 +102,17 @@
         { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-seoa.webp', ar: 444 / 1300, alt: 'Character art: a girl with long silver hair in a navy sailor uniform, standing with her hands behind her back', altKo: '캐릭터 일러스트: 긴 은발에 남색 세일러 교복을 입고 뒷짐 진 채 서 있는 소녀' }] },
         { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-yeji.webp', ar: 461 / 1300, alt: 'Character art: a girl with long dark hair in a dark blazer, looking back over her shoulder', altKo: '캐릭터 일러스트: 긴 흑발에 짙은 블레이저 차림으로 어깨 너머 돌아보는 소녀' }] },
         { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-daeun.webp', ar: 408 / 1300, alt: 'Character art: a girl with short red hair in a sailor uniform, scratching her head', altKo: '캐릭터 일러스트: 짧은 빨간 머리에 세일러 교복 차림으로 머리를 긁는 소녀' }] },
-        { kind: 'gallery', items: [{ src: 'assets/dat-g-classroom.webp', ar: 1664 / 936, alt: 'Key visual: five girls in school uniform in a dark classroom lit by a green exit sign', altKo: '키 비주얼: 초록 비상구 불빛이 비치는 어두운 교실에 선 교복 차림의 소녀 다섯' }] }
+        { kind: 'gallery', items: [{ src: 'assets/dat-g-classroom.webp', ar: 1664 / 936, alt: 'Key visual: five girls in school uniform in a dark classroom lit by a green exit sign', altKo: '키 비주얼: 초록 비상구 불빛이 비치는 어두운 교실에 선 교복 차림의 소녀 다섯' }] },
+        /* 2026-10-12 (Mino 12:29): how DAT is used, drawn as a machine, then one real before/after kept apart from it.
+           Concept: GPT Image's muddy colouring filtered out and a watercolour wash added (Mino's description).
+           Real pair: Donguri Ryokan shrine-leaf cut, 2026-10-11, GPT Image original and the DAT pass Mino picked, both full frame
+           at the same scale (scripts/build_assets.py). One scene, not a claim that every error is fixed. */
+        { kind: 'fig', src: 'assets/dat-machine.svg', ar: 1039 / 573, cap: 'Feature graphic · How DAT works', capKo: '설명 그림 · DAT가 하는 일', alt: 'Feature graphic, not actual output: muddy pictures ride a conveyor through a filter that catches the harsh colour, pass under a roller that lays a light watercolour wash, and stack up on the right', altKo: '설명 그림, 실제 결과 아님: 탁한 그림이 컨베이어를 타고 거친 색을 거르는 필터를 지나, 롤러 아래에서 옅은 수채 워시를 입고 오른쪽에 쌓이는 기계' },
+        { kind: 'gallery', pair: true, cap: 'Actual output · Donguri Ryokan', capKo: '실제 결과 · 동구리 료칸', alt: 'Actual output: one Donguri Ryokan scene before and after DAT, same size and framing', altKo: '실제 결과: 동구리 료칸 한 장면의 DAT 적용 전과 후, 같은 크기와 구도',
+          items: [
+            { src: 'assets/dat-case-original.webp', ar: 2048 / 1360, name: 'GPT Image original', nameKo: 'GPT Image 원본', alt: 'GPT Image original: two fox girls in kimono at a mountain shrine at sunset, one holding up a leaf, the other lying by a wooden box with a cup', altKo: 'GPT Image 원본: 노을 진 산속 신사에서 한 명은 나뭇잎을 들고, 한 명은 나무 상자 곁에 엎드려 잔을 든 기모노 차림의 여우 소녀 둘' },
+            { src: 'assets/dat-case-dat.webp', ar: 2048 / 1360, name: 'After DAT', nameKo: 'DAT 적용 후', alt: 'The same scene after DAT: smoother brushwork in the hair and clothing, with some costume and accessory details redrawn', altKo: '같은 장면에 DAT를 적용한 결과: 머리카락과 옷의 붓 결이 더 매끈해지고, 의상과 장신구 일부가 다시 그려짐' }
+          ] }
       ],
       info: { kind: 'dat' }
     },
@@ -352,10 +354,11 @@
     const on = j === 0 ? ' is-on' : '', cap = spec.cap ? '<figcaption></figcaption>' : '';
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
-      return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
+      return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
         <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
     if (spec.kind === 'feat') return `<figure class="media vis feat${on}" data-art="${i}"><svg viewBox="0 0 720 540" role="img" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}`;
+    if (spec.kind === 'fig') return `<figure class="media vis afig${on}" data-art="${i}" style="--ar:${spec.ar}"><img ${img}>${cap}</figure>`;
     if (spec.kind === 'raw') return `<figure class="media vis frame${on}" data-art="${i}" style="--ar:${spec.ar || 16 / 9}"><img ${img}>${cap}</figure>`;
     return `<img class="media${on}" data-art="${i}" ${img} style="--pos:${spec.pos};--pos-m:${spec.posM}">`;
   };

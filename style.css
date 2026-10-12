@@ -1,6 +1,6 @@
 /* CHOAM site: full-bleed project gallery with a slim translucent masthead and a bottom chapter deck. */
 /* Pretendard Variable, SIL OFL 1.1 (assets/LICENSE-Pretendard.txt). Pages load choam-sans-subset.woff2, a renamed
-   subset (Latin, punctuation, arrows and every Hangul syllable in the site's html/js, Korean copy included: 338 syllables,
+   subset (Latin, punctuation, arrows and every Hangul syllable in the site's html/js, Korean copy included: 365 syllables,
    the Hangul codepoints at the end of its unicode-range). The full font only loads for Hangul missing from the subset;
    when Korean copy changes, rebuild the subset (fontTools) and regenerate this unicode-range from the same syllable list. */
 @font-face {
@@ -18,7 +18,7 @@
   font-style: normal;
   font-display: swap;
   unicode-range: U+0020-007E, U+00A0-017F, U+2000-206F, U+20A9-20AC, U+2122, U+2190-2193, U+3000-3003,
-    U+AC00-AC01, U+AC04, U+AC11, U+AC19, U+AC1C-AC1D, U+AC70, U+AC78, U+AC8C, U+ACA9, U+ACB0, U+ACBD, U+ACC1, U+ACC4, U+ACE0, U+ACF3, U+ACFC, U+AD00, U+AD1C, U+AD34, U+AD50, U+AD6C-AD6D, U+ADF8, U+AE01, U+AE30, U+AE34, U+AE4A, U+AE4C, U+AE68, U+AED8, U+AFB8, U+AFC8-AFC9, U+AFD4, U+B04A, U+B054, U+B05D, U+B098, U+B09C, U+B0A0, U+B0A8, U+B0AC, U+B0AE, U+B0B4, U+B0B8, U+B0C5, U+B108, U+B140-B141, U+B144, U+B178, U+B17C, U+B193, U+B1CC, U+B204, U+B208, U+B274, U+B294, U+B298, U+B2C8, U+B2D8, U+B2DD, U+B2E4, U+B2E8, U+B2EC, U+B2F5, U+B2F9, U+B300, U+B354, U+B358, U+B378, U+B3C4-B3C5, U+B3CC, U+B3D9, U+B418, U+B41C, U+B420, U+B450, U+B458, U+B4A4, U+B4B7, U+B4DC, U+B4E4, U+B4ED, U+B4F1, U+B514, U+B530, U+B54C, U+B73B, U+B77C, U+B78C, U+B791, U+B798, U+B7EC, U+B808, U+B825, U+B85C-B85D, U+B8CC, U+B8E8, U+B974, U+B978, U+B97C, U+B985, U+B9AC-B9AD, U+B9B0, U+B9B4, U+B9BC-B9BD, U+B9C8, U+B9CC, U+B9D0, U+B9DE, U+BA38-BA39, U+BA3C, U+BA54, U+BA70, U+BA74, U+BA85, U+BA87, U+BAA8, U+BAB8, U+BABB, U+BB34, U+BB38, U+BBC8, U+BBF8, U+BC14-BC16, U+BC1B-BC1C, U+BC24, U+BC29, U+BC2D, U+BC84, U+BC88, U+BCA0, U+BCBD, U+BCC4, U+BCF4-BCF5, U+BCFC, U+BD80, U+BD84, U+BD88, U+BE0C, U+BE14, U+BE44, U+BE5A-BE5B, U+BE68, U+C05C, U+C0AC, U+C0B4, U+C0C1, U+C0C8-C0C9, U+C0DD, U+C11C, U+C120, U+C124, U+C12F, U+C131, U+C138, U+C14B, U+C170, U+C18C-C18D, U+C190, U+C218-C219, U+C2A4, U+C2B5, U+C2DC-C2DD, U+C2E0, U+C2E4, U+C2F6, U+C313, U+C4F0, U+C544, U+C548-C54A, U+C54C, U+C571, U+C57C-C57D, U+C591, U+C5B4-C5B5, U+C5B8, U+C5BC, U+C5C5-C5C8, U+C5D0, U+C5EC, U+C5F0, U+C5F4, U+C5FD, U+C5FF, U+C601, U+C606, U+C608, U+C624, U+C628, U+C640, U+C654, U+C694, U+C6A9, U+C6B0, U+C6B4, U+C6B8, U+C6D0, U+C6F9, U+C73C, U+C740, U+C744, U+C74C, U+C758, U+C774, U+C778, U+C77C-C77D, U+C784-C785, U+C788, U+C78A, U+C790-C791, U+C7A0, U+C7A5, U+C7AC, U+C800-C801, U+C804, U+C811, U+C815, U+C81C-C81D, U+C838, U+C870-C871, U+C885, U+C88B, U+C8FC, U+C900, U+C911, U+C9C0-C9C1, U+C9C4, U+C9C8, U+C9D0-C9D1, U+C9D9, U+C9E7, U+C9F8, U+CC28, U+CC2E, U+CC3E, U+CC44, U+CC9C, U+CCA0, U+CCAB, U+CCB4, U+CCD0, U+CD08, U+CD94, U+CD9C, U+CE35, U+CE58, U+CE5C, U+CE60, U+CE74, U+CE78, U+CE90, U+CEF4, U+CF1C, U+CF54, U+CF58, U+D0A4, U+D0C0, U+D0D5, U+D0DC-D0DD, U+D0ED, U+D130, U+D143, U+D1A0, U+D1F4, U+D207, U+D29C, U+D2B8, U+D2BC, U+D2C0, U+D30C, U+D310, U+D398, U+D3B4, U+D3B8, U+D3BC, U+D3EC, U+D478, U+D488, U+D4E8, U+D504, U+D508, U+D50C, U+D53D, U+D544, U+D558, U+D55C, U+D560, U+D568-D569, U+D574, U+D587-D589, U+D5A5, U+D615, U+D63C, U+D648, U+D654-D655, U+D68D, U+D6C4, U+D751, U+D788, U+D78C;
+    U+AC00-AC01, U+AC04, U+AC11, U+AC19, U+AC1C-AC1D, U+AC70, U+AC78, U+AC83, U+AC8C, U+ACA8-ACA9, U+ACB0, U+ACBD, U+ACC1, U+ACC4, U+ACE0, U+ACF3, U+ACFC, U+AD00, U+AD1C, U+AD34, U+AD50, U+AD6C-AD6D, U+ADF8, U+AE01, U+AE30, U+AE34, U+AE4A, U+AE4C, U+AE68, U+AED8, U+AF42, U+AFB8, U+AFC0, U+AFC8-AFC9, U+AFD4, U+B048, U+B04A, U+B054, U+B05D, U+B098, U+B09C, U+B0A0, U+B0A8, U+B0AC, U+B0AE, U+B0B4, U+B0B8, U+B0C5, U+B108, U+B118, U+B140-B141, U+B144, U+B178, U+B17C, U+B193, U+B1CC, U+B204, U+B208, U+B274, U+B294, U+B298, U+B2C8, U+B2D8, U+B2DD, U+B2E4, U+B2E8, U+B2EC, U+B2F5, U+B2F9, U+B300, U+B354, U+B358, U+B378, U+B3C4-B3C5, U+B3CC, U+B3D9, U+B418, U+B41C, U+B420, U+B450, U+B458, U+B4A4, U+B4B7, U+B4DC, U+B4E0, U+B4E4, U+B4ED, U+B4F1, U+B514, U+B530, U+B54C, U+B73B, U+B77C-B77D, U+B78C-B78D, U+B791, U+B798, U+B7EC, U+B808, U+B824-B825, U+B85C-B85D, U+B864, U+B8CC, U+B8E8, U+B974, U+B978, U+B97C, U+B985, U+B9AC-B9AD, U+B9B0, U+B9B4, U+B9BC-B9BD, U+B9C8, U+B9CC, U+B9D0, U+B9DE, U+B9E4, U+BA38-BA39, U+BA3C, U+BA54, U+BA70, U+BA74, U+BA85, U+BA87, U+BAA8, U+BAB8, U+BABB, U+BB34, U+BB38, U+BB47, U+BBC8, U+BBF8, U+BC14-BC16, U+BC1B-BC1C, U+BC24, U+BC29, U+BC2D, U+BC84, U+BC88, U+BCA0, U+BCBD, U+BCC4, U+BCF4-BCF5, U+BCF8, U+BCFC, U+BD80, U+BD84, U+BD88, U+BD93, U+BD99, U+BE0C, U+BE14, U+BE44, U+BE5A-BE5B, U+BE68, U+BE7C, U+C05C, U+C0AC, U+C0B0, U+C0B4, U+C0C1, U+C0C8-C0C9, U+C0DD, U+C11C, U+C120, U+C124, U+C12F, U+C131, U+C138, U+C14B, U+C170, U+C18C-C18D, U+C190, U+C218-C219, U+C2A4, U+C2B5, U+C2DC-C2DD, U+C2E0, U+C2E4, U+C2F6, U+C313, U+C4F0, U+C544, U+C548-C54A, U+C54C, U+C571, U+C57C-C57D, U+C591, U+C5B4-C5B5, U+C5B8, U+C5BC, U+C5C5-C5C8, U+C5CE, U+C5D0, U+C5D4, U+C5EC, U+C5F0, U+C5F4, U+C5FD, U+C5FF, U+C601, U+C605-C606, U+C608, U+C624, U+C628, U+C637, U+C640, U+C654, U+C694, U+C6A9, U+C6B0, U+C6B4, U+C6B8, U+C6CC, U+C6D0, U+C6F9, U+C73C, U+C740, U+C744, U+C74C, U+C758, U+C774, U+C778, U+C77C-C77D, U+C784-C785, U+C788, U+C78A, U+C78E, U+C790-C791, U+C794, U+C7A0, U+C7A5, U+C7AC, U+C800-C801, U+C804, U+C811, U+C815, U+C81C-C81D, U+C838, U+C870-C871, U+C885, U+C88B, U+C8FC, U+C900, U+C911, U+C9C0-C9C1, U+C9C4, U+C9C8, U+C9D0-C9D1, U+C9D9, U+C9E7, U+C9F8, U+CABD, U+CC28, U+CC2E, U+CC3E, U+CC44, U+CC9C, U+CCA0, U+CCAB, U+CCB4, U+CCD0, U+CD08, U+CD94, U+CD9C, U+CE35, U+CE58, U+CE5C, U+CE60, U+CE74, U+CE78, U+CE90, U+CEE8, U+CF13, U+CF1C, U+CF54, U+CF58, U+D06C, U+D0A4, U+D0C0-D0C1, U+D0D5, U+D0DC-D0DD, U+D0ED, U+D130, U+D143, U+D1A0, U+D1F4, U+D207, U+D29C, U+D2B8, U+D2BC, U+D2C0, U+D30C, U+D310, U+D398, U+D3B4, U+D3BC, U+D3EC, U+D478, U+D488, U+D504, U+D508, U+D50C, U+D53D, U+D544, U+D558, U+D55C, U+D560, U+D568-D569, U+D574, U+D587-D589, U+D5A5, U+D615, U+D63C, U+D648, U+D654-D655, U+D68D, U+D6C4, U+D751, U+D788, U+D78C;
 }
 
 /* ==========================================================================
@@ -300,9 +300,14 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .feat .dt { font-size: 50px; font-weight: 800; letter-spacing: .1em; fill: var(--bone); paint-order: stroke; stroke: rgba(5, 5, 6, .55); stroke-width: 6px; }
 .feat .dt.sm { font-size: 32px; stroke-width: 0; }
 
-/* DAT (Our Style): real artwork only, one piece at a time, as large as the plate allows. A cut-out standing stands unframed
+/* Anatomy-guided figures (an SVG file shown as an image): unframed on the plate like the feature graphics, the drawing
+   carries its own soft floor shadow */
+.afig img { box-shadow: none; }
+
+/* DAT (Our Style): one piece at a time, as large as the plate allows. A cut-out standing stands unframed
    at 92% of the plate's height so head and feet keep some air; a full image (the key visual) sits framed like an in-game
-   capture. --h fits the row to the plate's height and width. Captions and names are optional and DAT uses neither. */
+   capture. --h fits the row to the plate's height and width. Captions and names are optional: the artwork uses neither,
+   the real before/after pair (gal-pair) uses both. */
 .gal { --capH: 0px; --gn: 0px; --gg: 28px; --fill: 1; }
 .gal:has(figcaption) { --capH: 34px; }
 .gal:has(.gn) { --gn: 30px; }
@@ -314,8 +319,18 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .gal-cut .gi img, .gal:not(.gal-one) .gi img { box-shadow: none; filter: drop-shadow(0 26px 40px rgba(0, 0, 0, .55)); }
 .gn { font-weight: 600; font-size: 11px; line-height: 18px; letter-spacing: .3em; margin-right: -.3em; text-transform: uppercase; color: var(--ash); }
 :lang(ko) .gn { letter-spacing: .12em; margin-right: -.12em; }
+/* before/after pair: two full frames at one scale, framed like the key visual. Side by side on a wide plate, stacked
+   otherwise (stacking gives the larger pictures whenever the plate is narrower than one picture's 3:2). On desktop the pair
+   fills 90% of the plate's height so its caption stays above the lit floor line, as the other captions do */
+.gal-pair { --fill: .9; }
+.gal.gal-pair .gi img { box-shadow: 0 0 0 1px rgba(235, 229, 218, .1), 0 30px 90px rgba(0, 0, 0, .6); filter: none; }
+@container (max-aspect-ratio: 3/2) {
+  .gal-pair .gal-row { flex-direction: column; align-items: center;
+    --h: min(calc((100cqh - var(--capH) - var(--n) * var(--gn) - (var(--n) - 1) * var(--gg)) / var(--n) * var(--fill)), calc(100cqw * var(--n) / var(--sar))); }
+}
 @media (max-width: 760px) {
   .gal { --gg: 10px; }
+  .gal-pair { --fill: 1; }
   .gal:has(figcaption) { --capH: 22px; }
   .gal:has(.gn) { --gn: 24px; }
   .gi { gap: 6px; }

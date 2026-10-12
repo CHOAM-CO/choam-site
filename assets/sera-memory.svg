@@ -1,0 +1,305 @@
+<svg class="fig" xmlns="http://www.w3.org/2000/svg" viewBox="-272 -152 686 494" width="686" height="494">
+<style>
+.fig{--page:#0c0e11;--card:#13161a;--card-edge:#232830;--ink:#e7eaee;--ink-2:#a0a8b2;--ink-3:#6c7580;--edge:#07080a;--seam:#101317;--faint:#323942;--rule:#8f99a4;--tick:#5d6670;--screw:#77808c;--hole:#060708;--recess:#121519;--strip:#2f353d;--lo-t:#272c33;--lo-l:#1e2228;--lo-r:#171a1f;--mid-t:#3b424c;--mid-l:#2e343c;--mid-r:#24292f;--hi-t:#5d6671;--hi-l:#49515b;--hi-r:#3a414a;--lit-t:#f4f6f8;--lit-l:#dfe3e8;--lit-r:#c8ced5;}
+.fig{display:block}
+.fig rect,.fig circle,.fig ellipse,.fig .s{stroke:var(--edge);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.fig path{vector-effect:non-scaling-stroke;stroke-linecap:round}
+.fig .sm{fill:none;stroke:var(--seam);stroke-width:.9}
+.fig .rl{fill:none;stroke:var(--rule);stroke-width:.9}
+.fig .gr{fill:none;stroke:var(--faint);stroke-width:1}
+.fig .tk{fill:none;stroke:var(--tick);stroke-width:.9}
+.fig .sl{fill:none;stroke:var(--edge);stroke-width:.8}
+.lo-t{fill:var(--lo-t)}.lo-l{fill:var(--lo-l)}.lo-r{fill:var(--lo-r)}
+.mid-t{fill:var(--mid-t)}.mid-l{fill:var(--mid-l)}.mid-r{fill:var(--mid-r)}
+.hi-t{fill:var(--hi-t)}.hi-l{fill:var(--hi-l)}.hi-r{fill:var(--hi-r)}
+.lit-t{fill:var(--lit-t)}.lit-l{fill:var(--lit-l)}.lit-r{fill:var(--lit-r)}
+.hole{fill:var(--hole)}.rc{fill:var(--recess)}.st{fill:var(--strip)}.sc{fill:var(--screw)}
+</style>
+<defs><clipPath id="sera-win"><rect x="266" y="98" width="22" height="24"/></clipPath></defs>
+<g transform="matrix(.7071 .3536 -.7071 .3536 0 0)">
+<!-- feet -->
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 42)" x="516" y="0" width="30" height="8"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 546 0)" x="12" y="0" width="30" height="8"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 348)" x="14" y="0" width="30" height="8"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 44 0)" x="318" y="0" width="30" height="8"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 348)" x="516" y="0" width="30" height="8"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 546 0)" x="318" y="0" width="30" height="8"/>
+<!-- base plate -->
+<g transform="translate(-17.15 -17.15)">
+<rect class="lo-t" x="0" y="0" width="560" height="360"/>
+<rect class="gr" x="6" y="6" width="548" height="348" rx="4"/>
+<circle class="sc" cx="14" cy="14" r="3"/><path class="sl" d="M11 14H17"/>
+<circle class="sc" cx="546" cy="14" r="3"/><path class="sl" d="M543 14H549"/>
+<circle class="sc" cx="14" cy="346" r="3"/><path class="sl" d="M11 346H17"/>
+<circle class="sc" cx="546" cy="346" r="3"/><path class="sl" d="M543 346H549"/>
+<rect class="st" x="60" y="342" width="240" height="10"/>
+<path class="tk" d="M70 342v3M80 342v3M90 342v3M100 342v6M110 342v3M120 342v3M130 342v3M140 342v3M150 342v6M160 342v3M170 342v3M180 342v3M190 342v3M200 342v6M210 342v3M220 342v3M230 342v3M240 342v3M250 342v6M260 342v3M270 342v3M280 342v3M290 342v3"/>
+</g>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 360)" x="0" y="-14" width="560" height="14"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 560 0)" x="0" y="-14" width="360" height="14"/>
+<!-- label plate -->
+<g transform="translate(-19.6 -19.6)">
+<rect class="mid-t" x="50" y="296" width="80" height="38"/>
+<path class="sm" d="M60 306H120M60 314H120M60 322H100"/>
+<circle class="sc" cx="54" cy="300" r="1.4"/><circle class="sc" cx="126" cy="300" r="1.4"/><circle class="sc" cx="54" cy="330" r="1.4"/><circle class="sc" cx="126" cy="330" r="1.4"/>
+</g>
+<rect class="mid-l" transform="matrix(1 0 1.2247 1.2247 0 334)" x="50" y="-16" width="80" height="2"/>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 130 0)" x="296" y="-16" width="38" height="2"/>
+<!-- archive cabinet: plinth -->
+<rect class="lo-t" transform="translate(-24.49 -24.49)" x="26" y="26" width="228" height="208"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 234)" x="26" y="-20" width="228" height="6"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 254 0)" x="26" y="-20" width="208" height="6"/>
+<!-- cabinet body -->
+<rect class="mid-t" transform="translate(-208.2 -208.2)" x="30" y="30" width="220" height="200"/>
+<g transform="matrix(0 1 1.2247 1.2247 250 0)">
+<rect class="mid-r" x="30" y="-170" width="200" height="150"/>
+<rect class="gr" x="44" y="-158" width="172" height="126" rx="2"/>
+<circle class="sc" cx="50" cy="-152" r="2"/><circle class="sc" cx="210" cy="-152" r="2"/><circle class="sc" cx="50" cy="-38" r="2"/><circle class="sc" cx="210" cy="-38" r="2"/>
+</g>
+<g transform="matrix(1 0 1.2247 1.2247 0 230)">
+<rect class="mid-l" x="30" y="-170" width="220" height="150"/>
+<rect class="hole" x="42" y="-126" width="196" height="30"/>
+</g>
+<!-- drawer A (closed) -->
+<rect class="mid-t" transform="translate(-75.93 -75.93)" x="40" y="230" width="200" height="4"/>
+<g transform="matrix(1 0 1.2247 1.2247 0 234)">
+<rect class="mid-l" x="40" y="-62" width="200" height="36"/>
+<rect class="hi-l" x="62" y="-56" width="40" height="12"/>
+<circle class="sc" cx="65" cy="-50" r="1.2"/><circle class="sc" cx="99" cy="-50" r="1.2"/>
+</g>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 240 0)" x="230" y="-62" width="4" height="36"/>
+<rect class="hi-t" transform="translate(-56.34 -56.34)" x="120" y="234" width="40" height="6"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 240)" x="120" y="-46" width="40" height="6"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 160 0)" x="234" y="-46" width="6" height="6"/>
+<!-- drawer B (closed) -->
+<rect class="mid-t" transform="translate(-112.67 -112.67)" x="40" y="230" width="200" height="4"/>
+<g transform="matrix(1 0 1.2247 1.2247 0 234)">
+<rect class="mid-l" x="40" y="-92" width="200" height="24"/>
+<rect class="hi-l" x="62" y="-88" width="40" height="10"/>
+<circle class="sc" cx="65" cy="-83" r="1.2"/><circle class="sc" cx="99" cy="-83" r="1.2"/>
+</g>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 240 0)" x="230" y="-92" width="4" height="24"/>
+<rect class="hi-t" transform="translate(-101.65 -101.65)" x="120" y="234" width="40" height="6"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 240)" x="120" y="-83" width="40" height="6"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 160 0)" x="234" y="-83" width="6" height="6"/>
+<!-- drawer D (closed, top) -->
+<rect class="mid-t" transform="translate(-198.4 -198.4)" x="40" y="230" width="200" height="4"/>
+<g transform="matrix(1 0 1.2247 1.2247 0 234)">
+<rect class="mid-l" x="40" y="-162" width="200" height="30"/>
+<rect class="hi-l" x="62" y="-158" width="40" height="10"/>
+<circle class="sc" cx="65" cy="-153" r="1.2"/><circle class="sc" cx="99" cy="-153" r="1.2"/>
+</g>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 240 0)" x="230" y="-162" width="4" height="30"/>
+<rect class="hi-t" transform="translate(-183.71 -183.71)" x="120" y="234" width="40" height="6"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 240)" x="120" y="-150" width="40" height="6"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 160 0)" x="234" y="-150" width="6" height="6"/>
+<!-- cabinet lid -->
+<g transform="translate(-218 -218)">
+<rect class="mid-t" x="26" y="26" width="228" height="208"/>
+<rect class="gr" x="38" y="38" width="204" height="184" rx="3"/>
+<circle class="sc" cx="32" cy="32" r="2.4"/><path class="sl" d="M29.6 32H34.4"/>
+<circle class="sc" cx="248" cy="32" r="2.4"/><path class="sl" d="M245.6 32H250.4"/>
+<circle class="sc" cx="32" cy="228" r="2.4"/><path class="sl" d="M29.6 228H34.4"/>
+<circle class="sc" cx="248" cy="228" r="2.4"/><path class="sl" d="M245.6 228H250.4"/>
+</g>
+<rect class="mid-l" transform="matrix(1 0 1.2247 1.2247 0 234)" x="26" y="-178" width="228" height="8"/>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 254 0)" x="26" y="-178" width="208" height="8"/>
+<!-- open drawer C: interior -->
+<rect class="rc" transform="translate(-122.47 -122.47)" x="52" y="230" width="176" height="92"/>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 52 0)" x="230" y="-110" width="92" height="10"/>
+<rect class="mid-t" transform="translate(-134.72 -134.72)" x="46" y="230" width="6" height="92"/>
+<!-- memory slips (lit) -->
+<rect class="lit-t" transform="translate(-127.37 -127.37)" x="60" y="238" width="158" height="76"/>
+<rect class="lit-l" transform="matrix(1 0 1.2247 1.2247 0 314)" x="60" y="-104" width="158" height="4"/>
+<rect class="lit-r" transform="matrix(0 1 1.2247 1.2247 218 0)" x="238" y="-104" width="76" height="4"/>
+<rect class="lit-t" transform="translate(-132.27 -132.27)" x="62" y="236" width="154" height="76"/>
+<rect class="lit-l" transform="matrix(1 0 1.2247 1.2247 0 312)" x="62" y="-108" width="154" height="4"/>
+<rect class="lit-r" transform="matrix(0 1 1.2247 1.2247 216 0)" x="236" y="-108" width="76" height="4"/>
+<rect class="lit-t" transform="translate(-137.17 -137.17)" x="58" y="239" width="161" height="76"/>
+<rect class="lit-l" transform="matrix(1 0 1.2247 1.2247 0 315)" x="58" y="-112" width="161" height="4"/>
+<rect class="lit-r" transform="matrix(0 1 1.2247 1.2247 219 0)" x="239" y="-112" width="76" height="4"/>
+<rect class="lit-t" transform="translate(-142.07 -142.07)" x="61" y="237" width="156" height="76"/>
+<rect class="lit-l" transform="matrix(1 0 1.2247 1.2247 0 313)" x="61" y="-116" width="156" height="4"/>
+<rect class="lit-r" transform="matrix(0 1 1.2247 1.2247 217 0)" x="237" y="-116" width="76" height="4"/>
+<g transform="translate(-146.96 -146.96)">
+<rect class="lit-t" x="59" y="238" width="159" height="78"/>
+<path class="rl" d="M76 238V316"/>
+<path class="rl" d="M84 250H196M84 258H206M84 266H170M84 274H200M84 282H188M84 290H150M84 298H204M84 306H176"/>
+</g>
+<rect class="lit-l" transform="matrix(1 0 1.2247 1.2247 0 316)" x="59" y="-120" width="159" height="4"/>
+<rect class="lit-r" transform="matrix(0 1 1.2247 1.2247 218 0)" x="238" y="-120" width="78" height="4"/>
+<!-- drawer C: right wall, rail, front -->
+<rect class="mid-t" transform="translate(-134.72 -134.72)" x="228" y="230" width="6" height="92"/>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 234 0)" x="230" y="-110" width="92" height="12"/>
+<g transform="translate(-126.14 -126.14)">
+<rect class="hi-t" x="234" y="230" width="4" height="86"/>
+<circle class="sc" cx="236" cy="250" r="1"/><circle class="sc" cx="236" cy="296" r="1"/>
+</g>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 238 0)" x="230" y="-103" width="86" height="4"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 316)" x="234" y="-103" width="4" height="4"/>
+<rect class="mid-t" transform="translate(-139.62 -139.62)" x="42" y="322" width="196" height="10"/>
+<g transform="matrix(1 0 1.2247 1.2247 0 332)">
+<rect class="mid-l" x="42" y="-114" width="196" height="18"/>
+<rect class="hi-l" x="60" y="-111" width="36" height="10"/>
+<circle class="sc" cx="63" cy="-106" r="1.2"/><circle class="sc" cx="93" cy="-106" r="1.2"/>
+<circle class="sc" cx="50" cy="-105" r="1.4"/><circle class="sc" cx="230" cy="-105" r="1.4"/>
+</g>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 238 0)" x="322" y="-114" width="10" height="18"/>
+<rect class="hi-t" transform="translate(-132.27 -132.27)" x="116" y="332" width="48" height="6"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 338)" x="116" y="-108" width="48" height="6"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 164 0)" x="332" y="-108" width="6" height="6"/>
+<!-- feed chute: collar A -->
+<g transform="translate(-127.37 -127.37)">
+<rect class="hi-t" x="250" y="84" width="8" height="52"/>
+<circle class="sc" cx="254" cy="90" r="1.5"/><circle class="sc" cx="254" cy="130" r="1.5"/>
+</g>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 136)" x="250" y="-104" width="8" height="42"/>
+<g transform="matrix(0 1 1.2247 1.2247 258 0)">
+<rect class="hi-r" x="84" y="-104" width="52" height="42"/>
+<circle class="sc" cx="88" cy="-100" r="1.4"/><circle class="sc" cx="132" cy="-100" r="1.4"/><circle class="sc" cx="88" cy="-66" r="1.4"/><circle class="sc" cx="132" cy="-66" r="1.4"/>
+</g>
+<!-- chute body with feed window -->
+<g transform="translate(-117.57 -117.57)">
+<rect class="mid-t" x="258" y="92" width="38" height="36"/>
+<rect class="hole" x="266" y="98" width="22" height="24"/>
+<g clip-path="url(#sera-win)">
+<rect class="mid-r" transform="translate(117.57 117.57) matrix(1 0 1.2247 1.2247 0 98)" x="260" y="-96" width="34" height="6"/>
+<rect class="mid-l" transform="translate(117.57 117.57) matrix(0 1 1.2247 1.2247 266 0)" x="92" y="-96" width="36" height="6"/>
+<g transform="translate(7.35 7.35)">
+<rect class="hi-t" x="240" y="102" width="60" height="16"/>
+<path class="sm" d="M240 107H300M240 112H300"/>
+</g>
+</g>
+<rect x="266" y="98" width="22" height="24" style="fill:none"/>
+<circle class="sc" cx="262" cy="95" r="1.3"/><circle class="sc" cx="292" cy="95" r="1.3"/><circle class="sc" cx="262" cy="125" r="1.3"/><circle class="sc" cx="292" cy="125" r="1.3"/>
+</g>
+<g transform="matrix(1 0 1.2247 1.2247 0 128)">
+<rect class="mid-l" x="258" y="-96" width="38" height="26"/>
+<path class="sm" d="M258 -83H296"/>
+</g>
+<!-- collar B -->
+<g transform="translate(-127.37 -127.37)">
+<rect class="hi-t" x="296" y="84" width="8" height="52"/>
+<circle class="sc" cx="300" cy="90" r="1.5"/><circle class="sc" cx="300" cy="130" r="1.5"/>
+</g>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 136)" x="296" y="-104" width="8" height="42"/>
+<!-- engine dock: plinth -->
+<rect class="lo-t" transform="translate(-24.49 -24.49)" x="300" y="46" width="204" height="188"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 234)" x="300" y="-20" width="204" height="6"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 504 0)" x="46" y="-20" width="188" height="6"/>
+<!-- dock housing -->
+<g transform="translate(-117.57 -117.57)">
+<rect class="mid-t" x="304" y="50" width="196" height="180"/>
+<rect class="gr" x="316" y="62" width="172" height="156" rx="3"/>
+<circle class="sc" cx="310" cy="56" r="2"/><path class="sl" d="M308 56H312"/>
+<circle class="sc" cx="494" cy="56" r="2"/><path class="sl" d="M492 56H496"/>
+<circle class="sc" cx="310" cy="224" r="2"/><path class="sl" d="M308 224H312"/>
+<circle class="sc" cx="494" cy="224" r="2"/><path class="sl" d="M492 224H496"/>
+</g>
+<g transform="matrix(1 0 1.2247 1.2247 0 230)">
+<rect class="mid-l" x="304" y="-96" width="196" height="76"/>
+<rect class="mid-r" x="320" y="-84" width="120" height="50" rx="2"/>
+<rect class="hole" x="332" y="-76" width="96" height="3" rx="1.5"/>
+<rect class="hole" x="332" y="-69" width="96" height="3" rx="1.5"/>
+<rect class="hole" x="332" y="-62" width="96" height="3" rx="1.5"/>
+<rect class="hole" x="332" y="-55" width="96" height="3" rx="1.5"/>
+<rect class="hole" x="332" y="-48" width="96" height="3" rx="1.5"/>
+<rect class="hole" x="332" y="-41" width="96" height="3" rx="1.5"/>
+<circle class="sc" cx="325" cy="-79" r="1.6"/><circle class="sc" cx="435" cy="-79" r="1.6"/><circle class="sc" cx="325" cy="-39" r="1.6"/><circle class="sc" cx="435" cy="-39" r="1.6"/>
+<path class="sm" d="M452 -96V-20"/>
+</g>
+<g transform="matrix(0 1 1.2247 1.2247 500 0)">
+<rect class="mid-r" x="50" y="-96" width="180" height="76"/>
+<circle class="sc" cx="56" cy="-90" r="1.6"/><circle class="sc" cx="224" cy="-90" r="1.6"/><circle class="sc" cx="56" cy="-26" r="1.6"/><circle class="sc" cx="224" cy="-26" r="1.6"/>
+</g>
+<!-- eject lever boss + arm -->
+<rect class="hi-t" transform="translate(-95.53 -95.53)" x="500" y="118" width="6" height="26"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 144)" x="500" y="-78" width="6" height="24"/>
+<g transform="matrix(0 1 1.2247 1.2247 506 0)">
+<rect class="hi-r" x="118" y="-78" width="26" height="24"/>
+<circle class="sc" cx="122" cy="-74" r="1.2"/><circle class="sc" cx="140" cy="-74" r="1.2"/><circle class="sc" cx="122" cy="-58" r="1.2"/><circle class="sc" cx="140" cy="-58" r="1.2"/>
+</g>
+<rect class="hi-t" transform="translate(-85.73 -85.73)" x="506" y="127" width="26" height="8"/>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 135)" x="506" y="-70" width="26" height="8"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 532 0)" x="127" y="-70" width="8" height="8"/>
+</g>
+<!-- lever knob (screen space) -->
+<path class="s hi-l" d="M279.4 168.3V185.6A7 3.5 0 0 0 293.4 185.6V168.3Z"/>
+<path class="sm" d="M281.4 170.75V188.05M283.9 171.57V188.87M286.4 171.8V189.1M288.9 171.57V188.87M291.4 170.75V188.05"/>
+<ellipse class="hi-t" cx="286.4" cy="168.3" rx="7" ry="3.5"/>
+<g transform="matrix(.7071 .3536 -.7071 .3536 0 0)">
+<!-- slot bezel -->
+<g transform="translate(-124.92 -124.92)">
+<rect class="hi-t" x="350" y="104" width="120" height="56"/>
+<rect class="hole" x="362" y="116" width="96" height="32"/>
+<circle class="sc" cx="355" cy="110" r="1.5"/><circle class="sc" cx="465" cy="110" r="1.5"/><circle class="sc" cx="355" cy="154" r="1.5"/><circle class="sc" cx="465" cy="154" r="1.5"/>
+</g>
+<rect class="hi-l" transform="matrix(1 0 1.2247 1.2247 0 160)" x="350" y="-102" width="120" height="6"/>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 470 0)" x="104" y="-102" width="56" height="6"/>
+<!-- inserted engine cartridge -->
+<g transform="matrix(1 0 1.2247 1.2247 0 144)">
+<rect class="hi-l" x="366" y="-168" width="88" height="66"/>
+<rect class="hi-t" x="380" y="-158" width="60" height="22"/>
+<path class="sm" d="M386 -152H432M386 -147H426M386 -142H410"/>
+<path class="sm" d="M366 -128H454"/>
+<circle class="sc" cx="372" cy="-112" r="1.4"/><circle class="sc" cx="448" cy="-112" r="1.4"/>
+</g>
+<g transform="matrix(0 1 1.2247 1.2247 454 0)">
+<rect class="hi-r" x="120" y="-168" width="24" height="66"/>
+<path class="sm" d="M120 -128H144"/>
+</g>
+<g transform="translate(-220.45 -220.45)">
+<rect class="hi-t" x="362" y="116" width="96" height="32"/>
+<rect class="mid-t" x="380" y="124" width="60" height="16" rx="6"/>
+</g>
+<g transform="matrix(1 0 1.2247 1.2247 0 148)">
+<rect class="hi-l" x="362" y="-180" width="96" height="12"/>
+<path class="sm" d="M374 -180v12M380 -180v12M386 -180v12M392 -180v12M398 -180v12M404 -180v12M410 -180v12M416 -180v12M422 -180v12M428 -180v12M434 -180v12M440 -180v12M446 -180v12"/>
+</g>
+<rect class="hi-r" transform="matrix(0 1 1.2247 1.2247 458 0)" x="116" y="-180" width="32" height="12"/>
+</g>
+<!-- knurled knobs on dock top (screen space) -->
+<path class="s hi-l" d="M82.92 92.15V104.27A9 4.5 0 0 0 100.92 104.27V92.15Z"/>
+<path class="sm" d="M85.92 95.5V107.62M88.92 96.39V108.51M91.92 96.65V108.77M94.92 96.39V108.51M97.92 95.5V107.62"/>
+<ellipse class="hi-t" cx="91.92" cy="92.15" rx="9" ry="4.5"/>
+<circle class="sc" cx="91.92" cy="94.4" r="1"/>
+<path class="s hi-l" d="M108.38 104.88V117A9 4.5 0 0 0 126.38 117V104.88Z"/>
+<path class="sm" d="M111.38 108.23V120.35M114.38 109.12V121.24M117.38 109.38V121.5M120.38 109.12V121.24M123.38 108.23V120.35"/>
+<ellipse class="hi-t" cx="117.38" cy="104.88" rx="9" ry="4.5"/>
+<circle class="sc" cx="120.4" cy="106.6" r="1"/>
+<g transform="matrix(.7071 .3536 -.7071 .3536 0 0)">
+<!-- spare tray -->
+<g transform="translate(-26.94 -26.94)">
+<rect class="lo-t" x="334" y="244" width="186" height="114"/>
+<circle class="sc" cx="338" cy="247" r="1.4"/><circle class="sc" cx="516" cy="247" r="1.4"/><circle class="sc" cx="338" cy="355" r="1.4"/><circle class="sc" cx="516" cy="355" r="1.4"/>
+</g>
+<rect class="rc" transform="translate(-22.05 -22.05)" x="342" y="250" width="170" height="102"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 250)" x="342" y="-22" width="170" height="4"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 342 0)" x="250" y="-22" width="102" height="4"/>
+<rect class="lo-l" transform="matrix(1 0 1.2247 1.2247 0 358)" x="334" y="-22" width="186" height="8"/>
+<rect class="lo-r" transform="matrix(0 1 1.2247 1.2247 520 0)" x="244" y="-22" width="114" height="8"/>
+<!-- spare cartridge, lying idle -->
+<g transform="translate(-61.24 -61.24)">
+<rect class="mid-t" x="352" y="253" width="12" height="96"/>
+<path class="sm" d="M352 264h12M352 270h12M352 276h12M352 282h12M352 288h12M352 294h12M352 300h12M352 306h12M352 312h12M352 318h12M352 324h12M352 330h12M352 336h12"/>
+</g>
+<rect class="mid-l" transform="matrix(1 0 1.2247 1.2247 0 349)" x="352" y="-50" width="12" height="32"/>
+<rect class="mid-r" transform="matrix(0 1 1.2247 1.2247 364 0)" x="253" y="-50" width="96" height="32"/>
+<g transform="translate(-56.34 -56.34)">
+<rect class="mid-t" x="364" y="257" width="116" height="88"/>
+<rect class="mid-l" x="376" y="271" width="24" height="60"/>
+<path class="sm" d="M382 277V323M388 277V317M394 277V301"/>
+<path class="sm" d="M404 257V345"/>
+<circle class="sc" cx="470" cy="265" r="1.4"/><circle class="sc" cx="470" cy="337" r="1.4"/>
+</g>
+<g transform="matrix(1 0 1.2247 1.2247 0 345)">
+<rect class="mid-l" x="364" y="-46" width="116" height="24"/>
+<path class="sm" d="M404 -46V-22"/>
+</g>
+<g transform="matrix(0 1 1.2247 1.2247 480 0)">
+<rect class="mid-r" x="257" y="-46" width="88" height="24"/>
+<rect class="hole" x="269" y="-40" width="64" height="12" rx="1"/>
+<rect class="hi-t" x="275" y="-37" width="4" height="6"/><rect class="hi-t" x="283" y="-37" width="4" height="6"/><rect class="hi-t" x="291" y="-37" width="4" height="6"/><rect class="hi-t" x="299" y="-37" width="4" height="6"/><rect class="hi-t" x="307" y="-37" width="4" height="6"/><rect class="hi-t" x="315" y="-37" width="4" height="6"/><rect class="hi-t" x="323" y="-37" width="4" height="6"/>
+</g>
+</g>
+</svg>
