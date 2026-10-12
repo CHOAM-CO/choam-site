@@ -66,7 +66,7 @@
           [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 꿈도 꿉니다\n꿈까지 업무 보고서일 필요는 없습니다']
         ]
       },
-      action: { label: 'Get', href: 'download.html' },
+      action: { label: 'Get', href: 'download.html', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
       field: 'sch',
       art: [0, 1, 2, 3],
       panels: [
@@ -238,6 +238,7 @@
     ['.dl .cap-meta span:first-child', '', '베타'],
     ['.dl .cap-line', '', PROJECTS[0].ko.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘'],
+    ['.dlbtn[data-os="win"] small', '', '설치 파일'],
     ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다'],
     ['.dl-note a', '', '전체 릴리스']
   ].flatMap(([sel, attr, k]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, en: attr ? el.getAttribute(attr) : el.textContent })));
@@ -313,7 +314,126 @@
     if (e.key !== 'Escape') return;
     if (langOpen()) setLangMenu(false, true);
     else if (body.classList.contains('menu-open')) { setMenu(false); toggles[0] && toggles[0].focus(); }
+    else if (getOpen) setGet(getOpen, false, true);
   });
+
+  /* ---------- Scheherazade installers (download page and the Get chooser) ----------
+     Every link starts on the latest release page. The public latest-release API is read once, only when the chooser is first
+     opened or the download page is shown, and a link moves to an installer only if that release holds a file of exactly that
+     platform's name; otherwise (no answer, rate limit, renamed file) it stays on the release page. Version numbers are never
+     written here: releases/latest/download/<file> needs the versioned name, so the name comes from the release itself.
+     The browser's OS only marks one choice as recommended; nothing downloads until a person picks one. */
+  const REL_REPO = 'https://github.com/Mino-is-me/scheherazade-releases';
+  const REL_PAGE = `${REL_REPO}/releases/latest`;
+  const REL_API = 'https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/latest';
+  const OSES = [
+    { os: 'mac', name: 'Mac', detail: 'Apple silicon', detailKo: 'Apple 실리콘', file: /^Scheherazade-[^/]+-arm64\.dmg$/ },
+    { os: 'win', name: 'Windows', detail: 'Installer', detailKo: '설치 파일', file: /^Scheherazade-Setup-[^/]+\.exe$/ },
+    { os: 'linux', name: 'Linux', detail: 'x86_64 AppImage', detailKo: 'x86_64 AppImage', file: /^Scheherazade-[^/]+-x86_64\.AppImage$/ }
+  ];
+  /* phones, tablets and ChromeOS get no recommendation: none of these installers runs there */
+  const myOS = (() => {
+    const n = navigator, ua = (n.userAgent || '').toLowerCase();
+    const pf = ((n.userAgentData && n.userAgentData.platform) || n.platform || '').toLowerCase();
+    if (/android|iphone|ipad|ipod|cros/.test(ua) || /android|chrome os|ios/.test(pf) || (/mac/.test(pf) && n.maxTouchPoints > 1)) return '';
+    if (/^win/.test(pf) || /windows nt/.test(ua)) return 'win';
+    if (/mac/.test(pf) || /mac os x/.test(ua)) return 'mac';
+    if (/linux/.test(pf) || /linux/.test(ua)) return 'linux';
+    return '';
+  })();
+  const rel = { state: 'idle', tag: '', urls: {} }; /* idle -> loading -> ok | failed */
+  const relViews = new Set();                         /* containers whose [data-rel-os] links follow the release */
+  const labelRel = root => {
+    root.querySelectorAll('[data-rel-os]').forEach(a => {
+      const o = OSES.find(x => x.os === a.dataset.relOs), d = a.querySelector('[data-os-detail]'), rec = a.querySelector('[data-os-rec]');
+      a.href = rel.urls[o.os] || REL_PAGE;
+      if (d) d.textContent = ko() ? o.detailKo : o.detail;
+      a.classList.toggle('is-rec', o.os === myOS);
+      if (rec) { rec.hidden = o.os !== myOS; rec.textContent = ko() ? '추천' : 'Recommended'; }
+    });
+    root.querySelectorAll('[data-rel-ver]').forEach(el => { el.textContent = rel.tag; });
+    root.querySelectorAll('[data-rel-note]').forEach(el => {
+      el.hidden = rel.state !== 'failed';
+      el.textContent = ko() ? 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다' : 'GitHub didn’t answer, so each choice opens the latest release page.';
+    });
+  };
+  const loadRel = () => {
+    if (rel.state !== 'idle') return;
+    rel.state = 'loading';
+    const ctl = 'AbortController' in window ? new AbortController() : null, stop = ctl && setTimeout(() => ctl.abort(), 10000);
+    fetch(REL_API, ctl ? { signal: ctl.signal } : {})
+      .then(r => { if (!r.ok) throw new Error(`GitHub ${r.status}`); return r.json(); })
+      .then(data => {
+        const assets = Array.isArray(data.assets) ? data.assets : [];
+        OSES.forEach(o => {
+          const a = assets.find(x => x && o.file.test(x.name) && (!x.state || x.state === 'uploaded') && typeof x.browser_download_url === 'string'
+            && x.browser_download_url.startsWith(`${REL_REPO}/releases/download/`) && x.browser_download_url.endsWith(`/${x.name}`));
+          if (a) rel.urls[o.os] = a.browser_download_url;
+        });
+        rel.tag = typeof data.tag_name === 'string' ? data.tag_name : '';
+        rel.state = 'ok';
+      })
+      .catch(() => { rel.state = 'failed'; rel.urls = {}; })
+      .finally(() => { clearTimeout(stop); relViews.forEach(labelRel); });
+  };
+  relabel.push(() => relViews.forEach(labelRel));
+
+  /* the download page is the chooser itself: its three buttons follow the release as soon as it is shown */
+  const dlBtns = document.querySelector('.dl-btns');
+  if (dlBtns) {
+    dlBtns.querySelectorAll('.dlbtn[data-os]').forEach(a => {
+      a.dataset.relOs = a.dataset.os;
+      (a.querySelector('small') || a).insertAdjacentHTML(a.querySelector('small') ? 'beforebegin' : 'beforeend', '<em class="os-rec" data-os-rec hidden></em>');
+    });
+    relViews.add(document.querySelector('.dl-body'));
+    loadRel();
+  }
+
+  /* Get chooser (a disclosure: Get, then three ordinary links). Plain clicks open it; a modified click or no script still
+     follows Get's own link to the download page. Arrow keys move between choices, Escape closes and returns to Get. */
+  let getOpen = null; /* the open chooser's .get-wrap */
+  const getOpts = wrap => [...wrap.querySelectorAll('.get-opt')];
+  function setGet(wrap, open, focusBtn) {
+    const btn = wrap.querySelector('.prod-act'), menu = wrap.querySelector('.get-menu');
+    if (open) {
+      if (getOpen && getOpen !== wrap) setGet(getOpen, false);
+      if (langOpen()) setLangMenu(false);
+      if (body.classList.contains('menu-open')) setMenu(false);
+      loadRel();
+      labelRel(menu);
+    }
+    menu.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    getOpen = open ? wrap : getOpen === wrap ? null : getOpen;
+    if (open) (getOpts(wrap).find(a => a.classList.contains('is-rec')) || getOpts(wrap)[0]).focus();
+    else if (focusBtn) btn.focus();
+  }
+  const getMenuHTML = id => `<div class="get-menu" id="get-${id}" hidden>
+      <p class="get-head"><span data-get-head></span><span data-rel-ver></span></p>
+      <ul>${OSES.map(o => `<li><a class="lang-opt get-opt" data-rel-os="${o.os}" href="${REL_PAGE}"><span>${o.name}<em class="os-rec" data-os-rec hidden></em></span><b data-os-detail></b></a></li>`).join('')}</ul>
+      <p class="get-note" data-rel-note hidden></p>
+    </div>`;
+  const wireGet = wrap => {
+    const btn = wrap.querySelector('.prod-act');
+    relViews.add(wrap.querySelector('.get-menu'));
+    btn.addEventListener('click', e => {
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; /* new tab / window: the download page */
+      e.preventDefault();
+      setGet(wrap, btn.getAttribute('aria-expanded') !== 'true');
+    });
+    wrap.addEventListener('keydown', e => {
+      if (getOpen !== wrap) return;
+      const opts = getOpts(wrap), i = opts.indexOf(document.activeElement);
+      const to = e.key === 'ArrowDown' ? (i + 1) % opts.length : e.key === 'ArrowUp' ? (i < 0 ? opts.length - 1 : (i + opts.length - 1) % opts.length)
+        : e.key === 'Home' ? 0 : e.key === 'End' ? opts.length - 1 : -1;
+      if (to < 0) return;
+      e.preventDefault(); e.stopPropagation();
+      opts[to].focus();
+    });
+    getOpts(wrap).forEach(a => a.addEventListener('click', () => setGet(wrap, false, true))); /* the link still navigates */
+    wrap.addEventListener('focusout', e => { if (getOpen === wrap && e.relatedTarget && !wrap.contains(e.relatedTarget)) setGet(wrap, false); });
+  };
+  document.addEventListener('click', e => { if (getOpen && !getOpen.contains(e.target)) setGet(getOpen, false); });
   applyLang(lang, false);
 
   let idle = 0;
@@ -390,12 +510,14 @@
           <span class="dots">${Array.from({ length: n }, (_, k) => `<button class="dot" type="button" data-rail-go="${k}"><i></i></button>`).join('')}</span>
           <button class="text-btn" type="button" data-rail-step="1"></button>
           <span class="count" aria-hidden="true"><b data-count>1</b> / ${n}</span>` : ''}
-          ${act ? `<a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a>` : ''}
+          ${act && act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
+            : act ? `<a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a>` : ''}
         </div>
       </div>
     </section>`;
   }).join('');
   const secs = [...track.querySelectorAll('.prod')];
+  track.querySelectorAll('.get-wrap').forEach(wireGet);
 
   /* every word in a section, in the current language; changes text in place so scroll and rail position stay put */
   const labelSec = (sec, p) => {
@@ -414,6 +536,7 @@
     sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', ko() ? `${T}, ${n}개 중 ${k + 1}번째 ${unit}` : `${T}, ${unit} ${k + 1} of ${n}`));
     const a = sec.querySelector('.prod-act');
     if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
+    const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = ko() && spec.altKo || spec.alt;
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
@@ -537,8 +660,9 @@
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (!en.isIntersecting) return;
-      if (en.target === intro) { showIntro(); return; }
+      if (en.target === intro) { showIntro(); if (getOpen) setGet(getOpen, false); return; }
       atIntro = false; cur = secs.indexOf(en.target); sync(en.target);
+      if (getOpen && !en.target.contains(getOpen)) setGet(getOpen, false);
     });
   }, { rootMargin: '-50% 0px -50% 0px' });
   [intro, ...secs].forEach(el => el && io.observe(el));
@@ -561,7 +685,7 @@
 
   /* Left/Right anywhere else on the page step the current product's paragraphs; Up/Down stay native */
   document.addEventListener('keydown', e => {
-    if (e.altKey || e.ctrlKey || e.metaKey || body.classList.contains('menu-open') || langOpen() || e.defaultPrevented) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || body.classList.contains('menu-open') || langOpen() || getOpen || e.defaultPrevented) return;
     if (e.target.closest && e.target.closest('input, textarea, select')) return;
     if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && !atIntro) {
       e.preventDefault();

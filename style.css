@@ -256,6 +256,14 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   transition: background .3s, color .3s;
 }
 .prod-act:hover { background: var(--ember); }
+/* Get chooser: the language menu's panel and rows, opening upward from Get */
+.get-wrap { position: relative; margin-left: auto; display: flex; }
+.get-menu { position: absolute; right: 0; bottom: calc(100% + 8px); z-index: 3; min-width: 264px; padding: 6px 0; background: var(--void); border: 1px solid var(--line); }
+.get-head { display: flex; justify-content: space-between; gap: 16px; padding: 10px 18px 6px; font-weight: 600; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
+.get-opt span { display: flex; align-items: baseline; gap: 10px; }
+.get-opt.is-rec { color: var(--bone); box-shadow: inset 2px 0 0 var(--ember); }
+.os-rec { font-style: normal; font-weight: 650; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ember); }
+.get-note { max-width: 262px; padding: 6px 18px 10px; font-size: 13px; line-height: 1.5; color: var(--ash); }
 
 /* framed per-paragraph visuals (feature graphics, in-game captures): a lit plate left of the copy */
 .prod { --vis-r: calc(var(--gutter) + var(--col) + 3vw); }
@@ -351,6 +359,8 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dlbtn { display: inline-flex; align-items: baseline; gap: .7em; padding: 16px 24px; font-weight: 700; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; border: 1px solid rgba(235, 229, 218, .4); transition: background .3s, color .3s; }
 .dlbtn small { font-size: 10px; font-weight: 600; letter-spacing: .16em; opacity: .7; }
 .dlbtn:hover { background: var(--bone); color: var(--void); }
+.dlbtn.is-rec { border-color: var(--bone); }
+.dlbtn:hover .os-rec { color: inherit; }
 .dl-note { margin-top: 24px; max-width: 34em; font-size: 15px; line-height: 1.7; color: var(--ash); }
 .dl-note a { margin-left: .6em; color: var(--bone); font-weight: 650; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; border-bottom: 1px solid currentColor; }
 .dl-foot { position: fixed; inset: auto 0 0; z-index: 20; height: var(--deck-h); align-items: center; padding: 0 var(--gutter); background: var(--void); }
@@ -394,6 +404,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .slide .display { font-size: 17px; }
   .rail-ctl { margin-top: 12px; gap: 4px 14px; }
   .prod-act { min-width: 96px; height: 44px; padding: 0 20px; font-size: 11px; }
+  .get-menu { min-width: min(264px, calc(100vw - 2 * var(--gutter))); }
   .prod .vis { inset: calc(var(--mast-h) + 14px) var(--gutter) calc(100% - var(--copy-top, 52%) + 14px); gap: 8px; }
   .vis img, .vis svg { width: min(100cqw, calc((100cqh - 22px) * var(--ar))); }
   .vis figcaption { font-size: 9.5px; }
@@ -407,6 +418,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .dl .sch-icon { position: absolute; top: calc(var(--mast-h) + 30px); left: var(--gutter); transform: none; width: 40vw; }
   .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 40vw + 60px) var(--gutter) 100px; justify-content: flex-start; }
   .dlbtn { flex: 1 1 100%; justify-content: space-between; }
+  .dlbtn .os-rec { margin-left: auto; }
 }
 
 /* ---------- narrow phones: brand over the motto, Projects and language beside ---------- */

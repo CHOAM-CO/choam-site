@@ -21,30 +21,19 @@
 <main class="dl">
   <div class="sch-field"><img class="sch-icon" src="assets/scheherazade.png" alt="Scheherazade app icon" width="1024" height="1024"></div>
   <div class="dl-body">
-    <p class="cap-meta"><span>Beta</span><span id="ver"></span></p>
+    <p class="cap-meta"><span>Beta</span><span data-rel-ver></span></p>
     <h1 class="cap-title">Scheherazade</h1>
     <p class="cap-line">Agent stands more than 1001 nights</p>
     <div class="dl-btns">
       <a class="dlbtn" data-os="mac" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Mac <small>Apple silicon</small></a>
-      <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Windows</a>
-      <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Linux <small>AppImage</small></a>
+      <a class="dlbtn" data-os="win" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Windows <small>Installer</small></a>
+      <a class="dlbtn" data-os="linux" href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest">Linux <small>x86_64 AppImage</small></a>
     </div>
+    <p class="dl-note" data-rel-note hidden></p>
     <p class="dl-note"><span data-note>Connect your Claude or ChatGPT subscription, or use Ollama.</span> <a href="https://github.com/Mino-is-me/scheherazade-releases/releases/latest" target="_blank" rel="noopener">All releases</a></p>
   </div>
 </main>
 <footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
-<script>
-// point each button straight at the newest installer
-fetch('https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/latest')
-  .then(r => r.json()).then(rel => {
-    const pick = { mac: /arm64\.dmg$/, win: /Setup-.*\.exe$/, linux: /\.AppImage$/ }
-    for (const a of document.querySelectorAll('.dlbtn')) {
-      const asset = (rel.assets || []).find(x => pick[a.dataset.os].test(x.name))
-      if (asset) a.href = asset.browser_download_url
-    }
-    if (rel.tag_name) document.getElementById('ver').textContent = rel.tag_name
-  }).catch(() => {})
-</script>
 <script src="main.js"></script>
 </body>
 </html>
