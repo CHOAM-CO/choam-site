@@ -312,9 +312,8 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
    carries its own soft floor shadow */
 .afig img { box-shadow: none; }
 
-/* DAT (Our Style): one piece at a time, as large as the plate allows. A cut-out standing stands unframed
-   at 92% of the plate's height so head and feet keep some air; a full image (the key visual) sits framed like an in-game
-   capture. --h fits the row to the plate's height and width. Captions and names are optional: the artwork uses neither,
+/* DAT (Our Style): the three standings share one unframed row. Head and feet keep some air at 92% of the plate's
+   height; --h also fits the complete trio to narrow plates. Full comparison images sit framed like an in-game capture. --h fits the row to the plate's height and width. Captions and names are optional: the artwork uses neither,
    the real before/after pair (gal-pair) uses both. */
 .gal { --capH: 0px; --gn: 0px; --gg: 28px; --fill: 1; }
 .gal:has(figcaption) { --capH: 34px; }
@@ -343,6 +342,39 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   .gal:has(.gn) { --gn: 24px; }
   .gi { gap: 6px; }
   .gn { font-size: 10px; }
+}
+
+/* DAT's comparison is directly available in step three, never behind a popup. */
+.prod .dat-inline { pointer-events: auto; container-type: normal; gap: 12px; }
+.prod .dat-inline[hidden] { display: none; }
+#dat.dat-comparing .rail { display: none; }
+.dat-cases { display: flex; flex-wrap: wrap; gap: 8px 18px; width: 100%; }
+.dat-cases button { border: 0; border-bottom: 1px solid transparent; background: none; color: var(--dim); font: inherit; font-size: 12px; padding: 6px 0; cursor: pointer; }
+.dat-cases button[aria-pressed="true"] { color: var(--bone); border-color: var(--ember); }
+.dat-reveal { position: relative; flex: none; aspect-ratio: var(--case-ar); width: min(100%, calc(38dvh * var(--case-ar))); margin-inline: auto; overflow: hidden; touch-action: none; cursor: col-resize; }
+.prod .dat-reveal img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; pointer-events: none; box-shadow: none; }
+.dat-reveal .dat-after { clip-path: inset(0 0 0 var(--split)); }
+.dat-side { position: absolute; top: 12px; padding: 6px 9px; background: rgba(0,0,0,.74); font-size: 11px; letter-spacing: .08em; pointer-events: none; }
+.dat-before-tag { left: 12px; } .dat-after-tag { right: 12px; }
+.dat-divider { position: absolute; top: 0; bottom: 0; left: var(--split); width: 2px; background: var(--bone); pointer-events: none; }
+.dat-divider::after { content: '↔'; position: absolute; left: -16px; top: calc(50% - 17px); width: 34px; height: 34px; display: grid; place-items: center; background: var(--night); border: 1px solid var(--bone); border-radius: 50%; font-size: 18px; }
+.dat-range-label { display: flex; flex: none; width: 100%; gap: 14px; align-items: center; font-size: 10px; letter-spacing: .1em; }
+.dat-range-label input { flex: 1; min-width: 0; accent-color: var(--ember); height: 32px; }
+.dat-zoom { display: grid; flex: none; width: 100%; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dat-zoom > div { min-width: 0; }
+.dat-zoom span { display: block; font-size: 10px; letter-spacing: .1em; margin-bottom: 8px; }
+.dat-detail { width: 100%; height: clamp(90px, 12vh, 140px); background-repeat: no-repeat; background-color: var(--night); border: 1px solid rgba(235,229,218,.2); box-sizing: border-box; }
+.dat-inline button:focus-visible, .dat-inline input:focus-visible, .dat-zoom:focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; }
+@media (max-width: 760px) {
+  #dat.dat-comparing { height: auto; min-height: 100dvh; }
+  #dat.dat-comparing .stage { position: relative; padding-top: calc(var(--mast-h) + 20px); }
+  #dat.dat-comparing .dat-inline { position: relative; inset: auto; width: auto; margin: 0 var(--gutter); }
+  #dat.dat-comparing .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 26px 0 calc(var(--deck-h) + 24px); }
+  .dat-cases { gap: 6px 14px; }
+  .dat-reveal { width: min(100%, calc(44dvh * var(--case-ar))); }
+  .dat-side { font-size: 9px; top: 6px; padding: 5px; }
+  .dat-before-tag { left: 6px; } .dat-after-tag { right: 6px; }
+  .dat-zoom { gap: 10px; }
 }
 
 /* chrome used by the old horizontal deck: not part of this layout */

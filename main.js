@@ -90,7 +90,7 @@
         description: ['오픈소스 생성형 모델을 우리 그림체에 맞게 직접 파인튜닝해 그래픽 리소스를 만듭니다']
       },
       field: 'dat',
-      reel: true, /* one visual at a time: artwork, then how DAT works and one real result; the rail controls step the visual, not the copy */
+      reel: true, /* Our Style: the three standings together; Image Organize: the process, then a genuine comparison. */
       /* r5: real, Mino-locked Seonjam production art, shown with no names or captions (provenance lives in the r5 receipt).
          Each chain also uses other tools (Codex i2i / seedream / matting), so nothing here is presented as pure model output.
          seoa  success_cases/seoa/seoa_handsback_v2.png                     decisions.log L450
@@ -99,20 +99,30 @@
          kv    success_cases/group_scenes/seonjam_keyvisual_classroom_v2.png decisions.log L477, LOCKED.md
          Standings are trimmed to their alpha and scaled; nothing is retouched (scripts/gallery-art.py). */
       panels: [
-        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-seoa.webp', ar: 444 / 1300, alt: 'Character art: a girl with long silver hair in a navy sailor uniform, standing with her hands behind her back', altKo: '캐릭터 일러스트: 긴 은발에 남색 세일러 교복을 입고 뒷짐 진 채 서 있는 소녀' }] },
-        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-yeji.webp', ar: 461 / 1300, alt: 'Character art: a girl with long dark hair in a dark blazer, looking back over her shoulder', altKo: '캐릭터 일러스트: 긴 흑발에 짙은 블레이저 차림으로 어깨 너머 돌아보는 소녀' }] },
-        { kind: 'gallery', cut: true, items: [{ src: 'assets/dat-g-daeun.webp', ar: 408 / 1300, alt: 'Character art: a girl with short red hair in a sailor uniform, scratching her head', altKo: '캐릭터 일러스트: 짧은 빨간 머리에 세일러 교복 차림으로 머리를 긁는 소녀' }] },
-        { kind: 'gallery', items: [{ src: 'assets/dat-g-classroom.webp', ar: 1664 / 936, alt: 'Key visual: five girls in school uniform in a dark classroom lit by a green exit sign', altKo: '키 비주얼: 초록 비상구 불빛이 비치는 어두운 교실에 선 교복 차림의 소녀 다섯' }] },
+        { kind: 'gallery', cut: true, items: [
+          { src: 'assets/dat-g-seoa.webp', ar: 444 / 1300, alt: 'Character art: a girl with long silver hair in a navy sailor uniform, standing with her hands behind her back', altKo: '캐릭터 일러스트: 긴 은발에 남색 세일러 교복을 입고 뒷짐 진 채 서 있는 소녀' },
+          { src: 'assets/dat-g-yeji.webp', ar: 461 / 1300, alt: 'Character art: a girl with long dark hair in a dark blazer, looking back over her shoulder', altKo: '캐릭터 일러스트: 긴 흑발에 짙은 블레이저 차림으로 어깨 너머 돌아보는 소녀' },
+          { src: 'assets/dat-g-daeun.webp', ar: 408 / 1300, alt: 'Character art: a girl with short red hair in a sailor uniform, scratching her head', altKo: '캐릭터 일러스트: 짧은 빨간 머리에 세일러 교복 차림으로 머리를 긁는 소녀' }
+        ] },
+        /* The classroom is removed only from this display; its asset and all other uses stay intact. */
         /* 2026-10-12 (Mino 12:29): how DAT is used, drawn as a machine, then one real before/after kept apart from it.
            Concept: GPT Image's muddy colouring filtered out and a watercolour wash added (Mino's description).
            Real pair: Donguri Ryokan shrine-leaf cut, 2026-10-11, GPT Image original and the DAT pass Mino picked, both full frame
            at the same scale (scripts/build_assets.py). One scene, not a claim that every error is fixed. */
         { kind: 'fig', src: 'assets/dat-machine.svg', ar: 1039 / 573, cap: 'Feature graphic · How DAT works', capKo: '설명 그림 · DAT가 하는 일', alt: 'Feature graphic, not actual output: muddy pictures ride a conveyor through a filter that catches the harsh colour, pass under a roller that lays a light watercolour wash, and stack up on the right', altKo: '설명 그림, 실제 결과 아님: 탁한 그림이 컨베이어를 타고 거친 색을 거르는 필터를 지나, 롤러 아래에서 옅은 수채 워시를 입고 오른쪽에 쌓이는 기계' },
-        { kind: 'gallery', pair: true, cap: 'Actual output · Donguri Ryokan', capKo: '실제 결과 · 동구리 료칸', alt: 'Actual output: one Donguri Ryokan scene before and after DAT, same size and framing', altKo: '실제 결과: 동구리 료칸 한 장면의 DAT 적용 전과 후, 같은 크기와 구도',
+        { kind: 'compare', alt: 'Actual output: one Donguri Ryokan scene before and after DAT, same size and framing', altKo: '실제 결과: 동구리 료칸 한 장면의 DAT 적용 전과 후, 같은 크기와 구도',
           items: [
             { src: 'assets/dat-case-original.webp', ar: 2048 / 1360, name: 'GPT Image original', nameKo: 'GPT Image 원본', alt: 'GPT Image original: two fox girls in kimono at a mountain shrine at sunset, one holding up a leaf, the other lying by a wooden box with a cup', altKo: 'GPT Image 원본: 노을 진 산속 신사에서 한 명은 나뭇잎을 들고, 한 명은 나무 상자 곁에 엎드려 잔을 든 기모노 차림의 여우 소녀 둘' },
             { src: 'assets/dat-case-dat.webp', ar: 2048 / 1360, name: 'After DAT', nameKo: 'DAT 적용 후', alt: 'The same scene after DAT: smoother brushwork in the hair and clothing, with some costume and accessory details redrawn', altKo: '같은 장면에 DAT를 적용한 결과: 머리카락과 옷의 붓 결이 더 매끈해지고, 의상과 장신구 일부가 다시 그려짐' }
           ] }
+      ],
+      comparisons: [
+        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020,
+          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면' },
+        { id: 'classroom', label: 'Classroom', labelKo: '교실', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, detailPoint: [.25, .78],
+          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줘요. 장신구 모양도 바뀐 장면이에요' },
+        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, detailPoint: [.7, .74],
+          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘랐어요. 머리 장식과 장신구, 옷의 세부 모양도 바뀐 장면이에요' }
       ],
       info: { kind: 'dat' }
     },
@@ -472,6 +482,11 @@
   /* captions, alt text and copy are filled by labelSec, in the current language */
   const visual = (spec, j, i) => {
     const on = j === 0 ? ' is-on' : '', cap = spec.cap ? '<figcaption></figcaption>' : '';
+    if (spec.kind === 'compare') return `<div class="media vis dat-inline${on}" data-art="${i}" role="group" hidden>
+      <div class="dat-cases" role="group"></div>
+      <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span></div>
+      <label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label>
+      <div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div></div>`;
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
@@ -519,9 +534,91 @@
   const secs = [...track.querySelectorAll('.prod')];
   track.querySelectorAll('.get-wrap').forEach(wireGet);
 
+  /* DAT compares only recorded image pairs. Display files share one pixel ROI, never a stretched frame. */
+  const datSec = secs.find(sec => sec.dataset.prod === 'dat');
+  const datProject = shown.find(p => p.id === 'dat');
+  const datInline = datSec && datSec.querySelector('.dat-inline');
+  let datCase = 0, zoomX = .24, zoomY = .49;
+  const datText = (en, kr) => ko() ? kr : en;
+  const activeCase = () => datProject.comparisons[datCase];
+  const resetDetail = () => { [zoomX, zoomY] = activeCase().detailPoint || [.24, .49]; };
+  const pauseDat = () => { datSec._manual = true; if (datSec._arm) datSec._arm(); };
+  const updateZoom = () => {
+    if (!datInline || datInline.hidden) return;
+    const c = activeCase(), h = datInline.querySelector('.dat-reveal').getBoundingClientRect().height * 3, w = h * c.width / c.height;
+    datInline.querySelectorAll('.dat-detail').forEach(el => {
+      const b = el.getBoundingClientRect();
+      el.style.backgroundSize = `${w}px ${h}px`;
+      el.style.backgroundPosition = `${b.width / 2 - zoomX * w}px ${b.height / 2 - zoomY * h}px`;
+      el.dataset.x = zoomX.toFixed(4); el.dataset.y = zoomY.toFixed(4);
+    });
+  };
+  const updateDat = () => {
+    if (!datSec) return;
+    const k = datSec._k || 0, title = datSec.querySelector('.cap-title');
+    (title.querySelector('a') || title).textContent = k ? 'Image Organize' : 'Our Style';
+    datSec.classList.toggle('dat-comparing', k === 2);
+    datInline.hidden = k !== 2;
+    datInline.inert = k !== 2;
+    /* Keep the maker statement and process graphic; comparisons need only clean before/after labels. */
+    datSec.querySelector('.slide p').textContent = k === 0 ? tr(datProject, 'description')[0] : k === 1
+      ? datText('A feature graphic of the DAT finishing process: filtering muddy colour and adding a light watercolour wash.', '탁한 색을 거르고 옅은 수채 질감을 더하는 DAT 후처리 과정을 그린 설명 그림') : '';
+    const c = activeCase(), beforeName = ko() ? c.beforeLabelKo || c.beforeLabel || '원본' : c.beforeLabel || 'Original';
+    datInline.setAttribute('aria-label', `${ko() ? c.labelKo : c.label} · BEFORE / AFTER`);
+    datInline.querySelector('.dat-cases').setAttribute('aria-label', datText('Comparison cases', '비교 장면'));
+    datInline.querySelectorAll('[data-dat-case]').forEach((b, i) => {
+      b.textContent = ko() ? datProject.comparisons[i].labelKo : datProject.comparisons[i].label;
+      b.setAttribute('aria-pressed', String(i === datCase));
+    });
+    const point = c.detailPoint || [.24, .49];
+    datInline.dataset.defaultX = point[0].toFixed(4); datInline.dataset.defaultY = point[1].toFixed(4);
+    datInline.querySelector('.dat-reveal').style.setProperty('--case-ar', c.width / c.height);
+    datInline.querySelectorAll('[data-dat-native]').forEach((img, i) => {
+      img.src = url(i ? c.after : c.before);
+      img.alt = `${ko() ? c.labelKo : c.label} · ${i ? datText('After DAT', 'DAT 적용 후') : beforeName}`;
+    });
+    datInline.querySelectorAll('.dat-detail').forEach((el, i) => { el.style.backgroundImage = `url("${url(i ? c.after : c.before)}")`; });
+    datInline.querySelector('[data-dat-range]').setAttribute('aria-label', datText('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치'));
+    datInline.querySelector('.dat-zoom').setAttribute('aria-label', datText('Synchronized detail magnifier. Arrow keys move the location, Home resets.', '같은 위치 확대. 방향키로 위치 이동, Home으로 초기 위치'));
+    updateZoom();
+  };
+  if (datInline) {
+    datInline.querySelector('.dat-cases').innerHTML = datProject.comparisons.map((_, i) => `<button type="button" data-dat-case="${i}" aria-pressed="${i === 0}"></button>`).join('');
+    datInline.addEventListener('pointerdown', pauseDat);
+    datInline.addEventListener('focusin', pauseDat);
+    datInline.addEventListener('click', e => {
+      const b = e.target.closest('[data-dat-case]'); if (!b) return;
+      pauseDat(); datCase = Number(b.dataset.datCase); resetDetail();
+      datInline.querySelector('[data-dat-range]').value = 50;
+      datInline.querySelector('.dat-reveal').style.setProperty('--split', '50%'); updateDat();
+    });
+    const range = datInline.querySelector('[data-dat-range]'), frame = datInline.querySelector('.dat-reveal');
+    range.addEventListener('input', () => { pauseDat(); frame.style.setProperty('--split', `${range.value}%`); });
+    const locate = e => {
+      const b = frame.getBoundingClientRect();
+      zoomX = Math.max(.01, Math.min(.99, (e.clientX - b.left) / b.width));
+      zoomY = Math.max(.01, Math.min(.99, (e.clientY - b.top) / b.height)); updateZoom();
+    };
+    frame.addEventListener('pointerdown', e => { frame.setPointerCapture(e.pointerId); locate(e); range.value = Math.round(zoomX * 100); range.dispatchEvent(new Event('input')); });
+    frame.addEventListener('pointermove', e => {
+      if (e.pointerType === 'mouse' || frame.hasPointerCapture(e.pointerId)) { pauseDat(); locate(e); }
+      if (frame.hasPointerCapture(e.pointerId)) { range.value = Math.round(zoomX * 100); range.dispatchEvent(new Event('input')); }
+    });
+    datInline.querySelector('.dat-zoom').addEventListener('keydown', e => {
+      if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home'].includes(e.key)) return;
+      e.preventDefault(); e.stopPropagation(); pauseDat();
+      if (e.key === 'Home') resetDetail();
+      else { zoomX = Math.max(.01, Math.min(.99, zoomX + (e.key === 'ArrowLeft' ? -.02 : e.key === 'ArrowRight' ? .02 : 0))); zoomY = Math.max(.01, Math.min(.99, zoomY + (e.key === 'ArrowUp' ? -.02 : e.key === 'ArrowDown' ? .02 : 0))); }
+      updateZoom();
+    });
+    /* Inline controls never step the reel; Tab and Escape remain native and untrapped. */
+    datInline.addEventListener('keydown', e => { pauseDat(); e.stopPropagation(); });
+    new ResizeObserver(updateZoom).observe(frame);
+  }
+
   /* every word in a section, in the current language; changes text in place so scroll and rail position stay put */
   const labelSec = (sec, p) => {
-    const ps = paras(p), n = steps(p), T = p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
+    const ps = paras(p), n = steps(p), T = p.id === 'dat' && sec._k ? 'Image Organize' : p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
     const st = sec.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
     sec.querySelector('.cap-line').textContent = tr(p, 'headline');
     set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${ps.length}개` : `${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`);
@@ -544,6 +641,7 @@
       else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
       if (cap) cap.textContent = ko() && spec.capKo || spec.cap;
     });
+    if (p.id === 'dat') updateDat();
   };
   const labelAll = () => secs.forEach((sec, i) => labelSec(sec, shown[i]));
   labelAll();
@@ -592,6 +690,7 @@
     sec.querySelectorAll('.slide').forEach((el, j) => { el.inert = p.reel ? false : j !== k; });
     const c = sec.querySelector('[data-count]'); if (c) c.textContent = k + 1;
     const art = p.reel ? p.panels[k] : artFor(p, k);
+    if (p.id === 'dat') labelSec(sec, p);
     sec.dataset.vis = art.kind;
     sec.querySelectorAll('.media[data-art]').forEach(m => {
       const on = Number(m.dataset.art) === p.panels.indexOf(art);
