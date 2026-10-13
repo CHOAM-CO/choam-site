@@ -2,8 +2,8 @@
    Native port of the reviewed animatic (choam/astra_hero_animatic_DAT_20261013, method/composite_dat.py): the selected
    DAT still is the only picture; relight, match, flame, ember and smoke are drawn on the canvas in the animatic's own
    1280x720 frame coordinates, and the title is the real HTML text driven by scene.js's textAt() timing.
-   Cycle 9.8 s, looping: 0.15 ignite, 2.2-2.6 blow out, 3.0 text spawn, 9.0-9.5 title fade, 9.8 loop.
-   Runs only while the opening is on screen and the tab is visible; static canvas phases are not redrawn.
+   Plays once per page load: 0.15 ignite, 2.2-2.6 blow out, 3.0 text spawn, then holds on the full CHOAM title at T_END
+   (before the old 9.0-9.5 fade) on the black ground; leaving and returning does not replay it. Runs only while the opening is on screen and the tab is visible; static canvas phases are not redrawn.
    prefers-reduced-motion: one still frame (steady lit match) with the title at rest, no loop. */
 (() => {
   const intro = document.querySelector('.intro');
@@ -222,19 +222,21 @@
 
   /* ---------- loop ---------- */
   const startAtIntro = !location.hash;
-  let t = startAtIntro ? 0 : 7.3, last = 0, raf = 0, onScreen = true, grainT = 0, drawnStatic = -1;
+  const T_END = T_FADE0; /* one-shot: stop here, title fully visible, canvas black */
+  let t = startAtIntro ? 0 : 7.3, last = 0, raf = 0, onScreen = true, grainT = 0, drawnStatic = -1, done = false;
   const canvasStatic = tt => tt > T_SMOKE_END ? 2 : tt < T_IGNITE ? 1 : 0; /* 1/2: black frame, nothing to redraw */
   const frame = () => {
     const now = performance.now();
     const dt = last ? Math.min(.1, (now - last) / 1000) : 0; last = now;
-    if (ready) t = (t + dt) % CYCLE;
+    if (ready) t = Math.min(T_END, t + dt);
     const st = canvasStatic(t);
     if (!st || st !== drawnStatic) { draw(t, false); drawnStatic = st; }
     textAt(Math.min(6.3, Math.max(T_TEXT_OFF, t - T_TEXT0 + T_TEXT_OFF)), 1 - smooth((t - T_FADE0) / (T_FADE1 - T_FADE0)));
     if (grain && now - grainT > 90) { grainT = now; grain.style.transform = `translate(${Math.round(rnd() * 60 - 30)}px,${Math.round(rnd() * 60 - 30)}px)`; }
+    if (t >= T_END) { done = true; raf = 0; return; }
     raf = requestAnimationFrame(frame);
   };
-  const run = () => { if (raf || reduce || failed) return; last = 0; raf = requestAnimationFrame(frame); };
+  const run = () => { if (raf || done || reduce || failed) return; last = 0; raf = requestAnimationFrame(frame); };
   const stop = () => { cancelAnimationFrame(raf); raf = 0; };
   const update = () => { if (onScreen && !document.hidden) run(); else stop(); };
   const still = () => { draw(1.0, true); };
@@ -256,5 +258,5 @@
   }).observe(intro);
   document.addEventListener('visibilitychange', update);
   update();
-  window.__scene = () => ({ t: +t.toFixed(2), running: !!raf, reduce, ready, failed, s: +s.toFixed(3), ox: Math.round(ox), oy: Math.round(oy) });
+  window.__scene = () => ({ t: +t.toFixed(2), running: !!raf, done, reduce, ready, failed, s: +s.toFixed(3), ox: Math.round(ox), oy: Math.round(oy) });
 })();
