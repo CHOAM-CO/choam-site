@@ -464,6 +464,204 @@
   body.classList.add('v');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const behavior = () => (reduce.matches ? 'instant' : 'smooth');
+
+  /* ---------- landing (2026-10-13, Mino): one plate per project and an index rail on the left, the format of the
+     choam-landing.html mockup. The opening above is untouched. Copy is the first sentence (EN) or first line (KO) of each
+     project's existing description; artwork is each project's current first picture. Project pages keep the stepped
+     sections further down. ---------- */
+  if (!only) {
+    const intro = document.querySelector('.intro');
+    const firstText = d => (typeof d === 'string' ? d : Array.isArray(d) ? firstText(d.find(x => typeof x === 'string') || '') : '');
+    const lineOf = p => {
+      const s = firstText([].concat(tr(p, 'description'))[0]);
+      return ko() ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
+    };
+    const altOf = o => (ko() && o.altKo) || o.alt;
+    const actHTML = p => {
+      const act = p.action; if (!act) return '';
+      return act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
+        : `<a class="prod-act" href="${url(act.href)}"${/^https?:/.test(act.href) ? ' target="_blank" rel="noopener"' : ''}></a>`;
+    };
+    const castOf = p => p.panels.find(s => s.kind === 'gallery');
+    const pairOf = p => p.comparisons && p.comparisons[0]; /* the default pair the live DAT section opens on */
+    const stageHTML = p => {
+      if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true"></div>
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
+      if (p.field === 'dat') {
+        const cast = castOf(p), c = pairOf(p);
+        return `<div class="stage">
+          <div class="flip" data-flip tabindex="0">
+            <section class="slide"><div class="field dat-field" aria-hidden="true"></div>
+              <div class="plate-cast" role="group">${cast.items.map(it => `<img src="${url(it.src)}" alt="" draggable="false" loading="lazy" decoding="async">`).join('')}</div>
+              <button class="flip-nav flip-next" type="button" data-flip-to="1"><span aria-hidden="true"></span></button>
+            </section>
+            <section class="slide"><div class="compare" data-compare style="--split:50%">
+                <img class="cmp-after" src="${url(c.after)}" alt="" draggable="false" loading="lazy" decoding="async">
+                <img class="cmp-before" src="${url(c.before)}" alt="" draggable="false" loading="lazy" decoding="async">
+                <div class="scrim" aria-hidden="true"></div>
+                <span class="cmp-tag cmp-tag-b" aria-hidden="true">BEFORE</span><span class="cmp-tag cmp-tag-a" aria-hidden="true">AFTER</span>
+                <span class="cmp-line" aria-hidden="true"></span>
+                <input class="cmp-range" type="range" min="0" max="100" step="1" value="50" data-compare-range>
+              </div>
+              <button class="flip-nav flip-prev" type="button" data-flip-to="0"><span aria-hidden="true"></span></button>
+            </section>
+          </div></div>`;
+      }
+      const a = p.panels[p.art[0]];
+      return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" decoding="async"><div class="scrim" aria-hidden="true"></div></div>`;
+    };
+    track.classList.add('plates');
+    track.removeAttribute('aria-roledescription');
+    track.innerHTML = PROJECTS.map(p => `
+    <article class="plate" id="${p.id}" data-plate="${p.id}" aria-labelledby="t-${p.id}">
+      ${stageHTML(p)}
+      <div class="caption">
+        <p class="cap-meta"><span class="num">${numOf(p)}</span>${p.status ? '<span class="status" data-status></span>' : ''}</p>
+        <h2 class="cap-title" id="t-${p.id}"><a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>${p.title_ko ? `<span class="cap-ko" lang="ko">${esc(p.title_ko)}</span>` : ''}</h2>
+        <p class="cap-line"></p>
+        <p class="cap-text"></p>
+        <div class="cap-acts"><a class="plate-more" href="${pageOf(p)}"></a>${actHTML(p)}${p.field === 'dat' ? '<span class="flip-marks" data-flip-marks aria-hidden="true"><span class="is-on"></span><span></span></span>' : ''}</div>
+      </div>
+    </article>`).join('');
+    const plates = [...track.querySelectorAll('.plate')];
+    track.querySelectorAll('.get-wrap').forEach(wireGet);
+
+    /* the index rail: 00 is the opening, then one line per project; shown once the opening has scrolled away */
+    const rail = document.createElement('nav');
+    rail.className = 'index-rail';
+    rail.innerHTML = `<ol>${[{ id: 'top', n: '00' }, ...PROJECTS.map(p => ({ id: p.id, n: numOf(p), p }))].map(r =>
+      `<li><a href="#${r.id}" data-index-link="${r.id}"><i aria-hidden="true"></i><b>${r.n}</b><span>${r.p ? esc(r.p.title) : ''}</span></a></li>`).join('')}</ol>`;
+    track.before(rail);
+    const links = [...rail.querySelectorAll('[data-index-link]')];
+    document.querySelectorAll('[data-go-project]').forEach(a => { a.href = `#${a.dataset.goProject}`; });
+
+    /* DAT: the cast, then one real before / after pair, side by side on one plate */
+    const datPlate = plates.find(el => el.id === 'dat');
+    const flip = datPlate.querySelector('[data-flip]'), fSlides = [...flip.querySelectorAll('.slide')];
+    const marks = [...datPlate.querySelectorAll('[data-flip-marks] span')];
+    const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
+    const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
+    const flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
+    const markFlip = () => {
+      const k = at();
+      marks.forEach((s, i) => s.classList.toggle('is-on', i === k));
+      fSlides.forEach((s, i) => { s.inert = i !== k; s.classList.toggle('is-on', i === k); });
+    };
+    flip.addEventListener('scroll', markFlip, { passive: true });
+    flip.addEventListener('dragstart', e => e.preventDefault());
+    flip.addEventListener('keydown', e => {
+      if (e.target.closest('[data-compare]')) return; /* the range keeps its own arrow keys */
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); flipTo(at() + (e.key === 'ArrowRight' ? 1 : -1)); }
+    });
+    let down = null;
+    datPlate.addEventListener('pointerdown', e => { down = e.pointerType === 'mouse' && !e.target.closest('[data-compare], button, a') ? e.clientX : null; });
+    addEventListener('pointerup', e => { if (down === null) return; const dx = e.clientX - down; down = null; if (Math.abs(dx) > 40) flipTo(at() + (dx < 0 ? 1 : -1)); });
+    datPlate.addEventListener('pointercancel', () => { down = null; });
+    flip.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
+    const split = v => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--split', `${v}%`); range.value = String(Math.round(v)); };
+    box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); if (r.width) split((e.clientX - r.left) / r.width * 100); });
+    range.addEventListener('input', () => split(Number(range.value)));
+    new ResizeObserver(() => flipTo(at(), true)).observe(flip);
+    markFlip();
+
+    /* artwork comes up over 1.1s as its plate reaches the screen (reduced motion: already there) */
+    const reveal = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-on'); reveal.unobserve(e.target); } }), { threshold: .35 });
+    plates.forEach(el => reveal.observe(el));
+
+    const label = () => {
+      PROJECTS.forEach((p, i) => {
+        const el = plates[i], T = p.heading || p.title;
+        const st = el.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
+        el.querySelector('.cap-line').textContent = tr(p, 'headline');
+        el.querySelector('.cap-text').textContent = lineOf(p);
+        const more = el.querySelector('.plate-more');
+        more.textContent = ko() ? '프로젝트' : 'Project';
+        more.setAttribute('aria-label', ko() ? `${T} 프로젝트 페이지` : `${T} project page`);
+        const a = el.querySelector('.prod-act');
+        if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
+        const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
+        const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
+      });
+      const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
+      datPlate.querySelector('.plate-cast').setAttribute('aria-label', ko() ? 'DAT 캐릭터 일러스트' : 'DAT character art');
+      datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
+      flip.setAttribute('aria-label', ko() ? 'Our Style, 2개 화면' : 'Our Style, 2 views');
+      flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '다음' : 'Next');
+      flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '이전' : 'Prev');
+      box.querySelector('.cmp-before').alt = ko() ? c.beforeLabelKo || c.beforeLabel : c.beforeLabel || 'Original';
+      box.querySelector('.cmp-after').alt = ko() ? 'DAT 적용 후' : 'After DAT';
+      range.setAttribute('aria-label', ko() ? 'BEFORE / AFTER 비교 경계 위치' : 'Before / after reveal position');
+      rail.setAttribute('aria-label', ko() ? '프로젝트 목록' : 'Project index');
+      links[0].querySelector('span').textContent = ko() ? '홈' : 'Home';
+      setCurrent(curId, false);
+    };
+
+    const clock = document.querySelector('[data-clock]');
+    if (clock) {
+      const f = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit' });
+      const tick = () => { clock.textContent = f.format(new Date()); };
+      tick(); setInterval(tick, 15000);
+    }
+
+    /* current plate: rail, menu and deck move together; the address follows as #id (as the live site's #id/k did) */
+    const nextCh = document.querySelector('[data-next-chapter]');
+    const setText = (sel, text) => document.querySelectorAll(sel).forEach(el => { el.textContent = text; });
+    let curId = 'top';
+    function setCurrent(id, writeHash) {
+      curId = id;
+      const i = PROJECTS.findIndex(p => p.id === id), p = PROJECTS[i];
+      body.classList.toggle('at-top', !p);
+      links.forEach(a => { const on = a.dataset.indexLink === id; a.classList.toggle('is-current', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      document.querySelectorAll('[data-go-project]').forEach(b => { const on = b.dataset.goProject === id; b.classList.toggle('is-current', on); if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+      setText('[data-current-num]', p ? numOf(p) : '');
+      setText('[data-current-title]', p ? p.title : '');
+      setText('[data-current-sub]', '');
+      const q = PROJECTS[p ? i + 1 : 0];
+      if (nextCh) {
+        nextCh.hidden = !q;
+        if (q) {
+          nextCh.querySelector('[data-next-title]').textContent = q.title;
+          nextCh.href = `#${q.id}`;
+          nextCh.setAttribute('aria-label', ko() ? `다음 프로젝트: ${q.title}` : `Next project: ${q.title}`);
+        }
+      }
+      if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : location.pathname + location.search);
+    }
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      setCurrent(e.target === intro ? 'top' : e.target.id, true);
+      if (getOpen && !e.target.contains(getOpen)) setGet(getOpen, false);
+    }), { rootMargin: '-45% 0px -45% 0px' });
+    [intro, ...plates].forEach(el => el && io.observe(el));
+
+    /* #id, the older #id/k (DAT 3 = the comparison), or #top */
+    const parse = h => { const [id, sub] = decodeURIComponent(h.replace(/^#/, '')).split('/'); return [PROJECTS.some(p => p.id === id) ? id : 'top', parseInt(sub, 10) || 1]; };
+    const go = (id, k, instant) => {
+      const el = id === 'top' ? null : document.getElementById(id);
+      scrollTo({ top: el ? el.offsetTop : 0, behavior: instant ? 'instant' : behavior() });
+      if (id === 'dat') flipTo(k >= 3 ? 1 : 0, true);
+    };
+    document.addEventListener('click', e => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      const [id, k] = parse(a.getAttribute('href'));
+      if (body.classList.contains('menu-open')) setMenu(false);
+      history.pushState(null, '', id === 'top' ? location.pathname + location.search : `#${id}`);
+      go(id, k);
+      const target = id !== 'top' && (a.closest('.index-rail') || a.matches('[data-go-project]')) && document.getElementById(id);
+      if (target) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); } /* keyboard users land where they asked to go */
+    });
+    addEventListener('popstate', () => { const [id, k] = parse(location.hash); go(id, k); }); /* back / forward, or a typed #id */
+
+    relabel.push(label);
+    label();
+    const [id0, k0] = parse(location.hash);
+    if (id0 !== 'top') requestAnimationFrame(() => { go(id0, k0, true); setCurrent(id0, true); });
+    else { setCurrent('top', !!location.hash); }
+    return;
+  }
+
   const paras = p => [].concat(tr(p, 'description')); /* Korean keeps the same paragraph count, so the rail position carries over */
   const steps = p => (p.reel ? p.panels.length : paras(p).length); /* a reel (DAT) steps its artwork under one fixed line of copy */
   const artFor = (p, k) => {
