@@ -252,7 +252,7 @@
     ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다'],
     ['.dl-note a', '', '전체 릴리스']
   ].flatMap(([sel, attr, k]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, en: attr ? el.getAttribute(attr) : el.textContent })));
-  const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM' };
+  const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM' };
   const titleEn = document.title;
   const relabel = []; /* the gallery adds its own relabelling below */
 
@@ -310,6 +310,28 @@
       const href = !track ? url(`index.html#${p.id}/1`) : only ? pageOf(p) : `#${p.id}/1`;
       return `<li><a class="proj" href="${href}" data-go-project="${p.id}">${esc(p.title)}</a></li>`;
     }).join('');
+  });
+  /* Our Philosophy (every page): one link in the masthead, and the same link at the foot of the Projects panel for
+     screens too narrow to hold it in the masthead (style.css shows exactly one of the two at any width). */
+  const onPhilo = body.dataset.page === 'philosophy';
+  const philoLinks = [];
+  if (mast) {
+    const mk = cls => {
+      const a = document.createElement('a');
+      a.className = cls; a.href = url('philosophy.html');
+      if (onPhilo) { a.classList.add('is-current'); a.setAttribute('aria-current', 'page'); }
+      philoLinks.push(a); return a;
+    };
+    mast.insertBefore(mk('philo-link'), picker);
+    document.querySelectorAll('[data-menu]').forEach(nav => nav.appendChild(mk('philo-row')));
+  }
+  /* the Korean / English choice set on the philosophy page itself; same setting as the masthead picker */
+  const pageLangs = [...document.querySelectorAll('[data-page-lang]')];
+  pageLangs.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.pageLang, true)));
+  relabel.push(() => {
+    philoLinks.forEach(a => { a.textContent = ko() ? '초암의 철학' : 'Our Philosophy'; });
+    pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
+    document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', ko() ? '언어' : 'Language'));
   });
   const toggles = [...document.querySelectorAll('[data-menu-toggle]')];
   function setMenu(open) {
