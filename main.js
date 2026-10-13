@@ -1043,3 +1043,24 @@
   relabel.push(() => { labelAll(); if (!atIntro) sync(secs[cur]); else setNext(null); });
   if (location.hash) requestAnimationFrame(() => goProd(pi0, k0, true)); else if (intro) showIntro(); else sync(secs[0]);
 })();
+
+/* ---------- letterbox chrome: the fixed bars return the screen on scroll down, come back on scroll up (Mino 2026-10-13 21:10:
+   the top navigator and the bottom bar hide more of the screen than the few words they carry. Nothing to add: the same bars,
+   present at the top of each read, hidden while the reader is moving down, back while moving up or at the two ends). ---------- */
+(() => {
+  const bars = [...document.querySelectorAll('.mast, .deck, .dl-foot')]
+    .filter(el => getComputedStyle(el).position === 'fixed');
+  if (!bars.length) return;
+  const setHidden = hidden => hidden.forEach(h => bars.forEach(bar => bar.classList.toggle('chrome-hidden', h)));
+  setHidden([false]);
+  let lastY = scrollY, raf = 0;
+  const settle = () => {
+    raf = 0;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const y = Math.max(0, Math.min(max, scrollY)), dy = y - lastY;
+    lastY = y;
+    if (Math.abs(dy) < 6) return;
+    setHidden([y > 6 && dy > 0 && y < max - 6]); /* at the very top or the very bottom, or moving up, the bars are back */
+  };
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(settle); }, { passive: true });
+})();

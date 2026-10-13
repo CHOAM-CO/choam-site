@@ -638,3 +638,12 @@ html:not([lang="ko"]) [data-philo="ko"], html[lang="ko"] [data-philo="en"] { dis
   .philo-row:hover { color: var(--bone); }
   .philo-row.is-current { color: var(--ember); }
 }
+
+/* ---------- letterbox chrome: the bars slide out while reading downward and slide back on upward movement.
+   Transform only, so every existing calc(var(--mast-h) / var(--deck-h)) layout stays exactly where it was. ---------- */
+.mast, .deck, .dl-foot { transition: transform .5s var(--slow); }
+.mast.chrome-hidden { transform: translateY(-100%); }
+.deck.chrome-hidden, .dl-foot.chrome-hidden { transform: translateY(100%); }
+@media (prefers-reduced-motion: reduce) {
+  .mast, .deck, .dl-foot { transition: none; }
+}
