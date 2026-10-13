@@ -394,7 +394,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dlbtn.is-rec { border-color: var(--bone); }
 .dlbtn:hover .os-rec { color: inherit; }
 .dl-note { margin-top: 24px; max-width: 34em; font-size: 15px; line-height: 1.7; color: var(--ash); }
-.dl-note a { margin-left: .6em; color: var(--bone); font-weight: 650; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; border-bottom: 1px solid currentColor; }
+.dl-note a { display: block; width: fit-content; margin-top: .9em; color: var(--bone); font-weight: 650; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; border-bottom: 1px solid currentColor; }
 .dl-foot { position: fixed; inset: auto 0 0; z-index: 20; height: var(--deck-h); align-items: center; padding: 0 var(--gutter); background: var(--void); }
 
 /* ---------- tablet and phone masthead: projects behind a menu (up to 1519px since Our Philosophy joined the masthead;
