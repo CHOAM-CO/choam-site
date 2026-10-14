@@ -48,7 +48,8 @@
       title: 'Scheherazade',
       title_ko: '',
       status: 'Beta',
-      headline: 'Agent stands more than 1001 nights',
+      headline: 'An agent for a thousand and one nights',
+      summary: 'A desktop AI agent built for projects that take days or months. She keeps your facts, corrections, and unfinished threads on your own computer — so even when you switch models, you pick up right where you left off.',
       description: [
         "Built for the long haul. Days, months, one more revision: Scheherazade keeps the facts, your corrections, and unfinished threads close, so you can pick up a project without reintroducing it. A human-like memory, with one useful extra: you can read what she remembers and tell her to forget. With Autonomy on, she sorts the day's memories overnight.",
         'Bring your own brain. Your Claude subscription via Claude Code, ChatGPT via Codex, or Ollama. Change the model; keep the memories. They live on your computer, and she leaves a letter to her next self before a switch. No need to make introductions twice.',
@@ -57,13 +58,14 @@
       ],
       ko: {
         status: '베타',
-        headline: '', /* Korean shows no headline line (style.css hides an empty one); the copy carries the introduction */
+        headline: '천일밤을 이어가는 에이전트',
+        summary: '며칠, 몇 달이 걸리는 긴 프로젝트를 함께 진행하는 데스크톱 AI 에이전트입니다. 함께 정한 사실과 피드백, 아직 끝내지 못한 일을 내 컴퓨터에 기억해 두고 두뇌(모델)를 바꿔도 하던 일을 그대로 이어갑니다.',
         description: [
-          ['Scheherazade는 며칠, 몇 달이 걸리는 프로젝트를 함께 진행하는 AI입니다\n함께 정한 내용과 아직 끝내지 못한 일을 기억하고, 다음에 만났을 때 하던 일을 이어갑니다',
-            '우리는 오래 걸리는 일을 같은 AI와 끝까지 이어가고 싶습니다\n모델을 고르는 선택 때문에 함께 쌓은 기록을 포기하지 않도록, 기억을 두뇌와 분리했습니다'],
-          'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다',
-          'Chrome에서는 같은 페이지를 보며 논문을 읽거나 자료를 놓고 의논합니다',
-          [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 꿈도 꿉니다\n꿈까지 업무 보고서일 필요는 없습니다']
+          ['Scheherazade는 며칠, 몇 달이 걸리는 프로젝트를 함께 진행하는 AI입니다.\n함께 정한 내용과 아직 끝내지 못한 일을 기억하고, 다음에 만났을 때 하던 일을 이어갑니다.',
+            '우리는 오래 걸리는 일을 같은 AI와 끝까지 이어가고 싶었습니다.\n바꾸는 모델 때문에 그동안 함께 쌓은 기록을 포기하지 않도록, 기억을 두뇌와 분리했습니다.'],
+          'Claude·ChatGPT 구독이나 로컬 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 내 컴퓨터에 그대로 남습니다.',
+          'Browse with me를 켜면 Chrome에서 같은 탭을 보며 논문을 읽거나 자료를 놓고 함께 의논합니다.\n언제 화면을 볼지는 눈 모양 버튼으로 직접 결정할 수 있습니다.',
+          [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 밤사이 꿈도 꿉니다.\n꿈까지 업무 보고서일 필요는 없으니까요.']
         ]
       },
       action: { label: 'Get', href: 'download.html', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
@@ -80,14 +82,17 @@
     {
       id: 'dat',
       title: 'DAT',          /* nav, menu and deck keep the project name */
-      heading: 'Our Style',  /* r5: the section's own heading (Mino 10-10 20:00) */
-      title_ko: '',
-      status: '',
-      headline: '',
-      description: ['We fine-tune open-source generative models to our own illustration style and create graphic assets.'],
+      heading: 'DAT',        /* keep heading aligned with nav/rail/deck; Our Style shown in subtitle/headline */
+      title_ko: 'Our Style',
+      status: 'Style Model',
+      headline: 'Our house style, built into a model',
+      summary: 'We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art — filtering out muddy generated colors and laying down a clean watercolor wash and brushwork.',
+      description: ['We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art — filtering out muddy generated colors and laying down a clean watercolor wash and brushwork.'],
       ko: {
-        headline: '',
-        description: ['오픈소스 생성형 모델을 우리 그림체에 맞게 직접 파인튜닝해 그래픽 리소스를 만듭니다']
+        status: '자체 스타일 모델',
+        headline: '우리 화풍을 직접 학습한 일러스트 모델',
+        summary: '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다. 기존 생성 이미지의 탁한 색감을 걷어내고 맑은 수채 질감과 붓 결을 입혀 우리만의 화풍으로 완성합니다.',
+        description: ['오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다.\n기존 생성 이미지의 탁한 색감을 걷어내고 맑은 수채 질감과 붓 결을 입혀 우리만의 화풍으로 완성합니다.']
       },
       field: 'dat',
       reel: true, /* Our Style: the three standings together; Image Organize: the process, then a genuine comparison. */
@@ -118,29 +123,32 @@
       ],
       comparisons: [
         { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020,
-          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면' },
+          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면입니다.' },
         { id: 'classroom', label: 'Classroom', labelKo: '교실', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, detailPoint: [.25, .78],
-          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줘요. 장신구 모양도 바뀐 장면이에요' },
+          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여주며, 장신구 모양도 일부 달라집니다.' },
         { id: 'idea', label: 'IDEA', labelKo: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, detailPoint: [.7, .74],
-          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘랐어요. 머리 장식과 장신구, 옷의 세부 모양도 바뀐 장면이에요' }
+          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교한 화면입니다. 머리 장식과 장신구, 옷의 세부 모양도 함께 다듬어집니다.' }
       ],
       info: { kind: 'dat' }
     },
     {
       id: 'seonjam',
       title: '선잠 DOZE',
-      status: '',
+      status: 'In development',
       headline: 'She remembers what you said',
+      summary: 'A visual novel set in the local-history club of an old school building, where you talk to Yeji in your own words. She records your conversations in her diary and carries what you said into the next day.',
       description: [
         'A visual novel set in the local-history club of an old school building. After class, Yeji sorts rosters and old photos by the window.',
         'You talk to her in your own words, and she carries what you said into the next day. Over one week, small things stop adding up.'
       ],
       ko: {
-        headline: '대화로 만들어가는 인터렉티브 무비',
+        status: '개발 중',
+        headline: '대화로 만들어가는 인터랙티브 무비',
+        summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 진행하는 미연시입니다. 플레이어가 건넨 말은 일기로 남고, 다음 날 예지의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
-          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다\n플레이어가 말을 입력하면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다',
-          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다\n긴 대화 속에서도 예지가 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다',
-            '예지가 있는 곳은 구교사 2층, 향토연구부 부실입니다']
+          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다.',
+          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다.\n긴 대화 속에서도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다.',
+            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다.']
         ]
       },
       art: [2, 0],
@@ -157,6 +165,7 @@
       title_ko: '동구리 료칸',
       status: 'Coming soon',
       headline: 'Not every guest is human',
+      summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook, and run the rooms — while spotting the yokai passing as human guests.',
       description: [
         'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook, lay the spring pipes and ready the rooms.',
         'Some guests are yokai passing as human. Read their requests, ask around, and make your call at checkout.'
@@ -164,10 +173,11 @@
       ko: {
         status: '출시 준비 중',
         headline: '고요한 숲속 여관 이야기',
+        summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보는 와중에, 손님들의 행동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
         description: [
-          ['동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다\n찾아오는 사람이 끊긴 신사의 여우 신들이 빚을 내 료칸을 엽니다',
-            '하루 안에 경영과 추리가 계속 이어지는, 손이 바쁜 게임을 만들고 싶었습니다'],
-          '플레이어는 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다\n그 와중에 손님의 행동을 살펴 누가 요괴인지 알아내야 합니다'
+          ['동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다.\n발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
+            '하루 안에 경영과 추리가 쉼 없이 이어지는, 손이 바쁜 게임을 만들고 싶었습니다.'],
+          '플레이어는 직접 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다.\n그 와중에 손님의 행동을 유심히 살펴 누가 요괴인지 체크아웃 전까지 알아내야 합니다.'
         ]
       },
       art: [0, 1],
@@ -183,6 +193,7 @@
       title_ko: '동구리 레스토랑',
       status: 'On the web',
       headline: 'No menu. The field decides.',
+      summary: 'A small forest restaurant management game where the daily omakase comes straight from your garden. Read the reservation board, harvest what the field gives, and build each course and wine pairing around it.',
       description: [
         'A small forest restaurant run by a chef, a sommelier and a part-timer.',
         'Read the reservation board, plant for the guests who are coming, harvest what the field gives, and build each course and wine pairing around it.',
@@ -191,10 +202,11 @@
       ko: {
         status: '웹에서 플레이',
         headline: 'Self Made Restaurant',
+        summary: '텃밭에서 직접 기른 재료로 그날의 오마카세 코스를 내는 작은 숲속 레스토랑 경영 게임입니다. 예약판을 확인해 작물을 심고, 수확한 재료에 맞춰 코스와 와인 페어링을 구성해 손님에게 대접합니다.',
         description: [
-          '동구리 레스토랑은 텃밭에서 기른 재료로 오마카세를 내는 레스토랑 경영 게임입니다\n그날 수확한 재료로 코스를 정하고, 손질과 조리를 거쳐 손님에게 냅니다\n손님은 메뉴를 받기 전까지 무엇을 먹게 될지 모릅니다',
-          '플레이어는 셰프, 소믈리에와 함께 일하는 단기 아르바이트생으로, 한 철 동안 가게를 운영하도록 설계했습니다',
-          '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다'
+          '동구리 레스토랑은 텃밭에서 기른 재료로 오마카세를 내는 레스토랑 경영 게임입니다.\n그날 수확한 재료로 코스를 정하고, 손질과 조리를 거쳐 손님에게 대접합니다.\n손님은 메뉴를 받기 전까지 무엇을 먹게 될지 모릅니다.',
+          '플레이어는 셰프, 소믈리에와 함께 일하는 단기 아르바이트생이 되어 한 철(4주) 동안 작은 가게를 꾸려 나갑니다.',
+          '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다.\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다.'
         ]
       },
       art: [0, 2, 3], /* key art, then in-game captures framed beside the copy so game UI never meets site UI */
@@ -495,6 +507,8 @@
     const intro = document.querySelector('.intro');
     const firstText = d => (typeof d === 'string' ? d : Array.isArray(d) ? firstText(d.find(x => typeof x === 'string') || '') : '');
     const lineOf = p => {
+      const sum = tr(p, 'summary');
+      if (sum) return sum;
       const s = firstText([].concat(tr(p, 'description'))[0]);
       return ko() ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
     };
@@ -517,13 +531,16 @@
               <div class="plate-cast" role="group">${cast.items.map(it => `<img src="${url(it.src)}" alt="" draggable="false" loading="lazy" decoding="async">`).join('')}</div>
               <button class="flip-nav flip-next" type="button" data-flip-to="1"><span aria-hidden="true"></span></button>
             </section>
-            <section class="slide"><div class="compare" data-compare style="--split:50%">
-                <img class="cmp-after" src="${url(c.after)}" alt="" draggable="false" loading="lazy" decoding="async">
-                <img class="cmp-before" src="${url(c.before)}" alt="" draggable="false" loading="lazy" decoding="async">
-                <div class="scrim" aria-hidden="true"></div>
-                <span class="cmp-tag cmp-tag-b" aria-hidden="true">BEFORE</span><span class="cmp-tag cmp-tag-a" aria-hidden="true">AFTER</span>
-                <span class="cmp-line" aria-hidden="true"></span>
-                <input class="cmp-range" type="range" min="0" max="100" step="1" value="50" data-compare-range>
+            <section class="slide"><div class="field dat-field" aria-hidden="true"></div>
+              <div class="compare-stage">
+                <div class="compare" data-compare style="--split:50%">
+                  <img class="cmp-after" src="${url(c.after)}" alt="" draggable="false" loading="lazy" decoding="async">
+                  <img class="cmp-before" src="${url(c.before)}" alt="" draggable="false" loading="lazy" decoding="async">
+                  <div class="scrim" aria-hidden="true"></div>
+                  <span class="cmp-tag cmp-tag-b" aria-hidden="true">BEFORE</span><span class="cmp-tag cmp-tag-a" aria-hidden="true">AFTER</span>
+                  <span class="cmp-line" aria-hidden="true"></span>
+                  <input class="cmp-range" type="range" min="0" max="100" step="1" value="50" data-compare-range>
+                </div>
               </div>
               <button class="flip-nav flip-prev" type="button" data-flip-to="0"><span aria-hidden="true"></span></button>
             </section>
@@ -542,7 +559,8 @@
         <h2 class="cap-title" id="t-${p.id}"><a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>${p.title_ko ? `<span class="cap-ko" lang="ko">${esc(p.title_ko)}</span>` : ''}</h2>
         <p class="cap-line"></p>
         <p class="cap-text"></p>
-        <div class="cap-acts"><a class="plate-more" href="${pageOf(p)}"></a>${actHTML(p)}${p.field === 'dat' ? '<span class="flip-marks" data-flip-marks aria-hidden="true"><span class="is-on"></span><span></span></span>' : ''}</div>
+        ${p.field === 'dat' ? '<div class="flip-tabs" data-flip-marks role="group"><button type="button" class="flip-pill is-on" data-flip-to="0"></button><button type="button" class="flip-pill" data-flip-to="1"></button></div>' : ''}
+        <div class="cap-acts"><a class="plate-more" href="${pageOf(p)}"></a>${actHTML(p)}</div>
       </div>
     </article>`).join('');
     const plates = [...track.querySelectorAll('.plate')];
@@ -560,13 +578,13 @@
     /* DAT: the cast, then one real before / after pair, side by side on one plate */
     const datPlate = plates.find(el => el.id === 'dat');
     const flip = datPlate.querySelector('[data-flip]'), fSlides = [...flip.querySelectorAll('.slide')];
-    const marks = [...datPlate.querySelectorAll('[data-flip-marks] span')];
+    const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
     const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
     const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
     const flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
     const markFlip = () => {
       const k = at();
-      marks.forEach((s, i) => s.classList.toggle('is-on', i === k));
+      marks.forEach((s, i) => { s.classList.toggle('is-on', i === k); s.setAttribute('aria-pressed', String(i === k)); });
       fSlides.forEach((s, i) => { s.inert = i !== k; s.classList.toggle('is-on', i === k); });
     };
     flip.addEventListener('scroll', markFlip, { passive: true });
@@ -579,7 +597,7 @@
     datPlate.addEventListener('pointerdown', e => { down = e.pointerType === 'mouse' && !e.target.closest('[data-compare], button, a') ? e.clientX : null; });
     addEventListener('pointerup', e => { if (down === null) return; const dx = e.clientX - down; down = null; if (Math.abs(dx) > 40) flipTo(at() + (dx < 0 ? 1 : -1)); });
     datPlate.addEventListener('pointercancel', () => { down = null; });
-    flip.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
+    datPlate.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
     const split = v => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--split', `${v}%`); range.value = String(Math.round(v)); };
     box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); if (r.width) split((e.clientX - r.left) / r.width * 100); });
     range.addEventListener('input', () => split(Number(range.value)));
@@ -597,8 +615,8 @@
         el.querySelector('.cap-line').textContent = tr(p, 'headline');
         el.querySelector('.cap-text').textContent = lineOf(p);
         const more = el.querySelector('.plate-more');
-        more.textContent = ko() ? '프로젝트' : 'Project';
-        more.setAttribute('aria-label', ko() ? `${T} 프로젝트 페이지` : `${T} project page`);
+        more.textContent = ko() ? '자세히 보기' : 'Explore';
+        more.setAttribute('aria-label', ko() ? `${T} 자세히 보기` : `Explore ${T}`);
         const a = el.querySelector('.prod-act');
         if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
         const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
@@ -607,9 +625,12 @@
       const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
       datPlate.querySelector('.plate-cast').setAttribute('aria-label', ko() ? 'DAT 캐릭터 일러스트' : 'DAT character art');
       datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
-      flip.setAttribute('aria-label', ko() ? 'Our Style, 2개 화면' : 'Our Style, 2 views');
-      flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '다음' : 'Next');
-      flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '이전' : 'Prev');
+      flip.setAttribute('aria-label', ko() ? 'DAT, 2개 화면' : 'DAT, 2 views');
+      datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', ko() ? 'DAT 화면 전환' : 'DAT view switch');
+      const pillLabels = ko() ? ['01 캐릭터 일러스트', '02 보정 전후 비교'] : ['01 Character Art', '02 Before & After'];
+      marks.forEach((b, k) => { b.textContent = pillLabels[k]; });
+      flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '보정 전후 비교 보기' : 'View before and after');
+      flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '캐릭터 일러스트 보기' : 'View character art');
       box.querySelector('.cmp-before').alt = ko() ? c.beforeLabelKo || c.beforeLabel : c.beforeLabel || 'Original';
       box.querySelector('.cmp-after').alt = ko() ? 'DAT 적용 후' : 'After DAT';
       range.setAttribute('aria-label', ko() ? 'BEFORE / AFTER 비교 경계 위치' : 'Before / after reveal position');

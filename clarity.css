@@ -6,7 +6,6 @@
    Font-relative offsets preserve the same optical edge across desktop sizes. */
 .clarity .intro-wm{letter-spacing:.22em;margin-right:-.22em;margin-left:-.045em}
 .clarity .intro-motto{text-align:left;margin-left:-.048em}
-.clarity .intro-foot{justify-content:flex-end!important}
 .sera-demo .model-cartridge{max-width:none;min-height:120px;padding:22px;grid-template-columns:48px 1fr}
 .sera-demo .cartridge-caption{line-height:1.7;font-size:13px}
 .sera-demo .model-cartridge strong{font-size:22px}
@@ -33,8 +32,6 @@
 .dat-results .generate-label,.evidence-title h3{font-size:25px!important}
 .dat-style-label{font-size:12px;line-height:1.5;color:var(--ash);margin-bottom:12px}
 .clarity .dat-clarity .orbit-name{display:none}
-.clarity .intro-meta,.clarity .intro-clock{display:none}
-.clarity .intro-foot{display:flex;justify-content:center}
 .clarity .intro::after{display:none}
 .clarity .clarity-product,.clarity .dat-clarity{height:auto;min-height:900px;padding:112px max(36px,6vw) 108px;background:#08090b;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(300px,.85fr) minmax(400px,1.35fr);gap:54px;align-items:start}
 .clarity .clarity-product .prod-copy{position:relative;inset:auto;width:auto;min-height:0;grid-column:1;grid-row:1;justify-content:flex-start}
