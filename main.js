@@ -167,22 +167,30 @@
       headline: 'Not every guest is human',
       summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook, and run the rooms — while spotting the yokai passing as human guests.',
       description: [
-        'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook, lay the spring pipes and ready the rooms.',
-        'Some guests are yokai passing as human. Read their requests, ask around, and make your call at checkout.'
+        'A hot-spring inn management game where farming, cooking, and hospitality meet yokai deduction.',
+        'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn.',
+        'Over 100 days, management and deduction run side by side from morning prep to evening check-in.',
+        'Gather ingredients, cook each course, lay the spring pipes, and tend the rooms and baths.',
+        'Some guests are yokai passing as human. Watch how they act, compare notes, and make your call before checkout.'
       ],
       ko: {
         status: '출시 준비 중',
         headline: '고요한 숲속 여관 이야기',
         summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보는 와중에, 손님들의 행동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
         description: [
-          ['동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다.\n발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
-            '하루 안에 경영과 추리가 쉼 없이 이어지는, 손이 바쁜 게임을 만들고 싶었습니다.'],
-          '플레이어는 직접 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다.\n그 와중에 손님의 행동을 유심히 살펴 누가 요괴인지 체크아웃 전까지 알아내야 합니다.'
+          '동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다.',
+          '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
+          '하루 안에 경영과 추리가 쉼 없이 이어지는, 손이 바쁜 게임을 만들고 싶었습니다.',
+          '플레이어는 직접 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다.',
+          '그 와중에 손님의 행동을 유심히 살펴 누가 요괴인지 체크아웃 전까지 알아내야 합니다.'
         ]
       },
-      art: [0, 1],
+      art: [0, 1, 2, 3, 4],
       panels: [
         { kind: 'art', src: 'assets/ryokan_kv_C2.webp', altKo: 'Donguri Ryokan 키 아트: 기모노를 입은 여우 소녀와 너구리 소녀가 밤 툇마루에서 불 켜진 장지문 뒤 그림자를 엿보는 모습', alt: 'Donguri Ryokan key art: fox and tanuki girls in kimono on a night veranda, peering at a silhouette behind a lit shoji screen', pos: '50% 30%', posM: '47% 50%' },
+        { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
         { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
       ],
       info: { kind: 'art', src: 'assets/ryokan_kv_C2.webp', pos: '50% 30%', posM: '47% 50%' }
@@ -209,13 +217,12 @@
           '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다.\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다.'
         ]
       },
-      art: [0, 2, 3], /* key art, then in-game captures framed beside the copy so game UI never meets site UI */
+      art: [0, 1, 2],
       action: { label: 'Play', href: 'https://donguri.run' },
       panels: [
         { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '100% 30%', posM: '50% 50%' },
-        { kind: 'raw', src: 'assets/restaurant-02.webp', ar: 1920 / 1080, cap: 'In-game capture · Opening night', capKo: '게임 화면 · 개업 첫날 밤', altKo: 'Donguri Restaurant 플레이 화면: 개업 첫날 밤 대화 중 마당에 선 세 직원', alt: 'Donguri Restaurant gameplay: the three staff standing in the yard at night during the opening dialogue', pos: '50% 50%', posM: '50% 50%', lift: 0.29 },
-        { kind: 'raw', src: 'assets/restaurant-03.webp', ar: 1280 / 720, cap: 'In-game capture · Reservation board', capKo: '게임 화면 · 예약판', altKo: 'Donguri Restaurant 플레이 화면: 레스토랑 마당과 밭, 첫날 밤 손님이 적힌 예약판', alt: 'Donguri Restaurant gameplay: the restaurant yard and field, with the reservation board listing the first night’s guests', pos: '50% 50%', posM: '42% 50%', lift: 0.33 },
-        { kind: 'raw', src: 'assets/restaurant-04.webp', ar: 1280 / 800, cap: 'In-game capture · Tonight’s course', capKo: '게임 화면 · 오늘 밤 코스', altKo: 'Donguri Restaurant 플레이 화면: 오늘 저녁 코스 메뉴가 요리별로 놓인 주방', alt: 'Donguri Restaurant gameplay: the kitchen with the evening’s course menu laid out dish by dish', pos: '50% 0%', posM: '50% 50%', lift: 0 }
+        { kind: 'art', src: 'assets/restaurant_field.webp', altKo: 'Donguri Restaurant 컨셉 아트: 텃밭에서 채소를 수확하는 아르바이트생과 식탁을 준비하는 셰프, 소믈리에', alt: 'Donguri Restaurant concept art: the part-timer harvesting fresh vegetables in the garden while the chef and sommelier prepare the table', pos: '45% 35%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/restaurant_course.webp', altKo: 'Donguri Restaurant 컨셉 아트: 와인을 디캔팅하는 소믈리에와 저녁 코스 요리를 플레이팅하는 셰프', alt: 'Donguri Restaurant concept art: the sommelier decanting wine beside the chef plating the evening course', pos: '45% 35%', posM: '45% 50%' }
       ],
       info: { kind: 'art', src: 'assets/restaurant-01.webp', pos: '50% 30%', posM: '62% 50%' }
     }
