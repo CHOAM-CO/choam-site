@@ -87,49 +87,34 @@
       status: 'Style Model',
       headline: 'Our house style, built into a model',
       summary: 'We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art — filtering out muddy generated colors and laying down a clean watercolor wash and brushwork.',
-      description: ['We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art — filtering out muddy generated colors and laying down a clean watercolor wash and brushwork.'],
+      description: [
+        'We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art.',
+        'Filtering out muddy generated colors and laying down a clean watercolor wash with particular attention to the eyes.',
+        'From narrative classroom scenes to solo portraits, every piece preserves painterly textures and hand-crafted nuance.',
+        'Balancing the delicate light of watercolor with rich brushwork to build living, breathing visual worlds.',
+        'The signature aesthetic extends across all of CHOAM\'s universes, from quiet schoolrooms to oceanic voyages.'
+      ],
       ko: {
         status: '자체 스타일 모델',
         headline: '우리 화풍을 직접 학습한 일러스트 모델',
         summary: '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다. 기존 생성 이미지의 탁한 색감을 걷어내고 맑은 수채 질감과 붓 결을 입혀 우리만의 화풍으로 완성합니다.',
-        description: ['오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다.\n기존 생성 이미지의 탁한 색감을 걷어내고 맑은 수채 질감과 붓 결을 입혀 우리만의 화풍으로 완성합니다.']
+        description: [
+          '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다.',
+          '기존 생성 이미지의 탁한 색감을 걷어내고, 맑은 수채 질감과 눈가 붓 터치를 입혀 우리만의 화풍으로 완성합니다.',
+          '서사적인 교실 풍경부터 인물 포트레이트까지, 손으로 빚어낸 듯한 회화적 밀도를 균일하게 유지합니다.',
+          '수채화의 투명한 빛과 묵직한 질감의 조화를 통해 살아 숨 쉬는 세계의 시각적 기준을 세웁니다.',
+          '고요한 교실의 오후부터 머나먼 바다의 갑판까지, 초암이 짓는 모든 세계관의 시각적 뼈대가 됩니다.'
+        ]
       },
-      field: 'dat',
-      reel: true, /* Our Style: the three standings together; Image Organize: the process, then a genuine comparison. */
-      /* r5: real, Mino-locked Seonjam production art, shown with no names or captions (provenance lives in the r5 receipt).
-         Each chain also uses other tools (Codex i2i / seedream / matting), so nothing here is presented as pure model output.
-         seoa  success_cases/seoa/seoa_handsback_v2.png                     decisions.log L450
-         yeji  success_cases/yeji/yeji_hero_blazer_v1.png                   decisions.log L297, LOCKED.md
-         daeun success_cases/daeun/daeun_scratch_v1.png                     decisions.log L469
-         kv    success_cases/group_scenes/seonjam_keyvisual_classroom_v2.png decisions.log L477, LOCKED.md
-         Standings are trimmed to their alpha and scaled; nothing is retouched (scripts/gallery-art.py). */
+      art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'gallery', cut: true, items: [
-          { src: 'assets/dat-g-seoa.webp', ar: 444 / 1300, alt: 'Character art: a girl with long silver hair in a navy sailor uniform, standing with her hands behind her back', altKo: '캐릭터 일러스트: 긴 은발에 남색 세일러 교복을 입고 뒷짐 진 채 서 있는 소녀' },
-          { src: 'assets/dat-g-yeji.webp', ar: 461 / 1300, alt: 'Character art: a girl with long dark hair in a dark blazer, looking back over her shoulder', altKo: '캐릭터 일러스트: 긴 흑발에 짙은 블레이저 차림으로 어깨 너머 돌아보는 소녀' },
-          { src: 'assets/dat-g-daeun.webp', ar: 408 / 1300, alt: 'Character art: a girl with short red hair in a sailor uniform, scratching her head', altKo: '캐릭터 일러스트: 짧은 빨간 머리에 세일러 교복 차림으로 머리를 긁는 소녀' }
-        ] },
-        /* The classroom is removed only from this display; its asset and all other uses stay intact. */
-        /* 2026-10-12 (Mino 12:29): how DAT is used, drawn as a machine, then one real before/after kept apart from it.
-           Concept: GPT Image's muddy colouring filtered out and a watercolour wash added (Mino's description).
-           Real pair: Donguri Ryokan shrine-leaf cut, 2026-10-11, GPT Image original and the DAT pass Mino picked, both full frame
-           at the same scale (scripts/build_assets.py). One scene, not a claim that every error is fixed. */
-        { kind: 'fig', src: 'assets/dat-machine.svg', ar: 1039 / 573, cap: 'Feature graphic · How DAT works', capKo: '설명 그림 · DAT가 하는 일', alt: 'Feature graphic, not actual output: muddy pictures ride a conveyor through a filter that catches the harsh colour, pass under a roller that lays a light watercolour wash, and stack up on the right', altKo: '설명 그림, 실제 결과 아님: 탁한 그림이 컨베이어를 타고 거친 색을 거르는 필터를 지나, 롤러 아래에서 옅은 수채 워시를 입고 오른쪽에 쌓이는 기계' },
-        { kind: 'compare', alt: 'Actual output: one Donguri Ryokan scene before and after DAT, same size and framing', altKo: '실제 결과: 동구리 료칸 한 장면의 DAT 적용 전과 후, 같은 크기와 구도',
-          items: [
-            { src: 'assets/dat-case-original.webp', ar: 2048 / 1360, name: 'GPT Image original', nameKo: 'GPT Image 원본', alt: 'GPT Image original: two fox girls in kimono at a mountain shrine at sunset, one holding up a leaf, the other lying by a wooden box with a cup', altKo: 'GPT Image 원본: 노을 진 산속 신사에서 한 명은 나뭇잎을 들고, 한 명은 나무 상자 곁에 엎드려 잔을 든 기모노 차림의 여우 소녀 둘' },
-            { src: 'assets/dat-case-dat.webp', ar: 2048 / 1360, name: 'After DAT', nameKo: 'DAT 적용 후', alt: 'The same scene after DAT: smoother brushwork in the hair and clothing, with some costume and accessory details redrawn', altKo: '같은 장면에 DAT를 적용한 결과: 머리카락과 옷의 붓 결이 더 매끈해지고, 의상과 장신구 일부가 다시 그려짐' }
-          ] }
+        { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 50%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '50% 50%' }
       ],
-      comparisons: [
-        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020,
-          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면입니다.' },
-        { id: 'classroom', label: 'Classroom', labelKo: '교실', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, detailPoint: [.25, .78],
-          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여주며, 장신구 모양도 일부 달라집니다.' },
-        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, detailPoint: [.7, .74],
-          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교한 화면입니다. 머리 장식과 장신구, 옷의 세부 모양도 함께 다듬어집니다.' }
-      ],
-      info: { kind: 'dat' }
+      info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '50% 50%', side: 'end' }
     },
     {
       id: 'seonjam',
@@ -813,7 +798,7 @@
     });
   };
   const updateDat = () => {
-    if (!datSec) return;
+    if (!datSec || !datInline) return;
     const k = datSec._k || 0, title = datSec.querySelector('.cap-title');
     (title.querySelector('a') || title).textContent = k ? 'Image Organize' : 'Our Style';
     datSec.classList.toggle('dat-comparing', k === 2);
@@ -877,7 +862,7 @@
 
   /* every word in a section, in the current language; changes text in place so scroll and rail position stay put */
   const labelSec = (sec, p) => {
-    const ps = paras(p), n = steps(p), T = p.id === 'dat' && sec._k ? 'Image Organize' : p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
+    const ps = paras(p), n = steps(p), T = p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
     const st = sec.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
     sec.querySelector('.cap-line').textContent = tr(p, 'headline');
     set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${ps.length}개` : `${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`);
@@ -900,7 +885,7 @@
       else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
       if (cap) cap.textContent = ko() && spec.capKo || spec.cap;
     });
-    if (p.id === 'dat') updateDat();
+    if (p.id === 'dat' && datInline) updateDat();
   };
   const labelAll = () => secs.forEach((sec, i) => labelSec(sec, shown[i]));
   labelAll();
@@ -949,7 +934,7 @@
     sec.querySelectorAll('.slide').forEach((el, j) => { el.inert = p.reel ? false : j !== k; });
     const c = sec.querySelector('[data-count]'); if (c) c.textContent = k + 1;
     const art = p.reel ? p.panels[k] : artFor(p, k);
-    if (p.id === 'dat') labelSec(sec, p);
+    if (p.id === 'dat' && datInline) labelSec(sec, p);
     sec.dataset.vis = art.kind;
     sec.querySelectorAll('.media[data-art]').forEach(m => {
       const on = Number(m.dataset.art) === p.panels.indexOf(art);
