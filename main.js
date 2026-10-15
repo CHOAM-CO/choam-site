@@ -581,12 +581,13 @@
     /* DAT: the cast, then one real before / after pair, side by side on one plate (if flip view is enabled) */
     const datPlate = plates.find(el => el.id === 'dat');
     const flip = datPlate && datPlate.querySelector('[data-flip]');
+    let flipTo = () => {};
     if (flip) {
       const fSlides = [...flip.querySelectorAll('.slide')];
       const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
       const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
       const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
-      const flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
+      flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
       const markFlip = () => {
         const k = at();
         marks.forEach((s, i) => { s.classList.toggle('is-on', i === k); s.setAttribute('aria-pressed', String(i === k)); });
@@ -692,7 +693,7 @@
     const go = (id, k, instant) => {
       const el = id === 'top' ? null : document.getElementById(id);
       scrollTo({ top: el ? el.offsetTop : 0, behavior: instant ? 'instant' : behavior() });
-      if (id === 'dat') flipTo(k >= 3 ? 1 : 0, true);
+      if (id === 'dat' && flip) flipTo(k >= 3 ? 1 : 0, true);
     };
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href^="#"]');
