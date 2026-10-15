@@ -578,34 +578,37 @@
     const links = [...rail.querySelectorAll('[data-index-link]')];
     document.querySelectorAll('[data-go-project]').forEach(a => { a.href = `#${a.dataset.goProject}`; });
 
-    /* DAT: the cast, then one real before / after pair, side by side on one plate */
+    /* DAT: the cast, then one real before / after pair, side by side on one plate (if flip view is enabled) */
     const datPlate = plates.find(el => el.id === 'dat');
-    const flip = datPlate.querySelector('[data-flip]'), fSlides = [...flip.querySelectorAll('.slide')];
-    const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
-    const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
-    const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
-    const flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
-    const markFlip = () => {
-      const k = at();
-      marks.forEach((s, i) => { s.classList.toggle('is-on', i === k); s.setAttribute('aria-pressed', String(i === k)); });
-      fSlides.forEach((s, i) => { s.inert = i !== k; s.classList.toggle('is-on', i === k); });
-    };
-    flip.addEventListener('scroll', markFlip, { passive: true });
-    flip.addEventListener('dragstart', e => e.preventDefault());
-    flip.addEventListener('keydown', e => {
-      if (e.target.closest('[data-compare]')) return; /* the range keeps its own arrow keys */
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); flipTo(at() + (e.key === 'ArrowRight' ? 1 : -1)); }
-    });
-    let down = null;
-    datPlate.addEventListener('pointerdown', e => { down = e.pointerType === 'mouse' && !e.target.closest('[data-compare], button, a') ? e.clientX : null; });
-    addEventListener('pointerup', e => { if (down === null) return; const dx = e.clientX - down; down = null; if (Math.abs(dx) > 40) flipTo(at() + (dx < 0 ? 1 : -1)); });
-    datPlate.addEventListener('pointercancel', () => { down = null; });
-    datPlate.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
-    const split = v => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--split', `${v}%`); range.value = String(Math.round(v)); };
-    box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); if (r.width) split((e.clientX - r.left) / r.width * 100); });
-    range.addEventListener('input', () => split(Number(range.value)));
-    new ResizeObserver(() => flipTo(at(), true)).observe(flip);
-    markFlip();
+    const flip = datPlate && datPlate.querySelector('[data-flip]');
+    if (flip) {
+      const fSlides = [...flip.querySelectorAll('.slide')];
+      const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
+      const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
+      const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
+      const flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
+      const markFlip = () => {
+        const k = at();
+        marks.forEach((s, i) => { s.classList.toggle('is-on', i === k); s.setAttribute('aria-pressed', String(i === k)); });
+        fSlides.forEach((s, i) => { s.inert = i !== k; s.classList.toggle('is-on', i === k); });
+      };
+      flip.addEventListener('scroll', markFlip, { passive: true });
+      flip.addEventListener('dragstart', e => e.preventDefault());
+      flip.addEventListener('keydown', e => {
+        if (e.target.closest('[data-compare]')) return; /* the range keeps its own arrow keys */
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); flipTo(at() + (e.key === 'ArrowRight' ? 1 : -1)); }
+      });
+      let down = null;
+      datPlate.addEventListener('pointerdown', e => { down = e.pointerType === 'mouse' && !e.target.closest('[data-compare], button, a') ? e.clientX : null; });
+      addEventListener('pointerup', e => { if (down === null) return; const dx = e.clientX - down; down = null; if (Math.abs(dx) > 40) flipTo(at() + (dx < 0 ? 1 : -1)); });
+      datPlate.addEventListener('pointercancel', () => { down = null; });
+      datPlate.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
+      const split = v => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--split', `${v}%`); range.value = String(Math.round(v)); };
+      box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); if (r.width) split((e.clientX - r.left) / r.width * 100); });
+      range.addEventListener('input', () => split(Number(range.value)));
+      new ResizeObserver(() => flipTo(at(), true)).observe(flip);
+      markFlip();
+    }
 
     /* artwork comes up over 1.1s as its plate reaches the screen (reduced motion: already there) */
     const reveal = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-on'); reveal.unobserve(e.target); } }), { threshold: .35 });
@@ -625,18 +628,22 @@
         const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
         const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
       });
-      const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
-      datPlate.querySelector('.plate-cast').setAttribute('aria-label', ko() ? 'DAT 캐릭터 일러스트' : 'DAT character art');
-      datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
-      flip.setAttribute('aria-label', ko() ? 'DAT, 2개 화면' : 'DAT, 2 views');
-      datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', ko() ? 'DAT 화면 전환' : 'DAT view switch');
-      const pillLabels = ko() ? ['01 캐릭터 일러스트', '02 보정 전후 비교'] : ['01 Character Art', '02 Before & After'];
-      marks.forEach((b, k) => { b.textContent = pillLabels[k]; });
-      flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '보정 전후 비교 보기' : 'View before and after');
-      flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '캐릭터 일러스트 보기' : 'View character art');
-      box.querySelector('.cmp-before').alt = ko() ? c.beforeLabelKo || c.beforeLabel : c.beforeLabel || 'Original';
-      box.querySelector('.cmp-after').alt = ko() ? 'DAT 적용 후' : 'After DAT';
-      range.setAttribute('aria-label', ko() ? 'BEFORE / AFTER 비교 경계 위치' : 'Before / after reveal position');
+      if (flip) {
+        const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
+        const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
+        datPlate.querySelector('.plate-cast').setAttribute('aria-label', ko() ? 'DAT 캐릭터 일러스트' : 'DAT character art');
+        datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
+        flip.setAttribute('aria-label', ko() ? 'DAT, 2개 화면' : 'DAT, 2 views');
+        datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', ko() ? 'DAT 화면 전환' : 'DAT view switch');
+        const pillLabels = ko() ? ['01 캐릭터 일러스트', '02 보정 전후 비교'] : ['01 Character Art', '02 Before & After'];
+        marks.forEach((b, k) => { b.textContent = pillLabels[k]; });
+        flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '보정 전후 비교 보기' : 'View before and after');
+        flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '캐릭터 일러스트 보기' : 'View character art');
+        const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
+        box.querySelector('.cmp-before').alt = ko() ? c.beforeLabelKo || c.beforeLabel : c.beforeLabel || 'Original';
+        box.querySelector('.cmp-after').alt = ko() ? 'DAT 적용 후' : 'After DAT';
+        range.setAttribute('aria-label', ko() ? 'BEFORE / AFTER 비교 경계 위치' : 'Before / after reveal position');
+      }
       rail.setAttribute('aria-label', ko() ? '프로젝트 목록' : 'Project index');
       links[0].querySelector('span').textContent = ko() ? '홈' : 'Home';
       setCurrent(curId, false);
