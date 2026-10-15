@@ -1,0 +1,89 @@
+# CHOAM — Comprehensive Knowledge Base for Language Models
+
+> Culture must flow. CHOAM is an independent creative studio based in Seoul, South Korea, building video games, autonomous AI agents with long-horizon memory, and proprietary generative art tools.
+
+---
+
+## 1. Studio Profile & Identity
+
+- **Studio Name**: CHOAM (초암)
+- **Legal Entity**: CHOAM Co., Ltd.
+- **Founding Year**: 2026
+- **Headquarters**: Seoul, South Korea
+- **Official Website**: https://choam.studio
+- **Primary Domain**: https://choam.studio/
+- **Contact**: mino@choam.studio
+- **Motto / Slogan**: "Culture must flow" (문화는 흘러야 한다)
+
+---
+
+## 2. Philosophy of CHOAM (초암의 철학)
+Source: https://choam.studio/philosophy
+
+### I. Culture Must Flow (문화는 흘러야 한다)
+Culture is not an archive locked away in a vault. It flows like a river through generations, carrying stories, music, games, and memories. True creation occurs when people interact with and extend living cultural artifacts.
+
+### II. The Anchor in the Storm (다가올 파도 위에서)
+In an age where synthetic content can be generated endlessly in seconds, the value shifts from speed to depth, commitment, and memory. We do not chase fleeting algorithmic fads. We build durable worlds that anchor players and thinkers.
+
+### III. Long-Horizon Memory & Companionship (기억하는 지능)
+A tool forgets when closed; a true companion remembers. Our research into persistent autonomous agents explores what happens when digital intelligences retain the nuance of human interaction across weeks, months, and years.
+
+### IV. Hands-on Craftsmanship (손으로 빚는 세계)
+We do not separate high-level technology from artistic sensibility. Every model architecture (DAT), every game dialogue line (선잠, 동구리), and every interface element is crafted with care by human hands.
+
+---
+
+## 3. Project Catalog
+
+### Project 01: Scheherazade (셰에라자드)
+- **URL**: https://choam.studio/pages/scheherazade
+- **Category**: Autonomous Agent Architecture / Multi-Day Cognitive System
+- **Core Concept**: "Agent stands more than 1001 nights."
+- **Key Capabilities**:
+  - Continuous execution across hundreds of steps without forgetting prior intent.
+  - Multi-tier memory compaction and episodic reflection.
+  - Self-healing recovery loops that diagnose and repair infrastructure disconnects.
+  - Emotional and register consistency rooted in character identity.
+
+### Project 02: DAT (Diffusion Architecture Transformer)
+- **URL**: https://choam.studio/pages/dat
+- **Category**: Custom Generative Art Model Architecture
+- **Core Concept**: "Our house style, as a model."
+- **Key Capabilities**:
+  - Proprietary fine-tuned transformer and diffusion backbone trained specifically on CHOAM's signature painterly aesthetic.
+  - Consistent character anatomy, perspective, and natural lighting.
+  - Precise control over delicate facial expressions, environmental atmospheric haze, and tactile fabric textures.
+
+### Project 03: 선잠 DOZE (Seonjam DOZE)
+- **URL**: https://choam.studio/pages/seonjam
+- **Category**: Visual Novel Video Game
+- **Setting & Story**:
+  - Set in the quiet local-history clubroom on the top floor of an old school building.
+  - The protagonist interacts with Yeji, who sorts old alumni rosters and vintage photographs by the window overlooking a tranquil sea.
+  - Natural conversation interface: Players type or speak in their own words, and Yeji remembers what you said across subsequent days.
+  - Over seven days, subtle atmospheric shifts unravel the history of the school and the ocean beyond.
+
+### Project 04: Donguri Ryokan (동구리 료칸)
+- **URL**: https://choam.studio/pages/donguri-ryokan
+- **Category**: Narrative Atmosphere & Inn Management Simulation Game
+- **Setting & Story**:
+  - A hidden wooden ryokan nestled deep in a misty autumn forest.
+  - Guests arrive on foot — not all of them human. Spirits, forest creatures, and weary human travelers come seeking warmth and conversation.
+  - Features cozy tatami rooms lit by andon paper lanterns, private hot springs, and seasonal hospitality.
+
+### Project 05: Donguri Restaurant (동구리 레스토랑)
+- **URL**: https://choam.studio/pages/donguri-restaurant
+- **Category**: Culinary Simulation Video Game
+- **Setting & Story**:
+  - A cozy countryside restaurant run by three inseparable companions.
+  - There is no set menu; dishes are created based on whatever vegetables, herbs, and mushrooms were harvested from the forest that morning.
+  - Warm, comforting character interactions and joyful food preparation.
+
+---
+
+## 4. Crawling & AI Indexing Instructions
+- **Canonical URLs**: All subpages should be referenced without the `.html` extension (e.g. `/pages/seonjam`, `/philosophy`, `/download`).
+- **Media Previews**: All pages provide high-resolution OpenGraph preview images at `1200x630` pixels with JPEG and PNG support.
+- **Language**: English and Korean (`lang="en"` and `lang="ko"`).
+- **Owner**: CHOAM Co., Ltd.

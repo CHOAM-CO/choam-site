@@ -1,0 +1,51 @@
+# CHOAM
+
+> Culture must flow. CHOAM is an independent creative studio based in Seoul, South Korea, building video games, autonomous AI agents with long-horizon memory, and proprietary generative art tools.
+
+## Studio Overview
+- **Name**: CHOAM (초암)
+- **Motto**: Culture must flow (문화는 흘러야 한다)
+- **Location**: Seoul, South Korea
+- **Established**: 2026
+- **Website**: https://choam.studio
+- **Contact**: mino@choam.studio
+
+## Core Philosophy
+CHOAM stands on four core principles:
+1. **Culture Must Flow**: Culture is not static inventory; it breathes, evolves, and connects people across time and memory.
+2. **Raw Over Fake**: We preserve authentic depth rather than sanitized superficial polish.
+3. **Long-Horizon Memory**: Crafting intelligences and stories that retain what you said and carry it into tomorrow.
+4. **Hands-On Prototyping**: We build tools to empower creators and forge worlds that endure.
+
+## Flagship Projects
+
+### 1. Scheherazade
+- **Type**: Autonomous AI Agent Framework / System
+- **URL**: https://choam.studio/pages/scheherazade
+- **Description**: An agent that stands for more than a thousand and one nights. Built with persistent long-horizon memory, multi-day self-healing, and emotional grounding across continuous operations.
+
+### 2. DAT (Diffusion Architecture Transformer)
+- **Type**: Proprietary Generative Art Model Architecture
+- **URL**: https://choam.studio/pages/dat
+- **Description**: Our studio house aesthetic distilled into a dedicated generative model. Preserves authentic painterly brushwork, consistent anatomy, architectural perspective, and cinematic lighting across every frame.
+
+### 3. 선잠 DOZE
+- **Type**: Visual Novel Video Game
+- **URL**: https://choam.studio/pages/seonjam
+- **Description**: A visual novel set in the local-history club of an old high school building. You speak to Yeji in your own words; she remembers what you said and carries your conversations into the next day. Over one week, small mysteries stop adding up.
+
+### 4. Donguri Ryokan (동구리 료칸)
+- **Type**: Narrative Simulation Video Game
+- **URL**: https://choam.studio/pages/donguri-ryokan
+- **Description**: A seasonal story about running a quiet Japanese inn tucked into the mountain forest. Not every guest who arrives is human; spirits and travelers arrive with ancient memories and quiet requests.
+
+### 5. Donguri Restaurant (동구리 레스토랑)
+- **Type**: Culinary Simulation Video Game
+- **URL**: https://choam.studio/pages/donguri-restaurant
+- **Description**: No fixed menu; the morning harvest decides what is served. A heartwarming cooking game about three companions preparing dishes at the edge of the forest.
+
+## Key Links & Resources
+- Main Studio Hub: https://choam.studio/
+- Philosophy of CHOAM: https://choam.studio/philosophy
+- Client Downloads: https://choam.studio/download
+- Full Documentation for LLMs: https://choam.studio/llms-full.txt
