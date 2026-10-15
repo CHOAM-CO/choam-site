@@ -68,7 +68,7 @@
           [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 밤사이 꿈도 꿉니다.\n꿈까지 업무 보고서일 필요는 없으니까요.']
         ]
       },
-      action: { label: 'Get', href: 'download.html', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
+      action: { label: 'Get', href: 'download', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
       field: 'sch',
       art: [0, 1, 2, 3],
       panels: [
@@ -235,7 +235,18 @@
   const track = document.querySelector('[data-track]');   /* absent on download.html */
   const shown = track ? PROJECTS.filter(p => !only || p.id === only) : [];
   const numOf = p => pad(PROJECTS.indexOf(p) + 1);
-  const pageOf = p => url(`pages/${p.id}.html`);
+  const pageOf = p => url(`pages/${p.id}`);
+
+  /* ---------- clean URL: strip .html extension and subpage #1 hashes from address bar ---------- */
+  try {
+    if (location.pathname.endsWith('.html')) {
+      const cleanPath = location.pathname.replace(/\.html$/, '');
+      const hashPart = only ? '' : location.hash;
+      history.replaceState(history.state, '', cleanPath + location.search + hashPart);
+    } else if (only && location.hash) {
+      history.replaceState(history.state, '', location.pathname + location.search);
+    }
+  } catch (e) {}
 
   /* ---------- language (every page): English unless this browser chose Korean. The <head> of each page reads
      localStorage before paint and sets <html lang>; this keeps the copy, labels and the picker in step with it.
@@ -326,7 +337,7 @@
   /* ---------- project menu (every page) ---------- */
   document.querySelectorAll('[data-projects]').forEach(list => {
     list.innerHTML = PROJECTS.map(p => {
-      const href = !track ? url(`index.html#${p.id}/1`) : only ? pageOf(p) : `#${p.id}/1`;
+      const href = !track ? url(`#${p.id}`) : only ? pageOf(p) : `#${p.id}`;
       return `<li><a class="proj" href="${href}" data-go-project="${p.id}">${esc(p.title)}</a></li>`;
     }).join('');
   });
@@ -337,7 +348,7 @@
   if (mast) {
     const mk = cls => {
       const a = document.createElement('a');
-      a.className = cls; a.href = url('philosophy.html');
+      a.className = cls; a.href = url('philosophy');
       if (onPhilo) { a.classList.add('is-current'); a.setAttribute('aria-current', 'page'); }
       philoLinks.push(a); return a;
     };
@@ -675,7 +686,7 @@
           nextCh.setAttribute('aria-label', ko() ? `다음 프로젝트: ${q.title}` : `Next project: ${q.title}`);
         }
       }
-      if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : location.pathname + location.search);
+      if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : location.pathname.replace(/\.html$/, '') + location.search);
     }
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return;
@@ -697,7 +708,7 @@
       e.preventDefault();
       const [id, k] = parse(a.getAttribute('href'));
       if (body.classList.contains('menu-open')) setMenu(false);
-      history.pushState(null, '', id === 'top' ? location.pathname + location.search : `#${id}`);
+      history.pushState(null, '', id === 'top' ? location.pathname.replace(/\.html$/, '') + location.search : `#${id}`);
       go(id, k);
       const target = id !== 'top' && (a.closest('.index-rail') || a.matches('[data-go-project]')) && document.getElementById(id);
       if (target) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); } /* keyboard users land where they asked to go */
@@ -955,8 +966,12 @@
       b.classList.toggle('is-current', on);
       if (on) b.setAttribute('aria-current', only ? 'page' : 'true'); else b.removeAttribute('aria-current');
     });
-    const hash = only ? `#${k + 1}` : `#${p.id}/${k + 1}`;
-    if (location.hash !== hash) history.replaceState(null, '', hash);
+    if (only) {
+      if (location.hash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search);
+    } else {
+      const hash = `#${p.id}/${k + 1}`;
+      if (location.hash !== hash) history.replaceState(null, '', hash);
+    }
     const live = document.querySelector('[data-live]');
     if (live && !auto) live.textContent = p.reel ? (ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 작품` : `${p.title}, artwork ${k + 1} of ${n}`)
       : ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 문단` : `${p.title}, paragraph ${k + 1} of ${n}`;
@@ -980,7 +995,7 @@
     ['[data-current-num]', '[data-current-title]', '[data-current-sub]'].forEach(sel => setText(sel, ''));
     setNext(null);
     document.querySelectorAll('[data-go-project]').forEach(b => { b.classList.remove('is-current'); b.removeAttribute('aria-current'); });
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (location.hash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search);
   };
   const goProd = (pi, k, instant) => {
     const sec = secs[pi]; if (!sec) return;
