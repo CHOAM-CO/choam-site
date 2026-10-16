@@ -159,7 +159,12 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   white-space: nowrap; color: var(--bone);
   text-shadow: 0 0 60px rgba(217, 163, 98, .18);
 }
-.intro-wm span { display: inline-block; }
+.intro-wm span {
+  display: inline-block;
+  will-change: opacity, transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 .intro-motto { margin-top: clamp(18px, 3.2vh, 34px); font-weight: 600; font-size: clamp(11px, .95vw, 14px); letter-spacing: .72em; margin-right: -.72em; text-transform: uppercase; color: var(--ember); }
 .intro-foot {
   position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(var(--deck-h) + 26px);
@@ -420,6 +425,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .foot { order: 3; width: 100%; margin-left: 0; gap: 16px; font-size: 10px; }
   .intro-title { top: calc(var(--mast-h) + (100% - var(--mast-h) - var(--deck-h)) * .17); }
   .intro-wm { font-size: 15.5vw; letter-spacing: .26em; margin-right: -.26em; }
+  .intro-wm span { filter: none !important; -webkit-filter: none !important; }
   .intro-motto { font-size: 10.5px; letter-spacing: .54em; margin-right: -.54em; }
   .intro-foot { grid-template-columns: 1fr 1fr; grid-template-areas: 'next next' 'meta clock'; row-gap: 26px; bottom: calc(var(--deck-h) + 20px); }
   .intro-meta { grid-area: meta; gap: 12px; font-size: 10px; letter-spacing: .2em; }

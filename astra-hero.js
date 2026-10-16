@@ -202,11 +202,13 @@
   /* ---------- the real HTML title (scene.js textAt timing) ---------- */
   const baseLs = parseFloat(getComputedStyle(wm).letterSpacing) / parseFloat(getComputedStyle(wm).fontSize) || .36;
   let creditsShown = false;
+  const isMobile = () => matchMedia('(max-width: 760px)').matches;
   const textAt = (T, fade) => {
+    const mobile = isMobile();
     letters.forEach((el, i) => {
       const p = ease((T - 1.5 - i * .14) / 1.7);
       el.style.opacity = p.toFixed(3);
-      el.style.filter = p < 1 ? `blur(${((1 - p) * 14).toFixed(2)}px)` : '';
+      el.style.filter = (!mobile && p < 1) ? `blur(${((1 - p) * 14).toFixed(2)}px)` : '';
     });
     const ls = baseLs + .3 * (1 - easeIO((T - 1.3) / 3.2));
     wm.style.letterSpacing = `${ls.toFixed(4)}em`; wm.style.marginRight = `${(-ls).toFixed(4)}em`;
