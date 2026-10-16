@@ -232,6 +232,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .cap-meta { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); font-variant-numeric: tabular-nums; }
 .cap-meta .ch { color: var(--ember); }
 .cap-meta .ch::after { content: ''; display: inline-block; width: 36px; height: 1px; margin: 0 0 3px 14px; background: var(--line); vertical-align: middle; }
+.cap-meta [data-status] { padding-left: 14px; border-left: 1px solid var(--line); }
 .cap-title { margin-top: 22px; font-weight: 750; font-size: clamp(30px, 2.9vw, 46px); line-height: 1.12; letter-spacing: .14em; text-transform: uppercase; text-wrap: balance; }
 .cap-title a:hover { color: var(--ember); }
 .cap-ko { margin-top: 10px; font-weight: 500; font-size: 15px; letter-spacing: .2em; color: var(--ash); }
@@ -244,22 +245,23 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 :lang(ko) .slide p { letter-spacing: -0.005em; }
 .slide p + p { margin-top: 1em; }
 .slide .display { font-weight: 700; font-size: 21px; line-height: 1.45; letter-spacing: .02em; color: var(--ember); }
-.rail-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; margin-top: 22px; min-height: 48px; }
-.text-btn { font-weight: 650; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); padding: 14px 0; transition: color .3s; }
+.rail-ctl { display: flex; flex-wrap: nowrap; align-items: center; gap: 14px; margin-top: 24px; min-height: 44px; }
+.text-btn { display: inline-flex; align-items: center; height: 44px; font-weight: 650; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--ash); padding: 0; white-space: nowrap; transition: color .3s; }
 .text-btn:not(:disabled):hover { color: var(--bone); }
-.dots { display: flex; }
-.dot { width: 30px; height: 44px; display: flex; align-items: center; justify-content: center; }
-.dot i { display: block; width: 22px; height: 1px; background: rgba(235, 229, 218, .3); transition: background .4s, height .4s; }
+.dots { display: flex; align-items: center; }
+.dot { width: 22px; height: 44px; display: flex; align-items: center; justify-content: center; }
+.dot i { display: block; width: 16px; height: 1px; background: rgba(235, 229, 218, .3); transition: background .4s, height .4s; }
 .dot.is-current i { background: var(--bone); height: 2px; }
-.count { white-space: nowrap; font-weight: 550; font-size: 11px; letter-spacing: .24em; color: var(--dim); font-variant-numeric: tabular-nums; }
-.count b { color: var(--bone); font-weight: 650; }
+.count { display: inline-flex; align-items: center; height: 44px; white-space: nowrap; font-weight: 550; font-size: 11px; letter-spacing: .2em; color: var(--dim); font-variant-numeric: tabular-nums; }
+.count b { color: var(--bone); font-weight: 650; margin-right: 4px; }
 .prod-act {
   margin-left: auto; display: inline-flex; align-items: center; justify-content: center;
-  min-width: 124px; height: 48px; padding: 0 30px;
-  font-weight: 700; font-size: 12px; letter-spacing: .34em; text-transform: uppercase;
+  min-width: 108px; height: 44px; padding: 0 24px;
+  font-weight: 700; font-size: 12px; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; white-space: nowrap;
   color: var(--void); background: var(--bone);
   transition: background .3s, color .3s;
 }
+:lang(ko) .prod-act { text-indent: .08em; }
 .prod-act:hover { background: var(--ember); }
 /* Get chooser: the language menu's panel and rows, opening upward from Get */
 .get-wrap { position: relative; margin-left: auto; display: flex; }
@@ -285,29 +287,33 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .vis figcaption { font-weight: 600; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
 
 /* feature graphics, unboxed: hairlines and type straight on the plate, one warm pool of light.
-   Type sizes are in the drawing's own units (720 wide): desktop draws at about 1.1x, a 390px phone at about 0.5x,
-   so the phone block below roughly doubles them to stay at 11px or more on screen. */
+   Type sizes are locked in the drawing's own 720x540 coordinate system so boxes, pills, and columns stay pixel-aligned across all viewports. */
 .feat .fr { fill: rgba(235, 229, 218, .03); stroke: rgba(235, 229, 218, .2); }
 .feat .fr.on { fill: rgba(217, 163, 98, .07); stroke: rgba(217, 163, 98, .8); }
 .feat .fr.off { stroke: rgba(235, 229, 218, .3); stroke-dasharray: 3 6; }
 .feat .fj { fill: #0d0d0e; stroke: rgba(235, 229, 218, .22); }
-.feat .l { font-size: 14px; font-weight: 650; letter-spacing: .3em; fill: var(--ember); }
-.feat .t { font-size: 26px; font-weight: 700; letter-spacing: .04em; fill: var(--bone); }
-.feat .s { font-size: 16.5px; font-weight: 450; fill: rgba(235, 229, 218, .7); }
+.feat .l { font-size: 13px; font-weight: 650; letter-spacing: .24em; fill: var(--ember); }
+.feat .l.sm { font-size: 10.5px; letter-spacing: .16em; }
+.feat .t { font-size: 21px; font-weight: 700; letter-spacing: .02em; fill: var(--bone); }
+.feat .s { font-size: 14px; font-weight: 450; fill: rgba(235, 229, 218, .72); }
 .feat .s.em { fill: var(--bone); font-weight: 550; }
-.feat .k { font-size: 13px; font-weight: 650; letter-spacing: .22em; fill: var(--bone); }
-.feat .dim { opacity: .45; }
+.feat .s.sm { font-size: 12.5px; }
+.feat .k { font-size: 12.5px; font-weight: 650; letter-spacing: .16em; fill: var(--bone); }
+.feat .tag { font-size: 9.5px; font-weight: 650; letter-spacing: .14em; fill: var(--bone); }
+.feat .tag.dark { fill: var(--void); font-weight: 700; }
+.feat .tag.em { fill: var(--ember); }
+.feat .dim { opacity: .48; }
 .feat .b { fill: rgba(235, 229, 218, .16); rx: 1px; }
-.feat .b2 { fill: rgba(235, 229, 218, .42); rx: 1px; }
+.feat .b2 { fill: rgba(235, 229, 218, .32); rx: 1px; }
 .feat .bg { fill: var(--ember); }
 .feat .st { fill: none; stroke: var(--ember); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .feat .sd { fill: none; stroke: rgba(235, 229, 218, .3); stroke-width: 1; stroke-dasharray: 3 6; }
-.feat .chip { fill: none; stroke: rgba(235, 229, 218, .5); }
-.feat .chip.on { stroke: rgba(217, 163, 98, .8); fill: rgba(217, 163, 98, .07); }
+.feat .chip { fill: rgba(235, 229, 218, .03); stroke: rgba(235, 229, 218, .38); }
+.feat .chip.on { stroke: rgba(217, 163, 98, .85); fill: rgba(217, 163, 98, .1); }
 .feat .tab { fill: rgba(235, 229, 218, .08); rx: 1px; }
-.feat .hr { stroke: rgba(235, 229, 218, .12); }
-.feat .hl { fill: rgba(217, 163, 98, .2); }
-.feat .bubble { fill: rgba(14, 13, 12, .85); stroke: rgba(217, 163, 98, .5); }
+.feat .hr { stroke: rgba(235, 229, 218, .14); }
+.feat .hl { fill: rgba(217, 163, 98, .16); stroke: rgba(217, 163, 98, .35); }
+.feat .bubble { fill: rgba(14, 13, 12, .9); stroke: rgba(217, 163, 98, .55); }
 .feat .sil { fill: rgba(235, 229, 218, .2); }
 .feat .blend { mix-blend-mode: screen; }
 .feat .dt { font-size: 50px; font-weight: 800; letter-spacing: .1em; fill: var(--bone); paint-order: stroke; stroke: rgba(5, 5, 6, .55); stroke-width: 6px; }
@@ -434,26 +440,25 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 
   .prod { --col: auto; }
   .prod-veil { background: linear-gradient(to top, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .86) 46%, rgba(5, 5, 6, 0) 74%); }
-  .prod-copy { left: var(--gutter); right: var(--gutter); width: auto; top: auto; bottom: calc(var(--deck-h) + 14px); justify-content: flex-end; }
-  .cap-title { margin-top: 14px; font-size: clamp(24px, 7.4vw, 34px); letter-spacing: .1em; }
+  .prod-copy { left: var(--gutter); right: var(--gutter); width: auto; top: auto; bottom: calc(var(--deck-h) + 12px); justify-content: flex-end; }
+  .cap-title { margin-top: 10px; font-size: clamp(22px, 6.8vw, 32px); letter-spacing: .1em; }
   .cap-ko { margin-top: 6px; font-size: 13px; }
-  .cap-line { margin-top: 10px; font-size: 16px; }
-  .rail { margin-top: 14px; }
-  .slide p { font-size: 14.5px; line-height: 1.68; }
+  .cap-line { margin-top: 8px; font-size: 15px; }
+  .rail { margin-top: 10px; }
+  .slide p { font-size: 14px; line-height: 1.62; }
   .slide .display { font-size: 17px; }
-  .rail-ctl { margin-top: 12px; gap: 4px 14px; }
-  .prod-act { min-width: 96px; height: 44px; padding: 0 20px; font-size: 11px; }
+  .rail-ctl { margin-top: 10px; gap: 10px; min-height: 40px; flex-wrap: nowrap; }
+  .text-btn { height: 40px; font-size: 10.5px; letter-spacing: .2em; }
+  .dot { width: 18px; height: 40px; }
+  .dot i { width: 12px; }
+  .count { height: 40px; font-size: 10.5px; letter-spacing: .16em; }
+  .prod-act { min-width: 82px; height: 40px; padding: 0 16px; font-size: 11px; letter-spacing: .24em; text-indent: .24em; }
   .get-menu { min-width: min(264px, calc(100vw - 2 * var(--gutter))); }
-  .prod .vis { inset: calc(var(--mast-h) + 14px) var(--gutter) calc(100% - var(--copy-top, 52%) + 14px); gap: 8px; }
+  .prod .vis { inset: calc(var(--mast-h) + 8px) var(--gutter) calc(100% - var(--copy-top, 52%) + 16px); gap: 8px; }
   .vis img, .vis svg { width: min(100cqw, calc((100cqh - 22px) * var(--ar))); }
   .vis figcaption { font-size: 9.5px; }
-  .feat .l { font-size: 15px; letter-spacing: .14em; }
-  .feat .t { font-size: 22px; }
-  .feat .s { font-size: 13.5px; }
-  .feat .k { font-size: 12.5px; letter-spacing: .08em; }
-  .feat .dt { font-size: 42px; }
-  .feat .dt.sm { font-size: 28px; }
   .field, .dat-field, .prod[data-vis="raw"] .stage { --horizon: 40%; }
+  .prod .field { --horizon: calc(var(--copy-top, 52%) - 8px); }
   .dl .sch-icon { position: absolute; top: calc(var(--mast-h) + 30px); left: var(--gutter); transform: none; width: 40vw; }
   .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 40vw + 60px) var(--gutter) 100px; justify-content: flex-start; }
   .dlbtn { flex: 1 1 100%; justify-content: space-between; }

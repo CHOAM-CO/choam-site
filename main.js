@@ -17,217 +17,264 @@
   const journal = (x, y, rot, hl) => `<g transform="rotate(${rot} ${x + 105} ${y + 75})"><rect class="fj" x="${x}" y="${y}" width="210" height="150"/><text class="k dim" x="${x + 20}" y="${y + 36}">JOURNAL</text>${[160, 146, 166, 110].map((w, i) => `<rect class="${i === hl ? 'bg' : 'b'}" x="${x + 20}" y="${y + 58 + i * 20}" width="${w}" height="9" rx="1"/>`).join('')}</g>`;
   const FEAT = {
     'sch-memory': () => `${POOL('pl-mem', 520, 270, 320, 220, .14)}
-      <text class="l" x="40" y="44">4-TIER LOCAL MEMORY</text><text class="k dim" x="680" y="44" text-anchor="end">~/Documents/Scheherazade/</text>
-      <path class="hr" d="M40 58H680"/>
+      <text class="l" x="40" y="42">4-TIER LOCAL MEMORY</text><text class="k dim" x="680" y="42" text-anchor="end">~/Documents/Scheherazade/</text>
+      <path class="hr" d="M40 56H680"/>
       <g transform="translate(40, 72)">
-        <rect class="fj" width="640" height="88" rx="2"/>
-        <text class="k" x="20" y="26">1. SESSION NOTES</text><text class="s dim" x="190" y="26">working memory · daily markdown</text>
-        <rect class="bg" x="20" y="38" width="46" height="18" rx="2"/><text class="k" x="43" y="51" text-anchor="middle" font-size="9">FELT</text>
-        <text class="s" x="76" y="52">Human emotion &amp; intent carried verbatim into history</text>
-        <rect class="b2" x="20" y="62" width="46" height="18" rx="2"/><text class="k" x="43" y="75" text-anchor="middle" font-size="9">LOCK</text>
-        <text class="s dim" x="76" y="75">Immutable user corrections &amp; project constraints</text>
+        <rect class="fj" width="640" height="90" rx="2"/>
+        <text class="k" x="22" y="25">1. SESSION NOTES</text><text class="s sm dim" x="236" y="25">session_notes/ · working memory</text>
+        <rect class="chip on" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">REAL-TIME</text>
+        <path class="hr" d="M22 35H618"/>
+        <rect class="bg" x="22" y="43" width="52" height="18" rx="2"/><text class="tag dark" x="48" y="55.5" text-anchor="middle">FELT</text>
+        <text class="s em" x="86" y="56">Human emotion &amp; intent carried verbatim into history</text>
+        <rect class="b2" x="22" y="65" width="52" height="18" rx="2"/><text class="tag" x="48" y="77.5" text-anchor="middle">LOCK</text>
+        <text class="s dim" x="86" y="78">Immutable user corrections &amp; project constraints</text>
       </g>
       <g transform="translate(40, 172)">
-        <rect class="fj" width="640" height="88" rx="2"/>
-        <text class="k" x="20" y="26">2. JOURNALS</text><text class="s dim" x="155" y="26">long-term memory · autonomous compression</text>
-        <text class="s" x="20" y="52">Overnight residue synthesis · stale session compression</text>
-        <text class="s dim" x="20" y="74">Summarized history with exact preservation of all locked directives</text>
-        ${moon(605, 44, 1.2)}
+        <rect class="fj" width="640" height="90" rx="2"/>
+        <text class="k" x="22" y="25">2. JOURNALS</text><text class="s sm dim" x="236" y="25">journals/ · autonomous compression</text>
+        <rect class="chip" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">NIGHTLY CRON</text>
+        <path class="hr" d="M22 35H618"/>
+        <rect class="b2" x="22" y="43" width="52" height="18" rx="2"/><text class="tag" x="48" y="55.5" text-anchor="middle">SYNC</text>
+        <text class="s" x="86" y="56">Overnight residue synthesis &amp; stale session compression</text>
+        <rect class="b" x="22" y="65" width="52" height="18" rx="2"/><text class="tag dim" x="48" y="77.5" text-anchor="middle">KEEP</text>
+        <text class="s dim" x="86" y="78">Summarized history preserving every locked directive</text>
       </g>
       <g transform="translate(40, 272)">
-        <rect class="fj" width="640" height="88" rx="2"/>
-        <text class="k" x="20" y="26">3. SELF PERSONA</text><text class="s dim" x="185" y="26">self_persona.md · weekly reflux</text>
-        <text class="s" x="20" y="52">Human-in-the-loop: weekly proposals reviewed and approved</text>
-        <text class="s em" x="20" y="74">Never drifts silently · zero unvetted identity mutation</text>
-        <rect class="chip on" x="515" y="28" width="105" height="28" rx="14"/><text class="k" x="567" y="46" text-anchor="middle" font-size="10">REVIEWED</text>
+        <rect class="fj" width="640" height="90" rx="2"/>
+        <text class="k" x="22" y="25">3. SELF PERSONA</text><text class="s sm dim" x="236" y="25">self_persona.md · weekly reflux</text>
+        <rect class="chip on" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">REVIEWED</text>
+        <path class="hr" d="M22 35H618"/>
+        <rect class="bg" x="22" y="43" width="52" height="18" rx="2"/><text class="tag dark" x="48" y="55.5" text-anchor="middle">GATE</text>
+        <text class="s" x="86" y="56">Human-in-the-loop: weekly proposals reviewed &amp; approved</text>
+        <rect class="b2" x="22" y="65" width="52" height="18" rx="2"/><text class="tag" x="48" y="77.5" text-anchor="middle">SAFE</text>
+        <text class="s em" x="86" y="78">Never drifts silently · zero unvetted identity mutation</text>
       </g>
       <g transform="translate(40, 372)">
-        <rect class="fj" width="640" height="88" rx="2"/>
-        <text class="k" x="20" y="26">4. MADOROMI (DREAMS)</text><text class="s dim" x="250" y="26">dreams/ · idle reflection</text>
-        <text class="s" x="20" y="52">Autonomous dream-work (displacement &amp; condensation)</text>
-        <text class="s dim" x="20" y="74">Spontaneous insight fragments delivered after quiet hours</text>
-        ${star(605, 44, 1.1)}
+        <rect class="fj" width="640" height="90" rx="2"/>
+        <text class="k" x="22" y="25">4. MADOROMI (DREAMS)</text><text class="s sm dim" x="236" y="25">dreams/ · idle reflection</text>
+        <rect class="chip" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">IDLE CYCLE</text>
+        <path class="hr" d="M22 35H618"/>
+        <rect class="b2" x="22" y="43" width="52" height="18" rx="2"/><text class="tag" x="48" y="55.5" text-anchor="middle">WORK</text>
+        <text class="s" x="86" y="56">Autonomous dream-work (displacement &amp; condensation)</text>
+        <rect class="b" x="22" y="65" width="52" height="18" rx="2"/><text class="tag dim" x="48" y="77.5" text-anchor="middle">SEED</text>
+        <text class="s dim" x="86" y="78">Spontaneous insight fragments surfaced after quiet hours</text>
       </g>
-      <path class="hr" d="M40 480H680"/>
-      <text class="l" x="40" y="506">ZERO DATABASE LOCK-IN</text><text class="s dim" x="680" y="506" text-anchor="end">100% plain Markdown on local disk</text>`,
+      <path class="hr" d="M40 478H680"/>
+      <text class="l" x="40" y="504">ZERO DATABASE LOCK-IN</text><text class="s dim" x="680" y="504" text-anchor="end">100% plain Markdown on local disk</text>`,
     'sch-lane': () => `${POOL('pl-lane', 360, 270, 340, 220, .14)}
-      <text class="l" x="40" y="44">MULTI-LANE ARCHITECTURE</text><text class="k dim" x="680" y="44" text-anchor="end">Decoupled Brain &amp; Memory</text>
-      <path class="hr" d="M40 58H680"/>
+      <text class="l" x="40" y="42">MULTI-LANE ARCHITECTURE</text><text class="k dim" x="680" y="42" text-anchor="end">Decoupled Brain &amp; Memory</text>
+      <path class="hr" d="M40 56H680"/>
       <g transform="translate(40, 72)">
-        <rect class="fr" width="280" height="390" rx="3"/>
-        <text class="l" x="20" y="32">SWAPPABLE BRAINS</text>
-        <g transform="translate(16, 48)">
-          <rect class="fj" width="248" height="66" rx="2"/>
-          <circle cx="20" cy="22" r="4" fill="var(--ember)"/>
-          <text class="k" x="34" y="26">DeepSeek DSH</text>
-          <text class="s dim" x="34" y="50" font-size="12">Bash sandbox · subagents · live lane</text>
-          <rect class="chip on" x="184" y="14" width="52" height="18" rx="9"/><text class="k" x="210" y="27" text-anchor="middle" font-size="9">ACTIVE</text>
+        <rect class="fr" width="284" height="390" rx="3"/>
+        <text class="l" x="20" y="30">SWAPPABLE BRAINS</text>
+        <path class="hr" d="M20 42H264"/>
+        <g transform="translate(16, 54)">
+          <rect class="fj" width="252" height="68" rx="2"/>
+          <circle cx="18" cy="23" r="4" fill="var(--ember)"/>
+          <text class="k" x="32" y="27">DeepSeek DSH</text>
+          <rect class="chip on" x="166" y="13" width="72" height="20" rx="10"/><text class="tag" x="202" y="26.5" text-anchor="middle">ACTIVE</text>
+          <text class="s sm dim" x="32" y="50">Bash sandbox · subagents · live lane</text>
         </g>
-        <g transform="translate(16, 126)">
-          <rect class="fj" width="248" height="66" rx="2"/>
-          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
-          <text class="k" x="34" y="26">Claude Code</text>
-          <text class="s dim" x="34" y="50" font-size="12">Opus 4.6 · headless supervisor</text>
+        <g transform="translate(16, 134)">
+          <rect class="fj" width="252" height="68" rx="2"/>
+          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
+          <text class="k" x="32" y="27">Claude Code</text>
+          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">STANDBY</text>
+          <text class="s sm dim" x="32" y="50">Opus 4.6 · headless supervisor</text>
         </g>
-        <g transform="translate(16, 204)">
-          <rect class="fj" width="248" height="66" rx="2"/>
-          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
-          <text class="k" x="34" y="26">Local Models</text>
-          <text class="s dim" x="34" y="50" font-size="12">Ollama · Sherpa · ONNX runtime</text>
+        <g transform="translate(16, 214)">
+          <rect class="fj" width="252" height="68" rx="2"/>
+          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
+          <text class="k" x="32" y="27">Local Models</text>
+          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">LOCAL</text>
+          <text class="s sm dim" x="32" y="50">Ollama · Sherpa · ONNX runtime</text>
         </g>
-        <g transform="translate(16, 282)">
-          <rect class="fj" width="248" height="66" rx="2"/>
-          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
-          <text class="k" x="34" y="26">Custom Models</text>
-          <text class="s dim" x="34" y="50" font-size="12">Codex proxy · OpenAI endpoints</text>
+        <g transform="translate(16, 294)">
+          <rect class="fj" width="252" height="68" rx="2"/>
+          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
+          <text class="k" x="32" y="27">Custom Lanes</text>
+          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">PROXY</text>
+          <text class="s sm dim" x="32" y="50">Codex proxy · OpenAI endpoints</text>
         </g>
       </g>
-      <path class="st" d="M336 150H384M336 228H360M360 228V150M336 306H360M360 306V150M336 384H360M360 384V150" stroke-width="1.5"/>
-      <polygon points="384,146 394,150 384,154" fill="var(--ember)"/>
-      <rect class="bubble" x="330" y="86" width="60" height="24" rx="12"/><text class="k" x="360" y="102" text-anchor="middle" font-size="9">SWAP</text>
-      <g transform="translate(400, 72)">
-        <rect class="fj" width="280" height="390" rx="3"/>
-        <text class="l" x="20" y="32">PERMANENT MEMORY</text>
-        <rect class="hl" x="16" y="48" width="248" height="66" rx="2"/>
-        <text class="k" x="32" y="74">LIVING CONTEXT</text>
-        <text class="s" x="32" y="98" font-size="12">Unbroken across model swaps</text>
-        <path class="hr" d="M16 130H264"/>
-        <text class="s" x="20" y="160">✓ All session notes &amp; history</text>
-        <text class="s" x="20" y="196">✓ Human feedback &amp; locked rules</text>
-        <text class="s" x="20" y="232">✓ Evolved persona &amp; habits</text>
-        <text class="s" x="20" y="268">✓ Unfinished project threads</text>
-        <text class="s" x="20" y="304">✓ In-flight companion tasks</text>
-        <rect class="chip on" x="16" y="336" width="248" height="36" rx="3"/><text class="k" x="140" y="359" text-anchor="middle" font-size="11">PERMANENT ANCHOR</text>
+      <rect class="bubble" x="330" y="96" width="60" height="22" rx="11"/><text class="tag em" x="360" y="110.5" text-anchor="middle">SWAP</text>
+      <path class="st" d="M324 160H388M324 240H360M324 320H360M324 400H360M360 400V160" stroke-width="1.5"/>
+      <polygon points="386,155.5 395,160 386,164.5" fill="var(--ember)"/>
+      <g transform="translate(396, 72)">
+        <rect class="fj" width="284" height="390" rx="3"/>
+        <text class="l" x="20" y="30">PERMANENT MEMORY</text>
+        <path class="hr" d="M20 42H264"/>
+        <rect class="hl" x="16" y="54" width="252" height="68" rx="2"/>
+        <text class="k" x="32" y="80">LIVING CONTEXT</text>
+        <text class="s sm em" x="32" y="104">Unbroken across model swaps</text>
+        <path class="hr" d="M16 138H268"/>
+        <rect class="hl" x="16" y="153" width="18" height="18" rx="2"/><text class="tag em" x="25" y="165.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="166">All session notes &amp; daily history</text>
+        <rect class="hl" x="16" y="185" width="18" height="18" rx="2"/><text class="tag em" x="25" y="197.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="198">Human feedback &amp; locked rules</text>
+        <rect class="hl" x="16" y="217" width="18" height="18" rx="2"/><text class="tag em" x="25" y="229.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="230">Evolved persona &amp; work habits</text>
+        <rect class="hl" x="16" y="249" width="18" height="18" rx="2"/><text class="tag em" x="25" y="261.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="262">Unfinished project threads</text>
+        <rect class="hl" x="16" y="281" width="18" height="18" rx="2"/><text class="tag em" x="25" y="293.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="294">In-flight companion tasks</text>
+        <rect class="chip on" x="16" y="326" width="252" height="36" rx="2"/><text class="k" x="142" y="348.5" text-anchor="middle">PERMANENT ANCHOR</text>
       </g>
-      <path class="hr" d="M40 480H680"/>
-      <text class="s" x="40" y="506">Change the model; keep the memories. Zero context loss.</text>`,
+      <path class="hr" d="M40 478H680"/>
+      <text class="l" x="40" y="504">ZERO CONTEXT LOSS</text><text class="s dim" x="680" y="504" text-anchor="end">Change the model anytime; keep every memory</text>`,
     'sch-channel': () => `${POOL('pl-chan', 500, 260, 320, 220, .14)}
-      <text class="l" x="40" y="44">EVERYWHERE YOU WORK</text><text class="k dim" x="680" y="44" text-anchor="end">Multi-Channel &amp; Voice</text>
-      <path class="hr" d="M40 58H680"/>
+      <text class="l" x="40" y="42">EVERYWHERE YOU WORK</text><text class="k dim" x="680" y="42" text-anchor="end">Multi-Channel &amp; Voice</text>
+      <path class="hr" d="M40 56H680"/>
       <g transform="translate(40, 72)">
-        <rect class="fj" width="300" height="96" rx="2"/>
-        <text class="l" x="20" y="28">DISCORD</text><text class="k dim" x="280" y="28" text-anchor="end">#channels</text>
-        <text class="s" x="20" y="56">Native bot bridge with threads &amp; voice</text>
-        <text class="s dim" x="20" y="78">Receives text, files and audio directly</text>
+        <rect class="fj" width="304" height="120" rx="2"/>
+        <text class="l" x="22" y="30">DISCORD</text>
+        <rect class="chip on" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">#CHANNELS</text>
+        <path class="hr" d="M22 44H282"/>
+        <text class="s em" x="22" y="72">Native bot bridge for threads &amp; voice</text>
+        <text class="s sm dim" x="22" y="96">Streams text, files, and audio directly</text>
       </g>
-      <g transform="translate(40, 180)">
-        <rect class="fj" width="300" height="96" rx="2"/>
-        <text class="l" x="20" y="28">SLACK</text><text class="k dim" x="280" y="28" text-anchor="end">Socket Mode</text>
-        <text class="s" x="20" y="56">Direct messaging and workspace channels</text>
-        <text class="s dim" x="20" y="78">Zero inbound ports · corporate safe</text>
+      <g transform="translate(40, 207)">
+        <rect class="fj" width="304" height="120" rx="2"/>
+        <text class="l" x="22" y="30">SLACK</text>
+        <rect class="chip" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">SOCKET MODE</text>
+        <path class="hr" d="M22 44H282"/>
+        <text class="s em" x="22" y="72">Direct messages &amp; workspace channels</text>
+        <text class="s sm dim" x="22" y="96">Zero inbound ports · enterprise safe</text>
       </g>
-      <g transform="translate(40, 288)">
-        <rect class="fj" width="300" height="96" rx="2"/>
-        <text class="l" x="20" y="28">TELEGRAM</text><text class="k dim" x="280" y="28" text-anchor="end">Mobile Relay</text>
-        <text class="s" x="20" y="56">Instant smartphone bridge for handoffs</text>
-        <text class="s dim" x="20" y="78">Urgent alerts and continuous mobile continuity</text>
+      <g transform="translate(40, 342)">
+        <rect class="fj" width="304" height="120" rx="2"/>
+        <text class="l" x="22" y="30">TELEGRAM</text>
+        <rect class="chip" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">MOBILE RELAY</text>
+        <path class="hr" d="M22 44H282"/>
+        <text class="s em" x="22" y="72">Instant smartphone handoff &amp; relay</text>
+        <text class="s sm dim" x="22" y="96">Urgent alerts &amp; mobile continuity</text>
       </g>
-      <g transform="translate(360, 72)">
-        <rect class="fj" width="320" height="312" rx="3"/>
-        <text class="l" x="20" y="28">COMPANION &amp; CALL MODE</text>
-        <g transform="translate(20, 44)">
-          <circle cx="36" cy="36" r="32" class="fr on"/>
-          <image href="${url('assets/scheherazade-256.png')}" x="12" y="12" width="48" height="48"/>
-          <rect class="bubble" x="80" y="8" width="190" height="60" rx="6"/>
-          <text class="s em" x="96" y="32" font-size="12">작업 완료했습니다.</text>
-          <text class="s dim" x="96" y="52" font-size="11">결과를 확인해 보실래요?</text>
+      <g transform="translate(364, 72)">
+        <rect class="fj" width="316" height="390" rx="3"/>
+        <text class="l" x="22" y="30">COMPANION &amp; CALL MODE</text>
+        <path class="hr" d="M22 44H294"/>
+        <g transform="translate(22, 58)">
+          <rect class="fr" width="272" height="104" rx="2"/>
+          <circle cx="44" cy="52" r="30" class="fr on"/>
+          <image href="${url('assets/scheherazade-256.png')}" x="20" y="28" width="48" height="48"/>
+          <rect class="bubble" x="88" y="18" width="166" height="68" rx="6"/>
+          <text class="s sm em" x="104" y="46">작업 완료했습니다.</text>
+          <text class="s sm dim" x="104" y="68">결과를 확인해 보실래요?</text>
         </g>
-        <g transform="translate(20, 132)">
-          <rect class="fr" width="280" height="84" rx="2"/>
-          <text class="k" x="16" y="26">CALL MODE · LIVE VOICE</text>
-          <g transform="translate(16, 40)">
-            ${[14, 28, 12, 38, 24, 16, 8, 22, 34, 18, 10, 30].map((h, i) => `<rect class="${i % 2 === 0 ? 'bg' : 'b2'}" x="${i * 7}" y="${20 - h / 2}" width="4" height="${h}" rx="2"/>`).join('')}
+        <g transform="translate(22, 176)">
+          <rect class="fr" width="272" height="136" rx="2"/>
+          <text class="k" x="18" y="27">CALL MODE · VOICE</text>
+          <rect class="chip on" x="182" y="11" width="72" height="20" rx="10"/><text class="tag" x="218" y="24.5" text-anchor="middle">LIVE</text>
+          <path class="hr" d="M18 40H254"/>
+          <g transform="translate(18, 52)">
+            ${[14, 28, 12, 36, 24, 16, 10, 24, 34, 18, 12, 28, 16, 22].map((h, i) => `<rect class="${i % 2 === 0 ? 'bg' : 'b2'}" x="${i * 7.5}" y="${18 - h / 2}" width="4" height="${h}" rx="2"/>`).join('')}
           </g>
-          <text class="s dim" x="120" y="50" font-size="10">Kyutai Pocket-TTS</text>
-          <text class="s dim" x="120" y="66" font-size="10">Sherpa-ONNX Korean STT</text>
+          <text class="s sm em" x="136" y="64">Kyutai Pocket-TTS</text>
+          <text class="s sm dim" x="136" y="84">Sherpa-ONNX STT</text>
+          <path class="hr" d="M18 100H254"/>
+          <text class="s sm dim" x="18" y="120">On-device Korean speech &amp; voice synthesis</text>
         </g>
-        <rect class="chip on" x="20" y="238" width="280" height="38" rx="2"/><text class="k" x="160" y="262" text-anchor="middle" font-size="10">MIC &amp; VOICE INTERACTIVE</text>
+        <rect class="chip on" x="22" y="328" width="272" height="40" rx="2"/><text class="k" x="158" y="352.5" text-anchor="middle">MIC &amp; VOICE INTERACTIVE</text>
       </g>
-      <path class="hr" d="M40 480H680"/>
-      <text class="s" x="40" y="506">Not trapped in a browser tab. Living where you communicate and think.</text>`,
+      <path class="hr" d="M40 478H680"/>
+      <text class="l" x="40" y="504">ALWAYS WITHIN REACH</text><text class="s dim" x="680" y="504" text-anchor="end">Living where you communicate and think</text>`,
     'sch-profile': () => `${POOL('pl-prof', 360, 270, 320, 220, .14)}
-      <text class="l" x="40" y="44">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="44" text-anchor="end">Scheherazade 0.5.0</text>
-      <path class="hr" d="M40 58H680"/>
-      <text class="s" x="40" y="86">One computer · Multiple concurrent Seras · Isolated contexts</text>
-      <g transform="translate(40, 104)">
-        <rect class="fj" width="200" height="310" rx="3"/>
-        <rect class="chip on" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">DEFAULT</text>
-        <text class="t" x="16" y="70" font-size="19">Sera Alpha</text>
-        <text class="l" x="16" y="92" font-size="10">RESEARCH &amp; DEV</text>
-        <path class="hr" d="M16 106H184"/>
-        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
-        <text class="s em" x="16" y="148" font-size="11">Scheherazade/</text>
-        <text class="s" x="16" y="186" font-size="12">Discord #general</text>
-        <text class="s dim" x="16" y="206" font-size="11">Claude Opus 4.6</text>
-        <path class="st" d="M16 236H184" stroke-width="1"/>
-        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4100 · ACTIVE</text>
-      </g>
-      <g transform="translate(260, 104)">
-        <rect class="fj" width="200" height="310" rx="3"/>
-        <rect class="chip" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">PROFILE</text>
-        <text class="t" x="16" y="70" font-size="19">Sera Craft</text>
-        <text class="l" x="16" y="92" font-size="10">CREATIVE LAB</text>
-        <path class="hr" d="M16 106H184"/>
-        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
-        <text class="s em" x="16" y="148" font-size="11">Scheherazade-craft/</text>
-        <text class="s" x="16" y="186" font-size="12">Slack #creative</text>
-        <text class="s dim" x="16" y="206" font-size="11">DeepSeek DSH</text>
-        <path class="st" d="M16 236H184" stroke-width="1"/>
-        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4101 · ACTIVE</text>
-      </g>
-      <g transform="translate(480, 104)">
-        <rect class="fj" width="200" height="310" rx="3"/>
-        <rect class="chip" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">PROFILE</text>
-        <text class="t" x="16" y="70" font-size="19">Sera Local</text>
-        <text class="l" x="16" y="92" font-size="10">OFFLINE PRIVACY</text>
-        <path class="hr" d="M16 106H184"/>
-        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
-        <text class="s em" x="16" y="148" font-size="11">Scheherazade-local/</text>
-        <text class="s" x="16" y="186" font-size="12">Local Companion</text>
-        <text class="s dim" x="16" y="206" font-size="11">Ollama Qwen-2.5</text>
-        <path class="st" d="M16 236H184" stroke-width="1"/>
-        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4102 · ACTIVE</text>
-      </g>
-      <path class="hr" d="M40 480H680"/>
-      <text class="s" x="40" y="506">Strict data isolation: independent memory trees, API tokens, and chat channels.</text>`,
-    'sch-autonomy': () => `${POOL('pl-auto', 360, 260, 340, 220, .14)}
-      <text class="l" x="40" y="44">19-HOOK DETERMINISTIC ENGINE</text><text class="k dim" x="680" y="44" text-anchor="end">Safety &amp; Verification Gates</text>
-      <path class="hr" d="M40 58H680"/>
+      <text class="l" x="40" y="42">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="42" text-anchor="end">Scheherazade 0.5.0</text>
+      <path class="hr" d="M40 56H680"/>
       <g transform="translate(40, 72)">
         <rect class="fr" width="640" height="42" rx="2"/>
-        <text class="k" x="20" y="26">SessionStart (1)</text>
-        <text class="s dim" x="150" y="26">→</text>
-        <text class="k" x="175" y="26">PreToolUse (7)</text>
-        <text class="s dim" x="310" y="26">→</text>
-        <text class="k" x="335" y="26">PostToolUse (3)</text>
-        <text class="s dim" x="470" y="26">→</text>
-        <text class="k" x="495" y="26">Stop Guards (5)</text>
+        <text class="s sm em" x="20" y="26">One computer · Multiple concurrent Seras · Strictly isolated contexts</text>
+        <rect class="chip on" x="506" y="10" width="114" height="22" rx="11"/><text class="tag" x="563" y="24.5" text-anchor="middle">3 INSTANCES</text>
       </g>
-      <g transform="translate(40, 126)">
-        <rect class="fj" width="310" height="154" rx="2"/>
-        <text class="l" x="20" y="30">RUMINATION GATE</text>
-        <text class="s em" x="20" y="56">Holds back unverified completion</text>
-        <text class="s dim" x="20" y="78">Replies claiming success are paused</text>
-        <text class="s dim" x="20" y="98">Refuses premature claims until verified</text>
-        <rect class="chip on" x="20" y="118" width="124" height="22" rx="11"/><text class="k" x="82" y="133" text-anchor="middle" font-size="9">BLOCKING (EXIT 2)</text>
+      <g transform="translate(40, 128)">
+        <rect class="fj" width="202" height="334" rx="3"/>
+        <rect class="chip on" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">DEFAULT</text>
+        <text class="t" x="18" y="70">Sera Alpha</text>
+        <text class="l sm" x="18" y="92">RESEARCH &amp; DEV</text>
+        <path class="hr" d="M18 108H184"/>
+        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
+        <text class="s sm dim" x="18" y="150">~/Documents/</text>
+        <text class="s sm em" x="18" y="168">Scheherazade/</text>
+        <path class="hr" d="M18 186H184"/>
+        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
+        <text class="s sm em" x="18" y="228">Discord #general</text>
+        <text class="s sm dim" x="18" y="246">Claude Opus 4.6</text>
+        <path class="st" d="M18 268H184" stroke-width="1"/>
+        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4100 · ACTIVE</text>
       </g>
-      <g transform="translate(370, 126)">
-        <rect class="fj" width="310" height="154" rx="2"/>
-        <text class="l" x="20" y="30">CREDENTIAL GUARD</text>
-        <text class="s em" x="20" y="56">Blocks unauthorized system reads</text>
-        <text class="s dim" x="20" y="78">Protects macOS keychain and tokens</text>
-        <text class="s dim" x="20" y="98">Isolates sibling agent environments</text>
-        <rect class="chip on" x="20" y="118" width="110" height="22" rx="11"/><text class="k" x="75" y="133" text-anchor="middle" font-size="9">HARD FIREWALL</text>
+      <g transform="translate(259, 128)">
+        <rect class="fj" width="202" height="334" rx="3"/>
+        <rect class="chip" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">PROFILE 02</text>
+        <text class="t" x="18" y="70">Sera Craft</text>
+        <text class="l sm" x="18" y="92">CREATIVE LAB</text>
+        <path class="hr" d="M18 108H184"/>
+        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
+        <text class="s sm dim" x="18" y="150">~/Documents/</text>
+        <text class="s sm em" x="18" y="168">Scheherazade-craft/</text>
+        <path class="hr" d="M18 186H184"/>
+        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
+        <text class="s sm em" x="18" y="228">Slack #creative</text>
+        <text class="s sm dim" x="18" y="246">DeepSeek DSH</text>
+        <path class="st" d="M18 268H184" stroke-width="1"/>
+        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4101 · ACTIVE</text>
       </g>
-      <g transform="translate(40, 290)">
-        <rect class="fj" width="640" height="116" rx="2"/>
-        <text class="l" x="20" y="30">BACKGROUND CADENCE ENGINE</text>
-        <text class="s" x="20" y="58">Daily Clock: Stale note archiving and automated compression</text>
-        <text class="s" x="20" y="82">Persona Reflux: Weekly human-reviewed identity evolution</text>
-        <text class="s" x="20" y="106">Idle Impulse: Autonomous dream generation during quiet hours</text>
+      <g transform="translate(478, 128)">
+        <rect class="fj" width="202" height="334" rx="3"/>
+        <rect class="chip" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">PROFILE 03</text>
+        <text class="t" x="18" y="70">Sera Local</text>
+        <text class="l sm" x="18" y="92">OFFLINE PRIVACY</text>
+        <path class="hr" d="M18 108H184"/>
+        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
+        <text class="s sm dim" x="18" y="150">~/Documents/</text>
+        <text class="s sm em" x="18" y="168">Scheherazade-local/</text>
+        <path class="hr" d="M18 186H184"/>
+        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
+        <text class="s sm em" x="18" y="228">Local Companion</text>
+        <text class="s sm dim" x="18" y="246">Ollama Qwen-2.5</text>
+        <path class="st" d="M18 268H184" stroke-width="1"/>
+        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4102 · ACTIVE</text>
       </g>
-      <path class="hr" d="M40 480H680"/>
-      <text class="s" x="40" y="506">Deterministic execution control engineered for long-running stability.</text>`
+      <path class="hr" d="M40 478H680"/>
+      <text class="l" x="40" y="504">STRICT DATA ISOLATION</text><text class="s dim" x="680" y="504" text-anchor="end">Independent memory trees, tokens, and channels</text>`,
+    'sch-autonomy': () => `${POOL('pl-auto', 360, 260, 340, 220, .14)}
+      <text class="l" x="40" y="42">19-HOOK DETERMINISTIC ENGINE</text><text class="k dim" x="680" y="42" text-anchor="end">Safety &amp; Verification Gates</text>
+      <path class="hr" d="M40 56H680"/>
+      <g transform="translate(40, 72)">
+        <rect class="fr" width="640" height="46" rx="2"/>
+        <rect class="fj" x="14" y="9" width="136" height="28" rx="2"/><text class="tag em" x="82" y="26.5" text-anchor="middle">SESSION START (1)</text>
+        <text class="s sm dim" x="161" y="27.5" text-anchor="middle">→</text>
+        <rect class="fj" x="172" y="9" width="136" height="28" rx="2"/><text class="tag em" x="240" y="26.5" text-anchor="middle">PRE-TOOL USE (7)</text>
+        <text class="s sm dim" x="319" y="27.5" text-anchor="middle">→</text>
+        <rect class="fj" x="330" y="9" width="136" height="28" rx="2"/><text class="tag em" x="398" y="26.5" text-anchor="middle">POST-TOOL USE (3)</text>
+        <text class="s sm dim" x="477" y="27.5" text-anchor="middle">→</text>
+        <rect class="fj" x="488" y="9" width="136" height="28" rx="2"/><text class="tag em" x="556" y="26.5" text-anchor="middle">STOP GUARDS (5)</text>
+      </g>
+      <g transform="translate(40, 132)">
+        <rect class="fj" width="312" height="162" rx="2"/>
+        <text class="l" x="22" y="30">RUMINATION GATE</text>
+        <path class="hr" d="M22 42H290"/>
+        <text class="s em" x="22" y="66">Holds back unverified completion</text>
+        <text class="s sm dim" x="22" y="88">Pauses replies claiming premature success</text>
+        <text class="s sm dim" x="22" y="108">Refuses completion claims until verified</text>
+        <rect class="chip on" x="22" y="122" width="152" height="24" rx="12"/><text class="tag" x="98" y="137.5" text-anchor="middle">BLOCKING · EXIT 2</text>
+      </g>
+      <g transform="translate(368, 132)">
+        <rect class="fj" width="312" height="162" rx="2"/>
+        <text class="l" x="22" y="30">CREDENTIAL GUARD</text>
+        <path class="hr" d="M22 42H290"/>
+        <text class="s em" x="22" y="66">Blocks unauthorized system reads</text>
+        <text class="s sm dim" x="22" y="88">Protects macOS keychain &amp; secret tokens</text>
+        <text class="s sm dim" x="22" y="108">Isolates sibling agent environments</text>
+        <rect class="chip on" x="22" y="122" width="138" height="24" rx="12"/><text class="tag" x="91" y="137.5" text-anchor="middle">HARD FIREWALL</text>
+      </g>
+      <g transform="translate(40, 308)">
+        <rect class="fj" width="640" height="154" rx="2"/>
+        <text class="l" x="22" y="28">BACKGROUND CADENCE ENGINE</text><text class="tag dim" x="618" y="27" text-anchor="end">AUTONOMOUS CLOCKS</text>
+        <path class="hr" d="M22 40H618"/>
+        <rect class="hl" x="22" y="52" width="124" height="20" rx="2"/><text class="tag em" x="84" y="65.5" text-anchor="middle">DAILY CLOCK</text>
+        <text class="s sm" x="160" y="66">Stale session archiving &amp; overnight journal compression</text>
+        <rect class="hl" x="22" y="84" width="124" height="20" rx="2"/><text class="tag em" x="84" y="97.5" text-anchor="middle">PERSONA REFLUX</text>
+        <text class="s sm" x="160" y="98">Weekly human-reviewed identity evolution &amp; approval</text>
+        <rect class="hl" x="22" y="116" width="124" height="20" rx="2"/><text class="tag em" x="84" y="129.5" text-anchor="middle">IDLE IMPULSE</text>
+        <text class="s sm" x="160" y="130">Autonomous dream-work generated during quiet hours</text>
+      </g>
+      <path class="hr" d="M40 478H680"/>
+      <text class="l" x="40" y="504">DETERMINISTIC SAFETY</text><text class="s dim" x="680" y="504" text-anchor="end">Engineered for long-running autonomous stability</text>`
   };
   /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
      shown as images so their own styles never meet the site's. Drawn concepts, labelled as graphics: not app internals
