@@ -16,27 +16,218 @@
   const star = (x, y, s = 1) => `<path class="bg" transform="translate(${x} ${y}) scale(${s})" d="M0-16Q2-2 16 0Q2 2 0 16Q-2 2-16 0Q-2-2 0-16Z"/>`;
   const journal = (x, y, rot, hl) => `<g transform="rotate(${rot} ${x + 105} ${y + 75})"><rect class="fj" x="${x}" y="${y}" width="210" height="150"/><text class="k dim" x="${x + 20}" y="${y + 36}">JOURNAL</text>${[160, 146, 166, 110].map((w, i) => `<rect class="${i === hl ? 'bg' : 'b'}" x="${x + 20}" y="${y + 58 + i * 20}" width="${w}" height="9" rx="1"/>`).join('')}</g>`;
   const FEAT = {
-    'sch-memory': () => `${POOL('pl-mem', 560, 300, 300, 200, .1)}
-      <text class="l" x="40" y="48">MEMORY</text><text class="s" x="680" y="48" text-anchor="end">Read it. Tell her to forget.</text>
-      <path class="hr" d="M40 112H680"/><text class="l" x="40" y="152">THE FACTS</text>${bars(40, 174, [360, 250])}${eye(636, 184, 1.6)}
-      <path class="hr" d="M40 238H680"/><text class="l" x="40" y="278">YOUR CORRECTIONS</text>
-      <rect class="b" x="40" y="300" width="210" height="10" rx="1" opacity=".5"/><path class="st" d="M34 305H256" stroke-width="2"/><rect class="bg" x="272" y="300" width="240" height="10" rx="1" opacity=".8"/>${bars(40, 322, [300])}
-      <path class="hr" d="M40 364H680"/><text class="l" x="40" y="404">UNFINISHED THREADS</text>${bars(40, 426, [280, 180])}<path class="sd" d="M330 431H470"/>
-      <rect class="chip" x="536" y="388" width="144" height="46" rx="23"/><text class="k" x="608" y="418" text-anchor="middle">FORGET</text>
-      ${moon(54, 508, 1.2)}<text class="s" x="80" y="515">Autonomy on: the day’s memories, sorted overnight</text>`,
-    'sch-browse': () => `${POOL('pl-brw', 540, 320, 260, 200, .14)}
-      <text class="l" x="40" y="48">BROWSE WITH ME</text>
-      <rect class="chip on" x="570" y="20" width="110" height="42" rx="21"/>${eye(604, 41, .9)}<text class="k" x="650" y="49" text-anchor="middle">ON</text>
-      <rect class="tab" x="40" y="96" width="160" height="40"/><text class="k" x="58" y="123">PAPER</text><text class="k dim" x="226" y="123">YOUTUBE</text><path class="hr" d="M40 144H680"/>
-      <rect class="hl" x="34" y="240" width="300" height="20" rx="1"/><rect class="b2" x="40" y="170" width="230" height="14" rx="1"/>${bars(40, 202, [330, 316, 326, 300, 322, 310, 324, 220], 22)}
-      <path class="st" d="M338 250C372 250 368 290 396 296" stroke-dasharray="4 6"/>
-      <rect class="bubble" x="398" y="214" width="282" height="206"/><image href="${ICON()}" x="410" y="226" width="60" height="60"/><text class="k" x="420" y="318">TALK IT THROUGH</text>${bars(420, 342, [220, 196, 140], 22)}
-      <text class="s" x="40" y="515">The eye button decides when she’s looking.</text>`,
-    'sch-dream': () => `${POOL('pl-drm', 360, 440, 300, 140, .2)}
-      <text class="l" x="40" y="48">DREAMS</text>${moon(648, 70, 2.2)}${star(590, 40, .55)}${star(690, 132, .45)}${star(600, 128, .35)}
-      <path class="st" d="M165 205L360 452M555 213L360 452M360 315L360 452" stroke-dasharray="2 8" opacity=".8"/>
-      ${journal(60, 110, -6, 1)}${journal(450, 118, 4, 2)}${journal(255, 220, -2, 3)}
-      ${star(360, 454, 1.7)}<text class="s" x="360" y="522" text-anchor="middle">Old entries return in unexpected company</text>`
+    'sch-memory': () => `${POOL('pl-mem', 520, 270, 320, 220, .14)}
+      <text class="l" x="40" y="44">4-TIER LOCAL MEMORY</text><text class="k dim" x="680" y="44" text-anchor="end">~/Documents/Scheherazade/</text>
+      <path class="hr" d="M40 58H680"/>
+      <g transform="translate(40, 72)">
+        <rect class="fj" width="640" height="88" rx="2"/>
+        <text class="k" x="20" y="26">1. SESSION NOTES</text><text class="s dim" x="190" y="26">working memory · daily markdown</text>
+        <rect class="bg" x="20" y="38" width="46" height="18" rx="2"/><text class="k" x="43" y="51" text-anchor="middle" font-size="9">FELT</text>
+        <text class="s" x="76" y="52">Human emotion &amp; intent carried verbatim into history</text>
+        <rect class="b2" x="20" y="62" width="46" height="18" rx="2"/><text class="k" x="43" y="75" text-anchor="middle" font-size="9">LOCK</text>
+        <text class="s dim" x="76" y="75">Immutable user corrections &amp; project constraints</text>
+      </g>
+      <g transform="translate(40, 172)">
+        <rect class="fj" width="640" height="88" rx="2"/>
+        <text class="k" x="20" y="26">2. JOURNALS</text><text class="s dim" x="155" y="26">long-term memory · autonomous compression</text>
+        <text class="s" x="20" y="52">Overnight residue synthesis · stale session compression</text>
+        <text class="s dim" x="20" y="74">Summarized history with exact preservation of all locked directives</text>
+        ${moon(605, 44, 1.2)}
+      </g>
+      <g transform="translate(40, 272)">
+        <rect class="fj" width="640" height="88" rx="2"/>
+        <text class="k" x="20" y="26">3. SELF PERSONA</text><text class="s dim" x="185" y="26">self_persona.md · weekly reflux</text>
+        <text class="s" x="20" y="52">Human-in-the-loop: weekly proposals reviewed and approved</text>
+        <text class="s em" x="20" y="74">Never drifts silently · zero unvetted identity mutation</text>
+        <rect class="chip on" x="515" y="28" width="105" height="28" rx="14"/><text class="k" x="567" y="46" text-anchor="middle" font-size="10">REVIEWED</text>
+      </g>
+      <g transform="translate(40, 372)">
+        <rect class="fj" width="640" height="88" rx="2"/>
+        <text class="k" x="20" y="26">4. MADOROMI (DREAMS)</text><text class="s dim" x="250" y="26">dreams/ · idle reflection</text>
+        <text class="s" x="20" y="52">Autonomous dream-work (displacement &amp; condensation)</text>
+        <text class="s dim" x="20" y="74">Spontaneous insight fragments delivered after quiet hours</text>
+        ${star(605, 44, 1.1)}
+      </g>
+      <path class="hr" d="M40 480H680"/>
+      <text class="l" x="40" y="506">ZERO DATABASE LOCK-IN</text><text class="s dim" x="680" y="506" text-anchor="end">100% plain Markdown on local disk</text>`,
+    'sch-lane': () => `${POOL('pl-lane', 360, 270, 340, 220, .14)}
+      <text class="l" x="40" y="44">MULTI-LANE ARCHITECTURE</text><text class="k dim" x="680" y="44" text-anchor="end">Decoupled Brain &amp; Memory</text>
+      <path class="hr" d="M40 58H680"/>
+      <g transform="translate(40, 72)">
+        <rect class="fr" width="280" height="390" rx="3"/>
+        <text class="l" x="20" y="32">SWAPPABLE BRAINS</text>
+        <g transform="translate(16, 48)">
+          <rect class="fj" width="248" height="66" rx="2"/>
+          <circle cx="20" cy="22" r="4" fill="var(--ember)"/>
+          <text class="k" x="34" y="26">DeepSeek DSH</text>
+          <text class="s dim" x="34" y="50" font-size="12">Bash sandbox · subagents · live lane</text>
+          <rect class="chip on" x="184" y="14" width="52" height="18" rx="9"/><text class="k" x="210" y="27" text-anchor="middle" font-size="9">ACTIVE</text>
+        </g>
+        <g transform="translate(16, 126)">
+          <rect class="fj" width="248" height="66" rx="2"/>
+          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
+          <text class="k" x="34" y="26">Claude Code</text>
+          <text class="s dim" x="34" y="50" font-size="12">Opus 4.6 · headless supervisor</text>
+        </g>
+        <g transform="translate(16, 204)">
+          <rect class="fj" width="248" height="66" rx="2"/>
+          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
+          <text class="k" x="34" y="26">Local Models</text>
+          <text class="s dim" x="34" y="50" font-size="12">Ollama · Sherpa · ONNX runtime</text>
+        </g>
+        <g transform="translate(16, 282)">
+          <rect class="fj" width="248" height="66" rx="2"/>
+          <circle cx="20" cy="22" r="4" fill="rgba(235,229,218,.3)"/>
+          <text class="k" x="34" y="26">Custom Models</text>
+          <text class="s dim" x="34" y="50" font-size="12">Codex proxy · OpenAI endpoints</text>
+        </g>
+      </g>
+      <path class="st" d="M336 150H384M336 228H360M360 228V150M336 306H360M360 306V150M336 384H360M360 384V150" stroke-width="1.5"/>
+      <polygon points="384,146 394,150 384,154" fill="var(--ember)"/>
+      <rect class="bubble" x="330" y="86" width="60" height="24" rx="12"/><text class="k" x="360" y="102" text-anchor="middle" font-size="9">SWAP</text>
+      <g transform="translate(400, 72)">
+        <rect class="fj" width="280" height="390" rx="3"/>
+        <text class="l" x="20" y="32">PERMANENT MEMORY</text>
+        <rect class="hl" x="16" y="48" width="248" height="66" rx="2"/>
+        <text class="k" x="32" y="74">LIVING CONTEXT</text>
+        <text class="s" x="32" y="98" font-size="12">Unbroken across model swaps</text>
+        <path class="hr" d="M16 130H264"/>
+        <text class="s" x="20" y="160">✓ All session notes &amp; history</text>
+        <text class="s" x="20" y="196">✓ Human feedback &amp; locked rules</text>
+        <text class="s" x="20" y="232">✓ Evolved persona &amp; habits</text>
+        <text class="s" x="20" y="268">✓ Unfinished project threads</text>
+        <text class="s" x="20" y="304">✓ In-flight companion tasks</text>
+        <rect class="chip on" x="16" y="336" width="248" height="36" rx="3"/><text class="k" x="140" y="359" text-anchor="middle" font-size="11">PERMANENT ANCHOR</text>
+      </g>
+      <path class="hr" d="M40 480H680"/>
+      <text class="s" x="40" y="506">Change the model; keep the memories. Zero context loss.</text>`,
+    'sch-channel': () => `${POOL('pl-chan', 500, 260, 320, 220, .14)}
+      <text class="l" x="40" y="44">EVERYWHERE YOU WORK</text><text class="k dim" x="680" y="44" text-anchor="end">Multi-Channel &amp; Voice</text>
+      <path class="hr" d="M40 58H680"/>
+      <g transform="translate(40, 72)">
+        <rect class="fj" width="300" height="96" rx="2"/>
+        <text class="l" x="20" y="28">DISCORD</text><text class="k dim" x="280" y="28" text-anchor="end">#channels</text>
+        <text class="s" x="20" y="56">Native bot bridge with threads &amp; voice</text>
+        <text class="s dim" x="20" y="78">Receives text, files and audio directly</text>
+      </g>
+      <g transform="translate(40, 180)">
+        <rect class="fj" width="300" height="96" rx="2"/>
+        <text class="l" x="20" y="28">SLACK</text><text class="k dim" x="280" y="28" text-anchor="end">Socket Mode</text>
+        <text class="s" x="20" y="56">Direct messaging and workspace channels</text>
+        <text class="s dim" x="20" y="78">Zero inbound ports · corporate safe</text>
+      </g>
+      <g transform="translate(40, 288)">
+        <rect class="fj" width="300" height="96" rx="2"/>
+        <text class="l" x="20" y="28">TELEGRAM</text><text class="k dim" x="280" y="28" text-anchor="end">Mobile Relay</text>
+        <text class="s" x="20" y="56">Instant smartphone bridge for handoffs</text>
+        <text class="s dim" x="20" y="78">Urgent alerts and continuous mobile continuity</text>
+      </g>
+      <g transform="translate(360, 72)">
+        <rect class="fj" width="320" height="312" rx="3"/>
+        <text class="l" x="20" y="28">COMPANION &amp; CALL MODE</text>
+        <g transform="translate(20, 44)">
+          <circle cx="36" cy="36" r="32" class="fr on"/>
+          <image href="${url('assets/scheherazade-256.png')}" x="12" y="12" width="48" height="48"/>
+          <rect class="bubble" x="80" y="8" width="190" height="60" rx="6"/>
+          <text class="s em" x="96" y="32" font-size="12">작업 완료했습니다.</text>
+          <text class="s dim" x="96" y="52" font-size="11">결과를 확인해 보실래요?</text>
+        </g>
+        <g transform="translate(20, 132)">
+          <rect class="fr" width="280" height="84" rx="2"/>
+          <text class="k" x="16" y="26">CALL MODE · LIVE VOICE</text>
+          <g transform="translate(16, 40)">
+            ${[14, 28, 12, 38, 24, 16, 8, 22, 34, 18, 10, 30].map((h, i) => `<rect class="${i % 2 === 0 ? 'bg' : 'b2'}" x="${i * 7}" y="${20 - h / 2}" width="4" height="${h}" rx="2"/>`).join('')}
+          </g>
+          <text class="s dim" x="120" y="50" font-size="10">Kyutai Pocket-TTS</text>
+          <text class="s dim" x="120" y="66" font-size="10">Sherpa-ONNX Korean STT</text>
+        </g>
+        <rect class="chip on" x="20" y="238" width="280" height="38" rx="2"/><text class="k" x="160" y="262" text-anchor="middle" font-size="10">MIC &amp; VOICE INTERACTIVE</text>
+      </g>
+      <path class="hr" d="M40 480H680"/>
+      <text class="s" x="40" y="506">Not trapped in a browser tab. Living where you communicate and think.</text>`,
+    'sch-profile': () => `${POOL('pl-prof', 360, 270, 320, 220, .14)}
+      <text class="l" x="40" y="44">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="44" text-anchor="end">Scheherazade 0.5.0</text>
+      <path class="hr" d="M40 58H680"/>
+      <text class="s" x="40" y="86">One computer · Multiple concurrent Seras · Isolated contexts</text>
+      <g transform="translate(40, 104)">
+        <rect class="fj" width="200" height="310" rx="3"/>
+        <rect class="chip on" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">DEFAULT</text>
+        <text class="t" x="16" y="70" font-size="19">Sera Alpha</text>
+        <text class="l" x="16" y="92" font-size="10">RESEARCH &amp; DEV</text>
+        <path class="hr" d="M16 106H184"/>
+        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
+        <text class="s em" x="16" y="148" font-size="11">Scheherazade/</text>
+        <text class="s" x="16" y="186" font-size="12">Discord #general</text>
+        <text class="s dim" x="16" y="206" font-size="11">Claude Opus 4.6</text>
+        <path class="st" d="M16 236H184" stroke-width="1"/>
+        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4100 · ACTIVE</text>
+      </g>
+      <g transform="translate(260, 104)">
+        <rect class="fj" width="200" height="310" rx="3"/>
+        <rect class="chip" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">PROFILE</text>
+        <text class="t" x="16" y="70" font-size="19">Sera Craft</text>
+        <text class="l" x="16" y="92" font-size="10">CREATIVE LAB</text>
+        <path class="hr" d="M16 106H184"/>
+        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
+        <text class="s em" x="16" y="148" font-size="11">Scheherazade-craft/</text>
+        <text class="s" x="16" y="186" font-size="12">Slack #creative</text>
+        <text class="s dim" x="16" y="206" font-size="11">DeepSeek DSH</text>
+        <path class="st" d="M16 236H184" stroke-width="1"/>
+        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4101 · ACTIVE</text>
+      </g>
+      <g transform="translate(480, 104)">
+        <rect class="fj" width="200" height="310" rx="3"/>
+        <rect class="chip" x="16" y="16" width="76" height="20" rx="10"/><text class="k" x="54" y="30" text-anchor="middle" font-size="9">PROFILE</text>
+        <text class="t" x="16" y="70" font-size="19">Sera Local</text>
+        <text class="l" x="16" y="92" font-size="10">OFFLINE PRIVACY</text>
+        <path class="hr" d="M16 106H184"/>
+        <text class="s dim" x="16" y="130" font-size="11">~/Documents/</text>
+        <text class="s em" x="16" y="148" font-size="11">Scheherazade-local/</text>
+        <text class="s" x="16" y="186" font-size="12">Local Companion</text>
+        <text class="s dim" x="16" y="206" font-size="11">Ollama Qwen-2.5</text>
+        <path class="st" d="M16 236H184" stroke-width="1"/>
+        <rect class="hl" x="16" y="254" width="168" height="32" rx="2"/><text class="k" x="100" y="274" text-anchor="middle" font-size="10">PORT 4102 · ACTIVE</text>
+      </g>
+      <path class="hr" d="M40 480H680"/>
+      <text class="s" x="40" y="506">Strict data isolation: independent memory trees, API tokens, and chat channels.</text>`,
+    'sch-autonomy': () => `${POOL('pl-auto', 360, 260, 340, 220, .14)}
+      <text class="l" x="40" y="44">19-HOOK DETERMINISTIC ENGINE</text><text class="k dim" x="680" y="44" text-anchor="end">Safety &amp; Verification Gates</text>
+      <path class="hr" d="M40 58H680"/>
+      <g transform="translate(40, 72)">
+        <rect class="fr" width="640" height="42" rx="2"/>
+        <text class="k" x="20" y="26">SessionStart (1)</text>
+        <text class="s dim" x="150" y="26">→</text>
+        <text class="k" x="175" y="26">PreToolUse (7)</text>
+        <text class="s dim" x="310" y="26">→</text>
+        <text class="k" x="335" y="26">PostToolUse (3)</text>
+        <text class="s dim" x="470" y="26">→</text>
+        <text class="k" x="495" y="26">Stop Guards (5)</text>
+      </g>
+      <g transform="translate(40, 126)">
+        <rect class="fj" width="310" height="154" rx="2"/>
+        <text class="l" x="20" y="30">RUMINATION GATE</text>
+        <text class="s em" x="20" y="56">Holds back unverified completion</text>
+        <text class="s dim" x="20" y="78">Replies claiming success are paused</text>
+        <text class="s dim" x="20" y="98">Refuses premature claims until verified</text>
+        <rect class="chip on" x="20" y="118" width="124" height="22" rx="11"/><text class="k" x="82" y="133" text-anchor="middle" font-size="9">BLOCKING (EXIT 2)</text>
+      </g>
+      <g transform="translate(370, 126)">
+        <rect class="fj" width="310" height="154" rx="2"/>
+        <text class="l" x="20" y="30">CREDENTIAL GUARD</text>
+        <text class="s em" x="20" y="56">Blocks unauthorized system reads</text>
+        <text class="s dim" x="20" y="78">Protects macOS keychain and tokens</text>
+        <text class="s dim" x="20" y="98">Isolates sibling agent environments</text>
+        <rect class="chip on" x="20" y="118" width="110" height="22" rx="11"/><text class="k" x="75" y="133" text-anchor="middle" font-size="9">HARD FIREWALL</text>
+      </g>
+      <g transform="translate(40, 290)">
+        <rect class="fj" width="640" height="116" rx="2"/>
+        <text class="l" x="20" y="30">BACKGROUND CADENCE ENGINE</text>
+        <text class="s" x="20" y="58">Daily Clock: Stale note archiving and automated compression</text>
+        <text class="s" x="20" y="82">Persona Reflux: Weekly human-reviewed identity evolution</text>
+        <text class="s" x="20" y="106">Idle Impulse: Autonomous dream generation during quiet hours</text>
+      </g>
+      <path class="hr" d="M40 480H680"/>
+      <text class="s" x="40" y="506">Deterministic execution control engineered for long-running stability.</text>`
   };
   /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
      shown as images so their own styles never meet the site's. Drawn concepts, labelled as graphics: not app internals
@@ -47,35 +238,37 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      status: 'Beta',
+      status: 'v0.5.0',
       headline: 'An agent for a thousand and one nights',
-      summary: 'A desktop AI agent built for projects that take days or months. She keeps your facts, corrections, and unfinished threads on your own computer — so even when you switch models, you pick up right where you left off.',
+      summary: 'A Mac-native local AI agent with 4-tier transparent markdown memory, swappable brains from DeepSeek to Claude, native Discord and Slack integration, voice Call Mode, and multi-profile isolation. Everything lives in plain files on your computer.',
       description: [
-        "Built for the long haul. Days, months, one more revision: Scheherazade keeps the facts, your corrections, and unfinished threads close, so you can pick up a project without reintroducing it. A human-like memory, with one useful extra: you can read what she remembers and tell her to forget. With Autonomy on, she sorts the day's memories overnight.",
-        'Bring your own brain. Your Claude subscription via Claude Code, ChatGPT via Codex, or Ollama. Change the model; keep the memories. They live on your computer, and she leaves a letter to her next self before a switch. No need to make introductions twice.',
-        "Open a paper in Chrome. Take a detour through YouTube. With Browse with me switched on, she can read your current tab and talk it through with you. The eye button decides when she's looking. Even curiosity deserves an off switch.",
-        'Sometimes she dreams. With Autonomy on, old journal entries return in unexpected company. She may bring you a fragment after an idle afternoon. A stray thought for your next idea, perhaps. Inspiration keeps odd hours.'
+        'Memory stored in plain markdown files you can read and version-control yourself. Scheherazade splits working context into real-time session notes, overnight-compressed journals, weekly human-approved persona evolution, and idle dreams. No opaque vector database: open the files in your editor, edit what she remembers, or back them up with Git anytime.',
+        'Change the brain; keep the soul. Switch between DeepSeek DSH, Claude Code, Codex, and local Ollama or ONNX models whenever newer, faster weights arrive. The models are swappable engines, but the years of context, corrections, and shared history remain permanently anchored to your machine.',
+        'An agent that lives where you actually work. Scheherazade bridges natively to Discord, Slack, and Telegram, while keeping a quiet companion presence in the corner of your desktop. Toggle Call Mode to talk through difficult problems by voice with on-device Korean speech recognition and built-in voice synthesis.',
+        'Run multiple distinct companions on a single computer. Scheherazade 0.5.0 introduces native multi-profile isolation: spawn a second Sera with her own independent memory directory, custom personality, private API tokens, and dedicated chat channels — all running concurrently without cross-contamination.',
+        'Autonomy tempered by nineteen deterministic lifecycle hooks. Scheherazade refuses to hallucinate completion: the built-in rumination gate holds back speculative success claims until independently verified. Hardened credential guards protect your system keychain, while automated cadence clocks orchestrate nightly compression without manual prompting.'
       ],
       ko: {
-        status: '베타',
-        headline: '천일밤을 이어가는 에이전트',
-        summary: '며칠, 몇 달이 걸리는 긴 프로젝트를 함께 진행하는 데스크톱 AI 에이전트입니다. 함께 정한 사실과 피드백, 아직 끝내지 못한 일을 내 컴퓨터에 기억해 두고 두뇌(모델)를 바꿔도 하던 일을 그대로 이어갑니다.',
+        status: '0.5.0',
+        headline: '천일밤을 함께 버티는 에이전트',
+        summary: '내 컴퓨터에 4계층 순수 마크다운 기억을 남기는 로컬 AI 에이전트입니다. DeepSeek DSH부터 Claude·로컬 모델까지 자유롭게 두뇌를 교체하고, Discord·Slack 및 음성 통화(Call Mode), 다중 프로필(0.5.0)까지 일상의 모든 작업 환경으로 이어집니다.',
         description: [
-          ['Scheherazade는 며칠, 몇 달이 걸리는 프로젝트를 함께 진행하는 AI입니다.\n함께 정한 내용과 아직 끝내지 못한 일을 기억하고, 다음에 만났을 때 하던 일을 이어갑니다.',
-            '우리는 오래 걸리는 일을 같은 AI와 끝까지 이어가고 싶었습니다.\n바꾸는 모델 때문에 그동안 함께 쌓은 기록을 포기하지 않도록, 기억을 두뇌와 분리했습니다.'],
-          'Claude·ChatGPT 구독이나 로컬 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 내 컴퓨터에 그대로 남습니다.',
-          'Browse with me를 켜면 Chrome에서 같은 탭을 보며 논문을 읽거나 자료를 놓고 함께 의논합니다.\n언제 화면을 볼지는 눈 모양 버튼으로 직접 결정할 수 있습니다.',
-          [{ display: '전기양의 꿈을 꾸는 안드로이드' }, '가끔은 지난 일지 몇 조각으로 밤사이 꿈도 꿉니다.\n꿈까지 업무 보고서일 필요는 없으니까요.']
+          '블랙박스 데이터베이스 없이, 사용자가 직접 열어보고 Git으로 버전 관리할 수 있는 100% 순수 마크다운 파일로 기억을 남깁니다. 실시간 작업과 감정을 담는 세션 노트, 밤사이 자율 압축되는 일지, 주간 단위로 사람의 승인을 거쳐 진화하는 페르소나, 그리고 유휴 사색(꿈)까지 4단계로 투명하게 보존됩니다.',
+          '더 새롭고 강력한 모델이 나올 때마다 두뇌를 언제든 갈아끼울 수 있습니다. DeepSeek DSH, Claude Code, Codex, 그리고 로컬 Ollama나 ONNX까지 자유롭게 레인을 오가도, 함께 일하며 쌓아온 수개월의 맥락과 피드백은 내 컴퓨터에 고스란히 남아 다음 두뇌로 온전히 이어집니다.',
+          '웹 브라우저의 외딴 탭이 아니라, 당신이 일하는 메신저와 화면 구석에 상주합니다. Discord, Slack, Telegram과 네이티브로 연동되고, 데스크톱 모서리의 컴패니언 페이스가 중요한 순간 말풍선으로 말을 겁니다. 온디바이스 음성 인식(STT)과 보이스 합성을 통한 콜 모드로 화면을 보며 목소리로 직접 토론할 수도 있습니다.',
+          '하나의 기기에서 각기 다른 전문성을 지닌 여러 명의 세라를 동시에 운용할 수 있습니다. 0.5.0부터 지원되는 멀티프로필 시스템은 기억 디렉토리, 고유의 성격, 토큰과 메신저 채널을 완벽히 격리하여 맥락이 섞이지 않는 최적의 다중 에이전트 환경을 제공합니다.',
+          '자율성은 철저한 통제와 안전성 위에서 완성됩니다. 19개의 라이프사이클 훅이 작동하며, 특히 반추 게이트(Rumination Gate)는 실제로 검증되지 않은 완료 보고나 거짓 답변을 사전에 차단합니다. 키체인과 크리덴셜을 지키는 엄격한 보안 방화벽과 매일 정해진 시간에 작동하는 자율 시계가 에이전트의 신뢰성을 보장합니다.'
         ]
       },
       action: { label: 'Get', href: 'download', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
       field: 'sch',
-      art: [0, 1, 2, 3],
+      art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'feat', feat: 'sch-memory', cap: 'Feature graphic · Memory', capKo: '설명 그림 · 기억', altKo: '설명 그림, 실제 앱 화면 아님: Scheherazade가 사실과 내가 고쳐 준 내용, 못 끝낸 일을 기억하고, 그 기억을 읽거나 잊게 할 수 있으며, Autonomy를 켜면 그날의 기억을 밤사이 정리하는 모습', alt: 'Feature graphic, not an app screenshot: Scheherazade keeps the facts, your corrections and unfinished threads; you can read them, tell her to forget, and with Autonomy on she sorts the day overnight' },
-        { kind: 'fig', src: 'assets/sera-memory.svg', ar: 686 / 494, cap: 'Feature graphic · New model, same memories', capKo: '설명 그림 · 모델을 바꿔도, 기억은 남게', altKo: '설명 그림, 실제 앱 화면이나 내부 구조 아님: 소켓에 꽂힌 엔진 카트리지는 빼서 다른 것으로 바꿀 수 있고, 종이 기억이 든 서랍장은 본체에 붙은 채 남아 새로 꽂힌 카트리지에 같은 기억을 넘겨주는 장치', alt: 'Feature graphic, not an app screenshot or the literal internals: an engine cartridge that can be pulled from its socket and swapped, beside a cabinet of paper memories that stays in place and feeds the same memories to whichever cartridge is plugged in' },
-        { kind: 'feat', feat: 'sch-browse', cap: 'Feature graphic · Browse with me', capKo: '설명 그림 · Browse with me', altKo: '설명 그림, 실제 앱 화면 아님: 브라우저 탭에 논문을 열어 두고 Scheherazade와 같이 이야기하는 모습, 그리고 언제 볼지 정하는 눈 버튼', alt: 'Feature graphic, not an app screenshot: a browser tab with a paper open beside Scheherazade talking it through, and the eye button that decides when she is looking' },
-        { kind: 'feat', feat: 'sch-dream', cap: 'Feature graphic · Dreams', capKo: '설명 그림 · 꿈', altKo: '설명 그림, 실제 앱 화면 아님: 오래된 일기들이 뜻밖에 이어져 새로운 조각 하나가 되는 모습', alt: 'Feature graphic, not an app screenshot: old journal entries joined in unexpected company into a new fragment' }
+        { kind: 'feat', feat: 'sch-memory', cap: 'Feature graphic · 4-Tier Local Memory', capKo: '설명 그림 · 4계층 로컬 마크다운 기억', altKo: '설명 그림: ~/Documents/에 로컬 파일로 영구 보존되는 4계층 순수 마크다운 기억 구조 — 실시간 작업 기억과 감정 지시가 보존되는 session_notes, 매일 밤 자율 압축되는 journals, 사람의 주간 승인으로 진화하는 self_persona, 유휴 사색 dreams.', alt: "Feature graphic: Scheherazade's four plain-text memory layers stored locally in ~/Documents/ — real-time session notes with emotional highlights, autonomous daily journals, human-approved persona reflux, and idle dream-work." },
+        { kind: 'feat', feat: 'sch-lane', cap: 'Feature graphic · Multi-Lane Architecture', capKo: '설명 그림 · 두뇌 독립형 멀티레인 아키텍처', altKo: '설명 그림: 기억과 두뇌를 완전히 분리한 멀티레인 아키텍처 — DeepSeek DSH, Claude Code, Codex, 로컬 Ollama/ONNX까지 레인을 자유롭게 교체해도 내 컴퓨터의 기억과 페르소나는 그대로 온존되는 구조.', alt: "Feature graphic: Scheherazade's multi-lane architecture decoupling local memory from language models — swappable backends between DeepSeek DSH, Claude Code, Codex, and local Ollama/ONNX models while keeping all memories untouched." },
+        { kind: 'feat', feat: 'sch-channel', cap: 'Feature graphic · Everywhere: Multi-Channel & Voice', capKo: '설명 그림 · 일하는 모든 곳에서: 멀티채널 & 음성 컴패니언', altKo: '설명 그림: 디스코드, 슬랙, 텔레그램 봇 네이티브 연동과 화면 구석의 상시 컴패니언(Companion Mode), 온디바이스 한국어 음성 인식(STT)과 자체 보이스로 대화하는 실시간 콜 모드(Call Mode).', alt: 'Feature graphic: Everywhere connectivity — native Discord, Slack, and Telegram bot bridges alongside a desktop companion floating head, and real-time voice Call Mode powered by on-device Korean speech-to-text.' },
+        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템 (0.5.0)', altKo: '설명 그림: 세헤라자데 0.5.0 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade 0.5.0 multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
+        { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
       ],
       info: { kind: 'sch' }
     },

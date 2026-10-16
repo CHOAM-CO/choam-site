@@ -447,12 +447,12 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .prod .vis { inset: calc(var(--mast-h) + 14px) var(--gutter) calc(100% - var(--copy-top, 52%) + 14px); gap: 8px; }
   .vis img, .vis svg { width: min(100cqw, calc((100cqh - 22px) * var(--ar))); }
   .vis figcaption { font-size: 9.5px; }
-  .feat .l { font-size: 23px; letter-spacing: .16em; }
-  .feat .t { font-size: 32px; }
-  .feat .s { font-size: 23.5px; }
-  .feat .k { font-size: 22.5px; letter-spacing: .1em; }
-  .feat .dt { font-size: 56px; }
-  .feat .dt.sm { font-size: 38px; }
+  .feat .l { font-size: 15px; letter-spacing: .14em; }
+  .feat .t { font-size: 22px; }
+  .feat .s { font-size: 13.5px; }
+  .feat .k { font-size: 12.5px; letter-spacing: .08em; }
+  .feat .dt { font-size: 42px; }
+  .feat .dt.sm { font-size: 28px; }
   .field, .dat-field, .prod[data-vis="raw"] .stage { --horizon: 40%; }
   .dl .sch-icon { position: absolute; top: calc(var(--mast-h) + 30px); left: var(--gutter); transform: none; width: 40vw; }
   .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 40vw + 60px) var(--gutter) 100px; justify-content: flex-start; }

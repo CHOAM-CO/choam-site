@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Scheherazade | CHOAM</title>
-<meta name="description" content="Long-term memory for long projects. Run Scheherazade with Claude, Codex or Ollama, browse with her in Chrome, and see what turns up in her dreams.">
+<meta name="description" content="A Mac-native local AI agent with 4-tier transparent markdown memory, swappable brains from DeepSeek to Claude, native Discord and Slack integration, voice Call Mode, and multi-profile isolation. Everything lives in plain files on your machine.">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="Scheherazade | CHOAM">
-<meta property="og:description" content="Long-term memory for long projects. Run Scheherazade with Claude, Codex or Ollama, browse with her in Chrome, and see what turns up in her dreams.">
+<meta property="og:description" content="A Mac-native local AI agent with 4-tier transparent markdown memory, swappable brains from DeepSeek to Claude, native Discord and Slack integration, voice Call Mode, and multi-profile isolation. Everything lives in plain files on your machine.">
 <meta property="og:url" content="https://choam.studio/pages/scheherazade">
 <meta property="og:image" content="https://choam.studio/assets/og-scheherazade.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Scheherazade | CHOAM">
-<meta name="twitter:description" content="Long-term memory for long projects. Run Scheherazade with Claude, Codex or Ollama, browse with her in Chrome, and see what turns up in her dreams.">
+<meta name="twitter:description" content="A Mac-native local AI agent with 4-tier transparent markdown memory, swappable brains from DeepSeek to Claude, native Discord and Slack integration, voice Call Mode, and multi-profile isolation.">
 <meta name="twitter:image" content="https://choam.studio/assets/og-scheherazade.jpg">
 <link rel="icon" href="../assets/mark.svg">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
@@ -27,7 +27,8 @@
   "@type": "SoftwareApplication",
   "name": "Scheherazade",
   "alternateName": "셰에라자드",
-  "description": "Agent stands more than 1001 nights. Long-term memory for long projects. Autonomous AI agent framework with persistent multi-day self-healing memory and reflective episodic rituals.",
+  "softwareVersion": "0.5.0",
+  "description": "An agent for a thousand and one nights. Mac-native local AI agent with 4-tier transparent markdown memory, swappable multi-lane backends, native Discord/Slack integration, voice Call Mode, and multi-profile isolation.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS, Linux, Windows",
   "image": "https://choam.studio/assets/og-scheherazade.jpg",
@@ -44,7 +45,6 @@
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
 <noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; max-width: 40em; } .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; } .ns p { margin-top: 16px; color: rgba(243, 242, 239, .82); }</style></noscript>
-<link rel="stylesheet" href="../clarity.css">
 </head>
 <body data-project="scheherazade">
 <h1 class="sr-only">Scheherazade</h1>
@@ -57,7 +57,16 @@
 
 <main class="track" data-track aria-label="Scheherazade" aria-roledescription="carousel"></main>
 <noscript>
-  <div class="ns"><h2>Scheherazade</h2><p><strong>Agent stands more than 1001 nights</strong></p><p>Built for the long haul. Days, months, one more revision: Scheherazade keeps the facts, your corrections, and unfinished threads close, so you can pick up a project without reintroducing it. A human-like memory, with one useful extra: you can read what she remembers and tell her to forget. With Autonomy on, she sorts the day's memories overnight.</p><p>Bring your own brain. Your Claude subscription via Claude Code, ChatGPT via Codex, or Ollama. Change the model; keep the memories. They live on your computer, and she leaves a letter to her next self before a switch. No need to make introductions twice.</p><p>Open a paper in Chrome. Take a detour through YouTube. With Browse with me switched on, she can read your current tab and talk it through with you. The eye button decides when she's looking. Even curiosity deserves an off switch.</p><p>Sometimes she dreams. With Autonomy on, old journal entries return in unexpected company. She may bring you a fragment after an idle afternoon. A stray thought for your next idea, perhaps. Inspiration keeps odd hours.</p><p><a href="../">All projects</a></p></div>
+  <div class="ns">
+    <h2>Scheherazade</h2>
+    <p><strong>An agent for a thousand and one nights · v0.5.0</strong></p>
+    <p>Memory stored in plain markdown files you can read and version-control yourself. Scheherazade splits working context into real-time session notes, overnight-compressed journals, weekly human-approved persona evolution, and idle dreams. No opaque vector database: open the files in your editor, edit what she remembers, or back them up with Git anytime.</p>
+    <p>Change the brain; keep the soul. Switch between DeepSeek DSH, Claude Code, Codex, and local Ollama or ONNX models whenever newer, faster weights arrive. The models are swappable engines, but the years of context, corrections, and shared history remain permanently anchored to your machine.</p>
+    <p>An agent that lives where you actually work. Scheherazade bridges natively to Discord, Slack, and Telegram, while keeping a quiet companion presence in the corner of your desktop. Toggle Call Mode to talk through difficult problems by voice with on-device Korean speech recognition and built-in voice synthesis.</p>
+    <p>Run multiple distinct companions on a single computer. Scheherazade 0.5.0 introduces native multi-profile isolation: spawn a second Sera with her own independent memory directory, custom personality, private API tokens, and dedicated chat channels — all running concurrently without cross-contamination.</p>
+    <p>Autonomy tempered by nineteen deterministic lifecycle hooks. Scheherazade refuses to hallucinate completion: the built-in rumination gate holds back speculative success claims until independently verified. Hardened credential guards protect your system keychain, while automated cadence clocks orchestrate nightly compression without manual prompting.</p>
+    <p><a href="../">All projects</a></p>
+  </div>
 </noscript>
 
 <div class="deck chrome">
@@ -70,6 +79,5 @@
 <p class="sr-only" aria-live="polite" data-live></p>
 <div class="grain" aria-hidden="true"></div>
 <script src="../main.js"></script>
-<script src="../clarity.js"></script>
 </body>
 </html>
