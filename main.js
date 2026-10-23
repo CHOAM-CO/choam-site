@@ -491,7 +491,8 @@
     ['.intro-meta span:nth-child(1)', '', '스튜디오'],
     ['.intro-meta span:nth-child(2)', '', '서울'],
     ['.intro-meta span:nth-child(3)', '', '2026년 설립'],
-    ['.intro-next span', '', '프로젝트'],
+    ['.intro-next[href="philosophy.html"] span', '', '철학'],
+    ['.intro-next[href^="#"] span', '', '프로젝트'],
     ['[data-next-label]', '', '다음'],
     ['.intro-clock [data-city]', '', '서울'],
     ['main.track[aria-label="Ours"]', 'aria-label', '프로젝트'],
@@ -567,8 +568,8 @@
       return `<li><a class="proj" href="${href}" data-go-project="${p.id}">${esc(p.title)}</a></li>`;
     }).join('');
   });
-  /* Our Philosophy (every page): one link in the masthead, and the same link at the foot of the Projects panel for
-     screens too narrow to hold it in the masthead (style.css shows exactly one of the two at any width). */
+  /* Philosophy (every page): its own top-level link in the masthead at every width, beside Projects; it is not part of the
+     Projects list or its menu panel. */
   const onPhilo = body.dataset.page === 'philosophy';
   const philoLinks = [];
   if (mast) {
@@ -579,13 +580,12 @@
       philoLinks.push(a); return a;
     };
     mast.insertBefore(mk('philo-link'), picker);
-    document.querySelectorAll('[data-menu]').forEach(nav => nav.appendChild(mk('philo-row')));
   }
   /* the Korean / English choice set on the philosophy page itself; same setting as the masthead picker */
   const pageLangs = [...document.querySelectorAll('[data-page-lang]')];
   pageLangs.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.pageLang, true)));
   relabel.push(() => {
-    philoLinks.forEach(a => { a.textContent = ko() ? '초암의 철학' : 'Our Philosophy'; });
+    philoLinks.forEach(a => { a.textContent = ko() ? '철학' : 'Philosophy'; });
     pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
     document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', ko() ? '언어' : 'Language'));
   });
