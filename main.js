@@ -473,8 +473,9 @@
     }
   } catch (e) {}
 
-  /* ---------- language (every page): English unless this browser chose Korean. The <head> of each page reads
-     localStorage before paint and sets <html lang>; this keeps the copy, labels and the picker in step with it.
+  /* ---------- language (every page): a saved choice (localStorage 'choam-lang') always wins; with none saved, Korean when the
+     browser's first preferred language is Korean, otherwise English. The <head> of each page decides this before paint and
+     sets <html lang> (the automatic pick is not saved); this keeps the copy, labels and the picker in step with it.
      Product names, CULTURE MUST FLOW and the copyright line stay as written in both languages. ---------- */
   const LANG_KEY = 'choam-lang';
   const html = document.documentElement;

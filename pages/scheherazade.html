@@ -41,7 +41,7 @@
   "inLanguage": ["ko", "en"]
 }
 </script>
-<script>try{if(localStorage.getItem('choam-lang')==='ko')document.documentElement.lang='ko'}catch(e){}</script>
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';if(s==='ko'||(s!=='en'&&/^ko(-|_|$)/i.test(n)))document.documentElement.lang='ko'}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
 <noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; max-width: 40em; } .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; } .ns p { margin-top: 16px; color: rgba(243, 242, 239, .82); }</style></noscript>
