@@ -610,13 +610,14 @@
      platform's name; otherwise (no answer, rate limit, renamed file) it stays on the release page. Version numbers are never
      written here: releases/latest/download/<file> needs the versioned name, so the name comes from the release itself.
      The browser's OS only marks one choice as recommended; nothing downloads until a person picks one. */
-  const REL_REPO = 'https://github.com/Mino-is-me/scheherazade-releases';
+  const REL_REPO = 'https://github.com/CHOAM-CO/scheherazade-releases';
   const REL_PAGE = `${REL_REPO}/releases/latest`;
-  const REL_API = 'https://api.github.com/repos/Mino-is-me/scheherazade-releases/releases/latest';
+  const REL_API = 'https://api.github.com/repos/CHOAM-CO/scheherazade-releases/releases/latest';
   const OSES = [
     { os: 'mac', name: 'Mac', detail: 'Apple silicon', detailKo: 'Apple 실리콘', file: /^Scheherazade-[^/]+-arm64\.dmg$/ },
     { os: 'win', name: 'Windows', detail: 'Installer', detailKo: '설치 파일', file: /^Scheherazade-Setup-[^/]+\.exe$/ },
-    { os: 'linux', name: 'Linux', detail: 'x86_64 AppImage', detailKo: 'x86_64 AppImage', file: /^Scheherazade-[^/]+-x86_64\.AppImage$/ }
+    { os: 'linux', name: 'Linux', detail: 'x86_64 AppImage', detailKo: 'x86_64 AppImage', file: /^Scheherazade-[^/]+-x86_64\.AppImage$/ },
+    { os: 'win-portable', name: 'Windows portable', detail: 'USB ZIP, NTFS', detailKo: 'USB용 ZIP, NTFS', optional: true, file: /^Scheherazade-Portable-[^/]+-win-x64\.zip$/ }
   ];
   /* phones, tablets and ChromeOS get no recommendation: none of these installers runs there */
   const myOS = (() => {
@@ -634,6 +635,7 @@
     root.querySelectorAll('[data-rel-os]').forEach(a => {
       const o = OSES.find(x => x.os === a.dataset.relOs), d = a.querySelector('[data-os-detail]'), rec = a.querySelector('[data-os-rec]');
       a.href = rel.urls[o.os] || REL_PAGE;
+      if (o.optional) a.closest('li').hidden = !rel.urls[o.os];
       if (d) d.textContent = ko() ? o.detailKo : o.detail;
       a.classList.toggle('is-rec', o.os === myOS);
       if (rec) { rec.hidden = o.os !== myOS; rec.textContent = ko() ? '추천' : 'Recommended'; }
@@ -676,10 +678,11 @@
     loadRel();
   }
 
-  /* Get chooser (a disclosure: Get, then three ordinary links). Plain clicks open it; a modified click or no script still
-     follows Get's own link to the download page. Arrow keys move between choices, Escape closes and returns to Get. */
+  /* Get chooser (a disclosure: Get, then ordinary links, including portable only when available). Plain clicks open it;
+     a modified click or no script still follows Get's own link to the download page. Arrow keys move between visible
+     choices, Escape closes and returns to Get. The panel stays in flow below the controls, never over the copy. */
   let getOpen = null; /* the open chooser's .get-wrap */
-  const getOpts = wrap => [...wrap.querySelectorAll('.get-opt')];
+  const getOpts = wrap => [...wrap.querySelectorAll('.get-opt')].filter(a => !a.closest('li[hidden]'));
   function setGet(wrap, open, focusBtn) {
     const btn = wrap.querySelector('.prod-act'), menu = wrap.querySelector('.get-menu');
     if (open) {
@@ -697,7 +700,7 @@
   }
   const getMenuHTML = id => `<div class="get-menu" id="get-${id}" hidden>
       <p class="get-head"><span data-get-head></span><span data-rel-ver></span></p>
-      <ul>${OSES.map(o => `<li><a class="lang-opt get-opt" data-rel-os="${o.os}" href="${REL_PAGE}"><span>${o.name}<em class="os-rec" data-os-rec hidden></em></span><b data-os-detail></b></a></li>`).join('')}</ul>
+      <ul>${OSES.map(o => `<li${o.optional ? ' hidden' : ''}><a class="get-opt" data-rel-os="${o.os}" href="${REL_PAGE}"><span>${o.name}<em class="os-rec" data-os-rec hidden></em></span><b data-os-detail></b></a></li>`).join('')}</ul>
       <p class="get-note" data-rel-note hidden></p>
     </div>`;
   const wireGet = wrap => {
@@ -717,7 +720,7 @@
       e.preventDefault(); e.stopPropagation();
       opts[to].focus();
     });
-    getOpts(wrap).forEach(a => a.addEventListener('click', () => setGet(wrap, false, true))); /* the link still navigates */
+    wrap.querySelectorAll('.get-opt').forEach(a => a.addEventListener('click', () => setGet(wrap, false, true))); /* the link still navigates */
     wrap.addEventListener('focusout', e => { if (getOpen === wrap && e.relatedTarget && !wrap.contains(e.relatedTarget)) setGet(wrap, false); });
   };
   document.addEventListener('click', e => { if (getOpen && !getOpen.contains(e.target)) setGet(getOpen, false); });
@@ -808,6 +811,12 @@
     </article>`).join('');
     const plates = [...track.querySelectorAll('.plate')];
     track.querySelectorAll('.get-wrap').forEach(wireGet);
+    /* Expanding the in-flow chooser lifts the caption; keep its mobile artwork above the copy too. */
+    const getPlates = plates.filter(el => el.querySelector('.get-menu'));
+    const getCopyTop = new ResizeObserver(() => getPlates.forEach(el => {
+      el.style.setProperty('--copy-top', `${el.querySelector('.caption').offsetTop}px`);
+    }));
+    getPlates.forEach(el => { getCopyTop.observe(el); getCopyTop.observe(el.querySelector('.caption')); });
 
     /* the index rail: 00 is the opening, then one line per project; shown once the opening has scrolled away */
     const rail = document.createElement('nav');
