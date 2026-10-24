@@ -22,7 +22,7 @@ CHOAM stands on four core principles:
 ### 1. Scheherazade
 - **Type**: Autonomous AI Agent Framework / System
 - **URL**: https://choam.studio/pages/scheherazade
-- **Description**: An agent that stands for more than a thousand and one nights. Built with persistent long-horizon memory, multi-day self-healing, and emotional grounding across continuous operations.
+- **Description**: An agent that lasts a thousand and one nights. Memory kept in plain files on your own computer, so you never explain yourself twice; swap the model without losing it, using the Claude Code, Codex or Ollama Cloud subscription you already pay for; and reach it from Discord, Slack or Call Mode, so work started on a phone is finished at the desk.
 
 ### 2. DAT (Diffusion Architecture Transformer)
 - **Type**: Proprietary Generative Art Model Architecture

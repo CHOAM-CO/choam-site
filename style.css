@@ -697,3 +697,50 @@ html:not([lang="ko"]) [data-philo="ko"], html[lang="ko"] [data-philo="en"] { dis
 @media (prefers-reduced-motion: reduce) {
   .mast, .deck, .dl-foot { transition: none; }
 }
+
+/* ---------- chat figure (scheherazade): a real exchange, plus the one line the machine wrote or changed.
+   HTML rather than a picture so the text follows the language switch and can be re-sized for phones
+   instead of being scaled down. Sizes are in cqw against the plate itself. ---------- */
+.chatviz .cv {
+  width: min(100cqw, calc((100cqh - 34px) * 720 / 540)); aspect-ratio: 720 / 540;
+  container-type: inline-size; align-self: center;
+  display: flex; flex-direction: column; justify-content: center; gap: 2.4cqw;
+  font-family: var(--font); text-align: left;
+}
+.chatviz .cv-row { display: flex; }
+.chatviz .cv-row.r { justify-content: flex-end; }
+.chatviz .cv-b {
+  margin: 0; font-size: 2.55cqw; line-height: 1.55; letter-spacing: -.01em; word-break: keep-all;
+  padding: 1.8cqw 2.4cqw; border-radius: 2.2cqw; max-width: 90%;
+}
+.chatviz .cv-b.in { background: rgba(235, 229, 218, .10); border-bottom-right-radius: .7cqw; color: rgba(235, 229, 218, .92); }
+.chatviz .cv-b.out { background: rgba(235, 229, 218, .05); border: 1px solid rgba(235, 229, 218, .13); border-bottom-left-radius: .7cqw; color: var(--bone); }
+.chatviz .cv-b b { color: var(--ember); font-weight: 800; }
+.chatviz .cv-b em { font-style: normal; font-size: 1.7cqw; letter-spacing: .04em; color: rgba(235, 229, 218, .42); margin-left: 1.6cqw; }
+.chatviz .cv-sys {
+  background: #101012; border: 1px solid rgba(217, 163, 98, .30); border-radius: 1.1cqw;
+  padding: 1.8cqw 2.2cqw; display: flex; flex-direction: column; gap: .7cqw;
+}
+.chatviz .k {
+  font-family: ui-monospace, Menlo, monospace; font-size: 1.5cqw; letter-spacing: .10em;
+  text-transform: uppercase; color: rgba(235, 229, 218, .42);
+}
+.chatviz .l { font-family: ui-monospace, Menlo, monospace; font-size: 2cqw; line-height: 1.4; }
+.chatviz .l.del { color: rgba(235, 229, 218, .34); text-decoration: line-through; }
+.chatviz .l.add { color: var(--ember); }
+.chatviz .cv-sheet {
+  border: 1px solid rgba(235, 229, 218, .12); border-radius: 1.2cqw; padding: 1.7cqw 2.2cqw 2cqw;
+  display: flex; flex-direction: column; gap: 1.1cqw;
+}
+.chatviz .cv-sheet .r { display: flex; align-items: center; gap: 1.5cqw; }
+.chatviz .cv-sheet .n { font-family: ui-monospace, Menlo, monospace; font-size: 1.55cqw; width: 1.4cqw; color: rgba(235, 229, 218, .30); }
+.chatviz .cv-sheet .b { height: .8cqw; border-radius: .4cqw; background: rgba(235, 229, 218, .15); }
+.chatviz .cv-sheet .r.on .n { color: var(--ember); font-weight: 700; }
+.chatviz .cv-sheet .r.on .b { background: var(--ember); opacity: .92; }
+@media (max-width: 720px) {
+  .chatviz .cv-b { font-size: 4.1cqw; padding: 2.6cqw 3.4cqw; border-radius: 3cqw; }
+  .chatviz .cv-b em { font-size: 2.7cqw; margin-left: 2.4cqw; }
+  .chatviz .l { font-size: 3.2cqw; }
+  .chatviz .k { font-size: 2.4cqw; }
+  .chatviz .cv-sheet { display: none; }
+}

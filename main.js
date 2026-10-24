@@ -292,7 +292,7 @@
         [
           { display: 'You never have to explain yourself twice. It already knows how you like things.' },
           'The fatigue of teaching a new chat window from scratch is gone. The small exchange from yesterday, the working rule you set last month: it sorts them out on its own and keeps them on your computer.',
-          '"That Minecraft server I was building. Open the ports for my friends, swap it for something lighter than the shader we were using, and leave it running."\nYou do not have to say which version you are on, or which mod threw an error last time.'
+          '"Make me a cheat sheet for the exam."\nIt already knows which two question types you got wrong last time and puts those first. You do not have to say which exam, which unit, or what you struggled with.'
         ],
         [
           { display: 'No new subscription. Plug in the one you already pay for.' },
@@ -313,7 +313,7 @@
           [
             { display: '매번 구구절절 설명하지 않아도, 내 취향과 방식을 이미 알고 있어요.' },
             '새 창을 열 때마다 처음부터 다시 가르쳐야 했던 피로감이 사라집니다. 어제 나눈 소소한 대화부터 지난달에 정해둔 작업 규칙까지, 스스로 정리해 내 컴퓨터에 온전히 남겨둡니다.',
-            '"저번에 만들던 마인크래프트 서버 있잖아. 친구들 들어오게 포트 열고, 그때 쓰던 쉐이더보다 좀 가벼운 걸로 바꿔서 켜놔 줘."\n어떤 버전을 쓰는지, 지난번에 무슨 모드에서 에러가 났었는지 일일이 설명할 필요가 없습니다.'
+            '"시험 치트시트 하나 만들어줘."\n지난번에 어느 유형을 틀렸는지 이미 알고 있으니, 그쪽부터 짚어서 만들어 줍니다. 어떤 시험이고 어디까지인지, 뭘 헷갈려 했는지 설명할 필요가 없습니다.'
           ],
           [
             { display: '새로 결제할 필요 없이, 이미 쓰던 구독 모델을 꽂아 쓰세요.' },
@@ -331,9 +331,63 @@
       field: 'sch',
       art: [0, 1, 2],
       panels: [
-        { kind: 'feat', feat: 'sch-memory', cap: 'Feature graphic · 4-Tier Local Memory', capKo: '설명 그림 · 4계층 로컬 마크다운 기억', altKo: '설명 그림: ~/Documents/에 로컬 파일로 영구 보존되는 4계층 순수 마크다운 기억 구조 — 실시간 작업 기억과 감정 지시가 보존되는 session_notes, 매일 밤 자율 압축되는 journals, 사람의 주간 승인으로 진화하는 self_persona, 유휴 사색 dreams.', alt: "Feature graphic: Scheherazade's four plain-text memory layers stored locally in ~/Documents/ — real-time session notes with emotional highlights, autonomous daily journals, human-approved persona reflux, and idle dream-work." },
-        { kind: 'feat', feat: 'sch-lane', cap: 'Feature graphic · Multi-Lane Architecture', capKo: '설명 그림 · 두뇌 독립형 멀티레인 아키텍처', altKo: '설명 그림: 기억과 두뇌를 완전히 분리한 멀티레인 아키텍처 — DeepSeek DSH, Claude Code, Codex, 로컬 Ollama/ONNX까지 레인을 자유롭게 교체해도 내 컴퓨터의 기억과 페르소나는 그대로 온존되는 구조.', alt: "Feature graphic: Scheherazade's multi-lane architecture decoupling local memory from language models — swappable backends between DeepSeek DSH, Claude Code, Codex, and local Ollama/ONNX models while keeping all memories untouched." },
-        { kind: 'feat', feat: 'sch-channel', cap: 'Feature graphic · Everywhere: Multi-Channel & Voice', capKo: '설명 그림 · 일하는 모든 곳에서: 멀티채널 & 음성 컴패니언', altKo: '설명 그림: 디스코드, 슬랙, 텔레그램 봇 네이티브 연동과 화면 구석의 상시 컴패니언(Companion Mode), 온디바이스 한국어 음성 인식(STT)과 자체 보이스로 대화하는 실시간 콜 모드(Call Mode).', alt: 'Feature graphic: Everywhere connectivity — native Discord, Slack, and Telegram bot bridges alongside a desktop companion floating head, and real-time voice Call Mode powered by on-device Korean speech-to-text.' },
+        { kind: 'chat',
+          cap: 'Real exchange · Memory that survives a model swap',
+          capKo: '실제 대화 · 모델을 바꿔도 남는 기억',
+          alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in memory (items 3, and 2 and 5 marked wrong), answers that it emphasised those question types last time, and hands over a five-item sheet with items 2 and 5 highlighted.',
+          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면, 에이전트가 기억 파일에서 고친 줄(3번, 그리고 2번과 5번 틀림)을 보여주고, 지난번에 그 유형을 틀렸다고 강조했다고 답한 뒤, 2번과 5번이 강조된 다섯 문항짜리 치트시트를 건넨다.',
+          en: [
+            { t: 'bub', side: 'in', p: [{ s: 'Make me a cheat sheet for the exam' }] },
+            { t: 'sys', k: 'memory/quiz_grades.md', l: [
+              { s: 'Item 3 · correct', del: 1 },
+              { s: 'Items 2, 5 · wrong → emphasise', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: 'You got ' }, { s: '2 and 5', em: 1 }, { s: ' wrong last time, so I emphasised those question types' }] },
+            { t: 'sheet', k: 'CHEAT SHEET · 5 ITEMS', rows: [
+              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+          ],
+          ko: [
+            { t: 'bub', side: 'in', p: [{ s: '시험 치트시트 하나 만들어줘' }] },
+            { t: 'sys', k: 'memory/quiz_grades.md', l: [
+              { s: '3번 문제 · 맞음', del: 1 },
+              { s: '2번, 5번 · 틀림 → 강조 대상', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: ' 틀렸어서 비슷한 유형 위주로 강조해놨어' }] },
+            { t: 'sheet', k: 'CHEAT SHEET · 5문항', rows: [
+              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+          ] },
+        { kind: 'chat',
+          cap: 'Real exchange · Swap the model, keep the memory',
+          capKo: '실제 대화 · 두뇌만 바꿔 끼우기',
+          alt: 'Chat figure: the user asks whether the newly released Kimi K3.1 can be used, the agent writes itself a task for November 5 to check the weights release, and answers that it is not on ollama cloud yet and it will look again around the fifth.',
+          altKo: '대화 그림: 사용자가 새로 나온 Kimi K3.1을 쓸 수 있는지 묻자, 에이전트가 11월 5일 가중치 공개를 확인하는 할 일을 스스로 적고, ollama cloud에는 아직 없으니 5일쯤 다시 찾아보겠다고 답한다.',
+          en: [
+            { t: 'bub', side: 'in', p: [{ s: 'Kimi K3.1 came out yesterday. Can we use it?' }] },
+            { t: 'sys', k: 'memory/tasks.md', l: [
+              { s: '+ Nov 5 · check kimi-k3.1 weights → add to ollama cloud', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: 'Not on ollama cloud yet. Weights drop ' }, { s: 'Nov 4', em: 1 }, { s: ', so I will check again around ' }, { s: 'the 5th', em: 1 }, { s: ' and add it' }] }
+          ],
+          ko: [
+            { t: 'bub', side: 'in', p: [{ s: '어제 Kimi K3.1 나왔던데 쓸 수 있나?' }] },
+            { t: 'sys', k: 'memory/tasks.md', l: [
+              { s: '+ 11-05 · kimi-k3.1 가중치 공개 확인 → ollama cloud 추가', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: 'ollama cloud에는 아직 안올라왔더라. 가중치 공개가 ' }, { s: '11월 4일', em: 1 }, { s: '이라니까 ' }, { s: '5일쯤', em: 1 }, { s: '에 내가 한번 더 찾아보고 추가해둘게' }] }
+          ] },
+        { kind: 'chat',
+          cap: 'Real exchange · Phone and desk, one thread',
+          capKo: '실제 대화 · 폰과 컴퓨터가 한 줄로',
+          alt: 'Chat figure: one conversation, a message from the phone at 07:41 asking to update the modpack and bring the server up, a note that the thread carries across devices, and the answer waiting at 09:12 on the desk that the server is up with no conflicts.',
+          altKo: '대화 그림: 하나의 대화. 07:41 폰에서 모드팩을 업데이트하고 서버를 켜달라고 보내고, 대화가 기기를 넘어 이어진다는 줄을 거쳐, 09:12 데스크톱에서 서버가 켜졌고 충돌이 없다는 답이 기다린다.',
+          en: [
+            { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night. Update the modpack and get the server up' }] },
+            { t: 'sys', k: 'chat/thread.md', l: [
+              { s: '07:41 phone → 09:12 desk · same conversation', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Server is up. No conflicts' }] }
+          ],
+          ko: [
+            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '게임할 건데 모드팩 업뎃하고 서버 켜놔' }] },
+            { t: 'sys', k: 'chat/thread.md', l: [
+              { s: '07:41 폰 → 09:12 데스크톱 · 같은 대화', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '서버 켜놨어. 충돌 없음' }] }
+          ] },
         { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템 (0.5.0)', altKo: '설명 그림: 세헤라자데 0.5.0 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade 0.5.0 multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
         { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
       ],
@@ -1000,6 +1054,34 @@
     String(b).split('\n').forEach((line, i) => { if (i) el.appendChild(document.createElement('br')); el.appendChild(document.createTextNode(line)); });
     return el;
   };
+  /* a chat figure: a real exchange plus the one line the machine actually wrote or changed.
+     Every string comes from spec.ko / spec.en, so it follows the language switch like the copy does. */
+  const chatBlocks = rows => rows.map(r => {
+    if (r.t === 'sys') {
+      const box = document.createElement('div'); box.className = 'cv-sys';
+      const k = document.createElement('span'); k.className = 'k'; k.textContent = r.k; box.appendChild(k);
+      r.l.forEach(l => { const t = document.createElement('span');
+        t.className = 'l' + (l.del ? ' del' : '') + (l.add ? ' add' : ''); t.textContent = l.s; box.appendChild(t); });
+      return box;
+    }
+    if (r.t === 'sheet') {
+      const box = document.createElement('div'); box.className = 'cv-sheet';
+      const k = document.createElement('span'); k.className = 'k'; k.textContent = r.k; box.appendChild(k);
+      r.rows.forEach(row => {
+        const line = document.createElement('div'); line.className = 'r' + (row.on ? ' on' : '');
+        const n = document.createElement('span'); n.className = 'n'; n.textContent = row.n;
+        const b = document.createElement('span'); b.className = 'b'; b.style.width = row.w + '%';
+        line.append(n, b); box.appendChild(line);
+      });
+      return box;
+    }
+    const line = document.createElement('div'); line.className = 'cv-row' + (r.side === 'in' ? ' r' : '');
+    const p = document.createElement('p'); p.className = 'cv-b ' + (r.side === 'in' ? 'in' : 'out');
+    r.p.forEach(seg => { if (seg.em) { const b = document.createElement('b'); b.textContent = seg.s; p.appendChild(b); }
+      else p.appendChild(document.createTextNode(seg.s)); });
+    if (r.time) { const e = document.createElement('em'); e.textContent = r.time; p.appendChild(e); }
+    line.appendChild(p); return line;
+  });
   /* one visual per paragraph: full-bleed art, or a framed in-game capture / feature graphic beside the copy */
   /* captions, alt text and copy are filled by labelSec, in the current language */
   const visual = (spec, j, i, reel) => {
@@ -1014,6 +1096,7 @@
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
         <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
     if (spec.kind === 'feat') return `<figure class="media vis feat${on}" data-art="${i}"><svg viewBox="0 0 720 540" role="img" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
+    if (spec.kind === 'chat') return `<figure class="media vis feat chatviz${on}" data-art="${i}"><div class="cv"></div>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${(reel || !j) ? '' : ' loading="lazy"'}`;
     if (spec.kind === 'fig') return `<figure class="media vis afig${on}" data-art="${i}" style="--ar:${spec.ar}"><img ${img}>${cap}</figure>`;
     if (spec.kind === 'raw') return `<figure class="media vis frame${on}" data-art="${i}" style="--ar:${spec.ar || 16 / 9}"><img ${img}>${cap}</figure>`;
@@ -1159,6 +1242,8 @@
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = ko() && spec.altKo || spec.alt;
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
+      const cv = m.querySelector('.cv');
+      if (cv) { cv.replaceChildren(...chatBlocks(ko() ? spec.ko : spec.en)); if (alt) m.setAttribute('aria-label', alt); }
       if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = ko() && it.altKo || it.alt; const n = g.querySelector('.gn'); if (n) n.textContent = ko() && it.nameKo || it.name; }); }
       else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
       if (cap) cap.textContent = ko() && spec.capKo || spec.cap;

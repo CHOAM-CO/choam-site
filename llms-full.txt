@@ -38,13 +38,12 @@ We do not separate high-level technology from artistic sensibility. Every model 
 
 ### Project 01: Scheherazade (셰에라자드)
 - **URL**: https://choam.studio/pages/scheherazade
-- **Category**: Autonomous Agent Architecture / Multi-Day Cognitive System
-- **Core Concept**: "Agent stands more than 1001 nights."
+- **Category**: Personal AI Agent / Local Memory System
+- **Core Concept**: "An agent that lasts a thousand and one nights."
 - **Key Capabilities**:
-  - Continuous execution across hundreds of steps without forgetting prior intent.
-  - Multi-tier memory compaction and episodic reflection.
-  - Self-healing recovery loops that diagnose and repair infrastructure disconnects.
-  - Emotional and register consistency rooted in character identity.
+  - Memory kept in plain files on your own computer: corrections, preferences and working rules survive every new session, so nothing has to be explained twice.
+  - Swap the model without losing that memory; keep using the subscription you already pay for (Claude Code, Codex, Ollama Cloud).
+  - Reach it from Discord, Slack or Call Mode; a task started on a phone is finished by the time you sit down at the desk.
 
 ### Project 02: DAT (Diffusion Architecture Transformer)
 - **URL**: https://choam.studio/pages/dat
