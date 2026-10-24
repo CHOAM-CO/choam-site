@@ -286,30 +286,50 @@
       title: 'Scheherazade',
       title_ko: '',
       status: 'v0.5.0',
-      headline: 'An agent for a thousand and one nights',
-      summary: 'A Mac-native local AI agent with 4-tier transparent markdown memory, swappable brains from DeepSeek to Claude, native Discord and Slack integration, voice Call Mode, and multi-profile isolation. Everything lives in plain files on your computer.',
+      headline: 'An agent that lasts a thousand and one nights',
+      summary: 'Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.',
       description: [
-        'Memory stored in plain markdown files you can read and version-control yourself. Scheherazade splits working context into real-time session notes, overnight-compressed journals, weekly human-approved persona evolution, and idle dreams. No opaque vector database: open the files in your editor, edit what she remembers, or back them up with Git anytime.',
-        'Change the brain; keep the soul. Switch between DeepSeek DSH, Claude Code, Codex, and local Ollama or ONNX models whenever newer, faster weights arrive. The models are swappable engines, but the years of context, corrections, and shared history remain permanently anchored to your machine.',
-        'An agent that lives where you actually work. Scheherazade bridges natively to Discord, Slack, and Telegram, while keeping a quiet companion presence in the corner of your desktop. Toggle Call Mode to talk through difficult problems by voice with on-device Korean speech recognition and built-in voice synthesis.',
-        'Run multiple distinct companions on a single computer. Scheherazade 0.5.0 introduces native multi-profile isolation: spawn a second Sera with her own independent memory directory, custom personality, private API tokens, and dedicated chat channels — all running concurrently without cross-contamination.',
-        'Autonomy tempered by nineteen deterministic lifecycle hooks. Scheherazade refuses to hallucinate completion: the built-in rumination gate holds back speculative success claims until independently verified. Hardened credential guards protect your system keychain, while automated cadence clocks orchestrate nightly compression without manual prompting.'
+        [
+          { display: 'You never have to explain yourself twice. It already knows how you like things.' },
+          'The fatigue of teaching a new chat window from scratch is gone. The small exchange from yesterday, the working rule you set last month: it sorts them out on its own and keeps them on your computer.',
+          '"That Minecraft server I was building. Open the ports for my friends, swap it for something lighter than the shader we were using, and leave it running."\nYou do not have to say which version you are on, or which mod threw an error last time.'
+        ],
+        [
+          { display: 'No new subscription. Plug in the one you already pay for.' },
+          'You do not have to buy a second expensive seat on a dedicated service. Connect the account you already have: Claude Code, Codex, Ollama Cloud.',
+          'Curious about the new Kimi, or a benchmark leader just landed?\nKeep the memory, swap only the brain. Your conversations and the way you work stay on your machine.'
+        ],
+        [
+          { display: 'Away from the desk? Drop a line from your phone and it gets done.' },
+          'No launching an app, no composing a prompt. Message it the way you would ask a friend, on the messenger you already use, or out loud.',
+          'On the subway home, one message in Discord or Slack.\n"Game night with friends tonight. Update the modpack and get the server running."\nWalking, and typing is a hassle? Turn on Call Mode and just ask. "Did the thing I asked for go through? Any conflicts?"\nBack at your desk, it is already set up. You just play.'
+        ]
       ],
       ko: {
         status: '0.5.0',
-        headline: '천일밤을 함께 버티는 에이전트',
-        summary: '내 컴퓨터에 4계층 순수 마크다운 기억을 남기는 로컬 AI 에이전트입니다. DeepSeek DSH부터 Claude·로컬 모델까지 자유롭게 두뇌를 교체하고, Discord·Slack 및 음성 통화(Call Mode), 다중 프로필(0.5.0)까지 일상의 모든 작업 환경으로 이어집니다.',
+        headline: '천하루밤도 버티는 에이전트',
+        summary: '모델을 수없이 갈아끼워도 당신과 쌓아온 대화와 규칙은 그대로 남아, 귀찮고 복잡한 일도 한결 가볍게 풀어줍니다.',
         description: [
-          '블랙박스 데이터베이스 없이, 사용자가 직접 열어보고 Git으로 버전 관리할 수 있는 100% 순수 마크다운 파일로 기억을 남깁니다. 실시간 작업과 감정을 담는 세션 노트, 밤사이 자율 압축되는 일지, 주간 단위로 사람의 승인을 거쳐 진화하는 페르소나, 그리고 유휴 사색(꿈)까지 4단계로 투명하게 보존됩니다.',
-          '더 새롭고 강력한 모델이 나올 때마다 두뇌를 언제든 갈아끼울 수 있습니다. DeepSeek DSH, Claude Code, Codex, 그리고 로컬 Ollama나 ONNX까지 자유롭게 레인을 오가도, 함께 일하며 쌓아온 수개월의 맥락과 피드백은 내 컴퓨터에 고스란히 남아 다음 두뇌로 온전히 이어집니다.',
-          '웹 브라우저의 외딴 탭이 아니라, 당신이 일하는 메신저와 화면 구석에 상주합니다. Discord, Slack, Telegram과 네이티브로 연동되고, 데스크톱 모서리의 컴패니언 페이스가 중요한 순간 말풍선으로 말을 겁니다. 온디바이스 음성 인식(STT)과 보이스 합성을 통한 콜 모드로 화면을 보며 목소리로 직접 토론할 수도 있습니다.',
-          '하나의 기기에서 각기 다른 전문성을 지닌 여러 명의 세라를 동시에 운용할 수 있습니다. 0.5.0부터 지원되는 멀티프로필 시스템은 기억 디렉토리, 고유의 성격, 토큰과 메신저 채널을 완벽히 격리하여 맥락이 섞이지 않는 최적의 다중 에이전트 환경을 제공합니다.',
-          '자율성은 철저한 통제와 안전성 위에서 완성됩니다. 19개의 라이프사이클 훅이 작동하며, 특히 반추 게이트(Rumination Gate)는 실제로 검증되지 않은 완료 보고나 거짓 답변을 사전에 차단합니다. 키체인과 크리덴셜을 지키는 엄격한 보안 방화벽과 매일 정해진 시간에 작동하는 자율 시계가 에이전트의 신뢰성을 보장합니다.'
+          [
+            { display: '매번 구구절절 설명하지 않아도, 내 취향과 방식을 이미 알고 있어요.' },
+            '새 창을 열 때마다 처음부터 다시 가르쳐야 했던 피로감이 사라집니다. 어제 나눈 소소한 대화부터 지난달에 정해둔 작업 규칙까지, 스스로 정리해 내 컴퓨터에 온전히 남겨둡니다.',
+            '"저번에 만들던 마인크래프트 서버 있잖아. 친구들 들어오게 포트 열고, 그때 쓰던 쉐이더보다 좀 가벼운 걸로 바꿔서 켜놔 줘."\n어떤 버전을 쓰는지, 지난번에 무슨 모드에서 에러가 났었는지 일일이 설명할 필요가 없습니다.'
+          ],
+          [
+            { display: '새로 결제할 필요 없이, 이미 쓰던 구독 모델을 꽂아 쓰세요.' },
+            '에이전트를 쓰겠다고 전용 서비스에 비싼 돈을 더 낼 필요가 없습니다. Claude Code, Codex, Ollama Cloud까지, 이미 구독 중인 계정을 그대로 연결하면 됩니다.',
+            '새 Kimi가 써보고 싶어졌거나, 벤치마크가 더 잘 나오는 모델이 나왔나요?\n쓰던 기억은 그대로 두고 두뇌만 슥 바꿔 쓰세요. 나눈 대화와 작업 방식은 내 컴퓨터에 고스란히 남아 있습니다.'
+          ],
+          [
+            { display: '컴퓨터 앞에 앉지 않아도, 폰으로 툭 던져두면 알아서 해둡니다.' },
+            '새 프로그램을 켜고 프롬프트를 고민할 필요가 없습니다. 늘 쓰던 메신저나 음성 통화로, 친구에게 부탁하듯 편하게 말을 걸어보세요.',
+            '퇴근길 지하철에서 스마트폰 디스코드나 슬랙으로 툭 남깁니다.\n"오늘 저녁에 친구들이랑 게임할 건데, 모드팩 최신으로 업데이트하고 서버 좀 돌려놔."\n걷는 중이라 타자가 번거로우면 콜 모드를 켜서 전화하듯 물어보세요. "아까 시킨 거 잘 됐어? 충돌 난 건 없고?"\n집에 도착해 컴퓨터를 켜면 세팅이 끝나 있어, 바로 플레이만 하면 됩니다.'
+          ]
         ]
       },
       action: { label: 'Get', href: 'download', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
       field: 'sch',
-      art: [0, 1, 2, 3, 4],
+      art: [0, 1, 2],
       panels: [
         { kind: 'feat', feat: 'sch-memory', cap: 'Feature graphic · 4-Tier Local Memory', capKo: '설명 그림 · 4계층 로컬 마크다운 기억', altKo: '설명 그림: ~/Documents/에 로컬 파일로 영구 보존되는 4계층 순수 마크다운 기억 구조 — 실시간 작업 기억과 감정 지시가 보존되는 session_notes, 매일 밤 자율 압축되는 journals, 사람의 주간 승인으로 진화하는 self_persona, 유휴 사색 dreams.', alt: "Feature graphic: Scheherazade's four plain-text memory layers stored locally in ~/Documents/ — real-time session notes with emotional highlights, autonomous daily journals, human-approved persona reflux, and idle dream-work." },
         { kind: 'feat', feat: 'sch-lane', cap: 'Feature graphic · Multi-Lane Architecture', capKo: '설명 그림 · 두뇌 독립형 멀티레인 아키텍처', altKo: '설명 그림: 기억과 두뇌를 완전히 분리한 멀티레인 아키텍처 — DeepSeek DSH, Claude Code, Codex, 로컬 Ollama/ONNX까지 레인을 자유롭게 교체해도 내 컴퓨터의 기억과 페르소나는 그대로 온존되는 구조.', alt: "Feature graphic: Scheherazade's multi-lane architecture decoupling local memory from language models — swappable backends between DeepSeek DSH, Claude Code, Codex, and local Ollama/ONNX models while keeping all memories untouched." },
