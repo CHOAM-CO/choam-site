@@ -624,7 +624,7 @@
     if (open) (opts.find(o => o.dataset.setLang === lang) || opts[0]).focus();
     else if (focusBtn) langBtn.focus();
   };
-  langBtn.addEventListener('click', () => setLangMenu(!langOpen()));
+  langBtn.addEventListener('click', () => { if (navOpen) setMenu(false); setLangMenu(!langOpen()); });
   opts.forEach(o => o.addEventListener('click', () => { applyLang(o.dataset.setLang, true); setLangMenu(false, true); }));
   picker.addEventListener('keydown', e => {
     if (!langOpen() || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
@@ -646,7 +646,7 @@
 
   /* ---------- shared Works / About disclosure (every page) ----------
      Menu membership is deliberately separate from PROJECTS: DAT keeps its primary Works link and landing anchor.
-     This is non-modal: ordinary Tab order, no focus trap, no scroll lock. */
+     Each trigger opens only its own group on desktop and mobile. No focus trap or scroll lock. */
   mast.querySelectorAll('[data-menu-toggle], [data-menu]').forEach(el => el.remove());
   const siteNav = document.createElement('nav');
   siteNav.className = 'site-nav';
@@ -657,9 +657,8 @@
   const pending = name => `<li><span class="nav-entry nav-pending" aria-disabled="true"><span>${name}</span><small data-nav-pending></small></span></li>`;
   siteNav.innerHTML = `
     <div class="nav-controls">
-      <button class="nav-toggle nav-desktop" type="button" data-nav-toggle="works" aria-controls="nav-works" aria-expanded="false">Works</button>
-      <button class="nav-toggle nav-desktop" type="button" data-nav-toggle="about" aria-controls="nav-about" aria-expanded="false">About</button>
-      <button class="nav-toggle nav-mobile" type="button" data-nav-toggle="all" aria-controls="nav-panel" aria-expanded="false" data-nav-menu></button>
+      <button class="nav-toggle" type="button" data-nav-toggle="works" aria-controls="nav-works" aria-expanded="false">Works</button>
+      <button class="nav-toggle" type="button" data-nav-toggle="about" aria-controls="nav-about" aria-expanded="false">About</button>
     </div>
     <div class="nav-panel" id="nav-panel" hidden>
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
@@ -690,7 +689,7 @@
   navSize.observe(siteNav);
   function setMenu(open, focusBtn = false) {
     const previous = navOpen;
-    navOpen = open ? (mobileNav.matches ? 'all' : open === 'all' ? 'works' : open) : '';
+    navOpen = open || '';
     if (navOpen && langOpen()) setLangMenu(false);
     navPanel.hidden = !navOpen;
     siteNav.querySelector('#nav-works').hidden = !navOpen || navOpen === 'about';
@@ -708,7 +707,7 @@
   mobileNav.addEventListener('change', () => {
     const hadFocus = siteNav.contains(document.activeElement);
     setMenu(false);
-    if (hadFocus) siteNav.querySelector(`[data-nav-toggle="${mobileNav.matches ? 'all' : 'works'}"]`).focus();
+    if (hadFocus) siteNav.querySelector('[data-nav-toggle="works"]').focus();
   });
   addEventListener('pagehide', () => { setMenu(false); setLangMenu(false); });
   /* The Philosophy article's own language controls share the same saved setting. Never rebuild menu nodes on relabel. */
@@ -716,7 +715,6 @@
   pageLangs.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.pageLang, true)));
   relabel.push(() => {
     siteNav.setAttribute('aria-label', ko() ? '주요 탐색' : 'Main navigation');
-    siteNav.querySelector('[data-nav-menu]').textContent = ko() ? '메뉴' : 'Menu';
     siteNav.querySelector('[data-nav-philosophy]').textContent = ko() ? '철학' : 'Philosophy';
     siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = ko() ? '준비 중' : 'Coming soon'; });
     siteNav.querySelectorAll('[data-nav-name]').forEach(el => {

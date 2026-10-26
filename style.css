@@ -99,7 +99,6 @@ img { display: block; max-width: 100%; }
 .nav-toggle::after { content: ''; width: 4px; height: 4px; margin-top: -3px; border: solid currentColor; border-width: 0 1px 1px 0; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
 .nav-toggle:hover, .nav-toggle[aria-expanded="true"] { color: var(--bone); }
-.nav-mobile { display: none; }
 /* The scrollable menu must end above the fixed chapter deck so its last row remains visible. */
 .nav-panel { position: absolute; top: 100%; right: var(--gutter); width: min(320px, calc(100% - 2 * var(--gutter))); padding: 20px 24px; background: var(--void); border: 1px solid var(--line); max-height: calc(100dvh - var(--mast-h) - var(--deck-h)); overflow-y: auto; overscroll-behavior: contain; }
 .nav-panel[hidden], .nav-panel section[hidden] { display: none; }
@@ -114,11 +113,9 @@ img { display: block; max-width: 100%; }
 :lang(ko) .nav-entry { letter-spacing: .02em; word-break: keep-all; }
 .lang-menu { z-index: 1; }
 @media (max-width: 760px) {
-  .nav-desktop { display: none; }
-  .nav-mobile { display: flex; }
-  .nav-toggle { font-size: 11px; letter-spacing: .16em; }
+  .nav-controls { gap: 8px; }
+  .nav-toggle { font-size: 11px; letter-spacing: .05em; gap: 4px; }
   .nav-panel { left: 0; right: 0; width: auto; padding: 22px var(--gutter) 28px; max-height: calc(100dvh - var(--mast-h) - var(--deck-h)); border-left: 0; border-right: 0; }
-  .nav-panel section + section { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
   .nav-row, .nav-row-primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .nav-row + .nav-row { margin-top: 8px; padding-top: 8px; }
   .nav-entry { min-height: 54px; flex-direction: row; justify-content: space-between; align-items: center; font-size: 15px; gap: 16px; }
@@ -453,7 +450,10 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 /* ---------- phone ---------- */
 @media (max-width: 760px) {
   :root { --mast-h: 58px; --deck-h: 74px; --horizon: 58%; }
-  .mast { gap: 14px; }
+  .mast { gap: 8px; }
+  .brand { gap: 8px; font-size: 15px; letter-spacing: .24em; }
+  .brand img { width: 20px; height: 20px; }
+  .lang-btn { gap: 4px; font-size: 11px; letter-spacing: .08em; }
   .deck { flex-wrap: wrap; align-content: center; gap: 4px 16px; }
   .now { display: none; }
   .deck .next-ch { margin-left: auto; }
