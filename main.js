@@ -632,7 +632,8 @@
     const i = opts.indexOf(document.activeElement);
     opts[(i + (e.key === 'ArrowDown' ? 1 : opts.length - 1)) % opts.length].focus();
   });
-  picker.addEventListener('focusout', e => { if (langOpen() && !picker.contains(e.relatedTarget)) setLangMenu(false); });
+  /* Touch browsers may blur the focused option with no next focus target before firing the tapped option's click. */
+  picker.addEventListener('focusout', e => { if (langOpen() && e.relatedTarget && !picker.contains(e.relatedTarget)) setLangMenu(false); });
   document.addEventListener('click', e => {
     if (langOpen() && !picker.contains(e.target)) setLangMenu(false);
     if (navOpen && !siteNav.contains(e.target) && !picker.contains(e.target)) setMenu(false);
