@@ -393,10 +393,11 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   .gn { font-size: 10px; }
 }
 
-/* DAT's comparison is directly available in step three, never behind a popup. */
+/* DAT comparison follows the five existing artwork steps, never behind a popup. */
 .prod .dat-inline { pointer-events: auto; container-type: normal; gap: 12px; }
 .prod .dat-inline[hidden] { display: none; }
-#dat.dat-comparing .rail { display: none; }
+/* Keep rail width/scroll position intact while the comparison takes its place. */
+#dat.dat-comparing .rail { height: 0; min-height: 0; margin: 0; overflow: hidden; visibility: hidden; pointer-events: none; }
 .dat-cases { display: flex; flex-wrap: wrap; gap: 8px 18px; width: 100%; }
 .dat-cases button { border: 0; border-bottom: 1px solid transparent; background: none; color: var(--dim); font: inherit; font-size: 12px; padding: 6px 0; cursor: pointer; }
 .dat-cases button[aria-pressed="true"] { color: var(--bone); border-color: var(--ember); }
@@ -413,10 +414,12 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .dat-zoom > div { min-width: 0; }
 .dat-zoom span { display: block; font-size: 10px; letter-spacing: .1em; margin-bottom: 8px; }
 .dat-detail { width: 100%; height: clamp(90px, 12vh, 140px); background-repeat: no-repeat; background-color: var(--night); border: 1px solid rgba(235,229,218,.2); box-sizing: border-box; }
+.dat-note { width: 100%; font-size: 12px; line-height: 1.5; color: var(--ash); }
 .dat-inline button:focus-visible, .dat-inline input:focus-visible, .dat-zoom:focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; }
 @media (max-width: 760px) {
   #dat.dat-comparing { height: auto; min-height: 100dvh; }
   #dat.dat-comparing .stage { position: relative; padding-top: calc(var(--mast-h) + 20px); }
+  #dat.dat-comparing .prod-veil { display: none; }
   #dat.dat-comparing .dat-inline { position: relative; inset: auto; width: auto; margin: 0 var(--gutter); }
   #dat.dat-comparing .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 26px 0 calc(var(--deck-h) + 24px); }
   .dat-cases { gap: 6px 14px; }

@@ -404,7 +404,8 @@
         'Filtering out muddy generated colors and laying down a clean watercolor wash with particular attention to the eyes.',
         'From narrative classroom scenes to solo portraits, every piece preserves painterly textures and hand-crafted nuance.',
         'Balancing the delicate light of watercolor with rich brushwork to build living, breathing visual worlds.',
-        'The signature aesthetic extends across all of CHOAM\'s universes, from quiet schoolrooms to oceanic voyages.'
+        'The signature aesthetic extends across all of CHOAM\'s universes, from quiet schoolrooms to oceanic voyages.',
+        'Compare a recorded GPT Image original with its DAT finish. The pass changes brushwork and some scene details, not just image noise.'
       ],
       ko: {
         status: '자체 스타일 모델',
@@ -415,16 +416,27 @@
           '기존 생성 이미지의 탁한 색감을 걷어내고, 맑은 수채 질감과 눈가 붓 터치를 입혀 우리만의 화풍으로 완성합니다.',
           '서사적인 교실 풍경부터 인물 포트레이트까지, 손으로 빚어낸 듯한 회화적 밀도를 균일하게 유지합니다.',
           '수채화의 투명한 빛과 묵직한 질감의 조화를 통해 살아 숨 쉬는 세계의 시각적 기준을 세웁니다.',
-          '고요한 교실의 오후부터 머나먼 바다의 갑판까지, 초암이 짓는 모든 세계관의 시각적 뼈대가 됩니다.'
+          '고요한 교실의 오후부터 머나먼 바다의 갑판까지, 초암이 짓는 모든 세계관의 시각적 뼈대가 됩니다.',
+          '기록된 GPT Image 원본과 DAT 적용 후 비교. 붓 결과 장면의 일부 세부 모양도 달라짐. 노이즈만 제거한 결과는 아님.'
         ]
       },
-      art: [0, 1, 2, 3, 4],
+      art: [0, 1, 2, 3, 4, 5],
       panels: [
         { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 50%', posM: '27% 35%' },
         { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
         { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
         { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
-        { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '42% 35%' }
+        { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '42% 35%' },
+        { kind: 'compare' }
+      ],
+      /* Existing recorded, aligned source/output pairs; no reprocessing or new image. */
+      comparisons: [
+        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020,
+          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면' },
+        { id: 'classroom', label: 'Classroom', labelKo: '교실', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, detailPoint: [.25, .78],
+          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줌. 장신구 모양도 바뀐 장면' },
+        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, detailPoint: [.7, .74],
+          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교함. 머리 장식과 장신구, 옷의 세부 모양도 달라짐' }
       ],
       info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '43% 30%', side: 'end' }
     },
@@ -633,7 +645,7 @@
   });
 
   /* ---------- shared Works / About disclosure (every page) ----------
-     Menu membership is deliberately separate from PROJECTS: DAT and its legacy landing anchor stay intact.
+     Menu membership is deliberately separate from PROJECTS: DAT keeps its primary Works link and landing anchor.
      This is non-modal: ordinary Tab order, no focus trap, no scroll lock. */
   mast.querySelectorAll('[data-menu-toggle], [data-menu]').forEach(el => el.remove());
   const siteNav = document.createElement('nav');
@@ -652,7 +664,7 @@
     <div class="nav-panel" id="nav-panel" hidden>
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
         <h2 class="nav-group-title" id="nav-works-title">Works</h2>
-        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${pending('602')}</ul>
+        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('dat')}${pending('602')}</ul>
         <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}${workEntry('donguri-restaurant')}</ul>
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
@@ -709,7 +721,7 @@
     siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = ko() ? '준비 중' : 'Coming soon'; });
     siteNav.querySelectorAll('[data-nav-name]').forEach(el => {
       const p = PROJECTS.find(p => p.id === el.dataset.navName);
-      el.textContent = p.id === 'seonjam' ? (ko() ? '선잠' : 'Doze') : ko() && p.title_ko ? p.title_ko : p.title;
+      el.textContent = p.id === 'seonjam' ? (ko() ? '선잠' : 'Doze') : p.id === 'dat' ? p.title : ko() && p.title_ko ? p.title_ko : p.title;
     });
     pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
     document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', ko() ? '언어' : 'Language'));
@@ -1143,7 +1155,7 @@
       <div class="dat-cases" role="group"></div>
       <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span></div>
       <label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label>
-      <div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div></div>`;
+      <div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div><p class="dat-note"></p></div>`;
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
@@ -1213,15 +1225,13 @@
   };
   const updateDat = () => {
     if (!datSec || !datInline) return;
-    const k = datSec._k || 0, title = datSec.querySelector('.cap-title');
-    (title.querySelector('a') || title).textContent = k ? 'Image Organize' : 'Our Style';
-    datSec.classList.toggle('dat-comparing', k === 2);
-    datInline.hidden = k !== 2;
-    datInline.inert = k !== 2;
-    /* Keep the maker statement and process graphic; comparisons need only clean before/after labels. */
-    datSec.querySelector('.slide p').textContent = k === 0 ? tr(datProject, 'description')[0] : k === 1
-      ? datText('A feature graphic of the DAT finishing process: filtering muddy colour and adding a light watercolour wash.', '탁한 색을 거르고 옅은 수채 질감을 더하는 DAT 후처리 과정을 그린 설명 그림') : '';
+    const rail = datSec.querySelector('[data-rail]');
+    const k = Math.round(rail.scrollLeft / (rail.clientWidth || 1));
+    datSec.classList.toggle('dat-comparing', k === 5);
+    datInline.hidden = k !== 5;
+    datInline.inert = k !== 5;
     const c = activeCase(), beforeName = ko() ? c.beforeLabelKo || c.beforeLabel || '원본' : c.beforeLabel || 'Original';
+    datInline.querySelector('.dat-note').textContent = ko() ? c.noteKo : c.note;
     datInline.setAttribute('aria-label', `${ko() ? c.labelKo : c.label} · BEFORE / AFTER`);
     datInline.querySelector('.dat-cases').setAttribute('aria-label', datText('Comparison cases', '비교 장면'));
     datInline.querySelectorAll('[data-dat-case]').forEach((b, i) => {
