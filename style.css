@@ -100,7 +100,8 @@ img { display: block; max-width: 100%; }
 .nav-toggle[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
 .nav-toggle:hover, .nav-toggle[aria-expanded="true"] { color: var(--bone); }
 .nav-mobile { display: none; }
-.nav-panel { position: absolute; top: 100%; right: var(--gutter); width: min(320px, calc(100% - 2 * var(--gutter))); padding: 20px 24px; background: var(--void); border: 1px solid var(--line); max-height: calc(100dvh - var(--mast-h) - 16px); overflow-y: auto; overscroll-behavior: contain; }
+/* The scrollable menu must end above the fixed chapter deck so its last row remains visible. */
+.nav-panel { position: absolute; top: 100%; right: var(--gutter); width: min(320px, calc(100% - 2 * var(--gutter))); padding: 20px 24px; background: var(--void); border: 1px solid var(--line); max-height: calc(100dvh - var(--mast-h) - var(--deck-h)); overflow-y: auto; overscroll-behavior: contain; }
 .nav-panel[hidden], .nav-panel section[hidden] { display: none; }
 .nav-group-title { margin-bottom: 10px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
 .nav-row { display: grid; grid-template-columns: minmax(0, 1fr); }
@@ -116,7 +117,7 @@ img { display: block; max-width: 100%; }
   .nav-desktop { display: none; }
   .nav-mobile { display: flex; }
   .nav-toggle { font-size: 11px; letter-spacing: .16em; }
-  .nav-panel { left: 0; right: 0; width: auto; padding: 22px var(--gutter) 28px; max-height: calc(100dvh - var(--mast-h)); border-left: 0; border-right: 0; }
+  .nav-panel { left: 0; right: 0; width: auto; padding: 22px var(--gutter) 28px; max-height: calc(100dvh - var(--mast-h) - var(--deck-h)); border-left: 0; border-right: 0; }
   .nav-panel section + section { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
   .nav-row, .nav-row-primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .nav-row + .nav-row { margin-top: 8px; padding-top: 8px; }
