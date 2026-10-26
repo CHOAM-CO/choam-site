@@ -763,11 +763,12 @@
       el.textContent = ko() ? 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다' : 'GitHub didn’t answer, so each choice opens the latest release page.';
     });
   };
+  let relReady;
   const loadRel = () => {
-    if (rel.state !== 'idle') return;
+    if (rel.state !== 'idle') return relReady;
     rel.state = 'loading';
     const ctl = 'AbortController' in window ? new AbortController() : null, stop = ctl && setTimeout(() => ctl.abort(), 10000);
-    fetch(REL_API, ctl ? { signal: ctl.signal } : {})
+    return relReady = fetch(REL_API, ctl ? { signal: ctl.signal } : {})
       .then(r => { if (!r.ok) throw new Error(`GitHub ${r.status}`); return r.json(); })
       .then(data => {
         const assets = Array.isArray(data.assets) ? data.assets : [];
@@ -794,6 +795,16 @@
     relViews.add(document.querySelector('.dl-body'));
     loadRel();
   }
+
+  /* A quick OS click must wait for metadata, not follow the temporary release-page href.
+     Ready links and modified clicks retain native navigation; an API failure still uses the labelled fallback. */
+  document.addEventListener('click', async e => {
+    const a = e.target.closest('a[data-rel-os]');
+    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || rel.state !== 'loading') return;
+    e.preventDefault();
+    await loadRel();
+    location.assign(a.href);
+  });
 
   /* Get chooser (a disclosure: Get, then ordinary links, including portable only when available). Plain clicks open it;
      a modified click or no script still follows Get's own link to the download page. Arrow keys move between visible
