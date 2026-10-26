@@ -174,7 +174,7 @@
       <path class="hr" d="M40 478H680"/>
       <text class="l" x="40" y="504">ALWAYS WITHIN REACH</text><text class="s dim" x="680" y="504" text-anchor="end">Living where you communicate and think</text>`,
     'sch-profile': () => `${POOL('pl-prof', 360, 270, 320, 220, .14)}
-      <text class="l" x="40" y="42">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="42" text-anchor="end">Scheherazade 0.5.0</text>
+      <text class="l" x="40" y="42">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="42" text-anchor="end">Scheherazade</text>
       <path class="hr" d="M40 56H680"/>
       <g transform="translate(40, 72)">
         <rect class="fr" width="640" height="42" rx="2"/>
@@ -285,7 +285,6 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      status: 'v0.5.0',
       headline: 'An agent that lasts a thousand and one nights',
       summary: 'Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.',
       description: [
@@ -306,7 +305,6 @@
         ]
       ],
       ko: {
-        status: '0.5.0',
         headline: '천하루밤도 버티는 에이전트',
         summary: '모델을 수없이 갈아끼워도 당신과 쌓아온 대화와 규칙은 그대로 남아, 귀찮고 복잡한 일도 한결 가볍게 풀어줍니다.',
         description: [
@@ -388,7 +386,7 @@
               { s: '07:41 폰 → 09:12 데스크톱 · 같은 대화', add: 1 } ] },
             { t: 'bub', side: 'out', time: '09:12', p: [{ s: '서버 켜놨어. 충돌 없음' }] }
           ] },
-        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템 (0.5.0)', altKo: '설명 그림: 세헤라자데 0.5.0 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade 0.5.0 multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
+        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템', altKo: '설명 그림: 세헤라자데 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
         { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
       ],
       info: { kind: 'sch' }
@@ -560,8 +558,6 @@
   /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean] */
   const UI_KO = [
     ['.brand', 'aria-label', 'CHOAM 홈'],
-    ['.menu-btn', '', '프로젝트'],
-    ['.proj-nav', 'aria-label', '프로젝트'],
     ['.intro-meta span:nth-child(1)', '', '스튜디오'],
     ['.intro-meta span:nth-child(2)', '', '서울'],
     ['.intro-meta span:nth-child(3)', '', '2026년 설립'],
@@ -576,7 +572,6 @@
     ['[data-details]', '', '자세히'],
     ['.foot a', '', '문의'],
     ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘'],
-    ['.dl .cap-meta span:first-child', '', '베타'],
     ['.dl .cap-line', '', PROJECTS[0].ko.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘'],
     ['.dlbtn[data-os="win"] small', '', '설치 파일'],
@@ -612,7 +607,6 @@
   };
   const langOpen = () => body.classList.contains('lang-open');
   const setLangMenu = (open, focusBtn) => {
-    if (open) setMenu(false);
     body.classList.toggle('lang-open', open);
     langBtn.setAttribute('aria-expanded', String(open));
     if (open) (opts.find(o => o.dataset.setLang === lang) || opts[0]).focus();
@@ -627,7 +621,10 @@
     opts[(i + (e.key === 'ArrowDown' ? 1 : opts.length - 1)) % opts.length].focus();
   });
   picker.addEventListener('focusout', e => { if (langOpen() && !picker.contains(e.relatedTarget)) setLangMenu(false); });
-  document.addEventListener('click', e => { if (langOpen() && !picker.contains(e.target)) setLangMenu(false); });
+  document.addEventListener('click', e => {
+    if (langOpen() && !picker.contains(e.target)) setLangMenu(false);
+    if (navOpen && !siteNav.contains(e.target) && !picker.contains(e.target)) setMenu(false);
+  });
   /* back/forward from a page where the language changed: the cached page catches up */
   addEventListener('pageshow', e => {
     if (!e.persisted) return;
@@ -635,47 +632,92 @@
     if (saved && saved !== lang) applyLang(saved, false);
   });
 
-  /* ---------- project menu (every page) ---------- */
-  document.querySelectorAll('[data-projects]').forEach(list => {
-    list.innerHTML = PROJECTS.map(p => {
-      const href = !track ? url(`#${p.id}`) : only ? pageOf(p) : `#${p.id}`;
-      return `<li><a class="proj" href="${href}" data-go-project="${p.id}">${esc(p.title)}</a></li>`;
-    }).join('');
-  });
-  /* Philosophy (every page): its own top-level link in the masthead at every width, beside Projects; it is not part of the
-     Projects list or its menu panel. */
-  const onPhilo = body.dataset.page === 'philosophy';
-  const philoLinks = [];
-  if (mast) {
-    const mk = cls => {
-      const a = document.createElement('a');
-      a.className = cls; a.href = url('philosophy');
-      if (onPhilo) { a.classList.add('is-current'); a.setAttribute('aria-current', 'page'); }
-      philoLinks.push(a); return a;
-    };
-    mast.insertBefore(mk('philo-link'), picker);
+  /* ---------- shared Works / About disclosure (every page) ----------
+     Menu membership is deliberately separate from PROJECTS: DAT and its legacy landing anchor stay intact.
+     This is non-modal: ordinary Tab order, no focus trap, no scroll lock. */
+  mast.querySelectorAll('[data-menu-toggle], [data-menu]').forEach(el => el.remove());
+  const siteNav = document.createElement('nav');
+  siteNav.className = 'site-nav';
+  const workEntry = id => {
+    const p = PROJECTS.find(p => p.id === id);
+    return `<li><a class="nav-entry" href="${pageOf(p)}" data-nav-project="${id}"${only === id ? ' aria-current="page"' : ''}><span data-nav-name="${id}">${esc(p.title)}</span></a></li>`;
+  };
+  const pending = name => `<li><span class="nav-entry nav-pending" aria-disabled="true"><span>${name}</span><small data-nav-pending></small></span></li>`;
+  siteNav.innerHTML = `
+    <div class="nav-controls">
+      <button class="nav-toggle nav-desktop" type="button" data-nav-toggle="works" aria-controls="nav-works" aria-expanded="false">Works</button>
+      <button class="nav-toggle nav-desktop" type="button" data-nav-toggle="about" aria-controls="nav-about" aria-expanded="false">About</button>
+      <button class="nav-toggle nav-mobile" type="button" data-nav-toggle="all" aria-controls="nav-panel" aria-expanded="false" data-nav-menu></button>
+    </div>
+    <div class="nav-panel" id="nav-panel" hidden>
+      <section id="nav-works" aria-labelledby="nav-works-title" hidden>
+        <h2 class="nav-group-title" id="nav-works-title">Works</h2>
+        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${pending('602')}</ul>
+        <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}${workEntry('donguri-restaurant')}</ul>
+      </section>
+      <section id="nav-about" aria-labelledby="nav-about-title" hidden>
+        <h2 class="nav-group-title" id="nav-about-title">About</h2>
+        <ul class="nav-row nav-row-primary"><li><a class="nav-entry" href="${url('philosophy')}"${body.dataset.page === 'philosophy' ? ' aria-current="page"' : ''} data-nav-philosophy></a></li>${pending('Us')}</ul>
+      </section>
+    </div>`;
+  mast.insertBefore(siteNav, picker);
+  const navPanel = siteNav.querySelector('.nav-panel');
+  const navToggles = [...siteNav.querySelectorAll('[data-nav-toggle]')];
+  const mobileNav = matchMedia('(max-width: 760px)');
+  let navOpen = '';
+  const positionMenu = () => {
+    navPanel.style.removeProperty('right'); /* mobile keeps its existing full-width layout */
+    if (!navOpen || mobileNav.matches) return;
+    const trigger = siteNav.querySelector(`[data-nav-toggle="${navOpen}"]`).getBoundingClientRect();
+    const gutter = parseFloat(getComputedStyle(mast).paddingRight);
+    const right = Math.max(gutter, Math.min(innerWidth - trigger.right, innerWidth - navPanel.offsetWidth - gutter));
+    navPanel.style.right = `${right}px`; /* align to the active trigger, clamped inside the viewport */
+  };
+  const navSize = new ResizeObserver(positionMenu);
+  navSize.observe(mast);
+  navSize.observe(siteNav);
+  function setMenu(open, focusBtn = false) {
+    const previous = navOpen;
+    navOpen = open ? (mobileNav.matches ? 'all' : open === 'all' ? 'works' : open) : '';
+    if (navOpen && langOpen()) setLangMenu(false);
+    navPanel.hidden = !navOpen;
+    siteNav.querySelector('#nav-works').hidden = !navOpen || navOpen === 'about';
+    siteNav.querySelector('#nav-about').hidden = !navOpen || navOpen === 'works';
+    body.classList.toggle('menu-open', !!navOpen);
+    navToggles.forEach(t => t.setAttribute('aria-expanded', String(navOpen === t.dataset.navToggle)));
+    positionMenu();
+    if (focusBtn && previous) siteNav.querySelector(`[data-nav-toggle="${previous}"]`).focus();
+    wake();
   }
-  /* the Korean / English choice set on the philosophy page itself; same setting as the masthead picker */
+  navToggles.forEach(t => t.addEventListener('click', () => setMenu(navOpen === t.dataset.navToggle ? false : t.dataset.navToggle)));
+  siteNav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  /* Closing on keyboard departure does not steal focus; the adjacent language picker can relabel an open menu. */
+  mast.addEventListener('focusout', e => { if (navOpen && !mast.contains(e.relatedTarget)) setMenu(false); });
+  mobileNav.addEventListener('change', () => {
+    const hadFocus = siteNav.contains(document.activeElement);
+    setMenu(false);
+    if (hadFocus) siteNav.querySelector(`[data-nav-toggle="${mobileNav.matches ? 'all' : 'works'}"]`).focus();
+  });
+  addEventListener('pagehide', () => { setMenu(false); setLangMenu(false); });
+  /* The Philosophy article's own language controls share the same saved setting. Never rebuild menu nodes on relabel. */
   const pageLangs = [...document.querySelectorAll('[data-page-lang]')];
   pageLangs.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.pageLang, true)));
   relabel.push(() => {
-    philoLinks.forEach(a => { a.textContent = ko() ? '철학' : 'Philosophy'; });
+    siteNav.setAttribute('aria-label', ko() ? '주요 탐색' : 'Main navigation');
+    siteNav.querySelector('[data-nav-menu]').textContent = ko() ? '메뉴' : 'Menu';
+    siteNav.querySelector('[data-nav-philosophy]').textContent = ko() ? '철학' : 'Philosophy';
+    siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = ko() ? '준비 중' : 'Coming soon'; });
+    siteNav.querySelectorAll('[data-nav-name]').forEach(el => {
+      const p = PROJECTS.find(p => p.id === el.dataset.navName);
+      el.textContent = p.id === 'seonjam' ? (ko() ? '선잠' : 'Doze') : ko() && p.title_ko ? p.title_ko : p.title;
+    });
     pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
     document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', ko() ? '언어' : 'Language'));
   });
-  const toggles = [...document.querySelectorAll('[data-menu-toggle]')];
-  function setMenu(open) {
-    if (open && langOpen()) setLangMenu(false);
-    body.classList.toggle('menu-open', open);
-    toggles.forEach(t => t.setAttribute('aria-expanded', String(open)));
-    if (open) { const first = document.querySelector('[data-menu] .proj'); first && first.focus(); }
-    wake();
-  }
-  toggles.forEach(t => t.addEventListener('click', () => setMenu(!body.classList.contains('menu-open'))));
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
     if (langOpen()) setLangMenu(false, true);
-    else if (body.classList.contains('menu-open')) { setMenu(false); toggles[0] && toggles[0].focus(); }
+    else if (navOpen) setMenu(false, true);
     else if (getOpen) setGet(getOpen, false, true);
   });
 

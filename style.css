@@ -90,13 +90,39 @@ img { display: block; max-width: 100%; }
 .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 17px; letter-spacing: .34em; margin-right: -.34em; }
 .brand img { width: 24px; height: 24px; }
 .motto { font-weight: 600; font-size: 11px; letter-spacing: .42em; color: var(--dim); white-space: nowrap; text-transform: uppercase; padding-left: 26px; border-left: 1px solid var(--line); line-height: 20px; }
-.proj-nav { margin-left: auto; }
-.proj-nav ul { display: flex; gap: clamp(18px, 2.6vw, 46px); }
-.proj { position: relative; display: flex; align-items: center; height: var(--mast-h); font-weight: 650; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); transition: color .3s; }
-.proj::after { content: ''; position: absolute; left: 0; right: .22em; bottom: 18px; height: 1px; background: var(--ember); transform: scaleX(0); transform-origin: left; transition: transform .5s var(--slow); }
-.proj:hover, .proj.is-current { color: var(--bone); }
-.proj.is-current::after { transform: none; }
-.menu-btn { display: none; }
+/* Shared, non-modal navigation. The legacy HTML is replaced only when script is available. */
+.menu-btn, .proj-nav { display: none; }
+.site-nav { margin-left: auto; }
+.nav-controls { display: flex; gap: 30px; }
+.nav-toggle, .nav-entry { text-transform: uppercase; }
+.nav-toggle { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 650; font-size: 12px; letter-spacing: .22em; color: var(--ash); }
+.nav-toggle::after { content: ''; width: 4px; height: 4px; margin-top: -3px; border: solid currentColor; border-width: 0 1px 1px 0; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
+.nav-toggle:hover, .nav-toggle[aria-expanded="true"] { color: var(--bone); }
+.nav-mobile { display: none; }
+.nav-panel { position: absolute; top: 100%; right: var(--gutter); width: min(320px, calc(100% - 2 * var(--gutter))); padding: 20px 24px; background: var(--void); border: 1px solid var(--line); max-height: calc(100dvh - var(--mast-h) - 16px); overflow-y: auto; overscroll-behavior: contain; }
+.nav-panel[hidden], .nav-panel section[hidden] { display: none; }
+.nav-group-title { margin-bottom: 10px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
+.nav-row { display: grid; grid-template-columns: minmax(0, 1fr); }
+.nav-row + .nav-row { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 16px; }
+.nav-entry { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; padding: 12px 0; font-size: 16px; font-weight: 550; letter-spacing: .04em; line-height: 1.5; color: var(--bone); overflow-wrap: anywhere; }
+.nav-entry:hover, .nav-entry[aria-current="page"] { color: var(--ember); }
+.nav-pending, .nav-pending:hover { color: var(--dim); }
+.nav-pending small { font-size: 11px; font-weight: 450; letter-spacing: .08em; color: var(--ash); }
+.nav-entry:focus-visible { outline-offset: 4px; }
+:lang(ko) .nav-entry { letter-spacing: .02em; word-break: keep-all; }
+.lang-menu { z-index: 1; }
+@media (max-width: 760px) {
+  .nav-desktop { display: none; }
+  .nav-mobile { display: flex; }
+  .nav-toggle { font-size: 11px; letter-spacing: .16em; }
+  .nav-panel { left: 0; right: 0; width: auto; padding: 22px var(--gutter) 28px; max-height: calc(100dvh - var(--mast-h)); border-left: 0; border-right: 0; }
+  .nav-panel section + section { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .nav-row, .nav-row-primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .nav-row + .nav-row { margin-top: 8px; padding-top: 8px; }
+  .nav-entry { min-height: 54px; flex-direction: row; justify-content: space-between; align-items: center; font-size: 15px; gap: 16px; }
+  .nav-pending small { flex: none; }
+}
 
 .lang { flex: none; }
 .lang-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; height: 44px; font-weight: 650; font-size: 12px; letter-spacing: .2em; color: var(--ash); }
@@ -420,18 +446,6 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dl-note a { display: block; width: fit-content; margin-top: .9em; color: var(--bone); font-weight: 650; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; border-bottom: 1px solid currentColor; }
 .dl-foot { position: fixed; inset: auto 0 0; z-index: 20; height: var(--deck-h); align-items: center; padding: 0 var(--gutter); background: var(--void); }
 
-/* ---------- tablet and phone masthead: projects behind a menu (up to 1519px since Our Philosophy joined the masthead;
-   below that the project names and the link no longer fit on one line) ---------- */
-@media (max-width: 1519px) {
-  .menu-btn { display: flex; align-items: center; min-height: 44px; margin-left: auto; font-weight: 650; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; padding: 12px 0; color: var(--ash); }
-  .proj-nav { display: none; position: fixed; top: var(--mast-h); left: 0; right: 0; background: var(--void); padding: 4px var(--gutter) 18px; border-top: 1px solid var(--line); }
-  .menu-open .proj-nav { display: block; }
-  .proj-nav ul { flex-direction: column; gap: 0; }
-  .proj { height: 54px; width: 100%; border-bottom: 1px solid var(--line); font-size: 13px; }
-  .proj::after { display: none; }
-  .proj.is-current { color: var(--ember); }
-}
-
 /* ---------- phone ---------- */
 @media (max-width: 760px) {
   :root { --mast-h: 58px; --deck-h: 74px; --horizon: 58%; }
@@ -633,27 +647,9 @@ main.plates { --col: min(500px, 36vw); }
   .plate .flip { scroll-behavior: auto; }
 }
 
-/* ---------- Our Philosophy: masthead link (every page) and the page itself ---------- */
-.philo-link { position: relative; flex: none; display: flex; align-items: center; min-height: 44px; padding-left: 26px; font-weight: 650; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; white-space: nowrap; color: var(--dim); transition: color .3s; }
-.philo-link::before { content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 1px; background: var(--line); }
-.philo-link:hover, .philo-link.is-current { color: var(--bone); }
-.philo-link.is-current { box-shadow: inset 0 -1px 0 var(--ember); }
-:lang(ko) .philo-link { letter-spacing: .08em; }
-/* Philosophy sits beside Projects as an equal entry: same size, tracking and colour as the Projects button wherever that is a button */
-@media (max-width: 1519px) {
-  .philo-link { font-size: 11px; letter-spacing: .28em; color: var(--ash); }
-}
+/* ---------- Philosophy article (navigation is shared above) ---------- */
 @media (max-width: 700px) {
-  .motto { display: none; } /* no room for it beside two entries; the opening carries it */
-  .menu-btn, .philo-link { letter-spacing: .2em; }
-  .philo-link { padding-left: 0; }
-  .philo-link::before { display: none; }
-}
-@media (max-width: 480px) {
-  .menu-btn, .philo-link { letter-spacing: .14em; }
-}
-@media (max-width: 360px) {
-  .menu-btn, .philo-link { font-size: 10.5px; letter-spacing: .12em; }
+  .motto { display: none; } /* the opening carries it on small screens */
 }
 
 body.philo-page { overflow: auto; height: auto; min-height: 100%; background: var(--night); }
