@@ -15,12 +15,12 @@
   const title = intro.querySelector('.intro-title');
   const wm = intro.querySelector('.intro-wm');
   const letters = [...wm.querySelectorAll('span')];
+  const textReveal = window.CHOAMTextReveal;
   const motto = intro.querySelector('.intro-motto');
   const credits = intro.querySelector('.intro-foot');
 
   const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
   const ease = x => 1 - Math.pow(1 - clamp(x), 3);
-  const easeIO = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
   const smooth = x => { x = clamp(x); return x * x * (3 - 2 * x); };
   const tm = x => 1 - Math.exp(-Math.max(0, x) * 1.25); /* the animatic's tonemap for additive light */
 
@@ -200,25 +200,19 @@
   }
 
   /* ---------- the real HTML title (scene.js textAt timing) ---------- */
-  const baseLs = parseFloat(getComputedStyle(wm).letterSpacing) / parseFloat(getComputedStyle(wm).fontSize) || .36;
+  const baseLs = textReveal.baseSpacing(wm);
   let creditsShown = false;
   const isMobile = () => matchMedia('(max-width: 760px)').matches;
   const textAt = (T, fade) => {
     const mobile = isMobile();
-    letters.forEach((el, i) => {
-      const p = ease((T - 1.5 - i * .14) / 1.7);
-      el.style.opacity = p.toFixed(3);
-      el.style.filter = (!mobile && p < 1) ? `blur(${((1 - p) * 14).toFixed(2)}px)` : '';
-    });
-    const ls = baseLs + .3 * (1 - easeIO((T - 1.3) / 3.2));
-    wm.style.letterSpacing = `${ls.toFixed(4)}em`; wm.style.marginRight = `${(-ls).toFixed(4)}em`;
+    textReveal.apply(letters, wm, T, baseLs, mobile);
     motto.style.opacity = ease((T - 3.7) / 1.3).toFixed(3);
     if (!creditsShown) { const cp = ease((T - 4.6) / 1.2); credits.style.opacity = cp.toFixed(3); if (cp >= 1) creditsShown = true; }
     title.style.opacity = fade.toFixed(3);
   };
   const clearText = () => {
-    letters.forEach(el => { el.style.opacity = ''; el.style.filter = ''; });
-    wm.style.letterSpacing = ''; wm.style.marginRight = ''; motto.style.opacity = ''; credits.style.opacity = ''; title.style.opacity = '';
+    textReveal.clear(letters, wm);
+    motto.style.opacity = ''; credits.style.opacity = ''; title.style.opacity = '';
     creditsShown = true;
   };
 

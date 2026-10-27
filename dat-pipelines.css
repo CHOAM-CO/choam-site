@@ -1,0 +1,107 @@
+/* DAT detail only (pages/dat.html): Creative Pipeline / Polish Pipeline switch, Mino 2026-10-27 20:47 mockup.
+   Labels stay as written in every language; the active one is lit with one hairline, like the rail's current dot. */
+.dat-pipes { display: flex; gap: 30px; margin-top: 22px; border-bottom: 1px solid var(--line); }
+.dat-pipes button { position: relative; height: 44px; padding: 0; border: 0; background: none; font: inherit; font-weight: 600; font-size: 13px; letter-spacing: .06em; white-space: nowrap; color: var(--dim); cursor: pointer; transition: color .3s; }
+.dat-pipes button:hover { color: var(--ash); }
+.dat-pipes button[aria-pressed="true"] { color: var(--bone); cursor: default; }
+.dat-pipes button[aria-pressed="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--bone); }
+.dat-pipes button:focus-visible { outline: 1px solid var(--bone); outline-offset: 4px; }
+
+/* each pipeline shows only its own paragraphs; Polish keeps the comparison paragraph visible and has no stepper */
+#dat .rail > .slide.dat-off { display: none; }
+#dat .rail { margin-top: 18px; }
+/* Polish keeps Creative's copy column: same width, the rail as tall as Creative's tallest paragraph (main.js fitDatRail) and the
+   stepper's line kept but unseen; a taller Polish paragraph eats into that unseen line (--dat-tuck), so the title and the switch
+   stay where Creative has them */
+#dat.dat-comparing .rail { height: auto; min-height: var(--dat-rail-h, 0px); margin-top: 18px; overflow-x: hidden; visibility: visible; pointer-events: auto; }
+#dat.dat-comparing .rail-ctl { visibility: hidden; pointer-events: none; margin-bottom: calc(-1 * var(--dat-tuck, 0px)); }
+
+/* pair swap (main.js showCase): the old frame, lifted out as a still copy, fades off while the new one comes up a little faster, so the frame never dips to black */
+#dat .dat-reveal { transition: opacity .26s ease-out; }
+#dat .dat-reveal.dat-enter { opacity: 0; transition: none; }
+#dat .dat-ghost { z-index: 2; margin: 0; pointer-events: none; transition: opacity .38s ease-in; }
+/* a pair still on its way: after a beat, the current one dims a little (a fast swap never shows it) */
+#dat .dat-reveal[aria-busy="true"]:not(.dat-enter) { opacity: .6; transition: opacity .3s ease .25s; }
+@media (prefers-reduced-motion: reduce) { #dat .dat-reveal, #dat .dat-ghost { transition: none; } }
+
+/* Polish fills the plate like Creative (Mino 21:34, 👍 21:38): the pair is a full-bleed cover crop, both halves one frame so
+   they share scale and position (--dpos per case, --dpos-m on tall screens like .media). Every pair, IDEA too, is the
+   background (Mino 22:28): the boundary spans the whole width, follows a mouse with nothing pressed, and is dragged by touch.
+   The section's own veil paints above the whole stage and would dim the controls too, so the frame carries the same veil
+   inside it instead and the section's veil steps out. */
+#dat.dat-comparing .prod-veil { opacity: 0; }
+#dat .dat-inline { inset: 0; container-type: normal; }
+#dat .dat-reveal { position: absolute; inset: 0; width: auto; aspect-ratio: auto; margin: 0; touch-action: pan-y; cursor: col-resize; background: var(--night); }
+#dat .dat-reveal img { object-fit: cover; object-position: var(--dpos, 50% 50%); }
+@media (max-aspect-ratio: 4/5) { #dat .dat-reveal img { object-position: var(--dpos-m, var(--dpos, 50% 50%)); } }
+#dat .dat-reveal::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(78% 100% at 100% 100%, rgba(5, 5, 6, .93) 0%, rgba(5, 5, 6, .84) 42%, rgba(5, 5, 6, .4) 72%, rgba(5, 5, 6, 0) 100%),
+    linear-gradient(to top, rgba(5, 5, 6, .6) 0%, rgba(5, 5, 6, 0) 26%),
+    radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%);
+}
+/* BEFORE / AFTER pills at the two ends of the plate; one steps aside when the line reaches it (main.js paintSplit) */
+#dat .dat-side { z-index: 2; top: calc(var(--mast-h) + 20px); padding: 6px 13px; border-radius: 999px; background: rgba(10, 12, 16, .78); border: 1px solid rgba(243, 242, 239, .16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-weight: 650; font-size: 10.5px; letter-spacing: .24em; color: var(--ash); transition: opacity .2s; }
+#dat .dat-before-tag { left: var(--gutter); }
+#dat .dat-after-tag { right: var(--gutter); color: var(--bone); border-color: rgba(196, 138, 71, .45); }
+#dat .dat-side.dat-tag-off { opacity: 0; }
+/* the line, styled like the site's other compare (.cmp-line), runs between the bars */
+#dat .dat-divider { z-index: 2; top: var(--mast-h); bottom: var(--deck-h); width: 1.5px; margin-left: -.75px; background: rgba(243, 242, 239, .82); box-shadow: 0 0 12px rgba(0, 0, 0, .65); }
+#dat .dat-divider::after { content: '‹ ›'; left: calc(50% + var(--knob-dx, 0px)); top: var(--knob, 50%); transform: translate(-50%, -50%); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(14, 16, 20, .82); border: 1px solid rgba(243, 242, 239, .5); border-radius: 50%; font-size: 16px; line-height: 1; letter-spacing: 2px; color: var(--bone); box-shadow: 0 6px 20px rgba(0, 0, 0, .55); }
+#dat .dat-inline:has([data-dat-range]:focus-visible) .dat-divider { width: 2px; background: var(--ember); }
+#dat .dat-inline:has([data-dat-range]:focus-visible) .dat-divider::after { border-color: var(--ember); }
+#dat .dat-spot { position: absolute; z-index: 2; border: 1px solid var(--ember); box-shadow: 0 0 0 1px rgba(5, 5, 6, .55); pointer-events: none; }
+#dat .dat-spot[hidden] { display: none; }
+
+/* controls: one small glass bar over the open span (scenes + details), the folded crops open above it */
+#dat .dat-hud { position: absolute; z-index: 3; left: var(--gutter); right: var(--vis-r); bottom: calc(var(--deck-h) + 40px); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; pointer-events: none; }
+#dat .dat-hud > * { pointer-events: auto; }
+#dat .dat-bar { display: flex; flex-wrap: wrap; align-items: center; max-width: 100%; padding: 4px; border-radius: 22px; background: rgba(10, 12, 16, .74); border: 1px solid rgba(243, 242, 239, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+#dat .dat-cases { flex-wrap: nowrap; width: auto; gap: 2px; }
+#dat .dat-bar button { height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font: inherit; font-weight: 600; font-size: 12px; letter-spacing: .04em; white-space: nowrap; color: var(--ash); cursor: pointer; transition: color .25s, background-color .25s; }
+#dat .dat-bar button:hover { color: var(--bone); }
+#dat .dat-cases button[aria-pressed="true"] { color: var(--bone); background: rgba(217, 163, 98, .2); }
+#dat .dat-more { position: relative; margin-left: 6px; }
+#dat .dat-more::before { content: ''; position: absolute; left: -4px; top: 9px; bottom: 9px; width: 1px; background: rgba(243, 242, 239, .18); }
+#dat .dat-more[aria-expanded="true"] { color: var(--bone); }
+#dat .dat-bar button:focus-visible { outline: 2px solid var(--ember); outline-offset: 1px; }
+/* the boundary's own keyboard control: unseen, its focus shows on the line */
+#dat .dat-range-label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#dat .dat-panel { order: -1; width: min(100%, 560px); padding: 12px; background: rgba(10, 12, 16, .82); border: 1px solid rgba(243, 242, 239, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+#dat .dat-panel[hidden] { display: none; }
+#dat.dat-drop .stage { z-index: 3; }
+#dat.dat-drop .dat-panel { position: absolute; left: 0; right: 0; top: calc(100% + 14px); width: auto; min-height: calc(100dvh - var(--copy-top, 52%) - var(--deck-h) - 8px); background: rgba(10, 12, 16, .97); }
+#dat .dat-zoom { gap: 10px; }
+#dat .dat-zoom span { margin-bottom: 6px; color: var(--ash); }
+#dat .dat-detail { height: clamp(90px, 15vh, 150px); }
+#dat .dat-note { margin-top: 10px; }
+
+@media (max-width: 760px) {
+  .dat-pipes { gap: 22px; margin-top: 12px; }
+  .dat-pipes button { height: 40px; font-size: 12.5px; letter-spacing: .04em; }
+  #dat .rail, #dat.dat-comparing .rail { margin-top: 10px; }
+  /* the switch makes the copy taller (most on 320px JA): the veil starts above wherever the copy now begins */
+  #dat .prod-veil { background: linear-gradient(to bottom, rgba(5, 5, 6, 0) calc(var(--copy-top, 52%) - 140px), rgba(5, 5, 6, .86) calc(var(--copy-top, 52%) + 24px), rgba(5, 5, 6, .96) 100%); }
+  /* Polish on phones keeps Creative's plate (undoes the stacked layout in style.css): copy at the bottom, the pair above it,
+     the frame ending just under where the copy begins and fading out there */
+  #dat.dat-comparing { height: 100vh; height: 100dvh; min-height: 560px; }
+  #dat.dat-comparing .stage { position: absolute; padding: 0; }
+  #dat.dat-comparing .dat-inline { position: absolute; inset: 0; margin: 0; }
+  #dat.dat-comparing .prod-copy { position: absolute; left: var(--gutter); right: var(--gutter); top: auto; bottom: calc(var(--deck-h) + 12px); margin: 0; padding: 0; }
+  #dat .dat-reveal { bottom: calc(100% - var(--copy-top, 52%) - 24px); -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 64px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 64px), transparent); }
+  #dat .dat-reveal::after { background: linear-gradient(to bottom, rgba(5, 5, 6, .55) 0%, rgba(5, 5, 6, 0) calc(var(--mast-h) + 64px)); }
+  #dat .dat-side { top: calc(var(--mast-h) + 10px); padding: 5px 10px; font-size: 9.5px; letter-spacing: .18em; }
+  #dat .dat-before-tag { left: var(--gutter); }
+  #dat .dat-after-tag { right: var(--gutter); }
+  #dat .dat-divider { bottom: 64px; }
+  #dat .dat-divider::after { width: 36px; height: 36px; font-size: 14px; }
+  #dat .dat-hud { left: var(--gutter); right: var(--gutter); bottom: calc(100% - var(--copy-top, 52%) + 14px); gap: 8px; }
+  #dat .dat-bar button { height: 32px; padding: 0 11px; font-size: 11.5px; letter-spacing: .02em; }
+  #dat .dat-panel { width: 100%; padding: 10px; }
+  #dat .dat-detail { height: clamp(72px, 13vh, 110px); }
+  #dat .dat-note { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  #dat .dat-bar button { padding: 0 8px; font-size: 11px; letter-spacing: 0; }
+  #dat .dat-more { margin-left: 4px; }
+}

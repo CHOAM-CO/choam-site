@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to install Scheherazade | CHOAM</title>
+<meta name="description" content="Install Scheherazade on Mac, Windows or Linux, or run the Windows portable build from an NTFS USB drive.">
+<meta name="theme-color" content="#050506">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CHOAM">
+<meta property="og:title" content="How to install Scheherazade | CHOAM">
+<meta property="og:description" content="Install Scheherazade on Mac, Windows or Linux, or run the Windows portable build from an NTFS USB drive.">
+<meta property="og:url" content="https://choam.studio/install">
+<meta property="og:image" content="https://choam.studio/assets/og-scheherazade.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://choam.studio/assets/og-scheherazade.jpg">
+<link rel="icon" href="assets/mark.svg">
+<link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="philo-page inst-page" data-page="install">
+<header class="mast">
+  <a class="brand" href="./" aria-label="CHOAM, home"><img src="assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+
+<!-- Draft 2026-10-27 for Mino's review. Facts come from the Scheherazade repo (docs/RELEASE.md, portable.cjs,
+     tools/package-portable.mjs, release notes 0.6.0-0.6.3). USB 4 GB minimum and USB 3.0 recommendation are Mino's
+     requirements (2026-10-27 17:45). The OS switch and the download notice are added by main.js; without script every
+     platform is listed. -->
+<main class="philo inst" data-guide>
+  <p class="inst-kicker">Scheherazade</p>
+  <h1 class="philo-title"><span data-lang-block="ko">설치 방법</span><span data-lang-block="en">How to install</span><span data-lang-block="ja">インストール方法</span></h1>
+  <p class="inst-lead" data-lang-block="ko">받은 파일에 맞는 항목의 순서대로 설치하세요. 업데이트 방법은 각 항목 끝에 있습니다.</p>
+  <p class="inst-lead" data-lang-block="en">Follow the steps for the file you downloaded. How to update is at the end of each section.</p>
+  <p class="inst-lead" data-lang-block="ja">ダウンロードしたファイルに合った手順に従ってください。アップデートの方法は各項目の最後にあります。</p>
+
+  <div class="inst-status" data-guide-status role="status" hidden>
+    <p data-guide-said></p>
+    <p class="inst-status-file"><code data-guide-name></code> <a data-guide-again href="#"></a></p>
+  </div>
+
+  <div class="inst-os" role="group" data-guide-switch hidden>
+    <button type="button" class="philo-lang" data-guide-pick="mac" aria-pressed="false">Mac</button>
+    <button type="button" class="philo-lang" data-guide-pick="win" aria-pressed="false">Windows</button>
+    <button type="button" class="philo-lang" data-guide-pick="win-portable" aria-pressed="false"><span data-lang-block="ko">Windows 포터블</span><span data-lang-block="en">Windows portable</span><span data-lang-block="ja">Windows ポータブル</span></button>
+    <button type="button" class="philo-lang" data-guide-pick="linux" aria-pressed="false">Linux</button>
+  </div>
+
+  <article class="inst-doc" lang="ko" data-lang-block="ko">
+    <section class="philo-sec inst-sec" data-guide-os="mac" aria-labelledby="ko-mac">
+      <h2 class="philo-h" id="ko-mac">Mac</h2>
+      <p class="inst-need">Apple 실리콘(M 시리즈) Mac 전용입니다. Intel Mac용 파일은 아직 없습니다.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">dmg 열기</h3><p>받은 <code>Scheherazade-버전-arm64.dmg</code>를 더블클릭해서 여세요.</p></li>
+        <li><h3 class="inst-step-h">응용 프로그램 폴더로 옮기기</h3><p>열린 창에서 Scheherazade 아이콘을 응용 프로그램(Applications) 폴더로 끌어다 놓으세요.</p></li>
+        <li><h3 class="inst-step-h">앱 열기</h3><p>응용 프로그램 폴더에서 Scheherazade를 여세요.</p></li>
+      </ol>
+      <div class="inst-fix">
+        <h3 class="inst-h3">‘손상되었기 때문에 열 수 없습니다’가 뜨면</h3>
+        <p>아직 Apple 개발자 서명과 공증이 없어서, 인터넷에서 받은 이 앱을 macOS가 막는 경우입니다.</p>
+        <p>이 메시지가 뜰 때만, 먼저 dmg를 choam.studio나 GitHub의 CHOAM-CO/scheherazade-releases에서 받았는지 확인하세요.</p>
+        <p>다른 곳에서 받은 파일이라면 실행하지 말고 삭제하세요.</p>
+        <p>출처가 맞다면 터미널을 열고 아래 한 줄을 실행한 뒤, 앱을 다시 열어 주세요.</p>
+        <pre class="inst-code"><code>xattr -dr com.apple.quarantine /Applications/Scheherazade.app</code></pre>
+        <p>이 명령은 Scheherazade 앱과 그 안의 파일에서 macOS 격리 속성(com.apple.quarantine)만 지웁니다. 다른 앱이나 Mac 전체의 보안 설정은 바꾸지 않습니다.</p>
+        <p>앱을 다른 위치에 두었다면 경로를 그 위치로 바꿔서 실행하세요. 새로 받은 파일로 다시 설치하면 이 과정이 또 필요할 수 있습니다.</p>
+      </div>
+      <p class="inst-after">업데이트는 자동으로 설치되지 않습니다. 새 버전 알림이 오면 새 dmg를 받아 같은 방법으로 앱을 교체하세요. 설정과 기억, 프로필은 그대로 남습니다.</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win" aria-labelledby="ko-win">
+      <h2 class="philo-h" id="ko-win">Windows</h2>
+      <p class="inst-need">64비트(x64) Windows용 설치 파일입니다.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">설치 파일 실행</h3><p>받은 <code>Scheherazade-Setup-버전.exe</code>를 실행하세요.</p></li>
+        <li><h3 class="inst-step-h">출처 확인 후 실행</h3><p>‘Windows의 PC 보호’ 창이 뜨면, 먼저 파일을 choam.studio나 GitHub의 CHOAM-CO/scheherazade-releases에서 받았는지, 파일 이름이 위와 같은지 확인하세요.</p><p>맞다면 [추가 정보]를 누른 뒤 [실행]을 누르세요. 아직 코드 서명이 없어서 게시자가 ‘알 수 없음’으로 표시됩니다.</p><p>다른 곳에서 받은 파일이라면 실행하지 말고 삭제하세요.</p></li>
+        <li><h3 class="inst-step-h">앱 열기</h3><p>설치가 끝나면 시작 메뉴에서 Scheherazade를 여세요.</p></li>
+      </ol>
+      <p class="inst-after">업데이트는 앱이 알아서 받아 설치합니다.</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win-portable" aria-labelledby="ko-port">
+      <h2 class="philo-h" id="ko-port">Windows 포터블 (USB)</h2>
+      <p class="inst-need">설치 없이 USB에 넣어 다니며 쓰는 Windows용 버전입니다. 기억과 설정, 프로필, 키가 USB 안 폴더에 저장되므로, 다른 Windows PC에 꽂아도 이어서 쓸 수 있습니다.</p>
+      <div class="inst-usb">
+        <h3 class="inst-h3">USB 준비</h3>
+        <dl class="inst-req">
+          <div class="is-must"><dt>NTFS 형식</dt><dd><b>필수</b>exFAT·FAT32 USB에서는 NTFS로 포맷하라는 안내만 띄우고 종료됩니다.</dd></div>
+          <div><dt>용량 4GB 이상</dt><dd><b>최소</b>저장 공간 기준입니다. 압축을 푼 앱만 약 0.7GB이고, 쓰는 동안 기억과 데이터가 늘어납니다.</dd></div>
+          <div><dt>USB 3.0 이상</dt><dd><b>권장</b>파일이 3만 개 가까이 되어서, 느린 USB에서는 압축 풀기와 첫 실행에 시간이 오래 걸립니다.</dd></div>
+        </dl>
+        <p class="inst-warn">포맷하면 USB 안의 파일이 모두 지워집니다. 필요한 파일은 먼저 다른 곳에 옮겨 두세요.</p>
+      </div>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">USB 형식 확인</h3><p>파일 탐색기에서 USB를 오른쪽 클릭하고 [속성]을 열어 ‘파일 시스템’을 확인하세요.</p><p>NTFS가 아니면 USB를 오른쪽 클릭 → [포맷] → 파일 시스템 ‘NTFS’ → [시작]으로 포맷하세요.</p></li>
+        <li><h3 class="inst-step-h">압축 풀기</h3><p>USB에 <code>Scheherazade</code> 같은 새 폴더를 만드세요.</p><p>받은 <code>Scheherazade-Portable-버전-win-x64.zip</code>의 압축을 그 폴더에 모두 풀어 주세요.</p><p>ZIP을 연 채로 그 안에서 바로 실행하지 마세요.</p></li>
+        <li><h3 class="inst-step-h">앱 실행</h3><p>그 폴더의 <code>Scheherazade.exe</code>를 실행하세요.</p><p>‘Windows의 PC 보호’ 창이 뜨면, 먼저 ZIP을 choam.studio나 GitHub의 CHOAM-CO/scheherazade-releases에서 받았는지, 파일 이름이 <code>Scheherazade-Portable-버전-win-x64.zip</code> 형식인지 확인하세요.</p><p>맞다면 [추가 정보]를 누른 뒤 [실행]을 누르세요. 아직 코드 서명이 없어서 게시자가 ‘알 수 없음’으로 표시됩니다.</p><p>다른 곳에서 받은 파일이라면 실행하지 말고 삭제하세요.</p></li>
+        <li><h3 class="inst-step-h">data 폴더 그대로 두기</h3><p>처음 실행하면 같은 폴더에 <code>data</code> 폴더가 생깁니다. 기억과 설정, 키가 모두 여기에 저장됩니다.</p><p><code>data</code> 폴더는 <code>Scheherazade.exe</code>와 같은 폴더에 그대로 두세요.</p></li>
+      </ol>
+      <ul class="inst-notes">
+        <li>USB를 뽑기 전에 Scheherazade를 종료하고, 작업 표시줄의 ‘하드웨어 안전하게 제거’로 꺼내세요.</li>
+        <li>API 키와 토큰은 다른 PC에서도 쓸 수 있도록 USB에 암호화되지 않은 파일로 저장됩니다. USB를 가진 사람은 키를 읽을 수 있으니, USB도 키처럼 보관하세요.</li>
+        <li>Claude 계정 로그인은 USB에 저장되지 않습니다. 다른 PC에서는 Claude에 한 번 다시 로그인하세요.</li>
+        <li>PC마다 드라이브 문자(E:, F:)가 달라져도 괜찮습니다.</li>
+        <li>업데이트는 자동으로 되지 않습니다. 앱을 종료하고 새 ZIP의 내용을 같은 폴더에 덮어쓰세요. <code>data</code> 폴더는 지우지 마세요.</li>
+      </ul>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="linux" aria-labelledby="ko-linux">
+      <h2 class="philo-h" id="ko-linux">Linux</h2>
+      <p class="inst-need">x86_64(64비트 Intel·AMD) Linux용 AppImage입니다.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">실행 권한 주기</h3><p>받은 <code>Scheherazade-버전-x86_64.AppImage</code>에 실행 권한을 주세요.</p><p>파일 관리자의 속성에서 실행을 허용하거나, 파일이 있는 폴더의 터미널에서 아래 명령을 실행하세요.</p><pre class="inst-code"><code>chmod +x Scheherazade-*-x86_64.AppImage</code></pre></li>
+        <li><h3 class="inst-step-h">앱 실행</h3><p>파일을 더블클릭하거나 터미널에서 실행하세요.</p><pre class="inst-code"><code>./Scheherazade-*-x86_64.AppImage</code></pre></li>
+      </ol>
+      <p class="inst-after">업데이트는 자동으로 설치되지 않습니다. 새 버전 알림이 오면 새 AppImage를 받아 교체하고, 새 파일에도 위와 같이 실행 권한을 주세요.</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="ko-first">
+      <h2 class="philo-h" id="ko-first">처음 켜면</h2>
+      <p>설정 화면이 열리면 대화에 쓸 두뇌를 연결하세요. 이미 쓰는 Claude·ChatGPT 구독이나 Anthropic API 키, Ollama 중 하나를 고르면 됩니다.</p>
+      <p>Claude 구독으로 쓰려면 유료 Claude 플랜이 필요합니다. 로그인은 앱 안에서 합니다.</p>
+      <p class="inst-links"><a href="download">다른 운영체제용 파일 받기</a><a href="https://github.com/CHOAM-CO/scheherazade-releases/releases/latest" target="_blank" rel="noopener">전체 릴리스와 변경 내역</a></p>
+    </section>
+  </article>
+
+  <article class="inst-doc" lang="en" data-lang-block="en">
+    <section class="philo-sec inst-sec" data-guide-os="mac" aria-labelledby="en-mac">
+      <h2 class="philo-h" id="en-mac">Mac</h2>
+      <p class="inst-need">For Macs with Apple silicon (M series) only. There is no Intel Mac build yet.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">Open the dmg</h3><p>Double-click the <code>Scheherazade-version-arm64.dmg</code> you downloaded.</p></li>
+        <li><h3 class="inst-step-h">Move it to Applications</h3><p>In the window that opens, drag Scheherazade onto the Applications folder.</p></li>
+        <li><h3 class="inst-step-h">Open the app</h3><p>Open Scheherazade from Applications.</p></li>
+      </ol>
+      <div class="inst-fix">
+        <h3 class="inst-h3">If macOS says the app is “damaged and can’t be opened”</h3>
+        <p>The app is not yet signed with an Apple Developer ID or notarized, so macOS can block a copy downloaded from the internet.</p>
+        <p>Only if you see this message, first check that the dmg came from choam.studio or CHOAM-CO/scheherazade-releases on GitHub.</p>
+        <p>If the file came from anywhere else, do not run it; delete it.</p>
+        <p>If it did, open Terminal, run the line below, then open the app again.</p>
+        <pre class="inst-code"><code>xattr -dr com.apple.quarantine /Applications/Scheherazade.app</code></pre>
+        <p>It removes only the macOS quarantine attribute (com.apple.quarantine) from Scheherazade and the files inside it. It does not change other apps or your Mac’s security settings.</p>
+        <p>If you put the app somewhere other than Applications, change the path to match. You may need it again after installing a freshly downloaded copy.</p>
+      </div>
+      <p class="inst-after">Updates are not installed for you. When the app says a new version is out, download the new dmg and replace the app the same way. Settings, memory and profiles carry over.</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win" aria-labelledby="en-win">
+      <h2 class="philo-h" id="en-win">Windows</h2>
+      <p class="inst-need">An installer for 64-bit (x64) Windows.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">Run the installer</h3><p>Run the <code>Scheherazade-Setup-version.exe</code> you downloaded.</p></li>
+        <li><h3 class="inst-step-h">Check the source, then run</h3><p>If “Windows protected your PC” appears, first check that the file came from choam.studio or CHOAM-CO/scheherazade-releases on GitHub and that its name matches the one above.</p><p>If it does, choose More info, then Run anyway. The installer is not code-signed yet, so the publisher shows as unknown.</p><p>If the file came from anywhere else, do not run it; delete it.</p></li>
+        <li><h3 class="inst-step-h">Open the app</h3><p>When setup finishes, open Scheherazade from the Start menu.</p></li>
+      </ol>
+      <p class="inst-after">Updates download and install by themselves.</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win-portable" aria-labelledby="en-port">
+      <h2 class="philo-h" id="en-port">Windows portable (USB)</h2>
+      <p class="inst-need">A Windows build you run from a USB drive without installing. Memory, settings, profiles and keys are stored in its folder on the drive, so you can plug it into another Windows PC and carry on.</p>
+      <div class="inst-usb">
+        <h3 class="inst-h3">Prepare the USB drive</h3>
+        <dl class="inst-req">
+          <div class="is-must"><dt>NTFS format</dt><dd><b>Required</b>On an exFAT or FAT32 drive the app only asks you to format it as NTFS, then closes.</dd></div>
+          <div><dt>4 GB or more</dt><dd><b>Minimum</b>Storage space, not memory. The unzipped app alone takes about 0.7 GB, and memory and data grow as you use it.</dd></div>
+          <div><dt>USB 3.0 or faster</dt><dd><b>Recommended</b>The app is close to 30,000 files, so unzipping and the first start take a long time on a slow drive.</dd></div>
+        </dl>
+        <p class="inst-warn">Formatting erases everything on the drive. Copy anything you need somewhere else first.</p>
+      </div>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">Check the drive format</h3><p>In File Explorer, right-click the drive and open Properties to see its File system.</p><p>If it is not NTFS, right-click the drive, choose Format, set File system to NTFS, then Start.</p></li>
+        <li><h3 class="inst-step-h">Extract the ZIP</h3><p>Make a new folder on the drive, such as <code>Scheherazade</code>.</p><p>Extract everything in <code>Scheherazade-Portable-version-win-x64.zip</code> into it.</p><p>Do not run the app from inside the open ZIP.</p></li>
+        <li><h3 class="inst-step-h">Run the app</h3><p>Run <code>Scheherazade.exe</code> in that folder.</p><p>If “Windows protected your PC” appears, first check that the ZIP came from choam.studio or CHOAM-CO/scheherazade-releases on GitHub and that its name has the form <code>Scheherazade-Portable-version-win-x64.zip</code>.</p><p>If it does, choose More info, then Run anyway. The app is not code-signed yet, so the publisher shows as unknown.</p><p>If the file came from anywhere else, do not run it; delete it.</p></li>
+        <li><h3 class="inst-step-h">Keep the data folder</h3><p>The first start creates a <code>data</code> folder next to it. Memory, settings and keys all live there.</p><p>Keep it in the same folder as <code>Scheherazade.exe</code>.</p></li>
+      </ol>
+      <ul class="inst-notes">
+        <li>Before unplugging, quit Scheherazade, then use Safely Remove Hardware in the taskbar.</li>
+        <li>API keys and tokens are stored on the drive as unencrypted files so they work on any PC. Anyone holding the drive can read them; keep it as safe as the keys themselves.</li>
+        <li>A Claude account login is not stored on the drive. Sign in to Claude once on each PC.</li>
+        <li>The drive letter (E:, F:) may change from PC to PC; that is fine.</li>
+        <li>The portable build does not update itself. Quit it and copy the new ZIP’s contents over the same folder, keeping the <code>data</code> folder.</li>
+      </ul>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="linux" aria-labelledby="en-linux">
+      <h2 class="philo-h" id="en-linux">Linux</h2>
+      <p class="inst-need">An AppImage for x86_64 (64-bit Intel or AMD) Linux.</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">Make it executable</h3><p>Make the downloaded <code>Scheherazade-version-x86_64.AppImage</code> executable.</p><p>Either allow it in your file manager’s properties, or run this in a terminal in the folder that holds it.</p><pre class="inst-code"><code>chmod +x Scheherazade-*-x86_64.AppImage</code></pre></li>
+        <li><h3 class="inst-step-h">Run it</h3><p>Double-click the file, or run it from the terminal.</p><pre class="inst-code"><code>./Scheherazade-*-x86_64.AppImage</code></pre></li>
+      </ol>
+      <p class="inst-after">Updates are not installed for you. When the app says a new version is out, download the new AppImage, replace the old one, and make the new file executable as above.</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="en-first">
+      <h2 class="philo-h" id="en-first">First start</h2>
+      <p>A setup screen opens where you connect the brain it talks with. Pick a Claude or ChatGPT subscription you already have, an Anthropic API key, or Ollama.</p>
+      <p>Using a Claude subscription needs a paid Claude plan. You sign in inside the app.</p>
+      <p class="inst-links"><a href="download">Get the file for another platform</a><a href="https://github.com/CHOAM-CO/scheherazade-releases/releases/latest" target="_blank" rel="noopener">All releases and changes</a></p>
+    </section>
+  </article>
+
+  <article class="inst-doc" lang="ja" data-lang-block="ja">
+    <section class="philo-sec inst-sec" data-guide-os="mac" aria-labelledby="ja-mac">
+      <h2 class="philo-h" id="ja-mac">Mac</h2>
+      <p class="inst-need">Apple シリコン(M シリーズ)搭載の Mac 専用です。Intel Mac 向けのファイルはまだありません。</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">dmg を開く</h3><p>ダウンロードした <code>Scheherazade-バージョン-arm64.dmg</code> をダブルクリックして開きます。</p></li>
+        <li><h3 class="inst-step-h">「アプリケーション」へ移す</h3><p>開いたウインドウで、Scheherazade のアイコンを「アプリケーション」フォルダへドラッグします。</p></li>
+        <li><h3 class="inst-step-h">アプリを開く</h3><p>「アプリケーション」フォルダから Scheherazade を開きます。</p></li>
+      </ol>
+      <div class="inst-fix">
+        <h3 class="inst-h3">「壊れているため開けません」と表示されたら</h3>
+        <p>このアプリはまだ Apple の Developer ID による署名と公証を受けていないため、インターネットからダウンロードしたものを macOS がブロックすることがあります。</p>
+        <p>このメッセージが出たときだけ、まず dmg を choam.studio か GitHub の CHOAM-CO/scheherazade-releases から入手したかを確認してください。</p>
+        <p>ほかの場所から入手したファイルなら、実行せずに削除してください。</p>
+        <p>上の公式の入手元から入手したと確認できた場合のみ、ターミナルを開いて下の 1 行を実行し、もう一度アプリを開きます。</p>
+        <pre class="inst-code"><code>xattr -dr com.apple.quarantine /Applications/Scheherazade.app</code></pre>
+        <p>このコマンドは、Scheherazade とその中のファイルから macOS の隔離属性(com.apple.quarantine)だけを取り除きます。ほかのアプリや Mac 全体のセキュリティ設定は変わりません。</p>
+        <p>アプリを「アプリケーション」以外の場所に置いた場合は、パスをその場所に合わせて変えてください。新しくダウンロードしたファイルで入れ直したときは、再度この操作が必要になることがあります。</p>
+      </div>
+      <p class="inst-after">アップデートは自動ではインストールされません。新しいバージョンのお知らせが届いたら、新しい dmg をダウンロードして同じ手順でアプリを置き換えてください。設定、記憶、プロファイルはそのまま残ります。</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win" aria-labelledby="ja-win">
+      <h2 class="philo-h" id="ja-win">Windows</h2>
+      <p class="inst-need">64 ビット(x64)版 Windows 用のインストーラーです。</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">インストーラーを実行</h3><p>ダウンロードした <code>Scheherazade-Setup-バージョン.exe</code> を実行します。</p></li>
+        <li><h3 class="inst-step-h">入手元を確かめて実行</h3><p>「Windows によって PC が保護されました」と表示されたら、まずファイルを choam.studio か GitHub の CHOAM-CO/scheherazade-releases から入手したか、ファイル名が上と同じかを確認してください。</p><p>公式の入手元から入手し、ファイル名も同じだと確認できた場合のみ、[詳細情報]を押してから[実行]を押します。まだコード署名がないため、発行元は「不明」と表示されます。</p><p>ほかの場所から入手したファイルなら、実行せずに削除してください。</p></li>
+        <li><h3 class="inst-step-h">アプリを開く</h3><p>インストールが終わったら、スタートメニューから Scheherazade を開きます。</p></li>
+      </ol>
+      <p class="inst-after">アップデートはアプリが自動的にダウンロードしてインストールします。</p>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="win-portable" aria-labelledby="ja-port">
+      <h2 class="philo-h" id="ja-port">Windows ポータブル(USB)</h2>
+      <p class="inst-need">インストールせずに、USB メモリに入れて持ち歩いて使う Windows 版です。記憶、設定、プロファイル、キーは USB 内のフォルダに保存されるので、別の Windows PC に挿しても続きから使えます。</p>
+      <div class="inst-usb">
+        <h3 class="inst-h3">USB メモリの準備</h3>
+        <dl class="inst-req">
+          <div class="is-must"><dt>NTFS 形式</dt><dd><b>必須</b>exFAT や FAT32 の USB では、NTFS でフォーマットするよう案内が出て、アプリは終了します。</dd></div>
+          <div><dt>容量 4GB 以上</dt><dd><b>最低</b>ストレージ容量の目安です。展開したアプリだけで約 0.7GB あり、使ううちに記憶とデータが増えていきます。</dd></div>
+          <div><dt>USB 3.0 以上</dt><dd><b>推奨</b>ファイル数が 3 万近くあるため、低速な USB メモリでは展開と初回起動に時間がかかります。</dd></div>
+        </dl>
+        <p class="inst-warn">フォーマットすると USB 内のファイルはすべて消えます。必要なファイルは先に別の場所へ移しておいてください。</p>
+      </div>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">USB の形式を確認</h3><p>エクスプローラーで USB を右クリックして[プロパティ]を開くと「ファイル システム」が表示されます。</p><p>NTFS でなければ、USB を右クリック →[フォーマット]→ ファイル システムを「NTFS」→[開始]でフォーマットします。</p></li>
+        <li><h3 class="inst-step-h">ZIP を展開</h3><p>USB に <code>Scheherazade</code> などの新しいフォルダを作ります。</p><p>ダウンロードした <code>Scheherazade-Portable-バージョン-win-x64.zip</code> の中身をすべてそのフォルダに展開します。</p><p>ZIP を開いたまま、その中から直接実行しないでください。</p></li>
+        <li><h3 class="inst-step-h">アプリを実行</h3><p>そのフォルダの <code>Scheherazade.exe</code> を実行します。</p><p>「Windows によって PC が保護されました」と表示されたら、まず ZIP を choam.studio か GitHub の CHOAM-CO/scheherazade-releases から入手したか、ファイル名が <code>Scheherazade-Portable-バージョン-win-x64.zip</code> の形式かを確認してください。</p><p>公式の入手元から入手し、ファイル名の形式も合っていると確認できた場合のみ、[詳細情報]を押してから[実行]を押します。まだコード署名がないため、発行元は「不明」と表示されます。</p><p>ほかの場所から入手したファイルなら、実行せずに削除してください。</p></li>
+        <li><h3 class="inst-step-h">data フォルダはそのままに</h3><p>初めて起動すると、同じフォルダに <code>data</code> フォルダができます。記憶、設定、キーはすべてここに保存されます。</p><p><code>Scheherazade.exe</code> と同じフォルダに置いたままにしてください。</p></li>
+      </ol>
+      <ul class="inst-notes">
+        <li>USB を抜く前に Scheherazade を終了し、タスクバーの「ハードウェアを安全に取り外す」から取り出してください。</li>
+        <li>API キーとトークンは、ほかの PC でも使えるように、暗号化されていないファイルとして USB に保存されます。USB を手にした人はキーを読めるので、キーそのものと同じように大切に保管してください。</li>
+        <li>Claude アカウントのログイン情報は USB に保存されません。別の PC では Claude にもう一度ログインしてください。</li>
+        <li>PC ごとにドライブ文字(E:、F:)が変わっても問題ありません。</li>
+        <li>アップデートは自動では行われません。アプリを終了し、新しい ZIP の中身を同じフォルダに上書きしてください。<code>data</code> フォルダは消さないでください。</li>
+      </ul>
+    </section>
+
+    <section class="philo-sec inst-sec" data-guide-os="linux" aria-labelledby="ja-linux">
+      <h2 class="philo-h" id="ja-linux">Linux</h2>
+      <p class="inst-need">x86_64(64 ビットの Intel・AMD)Linux 用の AppImage です。</p>
+      <ol class="inst-steps">
+        <li><h3 class="inst-step-h">実行権限を付ける</h3><p>ダウンロードした <code>Scheherazade-バージョン-x86_64.AppImage</code> に実行権限を付けます。</p><p>ファイルマネージャーのプロパティで実行を許可するか、ファイルのあるフォルダでターミナルを開き、下のコマンドで実行権限を付けます。</p><pre class="inst-code"><code>chmod +x Scheherazade-*-x86_64.AppImage</code></pre></li>
+        <li><h3 class="inst-step-h">起動する</h3><p>ファイルをダブルクリックするか、ターミナルから実行します。</p><pre class="inst-code"><code>./Scheherazade-*-x86_64.AppImage</code></pre></li>
+      </ol>
+      <p class="inst-after">アップデートは自動ではインストールされません。新しいバージョンのお知らせが届いたら、新しい AppImage をダウンロードして置き換え、新しいファイルにも上と同じように実行権限を付けてください。</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="ja-first">
+      <h2 class="philo-h" id="ja-first">初めて起動したら</h2>
+      <p>設定画面が開くので、会話に使う頭脳をつなぎます。すでに使っている Claude や ChatGPT のサブスクリプション、Anthropic の API キー、Ollama のどれかを選んでください。</p>
+      <p>Claude のサブスクリプションで使うには、有料の Claude プランが必要です。ログインはアプリの中で行います。</p>
+      <p class="inst-links"><a href="download">ほかの OS 用のファイルを入手</a><a href="https://github.com/CHOAM-CO/scheherazade-releases/releases/latest" target="_blank" rel="noopener">すべてのリリースと変更履歴</a></p>
+    </section>
+  </article>
+</main>
+<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<div class="grain" aria-hidden="true"></div>
+<script src="main.js"></script>
+</body>
+</html>

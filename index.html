@@ -58,12 +58,12 @@
       "name": "CHOAM",
       "description": "Culture must flow",
       "publisher": { "@id": "https://choam.studio/#organization" },
-      "inLanguage": ["en", "ko"]
+      "inLanguage": ["en", "ko", "ja"]
     }
   ]
 }
 </script>
-<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';if(s==='ko'||(s!=='en'&&/^ko(-|_|$)/i.test(n)))document.documentElement.lang='ko'}catch(e){}})()</script>
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/astra-hero.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="style.css">
@@ -88,8 +88,8 @@
   <div class="intro-foot">
     <p class="intro-meta"><span>studio</span><span>seoul</span><span>est. 2026</span></p>
     <div class="intro-go">
-      <a class="intro-next" href="#scheherazade/1"><span>Projects</span><i aria-hidden="true"></i></a>
-      <a class="intro-next" href="philosophy.html"><span>Philosophy</span><i aria-hidden="true"></i></a>
+      <a class="intro-next" href="#scheherazade/1"><span>Works</span><i aria-hidden="true"></i></a>
+      <a class="intro-next" href="philosophy.html" data-nav-open="about"><span>About</span><i aria-hidden="true"></i></a>
     </div>
     <p class="intro-clock"><span data-city>seoul</span> <span data-clock>--:--</span></p>
   </div>
@@ -98,11 +98,11 @@
 <main class="track" data-track aria-label="Ours" aria-roledescription="carousel"></main>
 <noscript>
   <ul class="ns">
-    <li><a href="pages/scheherazade">Scheherazade</a><p>An agent for a thousand and one nights</p></li>
-    <li><a href="pages/dat">DAT</a><p>Our house style, as a model</p></li>
-    <li><a href="pages/seonjam">선잠 DOZE</a><p>She remembers what you said</p></li>
-    <li><a href="pages/donguri-ryokan">Donguri Ryokan</a><p>Not every guest is human</p></li>
-    <li><a href="pages/donguri-restaurant">Donguri Restaurant</a><p>No menu. The field decides.</p></li>
+    <li><a href="pages/scheherazade">Scheherazade</a><p>An agent that takes a thousand and one nights in stride</p></li>
+    <li><a href="pages/dat">DAT</a><p>Our house style, built into a model</p></li>
+    <li><a href="pages/seonjam">선잠 DOZE</a><p>An interactive movie you shape by talking</p></li>
+    <li><a href="pages/donguri-ryokan">Donguri Ryokan</a><p>A quiet inn tale, deep in the forest</p></li>
+    <li><a href="pages/donguri-restaurant">Donguri Restaurant</a><p>Self Made Restaurant</p></li>
   </ul>
 </noscript>
 
@@ -116,6 +116,7 @@
 <p class="sr-only" aria-live="polite" data-live></p>
 <div class="grain" aria-hidden="true"></div>
 <script src="main.js"></script>
+<script src="text-reveal.js"></script>
 <script src="astra-hero.js"></script>
 <script src="clarity.js"></script>
 </body>

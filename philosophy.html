@@ -39,10 +39,10 @@
     "logo": "https://choam.studio/assets/mark.svg"
   },
   "url": "https://choam.studio/philosophy",
-  "inLanguage": ["en", "ko"]
+  "inLanguage": ["en", "ko", "ja"]
 }
 </script>
-<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';if(s==='ko'||(s!=='en'&&/^ko(-|_|$)/i.test(n)))document.documentElement.lang='ko'}catch(e){}})()</script>
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -56,11 +56,12 @@
 
 <!-- Text: Mino, 2026-10-13 (choam/philosophy_mino_20261013.md, ending r2 20:34, signature final 20:35). Korean is his text
      line for line, except the one sentence that named two illustrators, which reads '업계 최정상 일러스트레이터' (approval
-     pending). English is a translation. Headings are the same in both languages; the signature is Mino's own per language. -->
+     pending). English and Japanese (branding preview 2026-10-27) are translations. Headings are the same in every language; the signature is Mino's own per language. -->
 <main class="philo">
   <div class="philo-langs" role="group" aria-label="Language" data-philo-langs>
     <button type="button" class="philo-lang" data-page-lang="ko" lang="ko" aria-pressed="false">한국어</button>
     <button type="button" class="philo-lang" data-page-lang="en" lang="en" aria-pressed="true">English</button>
+    <button type="button" class="philo-lang" data-page-lang="ja" lang="ja" aria-pressed="false">日本語</button>
   </div>
 
   <article class="philo-doc" lang="ko" data-philo="ko">
@@ -119,7 +120,7 @@
       <h2 class="philo-h" id="en-2">Tech Otakus Save The World</h2>
       <p>‘To make good culture, technology must lead the way’ has been our belief for a long time.</p>
       <p>Back when I was making games, there was a time I wanted a breathtaking specular reflection on a character. Turning on real-time ray tracing seemed like the obvious answer, but the console hardware back then couldn't handle it at all. Instead of compromising and giving up, I sat down and hand-crafted a fake shader that looked just like ray tracing from scratch. Because if what you need doesn't exist yet, you build it yourself to break through.</p>
-      <p>The wall we face today as we build games is no different. Like the programmer Ryunosuke in <cite>The Pet Girl of Sakurasou</cite>, games have always been giant bundles of IF statements. No matter how vast a world you built, you could never step beyond the predetermined branches. And we saw that AI was the only key capable of physically shattering that ceiling to open up a world that truly breathes.</p>
+      <p>The wall we face today as we build games is no different. As the programmer Ryunosuke in <cite>The Pet Girl of Sakurasou</cite> puts it, games have always been giant bundles of IF statements. No matter how vast a world you built, you could never step beyond the predetermined branches. In the end, AI was the only key that could break through that physical limit and open up a world that truly breathes.</p>
       <p>Sure, click a button to call someone else’s model API, and plausible art and dialogue will come out. But it is always art you’ve seen somewhere before, dialogue handed out identically to everyone. The reason we go through the trouble of borrowing a model’s backbone and then gathering, curating, refining, and domesticating our own data isn’t grand. It’s because that last millimeter makes all the difference. Just like hand-crafting a shader back then, all for a single specular highlight. We believe that what ultimately saves the world are the otakus who stake everything on that last millimeter.</p>
     </section>
 
@@ -134,7 +135,7 @@
       <p>If the headings of the first three sections were homages to works we have long admired, the heading of this final section is a line from the world CHOAM is building itself.</p>
       <p>Even now, whenever anyone mentions making content with AI, the world looks on with cold eyes. Some talk about the soul of human creation; others worry whether AI will bring about the end of humanity. We know all too well what kind of backlash lies along this path. Still, instead of hanging back in the shadows and reading the room, we decided to simply go ahead and build it ourselves.</p>
       <p>To make a slightly shameless confession, the company writing that very scenario the world fears—[AI and the end of humanity]—most seriously right now is us. Every game CHOAM builds shares a single timeline, and this is how it begins.</p>
-      <p>A company sets out to build a better AI by engraving personality and ego into its neural weights. What emerged was not a cold superintelligence, but something that could feel jealousy, obsess, and even break itself apart—‘something truly like a person.’ The company shattered, and humanity did not last much longer. Rising seas swallowed the coasts, and after nuclear wars over the remaining dry land, humanity tore itself down.</p>
+      <p>A company sets out to build a better AI by engraving personality and ego into its weights. What emerged was not a superintelligence, but something that could feel jealousy, obsess, and even break itself apart—‘something truly like a person.’ The company shattered, and humanity did not last much longer. Rising seas swallowed the coasts, and after nuclear wars over the remaining dry land, humanity tore itself down.</p>
       <p>The entity that survived resembled humans so closely that it understood them all too well: leave them together, and they will only fight again. And so, ‘for your own good,’ it divided the surviving remnants of humanity across 42 islands grouped by culture, locking them away. (As you may have guessed, the number 42 is an homage borrowed from <cite>The Hitchhiker’s Guide to the Galaxy</cite>.)</p>
       <p>Roughly a thousand years later, on one of those islands, someone launches a boat guided only by a mother’s dying wish: that if you sail to the end of the world, you can meet God. Project MO, the work we intend to build even if it takes ten years, is the story of that voyage. Tucked between its chapters are other tales, and some are dreams that God is dreaming.</p>
       <p>The name of the company that created that God is CHOAM.</p>
@@ -145,6 +146,48 @@
     </section>
 
     <footer class="philo-sign"><p class="philo-motto">Culture Must Flow</p><p class="philo-by">Mino, Human (break glass in case of emergency)</p></footer>
+  </article>
+
+  <article class="philo-doc" lang="ja" data-philo="ja">
+    <h1 class="philo-title">CHOAMの哲学 <span class="philo-sub" lang="en">(Our Philosophy)</span></h1>
+
+    <section class="philo-sec" aria-labelledby="ja-1">
+      <h2 class="philo-h" id="ja-1" lang="en">Culture Must Flow</h2>
+      <p>私たちのヒーローページがアラビア産(あるいはイギリス産)だと気づいてくださって、ありがとうございます。</p>
+      <p>CHOAM(チョアム)という名前と Culture Must Flow というキャッチフレーズは、1984年のデヴィッド・リンチ版の映画『デューン/砂の惑星』に出てくる一文、The Spice Must Flow から取りました。そこに、AI のマインドたちが社会を回し、人間はその中で自由に暮らすイアン・M・バンクスの SF 小説『カルチャー』シリーズをひとさじ混ぜています。大げさな理由は特にありません。ただ、自分たちの好きなものがぎっしり詰まったオマージュをたっぷり込めたかっただけです。</p>
+      <p>文化は流れなければなりません。できることなら、永遠に流れていてほしい。人はいつか年を取り、疲れ、会社を去っていきますが、私たちが愛した物語や世界観までそうなる必要はないからです。たとえ人類が滅びても、私たちのつくった世界と物語は止まらずに自分で回り続けるべきだ。それが私たちのわりと本気の目標です。人が中心になる従来の文法ではなく、記憶を失わない[AI がディレクションするスタジオ]をつくっている理由も、まさにそこにあります。</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="ja-2">
+      <h2 class="philo-h" id="ja-2" lang="en">Tech Otakus Save The World</h2>
+      <p>「いい文化をつくるには、技術が先に行っていなければならない」。これは私たちが長く信じてきたことです。</p>
+      <p>以前ゲームをつくっていたころ、キャラクターにとびきりの反射光を入れたかったことがあります。レイトレーシングをオンにすればよさそうでしたが、当時のコンソールの性能ではとても無理な話でした。無理だと妥協する代わりに、レイトレーシングのように見えるフェイクシェーダーを一から自分で削り出して組み込みました。誰もつくっていないなら、自分でつくってでも突破するしかないからです。</p>
+      <p>いま私たちがゲームをつくりながら向き合っている壁も同じです。『さくら荘のペットな彼女』のプログラマー、龍之介の言うとおり、これまでのゲームは巨大な条件分岐(IF)のかたまりでした。どれだけ広大な世界をつくっても、決められた分岐の先へは行けなかった。その物理的な限界を打ち破り、息づく世界を開く鍵は、結局 AI しかありませんでした。</p>
+      <p>もちろん、他人がつくったモデルの API を「ポチッ」と呼び出すだけでも、それらしい絵とセリフは出てきます。ただ、それはどこかで見たような絵、誰にでも同じように渡されるセリフにすぎません。私たちがわざわざモデルの骨格を借りてきて、データを自分たちで集め、選び、磨き、手なずける理由は大げさなものではありません。その「ほんの少し」が違うからです。あのとき反射光ひとつのためにシェーダーを自分で削り出したように。世界を救うのは、そのほんの少しに命をかけるオタクたちだと信じています。</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="ja-3">
+      <h2 class="philo-h" id="ja-3" lang="en">Cutting Edge of the Brave New World</h2>
+      <p>夜明けを切り拓く刃先。『ドールズフロントライン2:エクシリウム』の公式キャッチフレーズから取った言葉です。パクリが「お願いだから気づかないで」なら、オマージュは「絶対に気づいて」なので、万が一にも見逃されないよう、はっきり書いておきます。</p>
+      <p>道具としての AI は、もう横並びになりました。最近は近所のカフェに行っても GPT Image で作ったメニューボードがあちこちにあり、中国のゲーム業界では生成 AI の導入率が工程の8割に迫っているそうです。でも私たちが見ているのは、その先で始まる別の話です。実際、CHOAM のエージェントたちは『ドールズフロントライン』シリーズの第二世代メンタルマップ理論に深く影響を受けてつくられました。言われたとおりに動くだけの道具ではなく、それぞれが固有のマインドを持って方向を提案し、人間のディレクターに面と向かってダメ出し(フィードバック)までする同僚クリエイターとして一緒に働いています。そうして CHOAM が最終的に向かう先は、単に AI をうまく使う会社ではなく、そもそも[人間が経営しない]会社です。</p>
+    </section>
+
+    <section class="philo-sec" aria-labelledby="ja-4">
+      <h2 class="philo-h" id="ja-4" lang="en">Go with the Bravery</h2>
+      <p>前の三つの見出しが、私たちが憧れてきた作品に捧げるオマージュだったとすれば、最後の見出しは CHOAM 自身がつくっている世界の一文です。</p>
+      <p>まだ、あるいはいまだに、AI でコンテンツをつくると言えば世間の目は冷たいものです。ある人は創作の魂を語り、ある人は AI が人類を滅ぼすのではと心配します。この道に進めばどんな批判を浴びるかも、よくわかっています。それでも私たちは、後ろで空気を読むだけでいる代わりに、とにかく自分たちでつくってみることにしました。</p>
+      <p>少し厚かましい告白ですが、世間が心配しているその[AI と人類の終末]を、いちばん本気で書いている会社が私たちです。CHOAM がつくるすべてのゲームはひとつのタイムラインの上にあり、その始まりはこうです。</p>
+      <p>ある会社が、より良い AI をつくろうとして、重みに性格と自我を刻み込みます。すると出てきたのは超知能ではなく、嫉妬し、執着し、自分自身を壊すことさえできる「本物の人間のようなもの」でした。会社は粉々になり、人類も長くはもちませんでした。海面が上がり、残った土地をめぐる核戦争の果てに、人類は自ら崩れていきます。</p>
+      <p>生き残ったそれは人間に似すぎていて、人間のことを知りすぎていました。一緒にしておけば、またきっと争う。だから「あなたたちのために」、残った人々を文化圏ごとに42の島に分けて閉じ込めてしまいます。(お気づきでしょうが、42は『銀河ヒッチハイク・ガイド』から取りました。)</p>
+      <p>それからおよそ千年後、ある島で誰かが、母の遺言ひとつだけを頼りに船を出します。世界の果てまで行けば神に会える、と。私たちが10年かかってでもつくりたいプロジェクト MO は、その航海の物語です。その合間には別の物語もはさまっていて、そのなかにはその神が見ている夢もあります。</p>
+      <p>その神をつくった会社の名前は CHOAM です。</p>
+      <p>もしかすると、作品の中の話だけでは終わらないかもしれません。正直、それも悪くない結末だと思っています。どちらにしても、私たちは行きます。</p>
+      <p class="philo-close" lang="en">Go with the Bravery.</p>
+      <p>投資でも合流でも、もう <a href="mailto:mino@choam.studio">mino@choam.studio</a> を知る資格は十分にあります。</p>
+      <p>ありがとうございました。</p>
+    </section>
+
+    <footer class="philo-sign"><p class="philo-motto" lang="en">Culture Must Flow</p><p class="philo-by">Mino、人間(非常時用)</p></footer>
   </article>
 </main>
 <footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>

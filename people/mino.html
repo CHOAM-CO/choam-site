@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minho ‘Mino’ Jang | CHOAM</title>
+<meta name="description" content="Minho &#x27;Mino&#x27; Jang, CEO of CHOAM.">
+<link rel="icon" href="../assets/mark.svg">
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../about.css">
+<script>
+/* Eunho reuses Mino's shared-portrait transition; the names swap only for navigations to or from the Eunho profile. */
+(() => {
+  const mark = url => {
+    if (url && /\/eunho(\.html)?$/.test(new URL(url, location.href).pathname)) document.documentElement.dataset.vt = 'eunho';
+    else delete document.documentElement.dataset.vt;
+  };
+  addEventListener('pageswap', event => mark(event.activation?.entry?.url));
+  addEventListener('pagereveal', () => mark(window.navigation?.activation?.from?.url));
+})();
+</script>
+</head>
+<body class="us-page us-profile" data-page="profile">
+<header class="mast">
+  <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+<main class="us-frame"><div class="us-wrap">
+  <a class="profile-back" href="../us">← ABOUT / US</a>
+  <section class="profile-layout" aria-labelledby="profile-title">
+    <figure class="profile-portrait" tabindex="0" aria-label="CHOAM 01 TEXT ONLY" data-aria-en="CHOAM 01 TEXT ONLY" data-aria-ko="CHOAM 01 TEXT ONLY" data-aria-ja="CHOAM 01 TEXT ONLY"><span class="profile-media mino-shared-portrait"><img class="type-portrait" src="../assets/about/choam-01-mino.svg" alt=""></span></figure>
+    <div class="profile-content">
+      <span class="us-eyebrow">CHOAM <span aria-hidden="true">/</span> US</span>
+      <h1 class="profile-title" id="profile-title">Minho 'Mino' Jang</h1>
+      <div class="profile-introduction">
+        <div data-lang-block="ko" lang="ko"><p>장민호 | 초암(CHOAM) 대표이사</p><p>테크니컬 아티스트로 일을 시작했습니다. 블레스 언리시드의 기술 애니메이션 파트를 이끌었고, 스텔라 블레이드의 캐릭터 테크니컬 아티스트로 3년 8개월간 일했습니다.</p><p>이후 CCO로 그래픽스와 크리에이티브를 맡아, Unreal Engine과 AI로 3D 영상을 만드는 툴 CINEV를 개발했습니다. CTO로 일한 경험도 있습니다.</p><p>지금은 초암에서 AI 에이전트 팀 MAGI를 운영하며 게임과 도구를 만들고 있습니다. 그 경험을 담은 <a href="../pages/scheherazade">세헤라자드</a>를 배포하고, 직접 고른 학습 데이터로 초암의 그림체 모델 <a href="../pages/dat">DAT</a>를 만들었습니다. <a href="../pages/donguri-ryokan">동구리 료칸</a>과 <a href="../pages/seonjam">선잠</a> 등 새로운 형태의 게임도 출시를 준비하고 있습니다.</p><p>철학 페이지에서 이미 말을 너무 많이 해서, 자기소개는 이쯤에서 줄이겠습니다.</p></div>
+        <div data-lang-block="en" lang="en"><p>Minho Jang | CEO of CHOAM</p><p>I started out as a technical artist. I led the technical animation team on Bless Unleashed, and worked for three years and eight months as a character technical artist on Stellar Blade.</p><p>After that, as CCO in charge of graphics and creative, I developed CINEV, a tool for making 3D video with Unreal Engine and AI. I’ve also worked as a CTO.</p><p>Now at CHOAM I run MAGI, a team of AI agents, while making games and tools. I released <a href="../pages/scheherazade">Scheherazade</a>, which carries that experience, and built <a href="../pages/dat">DAT</a>, CHOAM’s art-style model, on training data I chose myself. I’m also preparing new kinds of games for release, such as <a href="../pages/donguri-ryokan">Donguri Ryokan</a> and <a href="../pages/seonjam">DOZE</a>.</p><p>I already said far too much on the philosophy page, so I’ll keep this introduction short.</p><p class="profile-tr">Translated from the Korean original.</p></div>
+        <div data-lang-block="ja" lang="ja"><p>チャン・ミンホ | CHOAM 代表取締役</p><p>テクニカルアーティストとしてキャリアを始めました。Bless Unleashed ではテクニカルアニメーションのパートを率い、Stellar Blade ではキャラクターテクニカルアーティストとして3年8か月働きました。</p><p>その後は CCO としてグラフィックスとクリエイティブを担当し、Unreal Engine と AI で 3D 映像を作るツール CINEV を開発しました。CTO を務めた経験もあります。</p><p>今は CHOAM で AI エージェントチーム MAGI を運営しながら、ゲームとツールを作っています。その経験を込めた <a href="../pages/scheherazade">Scheherazade</a> を配布し、自分で選んだ学習データで CHOAM の画風モデル <a href="../pages/dat">DAT</a> を作りました。<a href="../pages/donguri-ryokan">どんぐり旅館</a>や <a href="../pages/seonjam">DOZE</a> など、新しい形のゲームもリリースに向けて準備しています。</p><p>哲学のページですでに話しすぎてしまったので、自己紹介はこのあたりにしておきます。</p><p class="profile-tr">韓国語の原文からの翻訳です。</p></div>
+      </div>
+      <section class="profile-career" aria-labelledby="career-title">
+        <span class="us-eyebrow">CAREER</span>
+        <h2 id="career-title"><span data-lang-block="ko" lang="ko">주요 경력</span><span data-lang-block="en" lang="en">Career Highlights</span><span data-lang-block="ja" lang="ja">主な経歴</span></h2>
+        <ul class="career-list"><li><span>Neowiz - Round8</span></li><li><span>ShiftUP - Second EVE Studio</span></li><li><span>Cinamon - Chief Creative Officer</span></li><li><span>Danstruct - Chief Technology Officer</span></li></ul>
+      </section>
+    </div>
+  </section>
+</div></main>
+<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<script src="../main.js"></script>
+<script src="../about.js"></script>
+</body>
+</html>

@@ -285,7 +285,7 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      headline: 'An agent that lasts a thousand and one nights',
+      headline: 'An agent that takes a thousand and one nights in stride',
       summary: 'Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.',
       description: [
         [
@@ -295,7 +295,7 @@
         ],
         [
           { display: 'No new subscription. Plug in the one you already pay for.' },
-          'You do not have to buy a second expensive seat on a dedicated service. Connect the account you already have: Claude Code, Codex, Ollama Cloud.',
+          'You do not have to buy a second expensive seat on a dedicated service. Connect the account you already have: a Claude or ChatGPT subscription, or Ollama.',
           'Curious about the new Kimi, or a benchmark leader just landed?\nKeep the memory, swap only the brain. Your conversations and the way you work stay on your machine.'
         ],
         [
@@ -305,7 +305,7 @@
         ]
       ],
       ko: {
-        headline: '천하루밤도 버티는 에이전트',
+        headline: '천하루밤도 거뜬한 에이전트',
         summary: '모델을 수없이 갈아끼워도 당신과 쌓아온 대화와 규칙은 그대로 남아, 귀찮고 복잡한 일도 한결 가볍게 풀어줍니다.',
         description: [
           [
@@ -315,13 +315,34 @@
           ],
           [
             { display: '새로 결제할 필요 없이, 이미 쓰던 구독 모델을 꽂아 쓰세요.' },
-            '에이전트를 쓰겠다고 전용 서비스에 비싼 돈을 더 낼 필요가 없습니다. Claude Code, Codex, Ollama Cloud까지, 이미 구독 중인 계정을 그대로 연결하면 됩니다.',
+            '에이전트를 쓰겠다고 전용 서비스에 비싼 돈을 더 낼 필요가 없습니다. 이미 쓰는 Claude·ChatGPT 구독이나 Ollama를 그대로 연결하면 됩니다.',
             '새 Kimi가 써보고 싶어졌거나, 벤치마크가 더 잘 나오는 모델이 나왔나요?\n쓰던 기억은 그대로 두고 두뇌만 슥 바꿔 쓰세요. 나눈 대화와 작업 방식은 내 컴퓨터에 고스란히 남아 있습니다.'
           ],
           [
             { display: '컴퓨터 앞에 앉지 않아도, 폰으로 툭 던져두면 알아서 해둡니다.' },
             '새 프로그램을 켜고 프롬프트를 고민할 필요가 없습니다. 늘 쓰던 메신저나 음성 통화로, 친구에게 부탁하듯 편하게 말을 걸어보세요.',
             '퇴근길 지하철에서 스마트폰 디스코드나 슬랙으로 툭 남깁니다.\n"오늘 저녁에 친구들이랑 게임할 건데, 모드팩 최신으로 업데이트하고 서버 좀 돌려놔."\n걷는 중이라 타자가 번거로우면 콜 모드를 켜서 전화하듯 물어보세요. "아까 시킨 거 잘 됐어? 충돌 난 건 없고?"\n집에 도착해 컴퓨터를 켜면 세팅이 끝나 있어, 바로 플레이만 하면 됩니다.'
+          ]
+        ]
+      },
+      ja: {
+        headline: '千夜一夜も余裕のエージェント',
+        summary: 'モデルを何度乗り換えても、あなたと積み重ねてきた会話とルールはそのまま残ります。面倒でややこしい作業も、ぐっと軽くなります。',
+        description: [
+          [
+            { display: '毎回くどくど説明しなくても、あなたの好みとやり方をもう知っています。' },
+            '新しいチャットを開くたびに一から教え直す、あの疲れはもうありません。昨日の何気ない会話から先月決めた作業ルールまで、自分で整理して、あなたのパソコンにそのまま残しておきます。',
+            '「試験のチートシート作って」\n前回どのタイプの問題を間違えたかもう知っているので、そこから押さえて作ってくれます。どの試験で、範囲はどこまでで、何でつまずいたのかを説明する必要はありません。'
+          ],
+          [
+            { display: '追加料金は不要です。いま使っているサブスクをそのままつないでください。' },
+            'エージェントを使うために、専用サービスへ高いお金を追加で払う必要はありません。いま使っている Claude や ChatGPT のサブスクリプション、または Ollama をそのままつなげば使えます。',
+            '新しい Kimi を試したくなった？ ベンチマークでもっと強いモデルが出た？\n記憶はそのままで、頭脳だけさっと入れ替えてください。交わした会話も仕事の進め方も、あなたのパソコンにそっくりそのまま残っています。'
+          ],
+          [
+            { display: 'パソコンの前にいなくても、スマホでひと言投げておけば片付けておきます。' },
+            '新しいアプリを立ち上げて、プロンプトをひねり出す必要はありません。いつものメッセンジャーや音声通話で、友だちに頼むように気軽に話しかけてください。',
+            '帰りの電車で、スマホの Discord か Slack にひと言。\n「今夜友だちとゲームするから、Modパックを最新にしてサーバー立てといて」\n歩いていて打つのが面倒なら、コールモードで電話するように話しかければいい。「さっきの、ちゃんとできた？ 競合とか出てない？」\n家に着いてパソコンをつければ準備は終わっていて、あとは遊ぶだけです。'
           ]
         ]
       },
@@ -332,8 +353,10 @@
         { kind: 'chat',
           cap: 'Real exchange · Memory that survives a model swap',
           capKo: '실제 대화 · 모델을 바꿔도 남는 기억',
+          capJa: '実際の会話 · モデルを替えても残る記憶',
           alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in memory (items 3, and 2 and 5 marked wrong), answers that it emphasised those question types last time, and hands over a five-item sheet with items 2 and 5 highlighted.',
           altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면, 에이전트가 기억 파일에서 고친 줄(3번, 그리고 2번과 5번 틀림)을 보여주고, 지난번에 그 유형을 틀렸다고 강조했다고 답한 뒤, 2번과 5번이 강조된 다섯 문항짜리 치트시트를 건넨다.',
+          altJa: 'チャットの図: ユーザーが試験のチートシートを頼むと、エージェントは記憶ファイルで書き換えた行(3番は正解、2番と5番は不正解)を示し、前回間違えたタイプを重点的にしたと答えて、2番と5番を強調した5問のシートを渡す。',
           en: [
             { t: 'bub', side: 'in', p: [{ s: 'Make me a cheat sheet for the exam' }] },
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
@@ -351,12 +374,23 @@
             { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: ' 틀렸어서 비슷한 유형 위주로 강조해놨어' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5문항', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+          ],
+          ja: [
+            { t: 'bub', side: 'in', p: [{ s: '試験のチートシート作って' }] },
+            { t: 'sys', k: 'memory/quiz_grades.md', l: [
+              { s: '3番 · 正解', del: 1 },
+              { s: '2番、5番 · 不正解 → 重点', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えてたから、似たタイプを重点的にしておいたよ' }] },
+            { t: 'sheet', k: 'CHEAT SHEET · 5問', rows: [
+              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ] },
         { kind: 'chat',
           cap: 'Real exchange · Swap the model, keep the memory',
           capKo: '실제 대화 · 두뇌만 바꿔 끼우기',
+          capJa: '実際の会話 · 頭脳だけ入れ替える',
           alt: 'Chat figure: the user asks whether the newly released Kimi K3.1 can be used, the agent writes itself a task for November 5 to check the weights release, and answers that it is not on ollama cloud yet and it will look again around the fifth.',
           altKo: '대화 그림: 사용자가 새로 나온 Kimi K3.1을 쓸 수 있는지 묻자, 에이전트가 11월 5일 가중치 공개를 확인하는 할 일을 스스로 적고, ollama cloud에는 아직 없으니 5일쯤 다시 찾아보겠다고 답한다.',
+          altJa: 'チャットの図: 新しく出た Kimi K3.1 を使えるかとユーザーが聞くと、エージェントは11月5日にウェイト公開を確認するタスクを自分で書き込み、ollama cloud にはまだないので5日ごろもう一度探すと答える。',
           en: [
             { t: 'bub', side: 'in', p: [{ s: 'Kimi K3.1 came out yesterday. Can we use it?' }] },
             { t: 'sys', k: 'memory/tasks.md', l: [
@@ -368,12 +402,20 @@
             { t: 'sys', k: 'memory/tasks.md', l: [
               { s: '+ 11-05 · kimi-k3.1 가중치 공개 확인 → ollama cloud 추가', add: 1 } ] },
             { t: 'bub', side: 'out', p: [{ s: 'ollama cloud에는 아직 안올라왔더라. 가중치 공개가 ' }, { s: '11월 4일', em: 1 }, { s: '이라니까 ' }, { s: '5일쯤', em: 1 }, { s: '에 내가 한번 더 찾아보고 추가해둘게' }] }
+          ],
+          ja: [
+            { t: 'bub', side: 'in', p: [{ s: '昨日 Kimi K3.1 出たけど、使える？' }] },
+            { t: 'sys', k: 'memory/tasks.md', l: [
+              { s: '+ 11-05 · kimi-k3.1 ウェイト公開を確認 → ollama cloud に追加', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: 'ollama cloud にはまだ来てないね。ウェイト公開が ' }, { s: '11月4日', em: 1 }, { s: ' らしいから、' }, { s: '5日ごろ', em: 1 }, { s: ' にもう一回探して追加しておくよ' }] }
           ] },
         { kind: 'chat',
           cap: 'Real exchange · Phone and desk, one thread',
           capKo: '실제 대화 · 폰과 컴퓨터가 한 줄로',
+          capJa: '実際の会話 · スマホとパソコンがひと続き',
           alt: 'Chat figure: one conversation, a message from the phone at 07:41 asking to update the modpack and bring the server up, a note that the thread carries across devices, and the answer waiting at 09:12 on the desk that the server is up with no conflicts.',
           altKo: '대화 그림: 하나의 대화. 07:41 폰에서 모드팩을 업데이트하고 서버를 켜달라고 보내고, 대화가 기기를 넘어 이어진다는 줄을 거쳐, 09:12 데스크톱에서 서버가 켜졌고 충돌이 없다는 답이 기다린다.',
+          altJa: 'チャットの図: ひとつの会話。07:41 にスマホから Modパックの更新とサーバー起動を頼み、会話がデバイスをまたいで続くことを示す行を経て、09:12 のデスクトップでは「サーバーは起動済み、競合なし」という返事が待っている。',
           en: [
             { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night. Update the modpack and get the server up' }] },
             { t: 'sys', k: 'chat/thread.md', l: [
@@ -385,9 +427,15 @@
             { t: 'sys', k: 'chat/thread.md', l: [
               { s: '07:41 폰 → 09:12 데스크톱 · 같은 대화', add: 1 } ] },
             { t: 'bub', side: 'out', time: '09:12', p: [{ s: '서버 켜놨어. 충돌 없음' }] }
+          ],
+          ja: [
+            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '今夜ゲームするから、Modパック更新してサーバー立てといて' }] },
+            { t: 'sys', k: 'chat/thread.md', l: [
+              { s: '07:41 スマホ → 09:12 デスクトップ · 同じ会話', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'サーバー立てといた。競合なし' }] }
           ] },
-        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템', altKo: '설명 그림: 세헤라자데 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
-        { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
+        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템', capJa: '説明図 · マルチプロファイル', altJa: '説明図: Scheherazade のマルチプロファイル構成。1台のパソコンで、記憶フォルダもトークンも専用のメッセンジャーチャンネルも別々の複数のセラを、同時にそれぞれ独立して動かす様子。', altKo: '설명 그림: Scheherazade 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
+        { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', capJa: '説明図 · 19のフックによるエンジンとガードレール', altJa: '説明図: 決定論的な安全性と自律のパイプライン。確認していない完了報告を止める反芻ゲート(Rumination Gate)、認証情報とキーチェーンの保護、毎日の自律サイクルの時計を動かす19のフック。', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
       ],
       info: { kind: 'sch' }
     },
@@ -398,13 +446,13 @@
       title_ko: 'Our Style',
       status: 'Style Model',
       headline: 'Our house style, built into a model',
-      summary: 'We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art — filtering out muddy generated colors and laying down a clean watercolor wash and brushwork.',
+      summary: 'We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art. The muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.',
       description: [
-        'We fine-tune open-source generative models to CHOAM’s own illustration style for character and background art.',
-        'Filtering out muddy generated colors and laying down a clean watercolor wash with particular attention to the eyes.',
-        'From narrative classroom scenes to solo portraits, every piece preserves painterly textures and hand-crafted nuance.',
-        'Balancing the delicate light of watercolor with rich brushwork to build living, breathing visual worlds.',
-        'The signature aesthetic extends across all of CHOAM\'s universes, from quiet schoolrooms to oceanic voyages.',
+        'We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art.',
+        'The muddy color generated images tend to have comes out, and a clean watercolor wash goes in, with extra brushwork around the eyes.',
+        'A whole classroom or a close portrait gets the same finish. Brush marks stay visible instead of smoothing into airbrush.',
+        'Light gets thin, transparent watercolor; hems and petals get heavier strokes.',
+        'A classroom scene and a ship’s deck at sea come out of the same model.',
         'Compare a recorded GPT Image original with its DAT finish. The pass changes brushwork and some scene details, not just image noise.'
       ],
       ko: {
@@ -414,41 +462,56 @@
         description: [
           '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다.',
           '기존 생성 이미지의 탁한 색감을 걷어내고, 맑은 수채 질감과 눈가 붓 터치를 입혀 우리만의 화풍으로 완성합니다.',
-          '서사적인 교실 풍경부터 인물 포트레이트까지, 손으로 빚어낸 듯한 회화적 밀도를 균일하게 유지합니다.',
-          '수채화의 투명한 빛과 묵직한 질감의 조화를 통해 살아 숨 쉬는 세계의 시각적 기준을 세웁니다.',
-          '고요한 교실의 오후부터 머나먼 바다의 갑판까지, 초암이 짓는 모든 세계관의 시각적 뼈대가 됩니다.',
+          '교실 전경이든 얼굴 클로즈업이든 같은 마감이 나옵니다. 붓 자국이 에어브러시처럼 뭉개지지 않고 남습니다.',
+          '빛에는 투명한 수채를, 옷자락과 꽃잎에는 묵직한 붓질을 씁니다.',
+          '교실 장면도, 바다 위 배 갑판도 같은 모델에서 나옵니다.',
           '기록된 GPT Image 원본과 DAT 적용 후 비교. 붓 결과 장면의 일부 세부 모양도 달라짐. 노이즈만 제거한 결과는 아님.'
+        ]
+      },
+      ja: {
+        status: '自社スタイルモデル',
+        headline: '自分たちの画風を学習させたイラストモデル',
+        summary: 'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景の素材を作っています。生成画像にありがちな濁った色を取り除き、澄んだ水彩の質感と筆のタッチを重ねます。',
+        description: [
+          'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景の素材を作っています。',
+          '生成画像にありがちな濁った色を取り除き、澄んだ水彩の質感と目元の筆づかいを加えます。',
+          '教室の全景でも顔のアップでも、同じ仕上がりになります。筆の跡はエアブラシのようにつぶれず、そのまま残ります。',
+          '光には透明な水彩を、服のすそや花びらには重めの筆づかいを使います。',
+          '教室の場面も、海に浮かぶ船の甲板も、同じモデルから生まれています。',
+          '記録済みの GPT Image 原画と DAT 適用後の比較。筆のタッチに加えて、場面の細部の形も一部変わります。ノイズを取っただけの結果ではありません。'
         ]
       },
       art: [0, 1, 2, 3, 4, 5],
       panels: [
-        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 50%', posM: '27% 35%' },
-        { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
-        { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
-        { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
-        { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '42% 35%' },
+        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 50%', posM: '27% 35%' },
+        { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', altJa: 'DOZE のイラスト: 水族館の窓を背に、夕焼けの教室に立つイェジ', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
+        { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', altJa: 'ソアの水彩仕上げイラスト: 澄んだ水彩の質感と目元が際立つポートレート', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
+        { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', altJa: 'イェジの水彩ポーズイラスト: 花とドレスの繊細な筆づかいが残る水彩画', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
+        { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', altJa: 'Marina Odyssey のイラスト: アルゴ号の甲板に並ぶ試験管と、水平線の向こうの海', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '42% 35%' },
         { kind: 'compare' }
       ],
       /* Existing recorded, aligned source/output pairs; no reprocessing or new image. */
       comparisons: [
-        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020,
-          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면' },
-        { id: 'classroom', label: 'Classroom', labelKo: '교실', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, detailPoint: [.25, .78],
-          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줌. 장신구 모양도 바뀐 장면' },
-        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, detailPoint: [.7, .74],
-          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교함. 머리 장식과 장신구, 옷의 세부 모양도 달라짐' }
+        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', labelJa: '神社 · 木の葉', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020, pos: '50% 40%', posM: '50% 40%',
+          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면', noteJa: 'DAT 0.15 · 筆のタッチが変わり、衣装と装身具の一部も描き直された場面' },
+        { id: 'classroom', label: 'Classroom', labelKo: '교실', labelJa: '教室', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, pos: '50% 30%', posM: '50% 30%', detailPoint: [.25, .78],
+          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줌. 장신구 모양도 바뀐 장면', noteJa: 'DAT 0.15 · 原画 1672×941 → 比較 1672×936。上 2px と下 3px だけを除き、同じ倍率で表示。装身具の形も変わった場面' },
+        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', labelJa: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, pos: '50% 22%', posM: '50% 22%', detailPoint: [.7, .74],
+          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교함. 머리 장식과 장신구, 옷의 세부 모양도 달라짐', noteJa: 'DAT 0.15 · 左の黒髪の IDEA を、同じ位置の 928×1136 の範囲で切り出して比較。髪飾りや装身具、服の細部の形も変わる' }
       ],
       info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '43% 30%', side: 'end' }
     },
     {
       id: 'seonjam',
       title: '선잠 DOZE',
+      title_ja: 'DOZE',      /* Japanese pages: the English wordmark only, no Hangul (Mino 2026-10-27 19:53) */
       status: 'In development',
-      headline: 'She remembers what you said',
-      summary: 'A visual novel set in the local-history club of an old school building, where you talk to Yeji in your own words. She records your conversations in her diary and carries what you said into the next day.',
+      headline: 'An interactive movie you shape by talking',
+      summary: 'A visual novel where you talk with Yeji in your own words, in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.',
       description: [
-        'A visual novel set in the local-history club of an old school building. After class, Yeji sorts rosters and old photos by the window.',
-        'You talk to her in your own words, and she carries what you said into the next day. Over one week, small things stop adding up.'
+        '선잠 DOZE is a visual novel you play by talking with Yeji directly.\nSay things in your own words, and she answers from her own personality and the conversations you have had.',
+        ['Yeji writes your conversations into her diary, and the next time you meet, her mood and manner follow that record.\nWe brought AI memory and personality into the game so that, however long you talk, Yeji stays Yeji.',
+          'She is waiting on the second floor of the old school building, in the local-history club room.']
       ],
       ko: {
         status: '개발 중',
@@ -460,11 +523,21 @@
             '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다.']
         ]
       },
+      ja: {
+        status: '開発中',
+        headline: '会話でつくっていくインタラクティブムービー',
+        summary: '旧校舎2階の郷土研究部の部室で、イェジと直接言葉を交わしながら進む恋愛アドベンチャーです。プレイヤーがかけた言葉は日記に残り、次の日のイェジの気分や態度が、その記憶に沿って少しずつ変わっていきます。',
+        description: [
+          'DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
+          ['イェジは会話を日記に残し、次に会ったときはその記録に沿って気分や態度が変わります。\n長い会話のなかでもイェジが最後までイェジらしくいられるように、AI の記憶と性格をゲームに持ち込みました。',
+            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
+        ]
+      },
       art: [2, 0],
       panels: [
-        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
-        { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
-        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
+        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: 'DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
+        { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', altJa: 'DOZE のタイトル画面: 暗い教室で、制服姿の少女5人がタイトルとスタートメニューの横に並ぶ', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
+        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', altJa: 'DOZE のイラスト: ジンベエザメが横切る水族館の壁を背に、教室で振り返るイェジ', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
       ],
       info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '66% 50%', side: 'end' }
     },
@@ -472,15 +545,16 @@
       id: 'donguri-ryokan',
       title: 'Donguri Ryokan',
       title_ko: '동구리 료칸',
+      sub_ja: 'どんぐり旅館',  /* 동구리 = どんぐり (Mino ruling 2026-08-12) */
       status: 'Coming soon',
-      headline: 'Not every guest is human',
-      summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook, and run the rooms — while spotting the yokai passing as human guests.',
+      headline: 'A quiet inn tale, deep in the forest',
+      summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.',
       description: [
-        'A hot-spring inn management game where farming, cooking, and hospitality meet yokai deduction.',
+        'Donguri Ryokan is a management game of farming, cooking and running an inn, with yokai deduction on top.',
         'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn.',
-        'Over 100 days, management and deduction run side by side from morning prep to evening check-in.',
-        'Gather ingredients, cook each course, lay the spring pipes, and tend the rooms and baths.',
-        'Some guests are yokai passing as human. Watch how they act, compare notes, and make your call before checkout.'
+        'We wanted a game that keeps your hands busy, with the inn and the deduction running without a break through each day.',
+        'You gather the ingredients, cook the food, and look after the rooms and the hot spring yourself.',
+        'All the while, watch how the guests behave and work out who is a yokai before they check out.'
       ],
       ko: {
         status: '출시 준비 중',
@@ -494,13 +568,25 @@
           '그 와중에 손님의 행동을 유심히 살펴 누가 요괴인지 체크아웃 전까지 알아내야 합니다.'
         ]
       },
+      ja: {
+        status: '発売準備中',
+        headline: '静かな森の旅館の物語',
+        summary: '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。100日のあいだ畑を耕し、料理と客室の世話をしながら、お客さんの振る舞いを観察して、人間に化けた妖怪を見抜かなければなりません。',
+        description: [
+          'Donguri Ryokan は、畑仕事と料理、宿の経営に妖怪の推理を加えた経営ゲームです。',
+          '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。',
+          '一日のなかで経営と推理が休みなく続く、手が休まらないゲームを作りたいと思いました。',
+          'プレイヤーは自分で食材を集めて料理を作り、客室と温泉の手入れもします。',
+          'そのあいだもお客さんの振る舞いをよく観察して、誰が妖怪なのかをチェックアウトまでに突き止めなければなりません。'
+        ]
+      },
       art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'art', src: 'assets/ryokan_kv_C2.webp', altKo: 'Donguri Ryokan 키 아트: 기모노를 입은 여우 소녀와 너구리 소녀가 밤 툇마루에서 불 켜진 장지문 뒤 그림자를 엿보는 모습', alt: 'Donguri Ryokan key art: fox and tanuki girls in kimono on a night veranda, peering at a silhouette behind a lit shoji screen', pos: '50% 30%', posM: '47% 50%' },
-        { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
-        { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
-        { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
-        { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
+        { kind: 'art', src: 'assets/ryokan_kv_C2.webp', altKo: 'Donguri Ryokan 키 아트: 기모노를 입은 여우 소녀와 너구리 소녀가 밤 툇마루에서 불 켜진 장지문 뒤 그림자를 엿보는 모습', altJa: 'Donguri Ryokan のキーアート: 着物姿の狐の少女と狸の少女が、夜の縁側から、灯りのともった障子の向こうの影をのぞき込む', alt: 'Donguri Ryokan key art: fox and tanuki girls in kimono on a night veranda, peering at a silhouette behind a lit shoji screen', pos: '50% 30%', posM: '47% 50%' },
+        { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 山の神社の三柱の狐神が、狸のコガネを前に借用書へ判を押す', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 日の差す旅館の中庭で、狐の三姉妹がお茶とチェックリストを手にお客さんを出迎える', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', altJa: 'Donguri Ryokan のコンセプトアート: 厨房で酒を注ぎ、夕食のコース料理を盛りつける狐の姉妹', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
+        { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', altJa: 'Donguri Ryokan のキーアート: 夜の畳の間で、紙の行灯と開いた帳簿を前に、低い卓を囲む狐の少女と狸の少女', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
       ],
       info: { kind: 'art', src: 'assets/ryokan_kv_C2.webp', pos: '50% 30%', posM: '47% 50%' }
     },
@@ -508,13 +594,14 @@
       id: 'donguri-restaurant',
       title: 'Donguri Restaurant',
       title_ko: '동구리 레스토랑',
+      sub_ja: 'どんぐりレストラン',
       status: 'On the web',
-      headline: 'No menu. The field decides.',
-      summary: 'A small forest restaurant management game where the daily omakase comes straight from your garden. Read the reservation board, harvest what the field gives, and build each course and wine pairing around it.',
+      headline: 'Self Made Restaurant',
+      summary: 'A small forest restaurant management game where the day’s omakase comes from your own garden. Read the reservation board, plant for the guests who are coming, and build each course and wine pairing around what you harvest.',
       description: [
-        'A small forest restaurant run by a chef, a sommelier and a part-timer.',
-        'Read the reservation board, plant for the guests who are coming, harvest what the field gives, and build each course and wine pairing around it.',
-        'One season, four weeks. Plays in the browser.'
+        'Donguri Restaurant is a restaurant management game where you serve omakase from what you grow in the garden.\nThe day’s harvest sets the course; you prep it, cook it and bring it to the table.\nGuests don’t know what they are eating until the menu arrives.',
+        'You are a short-term part-timer working alongside a chef and a sommelier, running a small place for one season (four weeks).',
+        'It started as a retirement plan: grow vegetables, run a small restaurant.\nThree stars would be nice. None is fine too.'
       ],
       ko: {
         status: '웹에서 플레이',
@@ -526,12 +613,22 @@
           '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다.\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다.'
         ]
       },
+      ja: {
+        status: 'Web でプレイ',
+        headline: 'Self Made Restaurant',
+        summary: '畑で育てた食材で、その日のおまかせコースを出す小さな森のレストラン経営ゲームです。予約ボードを見て作物を植え、収穫した食材に合わせてコースとワインのペアリングを組み立て、お客さんをもてなします。',
+        description: [
+          'Donguri Restaurant は、畑で育てた食材でおまかせを出すレストラン経営ゲームです。\nその日に収穫した食材でコースを決め、下ごしらえと調理をしてお客さんに出します。\nお客さんはメニューを受け取るまで、どんな料理が出るのか分かりません。',
+          'プレイヤーはシェフ、ソムリエと一緒に働く短期アルバイトになって、ひと季節(4週間)小さな店を切り盛りします。',
+          '自分で野菜を育てながら小さなレストランをやりたい、という引退後の計画から始まりました。\n三つ星がもらえたらうれしいし、もらえなくても大丈夫なレストランです。'
+        ]
+      },
       art: [0, 1, 2],
       action: { label: 'Play', href: 'https://donguri.run' },
       panels: [
-        { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '100% 30%', posM: '50% 50%' },
-        { kind: 'art', src: 'assets/restaurant_field.webp', altKo: 'Donguri Restaurant 컨셉 아트: 텃밭에서 채소를 수확하는 아르바이트생과 식탁을 준비하는 셰프, 소믈리에', alt: 'Donguri Restaurant concept art: the part-timer harvesting fresh vegetables in the garden while the chef and sommelier prepare the table', pos: '45% 35%', posM: '38% 50%' },
-        { kind: 'art', src: 'assets/restaurant_course.webp', altKo: 'Donguri Restaurant 컨셉 아트: 와인을 디캔팅하는 소믈리에와 저녁 코스 요리를 플레이팅하는 셰프', alt: 'Donguri Restaurant concept art: the sommelier decanting wine beside the chef plating the evening course', pos: '45% 35%', posM: '45% 50%' }
+        { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', altJa: 'Donguri Restaurant のキーアート: レストランのロゴの横で、シェフとソムリエとアルバイトが身を寄せ合う', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '100% 30%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/restaurant_field.webp', altKo: 'Donguri Restaurant 컨셉 아트: 텃밭에서 채소를 수확하는 아르바이트생과 식탁을 준비하는 셰프, 소믈리에', altJa: 'Donguri Restaurant のコンセプトアート: 畑で野菜を収穫するアルバイトと、テーブルを整えるシェフとソムリエ', alt: 'Donguri Restaurant concept art: the part-timer harvesting fresh vegetables in the garden while the chef and sommelier prepare the table', pos: '45% 35%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/restaurant_course.webp', altKo: 'Donguri Restaurant 컨셉 아트: 와인을 디캔팅하는 소믈리에와 저녁 코스 요리를 플레이팅하는 셰프', altJa: 'Donguri Restaurant のコンセプトアート: ワインをデキャンタージュするソムリエと、夕食のコースを盛りつけるシェフ', alt: 'Donguri Restaurant concept art: the sommelier decanting wine beside the chef plating the evening course', pos: '45% 35%', posM: '45% 50%' }
       ],
       info: { kind: 'art', src: 'assets/restaurant-01.webp', pos: '50% 30%', posM: '62% 50%' }
     }
@@ -546,6 +643,7 @@
   const numOf = p => pad(PROJECTS.indexOf(p) + 1);
   const pageOf = p => url(`pages/${p.id}`);
 
+  const hash0 = location.hash; /* DAT: an old /pages/dat#6 link opens Polish Pipeline; read before the clean-up below drops it */
   /* ---------- clean URL: strip .html extension and subpage #1 hashes from address bar ---------- */
   try {
     if (location.pathname.endsWith('.html')) {
@@ -557,40 +655,55 @@
     }
   } catch (e) {}
 
-  /* ---------- language (every page): a saved choice (localStorage 'choam-lang') always wins; with none saved, Korean when the
-     browser's first preferred language is Korean, otherwise English. The <head> of each page decides this before paint and
+  /* ---------- language (every page): a saved choice (localStorage 'choam-lang') always wins; with none saved, Korean or Japanese when the
+     browser's first preferred language is one of them, otherwise English. The <head> of each page decides this before paint and
      sets <html lang> (the automatic pick is not saved); this keeps the copy, labels and the picker in step with it.
      Product names, CULTURE MUST FLOW and the copyright line stay as written in both languages. ---------- */
   const LANG_KEY = 'choam-lang';
   const html = document.documentElement;
-  let lang = html.lang === 'ko' ? 'ko' : 'en';
+  const LANGS = ['ko', 'en', 'ja'];
+  const norm = v => (LANGS.includes(v) ? v : 'en');
+  let lang = norm(html.lang);
   const ko = () => lang === 'ko';
-  const tr = (p, f) => (ko() && p.ko && p.ko[f] != null ? p.ko[f] : p[f]);
+  /* L(en, ko, ja): the current language's string; Japanese falls back to English only where none is given */
+  const L = (en, k, j) => (lang === 'ko' ? k : lang === 'ja' && j != null ? j : en);
+  const tr = (p, f) => (lang !== 'en' && p[lang] && p[lang][f] != null ? p[lang][f] : p[f]);
+  /* a field with Ko / Ja variants on the same object: alt / altKo / altJa, cap / capKo / capJa ... */
+  const pick = (o, f) => (lang === 'ko' && o[f + 'Ko']) || (lang === 'ja' && o[f + 'Ja']) || o[f];
+  /* names on Japanese pages: title_ja replaces the title (DOZE), sub_ja the Korean subtitle (どんぐり旅館); Korean and English unchanged */
+  const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
+  const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
+  const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
   const ACT_KO = { Get: '받기', Play: '플레이' };
-  /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean] */
+  const ACT_JA = { Get: '入手', Play: 'プレイ' };
+  const actLabel = a => L(a, ACT_KO[a] || a, ACT_JA[a] || a);
+  const actAria = (T, l) => L(`${l} ${T}`, `${T} ${l}`, `${T}を${l}`);
+  /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean, Japanese] */
   const UI_KO = [
-    ['.brand', 'aria-label', 'CHOAM 홈'],
-    ['.intro-meta span:nth-child(1)', '', '스튜디오'],
-    ['.intro-meta span:nth-child(2)', '', '서울'],
-    ['.intro-meta span:nth-child(3)', '', '2026년 설립'],
-    ['.intro-next[href="philosophy.html"] span', '', '철학'],
-    ['.intro-next[href^="#"] span', '', '프로젝트'],
-    ['[data-next-label]', '', '다음'],
-    ['.intro-clock [data-city]', '', '서울'],
-    ['main.track[aria-label="Ours"]', 'aria-label', '프로젝트'],
-    ['[data-segments]', 'aria-label', '페이지'],
-    ['[data-prev]', '', '이전'],
-    ['[data-next]', '', '다음'],
-    ['[data-details]', '', '자세히'],
-    ['.foot a', '', '문의'],
-    ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘'],
-    ['.dl .cap-line', '', PROJECTS[0].ko.headline],
-    ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘'],
-    ['.dlbtn[data-os="win"] small', '', '설치 파일'],
-    ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다'],
-    ['.dl-note a', '', '전체 릴리스']
-  ].flatMap(([sel, attr, k]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, en: attr ? el.getAttribute(attr) : el.textContent })));
-  const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM' };
+    ['.brand', 'aria-label', 'CHOAM 홈', 'CHOAM ホーム'],
+    ['.intro-meta span:nth-child(1)', '', '스튜디오', 'スタジオ'],
+    ['.intro-meta span:nth-child(2)', '', '서울', 'ソウル'],
+    ['.intro-meta span:nth-child(3)', '', '2026년 설립', '2026年設立'],
+    ['[data-next-label]', '', '다음', '次へ'],
+    ['.intro-clock [data-city]', '', '서울', 'ソウル'],
+    ['main.track[aria-label="Ours"]', 'aria-label', '프로젝트', 'プロジェクト'],
+    ['[data-segments]', 'aria-label', '페이지', 'ページ'],
+    ['[data-prev]', '', '이전', '前へ'],
+    ['[data-next]', '', '다음', '次へ'],
+    ['[data-details]', '', '자세히', '詳しく'],
+    ['.foot a', '', '문의', 'お問い合わせ'],
+    ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘', 'Scheherazade のアプリアイコン'],
+    ['.dl .cap-line', '', PROJECTS[0].ko.headline, PROJECTS[0].ja.headline],
+    ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘', 'Apple シリコン'],
+    ['.dlbtn[data-os="win"] small', '', '설치 파일', 'インストーラー'],
+    ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다', 'Claude・ChatGPT のサブスクや Ollama のモデルをつないで使えます。頭脳を替えても記憶は残ります。'],
+    ['.dl-note [data-dl-guide]', '', '설치 방법', 'インストール方法'],
+    ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
+  ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
+  const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade 설치 방법 | CHOAM',
+    'Us | CHOAM': '팀 | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': '장민호 | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': '정은호 | CHOAM' };
+  const TITLE_JA = { 'Get Scheherazade | CHOAM': 'Scheherazade を入手 | CHOAM', 'Our Philosophy | CHOAM': 'CHOAMの哲学 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade のインストール方法 | CHOAM',
+    'Us | CHOAM': 'チーム | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': 'チャン・ミンホ | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': 'チョン・ウンホ | CHOAM', '선잠 DOZE | CHOAM': 'DOZE | CHOAM' };
   const titleEn = document.title;
   const relabel = []; /* the gallery adds its own relabelling below */
 
@@ -601,18 +714,19 @@
     <ul class="lang-menu" id="lang-menu">
       <li><button class="lang-opt" type="button" data-set-lang="ko" lang="ko">한국어<b>KR</b></button></li>
       <li><button class="lang-opt" type="button" data-set-lang="en" lang="en">English<b>ENG</b></button></li>
+      <li><button class="lang-opt" type="button" data-set-lang="ja" lang="ja">日本語<b>JP</b></button></li>
     </ul>`;
   if (mast) mast.appendChild(picker); /* added by script so a page without it never shows a switch that does nothing */
   const langBtn = picker.querySelector('[data-lang-toggle]');
   const opts = [...picker.querySelectorAll('[data-set-lang]')];
 
   const applyLang = (next, save) => {
-    lang = next === 'ko' ? 'ko' : 'en';
+    lang = norm(next);
     html.lang = lang;
-    UI_KO.forEach(({ el, attr, k, en }) => { const v = ko() ? k : en; if (attr) el.setAttribute(attr, v); else el.textContent = v; });
-    document.title = ko() ? TITLE_KO[titleEn] || titleEn : titleEn;
-    picker.querySelector('[data-lang-name]').textContent = ko() ? '언어 ' : 'Language ';
-    picker.querySelector('[data-lang-cur]').textContent = ko() ? 'KR' : 'ENG';
+    UI_KO.forEach(({ el, attr, k, j, en }) => { const v = L(en, k, j); if (attr) el.setAttribute(attr, v); else el.textContent = v; });
+    document.title = L(titleEn, TITLE_KO[titleEn] || titleEn, TITLE_JA[titleEn] || titleEn);
+    picker.querySelector('[data-lang-name]').textContent = L('Language ', '언어 ', '言語 ');
+    picker.querySelector('[data-lang-cur]').textContent = L('ENG', 'KR', 'JP');
     opts.forEach(o => { if (o.dataset.setLang === lang) o.setAttribute('aria-current', 'true'); else o.removeAttribute('aria-current'); });
     relabel.forEach(f => f());
     if (save) try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* storage blocked: this page still switches */ }
@@ -636,7 +750,7 @@
   picker.addEventListener('focusout', e => { if (langOpen() && e.relatedTarget && !picker.contains(e.relatedTarget)) setLangMenu(false); });
   document.addEventListener('click', e => {
     if (langOpen() && !picker.contains(e.target)) setLangMenu(false);
-    if (navOpen && !siteNav.contains(e.target) && !picker.contains(e.target)) setMenu(false);
+    if (navOpen && !siteNav.contains(e.target) && !picker.contains(e.target) && !e.target.closest('[data-nav-open]')) setMenu(false);
   });
   /* back/forward from a page where the language changed: the cached page catches up */
   addEventListener('pageshow', e => {
@@ -669,7 +783,7 @@
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
         <h2 class="nav-group-title" id="nav-about-title">About</h2>
-        <ul class="nav-row nav-row-primary"><li><a class="nav-entry" href="${url('philosophy')}"${body.dataset.page === 'philosophy' ? ' aria-current="page"' : ''} data-nav-philosophy></a></li>${pending('Us')}</ul>
+        <ul class="nav-row nav-row-primary"><li><a class="nav-entry" href="${url('philosophy')}"${body.dataset.page === 'philosophy' ? ' aria-current="page"' : ''} data-nav-philosophy></a></li><li><a class="nav-entry" href="${url('us')}"${body.dataset.page === 'us' ? ' aria-current="page"' : ''} data-nav-us></a></li></ul>
       </section>
     </div>`;
   mast.insertBefore(siteNav, picker);
@@ -677,6 +791,21 @@
   const navToggles = [...siteNav.querySelectorAll('[data-nav-toggle]')];
   const mobileNav = matchMedia('(max-width: 760px)');
   let navOpen = '';
+  /* Hero WORKS / ABOUT (Mino 2026-10-27): ABOUT opens the masthead's own About group, as its trigger does; a modified click
+     or no script keeps the plain link to the first About page. WORKS stays a link to the first plate. */
+  const navOpeners = [...document.querySelectorAll('[data-nav-open]')];
+  navOpeners.forEach(a => {
+    a.setAttribute('aria-controls', `nav-${a.dataset.navOpen}`);
+    a.setAttribute('aria-expanded', 'false');
+    a.addEventListener('click', e => {
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      const g = a.dataset.navOpen;
+      mast.classList.remove('chrome-hidden'); /* the group opens inside the masthead, so the masthead comes back with it */
+      setMenu(navOpen === g ? false : g);
+      if (navOpen && !e.detail) siteNav.querySelector(`#nav-${g} a`).focus(); /* keyboard: land in the opened group */
+    });
+  });
   const positionMenu = () => {
     navPanel.style.removeProperty('right'); /* mobile keeps its existing full-width layout */
     if (!navOpen || mobileNav.matches) return;
@@ -697,6 +826,7 @@
     siteNav.querySelector('#nav-about').hidden = !navOpen || navOpen === 'works';
     body.classList.toggle('menu-open', !!navOpen);
     navToggles.forEach(t => t.setAttribute('aria-expanded', String(navOpen === t.dataset.navToggle)));
+    navOpeners.forEach(a => a.setAttribute('aria-expanded', String(navOpen === a.dataset.navOpen)));
     positionMenu();
     if (focusBtn && previous) siteNav.querySelector(`[data-nav-toggle="${previous}"]`).focus();
     wake();
@@ -715,15 +845,16 @@
   const pageLangs = [...document.querySelectorAll('[data-page-lang]')];
   pageLangs.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.pageLang, true)));
   relabel.push(() => {
-    siteNav.setAttribute('aria-label', ko() ? '주요 탐색' : 'Main navigation');
-    siteNav.querySelector('[data-nav-philosophy]').textContent = ko() ? '철학' : 'Philosophy';
-    siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = ko() ? '준비 중' : 'Coming soon'; });
+    siteNav.setAttribute('aria-label', L('Main navigation', '주요 탐색', 'メインナビゲーション'));
+    siteNav.querySelector('[data-nav-philosophy]').textContent = L('Philosophy', '철학', '哲学');
+    siteNav.querySelector('[data-nav-us]').textContent = L('Us', '팀', 'チーム');
+    siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = L('Coming soon', '준비 중', '準備中'); });
     siteNav.querySelectorAll('[data-nav-name]').forEach(el => {
       const p = PROJECTS.find(p => p.id === el.dataset.navName);
-      el.textContent = p.id === 'seonjam' ? (ko() ? '선잠' : 'Doze') : p.id === 'dat' ? p.title : ko() && p.title_ko ? p.title_ko : p.title;
+      el.textContent = p.id === 'seonjam' ? L('Doze', '선잠', 'DOZE') : p.id === 'dat' ? p.title : ko() && p.title_ko ? p.title_ko : p.title;
     });
     pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
-    document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', ko() ? '언어' : 'Language'));
+    document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', L('Language', '언어', '言語')));
   });
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
@@ -742,10 +873,10 @@
   const REL_PAGE = `${REL_REPO}/releases/latest`;
   const REL_API = 'https://api.github.com/repos/CHOAM-CO/scheherazade-releases/releases/latest';
   const OSES = [
-    { os: 'mac', name: 'Mac', detail: 'Apple silicon', detailKo: 'Apple 실리콘', file: /^Scheherazade-[^/]+-arm64\.dmg$/ },
-    { os: 'win', name: 'Windows', detail: 'Installer', detailKo: '설치 파일', file: /^Scheherazade-Setup-[^/]+\.exe$/ },
-    { os: 'linux', name: 'Linux', detail: 'x86_64 AppImage', detailKo: 'x86_64 AppImage', file: /^Scheherazade-[^/]+-x86_64\.AppImage$/ },
-    { os: 'win-portable', name: 'Windows portable', detail: 'USB ZIP, NTFS', detailKo: 'USB용 ZIP, NTFS', optional: true, file: /^Scheherazade-Portable-[^/]+-win-x64\.zip$/ }
+    { os: 'mac', name: 'Mac', detail: 'Apple silicon', detailKo: 'Apple 실리콘', detailJa: 'Apple シリコン', file: /^Scheherazade-[^/]+-arm64\.dmg$/ },
+    { os: 'win', name: 'Windows', detail: 'Installer', detailKo: '설치 파일', detailJa: 'インストーラー', file: /^Scheherazade-Setup-[^/]+\.exe$/ },
+    { os: 'linux', name: 'Linux', detail: 'x86_64 AppImage', detailKo: 'x86_64 AppImage', detailJa: 'x86_64 AppImage', file: /^Scheherazade-[^/]+-x86_64\.AppImage$/ },
+    { os: 'win-portable', name: 'Windows portable', nameKo: 'Windows 포터블', nameJa: 'Windows ポータブル', detail: 'USB ZIP, NTFS', detailKo: 'USB용 ZIP, NTFS', detailJa: 'USB用 ZIP、NTFS', optional: true, file: /^Scheherazade-Portable-[^/]+-win-x64\.zip$/ }
   ];
   /* phones, tablets and ChromeOS get no recommendation: none of these installers runs there */
   const myOS = (() => {
@@ -764,14 +895,15 @@
       const o = OSES.find(x => x.os === a.dataset.relOs), d = a.querySelector('[data-os-detail]'), rec = a.querySelector('[data-os-rec]');
       a.href = rel.urls[o.os] || REL_PAGE;
       if (o.optional) a.closest('li').hidden = !rel.urls[o.os];
-      if (d) d.textContent = ko() ? o.detailKo : o.detail;
+      if (d) d.textContent = pick(o, 'detail');
+      const nm = a.querySelector('[data-os-name]'); if (nm) nm.textContent = pick(o, 'name');
       a.classList.toggle('is-rec', o.os === myOS);
-      if (rec) { rec.hidden = o.os !== myOS; rec.textContent = ko() ? '추천' : 'Recommended'; }
+      if (rec) { rec.hidden = o.os !== myOS; rec.textContent = L('Recommended', '추천', 'おすすめ'); }
     });
     root.querySelectorAll('[data-rel-ver]').forEach(el => { el.textContent = rel.tag; });
     root.querySelectorAll('[data-rel-note]').forEach(el => {
       el.hidden = rel.state !== 'failed';
-      el.textContent = ko() ? 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다' : 'GitHub didn’t answer, so each choice opens the latest release page.';
+      el.textContent = L('GitHub didn’t answer, so each choice opens the latest release page.', 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다', 'GitHub に接続できなかったため、各ボタンを押すと最新リリースのページが開きます。');
     });
   };
   let relReady;
@@ -807,15 +939,64 @@
     loadRel();
   }
 
-  /* A quick OS click must wait for metadata, not follow the temporary release-page href.
-     Ready links and modified clicks retain native navigation; an API failure still uses the labelled fallback. */
+  /* A plain OS click goes to the How to install guide for that platform, and the guide asks for the installer once
+     (install.html). Starting the download here and then leaving the page could cancel it before it begins.
+     A quick click waits for metadata, not the temporary release-page href. Modified clicks keep native navigation
+     (the installer itself); an API failure or a missing file still follows the labelled release-page fallback. */
+  const REL_DL = `${REL_REPO}/releases/download/`;
+  const guideTo = (os, file) => `${url('install')}?os=${encodeURIComponent(os)}&get=${encodeURIComponent(file.slice(REL_DL.length))}`;
   document.addEventListener('click', async e => {
     const a = e.target.closest('a[data-rel-os]');
-    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || rel.state !== 'loading') return;
+    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (rel.state !== 'loading' && !rel.urls[a.dataset.relOs]) return;
     e.preventDefault();
     await loadRel();
-    location.assign(a.href);
+    const file = rel.urls[a.dataset.relOs];
+    location.assign(file ? guideTo(a.dataset.relOs, file) : a.href);
   });
+
+  /* The guide: ?os= picks the platform shown (otherwise this browser's, otherwise Mac); ?get=<tag>/<file> is the
+     download asked for by that click. It is accepted only as an exact installer name of the public release repo, and
+     removed from the address before the request, so reloading, Back and Forward never ask for the file again. */
+  const guide = document.querySelector('[data-guide]');
+  if (guide) {
+    const q = new URLSearchParams(location.search);
+    const asked = OSES.find(o => o.os === q.get('os'));
+    const m = /^(v[0-9][0-9A-Za-z.+-]{0,40})\/([^/]+)$/.exec(q.get('get') || '');
+    const file = asked && m && asked.file.test(m[2]) ? `${REL_DL}${m[1]}/${m[2]}` : '';
+    if (q.has('get')) {
+      q.delete('get');
+      try { history.replaceState(history.state, '', location.pathname + (q.toString() ? `?${q}` : '') + location.hash); } catch (err) { /* keep going */ }
+    }
+    const picks = [...guide.querySelectorAll('[data-guide-pick]')];
+    const showOs = os => {
+      picks.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.guidePick === os)));
+      guide.querySelectorAll('[data-guide-os]').forEach(s => { s.hidden = s.dataset.guideOs !== os; });
+    };
+    picks.forEach(b => b.addEventListener('click', () => showOs(b.dataset.guidePick)));
+    guide.querySelector('[data-guide-switch]').hidden = false;
+    showOs(asked ? asked.os : myOS || 'mac');
+    const status = guide.querySelector('[data-guide-status]');
+    relabel.push(() => {
+      guide.querySelector('[data-guide-switch]').setAttribute('aria-label', L('Platform', '운영체제', 'OS'));
+      if (!file) return;
+      const name = pick(asked, 'name');
+      status.querySelector('[data-guide-said]').textContent = L(
+        `Your Scheherazade ${m[1]} download for ${name} has been requested. Check your browser’s downloads, then follow the steps below.`,
+        `${name}용 Scheherazade ${m[1]} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인한 뒤, 아래 순서대로 설치하세요.`,
+        `${name} 用 Scheherazade ${m[1]} のダウンロードをリクエストしました。ブラウザのダウンロード一覧で確認してから、下の手順でインストールしてください。`);
+      status.querySelector('[data-guide-again]').textContent = L('Didn’t start? Download again', '시작되지 않았다면 다시 받기', '始まらない場合はもう一度ダウンロード');
+    });
+    if (file) {
+      status.querySelector('[data-guide-name]').textContent = m[2];
+      status.querySelector('[data-guide-again]').href = file;
+      status.hidden = false;
+      /* after load: a navigation started earlier would stop this page's own fonts and images. An installer response
+         is a download, so the page stays. */
+      const ask = () => setTimeout(() => location.assign(file), 0);
+      if (document.readyState === 'complete') ask(); else addEventListener('load', ask, { once: true });
+    }
+  }
 
   /* Get chooser (a disclosure: Get, then ordinary links, including portable only when available). Plain clicks open it;
      a modified click or no script still follows Get's own link to the download page. Arrow keys move between visible
@@ -839,7 +1020,7 @@
   }
   const getMenuHTML = id => `<div class="get-menu" id="get-${id}" hidden>
       <p class="get-head"><span data-get-head></span><span data-rel-ver></span></p>
-      <ul>${OSES.map(o => `<li${o.optional ? ' hidden' : ''}><a class="get-opt" data-rel-os="${o.os}" href="${REL_PAGE}"><span>${o.name}<em class="os-rec" data-os-rec hidden></em></span><b data-os-detail></b></a></li>`).join('')}</ul>
+      <ul>${OSES.map(o => `<li${o.optional ? ' hidden' : ''}><a class="get-opt" data-rel-os="${o.os}" href="${REL_PAGE}"><span><span data-os-name>${o.name}</span><em class="os-rec" data-os-rec hidden></em></span><b data-os-detail></b></a></li>`).join('')}</ul>
       <p class="get-note" data-rel-note hidden></p>
     </div>`;
   const wireGet = wrap => {
@@ -895,9 +1076,9 @@
       const sum = tr(p, 'summary');
       if (sum) return sum;
       const s = firstText([].concat(tr(p, 'description'))[0]);
-      return ko() ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
+      return lang !== 'en' ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
     };
-    const altOf = o => (ko() && o.altKo) || o.alt;
+    const altOf = o => pick(o, 'alt');
     const actHTML = p => {
       const act = p.action; if (!act) return '';
       return act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
@@ -1005,36 +1186,39 @@
 
     const label = () => {
       PROJECTS.forEach((p, i) => {
-        const el = plates[i], T = p.heading || p.title;
+        const el = plates[i], T = nameOf(p, p.heading || p.title);
+        el.querySelector('.cap-title a').textContent = T;
+        labelSub(el.querySelector('.cap-ko'), p);
+        links[i + 1].querySelector('span').textContent = nameOf(p);
         const st = el.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
         el.querySelector('.cap-line').textContent = tr(p, 'headline');
         el.querySelector('.cap-text').textContent = lineOf(p);
         const more = el.querySelector('.plate-more');
-        more.textContent = ko() ? '자세히 보기' : 'Explore';
-        more.setAttribute('aria-label', ko() ? `${T} 자세히 보기` : `Explore ${T}`);
+        more.textContent = L('Explore', '자세히 보기', '詳しく見る');
+        more.setAttribute('aria-label', L(`Explore ${T}`, `${T} 자세히 보기`, `${T}を詳しく見る`));
         const a = el.querySelector('.prod-act');
-        if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
-        const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
+        if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); }
+        const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
         const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
       });
       if (flip) {
         const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
         const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
-        datPlate.querySelector('.plate-cast').setAttribute('aria-label', ko() ? 'DAT 캐릭터 일러스트' : 'DAT character art');
+        datPlate.querySelector('.plate-cast').setAttribute('aria-label', L('DAT character art', 'DAT 캐릭터 일러스트', 'DAT キャラクターイラスト'));
         datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
-        flip.setAttribute('aria-label', ko() ? 'DAT, 2개 화면' : 'DAT, 2 views');
-        datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', ko() ? 'DAT 화면 전환' : 'DAT view switch');
-        const pillLabels = ko() ? ['01 캐릭터 일러스트', '02 보정 전후 비교'] : ['01 Character Art', '02 Before & After'];
+        flip.setAttribute('aria-label', L('DAT, 2 views', 'DAT, 2개 화면', 'DAT、2画面'));
+        datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', L('DAT view switch', 'DAT 화면 전환', 'DAT 画面切り替え'));
+        const pillLabels = L(['01 Character Art', '02 Before & After'], ['01 캐릭터 일러스트', '02 보정 전후 비교'], ['01 キャラクターイラスト', '02 補正前後の比較']);
         marks.forEach((b, k) => { b.textContent = pillLabels[k]; });
-        flip.querySelector('.flip-next').setAttribute('aria-label', ko() ? '보정 전후 비교 보기' : 'View before and after');
-        flip.querySelector('.flip-prev').setAttribute('aria-label', ko() ? '캐릭터 일러스트 보기' : 'View character art');
+        flip.querySelector('.flip-next').setAttribute('aria-label', L('View before and after', '보정 전후 비교 보기', '補正前後の比較を見る'));
+        flip.querySelector('.flip-prev').setAttribute('aria-label', L('View character art', '캐릭터 일러스트 보기', 'キャラクターイラストを見る'));
         const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
-        box.querySelector('.cmp-before').alt = ko() ? c.beforeLabelKo || c.beforeLabel : c.beforeLabel || 'Original';
-        box.querySelector('.cmp-after').alt = ko() ? 'DAT 적용 후' : 'After DAT';
-        range.setAttribute('aria-label', ko() ? 'BEFORE / AFTER 비교 경계 위치' : 'Before / after reveal position');
+        box.querySelector('.cmp-before').alt = pick(c, 'beforeLabel') || 'Original';
+        box.querySelector('.cmp-after').alt = L('After DAT', 'DAT 적용 후', 'DAT 適用後');
+        range.setAttribute('aria-label', L('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치', 'BEFORE / AFTER 比較の境界位置'));
       }
-      rail.setAttribute('aria-label', ko() ? '프로젝트 목록' : 'Project index');
-      links[0].querySelector('span').textContent = ko() ? '홈' : 'Home';
+      rail.setAttribute('aria-label', L('Project index', '프로젝트 목록', 'プロジェクト一覧'));
+      links[0].querySelector('span').textContent = L('Home', '홈', 'ホーム');
       setCurrent(curId, false);
     };
 
@@ -1056,15 +1240,15 @@
       links.forEach(a => { const on = a.dataset.indexLink === id; a.classList.toggle('is-current', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
       document.querySelectorAll('[data-go-project]').forEach(b => { const on = b.dataset.goProject === id; b.classList.toggle('is-current', on); if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
       setText('[data-current-num]', p ? numOf(p) : '');
-      setText('[data-current-title]', p ? p.title : '');
+      setText('[data-current-title]', p ? nameOf(p) : '');
       setText('[data-current-sub]', '');
       const q = PROJECTS[p ? i + 1 : 0];
       if (nextCh) {
         nextCh.hidden = !q;
         if (q) {
-          nextCh.querySelector('[data-next-title]').textContent = q.title;
+          nextCh.querySelector('[data-next-title]').textContent = nameOf(q);
           nextCh.href = `#${q.id}`;
-          nextCh.setAttribute('aria-label', ko() ? `다음 프로젝트: ${q.title}` : `Next project: ${q.title}`);
+          nextCh.setAttribute('aria-label', L(`Next project: ${q.title}`, `다음 프로젝트: ${q.title}`, `次のプロジェクト: ${nameOf(q)}`));
         }
       }
       if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : location.pathname.replace(/\.html$/, '') + location.search);
@@ -1105,7 +1289,11 @@
   }
 
   const paras = p => [].concat(tr(p, 'description')); /* Korean keeps the same paragraph count, so the rail position carries over */
-  const steps = p => (p.reel ? p.panels.length : paras(p).length); /* a reel (DAT) steps its artwork under one fixed line of copy */
+  /* DAT detail, two pipelines (Mino 2026-10-27 20:47 mockup): Creative steps the artworks before the comparison panel,
+     Polish opens that comparison (the recorded pairs) at once. Same panels, copy and comparison UI as before. */
+  let datPipe = 'creative';
+  const datSplit = p => (p.id === 'dat' && p.comparisons ? p.panels.findIndex(s => s.kind === 'compare') : -1);
+  const steps = p => (p.reel ? p.panels.length : datSplit(p) > 0 ? (datPipe === 'polish' ? 1 : datSplit(p)) : paras(p).length); /* a reel (DAT) steps its artwork under one fixed line of copy */
   const artFor = (p, k) => {
     const art = tr(p, 'art'); /* Korean may order the same visuals to follow its own copy */
     if (!art) return p.panels[0];
@@ -1151,10 +1339,9 @@
   const visual = (spec, j, i, reel) => {
     const on = j === 0 ? ' is-on' : '', cap = spec.cap ? '<figcaption></figcaption>' : '';
     if (spec.kind === 'compare') return `<div class="media vis dat-inline${on}" data-art="${i}" role="group" hidden>
-      <div class="dat-cases" role="group"></div>
-      <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span></div>
-      <label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label>
-      <div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div><p class="dat-note"></p></div>`;
+      <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span><span class="dat-spot" aria-hidden="true" hidden></span></div>
+      <div class="dat-hud"><div class="dat-bar"><div class="dat-cases" role="group"></div><label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label><button type="button" class="dat-more" data-dat-more aria-expanded="false" aria-controls="dat-detail-panel"></button></div>
+      <div class="dat-panel" id="dat-detail-panel" hidden><div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div><p class="dat-note"></p></div></div></div>`;
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
@@ -1186,6 +1373,7 @@
         <h2 class="cap-title" id="t-${p.id}">${only ? esc(p.heading || p.title) : `<a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>`}</h2>
         ${p.title_ko ? `<p class="cap-ko" lang="ko">${esc(p.title_ko)}</p>` : ''}
         <p class="cap-line"></p>
+        ${datSplit(p) > 0 ? '<div class="dat-pipes" role="group"><button type="button" data-dat-pipe="creative" aria-pressed="true">Creative Pipeline</button><button type="button" data-dat-pipe="polish" aria-pressed="false">Polish Pipeline</button></div>' : ''}
         <div class="rail" data-rail tabindex="0" role="region" aria-roledescription="carousel">
           ${ps.map(() => '<div class="slide" role="group" aria-roledescription="slide"><p></p></div>').join('')}
         </div>
@@ -1207,47 +1395,165 @@
   const datSec = secs.find(sec => sec.dataset.prod === 'dat');
   const datProject = shown.find(p => p.id === 'dat');
   const datInline = datSec && datSec.querySelector('.dat-inline');
-  let datCase = 0, zoomX = .24, zoomY = .49;
-  const datText = (en, kr) => ko() ? kr : en;
-  const activeCase = () => datProject.comparisons[datCase];
+  const datFrame = datInline && datInline.querySelector('.dat-reveal');
+  /* datCase = the pair chosen (tab, deck count); datShown = the pair on screen. They differ only while the chosen pair decodes. */
+  let datCase = 0, datShown = -1, datSwap = 0, zoomX = .24, zoomY = .49, splitV = .5;
+  const datHud = datInline && datInline.querySelector('.dat-hud'), datPanel = datInline && datInline.querySelector('.dat-panel');
+  const datRange = datInline && datInline.querySelector('[data-dat-range]'), datMore = datInline && datInline.querySelector('[data-dat-more]');
+  const datText = (en, kr, ja) => L(en, kr, ja);
+  const activeCase = () => datProject.comparisons[datShown < 0 ? datCase : datShown];
   const resetDetail = () => { [zoomX, zoomY] = activeCase().detailPoint || [.24, .49]; };
+  /* each case file is fetched and decoded once per visit and kept, so a pair is swapped in only when both halves can paint */
+  const datPix = {};
+  const datLoad = (src, low) => datPix[src] || (datPix[src] = new Promise(done => {
+    const im = new Image(); im.decoding = 'async'; if (low) im.fetchPriority = 'low'; im.src = url(src);
+    (im.decode ? im.decode() : Promise.reject()).catch(() => new Promise(r => { if (im.complete) r(); else im.onload = im.onerror = r; })).then(() => done(im));
+  }));
+  /* warm-up goes one pair at a time at low priority, so a pair someone actually picks never queues behind all of them */
+  let datWarm = null;
+  const warmDat = () => datWarm || (datWarm = datProject.comparisons.reduce((q, c) => q.then(() => Promise.all([datLoad(c.before, true), datLoad(c.after, true)])), Promise.resolve()));
   const pauseDat = () => { datSec._manual = true; if (datSec._arm) datSec._arm(); };
+  /* Polish fills the plate (Mino 21:34): both halves are one cover crop of the same frame, same scale and same
+     object-position, so this one box (frame px) is where every image pixel of either half lands */
+  const datBox = () => {
+    const b = datFrame.getBoundingClientRect(), c = activeCase(), s = Math.max(b.width / c.width, b.height / c.height);
+    const op = getComputedStyle(datFrame.querySelector('img')).objectPosition.split(' ').map(v => (v.endsWith('%') ? parseFloat(v) / 100 : .5));
+    const w = c.width * s, h = c.height * s;
+    return { b, s, w, h, x: (b.width - w) * op[0], y: (b.height - h) * (op.length > 1 ? op[1] : .5) };
+  };
+  const clamp01 = v => Math.max(.01, Math.min(.99, v));
   const updateZoom = () => {
     if (!datInline || datInline.hidden) return;
-    const c = activeCase(), h = datInline.querySelector('.dat-reveal').getBoundingClientRect().height * 3, w = h * c.width / c.height;
+    /* crops: about twice the on-screen scale, never under 1.25x or over 2x the file's own pixels */
+    const c = activeCase(), k = datBox(), z = Math.min(2, Math.max(1.25, k.s * 2)), w = c.width * z, h = c.height * z;
     datInline.querySelectorAll('.dat-detail').forEach(el => {
       const b = el.getBoundingClientRect();
       el.style.backgroundSize = `${w}px ${h}px`;
       el.style.backgroundPosition = `${b.width / 2 - zoomX * w}px ${b.height / 2 - zoomY * h}px`;
       el.dataset.x = zoomX.toFixed(4); el.dataset.y = zoomY.toFixed(4);
     });
+    /* the outline on the plate marks exactly the region the crops show */
+    const spot = datFrame.querySelector('.dat-spot'), d = datInline.querySelector('.dat-detail').getBoundingClientRect();
+    spot.hidden = datPanel.hidden;
+    if (spot.hidden) return;
+    const sw = d.width * k.s / z, sh = d.height * k.s / z;
+    spot.style.cssText = `left:${(k.x + zoomX * k.w - sw / 2).toFixed(1)}px;top:${(k.y + zoomY * k.h - sh / 2).toFixed(1)}px;width:${sw.toFixed(1)}px;height:${sh.toFixed(1)}px`;
   };
+  /* the pair is the background (Mino 22:28): the boundary runs the plate's whole width, 0 at the left edge and 1 at the
+     right, behind the copy too; splitV is 0..1 of the frame. placeSplit measures (resize, case, details); paintSplit
+     only moves the line from those numbers, so a pointer sweep never forces a layout */
+  let splitK = null;
+  const paintSplit = () => {
+    const k = splitK; if (!k) return;
+    const x = k.w * splitV;
+    datFrame.style.setProperty('--split', `${x.toFixed(1)}px`);
+    /* at either end the handle slides in beside the line instead of hanging half off the screen */
+    datFrame.style.setProperty('--knob-dx', `${(Math.max(22, Math.min(k.w - 22, x)) - x).toFixed(1)}px`);
+    k.bTag.classList.toggle('dat-tag-off', x < k.bRight + 12 || k.bLow);
+    k.aTag.classList.toggle('dat-tag-off', x > k.aLeft - 12 || k.aLow);
+  };
+  const placeSplit = () => {
+    if (!datInline || datInline.hidden) return;
+    /* no room above the bar for the open details (short phones): they drop over the copy until closed */
+    datSec.classList.remove('dat-drop');
+    const line = datFrame.querySelector('.dat-divider').getBoundingClientRect();
+    if (!datPanel.hidden && datPanel.getBoundingClientRect().top < line.top + 8) datSec.classList.add('dat-drop');
+    const f = datFrame.getBoundingClientRect(), h = datHud.getBoundingClientRect();
+    /* the handle rides midway between the top bar and whatever the controls take up, and above the first line of copy,
+       since the line now passes behind it */
+    const top = datSec.classList.contains('dat-drop') ? datInline.querySelector('.dat-bar').getBoundingClientRect().top : h.top;
+    const meta = datSec.querySelector('.prod-copy .cap-meta').getBoundingClientRect().top;
+    const knob = Math.min((Math.min(top, line.bottom) - line.top) / 2, meta - 32 - line.top);
+    datFrame.style.setProperty('--knob', `${Math.max(24, knob).toFixed(1)}px`);
+    const bTag = datFrame.querySelector('.dat-before-tag'), aTag = datFrame.querySelector('.dat-after-tag');
+    const bt = bTag.getBoundingClientRect(), at = aTag.getBoundingClientRect();
+    splitK = { left: f.left, w: f.width, bTag, aTag, bRight: bt.right - f.left, aLeft: at.left - f.left, bLow: bt.bottom + 6 > top, aLow: at.bottom + 6 > top };
+    paintSplit();
+  };
+  /* a pointer within 12px of either edge counts as the edge, so 0 and 100 are reachable without hitting the last pixel */
+  const slideTo = clientX => {
+    if (!splitK) placeSplit();
+    const k = splitK, e = Math.min(12, k.w / 8);
+    splitV = Math.max(0, Math.min(1, (clientX - k.left - e) / (k.w - 2 * e)));
+    datRange.value = Math.round(splitV * 100); paintSplit();
+  };
+  /* the copy column keeps Creative's height in Polish (rail as tall as Creative's tallest paragraph; a taller Polish
+     paragraph eats into the unseen stepper line instead), so the title and the switch do not move between pipelines */
+  const fitDatRail = () => {
+    const rail = datSec.querySelector('[data-rail]'), sl = [...rail.children], off = sl.map(x => x.classList.contains('dat-off'));
+    sl.forEach(x => x.classList.remove('dat-off')); rail.style.alignItems = 'flex-start';
+    const hs = sl.map(x => x.offsetHeight), cut = datSplit(datProject);
+    rail.style.alignItems = ''; sl.forEach((x, j) => x.classList.toggle('dat-off', off[j]));
+    const cre = Math.max(...hs.slice(0, cut)), pol = Math.max(...hs.slice(cut));
+    datSec.style.setProperty('--dat-rail-h', `${cre}px`); datSec.style.setProperty('--dat-tuck', `${Math.max(0, pol - cre)}px`);
+  };
+  const labelMore = () => {
+    datMore.textContent = datPanel.hidden ? datText('View details', '디테일 보기', 'ディテールを見る') : datText('Hide details', '디테일 닫기', 'ディテールを閉じる');
+    datMore.setAttribute('aria-expanded', String(!datPanel.hidden));
+  };
+  const setMore = open => { datPanel.hidden = !open; labelMore(); placeSplit(); updateZoom(); };
   const updateDat = () => {
     if (!datSec || !datInline) return;
-    const rail = datSec.querySelector('[data-rail]');
-    const k = Math.round(rail.scrollLeft / (rail.clientWidth || 1));
-    datSec.classList.toggle('dat-comparing', k === 5);
-    datInline.hidden = k !== 5;
-    datInline.inert = k !== 5;
-    const c = activeCase(), beforeName = ko() ? c.beforeLabelKo || c.beforeLabel || '원본' : c.beforeLabel || 'Original';
-    datInline.querySelector('.dat-note').textContent = ko() ? c.noteKo : c.note;
-    datInline.setAttribute('aria-label', `${ko() ? c.labelKo : c.label} · BEFORE / AFTER`);
-    datInline.querySelector('.dat-cases').setAttribute('aria-label', datText('Comparison cases', '비교 장면'));
+    const polish = datPipe === 'polish', split = datSplit(datProject);
+    datSec.classList.toggle('dat-comparing', polish);
+    datInline.hidden = !polish;
+    datInline.inert = !polish;
+    datSec.querySelector('.dat-pipes').setAttribute('aria-label', datText('Pipeline', '파이프라인', 'パイプライン'));
+    datSec.querySelectorAll('[data-dat-pipe]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.datPipe === datPipe)));
+    datSec.querySelectorAll('[data-rail] > .slide').forEach((s, j) => s.classList.toggle('dat-off', polish ? j !== split : j >= split));
+    const c = activeCase(), beforeName = pick(c, 'beforeLabel') || L('Original', '원본', '原画');
+    datInline.querySelector('.dat-note').textContent = pick(c, 'note');
+    datInline.setAttribute('aria-label', `${pick(c, 'label')} · BEFORE / AFTER`);
+    datInline.querySelector('.dat-cases').setAttribute('aria-label', datText('Comparison cases', '비교 장면', '比較する場面'));
     datInline.querySelectorAll('[data-dat-case]').forEach((b, i) => {
-      b.textContent = ko() ? datProject.comparisons[i].labelKo : datProject.comparisons[i].label;
+      b.textContent = pick(datProject.comparisons[i], 'label');
       b.setAttribute('aria-pressed', String(i === datCase));
     });
+    /* the note, alt text and default crop point always describe the pair on screen, never one still decoding */
     const point = c.detailPoint || [.24, .49];
     datInline.dataset.defaultX = point[0].toFixed(4); datInline.dataset.defaultY = point[1].toFixed(4);
-    datInline.querySelector('.dat-reveal').style.setProperty('--case-ar', c.width / c.height);
-    datInline.querySelectorAll('[data-dat-native]').forEach((img, i) => {
-      img.src = url(i ? c.after : c.before);
-      img.alt = `${ko() ? c.labelKo : c.label} · ${i ? datText('After DAT', 'DAT 적용 후') : beforeName}`;
+    datFrame.querySelectorAll('[data-dat-native]').forEach((img, i) => {
+      img.alt = `${pick(c, 'label')} · ${i ? datText('After DAT', 'DAT 적용 후', 'DAT 適用後') : beforeName}`;
     });
-    datInline.querySelectorAll('.dat-detail').forEach((el, i) => { el.style.backgroundImage = `url("${url(i ? c.after : c.before)}")`; });
-    datInline.querySelector('[data-dat-range]').setAttribute('aria-label', datText('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치'));
-    datInline.querySelector('.dat-zoom').setAttribute('aria-label', datText('Synchronized detail magnifier. Arrow keys move the location, Home resets.', '같은 위치 확대. 방향키로 위치 이동, Home으로 초기 위치'));
-    updateZoom();
+    datInline.querySelector('[data-dat-range]').setAttribute('aria-label', datText('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치', 'BEFORE / AFTER 比較の境界位置'));
+    datInline.querySelector('.dat-zoom').setAttribute('aria-label', datText('Synchronized detail magnifier. Arrow keys move the location, Home resets.', '같은 위치 확대. 방향키로 위치 이동, Home으로 초기 위치', '同じ位置を拡大。矢印キーで位置を移動、Home で最初の位置に戻ります'));
+    labelMore();
+    if (polish) { warmDat(); fitDatRail(); }
+    if (datShown !== datCase) showCase(datCase); else { placeSplit(); updateZoom(); }
+  };
+  /* Swap a pair only once both files are decoded; a later choice cancels an earlier one still loading. On screen the old
+     frame is lifted out as a still copy and fades over the new one (.32s), so the frame never shows a blank, a half-loaded
+     pair or a pair letterboxed in the next pair's shape. First paint, a hidden panel and reduced motion swap without a fade. */
+  const showCase = i => {
+    const tok = ++datSwap, c = datProject.comparisons[i];
+    datFrame.setAttribute('aria-busy', 'true');
+    Promise.all([datLoad(c.before), datLoad(c.after)]).then(() => {
+      if (tok !== datSwap) return;
+      datInline.querySelectorAll('.dat-ghost').forEach(g => g.remove());
+      let ghost = null;
+      if (datShown >= 0 && !datInline.hidden && !reduce.matches) {
+        const a = datFrame.getBoundingClientRect(), o = datInline.getBoundingClientRect();
+        ghost = datFrame.cloneNode(true);
+        ghost.classList.remove('dat-enter'); ghost.classList.add('dat-ghost'); ghost.setAttribute('aria-hidden', 'true'); ghost.inert = true; ghost.querySelectorAll('[data-dat-native]').forEach(im => im.removeAttribute('data-dat-native'));
+        ghost.style.cssText += `;position:absolute;left:${a.left - o.left}px;top:${a.top - o.top}px;width:${a.width}px;height:${a.height}px;opacity:${getComputedStyle(datFrame).opacity}`;
+        ghost.removeAttribute('aria-busy');
+        datInline.appendChild(ghost);
+        datFrame.classList.add('dat-enter');
+      }
+      datShown = i; resetDetail();
+      datFrame.style.setProperty('--dpos', c.pos || '50% 50%'); datFrame.style.setProperty('--dpos-m', c.posM || c.pos || '50% 50%');
+      splitV = .5; datRange.value = 50;
+      datFrame.querySelectorAll('[data-dat-native]').forEach((img, j) => { img.src = url(j ? c.after : c.before); });
+      datInline.querySelectorAll('.dat-detail').forEach((el, j) => { el.style.backgroundImage = `url("${url(j ? c.after : c.before)}")`; });
+      datFrame.removeAttribute('aria-busy');
+      updateDat();
+      if (!ghost) return;
+      datFrame.getBoundingClientRect(); /* commit the hidden state before fading */
+      requestAnimationFrame(() => {
+        datFrame.classList.remove('dat-enter'); ghost.style.opacity = '0';
+        ghost.addEventListener('transitionend', () => ghost.remove(), { once: true }); setTimeout(() => ghost.remove(), 1500);
+      });
+    });
   };
   if (datInline) {
     datInline.querySelector('.dat-cases').innerHTML = datProject.comparisons.map((_, i) => `<button type="button" data-dat-case="${i}" aria-pressed="${i === 0}"></button>`).join('');
@@ -1255,22 +1561,68 @@
     datInline.addEventListener('focusin', pauseDat);
     datInline.addEventListener('click', e => {
       const b = e.target.closest('[data-dat-case]'); if (!b) return;
-      pauseDat(); datCase = Number(b.dataset.datCase); resetDetail();
-      datInline.querySelector('[data-dat-range]').value = 50;
-      datInline.querySelector('.dat-reveal').style.setProperty('--split', '50%'); updateDat();
+      pauseDat(); datCase = Number(b.dataset.datCase); /* crop point, slider and --split reset when the pair lands (showCase) */
+      updateDat(); sync(datSec, true);
     });
-    const range = datInline.querySelector('[data-dat-range]'), frame = datInline.querySelector('.dat-reveal');
-    range.addEventListener('input', () => { pauseDat(); frame.style.setProperty('--split', `${range.value}%`); });
-    const locate = e => {
-      const b = frame.getBoundingClientRect();
-      zoomX = Math.max(.01, Math.min(.99, (e.clientX - b.left) / b.width));
-      zoomY = Math.max(.01, Math.min(.99, (e.clientY - b.top) / b.height)); updateZoom();
+    /* Creative artworks are 2688px files that sit at opacity 0 until their step: decode them up front so the first
+       fade-in does not decode mid-transition */
+    const decodeArt = () => datSec.querySelectorAll('img.media[data-art]').forEach(im => { if (im.decode) im.decode().catch(() => {}); });
+    if (document.readyState === 'complete') decodeArt(); else addEventListener('load', decodeArt, { once: true });
+    /* reaching for the switch starts fetching the pairs, so the first Polish view rarely waits */
+    ['pointerenter', 'focusin'].forEach(t => datSec.querySelector('.dat-pipes').addEventListener(t, warmDat, { once: true }));
+    /* pipeline switch: Creative returns to the artwork it left; Polish has no step of its own, its pairs are the case buttons */
+    let datLastK = 0;
+    datSec.querySelector('.dat-pipes').addEventListener('click', e => {
+      const b = e.target.closest('[data-dat-pipe]'); if (!b || b.dataset.datPipe === datPipe) return;
+      if (datPipe === 'creative') datLastK = slideOf(datSec);
+      datPipe = b.dataset.datPipe;
+      updateDat();
+      if (datPipe === 'creative') goSlide(datSec, datLastK, true);
+      sync(datSec, true);
+      b.scrollIntoView({ block: 'nearest' });
+      const live = document.querySelector('[data-live]');
+      if (live) live.textContent = datPipe === 'polish' ? `DAT, Polish Pipeline, ${pick(activeCase(), 'label')}`
+        : L(`DAT, Creative Pipeline, artwork ${datLastK + 1} of ${datSplit(datProject)}`, `DAT, Creative Pipeline, ${datSplit(datProject)}개 중 ${datLastK + 1}번째 작품`, `DAT、Creative Pipeline、${datSplit(datProject)}件中${datLastK + 1}件目の作品`);
+    });
+    const frame = datFrame;
+    datRange.addEventListener('input', () => { pauseDat(); splitV = datRange.value / 100; paintSplit(); });
+    datMore.addEventListener('click', () => { pauseDat(); setMore(datPanel.hidden); });
+    datPanel.addEventListener('keydown', e => { if (e.key === 'Escape') { setMore(false); datMore.focus(); } });
+    /* the crops follow the pointer over the plate while the details are open */
+    const aim = e => {
+      const k = datBox();
+      zoomX = clamp01((e.clientX - k.b.left - k.x) / k.w); zoomY = clamp01((e.clientY - k.b.top - k.y) / k.h); updateZoom();
     };
-    frame.addEventListener('pointerdown', e => { frame.setPointerCapture(e.pointerId); locate(e); range.value = Math.round(zoomX * 100); range.dispatchEvent(new Event('input')); });
-    frame.addEventListener('pointermove', e => {
-      if (e.pointerType === 'mouse' || frame.hasPointerCapture(e.pointerId)) { pauseDat(); locate(e); }
-      if (frame.hasPointerCapture(e.pointerId)) { range.value = Math.round(zoomX * 100); range.dispatchEvent(new Event('input')); }
+    /* a mouse moves the boundary just by passing over the section, nothing pressed, over the copy and the controls too:
+       the listener only watches what bubbles up, so every link and button underneath still takes its own click.
+       One update per frame. */
+    let hoverX = null;
+    datSec.addEventListener('pointermove', e => {
+      if (e.pointerType !== 'mouse' || datInline.hidden) return;
+      if (hoverX === null) requestAnimationFrame(() => { if (hoverX !== null && !datInline.hidden) slideTo(hoverX); hoverX = null; });
+      hoverX = e.clientX;
     });
+    /* touch and pen drag it on the picture: a finger only after it moves sideways, so a vertical swipe over the
+       full-screen plate still scrolls the page (touch-action: pan-y), and a still tap jumps */
+    let grab = null;
+    frame.addEventListener('pointerdown', e => {
+      if (e.button > 0) return;
+      pauseDat();
+      if (e.pointerType === 'mouse') { slideTo(e.clientX); return; }
+      grab = { id: e.pointerId, x: e.clientX, live: false };
+    });
+    frame.addEventListener('pointermove', e => {
+      const mine = grab && grab.id === e.pointerId;
+      if (mine && !grab.live && Math.abs(e.clientX - grab.x) > 6) { grab.live = true; try { frame.setPointerCapture(e.pointerId); } catch (err) { /* already released */ } }
+      if (mine && grab.live) slideTo(e.clientX);
+      if (!datPanel.hidden && (e.pointerType === 'mouse' || (mine && grab.live))) aim(e);
+    });
+    const drop = e => {
+      if (!grab || grab.id !== e.pointerId) return;
+      if (e.type === 'pointerup' && !grab.live) slideTo(e.clientX);
+      grab = null;
+    };
+    frame.addEventListener('pointerup', drop); frame.addEventListener('pointercancel', drop);
     datInline.querySelector('.dat-zoom').addEventListener('keydown', e => {
       if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home'].includes(e.key)) return;
       e.preventDefault(); e.stopPropagation(); pauseDat();
@@ -1280,39 +1632,52 @@
     });
     /* Inline controls never step the reel; Tab and Escape remain native and untrapped. */
     datInline.addEventListener('keydown', e => { pauseDat(); e.stopPropagation(); });
-    new ResizeObserver(updateZoom).observe(frame);
+    const refit = () => { if (datInline.hidden) return; fitDatRail(); placeSplit(); updateZoom(); };
+    const ro = new ResizeObserver(refit); [datSec, frame, datHud].forEach(el => ro.observe(el));
   }
 
   /* every word in a section, in the current language; changes text in place so scroll and rail position stay put */
   const labelSec = (sec, p) => {
-    const ps = paras(p), n = steps(p), T = p.heading || p.title, set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
+    const ps0 = paras(p), n = steps(p), T = nameOf(p, p.heading || p.title), set = (sel, attr, v) => { const el = sec.querySelector(sel); if (el) el.setAttribute(attr, v); };
+    /* DAT counts only the current pipeline's paragraphs (Creative 1-5, Polish 1); slide k still fills slide element k */
+    const dk = datSplit(p), dOff = dk > 0 && datPipe === 'polish' ? dk : 0, ps = dk > 0 ? ps0.slice(dOff, datPipe === 'polish' ? dk + 1 : dk) : ps0;
     const st = sec.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
+    const tt = sec.querySelector('.cap-title'); (tt.querySelector('a') || tt).textContent = T;
+    labelSub(sec.querySelector('.cap-ko'), p);
     sec.querySelector('.cap-line').textContent = tr(p, 'headline');
-    set('[data-rail]', 'aria-label', ko() ? `${T}, 문단 ${ps.length}개` : `${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`);
-    const unit = p.reel ? (ko() ? '작품' : 'artwork') : (ko() ? '문단' : 'paragraph');
+    set('[data-rail]', 'aria-label', L(`${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`, `${T}, 문단 ${ps.length}개`, `${T}、${ps.length}段落`));
+    const unit = p.reel ? L('artwork', '작품', '作品') : L('paragraph', '문단', '段落');
     sec.querySelectorAll('.slide').forEach((s, k) => {
-      s.setAttribute('aria-label', ko() ? `${ps.length}개 중 ${k + 1}번째` : `${k + 1} of ${ps.length}`);
-      s.replaceChildren(...[].concat(ps[k]).map(blockEl));
+      const i = k - dOff; /* DAT: position within the current pipeline; the other pipeline's slides are hidden */
+      if (i >= 0 && i < ps.length) s.setAttribute('aria-label', L(`${i + 1} of ${ps.length}`, `${ps.length}개 중 ${i + 1}번째`, `${ps.length}件中${i + 1}件目`));
+      else s.removeAttribute('aria-label');
+      s.replaceChildren(...[].concat(ps0[k]).map(blockEl));
     });
-    sec.querySelectorAll('[data-rail-step]').forEach(b => { b.textContent = Number(b.dataset.railStep) < 0 ? (ko() ? '이전' : 'Prev') : (ko() ? '다음' : 'Next'); });
-    set('[data-rail-step="-1"]', 'aria-label', ko() ? `${T} 이전 ${unit}` : `Previous ${unit}, ${T}`);
-    set('[data-rail-step="1"]', 'aria-label', ko() ? `${T} 다음 ${unit}` : `Next ${unit}, ${T}`);
-    sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', ko() ? `${T}, ${n}개 중 ${k + 1}번째 ${unit}` : `${T}, ${unit} ${k + 1} of ${n}`));
+    sec.querySelectorAll('[data-rail-step]').forEach(b => { b.textContent = Number(b.dataset.railStep) < 0 ? L('Prev', '이전', '前へ') : L('Next', '다음', '次へ'); });
+    set('[data-rail-step="-1"]', 'aria-label', L(`Previous ${unit}, ${T}`, `${T} 이전 ${unit}`, `${T}の前の${unit}`));
+    set('[data-rail-step="1"]', 'aria-label', L(`Next ${unit}, ${T}`, `${T} 다음 ${unit}`, `${T}の次の${unit}`));
+    const nd = dk > 0 ? dk : n; /* DAT dots are Creative's steps even while Polish hides them */
+    sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', L(`${T}, ${unit} ${k + 1} of ${nd}`, `${T}, ${nd}개 중 ${k + 1}번째 ${unit}`, `${T}、${nd}件中${k + 1}件目の${unit}`)));
     const a = sec.querySelector('.prod-act');
-    if (a) { const l = ko() ? ACT_KO[p.action.label] || p.action.label : p.action.label; a.textContent = l; a.setAttribute('aria-label', ko() ? `${T} ${l}` : `${l} ${T}`); }
-    const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = ko() ? '설치 파일 선택' : 'Choose your OS';
+    if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); }
+    const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
     sec.querySelectorAll('[data-art]').forEach(m => {
-      const spec = p.panels[m.dataset.art], alt = ko() && spec.altKo || spec.alt;
+      const spec = p.panels[m.dataset.art], alt = pick(spec, 'alt');
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
       const cv = m.querySelector('.cv');
-      if (cv) { cv.replaceChildren(...chatBlocks(ko() ? spec.ko : spec.en)); if (alt) m.setAttribute('aria-label', alt); }
-      if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = ko() && it.altKo || it.alt; const n = g.querySelector('.gn'); if (n) n.textContent = ko() && it.nameKo || it.name; }); }
+      if (cv) { cv.replaceChildren(...chatBlocks(spec[lang] || spec.en)); if (alt) m.setAttribute('aria-label', alt); }
+      if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = pick(it, 'alt'); const n = g.querySelector('.gn'); if (n) n.textContent = pick(it, 'name'); }); }
       else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
-      if (cap) cap.textContent = ko() && spec.capKo || spec.cap;
+      if (cap) cap.textContent = pick(spec, 'cap');
     });
-    if (p.id === 'dat' && datInline) updateDat();
+    if (p.id === 'dat' && datInline) { sec._datLabelled = datPipe; updateDat(); }
   };
-  const labelAll = () => secs.forEach((sec, i) => labelSec(sec, shown[i]));
+  /* a product page names itself in its sr-only h1 and the track label (seonjam.html: 선잠 DOZE); Japanese uses title_ja */
+  const pageH1 = only && document.querySelector('h1.sr-only'), h1Base = pageH1 && pageH1.textContent, trackBase = track.getAttribute('aria-label');
+  const labelAll = () => {
+    secs.forEach((sec, i) => labelSec(sec, shown[i]));
+    if (only && shown[0]) { if (pageH1) pageH1.textContent = nameOf(shown[0], h1Base); if (trackBase) track.setAttribute('aria-label', nameOf(shown[0], trackBase)); }
+  };
   labelAll();
 
   /* ---------- opening (index only): no product is current while it fills the screen ---------- */
@@ -1335,7 +1700,7 @@
     return [pi, k];
   };
 
-  const slideOf = sec => { if (sec.dataset.reel != null) return sec._k || 0; const r = sec.querySelector('[data-rail]'); return Math.max(0, Math.round(r.scrollLeft / (r.clientWidth || 1))); };
+  const slideOf = sec => { if (sec.dataset.reel != null) return sec._k || 0; if (sec === datSec && datPipe === 'polish') return datSplit(datProject); const r = sec.querySelector('[data-rail]'); return Math.max(0, Math.round(r.scrollLeft / (r.clientWidth || 1))); };
   const setText = (sel, text) => document.querySelectorAll(sel).forEach(el => { el.textContent = text; });
   /* deck: the next chapter in PROJECTS order; on a project page it links to that project's page */
   const nextCh = document.querySelector('[data-next-chapter]');
@@ -1344,9 +1709,9 @@
     const i = from == null ? 0 : PROJECTS.indexOf(from) + 1, q = PROJECTS[i];
     nextCh.hidden = !q;
     if (!q) return;
-    nextCh.querySelector('[data-next-title]').textContent = q.title;
+    nextCh.querySelector('[data-next-title]').textContent = nameOf(q);
     nextCh.href = only ? pageOf(q) : `#${q.id}/1`;
-    nextCh.setAttribute('aria-label', ko() ? `다음 프로젝트: ${q.title}` : `Next project: ${q.title}`);
+    nextCh.setAttribute('aria-label', L(`Next project: ${q.title}`, `다음 프로젝트: ${q.title}`, `次のプロジェクト: ${nameOf(q)}`));
   };
 
   const sync = (sec, auto) => {
@@ -1359,7 +1724,8 @@
     sec.querySelectorAll('.slide').forEach((el, j) => { el.inert = p.reel ? false : j !== k; });
     const c = sec.querySelector('[data-count]'); if (c) c.textContent = k + 1;
     const art = p.reel ? p.panels[k] : artFor(p, k);
-    if (p.id === 'dat' && datInline) labelSec(sec, p);
+    /* DAT's labels depend on the pipeline, not the step: relabel on a switch only, never on every frame of a rail scroll */
+    if (p.id === 'dat' && datInline && sec._datLabelled !== datPipe) labelSec(sec, p);
     sec.dataset.vis = art.kind;
     sec.querySelectorAll('.media[data-art]').forEach(m => {
       const on = Number(m.dataset.art) === p.panels.indexOf(art);
@@ -1368,8 +1734,8 @@
     });
     if (pi !== cur || atIntro) return;
     setText('[data-current-num]', numOf(p));
-    setText('[data-current-title]', p.title);
-    setText('[data-current-sub]', `${k + 1} / ${n}`);
+    setText('[data-current-title]', nameOf(p));
+    setText('[data-current-sub]', sec === datSec && datPipe === 'polish' ? `${datCase + 1} / ${datProject.comparisons.length}` : `${k + 1} / ${n}`);
     setNext(p);
     document.querySelectorAll('[data-go-project]').forEach(b => {
       const on = b.dataset.goProject === p.id;
@@ -1383,8 +1749,8 @@
       if (location.hash !== hash) history.replaceState(null, '', hash);
     }
     const live = document.querySelector('[data-live]');
-    if (live && !auto) live.textContent = p.reel ? (ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 작품` : `${p.title}, artwork ${k + 1} of ${n}`)
-      : ko() ? `${p.title}, ${n}개 중 ${k + 1}번째 문단` : `${p.title}, paragraph ${k + 1} of ${n}`;
+    if (live && !auto) live.textContent = p.reel ? L(`${p.title}, artwork ${k + 1} of ${n}`, `${p.title}, ${n}개 중 ${k + 1}번째 작품`, `${nameOf(p)}、${n}件中${k + 1}件目の作品`)
+      : L(`${p.title}, paragraph ${k + 1} of ${n}`, `${p.title}, ${n}개 중 ${k + 1}번째 문단`, `${nameOf(p)}、${n}件中${k + 1}件目の段落`);
   };
 
   /* manual: a person stepped (buttons, dots, arrow keys); on a reel that ends its autoplay for this visit */
@@ -1396,7 +1762,8 @@
       sync(sec); if (sec._arm) sec._arm();
       return;
     }
-    const r = sec.querySelector('[data-rail]'), n = r.children.length;
+    if (sec === datSec && datPipe === 'polish') return; /* Polish is one view; its pairs step by the case buttons */
+    const r = sec.querySelector('[data-rail]'), n = sec === datSec ? datSplit(datProject) : r.children.length;
     k = Math.max(0, Math.min(n - 1, k));
     r.scrollTo({ left: k * r.clientWidth, behavior: instant ? 'instant' : behavior() });
   };
@@ -1416,6 +1783,9 @@
     sync(sec);
   };
 
+  /* DAT: the comparison used to be step 6, so #6 (or #dat/6) keeps opening it, now as Polish Pipeline */
+  const datHash = datInline && /(?:^#|\/)(\d+)$/.exec(hash0);
+  if (datHash && Number(datHash[1]) - 1 >= datSplit(datProject)) { datPipe = 'polish'; updateDat(); }
   const [pi0, k0] = fromHash(); /* read before the first sync rewrites the hash */
   cur = pi0;
   secs.forEach(sec => {

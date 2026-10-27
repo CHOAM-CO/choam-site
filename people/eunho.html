@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eunho ‘Cayde’ Jung | CHOAM</title>
+<meta name="description" content="Eunho &#x27;Cayde&#x27; Jung, co-founder and CAIO of CHOAM.">
+<link rel="icon" href="../assets/mark.svg">
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../about.css">
+<script>
+/* Eunho reuses Mino's shared-portrait transition; the names swap only for navigations to or from the Eunho profile. */
+(() => {
+  const mark = url => {
+    if (url && /\/eunho(\.html)?$/.test(new URL(url, location.href).pathname)) document.documentElement.dataset.vt = 'eunho';
+    else delete document.documentElement.dataset.vt;
+  };
+  addEventListener('pageswap', event => mark(event.activation?.entry?.url));
+  addEventListener('pagereveal', () => mark(window.navigation?.activation?.from?.url));
+})();
+</script>
+</head>
+<body class="us-page us-profile" data-page="profile">
+<header class="mast">
+  <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+<main class="us-frame"><div class="us-wrap">
+  <a class="profile-back" href="../us">← ABOUT / US</a>
+  <section class="profile-layout" aria-labelledby="profile-title">
+    <figure class="profile-portrait profile-eunho" tabindex="0" aria-label="CHOAM 02 TEXT ONLY" data-aria-en="CHOAM 02 TEXT ONLY" data-aria-ko="CHOAM 02 TEXT ONLY" data-aria-ja="CHOAM 02 TEXT ONLY"><span class="profile-media eunho-shared-portrait"><img class="type-portrait" src="../assets/about/choam-02-eunho.svg" alt=""></span></figure>
+    <div class="profile-content">
+      <span class="us-eyebrow">CHOAM <span aria-hidden="true">/</span> US</span>
+      <h1 class="profile-title" id="profile-title">Eunho 'Cayde' Jung</h1>
+      <div class="profile-introduction">
+        <div data-lang-block="ko" lang="ko"><p>정은호 | 초암(CHOAM) 공동창업자이자 CAIO</p><p>기술의 발전을 게임의 표현력 확장으로 이어가고자 합니다.</p><p>어린 시절부터 과학과 기술이 세상을 변화시키는 과정에 매력을 느꼈습니다. 이후 과학기술뿐 아니라 문화의 발전 역시 사람들의 삶과 가능성을 넓히는 중요한 힘이라고 생각하게 되었습니다. 특히 누구나 나이와 현실의 제약에 관계없이 자유롭게 꿈꿀 수 있는 세상을 만들고 싶었습니다.</p><p>그 가능성을 게임에서 발견했습니다. 게임은 사람들이 새로운 세계를 경험하고 현실에서 불가능했던 일들을 상상하게 만드는 매체입니다. 하지만 아직 게임에서 표현할 수 있는 세계와 경험에는 많은 제약이 존재합니다. 저는 기술의 발전이 이러한 한계를 넓히고, 더 풍부하고 자유로운 경험을 가능하게 할 것이라 믿습니다.</p><p>이를 위해 컴퓨터 소프트웨어 전반을 공부하며 시스템 아키텍처, 컴퓨터 그래픽스, 머신러닝 등 다양한 분야의 지식을 쌓아왔습니다. 이를 바탕으로 캐릭터 제어와 모션 생성 기술을 연구하고, 머신러닝 엔지니어링과 소프트웨어 시스템 설계에 대한 이해를 결합해 AI 에이전트 개발까지 경험했습니다. 기술을 개별적으로 연구하는 데 그치지 않고, 서로 다른 기술을 연결하여 실제 창작과 표현의 가능성을 어떻게 넓힐 수 있을지에 관심을 두고 있습니다.</p><p>이제 초암(CHOAM)을 공동 창업하여 그동안의 연구와 경험을 직접 게임으로 구현하고자 합니다. 기술의 발전을 새로운 표현과 경험으로 연결하고, 궁극적으로 더 많은 사람이 자신만의 꿈을 꿀 수 있는 세계를 만들어가고 싶습니다.</p></div>
+        <div data-lang-block="en" lang="en"><p>Eunho Jung | Co-founder and CAIO of CHOAM</p><p>I want to carry advances in technology into a wider expressive range for games.</p><p>Since childhood I have been drawn to the way science and technology change the world. Over time I came to believe that the growth of culture, not only of science and technology, is an important force that widens people’s lives and possibilities. Above all, I wanted to build a world where anyone can dream freely, whatever their age or the limits of their circumstances.</p><p>I found that possibility in games. Games are a medium that lets people experience new worlds and imagine things that were impossible in reality. Yet the worlds and experiences games can express still face many limits. I believe advances in technology will push those limits outward and make richer, freer experiences possible.</p><p>To that end, I have studied computer software broadly, building knowledge across fields such as system architecture, computer graphics and machine learning. On that basis I have researched character control and motion generation, and by combining that with an understanding of machine learning engineering and software system design, I have also built AI agents. Rather than stopping at studying each technology on its own, I am interested in how connecting different technologies can widen what is actually possible in creative work and expression.</p><p>Now, as a co-founder of CHOAM, I want to bring that research and experience directly into games. I want to turn advances in technology into new forms of expression and experience, and ultimately build a world where more people can dream dreams of their own.</p><p class="profile-tr">Translated from the Korean original.</p></div>
+        <div data-lang-block="ja" lang="ja"><p>チョン・ウンホ | CHOAM 共同創業者・CAIO</p><p>技術の進歩を、ゲームの表現力の拡張につなげていきたいと考えています。</p><p>幼い頃から、科学と技術が世界を変えていく過程に惹かれてきました。その後、科学技術だけでなく文化の発展もまた、人々の暮らしと可能性を広げる大切な力だと考えるようになりました。とりわけ、誰もが年齢や現実の制約にかかわらず、自由に夢を見られる世界をつくりたいと思っていました。</p><p>その可能性をゲームに見出しました。ゲームは、人が新しい世界を体験し、現実では不可能だったことを想像させてくれるメディアです。しかし、ゲームで表現できる世界や体験には、まだ多くの制約があります。技術の進歩がその限界を押し広げ、より豊かで自由な体験を可能にすると信じています。</p><p>そのためにコンピュータソフトウェア全般を学び、システムアーキテクチャ、コンピュータグラフィックス、機械学習など幅広い分野の知識を積み重ねてきました。それをもとにキャラクター制御やモーション生成の技術を研究し、機械学習エンジニアリングとソフトウェアシステム設計の理解を組み合わせて、AI エージェントの開発も経験しました。技術を個別に研究するだけで終わらせず、異なる技術をつなぐことで、実際の創作や表現の可能性をどう広げられるかに関心を持っています。</p><p>いま、CHOAM を共同創業し、これまでの研究と経験をゲームとして直接形にしようとしています。技術の進歩を新しい表現と体験につなげ、最終的には、より多くの人が自分だけの夢を見られる世界をつくっていきたいと考えています。</p><p class="profile-tr">韓国語の原文からの翻訳です。</p></div>
+      </div>
+      <section class="profile-career" aria-labelledby="career-title">
+        <span class="us-eyebrow">CAREER</span>
+        <h2 id="career-title"><span data-lang-block="ko" lang="ko">주요 경력</span><span data-lang-block="en" lang="en">Career Highlights</span><span data-lang-block="ja" lang="ja">主な経歴</span></h2>
+        <ul class="career-list"><li><span data-lang-block="ko" lang="ko">KIST - 연구인턴</span><span data-lang-block="en" lang="en">KIST - Research Intern</span><span data-lang-block="ja" lang="ja">KIST - 研究インターン</span></li><li><span data-lang-block="ko" lang="ko">한양대 CGR - 학부인턴+석사과정 연구원</span><span data-lang-block="en" lang="en">Hanyang University CGR - Undergraduate Intern + Master’s Student Researcher</span><span data-lang-block="ja" lang="ja">漢陽大学 CGR - 学部インターン+修士課程研究員</span></li><li><span>Cinamon - Motion AI</span></li><li><span>NiusN - AI Researcher·Agentic AI</span></li></ul>
+      </section>
+    </div>
+  </section>
+</div></main>
+<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<script src="../main.js"></script>
+<script src="../about.js"></script>
+</body>
+</html>

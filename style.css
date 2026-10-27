@@ -92,10 +92,10 @@ img { display: block; max-width: 100%; }
 .motto { font-weight: 600; font-size: 11px; letter-spacing: .42em; color: var(--dim); white-space: nowrap; text-transform: uppercase; padding-left: 26px; border-left: 1px solid var(--line); line-height: 20px; }
 /* Shared, non-modal navigation. The legacy HTML is replaced only when script is available. */
 .menu-btn, .proj-nav { display: none; }
-.site-nav { margin-left: auto; }
-.nav-controls { display: flex; gap: 30px; }
+.site-nav { margin-left: auto; margin-right: 14px; } /* with the masthead gap: the same 44px before the language picker as between Works and About */
+.nav-controls { display: flex; gap: 44px; }
 .nav-toggle, .nav-entry { text-transform: uppercase; }
-.nav-toggle { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 650; font-size: 12px; letter-spacing: .22em; color: var(--ash); }
+.nav-toggle { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 650; font-size: 13px; letter-spacing: .22em; color: var(--ash); }
 .nav-toggle::after { content: ''; width: 4px; height: 4px; margin-top: -3px; border: solid currentColor; border-width: 0 1px 1px 0; transform: rotate(45deg); }
 .nav-toggle[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
 .nav-toggle:hover, .nav-toggle[aria-expanded="true"] { color: var(--bone); }
@@ -113,6 +113,7 @@ img { display: block; max-width: 100%; }
 :lang(ko) .nav-entry { letter-spacing: .02em; word-break: keep-all; }
 .lang-menu { z-index: 1; }
 @media (max-width: 760px) {
+  .site-nav { margin-right: 0; }
   .nav-controls { gap: 8px; }
   .nav-toggle { font-size: 11px; letter-spacing: .05em; gap: 4px; }
   .nav-panel { left: 0; right: 0; width: auto; padding: 22px var(--gutter) 28px; max-height: calc(100dvh - var(--mast-h) - var(--deck-h)); border-left: 0; border-right: 0; }
@@ -123,7 +124,7 @@ img { display: block; max-width: 100%; }
 }
 
 .lang { flex: none; }
-.lang-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; height: 44px; font-weight: 650; font-size: 12px; letter-spacing: .2em; color: var(--ash); }
+.lang-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; height: 44px; font-weight: 650; font-size: 13px; letter-spacing: .2em; color: var(--ash); }
 .lang-btn::after { content: ''; width: 4px; height: 4px; margin-top: -3px; border: solid currentColor; border-width: 0 1px 1px 0; transform: rotate(45deg); }
 .lang-btn:hover, .lang-open .lang-btn { color: var(--bone); }
 .lang-open .lang-btn::after { margin-top: 3px; transform: rotate(-135deg); }
@@ -136,7 +137,7 @@ img { display: block; max-width: 100%; }
 .lang-opt:focus-visible { outline-offset: -4px; }
 
 /* Korean: Hangul is set without the wide Latin tracking and wraps between words */
-:lang(ko) .menu-btn, :lang(ko) .cap-meta, :lang(ko) .intro-meta, :lang(ko) .intro-clock, :lang(ko) .intro-next, :lang(ko) .foot a, :lang(ko) .prod-act,
+:lang(ko) .menu-btn, :lang(ko) .cap-meta, :lang(ko) .intro-meta, :lang(ko) .intro-clock, :lang(ko) .foot a, :lang(ko) .prod-act,
 :lang(ko) .vis figcaption, :lang(ko) .dl-note a, :lang(ko) .dlbtn small, :lang(ko) .text-btn, :lang(ko) .next-ch small { letter-spacing: .08em; }
 :lang(ko) .cap-line, :lang(ko) .slide p, :lang(ko) .dl-note { word-break: keep-all; overflow-wrap: break-word; }
 
@@ -196,7 +197,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 }
 .intro-meta, .intro-clock { display: flex; gap: 22px; font-weight: 600; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); font-variant-numeric: tabular-nums; }
 .intro-clock { justify-self: end; }
-.intro-go { display: flex; justify-content: center; gap: clamp(56px, 8vw, 128px); } /* Philosophy and Projects: two equal branches of the one line */
+.intro-go { display: flex; justify-content: center; gap: clamp(56px, 8vw, 128px); } /* Works and About: two equal branches of the one line, English in every language like the masthead triggers */
 .intro-next { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 8px 14px 0; font-weight: 650; font-size: 11px; letter-spacing: .34em; margin-right: -.34em; text-transform: uppercase; color: var(--bone); }
 .intro-next i { display: block; width: 1px; height: 38px; background: linear-gradient(var(--bone), rgba(235, 229, 218, 0)); }
 .intro-next:hover { color: var(--ember); }
@@ -739,7 +740,7 @@ main.plates { --col: min(500px, 36vw); }
 }
 
 body.philo-page { overflow: auto; height: auto; min-height: 100%; background: var(--night); }
-html:not([lang="ko"]) [data-philo="ko"], html[lang="ko"] [data-philo="en"] { display: none; }
+html:not([lang="ko"]) [data-philo="ko"], html:not([lang="ja"]) [data-philo="ja"], html:is([lang="ko"], [lang="ja"]) [data-philo="en"] { display: none; }
 .philo { position: relative; z-index: 1; max-width: calc(38em + 2 * var(--gutter)); margin: 0 auto; padding: calc(var(--mast-h) + 56px) var(--gutter) 96px; }
 .philo-page .dl-foot { position: relative; inset: auto; z-index: 1; } /* a long read: the footer follows the text instead of sitting fixed over it */
 .philo-langs { display: flex; gap: 0; margin-bottom: 44px; }
@@ -769,6 +770,64 @@ html:not([lang="ko"]) [data-philo="ko"], html[lang="ko"] [data-philo="en"] { dis
   .philo-sec { margin-top: 56px; }
   .philo-sec p { font-size: 15.5px; line-height: 1.8; }
   .philo-sign { margin-top: 56px; }
+}
+
+/* ---------- How to install (install.html): the Philosophy reading column, one platform at a time ---------- */
+html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-block="ja"], html:is([lang="ko"], [lang="ja"]) [data-lang-block="en"] { display: none; }
+.inst-kicker { font-weight: 700; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--ember); margin-bottom: 16px; }
+.inst-lead { margin-top: 18px; font-size: 17px; line-height: 1.7; color: var(--ash); }
+.inst-status { margin-top: 36px; padding: 18px 20px; border: 1px solid var(--line); box-shadow: inset 2px 0 0 var(--ember); font-size: 15.5px; line-height: 1.6; }
+.inst-status-file { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-top: 8px; color: var(--ash); }
+.inst-status a { color: var(--bone); text-decoration: underline; text-decoration-color: var(--ember); text-underline-offset: .22em; }
+.inst-status a:hover { color: var(--ember); }
+.inst-os { display: grid; grid-template-columns: repeat(4, max-content); margin-top: 40px; }
+.inst-os .philo-lang + .philo-lang { border-left: 1px solid var(--line); margin-left: -1px; }
+.inst-os .philo-lang[aria-pressed="true"] { position: relative; z-index: 1; }
+.inst-os[hidden], .inst-status[hidden] { display: none; }
+.inst .inst-sec:first-of-type { margin-top: 56px; }
+.inst code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .86em; padding: .08em .36em; background: rgba(235, 229, 218, .07); border: 1px solid var(--line); overflow-wrap: anywhere; }
+.inst-code { margin-top: 14px; padding: 14px 16px; background: var(--void); border: 1px solid var(--line); overflow-x: auto; font-size: 14px; line-height: 1.6; }
+.inst-code code { padding: 0; background: none; border: 0; font-size: inherit; white-space: pre; overflow-wrap: normal; color: var(--bone); }
+.inst-steps { counter-reset: step; margin-top: 28px; }
+.inst-steps > li { counter-increment: step; position: relative; padding-left: 52px; }
+.inst-steps > li + li { margin-top: 18px; }
+.inst-steps > li::before { content: counter(step, decimal-leading-zero); position: absolute; left: 0; top: .5em; font-weight: 700; font-size: 13px; letter-spacing: .2em; color: var(--ember); }
+.philo-sec .inst-steps > li > p:first-child { margin-top: 0; }
+/* a short action name per step; the step's sentences follow as separate paragraphs */
+.inst-step-h { font-weight: 700; font-size: 17px; line-height: 1.75; letter-spacing: .02em; color: var(--bone); }
+.philo-sec .inst-steps .inst-step-h + p { margin-top: .3em; }
+.philo-sec .inst-steps > li > p + p { margin-top: .7em; }
+.inst-h3 { font-weight: 700; font-size: 17px; line-height: 1.45; letter-spacing: .02em; color: var(--bone); }
+.inst-fix { margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--line); }
+.philo-sec p.inst-after { margin-top: 32px; font-size: 15px; color: var(--ash); }
+.inst-usb { margin-top: 32px; padding: 26px 28px 24px; border: 1px solid rgba(217, 163, 98, .55); background: rgba(217, 163, 98, .05); }
+.inst-req { margin: 14px 0 0; }
+.inst-req > div { display: grid; grid-template-columns: 10.5em minmax(0, 1fr); gap: 4px 20px; padding: 14px 0; border-top: 1px solid var(--line); }
+.inst-req dt { font-weight: 700; font-size: 16px; line-height: 1.6; }
+.inst-req dd { margin: 0; font-size: 15px; line-height: 1.65; color: rgba(235, 229, 218, .86); }
+.inst-req dd b { display: inline-block; margin-right: .8em; padding: 1px 0; font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--ember); }
+.inst-req .is-must dt { color: var(--ember); }
+.inst-req .is-must dd b { padding: 1px 7px; color: var(--void); background: var(--ember); }
+.philo-sec p.inst-warn { margin-top: 10px; padding-left: 14px; border-left: 2px solid var(--ember); font-weight: 650; font-size: 15.5px; line-height: 1.65; color: var(--bone); }
+.inst-notes { margin-top: 30px; }
+.inst-notes > li { position: relative; padding-left: 22px; font-size: 15px; line-height: 1.75; color: var(--ash); }
+.inst-notes > li + li { margin-top: 10px; }
+.inst-notes > li::before { content: ''; position: absolute; left: 0; top: .85em; width: 9px; height: 1px; background: var(--ember); }
+.philo-sec p.inst-links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 30px; }
+.philo-sec .inst-links a { font-weight: 650; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+:lang(ko) .inst :is(.inst-lead, .inst-status, .inst-h3, .inst-req, .inst-notes, .inst-steps) { word-break: keep-all; overflow-wrap: break-word; }
+:lang(ko) .inst-req dd b, :lang(ko) .philo-sec .inst-links a { letter-spacing: .08em; }
+@media (max-width: 760px) {
+  .inst-lead { font-size: 15.5px; }
+  .inst-os { grid-template-columns: 1fr 1fr; margin-top: 32px; }
+  .inst-os .philo-lang:nth-child(odd) { margin-left: 0; }
+  .inst-os .philo-lang:nth-child(n + 3) { margin-top: -1px; }
+  .inst .inst-sec:first-of-type { margin-top: 44px; }
+  .inst-steps > li { padding-left: 40px; }
+  .inst-step-h { font-size: 16px; }
+  .inst-usb { padding: 20px 18px 18px; }
+  .inst-req > div { grid-template-columns: minmax(0, 1fr); }
+  .inst-code code { white-space: pre-wrap; } /* wrap at spaces so the whole command is visible, not scrolled off */
 }
 
 /* ---------- letterbox chrome: the bars slide out while reading downward and slide back on upward movement.
@@ -826,3 +885,22 @@ html:not([lang="ko"]) [data-philo="ko"], html[lang="ko"] [data-philo="en"] { dis
   .chatviz .k { font-size: 2.4cqw; }
   .chatviz .cv-sheet { display: none; }
 }
+
+/* ---------- Japanese (branding preview 2026-10-27) ----------
+   CHOAM Sans has no kana or kanji, so Japanese falls through to the system Japanese face. Korean keep-all must not
+   apply here: Japanese has no spaces, so keep-all would make a whole sentence one unbreakable word. auto-phrase
+   (Chromium) breaks at phrase boundaries; other browsers fall back to normal with strict kinsoku. */
+:root:lang(ja) { --font: 'CHOAM Sans', 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', Meiryo, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; }
+:lang(ja) :is(.cap-line, .slide p, .dl-note, .plate .cap-text, .philo-sec p, .philo-title, .philo-h, .inst-lead, .inst-status, .inst-h3, .inst-req, .inst-notes, .inst-steps, .now-sub) {
+  word-break: normal; word-break: auto-phrase; line-break: strict; overflow-wrap: anywhere;
+}
+:lang(ja) .nav-entry { letter-spacing: .02em; }
+:lang(ja) .menu-btn, :lang(ja) .cap-meta, :lang(ja) .intro-meta, :lang(ja) .intro-clock, :lang(ja) .foot a, :lang(ja) .prod-act,
+:lang(ja) .vis figcaption, :lang(ja) .dl-note a, :lang(ja) .dlbtn small, :lang(ja) .text-btn, :lang(ja) .next-ch small,
+:lang(ja) .get-head, :lang(ja) .get-opt, :lang(ja) .get-opt b, :lang(ja) .get-opt .os-rec, :lang(ja) .index-rail a,
+:lang(ja) .plate .cap-acts > a, :lang(ja) .plate .cap-acts .prod-act, :lang(ja) .inst-req dd b, :lang(ja) .philo-sec .inst-links a { letter-spacing: .08em; }
+:lang(ja) .plate .cap-acts :is(.plate-more, .prod-act), :lang(ja) .prod .prod-act, :lang(ja) .dl :is(.dlbtn, .dl-note a) { letter-spacing: .02em; }
+:lang(ja) .gn { letter-spacing: .12em; margin-right: -.12em; }
+:lang(ja) .slide p { letter-spacing: 0; }
+:lang(ja) .prod-act { text-indent: .08em; }
+:lang(ja) .philo-title, :lang(ja) .philo-h { letter-spacing: .02em; }

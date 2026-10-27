@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Us | CHOAM</title>
+<meta name="description" content="The people behind CHOAM: Minho &#x27;Mino&#x27; Jang, Eunho &#x27;Cayde&#x27; Jung and MAGI.">
+<link rel="icon" href="assets/mark.svg">
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<script>
+/* Eunho and MAGI reuse Mino's shared-portrait transition; the names swap only for navigations to or from those profiles. */
+(() => {
+  const mark = url => {
+    const m = url && new URL(url, location.href).pathname.match(/\/(eunho|magi)(\.html)?$/);
+    if (m) document.documentElement.dataset.vt = m[1];
+    else delete document.documentElement.dataset.vt;
+  };
+  addEventListener('pageswap', event => mark(event.activation?.entry?.url));
+  addEventListener('pagereveal', () => mark(window.navigation?.activation?.from?.url));
+})();
+</script>
+<noscript><style>.us-page .portrait-label { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body class="us-page" data-page="us">
+<header class="mast">
+  <a class="brand" href="./" aria-label="CHOAM, home"><img src="assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+<main class="us-frame"><div class="us-wrap">
+  <div class="us-lead"><span class="us-eyebrow">CHOAM <span aria-hidden="true">/</span> ABOUT</span><h1>US</h1></div>
+  <div class="gallery" role="group" aria-label="People" data-aria-en="People" data-aria-ko="인물" data-aria-ja="メンバー">
+    <button class="portrait portrait-mino" type="button" data-person="MINO" data-profile="people/mino" aria-label="Open Minho &#x27;Mino&#x27; Jang&#x27;s profile" data-aria-en="Open Minho &#x27;Mino&#x27; Jang&#x27;s profile" data-aria-ko="Minho &#x27;Mino&#x27; Jang 프로필 열기" data-aria-ja="Minho &#x27;Mino&#x27; Jang のプロフィールを開く" aria-pressed="false">
+      <span class="portrait-media mino-shared-portrait"><img class="type-portrait" src="assets/about/choam-01-mino.svg" alt="" decoding="async"></span>
+      <span class="portrait-label"><span class="portrait-name"><span class="name-word"><span class="name-letter">M</span><span class="name-letter">i</span><span class="name-letter">n</span><span class="name-letter">h</span><span class="name-letter">o</span></span> <span class="name-word"><span class="name-letter">&#x27;</span><span class="name-letter">M</span><span class="name-letter">i</span><span class="name-letter">n</span><span class="name-letter">o</span><span class="name-letter">&#x27;</span></span> <span class="name-word"><span class="name-letter">J</span><span class="name-letter">a</span><span class="name-letter">n</span><span class="name-letter">g</span></span></span></span>
+    </button>
+    <button class="portrait portrait-eunho" type="button" data-person="EUNHO" data-profile="people/eunho" aria-label="Open Eunho &#x27;Cayde&#x27; Jung&#x27;s profile" data-aria-en="Open Eunho &#x27;Cayde&#x27; Jung&#x27;s profile" data-aria-ko="Eunho &#x27;Cayde&#x27; Jung 프로필 열기" data-aria-ja="Eunho &#x27;Cayde&#x27; Jung のプロフィールを開く" aria-pressed="false">
+      <span class="portrait-media eunho-shared-portrait"><img class="type-portrait" src="assets/about/choam-02-eunho.svg" alt="" decoding="async"></span>
+      <span class="portrait-label"><span class="portrait-name"><span class="name-word"><span class="name-letter">E</span><span class="name-letter">u</span><span class="name-letter">n</span><span class="name-letter">h</span><span class="name-letter">o</span></span> <span class="name-word"><span class="name-letter">&#x27;</span><span class="name-letter">C</span><span class="name-letter">a</span><span class="name-letter">y</span><span class="name-letter">d</span><span class="name-letter">e</span><span class="name-letter">&#x27;</span></span> <span class="name-word"><span class="name-letter">J</span><span class="name-letter">u</span><span class="name-letter">n</span><span class="name-letter">g</span></span></span></span>
+    </button>
+    <button class="portrait portrait-magi" type="button" data-person="MAGI" data-profile="people/magi" aria-label="Open MAGI&#x27;s profile" data-aria-en="Open MAGI&#x27;s profile" data-aria-ko="MAGI 프로필 열기" data-aria-ja="MAGI のプロフィールを開く" aria-pressed="false">
+      <span class="portrait-media magi-shared-portrait"><img class="type-portrait" src="assets/about/choam-03-magi.svg" alt="" decoding="async"></span>
+      <span class="portrait-label"><span class="portrait-name"><span>M</span><span>A</span><span>G</span><span>I</span></span></span>
+    </button>
+  </div>
+  <section class="us-intro" aria-labelledby="intro-title"><div class="us-intro-heading"><span class="us-eyebrow">OUR STORY</span><h2 id="intro-title"><span data-lang-block="ko" lang="ko">함께 만드는 이야기</span><span data-lang-block="en" lang="en">The story we make together</span><span data-lang-block="ja" lang="ja">一緒につくる物語</span></h2></div><div class="us-intro-body"></div></section>
+</div></main>
+<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<script src="main.js"></script>
+<script src="text-reveal.js"></script>
+<script src="about.js"></script>
+</body>
+</html>

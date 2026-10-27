@@ -1,0 +1,179 @@
+/* About Us (us.html, people/*.html): slanted portrait gallery and shared portrait motion on the site's own masthead,
+   menu, language picker and footer. Everything here is scoped to body.us-page except the view-transition rules, which
+   only these pages load. The portraits are the typographic CHOAM 0N TEXT ONLY frames (see "Typographic portraits"). */
+@view-transition { navigation: auto; }
+@keyframes choam-profile-in { from { opacity: 0; } to { opacity: 1; } }
+::view-transition-old(root) { animation: none; opacity: 0; }
+::view-transition-new(root) { animation: choam-profile-in 180ms ease-out 500ms both; }
+::view-transition-group(mino-portrait) { animation-duration: 420ms; animation-delay: 120ms; animation-timing-function: cubic-bezier(.22,.61,.36,1); }
+::view-transition-old(mino-portrait) { animation: none; opacity: 0; }
+::view-transition-new(mino-portrait) { animation: none; }
+::view-transition-group(eunho-panel), ::view-transition-group(magi-panel) { animation-duration: 140ms; animation-timing-function: ease-out; }
+::view-transition-group(eunho-portrait), ::view-transition-group(magi-portrait) { animation-duration: 420ms; animation-delay: 120ms; animation-timing-function: cubic-bezier(.22,.61,.36,1); }
+::view-transition-old(eunho-portrait), ::view-transition-old(magi-portrait) { animation: none; opacity: 0; }
+::view-transition-new(eunho-portrait), ::view-transition-new(magi-portrait) { animation: none; }
+::view-transition-group(mino-panel) { animation-duration: 140ms; animation-timing-function: ease-out; }
+/* the site chrome stays put while the page swaps */
+.us-page .mast { view-transition-name: site-mast; }
+.us-page .dl-foot { view-transition-name: site-foot; }
+::view-transition-group(site-mast), ::view-transition-group(site-foot) { animation: none; }
+
+body.us-page { overflow: auto; height: auto; min-height: 100%; background: var(--void); }
+.us-page .us-frame { min-height: 100vh; min-height: 100dvh; padding: calc(var(--mast-h) + 36px) var(--gutter) calc(var(--deck-h) + 54px); background: radial-gradient(ellipse 63% 43% at 50% 45%, #202123 0%, #0c0d0e 63%, var(--void) 100%); }
+.us-page .us-wrap { max-width: 1100px; margin: 0 auto; }
+.us-page .us-eyebrow { display: block; font-size: 11px; line-height: 1.5; font-weight: 600; letter-spacing: .26em; color: var(--ember); }
+.us-page .us-eyebrow span { color: var(--dim); }
+.us-page .us-lead { display: flex; align-items: end; gap: 24px; padding-bottom: 14px; }
+.us-page .us-lead .us-eyebrow { align-self: center; margin-top: 8px; }
+/* the site's page-title scale (.philo-title / .cap-title); the one highlight is the site's ember underline, no terminal dot (Mino 2026-10-27 19:54) */
+.us-page .us-lead h1 { font-size: clamp(30px, 2.9vw, 46px); line-height: 1.12; letter-spacing: .14em; margin: 0; font-weight: 750; text-decoration: underline; text-decoration-color: var(--ember); text-decoration-thickness: .04em; text-underline-offset: .22em; }
+.us-page .us-lead-note { margin: 0 0 9px auto; font-size: 12px; line-height: 1.45; color: var(--dim); letter-spacing: .04em; text-align: right; }
+
+/* Three unboxed crops of equal width share two diagonal slash seams. */
+.us-page .gallery { --cut: 42px; --outer-cut: 32px; position: relative; height: clamp(390px, 48vh, 485px); background: var(--void); isolation: isolate; }
+.us-page .gallery::before, .us-page .gallery::after { content: ''; position: absolute; top: 0; bottom: 0; z-index: 4; pointer-events: none; width: 1px; background: linear-gradient(transparent, rgba(235,229,218,.32) 17%, rgba(235,229,218,.25) 80%, transparent); transform: skewX(-5.6deg); transform-origin: top; }
+.us-page .gallery::before { left: 33.333%; }
+.us-page .gallery::after { left: 66.666%; }
+.us-page .portrait { --glow: #ae7753; position: absolute; top: 0; height: 100%; min-width: 0; padding: 0; text-align: left; overflow: hidden; isolation: isolate; cursor: pointer; border: 0; border-radius: 0; color: var(--bone); background: var(--night); outline: none; -webkit-tap-highlight-color: transparent; }
+.us-page .portrait:focus-visible::after { content: ''; position: absolute; inset: 8px; z-index: 3; border: 2px solid var(--ember); pointer-events: none; }
+.us-page .portrait-mino { --face-x: 29%; --face-y: 20%; --face-scale: 1.16; left: 0; width: 33.333%; clip-path: polygon(var(--outer-cut) 0, calc(100% - 5px) 0, calc(100% - var(--cut) - 5px) 100%, 0 100%); }
+.us-page .portrait-mino .portrait-media { clip-path: polygon(32px 0, calc(100% - 5px) 0, calc(100% - 47px) 100%, 0 100%); }
+.us-page .portrait-eunho { --glow: #64899a; --face-x: 83%; --face-y: 29%; --face-scale: 1.13; left: calc(33.333% - var(--cut)); width: calc(33.333% + var(--cut)); clip-path: polygon(calc(var(--cut) + 5px) 0, calc(100% - 5px) 0, calc(100% - var(--cut) - 5px) 100%, 5px 100%); view-transition-name: eunho-panel; }
+.us-page .portrait-eunho .portrait-media { clip-path: polygon(47px 0, calc(100% - 5px) 0, calc(100% - 47px) 100%, 5px 100%); }
+.us-page .portrait-magi { --glow: #aa9c70; left: calc(66.666% - var(--cut)); width: calc(33.334% + var(--cut)); clip-path: polygon(calc(var(--cut) + 5px) 0, 100% 0, calc(100% - var(--outer-cut)) 100%, 5px 100%); view-transition-name: magi-panel; }
+.us-page .portrait-media { position: absolute; inset: 0; display: block; overflow: hidden; background: radial-gradient(ellipse 90% 60% at 50% 46%, color-mix(in srgb, var(--glow), #222 62%) 0%, #17191a 70%, #0b0c0d 100%); filter: grayscale(1) brightness(.78); transition: filter .4s ease; }
+.us-page .portrait-media::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(115deg, rgba(235,229,218,.12), transparent 56%, rgba(0,0,0,.35)); }
+.us-page .portrait-media::after { content: ''; position: absolute; inset: 28% 0 0; z-index: 1; pointer-events: none; background: linear-gradient(transparent 24%, rgba(5,5,6,.86) 100%); }
+.us-page .portrait svg { position: absolute; width: 165%; height: auto; max-width: none; top: -34%; left: 50%; transform: translateX(-50%); filter: drop-shadow(12px 7px 24px rgba(0,0,0,.47)); }
+.us-page .portrait-magi svg { width: 169%; top: -30%; left: 48%; }
+.us-page .portrait img { position: absolute; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: var(--face-x, 50%) var(--face-y, 50%); transform: scale(var(--face-scale, 1)); transform-origin: var(--face-x, 50%) var(--face-y, 50%); }
+.us-page .mino-shared-portrait { view-transition-name: mino-portrait; }
+.us-page .profile-media.eunho-shared-portrait, html[data-vt="eunho"] .us-page .portrait-media.eunho-shared-portrait { view-transition-name: eunho-portrait; }
+html[data-vt="eunho"] .us-page .portrait-eunho, html[data-vt="eunho"] .us-page .mino-shared-portrait { view-transition-name: none; }
+html[data-vt="eunho"] .us-page .portrait-mino { view-transition-name: mino-panel; }
+.us-page .profile-media.magi-shared-portrait, html[data-vt="magi"] .us-page .portrait-media.magi-shared-portrait { view-transition-name: magi-portrait; }
+html[data-vt="magi"] .us-page .portrait-magi, html[data-vt="magi"] .us-page .mino-shared-portrait { view-transition-name: none; }
+html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel; }
+.us-page .portrait:hover .portrait-media, .us-page .portrait:focus-visible .portrait-media, .us-page .portrait.is-selected .portrait-media { filter: grayscale(0) brightness(1); }
+.us-page .portrait-label { position: absolute; bottom: 28px; left: 26px; right: 12px; z-index: 3; font-size: clamp(26px, 3.8vw, 52px); font-weight: 750; line-height: .92; letter-spacing: -.045em; opacity: 0; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
+.us-page .portrait-eunho .portrait-label { left: calc(var(--cut) + 14px); }
+.us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 17px); }
+.us-page .portrait-name { display: inline-block; font-size: clamp(28px, 2.5vw, 36px); white-space: nowrap; }
+.us-page .portrait-name > span, .us-page .name-letter { display: inline-block; backface-visibility: hidden; }
+.us-page .name-word { display: inline-block; white-space: nowrap; }
+.us-page .portrait-label small { display: block; margin-top: 11px; font-size: 11px; font-weight: 550; line-height: 1.25; letter-spacing: .05em; color: var(--bone); }
+.us-page .portrait:hover .portrait-label, .us-page .portrait:focus-visible .portrait-label, .us-page .portrait.is-selected .portrait-label { opacity: 1; transform: translateY(0); }
+.us-page .us-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 30px; padding: 25px 0 0; margin-top: 18px; border-top: 1px solid var(--line); min-height: 145px; }
+.us-page .us-intro h2 { font-weight: 550; font-size: clamp(21px, 2.3vw, 31px); margin: 11px 0 0; line-height: 1.3; letter-spacing: .015em; }
+.us-page .us-intro-body { padding-top: 11px; color: var(--ash); font-size: 15px; line-height: 1.65; }
+.us-page .us-intro-body p { margin: 0; }
+.us-page .us-intro-body .disclaimer { margin-top: 16px; color: var(--dim); font-size: 12px; max-width: 43em; }
+
+/* profile pages: a longer read, so the footer follows the text instead of sitting fixed over it */
+.us-page.us-profile .dl-foot { position: relative; inset: auto; z-index: 1; }
+.us-page.us-profile .us-frame { padding-bottom: 72px; }
+.us-page .profile-back { display: inline-block; margin-bottom: 24px; color: var(--ash); font-size: 11px; font-weight: 650; letter-spacing: .18em; }
+.us-page .profile-back:hover, .us-page .profile-back:focus-visible { color: var(--ember); }
+.us-page .profile-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.us-page .profile-portrait { position: relative; height: clamp(300px, 54vh, 520px); margin: 0; overflow: hidden; background: var(--night); clip-path: polygon(32px 0, calc(100% - 5px) 0, calc(100% - 47px) 100%, 0 100%); outline: none; }
+.us-page .profile-portrait:focus-visible::before { content: ''; position: absolute; inset: 8px; z-index: 2; border: 2px solid var(--ember); pointer-events: none; }
+.us-page .profile-portrait::after { position: absolute; content: ''; inset: 45% 0 0; background: linear-gradient(transparent, rgba(5,5,6,.82)); }
+.us-page .profile-media { position: absolute; inset: 0; display: block; overflow: hidden; clip-path: polygon(32px 0, calc(100% - 5px) 0, calc(100% - 47px) 100%, 0 100%); filter: grayscale(1) brightness(.78); transition: filter .4s ease; }
+.us-page .profile-media img { position: absolute; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 29% 20%; transform: scale(1.16); transform-origin: 29% 20%; }
+.us-page .profile-eunho .profile-media img { object-position: 83% 29%; transform: scale(1.13); transform-origin: 83% 29%; }
+.us-page .profile-portrait:hover .profile-media, .us-page .profile-portrait:focus-visible .profile-media { filter: grayscale(0) brightness(1); }
+.us-page .profile-portrait figcaption { position: absolute; z-index: 1; left: 24px; right: 40px; bottom: 20px; color: var(--bone); font-size: 9px; letter-spacing: .12em; }
+.us-page .profile-content { min-width: 0; }
+.us-page .profile-title { margin: 10px 0 28px; font-size: clamp(30px, 2.9vw, 46px); font-weight: 750; line-height: 1.2; letter-spacing: .02em; overflow-wrap: anywhere; }
+.us-page .profile-introduction { color: var(--bone); font-size: clamp(16px, 1.55vw, 20px); line-height: 1.85; }
+.us-page .profile-introduction p { margin: 0 0 12px; }
+.us-page .profile-introduction p.profile-tr { margin-top: 18px; font-size: 12px; line-height: 1.5; letter-spacing: .04em; color: var(--dim); }
+/* project names in the bio link to their detail pages, in the site's restrained ember underline (as .philo-sec p a); focus uses the global :focus-visible ring */
+.us-page .profile-introduction p a { color: var(--bone); text-decoration: underline; text-decoration-color: var(--ember); text-decoration-thickness: 1px; text-underline-offset: .22em; transition: color .3s; }
+.us-page .profile-introduction p a:hover { color: var(--ember); }
+.us-page .profile-career { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+.us-page .profile-career h2 { margin: 8px 0; font-size: 19px; font-weight: 600; }
+.us-page .career-list { display: grid; gap: 9px; margin: 14px 0 0; padding: 0; list-style: none; color: var(--ash); font-size: 15px; line-height: 1.45; }
+.us-page .career-list li { display: flex; flex-wrap: wrap; column-gap: 8px; align-items: baseline; }
+:lang(ko) .us-page :is(.profile-introduction, .us-intro-body, .us-intro h2, .us-lead-note) { word-break: keep-all; overflow-wrap: break-word; }
+:lang(ja) .us-page :is(.profile-introduction, .us-intro-body, .us-intro h2, .us-lead-note) { word-break: normal; word-break: auto-phrase; line-break: strict; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .us-page .us-frame { padding: calc(var(--mast-h) + 34px) 16px calc(var(--deck-h) + 64px); }
+  .us-page .us-lead { gap: 8px; padding-bottom: 15px; flex-wrap: wrap; }
+  .us-page .us-lead .us-eyebrow { width: 100%; margin: 0; }
+  .us-page .us-lead-note { font-size: 10px; max-width: 58%; }
+  .us-page .gallery { --cut: 25px; --outer-cut: 12px; height: clamp(300px, 44vh, 395px); }
+  .us-page .gallery::before, .us-page .gallery::after { transform: skewX(-3.7deg); }
+  .us-page .portrait-mino { clip-path: polygon(var(--outer-cut) 0, calc(100% - 3px) 0, calc(100% - var(--cut) - 3px) 100%, 0 100%); }
+  .us-page .portrait-mino .portrait-media { clip-path: polygon(12px 0, calc(100% - 3px) 0, calc(100% - 28px) 100%, 0 100%); }
+  .us-page .portrait-eunho { clip-path: polygon(calc(var(--cut) + 3px) 0, calc(100% - 3px) 0, calc(100% - var(--cut) - 3px) 100%, 3px 100%); }
+  .us-page .portrait-eunho .portrait-media { clip-path: polygon(28px 0, calc(100% - 3px) 0, calc(100% - 28px) 100%, 3px 100%); }
+  .us-page .portrait-magi { clip-path: polygon(calc(var(--cut) + 3px) 0, 100% 0, calc(100% - var(--outer-cut)) 100%, 3px 100%); }
+  /* generic raster crop for narrow columns; the typographic portraits below position themselves */
+  .us-page .portrait-mino { --face-x: 36%; --face-y: 34%; --face-scale: .77; }
+  .us-page .portrait-eunho { --face-x: 66%; --face-y: 34%; --face-scale: .77; }
+  .us-page .portrait img { -webkit-mask-image: linear-gradient(transparent 0%, #000 10%, #000 74%, transparent 97%); mask-image: linear-gradient(transparent 0%, #000 10%, #000 74%, transparent 97%); }
+  .us-page .portrait svg { width: 270%; top: -20%; }
+  .us-page .portrait-magi svg { width: 268%; top: -16%; left: 49%; }
+  .us-page .portrait-label { left: 9px; bottom: 22px; right: 4px; font-size: clamp(15.333333px, 4.666667vw, 22px); line-height: .94; letter-spacing: -.05em; }
+  .us-page .portrait-eunho .portrait-label, .us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 4px); }
+  .us-page .portrait-name { font-size: clamp(6.5px, calc(4vw - 6.1px), 9.5px); }
+  .us-page .portrait-label small { font-size: 9px; letter-spacing: 0; margin-top: 7px; }
+  .us-page .us-intro { grid-template-columns: minmax(0, 1fr); min-height: 0; margin-top: 17px; padding-top: 18px; gap: 7px; }
+  .us-page .us-intro h2 { margin-top: 7px; font-size: 21px; }
+  .us-page .us-intro-body { padding-top: 0; font-size: 13px; }
+  .us-page .us-intro-body .disclaimer { font-size: 11px; margin-top: 9px; }
+  .us-page .profile-back { margin-bottom: 18px; }
+  .us-page.us-profile .us-frame { padding-bottom: 56px; }
+  .us-page .profile-layout { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .us-page .profile-portrait { height: min(42vh, 340px); min-height: 250px; clip-path: polygon(12px 0, calc(100% - 3px) 0, calc(100% - 28px) 100%, 0 100%); }
+  .us-page .profile-media { clip-path: polygon(12px 0, calc(100% - 3px) 0, calc(100% - 28px) 100%, 0 100%); }
+  .us-page .profile-media img { object-position: 36% 34%; transform: scale(.77); transform-origin: 36% 34%; }
+  .us-page .profile-eunho .profile-media img { object-position: 66% 34%; transform: scale(.77); transform-origin: 66% 34%; }
+  .us-page .profile-title { margin: 9px 0 20px; }
+  .us-page .profile-introduction { font-size: 16px; line-height: 1.75; }
+  .us-page .profile-introduction p { margin-bottom: 10px; }
+  .us-page .profile-career { margin-top: 24px; padding-top: 16px; }
+}
+@media (max-width: 340px) { .us-page .us-lead-note { max-width: 65%; } .us-page .portrait-label { font-size: 14.666667px; } }
+/* Typographic portraits (SEELE "SOUND ONLY" parody, Mino 2026-10-27 22:28/22:31): assets/about/choam-0N-*.svg, a 728x455 black frame whose
+   four red lines (CHOAM / number / TEXT / ONLY) occupy x 242-486, y 66-410 (block centre 50% / 52.3% of the frame). Grayscale at rest,
+   #FE0000 on hover/focus/selection; no other photo treatment (no brightness dim, gradients, masks, pan or overscale). On /us the three cards size from
+   the gallery (one size container), so all three share one scale and one row baseline; each block is centred in its own slanted column
+   at the block's centre height (--yc), and ONLY ends above the name label. */
+.us-page .gallery:has(img.type-portrait) { container-type: size; --yc: .44; --fit-k: .78; --fit-hf: .64; }
+/* Rectangle component, internal /// buttons (Mino 23:26, supersedes the 23:11 slanted-outer pass). One slope source: --slant. The card
+   cut is derived from it and the gallery height (100cqh), so the card clip edges and the skewX seam lines stay parallel at every height
+   (a fixed 42px/25px cut against a fixed 5.6/3.7deg skew drifted up to 5.6px apart). Outer sides are vertical (--outer-cut 0); each
+   gap is 2 x --seam-gap with the seam line on its centre line. Media clips repeat the card polygon so the shared transition matches. */
+.us-page .gallery:has(img.type-portrait) { --slant: 5.6deg; --seam-gap: 5px; --cut: calc(100cqh * tan(var(--slant))); --outer-cut: 0px; }
+.us-page .gallery:has(img.type-portrait)::before, .us-page .gallery:has(img.type-portrait)::after { transform: skewX(calc(-1 * var(--slant))); }
+.us-page .gallery:has(img.type-portrait) :is(.portrait-mino, .portrait-mino .portrait-media) { clip-path: polygon(0 0, calc(100% - var(--seam-gap)) 0, calc(100% - var(--cut) - var(--seam-gap)) 100%, 0 100%); }
+.us-page .gallery:has(img.type-portrait) :is(.portrait-eunho, .portrait-eunho .portrait-media) { clip-path: polygon(calc(var(--cut) + var(--seam-gap)) 0, calc(100% - var(--seam-gap)) 0, calc(100% - var(--cut) - var(--seam-gap)) 100%, var(--seam-gap) 100%); }
+.us-page .gallery:has(img.type-portrait) :is(.portrait-magi, .portrait-magi .portrait-media) { clip-path: polygon(calc(var(--cut) + var(--seam-gap)) 0, 100% 0, 100% 100%, var(--seam-gap) 100%); }
+.us-page .profile-media:has(> img.type-portrait) { container-type: size; }
+.us-page :is(.portrait-media, .profile-media):has(> img.type-portrait) { background: #000; filter: grayscale(1); } /* gray at rest; the existing hover/focus/selected rules set grayscale(0), via the .4s filter transition (Mino 22:51) */
+.us-page .portrait .portrait-media:has(> img.type-portrait)::before, .us-page .portrait .portrait-media:has(> img.type-portrait)::after, .us-page .profile-portrait:has(img.type-portrait)::after { content: none; }
+.us-page .portrait .portrait-media img.type-portrait, .us-page .profile-portrait .profile-media img.type-portrait {
+  height: auto; max-width: none; object-fit: fill; transform: translate(-50%, -52.3%); transform-origin: 50% 50%; -webkit-mask-image: none; mask-image: none; }
+.us-page .portrait .portrait-media img.type-portrait {
+  width: min(33.333cqw * var(--fit-k) * 728 / 244, 100cqh * var(--fit-hf) * 728 / 344); /* same px width in all three cards */
+  top: calc(var(--yc) * 100%); }
+/* column centre at height y (fraction of H): left edge + right edge of each card's clip polygon, halved */
+.us-page .portrait-mino .portrait-media img.type-portrait { left: calc((100% - var(--seam-gap) + var(--outer-cut) - (var(--outer-cut) + var(--cut)) * var(--yc)) / 2); }
+.us-page .portrait-eunho .portrait-media img.type-portrait { left: calc(50% + var(--cut) / 2 - var(--cut) * var(--yc)); }
+.us-page .portrait-magi .portrait-media img.type-portrait { left: calc((100% + var(--seam-gap) + var(--cut) - (var(--cut) + var(--outer-cut)) * var(--yc)) / 2); }
+.us-page .profile-portrait .profile-media img.type-portrait {
+  width: min((100cqw - var(--cut)) * .78 * 728 / 244, 100cqh * .82 * 728 / 344); left: calc(50% - 6.25px); top: 50%; } /* centre of the figure's clip polygon at mid-height */
+.us-page .profile-portrait:has(img.type-portrait) { --cut: 47px; background: #000; }
+@media (max-width: 760px) {
+  .us-page .gallery:has(img.type-portrait) { --yc: .42; --fit-k: .74; --slant: 3.7deg; --seam-gap: 3px; }
+  .us-page .profile-portrait:has(img.type-portrait) { --cut: 28px; }
+  .us-page .profile-portrait .profile-media img.type-portrait { left: calc(50% - 5.5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .us-page *, .us-page *::before, .us-page *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+}
