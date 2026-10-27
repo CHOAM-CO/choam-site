@@ -492,11 +492,11 @@
       ],
       /* Existing recorded, aligned source/output pairs; no reprocessing or new image. */
       comparisons: [
-        { id: 'shrine', label: 'Shrine leaf', labelKo: '신사 · 나뭇잎', labelJa: '神社 · 木の葉', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020, pos: '50% 40%', posM: '50% 40%',
+        { id: 'shrine', label: 'Two-shot', labelKo: '투샷', labelJa: 'ツーショット', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020, pos: '50% 40%', posM: '50% 40%',
           note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면', noteJa: 'DAT 0.15 · 筆のタッチが変わり、衣装と装身具の一部も描き直された場面' },
-        { id: 'classroom', label: 'Classroom', labelKo: '교실', labelJa: '教室', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, pos: '50% 30%', posM: '50% 30%', detailPoint: [.25, .78],
+        { id: 'classroom', label: 'Close-up', labelKo: '클로즈업', labelJa: 'クローズアップ', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, pos: '50% 30%', posM: '50% 30%', detailPoint: [.25, .78],
           note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줌. 장신구 모양도 바뀐 장면', noteJa: 'DAT 0.15 · 原画 1672×941 → 比較 1672×936。上 2px と下 3px だけを除き、同じ倍率で表示。装身具の形も変わった場面' },
-        { id: 'idea', label: 'IDEA', labelKo: 'IDEA', labelJa: 'IDEA', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, pos: '50% 22%', posM: '50% 22%', detailPoint: [.7, .74],
+        { id: 'idea', label: 'Side view', labelKo: '측면', labelJa: '横顔', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, pos: '50% 22%', posM: '50% 22%', detailPoint: [.7, .74],
           note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교함. 머리 장식과 장신구, 옷의 세부 모양도 달라짐', noteJa: 'DAT 0.15 · 左の黒髪の IDEA を、同じ位置の 928×1136 の範囲で切り出して比較。髪飾りや装身具、服の細部の形も変わる' }
       ],
       info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '43% 30%', side: 'end' }
@@ -1341,7 +1341,7 @@
     if (spec.kind === 'compare') return `<div class="media vis dat-inline${on}" data-art="${i}" role="group" hidden>
       <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span><span class="dat-spot" aria-hidden="true" hidden></span></div>
       <div class="dat-hud"><div class="dat-bar"><div class="dat-cases" role="group"></div><label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label><button type="button" class="dat-more" data-dat-more aria-expanded="false" aria-controls="dat-detail-panel"></button></div>
-      <div class="dat-panel" id="dat-detail-panel" hidden><div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div><p class="dat-note"></p></div></div></div>`;
+      <div class="dat-panel" id="dat-detail-panel" hidden><div class="dat-zoom" tabindex="0" role="group"><div><span>BEFORE</span><div class="dat-detail" aria-hidden="true"></div></div><div><span>AFTER</span><div class="dat-detail" aria-hidden="true"></div></div></div></div></div></div>`;
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
@@ -1502,7 +1502,6 @@
     datSec.querySelectorAll('[data-dat-pipe]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.datPipe === datPipe)));
     datSec.querySelectorAll('[data-rail] > .slide').forEach((s, j) => s.classList.toggle('dat-off', polish ? j !== split : j >= split));
     const c = activeCase(), beforeName = pick(c, 'beforeLabel') || L('Original', '원본', '原画');
-    datInline.querySelector('.dat-note').textContent = pick(c, 'note');
     datInline.setAttribute('aria-label', `${pick(c, 'label')} · BEFORE / AFTER`);
     datInline.querySelector('.dat-cases').setAttribute('aria-label', datText('Comparison cases', '비교 장면', '比較する場面'));
     datInline.querySelectorAll('[data-dat-case]').forEach((b, i) => {
