@@ -453,7 +453,7 @@
         'A whole classroom or a close portrait gets the same finish. Brush marks stay visible instead of smoothing into airbrush.',
         'Light gets thin, transparent watercolor; hems and petals get heavier strokes.',
         'A classroom scene and a ship’s deck at sea come out of the same model.',
-        'We applied DAT’s art style to an image created with GPT Image.'
+        'It also reduces noise typical of generative models.'
       ],
       ko: {
         status: '자체 스타일 모델',
@@ -465,7 +465,7 @@
           '교실 전경이든 얼굴 클로즈업이든 같은 마감이 나옵니다. 붓 자국이 에어브러시처럼 뭉개지지 않고 남습니다.',
           '빛에는 투명한 수채를, 옷자락과 꽃잎에는 묵직한 붓질을 씁니다.',
           '교실 장면도, 바다 위 배 갑판도 같은 모델에서 나옵니다.',
-          'GPT Image로 만든 그림에 DAT의 화풍을 입혔습니다.'
+          '생성형 모델 특유의 노이즈 저감 기능도 갖추고 있습니다.'
         ]
       },
       ja: {
@@ -478,7 +478,7 @@
           '教室の全景でも顔のアップでも、同じ仕上がりになります。筆の跡はエアブラシのようにつぶれず、そのまま残ります。',
           '光には透明な水彩を、服のすそや花びらには重めの筆づかいを使います。',
           '教室の場面も、海に浮かぶ船の甲板も、同じモデルから生まれています。',
-          'GPT Imageで作った絵に、DATの画風を適用しました。'
+          '生成モデル特有のノイズを低減する機能も備えています。'
         ]
       },
       art: [0, 1, 2, 3, 4, 5],
