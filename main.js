@@ -453,7 +453,7 @@
         'A whole classroom or a close portrait gets the same finish. Brush marks stay visible instead of smoothing into airbrush.',
         'Light gets thin, transparent watercolor; hems and petals get heavier strokes.',
         'A classroom scene and a ship’s deck at sea come out of the same model.',
-        'Compare a recorded GPT Image original with its DAT finish. The pass changes brushwork and some scene details, not just image noise.'
+        'We applied DAT’s art style to an image created with GPT Image.'
       ],
       ko: {
         status: '자체 스타일 모델',
@@ -465,7 +465,7 @@
           '교실 전경이든 얼굴 클로즈업이든 같은 마감이 나옵니다. 붓 자국이 에어브러시처럼 뭉개지지 않고 남습니다.',
           '빛에는 투명한 수채를, 옷자락과 꽃잎에는 묵직한 붓질을 씁니다.',
           '교실 장면도, 바다 위 배 갑판도 같은 모델에서 나옵니다.',
-          '기록된 GPT Image 원본과 DAT 적용 후 비교. 붓 결과 장면의 일부 세부 모양도 달라짐. 노이즈만 제거한 결과는 아님.'
+          'GPT Image로 만든 그림에 DAT의 화풍을 입혔습니다.'
         ]
       },
       ja: {
@@ -478,7 +478,7 @@
           '教室の全景でも顔のアップでも、同じ仕上がりになります。筆の跡はエアブラシのようにつぶれず、そのまま残ります。',
           '光には透明な水彩を、服のすそや花びらには重めの筆づかいを使います。',
           '教室の場面も、海に浮かぶ船の甲板も、同じモデルから生まれています。',
-          '記録済みの GPT Image 原画と DAT 適用後の比較。筆のタッチに加えて、場面の細部の形も一部変わります。ノイズを取っただけの結果ではありません。'
+          'GPT Imageで作った絵に、DATの画風を適用しました。'
         ]
       },
       art: [0, 1, 2, 3, 4, 5],
