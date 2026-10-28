@@ -1288,6 +1288,9 @@
     return;
   }
 
+  /* Add the voice step only to the Scheherazade detail page. */
+  const voice = only === 'scheherazade' && window.CHOAMVoice;
+  if (voice) voice.extend(shown[0]);
   const paras = p => [].concat(tr(p, 'description')); /* Korean keeps the same paragraph count, so the rail position carries over */
   /* DAT detail, two pipelines (Mino 2026-10-27 20:47 mockup): Creative steps the artworks before the comparison panel,
      Polish opens that comparison (the recorded pairs) at once. Same panels, copy and comparison UI as before. */
@@ -1338,6 +1341,7 @@
   /* captions, alt text and copy are filled by labelSec, in the current language */
   const visual = (spec, j, i, reel) => {
     const on = j === 0 ? ' is-on' : '', cap = spec.cap ? '<figcaption></figcaption>' : '';
+    if (spec.kind === 'voice') return voice.visual(on, i);
     if (spec.kind === 'compare') return `<div class="media vis dat-inline${on}" data-art="${i}" role="group" hidden>
       <div class="dat-reveal" style="--split:50%"><img data-dat-native draggable="false"><img class="dat-after" data-dat-native draggable="false"><span class="dat-side dat-before-tag">BEFORE</span><span class="dat-side dat-after-tag">AFTER</span><span class="dat-divider" aria-hidden="true"></span><span class="dat-spot" aria-hidden="true" hidden></span></div>
       <div class="dat-hud"><div class="dat-bar"><div class="dat-cases" role="group"></div><label class="dat-range-label"><span>BEFORE</span><input data-dat-range type="range" min="0" max="100" value="50"><span>AFTER</span></label><button type="button" class="dat-more" data-dat-more aria-expanded="false" aria-controls="dat-detail-panel"></button></div>
@@ -1650,7 +1654,8 @@
       const i = k - dOff; /* DAT: position within the current pipeline; the other pipeline's slides are hidden */
       if (i >= 0 && i < ps.length) s.setAttribute('aria-label', L(`${i + 1} of ${ps.length}`, `${ps.length}개 중 ${i + 1}번째`, `${ps.length}件中${i + 1}件目`));
       else s.removeAttribute('aria-label');
-      s.replaceChildren(...[].concat(ps0[k]).map(blockEl));
+      if (voice && artFor(p, k).kind === 'voice') voice.labelSlide(s, sec, lang);
+      else s.replaceChildren(...[].concat(ps0[k]).map(blockEl));
     });
     sec.querySelectorAll('[data-rail-step]').forEach(b => { b.textContent = Number(b.dataset.railStep) < 0 ? L('Prev', '이전', '前へ') : L('Next', '다음', '次へ'); });
     set('[data-rail-step="-1"]', 'aria-label', L(`Previous ${unit}, ${T}`, `${T} 이전 ${unit}`, `${T}の前の${unit}`));
@@ -1662,6 +1667,7 @@
     const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = pick(spec, 'alt');
+      if (spec.kind === 'voice') { voice.labelVisual(m, lang); return; }
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
       const cv = m.querySelector('.cv');
       if (cv) { cv.replaceChildren(...chatBlocks(spec[lang] || spec.en)); if (alt) m.setAttribute('aria-label', alt); }
