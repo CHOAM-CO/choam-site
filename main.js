@@ -534,6 +534,8 @@
         ]
       },
       art: [2, 0],
+      /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
+      bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '68% 50%' },
       panels: [
         { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: 'DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
         { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', altJa: 'DOZE のタイトル画面: 暗い教室で、制服姿の少女5人がタイトルとスタートメニューの横に並ぶ', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
@@ -1112,7 +1114,7 @@
             </section>
           </div></div>`;
       }
-      const a = p.panels[p.art[0]];
+      const a = p.bg || p.panels[p.art[0]];
       return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" decoding="async"><div class="scrim" aria-hidden="true"></div></div>`;
     };
     track.classList.add('plates');
