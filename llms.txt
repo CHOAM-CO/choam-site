@@ -25,22 +25,27 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Description**: An agent that takes a thousand and one nights in stride. Memory kept in plain files on your own computer, so you never explain yourself twice; swap the model without losing it, using a Claude or ChatGPT subscription you already pay for, or Ollama (a paid Claude plan signs in inside the app; Claude Code does not need to be installed); and reach it from Discord, Slack or Call Mode, so work started on a phone is finished at the desk.
 - **Download**: https://choam.studio/download (install guide: https://choam.studio/install)
 
-### 2. DAT
+### 2. 602
+- **Type**: Story branching & validation engine and editor
+- **URL**: https://choam.studio/pages/602
+- **Description**: A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from game code to cut complexity and debugging overhead, catches broken scene links and condition errors before they reach the game, and simulates scenarios standalone from any scene before the game client is built, with C++, C#, and Godot integration.
+
+### 3. DAT
 - **Type**: In-house illustration style model
 - **URL**: https://choam.studio/pages/dat
 - **Description**: Our house style, built into a model. Open-source image models fine-tuned on CHOAM's own illustration style and used for character and background art: the muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.
 
-### 3. 선잠 DOZE
+### 4. 선잠 DOZE
 - **Type**: Visual novel (in development)
 - **URL**: https://choam.studio/pages/seonjam
 - **Description**: An interactive movie you shape by talking. You talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record.
 
-### 4. Donguri Ryokan (동구리 료칸)
+### 5. Donguri Ryokan (동구리 료칸)
 - **Type**: Inn management game with yokai deduction (coming soon)
 - **URL**: https://choam.studio/pages/donguri-ryokan
 - **Description**: A quiet inn tale, deep in the forest. Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.
 
-### 5. Donguri Restaurant (동구리 레스토랑)
+### 6. Donguri Restaurant (동구리 레스토랑)
 - **Type**: Restaurant management game (plays in the browser)
 - **URL**: https://choam.studio/pages/donguri-restaurant
 - **Description**: Self Made Restaurant. A small forest restaurant where the day's omakase comes from your own garden. You are a short-term part-timer working alongside a chef and a sommelier for one season (four weeks).

@@ -224,6 +224,8 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   .prod .field { --hx: calc((100% - var(--col) - var(--gutter)) / 2); }
 }
 .sch-field { --lit: 143, 164, 184; }
+.six-field { --lit: 118, 140, 182; --lit-a: .24; }
+.six-type { color: rgba(235, 229, 218, .032); letter-spacing: .04em; margin-right: -.04em; }
 .dat-field { --lit: 217, 163, 98; --lit-a: .22;
   background:
     radial-gradient(70% 22% at var(--hx, 50%) var(--horizon), rgba(var(--lit), var(--lit-a)) 0%, rgba(var(--lit), 0) 70%),
@@ -242,7 +244,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
     linear-gradient(to top, rgba(5, 5, 6, .6) 0%, rgba(5, 5, 6, 0) 26%),
     radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%);
 }
-.k-sch .prod-veil, .k-dat .prod-veil, .prod[data-vis="raw"] .prod-veil, .prod[data-vis="feat"] .prod-veil { opacity: 0; }
+.k-sch .prod-veil, .k-602 .prod-veil, .k-dat .prod-veil, .prod[data-vis="raw"] .prod-veil, .prod[data-vis="feat"] .prod-veil { opacity: 0; }
 /* raw captures sit on a dark plate with the horizon behind them */
 .prod[data-vis="raw"] .stage { background:
   radial-gradient(70% 22% at 34% var(--horizon), rgba(217, 163, 98, .16) 0%, rgba(217, 163, 98, 0) 70%),
@@ -554,7 +556,7 @@ main.plates { --col: min(500px, 36vw); }
     radial-gradient(70% 22% at var(--hx) var(--horizon), rgba(var(--lit), var(--lit-a)) 0%, rgba(var(--lit), 0) 70%),
     linear-gradient(to bottom, #060708 0%, #0c0e10 34%, #151a1f calc(var(--horizon) - .2%), #08090a calc(var(--horizon) + .2%), #050506 100%); }
 .plate .figure { position: absolute; left: 41.5%; bottom: calc(var(--deck-h) + 34px); transform: translateX(-50%); height: min(46vh, 42vw); margin: 0; }
-.plate .figure img { height: 100%; width: auto; filter: grayscale(1) brightness(1.38); }
+.plate .figure img { height: 100%; width: auto; }
 .plate-cast { position: absolute; left: 40.5%; bottom: calc(var(--deck-h) + 34px); transform: translateX(-50%); display: flex; align-items: flex-end; gap: clamp(8px, 1.1vw, 18px); height: min(55vh, 33vw); }
 .plate-cast img { height: 100%; width: auto; object-fit: contain; object-position: bottom; user-select: none; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
@@ -627,19 +629,19 @@ main.plates { --col: min(500px, 36vw); }
 .plate .cap-acts .prod-act:hover, .plate .cap-acts .prod-act[aria-expanded="true"] { color: var(--bone); background: none; }
 .plate .caption:has(.get-menu:not([hidden])) { max-height: calc(100dvh - var(--mast-h) - var(--deck-h) - 40px); overflow-y: auto; }
 
-/* Scheherazade landing CTA: keep the whole caption 28px above the horizon.
+/* Scheherazade & 602 landing CTA: keep the whole caption 28px above the horizon.
    Normal flow lets a short viewport grow with the chooser instead of clipping it. */
-.plate[data-plate="scheherazade"] {
+.plate:is([data-plate="scheherazade"], [data-plate="602"]) {
   display: flex; flex-direction: column; justify-content: flex-end;
   height: auto; min-height: max(100dvh, 560px);
   padding-top: calc(var(--mast-h) + 24px);
   padding-bottom: calc(var(--deck-h) + 34px + 28px);
 }
-.plate[data-plate="scheherazade"] .caption {
+.plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption {
   position: relative; flex: none; right: auto; bottom: auto;
   margin-left: auto; margin-right: var(--gutter);
 }
-.plate[data-plate="scheherazade"] .caption:has(.get-menu:not([hidden])) { max-height: none; overflow: visible; }
+.plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption:has(.get-menu:not([hidden])) { max-height: none; overflow: visible; }
 /* B2 CTA primitives: shared appearance, independent of each work's artwork layout.
    Carousel controls, title links, navigation and article links are not CTAs. */
 .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl .dlbtn, .dl .dl-note a {
@@ -707,11 +709,11 @@ main.plates { --col: min(500px, 36vw); }
   .plate .figure { bottom: 60%; height: min(38vh, 62vw); left: 50%; }
   .plate:has(.get-menu:not([hidden])) .figure { bottom: calc(100% - var(--copy-top) + 16px); height: min(38vh, 62vw, max(0px, calc(var(--copy-top) - var(--mast-h) - 32px))); }
   /* Keep the art on the original viewport horizon; copy and chooser grow below it. */
-  .plate[data-plate="scheherazade"] { padding-top: calc(40dvh + 28px); padding-bottom: calc(var(--deck-h) + 14px); }
-  .plate[data-plate="scheherazade"] .field { --horizon: 40dvh; }
-  .plate[data-plate="scheherazade"] .figure,
-  .plate[data-plate="scheherazade"]:has(.get-menu:not([hidden])) .figure { top: calc(40dvh - min(38dvh, 62vw)); bottom: auto; height: min(38dvh, 62vw); }
-  .plate[data-plate="scheherazade"] .caption { left: auto; width: 100%; margin: 0; }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]) { padding-top: calc(40dvh + 28px); padding-bottom: calc(var(--deck-h) + 14px); }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]) .field { --horizon: 40dvh; }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]) .figure,
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .figure { top: calc(40dvh - min(38dvh, 62vw)); bottom: auto; height: min(38dvh, 62vw); }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption { left: auto; width: 100%; margin: 0; }
   .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl :is(.dlbtn, .dl-note a), .get-opt { font-size: 15px; }
   .dl .dlbtn { flex: 1 1 100%; justify-content: space-between; flex-wrap: wrap; }
   .prod-copy:has(.prod-act) { bottom: calc(var(--deck-h) + 14px); }

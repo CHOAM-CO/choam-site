@@ -46,7 +46,17 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - Reach it from Discord, Slack or Call Mode; a task started on a phone is finished by the time you sit down at the desk.
 - **Download**: https://choam.studio/download; install steps per platform: https://choam.studio/install
 
-### Project 02: DAT
+### Project 02: 602
+- **URL**: https://choam.studio/pages/602
+- **Category**: Story branching & validation engine and editor
+- **Core Concept**: "A story engine that won’t get lost in 1,024 branches." (Korean: 1024가지 분기에도 헤매지 않는 스토리 엔진)
+- **Key Points**:
+  - Story branches grow exponentially ($2^n$: 16 paths at 4 binary choices, 1,024 at 10). 602 separates story branching and state validation from game code to cut code complexity and debugging overhead.
+  - Catches broken scene links and condition errors at compile time before changes reach the game.
+  - Simulates scenarios standalone from any scene with custom state conditions even before the game client is built, and connects directly via C++, C#, or Godot.
+- **Contact**: cayde@choam.studio
+
+### Project 03: DAT
 - **URL**: https://choam.studio/pages/dat
 - **Category**: In-house illustration style model
 - **Core Concept**: "Our house style, built into a model."
@@ -56,7 +66,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - The same finish holds from a whole classroom to a close portrait, and from classroom scenes to a ship's deck at sea.
   - The page compares recorded GPT Image originals with DAT finishes; the pass changes brushwork and some scene details, not only noise.
 
-### Project 03: 선잠 DOZE (Seonjam DOZE)
+### Project 04: 선잠 DOZE (Seonjam DOZE)
 - **URL**: https://choam.studio/pages/seonjam
 - **Category**: Visual novel (in development)
 - **Core Concept**: "An interactive movie you shape by talking." (Korean: 대화로 만들어가는 인터랙티브 무비)
@@ -65,7 +75,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - You talk with Yeji in your own words; she answers from her own personality and your past conversations.
   - She writes your conversations into her diary, and her mood and manner the next time you meet follow that record.
 
-### Project 04: Donguri Ryokan (동구리 료칸)
+### Project 05: Donguri Ryokan (동구리 료칸)
 - **URL**: https://choam.studio/pages/donguri-ryokan
 - **Category**: Inn management game with yokai deduction (coming soon)
 - **Core Concept**: "A quiet inn tale, deep in the forest." (Korean: 고요한 숲속 여관 이야기)
@@ -74,7 +84,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - Over 100 days you gather ingredients, cook, and look after the rooms and the hot spring.
   - Some guests are yokai passing as human; watch how they behave and work out who before they check out.
 
-### Project 05: Donguri Restaurant (동구리 레스토랑)
+### Project 06: Donguri Restaurant (동구리 레스토랑)
 - **URL**: https://choam.studio/pages/donguri-restaurant
 - **Category**: Restaurant management game, plays in the browser
 - **Core Concept**: "Self Made Restaurant."

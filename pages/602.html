@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>602 | CHOAM</title>
+<meta name="description" content="A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.">
+<meta name="theme-color" content="#050506">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CHOAM">
+<meta property="og:title" content="602 | CHOAM">
+<meta property="og:description" content="A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.">
+<meta property="og:url" content="https://choam.studio/pages/602">
+<meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="602 | CHOAM">
+<meta name="twitter:description" content="A story engine that won’t get lost in 1,024 branches. Separates story branching from game code and simulates scenarios standalone before the game is built.">
+<meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
+<link rel="icon" href="../assets/mark.svg">
+<link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "602",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS, Windows, Linux",
+  "description": "A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from game code to cut complexity and debugging overhead, and simulates scenarios standalone before the game is built, with C++, C#, and Godot integration.",
+  "url": "https://choam.studio/pages/602",
+  "author": {
+    "@type": "Organization",
+    "name": "CHOAM",
+    "url": "https://choam.studio/"
+  },
+  "inLanguage": ["ko", "en", "ja"]
+}
+</script>
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../six-o-two.css">
+<noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; max-width: 40em; } .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; } .ns p { margin-top: 16px; color: rgba(243, 242, 239, .82); }</style></noscript>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
+</head>
+<body data-project="602">
+<h1 class="sr-only">602</h1>
+<header class="mast chrome">
+  <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+
+<main class="track" data-track aria-label="602" aria-roledescription="carousel"></main>
+<noscript>
+  <div class="ns">
+    <h2>602</h2>
+    <p><strong>A story engine that won’t get lost in 1,024 branches</strong></p>
+    <p>Ten binary choices already explode into 1,024 paths. Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents inevitably lose track and introduce bugs.</p>
+    <p>602 handles branching flow and state validation on its own map, leaving your game code to focus purely on presentation and play. Broken links and condition errors are caught before they ever reach the game.</p>
+    <p>No need to wait for client development or replay from chapter 1. Jump straight to any scene with custom conditions to test the story on the spot, then connect it to your game via C++, C#, or Godot.</p>
+    <p><a href="mailto:cayde@choam.studio">Contact</a> · <a href="../">All projects</a></p>
+  </div>
+</noscript>
+
+<div class="deck chrome">
+  <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
+  <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+  <a class="next-ch" data-next-chapter href="#"><small data-next-label>Next</small><span data-next-title></span></a>
+</div>
+
+<a class="action is-hidden" data-action></a>
+<p class="sr-only" aria-live="polite" data-live></p>
+<div class="grain" aria-hidden="true"></div>
+<script src="../main.js"></script>
+</body>
+</html>

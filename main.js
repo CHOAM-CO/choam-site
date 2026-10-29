@@ -274,7 +274,100 @@
         <text class="s sm" x="160" y="130">Autonomous dream-work generated during quiet hours</text>
       </g>
       <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">DETERMINISTIC SAFETY</text><text class="s dim" x="680" y="504" text-anchor="end">Engineered for long-running autonomous stability</text>`
+      <text class="l" x="40" y="504">DETERMINISTIC SAFETY</text><text class="s dim" x="680" y="504" text-anchor="end">Engineered for long-running autonomous stability</text>`,
+    '602-lost': () => {
+      const col = [66, 146, 226, 306, 386], ys = [[200], [164, 236], [142, 180, 220, 258], [130, 150, 170, 190, 210, 230, 250, 270], Array.from({ length: 16 }, (_, k) => 122 + k * 10.4)];
+      let tree = '';
+      for (let c = 0; c < 4; c++) ys[c].forEach((y, i) => { tree += `<path class="sd" d="M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i]}M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i + 1]}"/>`; });
+      ys.forEach((a, c) => a.forEach(y => { tree += `<circle class="${c === 4 ? 'bg' : 'tn'}" cx="${col[c]}" cy="${y}" r="${c === 4 ? 2.6 : c === 3 ? 3.4 : 4.4}"/>`; }));
+      return `${POOL('pl-602a', 360, 250, 340, 210, .12)}
+      <text class="xl" x="30" y="40">이야기 분기는 더하기가 아니라 제곱(2ⁿ)으로 불어납니다</text>
+      <path class="hr" d="M30 58H690"/>
+      <rect class="fj" x="30" y="80" width="390" height="260" rx="4"/>
+      <text class="xm sm2 dim" x="54" y="110">2지선다 4번</text>
+      <text class="xm sm2 em" x="396" y="110" text-anchor="end">2⁴ = 16갈래</text>
+      ${tree}
+      <text class="xm sm2 dim" x="66" y="316" text-anchor="middle">시작</text>
+      <text class="xm sm2 dim" x="146" y="316" text-anchor="middle">1회</text>
+      <text class="xm sm2 dim" x="226" y="316" text-anchor="middle">2회</text>
+      <text class="xm sm2 dim" x="306" y="316" text-anchor="middle">3회</text>
+      <text class="xm sm2 em" x="386" y="316" text-anchor="middle">4회 (16)</text>
+      <rect class="fr on" x="440" y="80" width="250" height="260" rx="4"/>
+      <text class="xl" x="462" y="114">기하급수로 늘어나는 경로</text>
+      <text class="xm sm2 dim" x="462" y="156">선택 4번 (2⁴)</text><text class="xm sm2" x="668" y="156" text-anchor="end">16갈래</text>
+      <text class="xm sm2 dim" x="462" y="196">선택 7번 (2⁷)</text><text class="xm sm2" x="668" y="196" text-anchor="end">128갈래</text>
+      <text class="xm sm2 em" x="462" y="238">선택 10번 (2¹⁰)</text><text class="xe sm3" x="668" y="238" text-anchor="end">1,024갈래</text>
+      <path class="hr" d="M462 264H668"/>
+      <text class="xm sm2 dim" x="462" y="304">선택 20번 (2²⁰)</text><text class="xm sm2 em" x="668" y="304" text-anchor="end">100만+ 갈래</text>
+      <rect class="fj" x="30" y="362" width="660" height="108" rx="4"/>
+      <text class="xm sm2 dim" x="54" y="400">선택지 몇 개만 추가해도 맞춰야 할 앞뒤 상태 조합은 기하급수로 불어납니다.</text>
+      <text class="xm em" x="54" y="440"><tspan class="ar">1,024가지 경로</tspan>를 머릿속 암기나 복잡한 분기 코드로 관리하기란 불가능합니다.</text>
+      <path class="hr" d="M30 492H690"/>
+      <text class="xl" x="30" y="522">단순해 보이는 선택지도 쌓이는 순간 기하급수로 폭발합니다.</text>`;
+    },
+    '602-qa': () => `${POOL('pl-602c', 470, 240, 300, 220, .13)}
+      <text class="xl" x="30" y="40">복잡한 분기 관리는 602로 떼어내고, 오류는 반영 전에 걸러냅니다</text>
+      <path class="hr" d="M30 58H690"/>
+      <rect class="fj" x="30" y="78" width="276" height="324" rx="4"/>
+      <text class="xl" x="52" y="114">게임 코드</text>
+      <text class="xm sm2 dim" x="52" y="144">분기 계산에서 해방</text>
+      <path class="hr" d="M52 164H284"/>
+      <rect class="fr" x="52" y="186" width="232" height="52" rx="3"/>
+      <text class="xm sm2 em" x="168" y="218" text-anchor="middle">화면 연출 · 사운드 · UI</text>
+      <rect class="fr" x="52" y="252" width="232" height="52" rx="3"/>
+      <text class="xm sm2 em" x="168" y="284" text-anchor="middle">인게임 플레이 · 시스템</text>
+      <text class="xm sm2 dim" x="52" y="344">602가 건네주는 대사와 상태만</text>
+      <text class="xm sm2 dim" x="52" y="370">화면에 그리면 끝납니다.</text>
+      <path class="st" d="M312 240H342"/><polygon class="bg" points="348,240 338,235 338,245"/>
+      <rect class="fr on" x="350" y="78" width="340" height="324" rx="4"/>
+      <text class="xl" x="372" y="114">602 · 분기 전담 &amp; 사전 검증</text>
+      <text class="xm sm2 dim stt s-ask" x="668" y="114" text-anchor="end">승인 대기</text><text class="xm sm2 em stt s-ok" x="668" y="114" text-anchor="end">반영됨</text><text class="xm sm2 dim stt s-no" x="668" y="114" text-anchor="end">반려됨</text>
+      <g class="diff">
+        <text class="xm em" x="372" y="156"><tspan class="ar">+ </tspan>새 선택지 추가 및 조건 분기 연결</text>
+        <text class="xm sm2" x="372" y="190"><tspan class="ar">+ </tspan>앞뒤 장면 상태값 자동 대조</text>
+        <rect class="fj" x="368" y="216" width="304" height="96" rx="3"/>
+        <text class="xm sm2 em" x="388" y="250">✓ 엔진 컴파일 검증 통과</text>
+        <text class="xm sm2 dim" x="388" y="282">끊어진 장면 연결 0건 · 조건 오류 0건</text>
+        <path class="hr" d="M368 334H672"/>
+        <text class="xm sm2 em" x="372" y="370">깨진 분기는 애초에 게임으로 넘어가지 않습니다.</text>
+      </g>
+      <text class="xm sm2 em" x="30" y="451">검증이 끝난 변경안만 눌러서 반영해 보세요.</text>
+      <g class="asks">
+        <g class="pick" data-ai-pick="ok" role="button" tabindex="0" aria-label="승인"><rect class="pk" x="350" y="420" width="160" height="50" rx="25"/><text class="xn" x="430" y="453" text-anchor="middle">승인</text></g>
+        <g class="pick" data-ai-pick="no" role="button" tabindex="0" aria-label="반려"><rect class="pk" x="530" y="420" width="160" height="50" rx="25"/><text class="xn" x="610" y="453" text-anchor="middle">반려</text></g>
+      </g>
+      <g class="after">
+        <text class="xm em a-ok" x="350" y="452">원본 이야기에 저장되었습니다</text><text class="xm em a-no" x="350" y="452">변경안을 반려하고 원본을 유지했습니다</text>
+        <g class="pick" data-ai-pick="ask" role="button" tabindex="0" aria-label="다시 보기"><rect class="pk" x="590" y="420" width="100" height="50" rx="25"/><text class="xn" x="640" y="453" text-anchor="middle">↺ 다시</text></g>
+      </g>
+      <path class="hr" d="M30 492H690"/>
+      <text class="xl" x="30" y="522">이야기 구조와 게임 코드를 분리해, 신경 써야 할 문제를 절반으로 줄입니다.</text>`,
+    '602-run': () => {
+      return `${POOL('pl-602d', 360, 260, 340, 220, .12)}
+      <text class="xl" x="30" y="40">게임이 아직 없어도, 시나리오만으로 바로 돌려보며 완성합니다</text>
+      <path class="hr" d="M30 58H690"/>
+      <rect class="fr off" x="30" y="80" width="160" height="60" rx="3"/><text class="xm sm2 dim" x="110" y="116" text-anchor="middle">1장 (건너뜀)</text>
+      <rect class="fr off" x="210" y="80" width="160" height="60" rx="3"/><text class="xm sm2 dim" x="290" y="116" text-anchor="middle">2장 (건너뜀)</text>
+      <rect class="fr on" x="390" y="80" width="300" height="60" rx="3"/><text class="xm em" x="540" y="117" text-anchor="middle">▶ 원하는 장면부터 바로 실행</text>
+      <path class="sd" d="M190 110H210M370 110H390"/>
+      <rect class="fj" x="30" y="164" width="318" height="174" rx="4"/>
+      <text class="xl" x="54" y="202">게임 개발 전에도 단독 시뮬레이션</text>
+      <path class="hr" d="M54 220H324"/>
+      <text class="xm sm2" x="54" y="256">게임 화면이나 시스템이 아직 없어도,</text>
+      <text class="xm sm2 em" x="54" y="286">원하는 장면과 조건에서 이야기를</text>
+      <text class="xm sm2 em" x="54" y="314">바로 실행해 흐름을 먼저 검증합니다.</text>
+      <rect class="fj" x="372" y="164" width="318" height="174" rx="4"/>
+      <text class="xl" x="396" y="202">완성된 시나리오를 게임에 직결</text>
+      <path class="hr" d="M396 220H666"/>
+      <text class="xm sm2" x="396" y="256">검증이 끝난 이야기는 다시 짤 필요 없이</text>
+      <text class="xm sm2 em" x="396" y="286">C++ · C# · Godot 환경의</text>
+      <text class="xm sm2 em" x="396" y="314">제작 중인 게임에 그대로 연결합니다.</text>
+      <rect class="fr on" x="30" y="360" width="660" height="108" rx="4"/>
+      <text class="xm sm2 dim" x="54" y="396">예전 방식: 게임 클라이언트가 나올 때까지 대기 + 처음부터 수십 번 반복 플레이</text>
+      <text class="xm em" x="54" y="438"><tspan class="ar">602 방식: </tspan>게임 없이도 원하는 장면 즉시 실행 ➔ 검증 후 게임 엔진에 바로 탑재</text>
+      <path class="hr" d="M30 492H690"/>
+      <text class="xl" x="30" y="522">클라이언트 개발을 기다리지 않고, 이야기를 가장 먼저 완성합니다.</text>`;
+    }
   };
   /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
      shown as images so their own styles never meet the site's. Drawn concepts, labelled as graphics: not app internals
@@ -438,6 +531,85 @@
         { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', capJa: '説明図 · 19のフックによるエンジンとガードレール', altJa: '説明図: 決定論的な安全性と自律のパイプライン。確認していない完了報告を止める反芻ゲート(Rumination Gate)、認証情報とキーチェーンの保護、毎日の自律サイクルの時計を動かす19のフック。', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
       ],
       info: { kind: 'sch' }
+    },
+    {
+      id: '602',
+      title: '602',
+      title_ko: '',
+      headline: 'A story engine that won’t get lost in 1,024 branches',
+      summary: 'Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.',
+      description: [
+        [
+          { display: 'Ten binary choices already explode into 1,024 paths.' },
+          'Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents inevitably lose track and introduce bugs.'
+        ],
+        [
+          { display: 'Take story branching out of game code to cut complexity and debugging.' },
+          '602 handles branching flow and state validation on its own map, leaving your game code to focus purely on presentation and play. Broken links and condition errors are caught before they ever reach the game.'
+        ],
+        [
+          { display: 'Simulate the entire scenario standalone—even before the game is built.' },
+          'No need to wait for client development or replay from chapter 1. Jump straight to any scene with custom conditions to test the story on the spot, then connect it to your game via C++, C#, or Godot.'
+        ]
+      ],
+      ko: {
+        headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
+        summary: '기하급수적으로 불어나는 이야기 분기를 게임 코드에서 분리해 복잡성과 버그 추적 부담을 줄이고, 게임 개발 전에도 시나리오를 바로 돌려볼 수 있는 스토리 엔진입니다.',
+        description: [
+          [
+            { display: '선택지가 열 번만 나뉘어도 갈래는 1,024개로 불어납니다.' },
+            '선택지를 두 개씩만 놓아도 4번이면 16갈래, 10번이면 1,024갈래(2¹⁰)가 됩니다. 이 복잡한 분기가 게임 코드 안에 뒤엉켜 있으면, 사람도 AI도 고칠 때마다 실수하고 꼬인 원인을 찾느라 시간을 쓰게 됩니다.'
+          ],
+          [
+            { display: '분기 관리를 게임 코드에서 떼어내, 코드 복잡도와 버그를 확 줄입니다.' },
+            '복잡한 분기 계산과 앞뒤 조건 검증은 602가 전담하고, 게임 코드는 화면 연출과 플레이에만 집중합니다. 끊어진 연결이나 조건 오류는 반영 전에 미리 걸러져, 사람이든 AI든 살펴야 할 문제 범위가 크게 줄어듭니다.'
+          ],
+          [
+            { display: '게임이 아직 없어도, 원하는 장면부터 시나리오를 바로 돌려봅니다.' },
+            '게임 클라이언트가 완성되기를 기다리거나 1장부터 반복 플레이할 필요가 없습니다. 원하는 장면과 조건에서 이야기를 즉시 실행해 먼저 검증하고, 완성된 시나리오는 C++·C#·Godot로 게임에 그대로 연결합니다.'
+          ]
+        ]
+      },
+      ja: {
+        headline: '1024通りの分岐でも迷わないストーリーエンジン',
+        summary: '指数関数的に増える物語の分岐をゲームコードから切り離して複雑さとバグ調査の負担を減らし、ゲーム開発前でもシナリオ単体で即座に再生できるストーリーエンジンです。',
+        description: [
+          [
+            { display: '選択肢が10回分かれるだけで、ルートは1,024通りに膨らみます。' },
+            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。複雑な分岐がゲームコードと絡み合っていると、人もAIも修正のたびにミスを重ね、原因探しに時間を奪われます。'
+          ],
+          [
+            { display: '分岐管理をゲームコードから切り離し、複雑さとバグを大幅に減らします。' },
+            '分岐の計算と前後の条件検証は602が担い、ゲームコードは演出とプレイだけに集中できます。リンク切れや条件エラーは反映前に遮断されるため、人もAIも確認すべき範囲がぐっと減ります。'
+          ],
+          [
+            { display: 'ゲームがまだなくても、任意の場面からシナリオをすぐ試せます。' },
+            'クライアントの完成を待ったり第1章から遊び直したりする必要はありません。指定した場面と条件から物語を即座に実行して検証し、完成したシナリオはC++・C#・Godotでゲームにそのまま接続できます。'
+          ]
+        ]
+      },
+      action: {
+        label: 'Contact',
+        href: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 Inquiry] ') + '&body=' + encodeURIComponent('Hello CHOAM team,\nI’d like to inquire about the 602 story engine & editor.\n\n- Name / Studio: \n- Game engine in use (Unity / Godot / C++ / etc.): \n- Project overview & inquiry: \n'),
+        hrefKo: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 도입 및 데모 문의] ') + '&body=' + encodeURIComponent('안녕하세요, 초암(CHOAM) 팀.\n602 스토리 엔진·에디터 관련하여 문의드립니다.\n\n- 소속 / 성함: \n- 사용 중인 게임 엔진 (Unity / Godot / 자체 C++ 등): \n- 프로젝트 소개 및 문의 내용: \n'),
+        hrefJa: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 お問い合わせ] ') + '&body=' + encodeURIComponent('CHOAM チーム様\n602 ストーリーエンジン・エディタについてお問い合わせいたします。\n\n- お名前 / ご所属: \n- 使用エンジン (Unity / Godot / C++ など): \n- プロジェクト概要・お問い合わせ内容: \n')
+      },
+      field: '602',
+      art: [0, 1, 2],
+      panels: [
+        { kind: 'feat', feat: '602-lost', cap: 'Illustration · exponential branch growth (2ⁿ): 10 choices = 1,024 paths', capKo: '예시 그림 · 지수(2ⁿ)로 불어나는 분기 수 (10번 선택 = 1,024갈래)', capJa: '例示図 · 指数(2ⁿ)で増える分岐数（10回の選択＝1,024通り）',
+          alt: 'Illustration: 4 binary choices create 16 paths, 7 create 128, 10 create 1,024 paths, and 20 exceed a million paths.',
+          altKo: '예시 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 이상으로 폭발합니다.',
+          altJa: '例示図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に増加します。' },
+        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code — click Approve or Reject', capKo: '예시 그림 · 게임 코드와 분기 관리의 분리 및 사전 검증 — 승인이나 반려를 눌러보세요', capJa: '例示図 · ゲームコードと分岐管理の分離・事前検証 — 承認または却下をクリック',
+          alt: 'Illustration: Game code focuses on presentation and play while 602 handles story branches and blocks broken links before approval.',
+          altKo: '예시 그림: 게임 코드는 연출과 플레이에만 집중하고, 602가 분기 관리와 사전 검증을 전담해 오류를 미리 차단합니다.',
+          altJa: '例示図: ゲームコードは演出とプレイに集中し、602が分岐管理と事前検証を担ってエラーを遮断します。' },
+        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone scenario simulation without a game client, then C++ / C# / Godot integration', capKo: '예시 그림 · 게임 개발 전 단독 시뮬레이션 및 C++ · C# · Godot 연결', capJa: '例示図 · ゲーム開発前の単体シミュレーションと C++・C#・Godot 接続',
+          alt: 'Illustration: Simulate from any scene standalone before the game client is built, then connect via C++, C#, or Godot.',
+          altKo: '예시 그림: 게임 화면이 없어도 원하는 장면부터 바로 시뮬레이션해 검증하고, C++·C#·Godot로 게임에 바로 연결합니다.',
+          altJa: '例示図: ゲーム画面がなくても任意の場面から即座にシミュレーションし、C++・C#・Godotでゲームに接続します。' }
+      ]
     },
     {
       id: 'dat',
@@ -676,10 +848,10 @@
   const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
   const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
   const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
-  const ACT_KO = { Get: '받기', Play: '플레이' };
-  const ACT_JA = { Get: '入手', Play: 'プレイ' };
+  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기' };
+  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ' };
   const actLabel = a => L(a, ACT_KO[a] || a, ACT_JA[a] || a);
-  const actAria = (T, l) => L(`${l} ${T}`, `${T} ${l}`, `${T}を${l}`);
+  const actAria = (T, l) => L(`${l} ${T}`, `${T} ${l}`, l === 'お問い合わせ' ? `${T}について${l}` : `${T}を${l}`);
   /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean, Japanese] */
   const UI_KO = [
     ['.brand', 'aria-label', 'CHOAM 홈', 'CHOAM ホーム'],
@@ -780,7 +952,7 @@
     <div class="nav-panel" id="nav-panel" hidden>
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
         <h2 class="nav-group-title" id="nav-works-title">Works</h2>
-        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('dat')}${pending('602')}</ul>
+        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('602')}${workEntry('dat')}</ul>
         <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}${workEntry('donguri-restaurant')}</ul>
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
@@ -1089,6 +1261,8 @@
     const castOf = p => p.panels.find(s => s.kind === 'gallery');
     const pairOf = p => p.comparisons && p.comparisons[0]; /* the default pair the live DAT section opens on */
     const stageHTML = p => {
+      if (p.field === '602') return `<div class="stage"><div class="field sch-field six-field" aria-hidden="true"></div>
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'dat') {
@@ -1199,12 +1373,12 @@
         more.textContent = L('Explore', '자세히 보기', '詳しく見る');
         more.setAttribute('aria-label', L(`Explore ${T}`, `${T} 자세히 보기`, `${T}を詳しく見る`));
         const a = el.querySelector('.prod-act');
-        if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); }
+        if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); if (p.action.hrefKo || p.action.hrefJa) a.href = pick(p.action, 'href'); }
         const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
         const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
       });
       if (flip) {
-        const cast = castOf(PROJECTS[1]), c = pairOf(PROJECTS[1]);
+        const datP = PROJECTS.find(p => p.id === 'dat'), cast = castOf(datP), c = pairOf(datP);
         const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
         datPlate.querySelector('.plate-cast').setAttribute('aria-label', L('DAT character art', 'DAT 캐릭터 일러스트', 'DAT キャラクターイラスト'));
         datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
@@ -1308,6 +1482,8 @@
   const blockEl = b => {
     const el = document.createElement('p');
     if (b && b.display != null) { el.className = 'display'; b = b.display; }
+    else if (b && b.kicker != null) { el.className = 'kicker'; b = b.kicker; } /* 602 mockup: ENGINE / EDITOR line above a display */
+    else if (b && b.aside != null) { el.className = 'aside'; b = b.aside; }   /* 602 mockup: the naming note, set small */
     String(b).split('\n').forEach((line, i) => { if (i) el.appendChild(document.createElement('br')); el.appendChild(document.createTextNode(line)); });
     return el;
   };
@@ -1352,7 +1528,7 @@
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
         <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
-    if (spec.kind === 'feat') return `<figure class="media vis feat${on}" data-art="${i}"><svg viewBox="0 0 720 540" role="img" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
+    if (spec.kind === 'feat') return `<figure class="media vis feat${spec.approve ? ' ai602' : ''}${on}" data-art="${i}"${spec.approve ? ' data-ai="ask"' : ''}><svg viewBox="0 0 720 540" role="${spec.approve ? 'group' : 'img'}" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
     if (spec.kind === 'chat') return `<figure class="media vis feat chatviz${on}" data-art="${i}"><div class="cv"></div>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${(reel || !j) ? '' : ' loading="lazy"'}`;
     if (spec.kind === 'fig') return `<figure class="media vis afig${on}" data-art="${i}" style="--ar:${spec.ar}"><img ${img}>${cap}</figure>`;
@@ -1362,7 +1538,8 @@
   const stage = p => {
     /* horizon field: the same atmosphere as the opening, lit cold (Scheherazade) or warm (DAT) */
     const field = p.field === 'sch' ? '<div class="field sch-field" aria-hidden="true"></div>'
-      : p.field === 'dat' ? '<div class="field dat-field" aria-hidden="true"><span class="dat-type">DAT</span></div>' : '';
+      : p.field === 'dat' ? '<div class="field dat-field" aria-hidden="true"><span class="dat-type">DAT</span></div>'
+      : p.field === '602' ? '<div class="field sch-field six-field" aria-hidden="true"><span class="dat-type six-type">602</span></div>' : '';
     const used = p.reel ? p.panels : [...new Set(paras(p).map((_, k) => artFor(p, k)))];
     return field + used.map((spec, j) => visual(spec, j, p.panels.indexOf(spec), !!p.reel)).join('');
   };
@@ -1396,6 +1573,16 @@
   }).join('');
   const secs = [...track.querySelectorAll('.prod')];
   track.querySelectorAll('.get-wrap').forEach(wireGet);
+  /* 602 mockup v3: the approval drawing is clickable. A pick sets figure[data-ai] (ask | ok | no); CSS swaps the result in. */
+  track.querySelectorAll('.ai602').forEach(fig => {
+    const pickTo = b => {
+      const v = b.dataset.aiPick; fig.dataset.ai = v;
+      const nextFocus = fig.querySelector(v === 'ask' ? '[data-ai-pick="ok"]' : '[data-ai-pick="ask"]');
+      if (nextFocus && document.activeElement === b) setTimeout(() => nextFocus.focus({ preventScroll: true }), 60);
+    };
+    fig.addEventListener('click', e => { const b = e.target.closest('[data-ai-pick]'); if (b) pickTo(b); });
+    fig.addEventListener('keydown', e => { const b = e.target.closest('[data-ai-pick]'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pickTo(b); } });
+  });
 
   /* DAT compares only recorded image pairs. Display files share one pixel ROI, never a stretched frame. */
   const datSec = secs.find(sec => sec.dataset.prod === 'dat');
@@ -1665,7 +1852,7 @@
     const nd = dk > 0 ? dk : n; /* DAT dots are Creative's steps even while Polish hides them */
     sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', L(`${T}, ${unit} ${k + 1} of ${nd}`, `${T}, ${nd}개 중 ${k + 1}번째 ${unit}`, `${T}、${nd}件中${k + 1}件目の${unit}`)));
     const a = sec.querySelector('.prod-act');
-    if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); }
+    if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); if (p.action.hrefKo || p.action.hrefJa) a.href = pick(p.action, 'href'); }
     const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = pick(spec, 'alt');
