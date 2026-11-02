@@ -756,13 +756,13 @@
       },
       art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'art', src: 'assets/ryokan_kv_C2.webp', altKo: 'Donguri Ryokan 키 아트: 기모노를 입은 여우 소녀와 너구리 소녀가 밤 툇마루에서 불 켜진 장지문 뒤 그림자를 엿보는 모습', altJa: 'Donguri Ryokan のキーアート: 着物姿の狐の少女と狸の少女が、夜の縁側から、灯りのともった障子の向こうの影をのぞき込む', alt: 'Donguri Ryokan key art: fox and tanuki girls in kimono on a night veranda, peering at a silhouette behind a lit shoji screen', pos: '50% 30%', posM: '47% 50%' },
+        { kind: 'art', src: 'assets/ryokan_kv7_D.webp', altKo: 'Donguri Ryokan 키 아트: 비 오는 저녁, 빨간 우산을 든 여우 소녀가 불 켜진 료칸 입구 앞에 서 있고 두 여우 자매가 뒤에서 지켜보는 모습', altJa: 'Donguri Ryokan のキーアート: 雨の夕暮れ、赤い傘を差した狐の少女が灯りのともる旅館の入口に立ち、二人の狐の姉妹が後ろで見守る', alt: 'Donguri Ryokan key art: on a rainy evening a fox girl with a red umbrella stands before the lit inn entrance while her two fox sisters look on', pos: '50% 30%', posM: '38% 50%' },
         { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 山の神社の三柱の狐神が、狸のコガネを前に借用書へ判を押す', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
         { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 日の差す旅館の中庭で、狐の三姉妹がお茶とチェックリストを手にお客さんを出迎える', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
         { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', altJa: 'Donguri Ryokan のコンセプトアート: 厨房で酒を注ぎ、夕食のコース料理を盛りつける狐の姉妹', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
         { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', altJa: 'Donguri Ryokan のキーアート: 夜の畳の間で、紙の行灯と開いた帳簿を前に、低い卓を囲む狐の少女と狸の少女', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
       ],
-      info: { kind: 'art', src: 'assets/ryokan_kv_C2.webp', pos: '50% 30%', posM: '47% 50%' }
+      info: { kind: 'art', src: 'assets/ryokan_kv7_D.webp', pos: '50% 30%', posM: '38% 50%' }
     },
     {
       id: 'donguri-restaurant',
