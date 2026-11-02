@@ -1038,8 +1038,8 @@
   });
 
   /* ---------- Scheherazade installers (download page and the Get chooser) ----------
-     Every link starts on the latest release page. The public latest-release API is read once, only when the chooser is first
-     opened or the download page is shown, and a link moves to an installer only if that release holds a file of exactly that
+     Every link starts on the latest release page. The latest release is read once (release.json, then the public API), only when
+     the chooser is first opened or the download page is shown, and a link moves to an installer only if that release holds a file of exactly that
      platform's name; otherwise (no answer, rate limit, renamed file) it stays on the release page. Version numbers are never
      written here: releases/latest/download/<file> needs the versioned name, so the name comes from the release itself.
      The browser's OS only marks one choice as recommended; nothing downloads until a person picks one. */
@@ -1080,23 +1080,30 @@
       el.textContent = L('GitHub didn’t answer, so each choice opens the latest release page.', 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다', 'GitHub に接続できなかったため、各ボタンを押すと最新リリースのページが開きます。');
     });
   };
+  /* release.json (same origin, refreshed by .github/workflows/release-json.yml) is read first. The GitHub API is only the
+     second try: its unauthenticated limit is 60 calls an hour per IP, so one busy office network used to send everyone
+     on it to the release page. Both answers go through the same checks. */
+  const REL_JSON = url('release.json');
   let relReady;
   const loadRel = () => {
     if (rel.state !== 'idle') return relReady;
     rel.state = 'loading';
     const ctl = 'AbortController' in window ? new AbortController() : null, stop = ctl && setTimeout(() => ctl.abort(), 10000);
-    return relReady = fetch(REL_API, ctl ? { signal: ctl.signal } : {})
-      .then(r => { if (!r.ok) throw new Error(`GitHub ${r.status}`); return r.json(); })
-      .then(data => {
-        const assets = Array.isArray(data.assets) ? data.assets : [];
-        OSES.forEach(o => {
-          const a = assets.find(x => x && o.file.test(x.name) && (!x.state || x.state === 'uploaded') && typeof x.browser_download_url === 'string'
-            && x.browser_download_url.startsWith(`${REL_REPO}/releases/download/`) && x.browser_download_url.endsWith(`/${x.name}`));
-          if (a) rel.urls[o.os] = a.browser_download_url;
-        });
-        rel.tag = typeof data.tag_name === 'string' ? data.tag_name : '';
-        rel.state = 'ok';
-      })
+    const get = u => fetch(u, ctl ? { signal: ctl.signal } : {}).then(r => { if (!r.ok) throw new Error(`${u} ${r.status}`); return r.json(); });
+    const take = data => {
+      const assets = data && Array.isArray(data.assets) ? data.assets : [], urls = {};
+      OSES.forEach(o => {
+        const a = assets.find(x => x && o.file.test(x.name) && (!x.state || x.state === 'uploaded') && typeof x.browser_download_url === 'string'
+          && x.browser_download_url.startsWith(`${REL_REPO}/releases/download/`) && x.browser_download_url.endsWith(`/${x.name}`));
+        if (a) urls[o.os] = a.browser_download_url;
+      });
+      if (!Object.keys(urls).length) throw new Error('no installers');
+      rel.urls = urls;
+      rel.tag = typeof data.tag_name === 'string' ? data.tag_name : '';
+      rel.state = 'ok';
+    };
+    return relReady = get(REL_JSON).then(take)
+      .catch(() => get(REL_API).then(take))
       .catch(() => { rel.state = 'failed'; rel.urls = {}; })
       .finally(() => { clearTimeout(stop); relViews.forEach(labelRel); });
   };
