@@ -555,8 +555,10 @@ main.plates { --col: min(500px, 36vw); }
   background:
     radial-gradient(70% 22% at var(--hx) var(--horizon), rgba(var(--lit), var(--lit-a)) 0%, rgba(var(--lit), 0) 70%),
     linear-gradient(to bottom, #060708 0%, #0c0e10 34%, #151a1f calc(var(--horizon) - .2%), #08090a calc(var(--horizon) + .2%), #050506 100%); }
-.plate .figure { position: absolute; left: 41.5%; bottom: calc(var(--deck-h) + 34px); transform: translateX(-50%); height: min(46vh, 42vw); margin: 0; }
-.plate .figure img { height: 100%; width: auto; }
+/* The figure sizes to its image (width: max-content). Left alone, an absolutely placed box only gets the width between
+   `left` and the plate edge (half the screen on phones), and img's max-width: 100% then squeezed the mark sideways. */
+.plate .figure { position: absolute; left: 41.5%; bottom: calc(var(--deck-h) + 34px); transform: translateX(-50%); height: min(46vh, 42vw); width: max-content; margin: 0; }
+.plate .figure img { height: 100%; width: auto; max-width: none; }
 .plate-cast { position: absolute; left: 40.5%; bottom: calc(var(--deck-h) + 34px); transform: translateX(-50%); display: flex; align-items: flex-end; gap: clamp(8px, 1.1vw, 18px); height: min(55vh, 33vw); }
 .plate-cast img { height: 100%; width: auto; object-fit: contain; object-position: bottom; user-select: none; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
