@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>602 Documentation | CHOAM</title>
-<meta name="description" content="Technical documentation for 602 Story Engine SDK v1.1.0 (C ABI v1, story-engine/turn-source/1 authoring format, JSON protocol, storyc CLI, C++/C#/Godot integration) and 602 Story Editor v0.1.1 (standalone server, simulation, and Remote MCP).">
+<meta name="description" content="Technical documentation for 602 Story Engine SDK v1.2.0 (C ABI v1, story-engine/turn-source/1 authoring format, JSON protocol, storyc CLI, C++/C#/Godot integration) and 602 Story Editor v0.1.2 (standalone server, simulation, and Remote MCP).">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="602 Documentation | CHOAM">
-<meta property="og:description" content="Complete developer reference for 602 Story Engine SDK v1.1.0 (27 C ABI functions, story-engine/turn-source/1 schema, JSON wire envelopes, storyc CLI, C++/Unity/Godot bindings) and 602 Story Editor v0.1.1.">
+<meta property="og:description" content="Complete developer reference for 602 Story Engine SDK v1.2.0 (27 C ABI functions, story-engine/turn-source/1 schema, JSON wire envelopes, storyc CLI, C++/Unity/Godot bindings) and 602 Story Editor v0.1.2.">
 <meta property="og:url" content="https://choam.studio/602/docs">
 <meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="602 Documentation | CHOAM">
-<meta name="twitter:description" content="Developer reference for 602 Story Engine SDK v1.1.0 and 602 Story Editor v0.1.1: C11 ABI, authoring schema, JSON protocol, storyc CLI, engine bindings, and Remote MCP.">
+<meta name="twitter:description" content="Developer reference for 602 Story Engine SDK v1.2.0 and 602 Story Editor v0.1.2: C11 ABI, authoring schema, JSON protocol, storyc CLI, engine bindings, and Remote MCP.">
 <meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
 <link rel="icon" href="../assets/mark.svg">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
@@ -27,7 +27,7 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "602 Technical Documentation — Story Engine SDK v1.1.0 & Story Editor v0.1.1",
+      "headline": "602 Technical Documentation — Story Engine SDK v1.2.0 & Story Editor v0.1.2",
       "description": "Developer reference covering the 602 host-driven turn execution architecture, C11 ABI v1 (27 exported functions), story-engine/turn-source/1 JSON authoring format, JSON envelopes, storyc CLI, C++/C#/Godot integration, and standalone Story Editor with Remote MCP.",
       "url": "https://choam.studio/602/docs",
       "image": "https://choam.studio/assets/og-choam.jpg",
@@ -45,7 +45,7 @@
       "about": {
         "@type": "SoftwareApplication",
         "name": "602",
-        "softwareVersion": "Engine v1.1.0 / Editor v0.1.1",
+        "softwareVersion": "Engine v1.2.0 / Editor v0.1.2",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux x64, Windows x64, macOS arm64, macOS x64",
         "url": "https://choam.studio/pages/602"
@@ -73,7 +73,7 @@
     <a href="../pages/602">602</a>
     <span aria-hidden="true">/</span>
     <span data-lang-block="ko" lang="ko">도큐멘테이션</span><span data-lang-block="en" lang="en">Documentation</span><span data-lang-block="ja" lang="ja">ドキュメント</span>
-    <span class="p602-badge">Engine v1.1.0 · Editor v0.1.1 · ABI v1</span>
+    <span class="p602-badge">Engine v1.2.0 · Editor v0.1.2 · ABI v1</span>
   </div>
   <div class="p602-bar-actions">
     <button type="button" class="p602-toc-toggle" data-doc-toc-toggle aria-expanded="false" aria-controls="doc-sidebar">
@@ -114,17 +114,17 @@
           </a>
         </li>
         <li>
-          <a href="#authoring" data-doc-link="authoring" data-keywords="authoring turn-source/1 format default_state_access external internal readonly_state types entities parents isa states expressions 28 operators snapshots turns dialogue action update choice capture end routes weighted payload payload_expr groups uses 작성 포맷 타입 엔티티 표현식 턴 記述フォーマット">
+          <a href="#authoring" data-doc-link="authoring" data-keywords="authoring turn-source/1 format default_state_access external internal readonly_state types entities parents isa states expressions 31 operators min max clamp invalid_range snapshots turns dialogue action update choice capture end routes weighted payload payload_expr groups uses 작성 포맷 타입 엔티티 표현식 턴 記述フォーマット">
             <span data-lang-block="ko" lang="ko">04 · 스토리 작성 포맷</span><span data-lang-block="en" lang="en">04 · Story Authoring Format</span><span data-lang-block="ja" lang="ja">04 · ストーリー記述フォーマット</span>
           </a>
         </li>
         <li>
-          <a href="#c-abi" data-doc-link="c-abi" data-keywords="c abi SE_ABI_VERSION SE_MAX_JSON_BYTES SE_MAX_ARTIFACT_BYTES SE_MAX_CHECKPOINT_BYTES se_status SE_OK SE_ERROR SE_INVALID_ARGUMENT SE_INVALID_HANDLE SE_COMPILE_ERROR SE_OUT_OF_MEMORY se_buffer se_abi_version se_buffer_release se_compile se_program_load se_program_artifact se_program_inspect se_program_retain se_program_release se_session_create se_session_clone se_session_save se_session_load se_session_retain se_session_release se_session_start se_session_advance se_session_advance_to_yield se_session_read se_session_update se_session_evaluate se_session_read_snapshot se_session_view se_session_collect se_object_retain se_object_read se_object_release se_collect_retired 함수 핸들 버퍼 リファレンス">
+          <a href="#c-abi" data-doc-link="c-abi" data-keywords="c abi SE_ABI_VERSION SE_MAX_JSON_BYTES SE_MAX_ARTIFACT_BYTES SE_MAX_CHECKPOINT_BYTES se_status SE_OK SE_ERROR SE_INVALID_ARGUMENT SE_INVALID_HANDLE SE_COMPILE_ERROR SE_OUT_OF_MEMORY se_buffer se_abi_version se_buffer_release se_compile se_program_load se_program_artifact se_program_inspect se_program_retain se_program_release se_session_create se_session_clone se_session_save se_session_load se_session_retain se_session_release se_session_start se_session_advance se_session_advance_to_yield se_session_read se_session_update se_session_evaluate se_session_read_snapshot se_session_view se_session_collect se_object_retain se_object_read se_object_release se_collect_retired answer_json updates bindings invalid_range readonly_state 함수 핸들 버퍼 リファレンス">
             <span data-lang-block="ko" lang="ko">05 · C ABI 레퍼런스</span><span data-lang-block="en" lang="en">05 · C ABI Reference</span><span data-lang-block="ja" lang="ja">05 · C ABI リファレンス</span>
           </a>
         </li>
         <li>
-          <a href="#json-protocol" data-doc-link="json-protocol" data-keywords="json protocol envelope diagnostics error code phase awaiting_choice choices request option changes snapshot_record completed_choice opaque binary artifact checkpoint incompatible_program invalid_checkpoint int64 프로토콜 진단 체크포인트 아티팩트 プロトコル 診断 チェックポイント">
+          <a href="#json-protocol" data-doc-link="json-protocol" data-keywords="json protocol envelope diagnostics error code phase awaiting_choice choices request option updates bindings changes snapshot_record completed_choice invalid_range readonly_state opaque binary artifact checkpoint incompatible_program invalid_checkpoint int64 프로토콜 진단 체크포인트 아티팩트 プロトコル 診断 チェックポイント">
             <span data-lang-block="ko" lang="ko">06 · JSON 프로토콜 및 진단</span><span data-lang-block="en" lang="en">06 · JSON Protocol &amp; Diagnostics</span><span data-lang-block="ja" lang="ja">06 · JSON プロトコルと診断</span>
           </a>
         </li>
@@ -139,12 +139,12 @@
           </a>
         </li>
         <li>
-          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="story-editor serve account trust-https-proxy caddy nginx simulation scene jump story-agent approval full_access remote mcp POST /mcp Story-Editor-Session server/discover inspect edit analyze metadataHash expectedHash project_conflict 에디터 시뮬레이션 원격 MCP エディタ シミュレーション">
+          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="story-editor v0.1.2 serve account trust-https-proxy caddy nginx simulation scene jump min max clamp updates story-agent approval full_access remote mcp POST /mcp Story-Editor-Session server/discover inspect edit analyze metadataHash expectedHash project_conflict 에디터 시뮬레이션 원격 MCP エディタ シミュレーション">
             <span data-lang-block="ko" lang="ko">09 · Story Editor 및 원격 MCP</span><span data-lang-block="en" lang="en">09 · Story Editor &amp; Remote MCP</span><span data-lang-block="ja" lang="ja">09 · Story Editor とリモート MCP</span>
           </a>
         </li>
         <li>
-          <a href="#license" data-doc-link="license" data-keywords="release notes v1.1.0 v0.1.1 license notices rapidjson node.js pi python fastapi react oss caveats 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
+          <a href="#license" data-doc-link="license" data-keywords="release notes v1.2.0 v0.1.2 license notices rapidjson node.js pi python fastapi react oss caveats 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
             <span data-lang-block="ko" lang="ko">10 · 릴리스 노트 및 라이선스</span><span data-lang-block="en" lang="en">10 · Release Notes &amp; Licenses</span><span data-lang-block="ja" lang="ja">10 · リリースノートとライセンス</span>
           </a>
         </li>
@@ -155,18 +155,18 @@
   <main class="p602-doc-main" id="doc-content">
     <header class="p602-dl-hero" style="margin-bottom:48px">
       <p class="p602-kicker">
-        <span data-lang-block="ko" lang="ko">602 기술 레퍼런스 · Engine v1.1.0 &amp; Editor v0.1.1</span>
-        <span data-lang-block="en" lang="en">602 Technical Reference · Engine v1.1.0 &amp; Editor v0.1.1</span>
-        <span data-lang-block="ja" lang="ja">602 技術リファレンス · Engine v1.1.0 &amp; Editor v0.1.1</span>
+        <span data-lang-block="ko" lang="ko">602 기술 레퍼런스 · Engine v1.2.0 &amp; Editor v0.1.2</span>
+        <span data-lang-block="en" lang="en">602 Technical Reference · Engine v1.2.0 &amp; Editor v0.1.2</span>
+        <span data-lang-block="ja" lang="ja">602 技術リファレンス · Engine v1.2.0 &amp; Editor v0.1.2</span>
       </p>
       <h1 class="p602-h1">
         <span data-lang-block="ko" lang="ko">602 도큐멘테이션</span>
         <span data-lang-block="en" lang="en">602 Documentation</span>
         <span data-lang-block="ja" lang="ja">602 ドキュメント</span>
       </h1>
-      <p class="p602-lead" data-lang-block="ko" lang="ko">호스트 주도 턴 스토리 런타임 <strong>602 Story Engine SDK (v1.1.0, C ABI v1)</strong>와 시각적 노드 작성·중간 장면 시뮬레이션·원격 MCP 서버를 통합한 독립 실행형 <strong>602 Story Editor (v0.1.1)</strong>의 공식 개발자 명세입니다.</p>
-      <p class="p602-lead" data-lang-block="en" lang="en">Complete developer specification for the host-driven <strong>602 Story Engine SDK (v1.1.0, C ABI v1)</strong> and the standalone <strong>602 Story Editor (v0.1.1)</strong> with visual graph authoring, arbitrary-turn simulation, and Remote MCP.</p>
-      <p class="p602-lead" data-lang-block="ja" lang="ja">ホスト主導のターン制ストーリーランタイム <strong>602 Story Engine SDK (v1.1.0, C ABI v1)</strong> と、ビジュアルグラフ編集・途中ターンからのシミュレーション・リモート MCP を備えたスタンドアロン版 <strong>602 Story Editor (v0.1.1)</strong> の公式開発者リファレンスです。</p>
+      <p class="p602-lead" data-lang-block="ko" lang="ko">호스트 주도 턴 스토리 런타임 <strong>602 Story Engine SDK (v1.2.0, C ABI v1)</strong>와 시각적 노드 작성·중간 장면 시뮬레이션·원격 MCP 서버를 통합한 독립 실행형 <strong>602 Story Editor (v0.1.2)</strong>의 공식 개발자 명세입니다.</p>
+      <p class="p602-lead" data-lang-block="en" lang="en">Complete developer specification for the host-driven <strong>602 Story Engine SDK (v1.2.0, C ABI v1)</strong> and the standalone <strong>602 Story Editor (v0.1.2)</strong> with visual graph authoring, arbitrary-turn simulation, and Remote MCP.</p>
+      <p class="p602-lead" data-lang-block="ja" lang="ja">ホスト主導のターン制ストーリーランタイム <strong>602 Story Engine SDK (v1.2.0, C ABI v1)</strong> と、ビジュアルグラフ編集・途中ターンからのシミュレーション・リモート MCP を備えたスタンドアロン版 <strong>602 Story Editor (v0.1.2)</strong> の公式開発者リファレンスです。</p>
     </header>
 
     <!-- ================================================================ -->
@@ -180,8 +180,8 @@
             <h2 class="p602-hub-title">릴리스 다운로드</h2>
             <p class="p602-hub-desc">약관 확인 후 운영체제별 아카이브(<code>.zip</code>)와 <code>.sha256</code> 체크섬을 받을 수 있습니다.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Story Engine SDK</strong> (<code>v1.1.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.1</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Engine SDK</strong> (<code>v1.2.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.2</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -213,8 +213,8 @@
             <h2 class="p602-hub-title">Release Download</h2>
             <p class="p602-hub-desc">Review the license terms and download platform <code>.zip</code> archives and <code>.sha256</code> checksums.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Story Engine SDK</strong> (<code>v1.1.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.1</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Engine SDK</strong> (<code>v1.2.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.2</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -246,8 +246,8 @@
             <h2 class="p602-hub-title">リリースダウンロード</h2>
             <p class="p602-hub-desc">規約同意のうえ、OS 別の <code>.zip</code> アーカイブおよび <code>.sha256</code> チェックサムを入手できます。</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Story Engine SDK</strong> (<code>v1.1.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.1</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Engine SDK</strong> (<code>v1.2.0</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.2</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -306,16 +306,16 @@
             <tbody>
               <tr>
                 <td><strong>602 Story Engine SDK</strong></td>
-                <td><code>v1.1.0</code> (ABI v1)</td>
+                <td><code>v1.2.0</code> (ABI v1)</td>
                 <td><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code> (4개 플랫폼)</td>
                 <td>단일 C 헤더(<code>story_engine.h</code>), 공유 라이브러리(<code>.so</code> / <code>.dll</code>+<code>.lib</code> / <code>.dylib</code>), <code>storyc</code> CLI, C 예제, SHA-256 <code>manifest.json</code></td>
                 <td>없음 (표준 C 런타임 / OS 기본 로더만 사용)</td>
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.1</code> (Engine v1.1.0 내장)</td>
+                <td><code>v0.1.2</code> (Engine v1.2.0 내장)</td>
                 <td><code>linux-x64</code> (Ubuntu 22.04), <code>windows-x64</code> (Win Server 2022), <code>macos-arm64</code> (macOS 15 Apple Silicon) — 3개 플랫폼</td>
-                <td><code>story-editor</code> 서버·계정 CLI, <code>agent/story-agent</code>, 웹 프론트엔드(<code>static/</code>), 동봉 Engine v1.1.0 헤더·공유 라이브러리, OpenAPI/MCP 스키마</td>
+                <td><code>story-editor</code> 서버·계정 CLI, <code>agent/story-agent</code>, 웹 프론트엔드(<code>static/</code>), 동봉 Engine v1.2.0 헤더·공유 라이브러리, OpenAPI/MCP 스키마</td>
                 <td>Python / Node.js 사전 설치 불필요 (운영상 HTTPS 리버스 프록시 필요)</td>
               </tr>
             </tbody>
@@ -323,7 +323,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>패키지 차이 참고:</strong> 독립 배포되는 <strong>Story Engine SDK</strong>는 Intel 기반 macOS(<code>macos-x64</code>)와 <code>storyc</code> CLI를 포함한 4개 플랫폼을 지원합니다. 반면 <strong>Story Editor v0.1.1</strong>은 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포되며, 내장 네이티브 엔진 라이브러리를 직접 호출하므로 <code>storyc</code> 실행 파일은 포함하지 않습니다.</p>
+          <p><strong>패키지 차이 참고:</strong> 독립 배포되는 <strong>Story Engine SDK</strong>는 Intel 기반 macOS(<code>macos-x64</code>)와 <code>storyc</code> CLI를 포함한 4개 플랫폼을 지원합니다. 반면 <strong>Story Editor v0.1.2</strong>는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포되며, 내장 네이티브 엔진 라이브러리를 직접 호출하므로 <code>storyc</code> 실행 파일은 포함하지 않습니다.</p>
         </div>
       </div>
 
@@ -356,16 +356,16 @@
             <tbody>
               <tr>
                 <td><strong>602 Story Engine SDK</strong></td>
-                <td><code>v1.1.0</code> (ABI v1)</td>
+                <td><code>v1.2.0</code> (ABI v1)</td>
                 <td><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code> (4 platforms)</td>
                 <td>Single C header (<code>story_engine.h</code>), shared library (<code>.so</code> / <code>.dll</code>+<code>.lib</code> / <code>.dylib</code>), <code>storyc</code> CLI, C examples, SHA-256 <code>manifest.json</code></td>
                 <td>None (OS loader &amp; standard runtime libraries only)</td>
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.1</code> (bundles Engine v1.1.0)</td>
+                <td><code>v0.1.2</code> (bundles Engine v1.2.0)</td>
                 <td><code>linux-x64</code> (Ubuntu 22.04), <code>windows-x64</code> (Win Server 2022), <code>macos-arm64</code> (macOS 15 Apple Silicon) — 3 platforms</td>
-                <td><code>story-editor</code> server/account CLI, <code>agent/story-agent</code>, desktop web UI (<code>static/</code>), bundled Engine v1.1.0 header &amp; shared library, OpenAPI/MCP schemas</td>
+                <td><code>story-editor</code> server/account CLI, <code>agent/story-agent</code>, desktop web UI (<code>static/</code>), bundled Engine v1.2.0 header &amp; shared library, OpenAPI/MCP schemas</td>
                 <td>No pre-installed Python or Node.js required (requires an HTTPS reverse proxy in deployment)</td>
               </tr>
             </tbody>
@@ -373,7 +373,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>Packaging Note:</strong> The standalone <strong>Story Engine SDK</strong> ships for 4 platforms (including <code>macos-x64</code>) and includes the <code>storyc</code> CLI binary. <strong>Story Editor v0.1.1</strong> ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>) and drives its bundled native Story Engine library directly rather than bundling <code>storyc</code>.</p>
+          <p><strong>Packaging Note:</strong> The standalone <strong>Story Engine SDK</strong> ships for 4 platforms (including <code>macos-x64</code>) and includes the <code>storyc</code> CLI binary. <strong>Story Editor v0.1.2</strong> ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>) and drives its bundled native Story Engine library directly rather than bundling <code>storyc</code>.</p>
         </div>
       </div>
 
@@ -406,16 +406,16 @@
             <tbody>
               <tr>
                 <td><strong>602 Story Engine SDK</strong></td>
-                <td><code>v1.1.0</code> (ABI v1)</td>
+                <td><code>v1.2.0</code> (ABI v1)</td>
                 <td><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code>（4 プラットフォーム）</td>
                 <td>単一 C ヘッダ（<code>story_engine.h</code>）、共有ライブラリ（<code>.so</code> / <code>.dll</code>+<code>.lib</code> / <code>.dylib</code>）、<code>storyc</code> CLI、C サンプル、SHA-256 <code>manifest.json</code></td>
                 <td>なし（OS 標準ローダ・C ランタイムのみ）</td>
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.1</code>（Engine v1.1.0 同梱）</td>
+                <td><code>v0.1.2</code>（Engine v1.2.0 同梱）</td>
                 <td><code>linux-x64</code>（Ubuntu 22.04）、<code>windows-x64</code>（Win Server 2022）、<code>macos-arm64</code>（macOS 15 Apple Silicon）— 3 プラットフォーム</td>
-                <td><code>story-editor</code> サーバー／アカウント CLI、<code>agent/story-agent</code>、Web UI（<code>static/</code>）、同梱 Engine v1.1.0 ヘッダ・共有ライブラリ、OpenAPI/MCP スキーマ</td>
+                <td><code>story-editor</code> サーバー／アカウント CLI、<code>agent/story-agent</code>、Web UI（<code>static/</code>）、同梱 Engine v1.2.0 ヘッダ・共有ライブラリ、OpenAPI/MCP スキーマ</td>
                 <td>Python / Node.js の事前導入不要（運用時は前段に HTTPS リバースプロキシが必要）</td>
               </tr>
             </tbody>
@@ -423,7 +423,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>パッケージ構成の違い:</strong> 単体配布の <strong>Story Engine SDK</strong> は Intel macOS（<code>macos-x64</code>）および <code>storyc</code> CLI を含む 4 プラットフォーム向けです。一方、<strong>Story Editor v0.1.1</strong> は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布であり、内蔵ネイティブライブラリを直接呼び出すため <code>storyc</code> 実行ファイルは含まれません。</p>
+          <p><strong>パッケージ構成の違い:</strong> 単体配布の <strong>Story Engine SDK</strong> は Intel macOS（<code>macos-x64</code>）および <code>storyc</code> CLI を含む 4 プラットフォーム向けです。一方、<strong>Story Editor v0.1.2</strong> は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布であり、内蔵ネイティブライブラリを直接呼び出すため <code>storyc</code> 実行ファイルは含まれません。</p>
         </div>
       </div>
     </section>
@@ -434,10 +434,10 @@
     <section class="p602-sec" id="install" data-doc-sec="install">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">02 · 설치 및 링크 가이드</h2>
-        <p><strong>Story Engine SDK v1.1.0</strong> 아카이브(<code>story-engine-v1.1.0-&lt;platform&gt;.zip</code>)는 압축 해제 즉시 C11 이상 또는 C++11 이상의 호스트 프로젝트에서 링크할 수 있는 단일 헤더와 공유 라이브러리로 구성됩니다.</p>
+        <p><strong>Story Engine SDK v1.2.0</strong> 아카이브(<code>story-engine-v1.2.0-&lt;platform&gt;.zip</code>)는 압축 해제 즉시 C11 이상 또는 C++11 이상의 호스트 프로젝트에서 링크할 수 있는 단일 헤더와 공유 라이브러리로 구성됩니다.</p>
 
         <h3 class="p602-h3">SDK 아카이브 디렉터리 레이아웃</h3>
-        <pre class="inst-code p602-code"><code>story-engine-v1.1.0-&lt;platform&gt;/
+        <pre class="inst-code p602-code"><code>story-engine-v1.2.0-&lt;platform&gt;/
 ├── bin/
 │   ├── storyc                  # CLI 검증·컴파일·실행 도구 (macOS / Linux)
 │   ├── storyc.exe              # CLI 검증·컴파일·실행 도구 (Windows x64)
@@ -480,7 +480,7 @@ clang-cl /std:c11 /W4 /DSTORY_ENGINE_USE_SHARED /I"include" ^
   docs\examples\quickstart.c lib\story_engine_import.lib /Fe:quickstart.exe</code></pre>
 
         <h3 class="p602-h3">CMake <code>SHARED IMPORTED</code> 타깃 연동</h3>
-        <p><code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.1.0-&lt;platform&gt;</code>를 받아 플랫폼별 공유 라이브러리와 헤더, Windows <code>STORY_ENGINE_USE_SHARED</code> 매크로를 깔끔하게 캡슐화하는 <code>CMakeLists.txt</code> 구성입니다.</p>
+        <p><code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.2.0-&lt;platform&gt;</code>를 받아 플랫폼별 공유 라이브러리와 헤더, Windows <code>STORY_ENGINE_USE_SHARED</code> 매크로를 깔끔하게 캡슐화하는 <code>CMakeLists.txt</code> 구성입니다.</p>
 
         <pre class="inst-code p602-code"><code>cmake_minimum_required(VERSION 3.18)
 project(game_host LANGUAGES C)
@@ -489,7 +489,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 if(NOT STORY_ENGINE_PACKAGE)
-  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.1.0-&lt;platform&gt;")
+  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.2.0-&lt;platform&gt;")
 endif()
 
 add_library(story_engine SHARED IMPORTED GLOBAL)
@@ -519,7 +519,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>미서명 바이너리 실행 유의사항:</strong> 현재 배포 바이너리에는 Apple 공증(notarization) 및 Windows Authenticode 상용 코드 서명이 적용되어 있지 않습니다. 반드시 공식 출처(<a href="download">choam.studio</a> 또는 <code>CHOAM-CO/602-releases</code>) 및 SHA-256 해시를 먼저 확인한 뒤 아래 절차를 적용하십시오.</p>
           <ul>
-            <li><strong>macOS Gatekeeper 격리 해제</strong>: 압축 해제 폴더에서 <code>xattr -dr com.apple.quarantine ./story-engine-v1.1.0-macos-arm64</code> (또는 <code>story-editor-v0.1.1-macos-arm64</code>) 실행</li>
+            <li><strong>macOS Gatekeeper 격리 해제</strong>: 압축 해제 폴더에서 <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.0-macos-arm64</code> (또는 <code>story-editor-v0.1.2-macos-arm64</code>) 실행</li>
             <li><strong>Windows SmartScreen 및 DLL 경로</strong>: 출처 확인 후 <em>추가 정보 → 실행</em> 선택. 호스트 실행 시 <code>bin\story_engine.dll</code>을 실행 파일 옆에 복사하거나 <code>PATH</code>에 <code>bin</code> 폴더를 추가하십시오.</li>
             <li><strong>Linux 실행 권한</strong>: 파일 권한이 유실된 경우 <code>chmod +x ./bin/storyc</code> (에디터는 <code>chmod +x ./story-editor ./agent/story-agent</code>) 실행</li>
           </ul>
@@ -528,10 +528,10 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">02 · Installation &amp; Linking</h2>
-        <p>Each <strong>Story Engine SDK v1.1.0</strong> archive (<code>story-engine-v1.1.0-&lt;platform&gt;.zip</code>) extracts into a self-contained layout ready to link into any C11+ or C++11+ host project.</p>
+        <p>Each <strong>Story Engine SDK v1.2.0</strong> archive (<code>story-engine-v1.2.0-&lt;platform&gt;.zip</code>) extracts into a self-contained layout ready to link into any C11+ or C++11+ host project.</p>
 
         <h3 class="p602-h3">SDK Archive Directory Layout</h3>
-        <pre class="inst-code p602-code"><code>story-engine-v1.1.0-&lt;platform&gt;/
+        <pre class="inst-code p602-code"><code>story-engine-v1.2.0-&lt;platform&gt;/
 ├── bin/
 │   ├── storyc                  # CLI validator, compiler &amp; runner (macOS / Linux)
 │   ├── storyc.exe              # CLI validator, compiler &amp; runner (Windows x64)
@@ -574,7 +574,7 @@ clang-cl /std:c11 /W4 /DSTORY_ENGINE_USE_SHARED /I"include" ^
   docs\examples\quickstart.c lib\story_engine_import.lib /Fe:quickstart.exe</code></pre>
 
         <h3 class="p602-h3">CMake <code>SHARED IMPORTED</code> Target</h3>
-        <p>Pass <code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.1.0-&lt;platform&gt;</code> to encapsulate include paths, shared library locations, and Windows import definitions cleanly:</p>
+        <p>Pass <code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.2.0-&lt;platform&gt;</code> to encapsulate include paths, shared library locations, and Windows import definitions cleanly:</p>
 
         <pre class="inst-code p602-code"><code>cmake_minimum_required(VERSION 3.18)
 project(game_host LANGUAGES C)
@@ -583,7 +583,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 if(NOT STORY_ENGINE_PACKAGE)
-  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.1.0-&lt;platform&gt;")
+  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.2.0-&lt;platform&gt;")
 endif()
 
 add_library(story_engine SHARED IMPORTED GLOBAL)
@@ -613,7 +613,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>Unsigned Binary Handling:</strong> Current release archives are not Apple-notarized (ad-hoc signed on macOS) and do not carry Windows Authenticode certificates. Always verify the archive origin (<a href="download">choam.studio</a> or <code>CHOAM-CO/602-releases</code>) and SHA-256 checksum first:</p>
           <ul>
-            <li><strong>macOS Quarantine Removal</strong>: Run <code>xattr -dr com.apple.quarantine ./story-engine-v1.1.0-macos-arm64</code> (or <code>./story-editor-v0.1.1-macos-arm64</code>) on the extracted directory.</li>
+            <li><strong>macOS Quarantine Removal</strong>: Run <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.0-macos-arm64</code> (or <code>./story-editor-v0.1.2-macos-arm64</code>) on the extracted directory.</li>
             <li><strong>Windows SmartScreen &amp; DLL Search Path</strong>: Confirm the file origin if SmartScreen prompts (<em>More info → Run anyway</em>), and copy <code>bin\story_engine.dll</code> next to your executable or add <code>bin</code> to <code>PATH</code>.</li>
             <li><strong>Linux Executable Permissions</strong>: Ensure execute bits are set via <code>chmod +x ./bin/storyc</code> (or <code>chmod +x ./story-editor ./agent/story-agent</code> for the Editor archive).</li>
           </ul>
@@ -622,10 +622,10 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">02 · インストールとリンク</h2>
-        <p><strong>Story Engine SDK v1.1.0</strong> の配布アーカイブ（<code>story-engine-v1.1.0-&lt;platform&gt;.zip</code>）を展開すると、C11 以上または C++11 以上のホストプロジェクトからそのままリンクできる単一ヘッダと共有ライブラリが揃っています。</p>
+        <p><strong>Story Engine SDK v1.2.0</strong> の配布アーカイブ（<code>story-engine-v1.2.0-&lt;platform&gt;.zip</code>）を展開すると、C11 以上または C++11 以上のホストプロジェクトからそのままリンクできる単一ヘッダと共有ライブラリが揃っています。</p>
 
         <h3 class="p602-h3">SDK アーカイブのディレクトリ構成</h3>
-        <pre class="inst-code p602-code"><code>story-engine-v1.1.0-&lt;platform&gt;/
+        <pre class="inst-code p602-code"><code>story-engine-v1.2.0-&lt;platform&gt;/
 ├── bin/
 │   ├── storyc                  # CLI 検証・コンパイル・実行ツール (macOS / Linux)
 │   ├── storyc.exe              # CLI 検証・コンパイル・実行ツール (Windows x64)
@@ -668,7 +668,7 @@ clang-cl /std:c11 /W4 /DSTORY_ENGINE_USE_SHARED /I"include" ^
   docs\examples\quickstart.c lib\story_engine_import.lib /Fe:quickstart.exe</code></pre>
 
         <h3 class="p602-h3">CMake <code>SHARED IMPORTED</code> ターゲット設定</h3>
-        <p><code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.1.0-&lt;platform&gt;</code> を渡すことで、各 OS の共有ライブラリと <code>STORY_ENGINE_USE_SHARED</code> 定義を一元管理できます。</p>
+        <p><code>-DSTORY_ENGINE_PACKAGE=/abs/path/to/story-engine-v1.2.0-&lt;platform&gt;</code> を渡すことで、各 OS の共有ライブラリと <code>STORY_ENGINE_USE_SHARED</code> 定義を一元管理できます。</p>
 
         <pre class="inst-code p602-code"><code>cmake_minimum_required(VERSION 3.18)
 project(game_host LANGUAGES C)
@@ -677,7 +677,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 if(NOT STORY_ENGINE_PACKAGE)
-  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.1.0-&lt;platform&gt;")
+  message(FATAL_ERROR "Pass -DSTORY_ENGINE_PACKAGE=/path/to/story-engine-v1.2.0-&lt;platform&gt;")
 endif()
 
 add_library(story_engine SHARED IMPORTED GLOBAL)
@@ -707,7 +707,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>未署名バイナリの取り扱いについて:</strong> 現在の配布バイナリには Apple 公証（notarization）および Windows Authenticode 商用署名が適用されていません（macOS は ad-hoc 署名）。必ず公式配布元（<a href="download">choam.studio</a> または <code>CHOAM-CO/602-releases</code>）および SHA-256 ハッシュを確認した上で以下の手順を行ってください。</p>
           <ul>
-            <li><strong>macOS 隔離属性の解除</strong>: 展開先に対して <code>xattr -dr com.apple.quarantine ./story-engine-v1.1.0-macos-arm64</code>（Editor は <code>./story-editor-v0.1.1-macos-arm64</code>）を実行します。</li>
+            <li><strong>macOS 隔離属性の解除</strong>: 展開先に対して <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.0-macos-arm64</code>（Editor は <code>./story-editor-v0.1.2-macos-arm64</code>）を実行します。</li>
             <li><strong>Windows SmartScreen と DLL 配置</strong>: 配布元を確認後「詳細情報 → 実行」を選択し、実行時は <code>bin\story_engine.dll</code> を実行ファイルと同じフォルダに配置するか <code>bin</code> を <code>PATH</code> に追加してください。</li>
             <li><strong>Linux 実行権限</strong>: 必要に応じて <code>chmod +x ./bin/storyc</code>（Editor は <code>chmod +x ./story-editor ./agent/story-agent</code>）を付与します。</li>
           </ul>
@@ -1187,10 +1187,10 @@ cleanup:
             </ul>
           </li>
           <li><strong>엔티티 다중 상속 (<code>entities[].parents</code>) 및 <code>isa</code> 제약</strong>: 상위 엔티티에 비어 있지 않은 <code>member</code> 이름으로 선언된 상태는 컴파일 시 각 후손 엔티티의 독립 슬롯(<code>&lt;descendant_id&gt;.&lt;member&gt;</code>)으로 상속됩니다(런타임 슬롯 공유 없음). 후손은 동일한 <code>declared_type</code>으로 초기값을 재정의할 수 있으며 순환 상속은 <code>entity_cycle</code>로 거부됩니다. 그룹 엔티티 매개변수에 <code>{"name":"shop","kind":"entity","isa":"MerchantBase"}</code>를 지정하면 해당 엔티티 또는 후손만 결속되도록 정적·런타임 검증합니다.</li>
-          <li><strong>상태 접근 제어 (<code>default_state_access</code> &amp; <code>states[].access</code>)</strong>: <code>"external"</code> 상태는 스토리 내부 <code>update</code> 턴과 호스트 <code>se_session_update</code> 모두에서 변경할 수 있습니다. <code>"internal"</code>로 지정된 상태는 작성된 <code>update</code> 턴과 호스트 읽기(<code>se_session_read</code>)는 허용하지만, 외부 호스트의 <code>se_session_update</code> 호출은 <code>readonly_state</code> 오류로 차단합니다.</li>
+          <li><strong>상태 접근 제어 (<code>default_state_access</code> &amp; <code>states[].access</code>)</strong>: <code>"external"</code> 상태는 스토리 내부 <code>update</code> 턴과 호스트 <code>se_session_update</code> 및 선택 응답 <code>answer_json</code>의 <code>updates</code>에서 모두 변경할 수 있습니다. <code>"internal"</code>로 지정된 상태는 작성된 <code>update</code> 턴과 호스트 읽기(<code>se_session_read</code>)는 허용하지만, 외부 호스트의 상태 갱신(<code>se_session_update</code> 및 선택 응답 <code>updates</code>)은 <code>readonly_state</code> 오류로 차단합니다.</li>
         </ul>
 
-        <h3 class="p602-h3">순수 표현식 DAG 및 28개 연산자 전체 표</h3>
+        <h3 class="p602-h3">순수 표현식 DAG 및 31개 연산자 전체 표</h3>
         <p><code>expressions[]</code>의 각 노드는 상태를 변경하지 않는 비순환 그래프(DAG)이며 순환 참조는 컴파일 시 <code>expression_cycle</code>로 거부됩니다.</p>
 
         <div class="p602-table-wrap">
@@ -1209,10 +1209,13 @@ cleanup:
               <tr><td></td><td><code>state</code></td><td>0</td><td><code>state</code>(<code>StateRef</code>) 슬롯의 현재 세션 값을 읽음</td><td>상태 타입</td></tr>
               <tr><td></td><td><code>snapshot</code></td><td>0</td><td><code>snapshot_record</code> 또는 <code>snapshot_record_expression</code>에서 캡처 시점의 <code>state</code> 값을 조회</td><td>상태 타입</td></tr>
               <tr><td></td><td><code>visit</code></td><td>0</td><td>현재 실행 중인 턴의 누적 방문 횟수(1부터 시작) 반환</td><td><code>int</code></td></tr>
-              <tr><td><strong>산술 연산 (6)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td><code>[a, b]</code> 수치 연산. 둘 다 <code>int</code>면 <code>int</code>(오버플로 시 <code>integer_overflow</code>), 하나라도 <code>real</code>이면 <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td><strong>산술 연산 (9)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td><code>[a, b]</code> 수치 연산. 둘 다 <code>int</code>면 <code>int</code>(오버플로 시 <code>integer_overflow</code>), 하나라도 <code>real</code>이면 <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td></td><td><code>divide</code></td><td>2</td><td><code>a / b</code>. 수치형 인자 2개, 결과는 항상 <code>real</code> (<code>b == 0</code>이면 <code>division_by_zero</code>)</td><td><code>real</code></td></tr>
               <tr><td></td><td><code>modulo</code></td><td>2</td><td><code>a % b</code>. 두 인자 모두 <code>int</code> 전용 (<code>b == 0</code>이면 <code>division_by_zero</code>, <code>INT64_MIN % -1 == 0</code>)</td><td><code>int</code></td></tr>
               <tr><td></td><td><code>negate</code></td><td>1</td><td><code>-a</code>. 부호 반전 (<code>INT64_MIN</code> 반전 시 <code>integer_overflow</code>)</td><td>인자와 동일</td></tr>
+              <tr><td></td><td><code>min</code></td><td>2</td><td><code>[a, b]</code> 두 수치형(<code>int</code>/<code>real</code>) 중 작은 값. 둘 다 <code>int</code>면 <code>int</code>, 하나라도 <code>real</code>이면 <code>real</code> (혼합 시 무손실 실수 표현 불가 정수는 <code>numeric_precision</code>)</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>max</code></td><td>2</td><td><code>[a, b]</code> 두 수치형(<code>int</code>/<code>real</code>) 중 큰 값. 둘 다 <code>int</code>면 <code>int</code>, 하나라도 <code>real</code>이면 <code>real</code> (혼합 시 무손실 실수 표현 불가 정수는 <code>numeric_precision</code>)</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>clamp</code></td><td>3</td><td><code>[x, lo, hi]</code> 수치형 <code>x</code>를 닫힌 구간 <code>[lo, hi]</code>로 제한. <code>lo &gt; hi</code>이면 <code>invalid_range</code>로 거부(리터럴 역순 경계는 컴파일 진단으로도 검출). 모두 <code>int</code>면 <code>int</code>, 하나라도 <code>real</code>이면 <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td><strong>비교 연산 (6)</strong></td><td><code>equal</code>, <code>not_equal</code></td><td>2</td><td>호환 가능한 모든 타입(<code>bool</code>, <code>int</code>/<code>real</code>, <code>string</code>, 동일 <code>enum</code>, 합성형) 동등 비교</td><td><code>bool</code></td></tr>
               <tr><td></td><td><code>less</code>, <code>less_equal</code>, <code>greater</code>, <code>greater_equal</code></td><td>2</td><td>두 수치형(<code>int</code>/<code>real</code>) 인자의 대소 비교</td><td><code>bool</code></td></tr>
               <tr><td><strong>논리·선택 (4)</strong></td><td><code>and</code>, <code>or</code></td><td>2</td><td><code>bool</code> 전용 단락 평가(Short-circuit) 논리곱 / 논리합</td><td><code>bool</code></td></tr>
@@ -1294,10 +1297,10 @@ cleanup:
             </ul>
           </li>
           <li><strong>Entity Inheritance (<code>entities[].parents</code>) &amp; Group <code>isa</code> Contract</strong>: Ancestor states with a non-empty <code>member</code> name are inherited at compile time into independent per-descendant slots (<code>&lt;descendant_id&gt;.&lt;member&gt;</code>; runtime slots are never aliased). Descendants may override initial values if <code>declared_type</code> matches; cycles fail with <code>entity_cycle</code>. Group entity parameters support <code>{"name":"shop","kind":"entity","isa":"MerchantBase"}</code>, statically and dynamically enforcing subtype compatibility.</li>
-          <li><strong>State Mutability (<code>default_state_access</code> &amp; <code>states[].access</code>)</strong>: <code>"external"</code> states allow both authored <code>update</code> turns and host <code>se_session_update</code> calls. <code>"internal"</code> states remain readable via <code>se_session_read</code> and mutable by authored <code>update</code> turns, but reject external host <code>se_session_update</code> calls with <code>readonly_state</code>.</li>
+          <li><strong>State Mutability (<code>default_state_access</code> &amp; <code>states[].access</code>)</strong>: <code>"external"</code> states allow authored <code>update</code> turns as well as host writes via <code>se_session_update</code> and choice <code>answer_json</code> <code>updates</code>. <code>"internal"</code> states remain readable via <code>se_session_read</code> and mutable by authored <code>update</code> turns, but reject external host writes (<code>se_session_update</code> and choice <code>updates</code>) with <code>readonly_state</code>.</li>
         </ul>
 
-        <h3 class="p602-h3">Pure Expression DAG &amp; All 28 Operators</h3>
+        <h3 class="p602-h3">Pure Expression DAG &amp; All 31 Operators</h3>
         <p>Nodes in <code>expressions[]</code> form a pure, side-effect-free DAG; cycles are rejected at compile time with <code>expression_cycle</code>.</p>
 
         <div class="p602-table-wrap">
@@ -1316,10 +1319,13 @@ cleanup:
               <tr><td></td><td><code>state</code></td><td>0</td><td>Reads current session value of <code>state</code> (<code>StateRef</code>)</td><td>State type</td></tr>
               <tr><td></td><td><code>snapshot</code></td><td>0</td><td>Reads captured <code>state</code> from <code>snapshot_record</code> or dynamic <code>snapshot_record_expression</code></td><td>State type</td></tr>
               <tr><td></td><td><code>visit</code></td><td>0</td><td>Returns 1-based cumulative visit count of the currently executing turn</td><td><code>int</code></td></tr>
-              <tr><td><strong>Arithmetic (6)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td>Numeric <code>[a, b]</code>. Returns <code>int</code> if both are <code>int</code> (<code>integer_overflow</code> on overflow), else <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td><strong>Arithmetic (9)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td>Numeric <code>[a, b]</code>. Returns <code>int</code> if both are <code>int</code> (<code>integer_overflow</code> on overflow), else <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td></td><td><code>divide</code></td><td>2</td><td>Numeric <code>a / b</code>; always yields <code>real</code> (<code>division_by_zero</code> if <code>b == 0</code>)</td><td><code>real</code></td></tr>
               <tr><td></td><td><code>modulo</code></td><td>2</td><td>Integer-only <code>a % b</code> (<code>division_by_zero</code> if <code>b == 0</code>; <code>INT64_MIN % -1 == 0</code>)</td><td><code>int</code></td></tr>
               <tr><td></td><td><code>negate</code></td><td>1</td><td>Unary <code>-a</code> (<code>integer_overflow</code> on <code>INT64_MIN</code>)</td><td>Same as input</td></tr>
+              <tr><td></td><td><code>min</code></td><td>2</td><td>Numeric <code>[a, b]</code> smaller operand; returns <code>int</code> if both are <code>int</code>, else <code>real</code> (mixed <code>int</code>/<code>real</code> requires lossless <code>double</code> conversion, else <code>numeric_precision</code>)</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>max</code></td><td>2</td><td>Numeric <code>[a, b]</code> larger operand; returns <code>int</code> if both are <code>int</code>, else <code>real</code> (mixed <code>int</code>/<code>real</code> requires lossless <code>double</code> conversion, else <code>numeric_precision</code>)</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>clamp</code></td><td>3</td><td>Numeric <code>[x, lo, hi]</code> clamped to closed interval <code>[lo, hi]</code>; rejects <code>lo &gt; hi</code> with <code>invalid_range</code> (also diagnosed statically for comparable literal bounds). Returns <code>int</code> if all three are <code>int</code>, else <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td><strong>Comparison (6)</strong></td><td><code>equal</code>, <code>not_equal</code></td><td>2</td><td>Structural equality across compatible <code>bool</code>, numeric, <code>string</code>, matching <code>enum</code>, <code>record</code>, <code>list</code>, <code>optional</code></td><td><code>bool</code></td></tr>
               <tr><td></td><td><code>less</code>, <code>less_equal</code>, <code>greater</code>, <code>greater_equal</code></td><td>2</td><td>Relational comparison across numeric (<code>int</code> / <code>real</code>) operands</td><td><code>bool</code></td></tr>
               <tr><td><strong>Logic &amp; Select (4)</strong></td><td><code>and</code>, <code>or</code></td><td>2</td><td>Short-circuit boolean conjunction and disjunction</td><td><code>bool</code></td></tr>
@@ -1401,10 +1407,10 @@ cleanup:
             </ul>
           </li>
           <li><strong>エンティティ継承（<code>entities[].parents</code>）と <code>isa</code> 制約</strong>: 親エンティティで非空の <code>member</code> を持つ状態は、コンパイル時に各子孫の独立スロット（<code>&lt;descendant_id&gt;.&lt;member&gt;</code>）として継承されます（実行時のスロット共有なし）。循環継承は <code>entity_cycle</code> で拒否されます。グループ引数 <code>{"name":"shop","kind":"entity","isa":"MerchantBase"}</code> により派生関係の静的・動的検証が行われます。</li>
-          <li><strong>状態の書き換え制御（<code>default_state_access</code> &amp; <code>states[].access</code>）</strong>: <code>"external"</code> は <code>update</code> ターンとホストの <code>se_session_update</code> の双方から更新可能です。<code>"internal"</code> は <code>update</code> ターンおよび <code>se_session_read</code> を許可しつつ、ホストからの <code>se_session_update</code> を <code>readonly_state</code> エラーで拒否します。</li>
+          <li><strong>状態の書き換え制御（<code>default_state_access</code> &amp; <code>states[].access</code>）</strong>: <code>"external"</code> は <code>update</code> ターンとホスト更新（<code>se_session_update</code> および選択応答 <code>answer_json</code> の <code>updates</code>）の双方から変更可能です。<code>"internal"</code> は <code>update</code> ターンおよび <code>se_session_read</code> を許可しつつ、ホストからの外部更新（<code>se_session_update</code>・選択応答 <code>updates</code>）を <code>readonly_state</code> エラーで拒否します。</li>
         </ul>
 
-        <h3 class="p602-h3">純粋式 DAG と全 28 演算子一覧</h3>
+        <h3 class="p602-h3">純粋式 DAG と全 31 演算子一覧</h3>
         <p><code>expressions[]</code> は副作用のない有向非巡回グラフ（DAG）であり、循環参照はコンパイル時に <code>expression_cycle</code> で拒否されます。</p>
 
         <div class="p602-table-wrap">
@@ -1423,10 +1429,13 @@ cleanup:
               <tr><td></td><td><code>state</code></td><td>0</td><td><code>state</code>（<code>StateRef</code>）の現在のセッション値を読み取る</td><td>状態の型</td></tr>
               <tr><td></td><td><code>snapshot</code></td><td>0</td><td><code>snapshot_record</code> または <code>snapshot_record_expression</code> から記録時点の <code>state</code> 値を参照</td><td>状態の型</td></tr>
               <tr><td></td><td><code>visit</code></td><td>0</td><td>現在実行中のターンの累積訪問回数（1 始まり）を返す</td><td><code>int</code></td></tr>
-              <tr><td><strong>算術演算 (6)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td>数値 <code>[a, b]</code>。両方 <code>int</code> なら <code>int</code>（桁あふれは <code>integer_overflow</code>）、いずれかが <code>real</code> なら <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td><strong>算術演算 (9)</strong></td><td><code>add</code>, <code>subtract</code>, <code>multiply</code></td><td>2</td><td>数値 <code>[a, b]</code>。両方 <code>int</code> なら <code>int</code>（桁あふれは <code>integer_overflow</code>）、いずれかが <code>real</code> なら <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td></td><td><code>divide</code></td><td>2</td><td>数値 <code>a / b</code>。常に <code>real</code> を返す（<code>b == 0</code> は <code>division_by_zero</code>）</td><td><code>real</code></td></tr>
               <tr><td></td><td><code>modulo</code></td><td>2</td><td>整数専用の <code>a % b</code>（<code>b == 0</code> は <code>division_by_zero</code>、<code>INT64_MIN % -1 == 0</code>）</td><td><code>int</code></td></tr>
               <tr><td></td><td><code>negate</code></td><td>1</td><td>単項 <code>-a</code>（<code>INT64_MIN</code> 反転は <code>integer_overflow</code>）</td><td>入力と同一</td></tr>
+              <tr><td></td><td><code>min</code></td><td>2</td><td>数値 <code>[a, b]</code> の小さい方の値。両方 <code>int</code> なら <code>int</code>、いずれかが <code>real</code> なら <code>real</code>（混在時に無損失変換できない整数は <code>numeric_precision</code>）</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>max</code></td><td>2</td><td>数値 <code>[a, b]</code> の大きい方の値。両方 <code>int</code> なら <code>int</code>、いずれかが <code>real</code> なら <code>real</code>（混在時に無損失変換できない整数は <code>numeric_precision</code>）</td><td><code>int</code> | <code>real</code></td></tr>
+              <tr><td></td><td><code>clamp</code></td><td>3</td><td>数値 <code>[x, lo, hi]</code> を閉区間 <code>[lo, hi]</code> に制限。<code>lo &gt; hi</code> は <code>invalid_range</code> で拒否（比較可能なリテラル境界の逆転はコンパイル時にも検出）。すべて <code>int</code> なら <code>int</code>、いずれかが <code>real</code> なら <code>real</code></td><td><code>int</code> | <code>real</code></td></tr>
               <tr><td><strong>比較演算 (6)</strong></td><td><code>equal</code>, <code>not_equal</code></td><td>2</td><td>互換性のあるすべての型（<code>bool</code>, 数値, <code>string</code>, 同一 <code>enum</code>, 複合型）の等価比較</td><td><code>bool</code></td></tr>
               <tr><td></td><td><code>less</code>, <code>less_equal</code>, <code>greater</code>, <code>greater_equal</code></td><td>2</td><td>数値（<code>int</code> / <code>real</code>）間の大小比較</td><td><code>bool</code></td></tr>
               <tr><td><strong>論理・選択 (4)</strong></td><td><code>and</code>, <code>or</code></td><td>2</td><td><code>bool</code> 専用の短絡評価（ショートサーキット）論理積・論理和</td><td><code>bool</code></td></tr>
@@ -1493,7 +1502,7 @@ cleanup:
               <tr><td><code>SE_MAX_ARTIFACT_BYTES</code></td><td><code>8,392,704</code> (8 MiB + 4 KiB)</td><td><code>se_program_load</code>가 허용하는 불투명 바이너리 아티팩트 최대 바이트 크기.</td></tr>
               <tr><td><code>SE_MAX_CHECKPOINT_BYTES</code></td><td><code>16,777,216</code> (16 MiB)</td><td><code>se_session_load</code>가 허용하는 불투명 바이너리 체크포인트 최대 바이트 크기.</td></tr>
               <tr><td><code>SE_OK</code></td><td><code>0</code></td><td>호출 성공. 출력 <code>se_buffer</code>에 결과 JSON 또는 바이너리 바이트열 기록.</td></tr>
-              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON 문법·스키마 오류, <code>invalid_phase</code>, <code>pending_choice</code>, <code>readonly_state</code>, 런타임 산술 오류 등.</td></tr>
+              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON 문법·스키마 오류, <code>invalid_phase</code>, <code>pending_choice</code>, <code>readonly_state</code>, 런타임 산술·범위 오류(<code>invalid_range</code> 등).</td></tr>
               <tr><td><code>SE_INVALID_ARGUMENT</code></td><td><code>2</code></td><td>필수 포인터 <code>NULL</code>, 크기 한도 초과, 비어 있지 않은 출력 <code>se_buffer</code> 전달, <code>max_steps == 0</code> 등.</td></tr>
               <tr><td><code>SE_INVALID_HANDLE</code></td><td><code>3</code></td><td><code>0</code>, 이미 해제된 핸들, 존재하지 않거나 종류가 다른 핸들(<code>se_program</code>/<code>se_session</code>/<code>se_object</code>) 전달.</td></tr>
               <tr><td><code>SE_COMPILE_ERROR</code></td><td><code>4</code></td><td>정적 의미 검증 실패 또는 손상된 아티팩트(<code>error.code == "compile_error"</code>, <code>diagnostics</code> 배열 동반).</td></tr>
@@ -1536,8 +1545,8 @@ cleanup:
               <tr><td></td><td><code>se_session_retain</code></td><td>동일 세션을 가리키는 독립 <code>se_session</code> 핸들 추가 발행.</td></tr>
               <tr><td></td><td><code>se_session_release</code></td><td><code>se_session</code> 핸들 해제 (진행 중인 호출이 있으면 완료 후 종료 대기열로 이동).</td></tr>
               <tr><td><strong>실행·상태·평가 (6)</strong></td><td><code>se_session_start</code></td><td><code>"idle"</code> 세션에 진입 턴/그룹 결속(<code>entry_json</code>)을 설정해 <code>"ready"</code>로 전환.</td></tr>
-              <tr><td></td><td><code>se_session_advance</code></td><td>주 작업 턴 1개를 실행하거나 <code>answer_json</code>으로 대기 중인 선택을 완료 후 후속 턴 1개 실행.</td></tr>
-              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>내부 <code>update</code>/<code>capture</code> 턴을 <code>max_steps</code> 예산 내에서 연속 실행하여 첫 가시 턴 또는 출구에서 반환.</td></tr>
+              <tr><td></td><td><code>se_session_advance</code></td><td>주 작업 턴 1개를 실행하거나 <code>answer_json</code>으로 대기 중인 선택을 완료 후 후속 턴 1개 실행. 선택 응답에 선택적 <code>updates</code>(외부 상태 일괄 갱신; <code>internal</code> 상태 쓰기는 <code>readonly_state</code>로 거부)와 <code>bindings</code>를 포함하면 <code>option.next</code> 경로 해석 전에 원자적으로 먼저 적용되어 결과 <code>changes</code> 맨 앞에 기록되며, 어떤 오류라도 발생하면 호출 전체가 <code>awaiting_choice</code> 상태로 완전 롤백됨.</td></tr>
+              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>내부 <code>update</code>/<code>capture</code> 턴을 <code>max_steps</code> 예산 내에서 연속 실행하여 첫 가시 턴 또는 출구에서 반환. 선택 응답의 선택적 <code>updates</code>/<code>bindings</code> 선행 원자적 적용·<code>changes</code> 선두 기록·실패 시 <code>awaiting_choice</code> 전체 롤백 계약을 동일하게 지원.</td></tr>
               <tr><td></td><td><code>se_session_read</code></td><td>세션 진행 없이 지정한 <code>StateRef</code> 배열의 현재 정규화 값 맵을 원자적으로 조회.</td></tr>
               <tr><td></td><td><code>se_session_update</code></td><td>호스트에서 외부 변경 가능(<code>external</code>) 상태들을 원자적 배치로 일괄 갱신.</td></tr>
               <tr><td></td><td><code>se_session_evaluate</code></td><td>부작용 없이 현재 세션 상태 기준으로 <code>expression_id</code>를 순수 평가.</td></tr>
@@ -1633,7 +1642,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td><code>SE_MAX_ARTIFACT_BYTES</code></td><td><code>8,392,704</code> (8 MiB + 4 KiB)</td><td>Maximum input byte size accepted by <code>se_program_load</code>.</td></tr>
               <tr><td><code>SE_MAX_CHECKPOINT_BYTES</code></td><td><code>16,777,216</code> (16 MiB)</td><td>Maximum opaque binary checkpoint byte size accepted by <code>se_session_load</code>.</td></tr>
               <tr><td><code>SE_OK</code></td><td><code>0</code></td><td>Operation succeeded; output <code>se_buffer</code> holds the result payload.</td></tr>
-              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON syntax/schema error, <code>invalid_phase</code>, <code>pending_choice</code>, <code>readonly_state</code>, or runtime math fault.</td></tr>
+              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON syntax/schema error, <code>invalid_phase</code>, <code>pending_choice</code>, <code>readonly_state</code>, or runtime math/range fault (e.g., <code>invalid_range</code>).</td></tr>
               <tr><td><code>SE_INVALID_ARGUMENT</code></td><td><code>2</code></td><td>Required pointer is <code>NULL</code>, size cap exceeded, non-empty output <code>se_buffer</code>, or <code>max_steps == 0</code>.</td></tr>
               <tr><td><code>SE_INVALID_HANDLE</code></td><td><code>3</code></td><td>Handle is <code>0</code>, already released, unknown, or of the wrong handle kind.</td></tr>
               <tr><td><code>SE_COMPILE_ERROR</code></td><td><code>4</code></td><td>Static semantic validation or artifact check failed (<code>error.code == "compile_error"</code> with <code>diagnostics[]</code>).</td></tr>
@@ -1676,8 +1685,8 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td></td><td><code>se_session_retain</code></td><td>Publishes a distinct <code>se_session</code> handle referencing the same session.</td></tr>
               <tr><td></td><td><code>se_session_release</code></td><td>Releases a <code>se_session</code> handle (defers teardown until in-flight calls complete).</td></tr>
               <tr><td><strong>Execution &amp; State (6)</strong></td><td><code>se_session_start</code></td><td>Configures entry turn and optional group bindings on an <code>"idle"</code> session, entering <code>"ready"</code>.</td></tr>
-              <tr><td></td><td><code>se_session_advance</code></td><td>Executes one primary turn, or resolves a pending choice via <code>answer_json</code> and executes its follow-up turn.</td></tr>
-              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>Executes internal <code>update</code>/<code>capture</code> turns atomically up to <code>max_steps</code> until an observable turn or exit.</td></tr>
+              <tr><td></td><td><code>se_session_advance</code></td><td>Executes one primary turn, or resolves a pending choice via <code>answer_json</code> and executes its follow-up turn. Choice <code>answer_json</code> accepts optional <code>updates</code> (external state batch assignments; <code>internal</code> state writes rejected with <code>readonly_state</code>) and optional <code>bindings</code>, evaluated atomically before <code>option.next</code> routing, prepended to result <code>changes</code>, and rolled back completely to <code>awaiting_choice</code> on any error.</td></tr>
+              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>Executes internal <code>update</code>/<code>capture</code> turns atomically up to <code>max_steps</code> until an observable turn or exit; supports the same atomic choice <code>updates</code>/<code>bindings</code>, prepended <code>changes</code>, and full rollback to <code>awaiting_choice</code> on error.</td></tr>
               <tr><td></td><td><code>se_session_read</code></td><td>Atomically reads canonical values for an array of <code>StateRef</code> targets without advancing execution.</td></tr>
               <tr><td></td><td><code>se_session_update</code></td><td>Applies an atomic host batch of assignments to <code>"external"</code> states when no choice is pending.</td></tr>
               <tr><td></td><td><code>se_session_evaluate</code></td><td>Evaluates <code>expression_id</code> purely against current session state without side effects.</td></tr>
@@ -1773,7 +1782,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td><code>SE_MAX_ARTIFACT_BYTES</code></td><td><code>8,392,704</code> (8 MiB + 4 KiB)</td><td><code>se_program_load</code> が受け付ける不透明バイナリアーティファクトの最大サイズ。</td></tr>
               <tr><td><code>SE_MAX_CHECKPOINT_BYTES</code></td><td><code>16,777,216</code> (16 MiB)</td><td><code>se_session_load</code> が受け付ける不透明バイナリチェックポイントの最大サイズ。</td></tr>
               <tr><td><code>SE_OK</code></td><td><code>0</code></td><td>成功。出力 <code>se_buffer</code> に結果 JSON またはバイナリデータが格納されます。</td></tr>
-              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON 構文／スキーマ違反、<code>invalid_phase</code>、<code>pending_choice</code>、<code>readonly_state</code>、算術エラー等。</td></tr>
+              <tr><td><code>SE_ERROR</code></td><td><code>1</code></td><td>JSON 構文／スキーマ違反、<code>invalid_phase</code>、<code>pending_choice</code>、<code>readonly_state</code>、算術・範囲エラー（<code>invalid_range</code> 等）。</td></tr>
               <tr><td><code>SE_INVALID_ARGUMENT</code></td><td><code>2</code></td><td>必須ポインタが <code>NULL</code>、サイズ上限超過、非空の出力 <code>se_buffer</code>、<code>max_steps == 0</code> 等。</td></tr>
               <tr><td><code>SE_INVALID_HANDLE</code></td><td><code>3</code></td><td><code>0</code>、解放済みハンドル、未知の ID、または異なる種類のハンドルを指定した場合。</td></tr>
               <tr><td><code>SE_COMPILE_ERROR</code></td><td><code>4</code></td><td>静的意味検証またはアーティファクト検証失敗（<code>error.code == "compile_error"</code>、<code>diagnostics[]</code> 同伴）。</td></tr>
@@ -1816,8 +1825,8 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td></td><td><code>se_session_retain</code></td><td>同一セッションを参照する別個の <code>se_session</code> ハンドルを発行する。</td></tr>
               <tr><td></td><td><code>se_session_release</code></td><td><code>se_session</code> ハンドルを解放する。</td></tr>
               <tr><td><strong>進行・状態・評価 (6)</strong></td><td><code>se_session_start</code></td><td><code>"idle"</code> セッションの開始ターン／グループ束縛（<code>entry_json</code>）を設定し <code>"ready"</code> に遷移させる。</td></tr>
-              <tr><td></td><td><code>se_session_advance</code></td><td>主要ターンを 1 つ実行するか、<code>answer_json</code> で選択を確定して後続ターンを 1 つ実行する。</td></tr>
-              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>内部の <code>update</code>/<code>capture</code> を <code>max_steps</code> 予算内で連続実行し、最初の可視ターンまたは出口で返す。</td></tr>
+              <tr><td></td><td><code>se_session_advance</code></td><td>主要ターンを 1 つ実行するか、<code>answer_json</code> で選択を確定して後続ターンを 1 つ実行する。選択応答は任意の <code>updates</code>（外部状態の一括更新、<code>internal</code> 状態への書き込みは <code>readonly_state</code> で拒否）および <code>bindings</code> を受け付け、<code>option.next</code> ルート解決前にアトミックに適用して結果の <code>changes</code> 先頭へ追加する（エラー発生時は <code>awaiting_choice</code> へ完全ロールバック）。</td></tr>
+              <tr><td></td><td><code>se_session_advance_to_yield</code></td><td>内部の <code>update</code>/<code>capture</code> を <code>max_steps</code> 予算内で連続実行し、最初の可視ターンまたは出口で返す。選択応答の <code>updates</code>/<code>bindings</code> 先行アトミック適用・<code>changes</code> 先頭記録・エラー時の <code>awaiting_choice</code> 完全ロールバック契約に同様に対応。</td></tr>
               <tr><td></td><td><code>se_session_read</code></td><td>進行を伴わず <code>StateRef</code> 配列の正規化値マップをアトミックに読み取る。</td></tr>
               <tr><td></td><td><code>se_session_update</code></td><td>選択待ちでない状態でホストから <code>"external"</code> 状態群を一括アトミック更新する。</td></tr>
               <tr><td></td><td><code>se_session_evaluate</code></td><td>副作用なしで <code>expression_id</code> を現在のセッション状態に対して純粋評価する。</td></tr>
@@ -1937,7 +1946,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
         <h3 class="p602-h3">세션 진입 (<code>entry_json</code>), 턴 실행 결과 및 선택 응답</h3>
         <ul>
           <li><strong>진입 요청 (<code>se_session_start</code>)</strong>: 일반 턴 진입은 <code>{"turn":"record_opening"}</code>, 그룹 인스턴스 진입은 <code>{"turn":"front","use":"a_visit"}</code>, 열린 그룹 직접 진입은 <code>{"turn":"window","group":"shop_flow","bindings":{"shop":"shop_b"}}</code>를 전달합니다.</li>
-          <li><strong>선택지 응답 (<code>answer_json</code>)</strong>: 세션이 <code>"awaiting_choice"</code>일 때 <code>{"request":"choice#1","option":"pay_fee"}</code>를 전달하면 선택을 완료하고 연결된 다음 턴을 실행합니다(<code>NULL</code>이나 <code>"{}"</code> 전달 시 상태 변경 없이 현재 선택 프롬프트를 재반환).</li>
+          <li><strong>선택지 응답 (<code>answer_json</code>)</strong>: 세션이 <code>"awaiting_choice"</code>일 때 <code>{"request":"choice#1","option":"pay_fee","updates":[{"target":"last_roll","value":17}],"bindings":{}}</code>(선택적 <code>updates</code>·<code>bindings</code>)를 전달하면 외부 상태 일괄 갱신(<code>updates</code>, <code>"internal"</code> 상태 쓰기 시 <code>readonly_state</code> 거부)과 결속(<code>bindings</code>, 생략 시 현재 선택 프레임 결속 사용)을 <code>option.next</code> 경로 해석 및 후속 턴 실행 전에 원자적으로 적용하며, 변경 내역을 결과의 <code>changes</code> 배열 앞쪽에 순서대로 추가합니다. 선택 검증·상태 갱신·수식 평가·예산 한도 중 어느 단계에서든 실패하면 호출 전체가 완전히 롤백되어 <code>"awaiting_choice"</code>를 유지합니다(<code>NULL</code>이나 <code>"{}"</code> 전달 시 상태 변경 없이 현재 선택 프롬프트 재반환).</li>
         </ul>
 
         <div class="p602-table-wrap">
@@ -1956,7 +1965,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td><code>actor</code> / <code>text</code></td><td><code>string</code></td><td>해석된 행위자 엔티티 ID 및 대사·지문·선택 안내 텍스트 (없으면 <code>""</code>).</td></tr>
               <tr><td><code>payload</code></td><td><code>object</code></td><td>턴에 선언된 선택적 타입 지정 값 객체 (미선언 시 키 생략).</td></tr>
               <tr><td><code>request</code> / <code>choices</code></td><td><code>string</code> / <code>array</code></td><td><code>"awaiting_choice"</code>일 때 발행된 요청 ID와 적격 옵션 배열 <code>[{"id","text","payload"?}]</code>.</td></tr>
-              <tr><td><code>changes</code></td><td><code>array</code></td><td>상태 변경 내역 배열 <code>[{"state","before","after"}]</code> (<code>advance_to_yield</code>는 통과한 내부 <code>update</code> 변경을 순서대로 누적).</td></tr>
+              <tr><td><code>changes</code></td><td><code>array</code></td><td>상태 변경 내역 배열 <code>[{"state","before","after"}]</code> (선택 응답 <code>updates</code>가 앞쪽에 먼저 기록되고 후속 <code>update</code> 턴 변경이 순서대로 누적).</td></tr>
               <tr><td><code>snapshot_record</code></td><td><code>string</code></td><td><code>capture</code> 실행으로 생성된 레코드 ID (예: <code>"initial_ledger#1"</code>).</td></tr>
               <tr><td><code>completed_choice</code></td><td><code>string</code></td><td>선택 응답을 처리한 호출인 경우 완료된 선택 턴 ID, 그 외 <code>""</code>.</td></tr>
               <tr><td><code>next</code> / <code>exit</code></td><td><code>string</code></td><td>다음 예정 턴 ID 및 열린 그룹 탈출 시 도달한 출구 이름(<code>exit</code>).</td></tr>
@@ -1974,6 +1983,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <li><code>se_session_evaluate(s, "effective_fee", NULL, &amp;out)</code> → <code>{"ok":true,"result":{"value":{...},"declared_type":""}}</code></li>
             </ul>
           </li>
+          <li><strong>주요 오류 코드 (<code>error.code</code>)</strong>: 입력·핸들 검증(<code>invalid_argument</code>, <code>invalid_handle</code>, <code>invalid_json</code>, <code>invalid_schema</code>, <code>unsupported_format</code>, <code>resource_limit</code>), 단계·분기·상태 보호(<code>invalid_phase</code>, <code>pending_choice</code>, <code>invalid_choice</code>, <code>no_choice</code>, <code>no_route</code>, <code>readonly_state</code>, <code>duplicate_target</code>, <code>step_budget_exceeded</code>), 수식·범위 검증(<code>division_by_zero</code>, <code>invalid_range</code> — <code>clamp</code>의 <code>lo &gt; hi</code> 역순 경계 시 발생하며 리터럴 경계는 컴파일 진단으로도 검출, <code>integer_overflow</code> / <code>overflow</code>, <code>numeric_precision</code> / <code>numeric_range</code>, <code>type_mismatch</code>), 바이너리 무결성(<code>invalid_artifact</code>, <code>invalid_checkpoint</code>, <code>incompatible_program</code>).</li>
           <li><strong>불투명 바이너리 아티팩트 및 체크포인트 계약</strong>: <code>se_program_artifact</code> / <code>se_program_load</code>의 스토리 아티팩트와 <code>se_session_save</code> / <code>se_session_load</code>의 세션 체크포인트는 <strong>내부 레이아웃이 비공개인 불투명(opaque) 바이너리 바이트 버퍼(<code>data</code> + <code>size</code>)</strong>입니다. 호스트는 바이트열을 파싱하거나 수정하지 않고 <code>size</code> 바이트 그대로 저장·전송해야 하며, 로드 시 엔진이 원본 프로그램과의 일치 여부 및 무결성을 검증합니다(불일치·손상 시 각각 <code>invalid_artifact</code>, <code>invalid_checkpoint</code>, <code>incompatible_program</code> 반환).</li>
         </ul>
       </div>
@@ -2017,7 +2027,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
         <h3 class="p602-h3">Session Entry, Step Execution Result &amp; Choice Answers</h3>
         <ul>
           <li><strong>Entry JSON (<code>se_session_start</code>)</strong>: Pass <code>{"turn":"record_opening"}</code> for top-level turns, <code>{"turn":"front","use":"a_visit"}</code> for bound group uses, or <code>{"turn":"window","group":"shop_flow","bindings":{"shop":"shop_b"}}</code> for direct group entry.</li>
-          <li><strong>Choice Answer JSON (<code>answer_json</code>)</strong>: When <code>phase == "awaiting_choice"</code>, pass <code>{"request":"choice#1","option":"pay_fee"}</code> to complete the choice and execute its follow-up turn. Passing <code>NULL</code> or <code>"{}"</code> while awaiting a choice re-emits the pending prompt without mutating session state.</li>
+          <li><strong>Choice Answer JSON (<code>answer_json</code>)</strong>: When <code>phase == "awaiting_choice"</code>, pass <code>{"request":"choice#1","option":"pay_fee","updates":[{"target":"last_roll","value":17}],"bindings":{}}</code> (where <code>updates</code> and <code>bindings</code> are optional). Optional external state batch assignments in <code>updates</code> (writes to <code>"internal"</code> states fail with <code>readonly_state</code>) and optional <code>bindings</code> (defaulting to the active choice frame bindings) execute atomically before <code>option.next</code> routing and follow-up turn(s), prepending their deltas to the result’s <code>changes</code> array. Any validation, state update, math, or step-budget error rolls back the entire call completely to <code>"awaiting_choice"</code>. Passing <code>NULL</code> or <code>"{}"</code> re-emits the pending prompt without mutating session state.</li>
         </ul>
 
         <div class="p602-table-wrap">
@@ -2036,7 +2046,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td><code>actor</code> / <code>text</code></td><td><code>string</code></td><td>Resolved entity ID and turn text (<code>""</code> when absent).</td></tr>
               <tr><td><code>payload</code></td><td><code>object</code></td><td>Optional evaluated typed payload object on observable turns (key omitted when not authored).</td></tr>
               <tr><td><code>request</code> / <code>choices</code></td><td><code>string</code> / <code>array</code></td><td>Active choice token and eligible options <code>[{"id","text","payload"?}]</code> when <code>phase == "awaiting_choice"</code>.</td></tr>
-              <tr><td><code>changes</code></td><td><code>array</code></td><td>Committed state deltas <code>[{"state","before","after"}]</code> (accumulated in order across internal updates in <code>advance_to_yield</code>).</td></tr>
+              <tr><td><code>changes</code></td><td><code>array</code></td><td>Committed state deltas <code>[{"state","before","after"}]</code> (choice-answer <code>updates</code> are prepended ahead of subsequent <code>update</code> turn deltas in execution order).</td></tr>
               <tr><td><code>snapshot_record</code></td><td><code>string</code></td><td>Captured immutable snapshot record ID (e.g., <code>"initial_ledger#1"</code>), else <code>""</code>.</td></tr>
               <tr><td><code>completed_choice</code></td><td><code>string</code></td><td>Turn ID of the choice resolved by this call, else <code>""</code>.</td></tr>
               <tr><td><code>next</code> / <code>exit</code></td><td><code>string</code></td><td>Next scheduled turn ID and open-group exit name (when returning to <code>"idle"</code>).</td></tr>
@@ -2054,6 +2064,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <li><code>se_session_evaluate(s, "effective_fee", NULL, &amp;out)</code> → <code>{"ok":true,"result":{"value":{...},"declared_type":""}}</code></li>
             </ul>
           </li>
+          <li><strong>Common Error Codes (<code>error.code</code>)</strong>: Input &amp; handle validation (<code>invalid_argument</code>, <code>invalid_handle</code>, <code>invalid_json</code>, <code>invalid_schema</code>, <code>unsupported_format</code>, <code>resource_limit</code>); phase, routing &amp; access guards (<code>invalid_phase</code>, <code>pending_choice</code>, <code>invalid_choice</code>, <code>no_choice</code>, <code>no_route</code>, <code>readonly_state</code>, <code>duplicate_target</code>, <code>step_budget_exceeded</code>); math &amp; range faults (<code>division_by_zero</code>, <code>invalid_range</code> when <code>clamp</code> has <code>lo &gt; hi</code>—also caught at compile time for literal bounds, <code>integer_overflow</code> / <code>overflow</code>, <code>numeric_precision</code> / <code>numeric_range</code>, <code>type_mismatch</code>); and binary verification (<code>invalid_artifact</code>, <code>invalid_checkpoint</code>, <code>incompatible_program</code>).</li>
           <li><strong>Opaque Binary Artifacts &amp; Checkpoints</strong>: Compiled story artifacts (<code>se_program_artifact</code> / <code>se_program_load</code>) and session checkpoints (<code>se_session_save</code> / <code>se_session_load</code>) are strictly <strong>opaque binary byte buffers (<code>data</code> + <code>size</code>)</strong>. Never inspect, slice, or treat them as C strings; persist the exact <code>size</code> bytes and pass them back verbatim. On load, the engine verifies integrity and compatibility against the originating program, rejecting mismatches with <code>invalid_artifact</code>, <code>invalid_checkpoint</code>, or <code>incompatible_program</code>.</li>
         </ul>
       </div>
@@ -2097,7 +2108,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
         <h3 class="p602-h3">開始設定・ステップ実行結果・選択応答スキーマ</h3>
         <ul>
           <li><strong>開始 JSON（<code>se_session_start</code>）</strong>: 通常ターンは <code>{"turn":"record_opening"}</code>、グループ使用経由は <code>{"turn":"front","use":"a_visit"}</code>、グループへの直接進入は <code>{"turn":"window","group":"shop_flow","bindings":{"shop":"shop_b"}}</code> を指定します。</li>
-          <li><strong>選択応答 JSON（<code>answer_json</code>）</strong>: <code>phase == "awaiting_choice"</code> のとき <code>{"request":"choice#1","option":"pay_fee"}</code> を渡すと選択を確定し後続ターンを実行します（<code>NULL</code> や <code>"{}"</code> を渡した場合は状態を変更せず現在の選択プロンプトを再返却します）。</li>
+          <li><strong>選択応答 JSON（<code>answer_json</code>）</strong>: <code>phase == "awaiting_choice"</code> のとき <code>{"request":"choice#1","option":"pay_fee","updates":[{"target":"last_roll","value":17}],"bindings":{}}</code>（<code>updates</code> と <code>bindings</code> は任意）を渡すと、任意の外部状態一括更新（<code>updates</code>、<code>"internal"</code> 状態への書き込みは <code>readonly_state</code> で拒否）および <code>bindings</code>（省略時は現在の選択フレームの束縛を使用）を <code>option.next</code> の経路解決と後続ターン実行の前にアトミックに適用し、その変更差分を結果の <code>changes</code> 配列の先頭に追加します。検証・更新・数値評価・ステップ予算超過のいずれかで失敗した場合は呼び出し全体が完全にロールバックされ <code>"awaiting_choice"</code> を維持します（<code>NULL</code> や <code>"{}"</code> を渡した場合は状態を変更せず現在の選択プロンプトを再返却します）。</li>
         </ul>
 
         <div class="p602-table-wrap">
@@ -2116,7 +2127,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <tr><td><code>actor</code> / <code>text</code></td><td><code>string</code></td><td>解決されたエンティティ ID およびテキスト（未指定時は <code>""</code>）。</td></tr>
               <tr><td><code>payload</code></td><td><code>object</code></td><td>可視ターンに設定された評価済みペイロード値オブジェクト（未設定時はキー省略）。</td></tr>
               <tr><td><code>request</code> / <code>choices</code></td><td><code>string</code> / <code>array</code></td><td><code>"awaiting_choice"</code> 時の要求 ID と有効な選択肢配列 <code>[{"id","text","payload"?}]</code>。</td></tr>
-              <tr><td><code>changes</code></td><td><code>array</code></td><td>状態変更履歴 <code>[{"state","before","after"}]</code>（<code>advance_to_yield</code> では通過した内部更新を順に累積）。</td></tr>
+              <tr><td><code>changes</code></td><td><code>array</code></td><td>状態変更履歴 <code>[{"state","before","after"}]</code>（選択応答の <code>updates</code> が先頭に記録され、後続の <code>update</code> ターン差分が順に累積）。</td></tr>
               <tr><td><code>snapshot_record</code></td><td><code>string</code></td><td><code>capture</code> により生成されたレコード ID（例：<code>"initial_ledger#1"</code>）。</td></tr>
               <tr><td><code>completed_choice</code></td><td><code>string</code></td><td>選択応答を完了した呼び出しでは対象選択ターンの ID、それ以外は <code>""</code>。</td></tr>
               <tr><td><code>next</code> / <code>exit</code></td><td><code>string</code></td><td>次回実行予定のターン ID、およびグループ出口から <code>"idle"</code> に戻った際の出口名。</td></tr>
@@ -2134,6 +2145,7 @@ SE_API se_status se_collect_retired(size_t budget, se_buffer *result);</code></p
               <li><code>se_session_evaluate(s, "effective_fee", NULL, &amp;out)</code> → <code>{"ok":true,"result":{"value":{...},"declared_type":""}}</code></li>
             </ul>
           </li>
+          <li><strong>主なエラーコード（<code>error.code</code>）</strong>: 入力・ハンドル検証（<code>invalid_argument</code>, <code>invalid_handle</code>, <code>invalid_json</code>, <code>invalid_schema</code>, <code>unsupported_format</code>, <code>resource_limit</code>）、フェーズ・分岐・状態保護（<code>invalid_phase</code>, <code>pending_choice</code>, <code>invalid_choice</code>, <code>no_choice</code>, <code>no_route</code>, <code>readonly_state</code>, <code>duplicate_target</code>, <code>step_budget_exceeded</code>）、数値・範囲エラー（<code>division_by_zero</code>, <code>invalid_range</code> — <code>clamp</code> で <code>lo &gt; hi</code> の場合に発生しリテラル境界はコンパイル診断でも検出, <code>integer_overflow</code> / <code>overflow</code>, <code>numeric_precision</code> / <code>numeric_range</code>, <code>type_mismatch</code>）、バイナリ整合性（<code>invalid_artifact</code>, <code>invalid_checkpoint</code>, <code>incompatible_program</code>）。</li>
           <li><strong>不透明バイナリアーティファクトとチェックポイント</strong>: <code>se_program_artifact</code> / <code>se_program_load</code> のアーティファクトおよび <code>se_session_save</code> / <code>se_session_load</code> のチェックポイントは、<strong>内部構造が非公開の不透明（opaque）なバイナリバイトバッファ（<code>data</code> + <code>size</code>）</strong>です。バイト列を解析・改変せず必ず <code>size</code> バイト全体をそのまま保存・受け渡ししてください。ロード時にエンジンが元のプログラムとの整合性を検証し、不正データや別プログラムのチェックポイントは <code>invalid_artifact</code>・<code>invalid_checkpoint</code>・<code>incompatible_program</code> で拒否します。</li>
         </ul>
       </div>
@@ -2515,7 +2527,7 @@ runtime.collect_retired(100)</code></pre>
     <section class="p602-sec" id="editor-mcp" data-doc-sec="editor-mcp">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">09 · Story Editor 및 원격 MCP 레퍼런스</h2>
-        <p><strong>602 Story Editor v0.1.1</strong>은 외부 Python/Node.js 설치 없이 실행되는 독립 실행형 시각 그래프 편집·시뮬레이션·에이전트 서버입니다. 웹 편집 인터페이스는 가로 <code>1440px</code> 이상의 데스크톱 브라우저 환경을 기준으로 설계되었습니다.</p>
+        <p><strong>602 Story Editor v0.1.2</strong>(<strong>Story Engine v1.2.0</strong> 네이티브 런타임 번들 내장)는 외부 Python/Node.js 설치 없이 실행되는 독립 실행형 시각 그래프 편집·시뮬레이션·에이전트 서버입니다. 웹 편집 인터페이스는 가로 <code>1440px</code> 이상의 데스크톱 브라우저 환경을 기준으로 설계되었습니다.</p>
 
         <h3 class="p602-h3">1. 계정 초기화 및 HTTPS 리버스 프록시 기동</h3>
         <p>계정 인증 DB(<code>--account-database</code>)와 프로젝트 DB(<code>--database</code>)는 아카이브 외부의 <strong>서로 다른 비-심볼릭 링크 절대 경로</strong>에 배치해야 합니다. 백엔드 리스너는 루프백(<code>127.0.0.1</code> 또는 <code>::1</code>)에서만 동작하므로 앞단에 TLS를 종료하는 Caddy 또는 Nginx를 배치하고 <code>--trust-https-proxy</code>와 함께 실행합니다.</p>
@@ -2552,7 +2564,7 @@ location / {
 
         <h3 class="p602-h3">2. 시각적 그래프 작성, 중간 턴 시뮬레이션 및 <code>story-agent</code></h3>
         <ul>
-          <li><strong>그래프 작성 및 중간 장면 점프 시뮬레이션</strong>: 6종 주 작업 턴과 6종 보조 계산·분기 노드, 재사용 묶음(<code>Group</code>)을 캔버스에서 편집하고 내장 네이티브 엔진으로 즉시 컴파일합니다. 시뮬레이션 드롭다운의 <strong>지정 턴에서 중간 시작</strong>을 선택하면 1장부터 다시 플레이할 필요 없이 임의의 턴(그룹 결속 포함)과 커스텀·무작위 초기 상태값을 지정해 해당 장면을 즉시 검증할 수 있습니다.</li>
+          <li><strong>그래프 작성 및 중간 장면 점프 시뮬레이션</strong>: 6종 주 작업 턴과 6종 보조 계산·분기 노드(계산 노드의 <code>min(a, b)</code>, <code>max(a, b)</code>, <code>clamp(value, lo, hi)</code> 지원; <code>lo &gt; hi</code>이면 <code>invalid_range</code> 거부), 재사용 묶음(<code>Group</code>)을 캔버스에서 편집하고 내장 네이티브 엔진으로 즉시 컴파일합니다. 시뮬레이션 드롭다운의 <strong>지정 턴에서 중간 시작</strong>으로 임의의 턴(그룹 결속 포함)과 초기 상태값을 지정해 즉시 검증할 수 있으며, 선택지 진행 시 <code>answer.updates</code>를 통해 외부 상태 갱신과 후속 분기 실행을 원자적으로 함께 수행할 수 있습니다(실패 시 선택 대기 상태 유지).</li>
           <li><strong>내장 <code>story-agent</code> 협업 모드</strong>: 세션별로 변경안을 미리보기로 스테이징해 검토 후 반영하는 <code>approval</code> 모드와 즉시 반영하는 <code>full_access</code> 모드를 전환할 수 있습니다. 외부 모델 연결은 <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code>(전 플랫폼 공통, Windows 필수) 또는 POSIX 전용 <code>STORY_AGENT_PROVIDER=openai-codex</code> + <code>STORY_AGENT_AUTH_DIR</code>(<code>./agent/story-agent --login</code>)로 구성합니다.</li>
         </ul>
 
@@ -2616,7 +2628,7 @@ curl -sS -X POST https://story.example/mcp \
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">09 · Story Editor &amp; Remote MCP</h2>
-        <p><strong>602 Story Editor v0.1.1</strong> is a standalone visual graph authoring, runtime simulation, and agent collaboration server requiring zero pre-installed Python or Node.js runtimes. Its web workspace targets desktop viewports at <code>1440px</code> width or wider.</p>
+        <p><strong>602 Story Editor v0.1.2</strong> (bundling the native <strong>Story Engine v1.2.0</strong> runtime) is a standalone visual graph authoring, runtime simulation, and agent collaboration server requiring zero pre-installed Python or Node.js runtimes. Its web workspace targets desktop viewports at <code>1440px</code> width or wider.</p>
 
         <h3 class="p602-h3">1. Account Initialization &amp; HTTPS Reverse Proxy Deployment</h3>
         <p>Store <code>--account-database</code> and <code>--database</code> at <strong>distinct, non-symlink absolute paths</strong> outside the extracted archive directory. Because <code>story-editor serve</code> binds strictly to loopback HTTP (<code>127.0.0.1</code> or <code>::1</code>), place a TLS-terminating reverse proxy (Caddy or Nginx) in front and pass <code>--trust-https-proxy</code>.</p>
@@ -2653,7 +2665,7 @@ location / {
 
         <h3 class="p602-h3">2. Visual Graph Authoring, Arbitrary-Turn Simulation &amp; <code>story-agent</code></h3>
         <ul>
-          <li><strong>Graph Editing &amp; Scene-Jump Simulation</strong>: Author nominal types, entity hierarchies, snapshots, 6 primary turn kinds, 6 pure/routing auxiliary nodes, and reusable parameterized groups on the canvas, backed by live native compilation. Use <strong>Start from Selected Turn</strong> in the Simulation dropdown to jump straight into any mid-story scene (including group bindings) with custom or randomized test states—no chapter-1 replay required.</li>
+          <li><strong>Graph Editing &amp; Scene-Jump Simulation</strong>: Author nominal types, entity hierarchies, snapshots, 6 primary turn kinds, 6 pure/routing auxiliary nodes (including calculation node operators <code>min(a, b)</code>, <code>max(a, b)</code>, and <code>clamp(value, lo, hi)</code>, rejecting <code>lo &gt; hi</code> with <code>invalid_range</code>), and reusable parameterized groups on the canvas, backed by live native compilation. Use <strong>Start from Selected Turn</strong> in the Simulation dropdown to jump straight into any mid-story scene with custom or randomized test states, and pass atomic external state mutations via <code>answer.updates</code> during choice advances (rolling back to awaiting choice on failure).</li>
           <li><strong><code>story-agent</code> Proposal Workflow</strong>: Switch per session between <code>approval</code> mode (stages diff proposals for human review before commit) and <code>full_access</code> mode (applies edits immediately). Configure external LLM providers via <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> (all platforms; required on Windows) or POSIX OAuth via <code>STORY_AGENT_PROVIDER=openai-codex</code> + <code>STORY_AGENT_AUTH_DIR</code> (<code>./agent/story-agent --login</code>).</li>
         </ul>
 
@@ -2717,7 +2729,7 @@ curl -sS -X POST https://story.example/mcp \
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">09 · Story Editor とリモート MCP</h2>
-        <p><strong>602 Story Editor v0.1.1</strong> は、Python や Node.js の事前インストール不要で動作するスタンドアロン型のビジュアルグラフ編集・シミュレーション・エージェント連携サーバーです。Web UI は横幅 <code>1440px</code> 以上のデスクトップブラウザ環境を前提としています。</p>
+        <p><strong>602 Story Editor v0.1.2</strong>（ネイティブ <strong>Story Engine v1.2.0</strong> ランタイムを同梱）は、Python や Node.js の事前インストール不要で動作するスタンドアロン型のビジュアルグラフ編集・シミュレーション・エージェント連携サーバーです。Web UI は横幅 <code>1440px</code> 以上のデスクトップブラウザ環境を前提としています。</p>
 
         <h3 class="p602-h3">1. アカウント初期化と HTTPS リバースプロキシ構成</h3>
         <p>認証 DB（<code>--account-database</code>）とプロジェクト DB（<code>--database</code>）には、アーカイブ外の<strong>互いに異なる非シンボリックリンクの絶対パス</strong>を指定してください。バックエンドはループバック（<code>127.0.0.1</code> または <code>::1</code>）のみで待ち受けるため、前段に TLS 終端を行う Caddy または Nginx を配置し <code>--trust-https-proxy</code> を付与して起動します。</p>
@@ -2754,7 +2766,7 @@ location / {
 
         <h3 class="p602-h3">2. ビジュアルグラフ編集・途中ターンからのシミュレーション・<code>story-agent</code></h3>
         <ul>
-          <li><strong>グラフ編集と途中シーンジャンプ検証</strong>: 6 種の主要ターン・6 種の補助ノード・再利用グループをキャンバス上で編集し、内蔵ネイティブエンジンで即座にコンパイルできます。シミュレーションメニューの<strong>指定ターンから途中開始</strong>を使うと、第 1 章から再生し直すことなく任意のターンと任意の初期状態値（またはランダム値）で即座にテストできます。</li>
+          <li><strong>グラフ編集と途中シーンジャンプ検証</strong>: 6 種の主要ターン・6 種の補助ノード（計算ノードの <code>min(a, b)</code>・<code>max(a, b)</code>・<code>clamp(value, lo, hi)</code> に対応し、<code>lo &gt; hi</code> は <code>invalid_range</code> で拒否）・再利用グループをキャンバス上で編集し、内蔵ネイティブエンジンで即座にコンパイルできます。シミュレーションメニューの<strong>指定ターンから途中開始</strong>を使うと任意のターンと初期状態値で即座にテストでき、選択肢進行時には <code>answer.updates</code> により外部状態更新と後続実行をアトミックに処理できます（失敗時は選択待ちを維持）。</li>
           <li><strong>内蔵 <code>story-agent</code> 提案ワークフロー</strong>: 変更案をプレビューして承認後に反映する <code>approval</code> モードと即時反映する <code>full_access</code> モードを切り替え可能です。外部 AI プロバイダは <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code>（全 OS 共通・Windows 必須）、または POSIX 環境での <code>STORY_AGENT_PROVIDER=openai-codex</code> + <code>STORY_AGENT_AUTH_DIR</code>（<code>./agent/story-agent --login</code>）で設定します。</li>
         </ul>
 
@@ -2826,18 +2838,19 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">릴리스 하이라이트</h3>
         <ul>
-          <li><strong>602 Story Engine SDK <code>v1.1.0</code> (C ABI v1 / <code>story-engine/turn-source/1</code>)</strong>:
+          <li><strong>602 Story Engine SDK <code>v1.2.0</code> (C ABI v1 / <code>story-engine/turn-source/1</code>)</strong>:
             <ul>
+              <li>선택 응답(<code>answer_json</code>)의 선택적 <code>updates</code> 및 <code>bindings</code> 지원: <code>option.next</code> 경로 및 후속 턴 실행 전에 외부 상태를 원자적으로 일괄 갱신하고 결과의 <code>changes</code> 배열 앞쪽에 기록하며, 실패 시 호출 전체를 롤백해 <code>awaiting_choice</code> 상태를 유지합니다(<code>internal</code> 상태 쓰기는 <code>readonly_state</code> 거부).</li>
+              <li>순수 수치 표현식 연산자 <code>min(a, b)</code>, <code>max(a, b)</code>, <code>clamp(x, lo, hi)</code> 추가(총 31개 연산자; <code>clamp</code>의 역순 경계 <code>lo &gt; hi</code>는 <code>invalid_range</code> 거부).</li>
               <li>추론 실행 및 롤백을 위한 세션 복제(<code>se_session_clone</code>) 및 원본 프로그램 지문과 대조 검증되는 불투명 바이너리 체크포인트(<code>se_session_save</code>, <code>se_session_load</code>, 최대 16 MiB).</li>
-              <li><code>default_state_access</code> 및 <code>states[].access</code>(<code>"external"</code> | <code>"internal"</code>) 기반 외부 변경 보호(<code>readonly_state</code>).</li>
-              <li><code>entities[].parents</code> 컴파일 타임 슬롯 상속 및 그룹 엔티티 매개변수 <code>isa</code> 서브타입 검증.</li>
-              <li>가시 턴 및 선택지의 타입 검증 구조화 페이로드(<code>payload</code> / <code>payload_expr</code>).</li>
-              <li>내부 비가시 턴 예산 기반 연속 진행(<code>se_session_advance_to_yield</code>, <code>step_budget_exceeded</code>), 프로그램 카탈로그 리플렉션(<code>se_program_inspect</code>), <code>SE_COMPILE_ERROR</code> 시 <code>ok: false</code> 오류 봉투 일원화.</li>
+              <li><code>default_state_access</code> 및 <code>states[].access</code>(<code>"external"</code> | <code>"internal"</code>) 기반 외부 변경 보호(<code>readonly_state</code>), <code>entities[].parents</code> 컴파일 타임 슬롯 상속 및 그룹 엔티티 매개변수 <code>isa</code> 서브타입 검증.</li>
+              <li>가시 턴 및 선택지의 타입 검증 구조화 페이로드(<code>payload</code> / <code>payload_expr</code>), 내부 비가시 턴 예산 기반 연속 진행(<code>se_session_advance_to_yield</code>, <code>step_budget_exceeded</code>), 프로그램 카탈로그 리플렉션(<code>se_program_inspect</code>), <code>SE_COMPILE_ERROR</code> 시 <code>ok: false</code> 오류 봉투 일원화.</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.1</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.2</code></strong>:
             <ul>
-              <li>Story Engine <code>v1.1.0</code> 네이티브 공유 라이브러리 및 <code>story_engine.h</code> 번들 통합.</li>
+              <li>Story Engine <code>v1.2.0</code> 네이티브 공유 라이브러리 및 <code>story_engine.h</code> 번들 통합.</li>
+              <li>계산 노드의 <code>min(a, b)</code>, <code>max(a, b)</code>, <code>clamp(value, lo, hi)</code> 지원(<code>lo &gt; hi</code>이면 <code>invalid_range</code> 오류) 및 선택지 진행 시 <code>answer.updates</code> 원자적 외부 상태 갱신 지원.</li>
               <li>외부 런타임 설치가 필요 없는 독립 실행형 <code>story-editor</code> 서버 및 <code>agent/story-agent</code> 패키지(<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>).</li>
               <li>시각적 턴·묶음 그래프 편집기, 중간 턴 시작 시뮬레이터, 6자리 해시 동시성 보호 기반 원격 MCP(<code>POST /mcp</code>, <code>2026-07-28</code> / <code>2025-11-25</code>).</li>
             </ul>
@@ -2846,7 +2859,7 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">플랫폼 및 운영 시 유의사항 요약</h3>
         <ul>
-          <li><strong>에디터 아키텍처 범위</strong>: Engine SDK는 <code>macos-x64</code>를 포함한 4개 플랫폼을 지원하지만, Story Editor v0.1.1은 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포됩니다.</li>
+          <li><strong>에디터 아키텍처 범위</strong>: Engine SDK는 <code>macos-x64</code>를 포함한 4개 플랫폼을 지원하지만, Story Editor v0.1.2는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포됩니다.</li>
           <li><strong>코드 서명 및 HTTPS 프록시</strong>: 현재 릴리스 바이너리에는 상용 코드 서명·공증이 적용되어 있지 않으며, <code>story-editor serve</code> 운영 시 반드시 앞단에 HTTPS 리버스 프록시가 필요합니다.</li>
           <li><strong>Windows 외부 AI 공급자 인증</strong>: Windows 빌드에서 외부 AI 공급자를 사용할 때는 OAuth 브라우저 로그인(<code>--login</code>) 대신 <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> 모드를 사용하십시오(기본 편집·컴파일·시뮬레이션·원격 MCP는 API 키 없이 동작).</li>
         </ul>
@@ -2896,18 +2909,19 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">Release Highlights</h3>
         <ul>
-          <li><strong>602 Story Engine SDK <code>v1.1.0</code> (C ABI v1 / <code>story-engine/turn-source/1</code>)</strong>:
+          <li><strong>602 Story Engine SDK <code>v1.2.0</code> (C ABI v1 / <code>story-engine/turn-source/1</code>)</strong>:
             <ul>
+              <li>Atomic external state batch updates (<code>updates</code>) and <code>bindings</code> on choice answers (<code>se_session_advance</code> / <code>se_session_advance_to_yield</code>), applied before <code>option.next</code> routing, prepended to <code>changes</code>, and rolled back completely to <code>awaiting_choice</code> on error (<code>readonly_state</code> rejects <code>internal</code> state writes).</li>
+              <li>Pure numeric expression operators <code>min(a, b)</code>, <code>max(a, b)</code>, and <code>clamp(x, lo, hi)</code> (31 total operators; inverted <code>clamp</code> bounds <code>lo &gt; hi</code> rejected with <code>invalid_range</code>).</li>
               <li>Session cloning (<code>se_session_clone</code>) and opaque binary session checkpoints (<code>se_session_save</code>, <code>se_session_load</code>, up to 16 MiB) verified by the engine against the originating program.</li>
-              <li>State mutability control via <code>default_state_access</code> and <code>states[].access</code> (<code>"external"</code> | <code>"internal"</code>, rejecting external host writes with <code>readonly_state</code>).</li>
-              <li>Compile-time entity state slot inheritance (<code>entities[].parents</code>) and subtype checking on group entity parameters (<code>isa</code>).</li>
-              <li>Type-checked structured <code>payload</code> / <code>payload_expr</code> attachments on observable turns and choice options.</li>
-              <li>Bounded multi-turn stepping (<code>se_session_advance_to_yield</code>, <code>step_budget_exceeded</code>), program catalog inspection (<code>se_program_inspect</code>), and unified <code>ok: false</code> envelopes on <code>SE_COMPILE_ERROR</code>.</li>
+              <li>State mutability control via <code>default_state_access</code> and <code>states[].access</code> (<code>"external"</code> | <code>"internal"</code>), compile-time entity state slot inheritance (<code>entities[].parents</code>), and subtype checking on group entity parameters (<code>isa</code>).</li>
+              <li>Type-checked structured <code>payload</code> / <code>payload_expr</code> attachments on observable turns and choice options, bounded multi-turn stepping (<code>se_session_advance_to_yield</code>, <code>step_budget_exceeded</code>), program catalog inspection (<code>se_program_inspect</code>), and unified <code>ok: false</code> envelopes on <code>SE_COMPILE_ERROR</code>.</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.1</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.2</code></strong>:
             <ul>
-              <li>Bundles Story Engine <code>v1.1.0</code> native shared libraries and <code>story_engine.h</code>.</li>
+              <li>Bundles Story Engine <code>v1.2.0</code> native shared libraries and <code>story_engine.h</code>.</li>
+              <li>Supports <code>min(a, b)</code>, <code>max(a, b)</code>, and <code>clamp(value, lo, hi)</code> in calculation nodes (<code>invalid_range</code> when <code>lo &gt; hi</code>) and atomic external state updates via <code>answer.updates</code> on choice advances.</li>
               <li>Self-contained <code>story-editor</code> server and <code>agent/story-agent</code> binaries across <code>linux-x64</code>, <code>windows-x64</code>, and <code>macos-arm64</code> with zero host Python/Node.js setup.</li>
               <li>Visual turn/group graph workspace, arbitrary-turn scene jump simulator, and Remote MCP (<code>POST /mcp</code>, <code>2026-07-28</code> &amp; <code>2025-11-25</code>) guarded by 6-hex optimistic concurrency hashes.</li>
             </ul>
@@ -2916,7 +2930,7 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">Platform &amp; Operational Caveats</h3>
         <ul>
-          <li><strong>Platform Matrix</strong>: Story Engine SDK ships for 4 platforms (including <code>macos-x64</code>), whereas Story Editor v0.1.1 ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>).</li>
+          <li><strong>Platform Matrix</strong>: Story Engine SDK ships for 4 platforms (including <code>macos-x64</code>), whereas Story Editor v0.1.2 ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>).</li>
           <li><strong>Code Signing &amp; HTTPS Proxy</strong>: Binaries are currently unsigned / ad-hoc signed without Apple notarization or Windows Authenticode; <code>story-editor serve</code> requires a TLS-terminating HTTPS reverse proxy in front of its loopback listener.</li>
           <li><strong>Windows External AI Provider Auth</strong>: On Windows, configure external LLM providers with <code>STORY_AGENT_PROVIDER=openai</code> and <code>STORY_AGENT_API_KEY</code> (OAuth <code>--login</code> is POSIX-only; core editing, native compilation, simulation, and Remote MCP require no AI credentials).</li>
         </ul>
@@ -2966,18 +2980,19 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">リリースハイライト</h3>
         <ul>
-          <li><strong>602 Story Engine SDK <code>v1.1.0</code>（C ABI v1 / <code>story-engine/turn-source/1</code>）</strong>:
+          <li><strong>602 Story Engine SDK <code>v1.2.0</code>（C ABI v1 / <code>story-engine/turn-source/1</code>）</strong>:
             <ul>
+              <li>選択応答（<code>answer_json</code>）における任意の <code>updates</code>・<code>bindings</code> 対応：<code>option.next</code> の経路解決および後続ターン実行の前に外部状態をアトミックに一括更新し、結果の <code>changes</code> 配列の先頭に記録します（<code>internal</code> 状態への書き込みは <code>readonly_state</code> で拒否され、エラー時は呼び出し全体をロールバックして <code>awaiting_choice</code> を維持）。</li>
+              <li>純粋数値演算子 <code>min(a, b)</code>・<code>max(a, b)</code>・<code>clamp(x, lo, hi)</code> を追加（全 31 演算子、逆転した <code>clamp</code> 境界 <code>lo &gt; hi</code> は <code>invalid_range</code> で拒否）。</li>
               <li>セッション複製（<code>se_session_clone</code>）および元のプログラムと照合検証される不透明バイナリチェックポイント（<code>se_session_save</code> / <code>se_session_load</code>、最大 16 MiB）。</li>
-              <li><code>default_state_access</code> および <code>states[].access</code>（<code>"external"</code> | <code>"internal"</code>）による外部書き換え保護（<code>readonly_state</code>）。</li>
-              <li><code>entities[].parents</code> によるコンパイル時スロット継承と、グループ引数 <code>isa</code> による派生型検証。</li>
-              <li>可視ターンおよび選択肢への型付き構造化ペイロード（<code>payload</code> / <code>payload_expr</code>）。</li>
-              <li>内部ターンの予算付き一括進行（<code>se_session_advance_to_yield</code>、<code>step_budget_exceeded</code>）、カタログ検査（<code>se_program_inspect</code>）、および <code>SE_COMPILE_ERROR</code> 時の <code>ok: false</code> エンベロープ統一。</li>
+              <li><code>default_state_access</code> および <code>states[].access</code>（<code>"external"</code> | <code>"internal"</code>）による外部書き換え保護（<code>readonly_state</code>）、<code>entities[].parents</code> によるコンパイル時スロット継承とグループ引数 <code>isa</code> による派生型検証。</li>
+              <li>可視ターンおよび選択肢への型付き構造化ペイロード（<code>payload</code> / <code>payload_expr</code>）、内部ターンの予算付き一括進行（<code>se_session_advance_to_yield</code>、<code>step_budget_exceeded</code>）、カタログ検査（<code>se_program_inspect</code>）、および <code>SE_COMPILE_ERROR</code> 時の <code>ok: false</code> エンベロープ統一。</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.1</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.2</code></strong>:
             <ul>
-              <li>Story Engine <code>v1.1.0</code> ネイティブ共有ライブラリおよび <code>story_engine.h</code> を統合。</li>
+              <li>Story Engine <code>v1.2.0</code> ネイティブ共有ライブラリおよび <code>story_engine.h</code> を統合。</li>
+              <li>計算ノードでの <code>min(a, b)</code>・<code>max(a, b)</code>・<code>clamp(value, lo, hi)</code> 対応（<code>lo &gt; hi</code> は <code>invalid_range</code> エラー）および選択肢進行時の <code>answer.updates</code> によるアトミックな外部状態更新に対応。</li>
               <li>Python / Node.js 導入不要のスタンドアロン <code>story-editor</code> サーバーおよび <code>agent/story-agent</code>（<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>）。</li>
               <li>ビジュアルグラフ編集、任意ターンからの途中開始シミュレータ、6 桁ハッシュ楽観的ロックを備えたリモート MCP（<code>POST /mcp</code>、<code>2026-07-28</code> / <code>2025-11-25</code>）。</li>
             </ul>
@@ -2986,7 +3001,7 @@ curl -sS -X POST https://story.example/mcp \
 
         <h3 class="p602-h3">プラットフォームおよび運用上の留意事項</h3>
         <ul>
-          <li><strong>配布プラットフォームの範囲</strong>: Engine SDK は <code>macos-x64</code> を含む 4 プラットフォーム向けですが、Story Editor v0.1.1 は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布となります。</li>
+          <li><strong>配布プラットフォームの範囲</strong>: Engine SDK は <code>macos-x64</code> を含む 4 プラットフォーム向けですが、Story Editor v0.1.2 は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布となります。</li>
           <li><strong>コード署名と HTTPS プロキシ</strong>: 現在のバイナリには商用コード署名および公証が適用されていません。また <code>story-editor serve</code> の前段には HTTPS リバースプロキシが必須です。</li>
           <li><strong>Windows における外部 AI プロバイダ認証</strong>: Windows 環境で外部 AI プロバイダを利用する場合は OAuth（<code>--login</code>）ではなく <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> を使用してください（基本編集・コンパイル・シミュレーション・リモート MCP は API キー不要で動作します）。</li>
         </ul>

@@ -98,14 +98,18 @@
       return relUrl;
     })();
 
+    const DEFAULT_ENGINE_TAG = 'v1.2.0';
+    const DEFAULT_EDITOR_TAG = 'v0.1.2';
+    const DEFAULT_RELEASE_LABEL = `Engine ${DEFAULT_ENGINE_TAG} · Editor ${DEFAULT_EDITOR_TAG}`;
+
     const ASSETS = [
-      { key: 'engine-macos-arm64', os: 'mac',       file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
-      { key: 'engine-macos-x64',   os: 'mac-intel', file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-x64\.zip$/ },
-      { key: 'engine-windows-x64', os: 'win',       file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
-      { key: 'engine-linux-x64',   os: 'linux',     file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ },
-      { key: 'editor-macos-arm64', os: 'mac',       file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
-      { key: 'editor-windows-x64', os: 'win',       file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
-      { key: 'editor-linux-x64',   os: 'linux',     file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ }
+      { key: 'engine-macos-arm64', os: 'mac',       defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-macos-arm64.zip`, file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
+      { key: 'engine-macos-x64',   os: 'mac-intel', defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-macos-x64.zip`,   file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-x64\.zip$/ },
+      { key: 'engine-windows-x64', os: 'win',       defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-windows-x64.zip`, file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
+      { key: 'engine-linux-x64',   os: 'linux',     defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-linux-x64.zip`,   file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ },
+      { key: 'editor-macos-arm64', os: 'mac',       defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-macos-arm64.zip`, file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
+      { key: 'editor-windows-x64', os: 'win',       defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-windows-x64.zip`, file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
+      { key: 'editor-linux-x64',   os: 'linux',     defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-linux-x64.zip`,   file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ }
     ];
 
     let detectedOS = (() => {
@@ -170,7 +174,10 @@
       rel.urls = urls;
       rel.shas = shas;
       rel.names = names;
-      rel.tag = data && typeof data.tag_name === 'string' ? data.tag_name : '';
+      rel.tag =
+        data && typeof data.tag_name === 'string' && data.tag_name
+          ? data.tag_name
+          : DEFAULT_RELEASE_LABEL;
       rel.state = 'ok';
     };
 
@@ -231,7 +238,10 @@
             pill.textContent = L('Recommended', '추천', 'おすすめ');
           }
           const fn = row.querySelector('[data-602-filename]');
-          if (fn && rel.names[key]) fn.textContent = rel.names[key];
+          if (fn) {
+            const resolvedName = rel.names[key] || (spec ? spec.defaultName : '');
+            if (resolvedName) fn.textContent = resolvedName;
+          }
         } else {
           a.classList.toggle('is-rec', isRec);
         }
@@ -268,6 +278,11 @@
 
       shaLinks.forEach(a => {
         const key = a.getAttribute('data-602-sha') || '';
+        const spec = ASSETS.find(s => s.key === key);
+        const shaTargetName = rel.names[key] || (spec ? spec.defaultName : '');
+        if (shaTargetName) {
+          a.setAttribute('aria-label', `SHA-256 checksum for ${shaTargetName}`);
+        }
         const shaUrl = rel.shas[key] || '';
         if (!unlocked) {
           a.href = '#p602-agree-check';
