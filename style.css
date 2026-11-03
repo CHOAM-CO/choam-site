@@ -662,26 +662,13 @@ main.plates { --col: min(500px, 36vw); }
 .plate .cap-acts .prod-act, .prod .prod-act, .dl .dlbtn {
   min-width: 94px; padding: 0 18px; border: 1px solid rgba(235, 229, 218, .6);
 }
-/* 602 home plate: two arrowless bordered buttons (Explore + Docs & Install) */
-.plate[data-plate="602"] .cap-acts { gap: 10px 12px; }
-.plate[data-plate="602"] .cap-acts :is(.plate-more, .prod-act)::after { content: none; }
-.plate[data-plate="602"] .cap-acts .plate-more {
-  min-width: 94px; padding: 0 18px;
-  color: var(--ash); border: 1px solid rgba(235, 229, 218, .32);
-  text-decoration: none;
-}
-.plate[data-plate="602"] .cap-acts .plate-more:hover {
-  color: var(--bone); border-color: rgba(235, 229, 218, .65);
-  background: rgba(235, 229, 218, .05); text-decoration: none;
-}
-.plate[data-plate="602"] .cap-acts .prod-act { border-color: rgba(235, 229, 218, .65); }
 /* Only actual chooser triggers get a disclosure chevron; direct Play/OS links do not. */
 :is(.plate, .prod) .prod-act[aria-expanded]::after {
   content: ''; display: block; flex: none; width: 6px; height: 6px; margin-top: -3px;
   border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg);
 }
 :is(.plate, .prod) .prod-act[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
-.plate:not([data-plate="602"]) .cap-acts .plate-more:hover, .dl .dl-note a:hover {
+.plate .cap-acts .plate-more:hover, .dl .dl-note a:hover {
   color: #faf7f0; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
 }
 .plate .cap-acts :is(.plate-more, .prod-act):focus-visible,
@@ -732,15 +719,12 @@ main.plates { --col: min(500px, 36vw); }
   .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl :is(.dlbtn, .dl-note a), .get-opt { font-size: 15px; }
   .dl .dlbtn { flex: 1 1 100%; justify-content: space-between; flex-wrap: wrap; }
   .prod-copy:has(.prod-act) { bottom: calc(var(--deck-h) + 14px); }
-  .plate[data-plate="602"] .cap-acts { gap: 8px 10px; }
-  .plate[data-plate="602"] .cap-acts :is(.plate-more, .prod-act) { min-width: 82px; padding: 0 15px; }
   @media (max-width: 360px) {
     /* Keep the title and action visible on short, narrow phones; the slide copy
        remains scrollable inside its existing column instead of hiding above mast. */
     .prod-copy:has(.prod-act) { top: calc(var(--mast-h) + 10px); }
     .prod-copy:has(.prod-act) .rail { min-height: 0; overflow-y: auto; }
     .prod-copy:has(.prod-act) .rail-ctl { flex-shrink: 0; }
-    .plate[data-plate="602"] .cap-acts :is(.plate-more, .prod-act) { min-width: 0; height: 40px; min-height: 40px; padding: 0 13px; font-size: 13.5px; }
   }
   .plate-cast { bottom: 58%; height: min(44vh, 72vw); gap: 8px; left: var(--gutter); right: var(--gutter); transform: none; justify-content: center; }
   .plate-cast img { min-width: 0; flex: 0 1 auto; }
