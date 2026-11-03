@@ -54,8 +54,9 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - Story branches grow exponentially ($2^n$: 16 paths at 4 binary choices, 1,024 at 10). 602 separates story branching and state validation from game code to cut code complexity and debugging overhead.
   - Catches broken scene links and condition errors at compile time before changes reach the game.
   - Simulates scenarios standalone from any scene with custom state conditions even before the game client is built, and connects directly via C++, C#, or Godot.
-- **Download & License**: https://choam.studio/602/download (Story Engine Native SDK & Standalone Story Editor archives)
+- **Download & Licenses**: https://choam.studio/602/download (`602 Story Engine SDK`: CHOAM Community License 1.0 — free to start, 0% royalty on the first KRW 10,000,000 quarterly Net Revenue per Product, 1% self-reported royalty on the excess above KRW 10,000,000; `602 Story Editor`: Apache-2.0)
 - **Documentation**: https://choam.studio/602/docs (C ABI v1 `story_engine.h`, `storyc` CLI compiler/validator, C++17 / C# Unity / Godot integration guides, standalone Story Editor, `story-agent`, and Remote MCP `/mcp` reference)
+- **Contacts**: `mino@choam.studio` (licensing & commercial use, including royalty self-reporting); `cayde@choam.studio` (bug reports, feature requests & technical inquiries)
 
 ### Project 03: DAT
 - **URL**: https://choam.studio/pages/dat

@@ -377,6 +377,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
 .p602-sec :is(p, li, td, dd) a:not([class]),
 .p602-callout a:not([class]),
 .p602-eula a:not([class]),
+.p602-commercial-note a:not([class]),
 .p602-rel-status a:not([class]) {
   color: var(--bone);
   text-decoration: underline;
@@ -389,6 +390,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
 .p602-sec :is(p, li, td, dd) a:not([class]):hover,
 .p602-callout a:not([class]):hover,
 .p602-eula a:not([class]):hover,
+.p602-commercial-note a:not([class]):hover,
 .p602-rel-status a:not([class]):hover {
   color: var(--ember);
 }
@@ -777,6 +779,15 @@ input[data-doc-filter]:focus {
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
+.p602-eula-note {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: rgba(217, 163, 98, .06);
+  border-left: 2px solid var(--ember);
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(235, 229, 218, .88);
+}
 .p602-eula-clause {
   margin-top: 18px;
 }
@@ -786,7 +797,8 @@ input[data-doc-filter]:focus {
   letter-spacing: .03em;
   color: var(--bone);
 }
-.p602-eula-clause p {
+.p602-eula-clause p,
+.p602-eula .p602-eula-clause ul:not([class]) > li {
   margin-top: 6px;
   font-size: 13.5px;
   line-height: 1.72;
@@ -830,6 +842,24 @@ input[data-doc-filter]:focus {
   font-weight: 600;
   line-height: 1.6;
   color: var(--bone);
+}
+
+.p602-commercial-note {
+  margin-top: 14px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid rgba(217, 163, 98, .55);
+  background: rgba(235, 229, 218, .025);
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: var(--ash);
+}
+.p602-commercial-note p + p {
+  margin-top: 8px;
+}
+.p602-commercial-note strong {
+  color: var(--bone);
+  font-weight: 700;
 }
 
 /* Release Status Banner */

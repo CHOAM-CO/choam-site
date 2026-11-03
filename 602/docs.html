@@ -2742,8 +2742,10 @@ curl -sS -X POST https://story.example/mcp \
           <li><strong>Windows 외부 AI 공급자 인증</strong>: Windows 빌드에서 외부 AI 공급자를 사용할 때는 OAuth 브라우저 로그인(<code>--login</code>) 대신 <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> 모드를 사용하십시오(기본 편집·컴파일·시뮬레이션·원격 MCP는 API 키 없이 동작).</li>
         </ul>
 
-        <h3 class="p602-h3">CHOAM 602 바이너리 라이선스 요약 및 서드파티 오픈소스 고지</h3>
-        <p><strong>CHOAM 602 Binary SDK &amp; Editor License (요약):</strong> 602 Story Engine SDK 및 602 Story Editor 바이너리의 저작권은 CHOAM(<code>© 2026 CHOAM. All rights reserved.</code>)에 귀속됩니다. 사용자는 수정하지 않은 Story Engine 공유 라이브러리 및 <code>story_engine.h</code> 헤더를 자사 게임·애플리케이션에 링크하여 배포하고 <code>.story</code> 아티팩트를 생성·배포할 수 있으며, 스토리 작성을 위해 독립 실행형 Story Editor를 운영할 수 있습니다. 단, 바이너리의 역공학(디컴파일·디스어셈블), 임의 변조, 또는 경쟁 미들웨어/에디터 형태로의 단독 재배포·재판매는 금지됩니다. 법적 효력을 갖는 전문은 각 배포 아카이브 내 라이선스 문서를 따릅니다.</p>
+        <h3 class="p602-h3">CHOAM 602 라이선스 요약 및 서드파티 오픈소스 고지</h3>
+        <p><strong>602 Story Engine SDK — CHOAM Community License, Version 1.0:</strong> <code>602 Story Engine SDK</code>(<code>story_engine.h</code> 및 네이티브 엔진 라이브러리·<code>storyc</code>)에는 <strong>CHOAM Community License 1.0</strong>이 적용됩니다(<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). 초기 도입 비용이나 사전 등록 없이 자사 제품(게임·애플리케이션·서비스)에 포함하여 배포할 수 있으며, 개별 제품 및 역년 분기별로 순매출 첫 <strong>10,000,000원(KRW)</strong>까지는 로열티가 없고 1,000만 원을 초과한 금액에 대해서만 <strong>1% 로열티(분기 종료 후 45일 이내 자진 신고)</strong>가 발생합니다. 소프트웨어를 단독 배포하거나 경쟁 범용 엔진·SDK·도구의 일부로 배포하는 것은 금지되며, 배포 시 라이선스 파일과 저작권 고지를 유지해야 합니다. 약관 본문은 영문 원문(<a href="download">/602/download</a> 전문 수록)이 기준 정본이며 국문·일문은 참고 번역입니다(준거법: 대한민국법, 전속관할: 서울중앙지방법원).</p>
+        <p><strong>602 Story Editor — Apache License 2.0 (<code>Apache-2.0</code>):</strong> <code>602 Story Editor</code> 자체에는 <strong>Apache License 2.0</strong>이 적용됩니다(단, 독립 실행형 에디터 배포 아카이브 내부에 번들된 네이티브 <code>602 Story Engine</code> 공유 라이브러리 런타임에는 CHOAM Community License 1.0이 적용됩니다).</p>
+        <p><strong>문의 창구:</strong> 라이선스·상업 이용(로열티 신고 포함)은 <a href="mailto:mino@choam.studio">mino@choam.studio</a>, 버그 제보·기능 제안·기술 문의는 <a href="mailto:cayde@choam.studio">cayde@choam.studio</a>로 연락해 주십시오.</p>
 
         <div class="p602-table-wrap">
           <table class="p602-table">
@@ -2810,8 +2812,10 @@ curl -sS -X POST https://story.example/mcp \
           <li><strong>Windows External AI Provider Auth</strong>: On Windows, configure external LLM providers with <code>STORY_AGENT_PROVIDER=openai</code> and <code>STORY_AGENT_API_KEY</code> (OAuth <code>--login</code> is POSIX-only; core editing, native compilation, simulation, and Remote MCP require no AI credentials).</li>
         </ul>
 
-        <h3 class="p602-h3">CHOAM 602 Binary License Summary &amp; Third-Party Open-Source Notices</h3>
-        <p><strong>CHOAM 602 Binary SDK &amp; Editor License (Summary):</strong> All proprietary binaries in the 602 Story Engine SDK and 602 Story Editor are copyright CHOAM (<code>© 2026 CHOAM. All rights reserved.</code>). You may link the unmodified Story Engine shared libraries and <code>story_engine.h</code> header into commercial or non-commercial games and host applications, distribute compiled <code>.story</code> artifacts, and run standalone Story Editor instances for authoring. Reverse engineering, decompilation, binary modification, or standalone redistribution/resale as a competing middleware or editor product is prohibited. Consult the license files bundled inside each release archive for governing legal terms.</p>
+        <h3 class="p602-h3">CHOAM 602 Licensing Summary &amp; Third-Party Open-Source Notices</h3>
+        <p><strong>602 Story Engine SDK — CHOAM Community License, Version 1.0:</strong> <code>602 Story Engine SDK</code> (<code>story_engine.h</code>, native engine libraries, and <code>storyc</code>) is published under the <strong>CHOAM Community License 1.0</strong> (<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). There is no upfront fee and no registration to use and distribute the Software as part of your Products (games, applications, or services). For each Product and each calendar Quarter, no royalty is due on the first <strong>KRW 10,000,000</strong> of Net Revenue; Net Revenue above KRW 10,000,000 in that Quarter carries a <strong>1% self-reported royalty</strong> on the amount above KRW 10,000,000 (reported within 45 days after the Quarter). Standalone redistribution or bundling inside a competing general-purpose engine, SDK, or tool is prohibited, and distributed copies must retain the license file and copyright notice. The English license text (full verbatim text on <a href="download">/602/download</a> and inside each SDK archive) is the authoritative version, with Korean and Japanese provided as reference translations; governing law is the Republic of Korea (Seoul Central District Court).</p>
+        <p><strong>602 Story Editor — Apache License 2.0 (<code>Apache-2.0</code>):</strong> <code>602 Story Editor</code> itself is licensed under <strong>Apache License 2.0</strong> (the embedded native <code>602 Story Engine</code> runtime library bundled inside standalone Story Editor archives remains governed by CHOAM Community License 1.0).</p>
+        <p><strong>Contacts:</strong> Licensing &amp; commercial use (including royalty self-reporting): <a href="mailto:mino@choam.studio">mino@choam.studio</a> · Bug reports, feature requests &amp; technical inquiries: <a href="mailto:cayde@choam.studio">cayde@choam.studio</a>.</p>
 
         <div class="p602-table-wrap">
           <table class="p602-table">
@@ -2878,8 +2882,10 @@ curl -sS -X POST https://story.example/mcp \
           <li><strong>Windows における外部 AI プロバイダ認証</strong>: Windows 環境で外部 AI プロバイダを利用する場合は OAuth（<code>--login</code>）ではなく <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> を使用してください（基本編集・コンパイル・シミュレーション・リモート MCP は API キー不要で動作します）。</li>
         </ul>
 
-        <h3 class="p602-h3">CHOAM 602 バイナリライセンス概要およびサードパーティ OSS 表記</h3>
-        <p><strong>CHOAM 602 Binary SDK &amp; Editor License（概要）：</strong> 602 Story Engine SDK および 602 Story Editor のプロプライエタリバイナリの著作権は CHOAM（<code>© 2026 CHOAM. All rights reserved.</code>）に帰属します。開発者は未改変の Story Engine 共有ライブラリおよび <code>story_engine.h</code> を商用・非商用のゲーム／アプリケーションにリンクして配布し、<code>.story</code> アーティファクトを生成・配布でき、制作のために Story Editor を運用できます。バイナリのリバースエンジニアリング（逆コンパイル・逆アセンブル）、改変、または競合ミドルウェア／エディタ製品としての単体再配布・再販は禁止されています。正式な法的条項は各アーカイブ同梱のライセンス文書をご参照ください。</p>
+        <h3 class="p602-h3">CHOAM 602 ライセンス概要およびサードパーティ OSS 表記</h3>
+        <p><strong>602 Story Engine SDK — CHOAM Community License, Version 1.0：</strong> <code>602 Story Engine SDK</code>（<code>story_engine.h</code>、ネイティブ共有ライブラリ、および <code>storyc</code>）には <strong>CHOAM Community License 1.0</strong>（<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>）が適用されます。初期費用や事前登録なしで自身の製品（ゲーム・アプリケーション・サービス）の一部として組み込み・配布でき、各製品および各暦四半期ごとに純売上の最初の <strong>10,000,000 韓国ウォン（KRW）</strong>まではロイヤリティが発生せず、1,000 万ウォンを超えた金額に対してのみ <strong>1% の自己申告ロイヤリティ</strong>（四半期終了後 45 日以内に申告）が発生します。単体での再配布や競合する汎用エンジン・SDK・ツールの一部としての配布は禁止されており、配布物にはライセンスファイルと著作権表示を保持する必要があります。規約本文は英語版（<a href="download">/602/download</a> および各アーカイブに全文収録）を正文とし、韓国語訳・日本語訳は参考訳として提供されます（準拠法：大韓民国法、専属管轄：ソウル中央地方裁判所）。</p>
+        <p><strong>602 Story Editor — Apache License 2.0（<code>Apache-2.0</code>）：</strong> <code>602 Story Editor</code> 本体には <strong>Apache License 2.0</strong> が適用されます（スタンドアロン配布アーカイブ内に同梱されるネイティブ <code>602 Story Engine</code> ランタイムライブラリには CHOAM Community License 1.0 が適用されます）。</p>
+        <p><strong>お問い合わせ窓口：</strong> ライセンス・商用利用（ロイヤリティ申告を含む）は <a href="mailto:mino@choam.studio">mino@choam.studio</a>、バグ報告・機能要望・技術的なお問い合わせは <a href="mailto:cayde@choam.studio">cayde@choam.studio</a> までご連絡ください。</p>
 
         <div class="p602-table-wrap">
           <table class="p602-table">

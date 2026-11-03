@@ -644,6 +644,7 @@ main.plates { --col: min(500px, 36vw); }
   margin-left: auto; margin-right: var(--gutter);
 }
 .plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption:has(.get-menu:not([hidden])) { max-height: none; overflow: visible; }
+.plate[data-plate="602"] .cap-acts { gap: 8px 24px; }
 /* B2 CTA primitives: shared appearance, independent of each work's artwork layout.
    Carousel controls, title links, navigation and article links are not CTAs. */
 .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl .dlbtn, .dl .dl-note a {
@@ -680,8 +681,8 @@ main.plates { --col: min(500px, 36vw); }
 /* Detail pages retain their own copy column and carousel geometry. Allow the action
    to take another row rather than shrink its target or overflow a narrow column. */
 .prod .prod-act { margin-left: auto; }
-.prod .prod-acts { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; flex: none; }
-.clarity .clarity-product .prod-acts { margin-left: 0; }
+.prod .prod-acts { margin-left: auto; display: inline-flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 8px 10px; max-width: 100%; }
+.clarity .clarity-product .prod-acts { margin-left: 0; justify-content: flex-start; }
 .prod .prod-acts .prod-act { margin-left: 0; border-color: rgba(235, 229, 218, .65); }
 .prod .prod-acts .prod-act-sec { min-width: 78px; padding: 0 16px; color: var(--ash); border-color: rgba(235, 229, 218, .32); }
 .prod .prod-acts .prod-act:hover { color: var(--bone); border-color: var(--bone); background: rgba(235, 229, 218, .08); }
@@ -735,7 +736,7 @@ main.plates { --col: min(500px, 36vw); }
     .prod-copy:has(.prod-act) .rail { min-height: 0; overflow-y: auto; }
     .prod-copy:has(.prod-act) .rail-ctl { flex-shrink: 0; }
     .prod .prod-acts { gap: 6px; }
-    .prod .prod-acts .prod-act { min-width: 0; height: 40px; min-height: 40px; padding: 0 12px; font-size: 13.5px; }
+    .prod .prod-acts .prod-act { min-width: 0; height: 40px; min-height: 40px; padding: 0 11px; font-size: 13px; }
   }
   .plate-cast { bottom: 58%; height: min(44vh, 72vw); gap: 8px; left: var(--gutter); right: var(--gutter); transform: none; justify-content: center; }
   .plate-cast img { min-width: 0; flex: 0 1 auto; }
