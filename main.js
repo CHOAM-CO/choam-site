@@ -588,12 +588,8 @@
           ]
         ]
       },
-      action: {
-        label: 'Contact',
-        href: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 Inquiry] ') + '&body=' + encodeURIComponent('Hello CHOAM team,\nI’d like to inquire about the 602 story engine & editor.\n\n- Name / Studio: \n- Game engine in use (Unity / Godot / C++ / etc.): \n- Project overview & inquiry: \n'),
-        hrefKo: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 도입 및 데모 문의] ') + '&body=' + encodeURIComponent('안녕하세요, 초암(CHOAM) 팀.\n602 스토리 엔진·에디터 관련하여 문의드립니다.\n\n- 소속 / 성함: \n- 사용 중인 게임 엔진 (Unity / Godot / 자체 C++ 등): \n- 프로젝트 소개 및 문의 내용: \n'),
-        hrefJa: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 お問い合わせ] ') + '&body=' + encodeURIComponent('CHOAM チーム様\n602 ストーリーエンジン・エディタについてお問い合わせいたします。\n\n- お名前 / ご所属: \n- 使用エンジン (Unity / Godot / C++ など): \n- プロジェクト概要・お問い合わせ内容: \n')
-      },
+      action: { label: 'Download', href: '602/download' },
+      docs: '602/docs',
       field: '602',
       art: [0, 1, 2],
       panels: [
@@ -848,8 +844,8 @@
   const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
   const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
   const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
-  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기' };
-  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ' };
+  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기', Download: '다운로드', Docs: '문서' };
+  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ', Download: 'ダウンロード', Docs: 'ドキュメント' };
   const actLabel = a => L(a, ACT_KO[a] || a, ACT_JA[a] || a);
   const actAria = (T, l) => L(`${l} ${T}`, `${T} ${l}`, l === 'お問い合わせ' ? `${T}について${l}` : `${T}を${l}`);
   /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean, Japanese] */
@@ -875,8 +871,10 @@
     ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
   ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
   const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade 설치 방법 | CHOAM',
+    'Download 602 | CHOAM': '602 다운로드 | CHOAM', '602 Documentation | CHOAM': '602 도큐멘테이션 | CHOAM',
     'Us | CHOAM': '팀 | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': '장민호 | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': '정은호 | CHOAM' };
   const TITLE_JA = { 'Get Scheherazade | CHOAM': 'Scheherazade を入手 | CHOAM', 'Our Philosophy | CHOAM': 'CHOAMの哲学 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade のインストール方法 | CHOAM',
+    'Download 602 | CHOAM': '602 ダウンロード | CHOAM', '602 Documentation | CHOAM': '602 ドキュメント | CHOAM',
     'Us | CHOAM': 'チーム | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': 'チャン・ミンホ | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': 'チョン・ウンホ | CHOAM', '선잠 DOZE | CHOAM': 'DOZE | CHOAM' };
   const titleEn = document.title;
   const relabel = []; /* the gallery adds its own relabelling below */
@@ -1261,9 +1259,10 @@
     };
     const altOf = o => pick(o, 'alt');
     const actHTML = p => {
-      const act = p.action; if (!act) return '';
-      return act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
-        : `<a class="prod-act" href="${url(act.href)}"${/^https?:/.test(act.href) ? ' target="_blank" rel="noopener"' : ''}></a>`;
+      const act = p.action, docs = p.docs ? `<a class="plate-more" data-plate-docs href="${url(p.docs)}"></a>` : '';
+      if (!act) return docs;
+      return docs + (act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
+        : `<a class="prod-act" href="${url(act.href)}"${/^https?:/.test(act.href) ? ' target="_blank" rel="noopener"' : ''}></a>`);
     };
     const castOf = p => p.panels.find(s => s.kind === 'gallery');
     const pairOf = p => p.comparisons && p.comparisons[0]; /* the default pair the live DAT section opens on */
@@ -1376,10 +1375,15 @@
         const st = el.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
         el.querySelector('.cap-line').textContent = tr(p, 'headline');
         el.querySelector('.cap-text').textContent = lineOf(p);
-        const more = el.querySelector('.plate-more');
+        const more = el.querySelector('.plate-more:not([data-plate-docs])');
         more.textContent = L('Explore', '자세히 보기', '詳しく見る');
         more.setAttribute('aria-label', L(`Explore ${T}`, `${T} 자세히 보기`, `${T}を詳しく見る`));
-        const a = el.querySelector('.prod-act');
+        const docs = el.querySelector('[data-plate-docs]');
+        if (docs) {
+          docs.textContent = L('Docs', '문서', 'ドキュメント');
+          docs.setAttribute('aria-label', L(`${T} documentation`, `${T} 문서`, `${T} ドキュメント`));
+        }
+        const a = el.querySelector('.prod-act:not([data-prod-docs])');
         if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); if (p.action.hrefKo || p.action.hrefJa) a.href = pick(p.action, 'href'); }
         const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
         const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
@@ -1573,6 +1577,7 @@
           <button class="text-btn" type="button" data-rail-step="1"></button>
           <span class="count" aria-hidden="true"><b data-count>1</b> / ${n}</span>` : ''}
           ${act && act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
+            : p.docs && act ? `<span class="prod-acts"><a class="prod-act prod-act-sec" data-prod-docs href="${url(p.docs)}"></a><a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a></span>`
             : act ? `<a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a>` : ''}
         </div>
       </div>
@@ -1858,7 +1863,12 @@
     set('[data-rail-step="1"]', 'aria-label', L(`Next ${unit}, ${T}`, `${T} 다음 ${unit}`, `${T}の次の${unit}`));
     const nd = dk > 0 ? dk : n; /* DAT dots are Creative's steps even while Polish hides them */
     sec.querySelectorAll('[data-rail-go]').forEach((d, k) => d.setAttribute('aria-label', L(`${T}, ${unit} ${k + 1} of ${nd}`, `${T}, ${nd}개 중 ${k + 1}번째 ${unit}`, `${T}、${nd}件中${k + 1}件目の${unit}`)));
-    const a = sec.querySelector('.prod-act');
+    const docs = sec.querySelector('[data-prod-docs]');
+    if (docs) {
+      docs.textContent = actLabel('Docs');
+      docs.setAttribute('aria-label', L(`${T} documentation`, `${T} 문서`, `${T} ドキュメント`));
+    }
+    const a = sec.querySelector('.prod-act:not([data-prod-docs])');
     if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); if (p.action.hrefKo || p.action.hrefJa) a.href = pick(p.action, 'href'); }
     const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
     sec.querySelectorAll('[data-art]').forEach(m => {

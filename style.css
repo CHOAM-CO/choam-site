@@ -680,6 +680,12 @@ main.plates { --col: min(500px, 36vw); }
 /* Detail pages retain their own copy column and carousel geometry. Allow the action
    to take another row rather than shrink its target or overflow a narrow column. */
 .prod .prod-act { margin-left: auto; }
+.prod .prod-acts { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; flex: none; }
+.clarity .clarity-product .prod-acts { margin-left: 0; }
+.prod .prod-acts .prod-act { margin-left: 0; border-color: rgba(235, 229, 218, .65); }
+.prod .prod-acts .prod-act-sec { min-width: 78px; padding: 0 16px; color: var(--ash); border-color: rgba(235, 229, 218, .32); }
+.prod .prod-acts .prod-act:hover { color: var(--bone); border-color: var(--bone); background: rgba(235, 229, 218, .08); }
+.prod .prod-acts .prod-act-sec:hover { color: var(--bone); border-color: rgba(235, 229, 218, .65); background: rgba(235, 229, 218, .05); }
 .prod .rail-ctl { flex-wrap: wrap; row-gap: 8px; }
 @media (min-width: 761px) {
   .prod-copy:has(.prod-act) { bottom: calc(var(--deck-h) + 34px + 28px); }
@@ -719,12 +725,17 @@ main.plates { --col: min(500px, 36vw); }
   .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl :is(.dlbtn, .dl-note a), .get-opt { font-size: 15px; }
   .dl .dlbtn { flex: 1 1 100%; justify-content: space-between; flex-wrap: wrap; }
   .prod-copy:has(.prod-act) { bottom: calc(var(--deck-h) + 14px); }
+  .prod .prod-acts { gap: 8px; }
+  .prod .prod-acts .prod-act { min-width: 84px; padding: 0 15px; }
+  .prod .prod-acts .prod-act-sec { min-width: 70px; padding: 0 14px; }
   @media (max-width: 360px) {
     /* Keep the title and action visible on short, narrow phones; the slide copy
        remains scrollable inside its existing column instead of hiding above mast. */
     .prod-copy:has(.prod-act) { top: calc(var(--mast-h) + 10px); }
     .prod-copy:has(.prod-act) .rail { min-height: 0; overflow-y: auto; }
     .prod-copy:has(.prod-act) .rail-ctl { flex-shrink: 0; }
+    .prod .prod-acts { gap: 6px; }
+    .prod .prod-acts .prod-act { min-width: 0; height: 40px; min-height: 40px; padding: 0 12px; font-size: 13.5px; }
   }
   .plate-cast { bottom: 58%; height: min(44vh, 72vw); gap: 8px; left: var(--gutter); right: var(--gutter); transform: none; justify-content: center; }
   .plate-cast img { min-width: 0; flex: 0 1 auto; }

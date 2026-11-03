@@ -29,6 +29,7 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Type**: Story branching & validation engine and editor
 - **URL**: https://choam.studio/pages/602
 - **Description**: A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from game code to cut complexity and debugging overhead, catches broken scene links and condition errors before they reach the game, and simulates scenarios standalone from any scene before the game client is built, with C++, C#, and Godot integration.
+- **Download**: https://choam.studio/602/download (documentation: https://choam.studio/602/docs)
 
 ### 3. DAT
 - **Type**: In-house illustration style model
@@ -56,6 +57,8 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - Us (team): https://choam.studio/us
 - Client Downloads: https://choam.studio/download
 - How to install Scheherazade: https://choam.studio/install
+- 602 Developer Downloads & License: https://choam.studio/602/download
+- 602 Technical Documentation: https://choam.studio/602/docs
 - Full Documentation for LLMs: https://choam.studio/llms-full.txt
 
 ## A greeting from MINO

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download 602 | CHOAM</title>
+<meta name="description" content="Download the 602 Story Engine Native SDK (v1.1.0, C ABI v1, storyc CLI) and Standalone Story Editor (v0.1.1, visual graph editor, simulator, Remote MCP) for macOS, Windows, and Linux.">
+<meta name="theme-color" content="#050506">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CHOAM">
+<meta property="og:title" content="Download 602 | CHOAM">
+<meta property="og:description" content="Developer binary archive for 602 Story Engine SDK (v1.1.0, C ABI v1) and Standalone Story Editor (v0.1.1) across macOS, Windows, and Linux.">
+<meta property="og:url" content="https://choam.studio/602/download">
+<meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Download 602 | CHOAM">
+<meta name="twitter:description" content="Developer binary archive for 602 Story Engine SDK (v1.1.0, C ABI v1) and Standalone Story Editor (v0.1.1) across macOS, Windows, and Linux.">
+<meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
+<link rel="icon" href="../assets/mark.svg">
+<link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Download 602 | CHOAM",
+  "description": "Developer download archive and software license agreement for 602 Story Engine Native SDK (v1.1.0) and 602 Story Editor (v0.1.1).",
+  "url": "https://choam.studio/602/download",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CHOAM",
+    "url": "https://choam.studio/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "602",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Windows, Linux",
+    "softwareVersion": "1.1.0",
+    "url": "https://choam.studio/pages/602",
+    "softwareHelp": "https://choam.studio/602/docs"
+  },
+  "inLanguage": ["ko", "en", "ja"]
+}
+</script>
+<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../602-portal.css">
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
+</head>
+<body class="philo-page p602-page p602-dl-page" data-page="602-download">
+<header class="mast">
+  <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+
+<div class="p602-bar">
+  <div class="p602-bar-start">
+    <nav class="p602-crumbs" aria-label="Breadcrumb">
+      <a href="../pages/602">602</a>
+      <span class="p602-crumbs-sep" aria-hidden="true">/</span>
+      <span><span data-lang-block="ko">다운로드</span><span data-lang-block="en">Download</span><span data-lang-block="ja">ダウンロード</span></span>
+    </nav>
+    <span class="p602-badge">Engine SDK v1.1.0 · Story Editor v0.1.1 · C ABI v1</span>
+  </div>
+  <div class="p602-bar-end">
+    <div class="philo-langs p602-langs" role="group" aria-label="Language" data-philo-langs>
+      <button type="button" class="philo-lang" data-page-lang="ko" lang="ko" aria-pressed="false">한국어</button>
+      <button type="button" class="philo-lang" data-page-lang="en" lang="en" aria-pressed="true">English</button>
+      <button type="button" class="philo-lang" data-page-lang="ja" lang="ja" aria-pressed="false">日本語</button>
+    </div>
+    <a class="p602-cta" href="docs"><span data-lang-block="ko">문서 →</span><span data-lang-block="en">Docs →</span><span data-lang-block="ja">ドキュメント →</span></a>
+  </div>
+</div>
+
+<main class="p602-dl-shell">
+  <!-- Hero & Two-Package Summary -->
+  <header class="p602-dl-hero">
+    <p class="p602-kicker">602 · DEVELOPER ARCHIVE</p>
+    <h1 class="p602-h1">
+      <span data-lang-block="ko">602 바이너리 다운로드</span>
+      <span data-lang-block="en">Download 602</span>
+      <span data-lang-block="ja">602 バイナリダウンロード</span>
+    </h1>
+    <p class="p602-lead" data-lang-block="ko">602는 게임 클라이언트에 직접 링크하는 <strong>Story Engine Native SDK</strong>와, 별도 런타임 설치 없이 시나리오 작성·사전 검증·시뮬레이션을 수행하는 <strong>Standalone Story Editor</strong> 두 가지 독립 패키지로 배포됩니다. 아래 라이선스 및 오픈소스 고지 사항에 동의하면 아카이브를 받을 수 있습니다.</p>
+    <p class="p602-lead" data-lang-block="en">602 ships as two standalone binary distributions: the <strong>Story Engine Native SDK</strong> for linking directly into your game runtime, and the <strong>Standalone Story Editor</strong> for authoring, static validation, and scene-jump simulation with zero external runtime setup. Review and accept the license agreement below to unlock the archives.</p>
+    <p class="p602-lead" data-lang-block="ja">602 は、ゲームクライアントへ直接リンクする <strong>Story Engine Native SDK</strong> と、外部ランタイム不要でシナリオ執筆・事前検証・場面ジャンプ再生を行える <strong>Standalone Story Editor</strong> の 2 つの独立パッケージとして配布されます。下のライセンス契約およびオープンソース告知に同意するとアーカイブを入手できます。</p>
+
+    <div class="p602-pkg-overview">
+      <div class="p602-ov-card">
+        <div class="p602-ov-top">
+          <h2 class="p602-ov-title">602 Story Engine SDK</h2>
+          <span class="p602-ov-ver">v1.1.0 · C ABI v1</span>
+        </div>
+        <p class="p602-ov-desc" data-lang-block="ko"><code>story_engine.h</code> C ABI 공유 라이브러리, 오프라인 컴파일러·검증기 <code>storyc</code> CLI, C++17·C#(Unity)·Godot 연동 예제 포함.</p>
+        <p class="p602-ov-desc" data-lang-block="en"><code>story_engine.h</code> C ABI shared library, offline <code>storyc</code> compiler/validator CLI, and C++17, C# (Unity), and Godot integration examples.</p>
+        <p class="p602-ov-desc" data-lang-block="ja"><code>story_engine.h</code> C ABI 共有ライブラリ、オフライン検証・コンパイラ <code>storyc</code> CLI、C++17・C#（Unity）・Godot 連携サンプルを同梱。</p>
+      </div>
+      <div class="p602-ov-card">
+        <div class="p602-ov-top">
+          <h2 class="p602-ov-title">602 Story Editor</h2>
+          <span class="p602-ov-ver">v0.1.1 · Bundled Engine v1.1.0</span>
+        </div>
+        <p class="p602-ov-desc" data-lang-block="ko">비주얼 분기 그래프 에디터, 임의 장면 점프 시뮬레이터, 내장 <code>story-agent</code> 및 원격 MCP 서버(<code>/mcp</code>) 탑재. Python·Node 별도 설치 불필요.</p>
+        <p class="p602-ov-desc" data-lang-block="en">Visual branching graph editor, arbitrary scene-jump simulator, built-in <code>story-agent</code>, and Remote MCP server (<code>/mcp</code>). Zero Python or Node install required.</p>
+        <p class="p602-ov-desc" data-lang-block="ja">ビジュアル分岐グラフエディタ、任意シーンからのジャンプ再生シミュレータ、内蔵 <code>story-agent</code>、Remote MCP サーバー（<code>/mcp</code>）を搭載。Python・Node の事前導入は不要。</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Step 1: License Agreement & Open-Source Attribution Gate -->
+  <section class="p602-step" aria-labelledby="step-license-h">
+    <span class="p602-step-tag">STEP 01 · LICENSE &amp; ATTRIBUTION</span>
+    <h2 class="p602-h2" id="step-license-h">
+      <span data-lang-block="ko">라이선스 계약 및 오픈소스 고지</span>
+      <span data-lang-block="en">Software License &amp; Open-Source Notice</span>
+      <span data-lang-block="ja">ソフトウェアライセンスおよびオープンソース告知</span>
+    </h2>
+
+    <div class="p602-eula" tabindex="0" role="region" aria-labelledby="eula-box-title">
+      <p class="p602-eula-title" id="eula-box-title">
+        <span data-lang-block="ko">CHOAM 602 소프트웨어 라이선스 및 오픈소스 고지 (CHOAM 602 Software License &amp; Open-Source Notice)</span>
+        <span data-lang-block="en">CHOAM 602 Software License &amp; Open-Source Notice</span>
+        <span data-lang-block="ja">CHOAM 602 ソフトウェアライセンスおよびオープンソース告知 (CHOAM 602 Software License &amp; Open-Source Notice)</span>
+      </p>
+
+      <div lang="ko" data-lang-block="ko">
+        <div class="p602-eula-clause">
+          <h3>1. 사용 범위 및 런타임 배포 허용 (Scope &amp; Permitted Integration)</h3>
+          <p>주식회사 초암(CHOAM Co., Ltd.)은 귀하에게 602를 평가하고, 시나리오(<code>story-engine/turn-source/1</code>)를 작성·컴파일하며, 수정하지 않은 <code>602 Story Engine</code> 공유 라이브러리(<code>libstory_engine.dylib</code>, <code>libstory_engine.so</code>, <code>story_engine.dll</code>)와 컴파일된 스토리 결과물을 귀하의 상업용 또는 비상업용 게임 및 인터랙티브 애플리케이션 내부에 링크하여 함께 배포할 수 있는 비독점적·전 세계적·무상(Royalty-Free) 라이선스를 부여합니다.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>2. 제한 사항 (Restrictions)</h3>
+          <p>귀하는 <code>602 Story Engine SDK</code>, <code>storyc</code> 컴파일러, 또는 <code>602 Story Editor</code>를 역설계(reverse-engineer), 디컴파일, 디스어셈블하거나 심볼을 추출할 수 없으며, 해당 바이너리나 패키지를 독립된 SDK·저작 도구·경쟁 미들웨어 서비스 형태로 재배포하거나 재판매할 수 없습니다.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>3. 보증의 부인 및 미서명 바이너리 안내 (Disclaimer &amp; Unsigned Binary Notice)</h3>
+          <p>본 소프트웨어는 어떠한 명시적·묵시적 보증 없이 있는 그대로(<code>"AS IS"</code>) 제공됩니다. 현재 배포 아카이브의 바이너리는 Apple Developer ID 공증(Notarization) 및 Windows Authenticode 코드 서명이 적용되어 있지 않으므로, 반드시 실행 전에 공식 배포처(<code>choam.studio</code> 또는 <code>CHOAM-CO/602-releases</code>)와 SHA-256 체크섬을 검증하시기 바랍니다.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>4. 포함된 서드파티 오픈소스 소프트웨어 (Bundled Third-Party Open-Source Software)</h3>
+          <p><code>602 Story Engine SDK</code>는 <strong>RapidJSON</strong>(MIT / BSD License, Copyright THL A29 Limited, a Tencent company, and Milo Yip)을 포함합니다. <code>602 Story Editor</code>는 이에 더해 <strong>Node.js</strong>(MIT), <strong>pi</strong>(MIT, Copyright Mario Zechner), 그리고 각 허용적(permissive) 오픈소스 라이선스를 따르는 Python / FastAPI / React 생태계 런타임 구성 요소를 번들로 포함합니다. 전체 오픈소스 라이선스 전문은 각 배포 아카이브 내 <code>licenses/</code> 디렉터리 및 <a href="docs#license">/602/docs#license</a>에서 확인할 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div lang="en" data-lang-block="en">
+        <div class="p602-eula-clause">
+          <h3>1. Scope &amp; Permitted Integration</h3>
+          <p>CHOAM Co., Ltd. grants you a non-exclusive, worldwide, royalty-free license to evaluate 602, author and compile scenarios (<code>story-engine/turn-source/1</code>), and link and redistribute the unmodified <code>602 Story Engine</code> shared library (<code>libstory_engine.dylib</code>, <code>libstory_engine.so</code>, <code>story_engine.dll</code>) together with your compiled story artifacts inside your own commercial or non-commercial games and interactive applications.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>2. Restrictions</h3>
+          <p>You may not reverse-engineer, decompile, disassemble, extract symbols from, or redistribute or resell the standalone <code>602 Story Engine SDK</code>, <code>storyc</code> compiler, or <code>602 Story Editor</code> as a standalone SDK, authoring tool, or competing middleware service.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>3. Disclaimer &amp; Unsigned Binary Notice</h3>
+          <p>The software is provided <code>"AS IS"</code> without warranty of any kind, express or implied. Binaries are currently distributed without Apple Developer ID notarization or Windows Authenticode code signing—always verify the official origin (<code>choam.studio</code> or <code>CHOAM-CO/602-releases</code>) and SHA-256 checksums before execution.</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>4. Bundled Third-Party Open-Source Software</h3>
+          <p><code>602 Story Engine SDK</code> includes <strong>RapidJSON</strong> (MIT / BSD License, Copyright THL A29 Limited, a Tencent company, and Milo Yip). <code>602 Story Editor</code> additionally bundles open-source runtime components including <strong>Node.js</strong> (MIT), <strong>pi</strong> (MIT, Copyright Mario Zechner), and Python / FastAPI / React ecosystem libraries under their respective permissive licenses. Complete license texts are included in <code>licenses/</code> inside every archive and on <a href="docs#license">/602/docs#license</a>.</p>
+        </div>
+      </div>
+
+      <div lang="ja" data-lang-block="ja">
+        <div class="p602-eula-clause">
+          <h3>1. 利用範囲およびランタイム同梱の許諾 (Scope &amp; Permitted Integration)</h3>
+          <p>CHOAM Co., Ltd. は利用者に対し、602 の評価、シナリオ（<code>story-engine/turn-source/1</code>）の作成およびコンパイル、ならびに未改変の <code>602 Story Engine</code> 共有ライブラリ（<code>libstory_engine.dylib</code>、<code>libstory_engine.so</code>、<code>story_engine.dll</code>）とコンパイル済みストーリー成果物を、自身の商用または非商用のゲームおよびインタラクティブアプリケーションにリンクして再配布する非独占的・全世界的・ロイヤリティフリーのライセンスを許諾します。</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>2. 禁止事項 (Restrictions)</h3>
+          <p><code>602 Story Engine SDK</code>、<code>storyc</code> コンパイラ、または <code>602 Story Editor</code> のリバースエンジニアリング、逆コンパイル、逆アセンブル、シンボル抽出を行うことはできません。また、これらを単体の SDK・オーサリングツール・競合ミドルウェアサービスとして再配布または再販売することは禁じられています。</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>3. 免責事項および未署名バイナリに関する注意 (Disclaimer &amp; Unsigned Binary Notice)</h3>
+          <p>本ソフトウェアは明示・黙示を問わず一切の保証なく現状有姿（<code>"AS IS"</code>）で提供されます。現在配布されるバイナリには Apple Developer ID 公証（Notarization）および Windows Authenticode 署名が施されていないため、実行前に必ず公式配布元（<code>choam.studio</code> または <code>CHOAM-CO/602-releases</code>）と SHA-256 チェックサムを検証してください。</p>
+        </div>
+        <div class="p602-eula-clause">
+          <h3>4. 同梱されるサードパーティ製オープンソースソフトウェア (Bundled Third-Party Open-Source Software)</h3>
+          <p><code>602 Story Engine SDK</code> には <strong>RapidJSON</strong>（MIT / BSD License, Copyright THL A29 Limited, a Tencent company, and Milo Yip）が含まれます。<code>602 Story Editor</code> にはこれに加え、<strong>Node.js</strong>（MIT）、<strong>pi</strong>（MIT, Copyright Mario Zechner）、および各パーミッシブライセンスに基づく Python / FastAPI / React エコシステムのランタイム構成要素が同梱されています。ライセンス全文は各アーカイブ内の <code>licenses/</code> ディレクトリおよび <a href="docs#license">/602/docs#license</a> で確認できます。</p>
+        </div>
+      </div>
+    </div>
+
+    <label class="p602-agree" for="p602-agree-check">
+      <input type="checkbox" id="p602-agree-check" data-602-agree autocomplete="off">
+      <span>
+        <span data-lang-block="ko">CHOAM 602 라이선스 계약 및 서드파티 오픈소스 고지 사항을 확인했으며 이에 동의합니다.</span>
+        <span data-lang-block="en">I have reviewed and agree to the terms of the CHOAM 602 License Agreement and Third-Party Notices.</span>
+        <span data-lang-block="ja">CHOAM 602 ライセンス契約およびサードパーティ製オープンソース告知を確認し、その内容に同意します。</span>
+      </span>
+    </label>
+  </section>
+
+  <!-- Step 2: Download Packages -->
+  <section class="p602-step" aria-labelledby="step-packages-h">
+    <span class="p602-step-tag">STEP 02 · BINARY ARCHIVES</span>
+    <h2 class="p602-h2" id="step-packages-h">
+      <span data-lang-block="ko">패키지 아카이브 선택</span>
+      <span data-lang-block="en">Select Package Archives</span>
+      <span data-lang-block="ja">パッケージアーカイブの選択</span>
+    </h2>
+
+    <div class="p602-rel-status" data-602-rel-status role="status" aria-live="polite">
+      Check the CHOAM 602 License Agreement &amp; Third-Party Notices box above to unlock archive downloads.
+    </div>
+
+    <div class="p602-packages" data-602-packages>
+      <!-- Matrix 1: Story Engine SDK -->
+      <article class="p602-pkg-card" aria-labelledby="pkg-engine-h">
+        <div class="p602-pkg-head">
+          <div class="p602-pkg-title-row">
+            <h3 class="p602-pkg-title" id="pkg-engine-h">602 Story Engine SDK</h3>
+            <span class="p602-badge">v1.1.0 · C ABI v1 · story_engine.h</span>
+          </div>
+          <p class="p602-pkg-sub" data-lang-block="ko">C ABI(<code>story_engine.h</code>, ABI v1) 네이티브 공유 라이브러리, <code>storyc</code> 컴파일·검증 CLI, C++17·C#(Unity)·Godot 연동 가이드 및 예제 포함.</p>
+          <p class="p602-pkg-sub" data-lang-block="en">C ABI (<code>story_engine.h</code>, ABI v1) shared library, <code>storyc</code> compiler &amp; validator CLI, plus C++17, C# (Unity), and Godot integration docs &amp; examples.</p>
+          <p class="p602-pkg-sub" data-lang-block="ja">C ABI（<code>story_engine.h</code>、ABI v1）共有ライブラリ、<code>storyc</code> コンパイル・検証 CLI、C++17・C#（Unity）・Godot 連携ガイドおよびサンプルを収録。</p>
+        </div>
+
+        <div class="p602-dl-list">
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>macOS · Apple Silicon (arm64)</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="engine-macos-arm64">story-engine-v1.1.0-macos-arm64.zip</code>
+                <span>· <code>libstory_engine.dylib</code>, <code>storyc</code> · macOS 12.0+</span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="engine-macos-arm64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="engine-macos-arm64" aria-disabled="true" aria-label="SHA-256 checksum for story-engine-v1.1.0-macos-arm64.zip">.sha256</a>
+            </div>
+          </div>
+
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>macOS · Intel (x86_64)</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="engine-macos-x64">story-engine-v1.1.0-macos-x64.zip</code>
+                <span>· <code>libstory_engine.dylib</code>, <code>storyc</code> · macOS 12.0+</span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="engine-macos-x64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="engine-macos-x64" aria-disabled="true" aria-label="SHA-256 checksum for story-engine-v1.1.0-macos-x64.zip">.sha256</a>
+            </div>
+          </div>
+
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>Windows · x64</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="engine-windows-x64">story-engine-v1.1.0-windows-x64.zip</code>
+                <span>· <code>story_engine.dll</code>, <code>story_engine_import.lib</code>, <code>storyc.exe</code></span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="engine-windows-x64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="engine-windows-x64" aria-disabled="true" aria-label="SHA-256 checksum for story-engine-v1.1.0-windows-x64.zip">.sha256</a>
+            </div>
+          </div>
+
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>Linux · x86_64</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="engine-linux-x64">story-engine-v1.1.0-linux-x64.zip</code>
+                <span>· <code>libstory_engine.so</code>, <code>storyc</code> · glibc / Ubuntu 22.04+</span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="engine-linux-x64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="engine-linux-x64" aria-disabled="true" aria-label="SHA-256 checksum for story-engine-v1.1.0-linux-x64.zip">.sha256</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Matrix 2: Story Editor -->
+      <article class="p602-pkg-card" aria-labelledby="pkg-editor-h">
+        <div class="p602-pkg-head">
+          <div class="p602-pkg-title-row">
+            <h3 class="p602-pkg-title" id="pkg-editor-h">602 Story Editor</h3>
+            <span class="p602-badge">v0.1.1 · Embedded Engine v1.1.0 · /mcp</span>
+          </div>
+          <p class="p602-pkg-sub" data-lang-block="ko">독립 실행형 비주얼 분기 그래프 에디터, 장면 점프 시뮬레이터, 내장 <code>story-agent</code> 및 원격 MCP 서버(<code>/mcp</code>) 탑재. Story Engine(<code>v1.1.0</code>) 내장, 별도 Python·Node 설치 불필요.</p>
+          <p class="p602-pkg-sub" data-lang-block="en">Standalone visual graph editor, scene-jump simulator, built-in <code>story-agent</code>, and Remote MCP server (<code>/mcp</code>) with embedded Story Engine (<code>v1.1.0</code>)—zero Python or Node install required.</p>
+          <p class="p602-pkg-sub" data-lang-block="ja">スタンドアロン型のビジュアル分岐グラフエディタ、場面ジャンプ再生シミュレータ、内蔵 <code>story-agent</code>、および Remote MCP サーバー（<code>/mcp</code>）。Story Engine（<code>v1.1.0</code>）内蔵、Python・Node の導入は不要。</p>
+        </div>
+
+        <div class="p602-dl-list">
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>macOS · Apple Silicon (arm64)</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="editor-macos-arm64">story-editor-v0.1.1-macos-arm64.zip</code>
+                <span>· <span data-lang-block="ko">독립 실행 번들 · macOS 12.0+ (Apple 실리콘)</span><span data-lang-block="en">Self-contained bundle · macOS 12.0+ (Apple Silicon)</span><span data-lang-block="ja">自己完結型バンドル · macOS 12.0+（Apple シリコン）</span></span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="editor-macos-arm64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="editor-macos-arm64" aria-disabled="true" aria-label="SHA-256 checksum for story-editor-v0.1.1-macos-arm64.zip">.sha256</a>
+            </div>
+          </div>
+
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>Windows · x64</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="editor-windows-x64">story-editor-v0.1.1-windows-x64.zip</code>
+                <span>· <span data-lang-block="ko">독립 실행 번들 · 64비트 Windows 10/11</span><span data-lang-block="en">Self-contained bundle · 64-bit Windows 10/11</span><span data-lang-block="ja">自己完結型バンドル · 64 ビット Windows 10/11</span></span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="editor-windows-x64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="editor-windows-x64" aria-disabled="true" aria-label="SHA-256 checksum for story-editor-v0.1.1-windows-x64.zip">.sha256</a>
+            </div>
+          </div>
+
+          <div class="p602-dl-row">
+            <div class="p602-dl-info">
+              <div class="p602-dl-os">
+                <span>Linux · x86_64</span>
+                <span class="p602-rec-pill" data-602-rec hidden>Recommended</span>
+              </div>
+              <div class="p602-dl-meta">
+                <code class="p602-dl-file" data-602-filename="editor-linux-x64">story-editor-v0.1.1-linux-x64.zip</code>
+                <span>· <span data-lang-block="ko">독립 실행 번들 · glibc / Ubuntu 22.04+</span><span data-lang-block="en">Self-contained bundle · glibc / Ubuntu 22.04+</span><span data-lang-block="ja">自己完結型バンドル · glibc / Ubuntu 22.04+</span></span>
+              </div>
+            </div>
+            <div class="p602-dl-acts">
+              <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="editor-linux-x64" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="editor-linux-x64" aria-disabled="true" aria-label="SHA-256 checksum for story-editor-v0.1.1-linux-x64.zip">.sha256</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Step 3: Checksum Verification & First-Run Snippets -->
+  <section class="p602-step p602-sec" aria-labelledby="step-verify-h">
+    <span class="p602-step-tag">STEP 03 · VERIFY &amp; FIRST RUN</span>
+    <h2 class="p602-h2" id="step-verify-h">
+      <span data-lang-block="ko">체크섬 검증 및 첫 실행</span>
+      <span data-lang-block="en">Checksum Verification &amp; First Run</span>
+      <span data-lang-block="ja">チェックサム検証と初回実行</span>
+    </h2>
+
+    <p data-lang-block="ko">압축 해제나 실행 전에 함께 받은 <code>.sha256</code> 파일로 무결성을 검증하세요. 공식 배포 경로는 <code>choam.studio</code>와 GitHub의 <code>CHOAM-CO/602-releases</code>뿐입니다.</p>
+    <p data-lang-block="en">Verify archive integrity against the companion <code>.sha256</code> file before extracting or running binaries. Official archives are published exclusively via <code>choam.studio</code> and <code>CHOAM-CO/602-releases</code> on GitHub.</p>
+    <p data-lang-block="ja">展開や実行の前に、同梱の <code>.sha256</code> ファイルで整合性を検証してください。公式の配布元は <code>choam.studio</code> および GitHub の <code>CHOAM-CO/602-releases</code> のみです。</p>
+
+    <h3 class="p602-h3">
+      <span data-lang-block="ko">1. SHA-256 무결성 검증 (macOS · Linux · Windows PowerShell)</span>
+      <span data-lang-block="en">1. Verify SHA-256 Checksums (macOS · Linux · Windows PowerShell)</span>
+      <span data-lang-block="ja">1. SHA-256 チェックサムの検証 (macOS · Linux · Windows PowerShell)</span>
+    </h3>
+    <pre class="p602-code"><code># macOS
+shasum -a 256 -c *.sha256
+
+# Linux
+sha256sum -c *.sha256
+
+# Windows (PowerShell)
+Get-FileHash .\story-engine-v1.1.0-windows-x64.zip -Algorithm SHA256</code></pre>
+
+    <h3 class="p602-h3">
+      <span data-lang-block="ko">2. macOS 격리 속성 해제 (Gatekeeper 안내가 뜰 때)</span>
+      <span data-lang-block="en">2. Clear macOS Quarantine Attribute (Unsigned Binary Gatekeeper Prompt)</span>
+      <span data-lang-block="ja">2. macOS 隔離属性の解除（Gatekeeper 警告が表示された場合）</span>
+    </h3>
+    <p data-lang-block="ko">체크섬이 일치하는 공식 아카이브임을 확인한 뒤, 압축을 푼 폴더에 한해 <code>com.apple.quarantine</code> 속성을 제거합니다.</p>
+    <p data-lang-block="en">After confirming the SHA-256 hash matches the official release, clear <code>com.apple.quarantine</code> on the extracted archive directory.</p>
+    <p data-lang-block="ja">SHA-256 ハッシュが公式リリースと一致することを確認したうえで、展開先ディレクトリに対してのみ <code>com.apple.quarantine</code> 属性を解除します。</p>
+    <pre class="p602-code"><code>unzip story-engine-v1.1.0-macos-arm64.zip -d story-engine-sdk
+xattr -dr com.apple.quarantine ./story-engine-sdk</code></pre>
+
+    <h3 class="p602-h3">
+      <span data-lang-block="ko">3. 동작 확인 (Story Engine CLI 및 Story Editor)</span>
+      <span data-lang-block="en">3. Smoke-Test the CLI &amp; Standalone Editor</span>
+      <span data-lang-block="ja">3. 動作確認（Story Engine CLI および Story Editor）</span>
+    </h3>
+    <pre class="p602-code"><code># Story Engine SDK — validate &amp; inspect the bundled sample scenario
+./bin/storyc check docs/examples/story.json
+
+# Standalone Story Editor — verify embedded runtime version
+./story-editor --version</code></pre>
+
+    <div class="p602-callout is-note">
+      <p data-lang-block="ko"><strong>다음 단계:</strong> C ABI 헤더(<code>story_engine.h</code>) 호출 규약, C++17·Unity(C#)·Godot 바인딩 예제, 시나리오 포맷(<code>story-engine/turn-source/1</code>), 그리고 에디터 원격 MCP(<code>/mcp</code>) 연동 방법은 기술 문서에서 바로 이어서 볼 수 있습니다.</p>
+      <p data-lang-block="en"><strong>Next steps:</strong> Continue to the technical documentation for the <code>story_engine.h</code> C ABI v1 lifecycle, C++17 / Unity C# / Godot integration patterns, scenario schema (<code>story-engine/turn-source/1</code>), and Story Editor Remote MCP (<code>/mcp</code>) setup.</p>
+      <p data-lang-block="ja"><strong>次のステップ:</strong> <code>story_engine.h</code> C ABI v1 のライフサイクル、C++17・Unity（C#）・Godot 連携パターン、シナリオ形式（<code>story-engine/turn-source/1</code>）、および Story Editor の Remote MCP（<code>/mcp</code>）設定については技術ドキュメントを参照してください。</p>
+    </div>
+
+    <nav class="p602-doc-links" aria-label="602 Documentation Sections">
+      <a class="p602-doc-chip" href="docs#install"><span data-lang-block="ko">설치 및 OS 보안 안내 →</span><span data-lang-block="en">Installation Guide →</span><span data-lang-block="ja">インストールと OS 設定 →</span></a>
+      <a class="p602-doc-chip" href="docs#quickstart"><span data-lang-block="ko">빠른 시작 · storyc CLI →</span><span data-lang-block="en">Quickstart &amp; storyc CLI →</span><span data-lang-block="ja">クイックスタート・storyc CLI →</span></a>
+      <a class="p602-doc-chip" href="docs#c-abi"><span data-lang-block="ko">C ABI v1 및 엔진 연동 →</span><span data-lang-block="en">C ABI v1 &amp; Engine Integration →</span><span data-lang-block="ja">C ABI v1・エンジン連携 →</span></a>
+      <a class="p602-doc-chip" href="docs#editor-mcp"><span data-lang-block="ko">Story Editor · 원격 MCP →</span><span data-lang-block="en">Story Editor &amp; Remote MCP →</span><span data-lang-block="ja">Story Editor・Remote MCP →</span></a>
+      <a class="p602-doc-chip" href="docs#license"><span data-lang-block="ko">라이선스 및 오픈소스 전문 →</span><span data-lang-block="en">License &amp; OSS Notices →</span><span data-lang-block="ja">ライセンス・OSS 告知 →</span></a>
+    </nav>
+  </section>
+</main>
+
+<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<div class="grain" aria-hidden="true"></div>
+<script src="../main.js"></script>
+<script src="../602-portal.js"></script>
+</body>
+</html>
