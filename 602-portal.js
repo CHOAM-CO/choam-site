@@ -316,7 +316,7 @@
           repoLink.href = `${REL_REPO}/releases`;
           repoLink.target = '_blank';
           repoLink.rel = 'noopener';
-          repoLink.textContent = L('Release notes →', '릴리스 노트 →', 'リリースノート →');
+          repoLink.textContent = L('Release notes', '릴리스 노트', 'リリースノート');
           statusBanner.append(msg, repoLink);
         } else {
           statusBanner.dataset.state = 'staged';
