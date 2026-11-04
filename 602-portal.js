@@ -98,8 +98,8 @@
       return relUrl;
     })();
 
-    const DEFAULT_ENGINE_TAG = 'v1.2.0';
-    const DEFAULT_EDITOR_TAG = 'v0.1.4';
+    const DEFAULT_ENGINE_TAG = 'v1.2.1';
+    const DEFAULT_EDITOR_TAG = 'v0.1.5';
     const DEFAULT_RELEASE_LABEL = `Engine ${DEFAULT_ENGINE_TAG} · Editor ${DEFAULT_EDITOR_TAG}`;
 
     const ASSETS = [
