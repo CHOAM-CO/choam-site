@@ -1,25 +1,25 @@
 {
-  "tag_name": "v0.8.1",
+  "tag_name": "v0.8.2",
   "assets": [
     {
-      "name": "Scheherazade-0.8.1-arm64.dmg",
+      "name": "Scheherazade-0.8.2-arm64.dmg",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.1/Scheherazade-0.8.1-arm64.dmg"
+      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.2/Scheherazade-0.8.2-arm64.dmg"
     },
     {
-      "name": "Scheherazade-0.8.1-x86_64.AppImage",
+      "name": "Scheherazade-0.8.2-x86_64.AppImage",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.1/Scheherazade-0.8.1-x86_64.AppImage"
+      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.2/Scheherazade-0.8.2-x86_64.AppImage"
     },
     {
-      "name": "Scheherazade-Portable-0.8.1-win-x64.zip",
+      "name": "Scheherazade-Portable-0.8.2-win-x64.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.1/Scheherazade-Portable-0.8.1-win-x64.zip"
+      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.2/Scheherazade-Portable-0.8.2-win-x64.zip"
     },
     {
-      "name": "Scheherazade-Setup-0.8.1.exe",
+      "name": "Scheherazade-Setup-0.8.2.exe",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.1/Scheherazade-Setup-0.8.1.exe"
+      "browser_download_url": "https://github.com/CHOAM-CO/scheherazade-releases/releases/download/v0.8.2/Scheherazade-Setup-0.8.2.exe"
     }
   ]
 }
