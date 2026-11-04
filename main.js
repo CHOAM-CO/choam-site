@@ -588,12 +588,7 @@
           ]
         ]
       },
-      action: {
-        label: 'Contact',
-        href: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 Inquiry] ') + '&body=' + encodeURIComponent('Hello CHOAM team,\nI’d like to inquire about the 602 story engine & editor.\n\n- Name / Studio: \n- Game engine in use (Unity / Godot / C++ / etc.): \n- Project overview & inquiry: \n'),
-        hrefKo: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 도입 및 데모 문의] ') + '&body=' + encodeURIComponent('안녕하세요, 초암(CHOAM) 팀.\n602 스토리 엔진·에디터 관련하여 문의드립니다.\n\n- 소속 / 성함: \n- 사용 중인 게임 엔진 (Unity / Godot / 자체 C++ 등): \n- 프로젝트 소개 및 문의 내용: \n'),
-        hrefJa: 'mailto:cayde@choam.studio?subject=' + encodeURIComponent('[602 お問い合わせ] ') + '&body=' + encodeURIComponent('CHOAM チーム様\n602 ストーリーエンジン・エディタについてお問い合わせいたします。\n\n- お名前 / ご所属: \n- 使用エンジン (Unity / Godot / C++ など): \n- プロジェクト概要・お問い合わせ内容: \n')
-      },
+      action: { label: 'Docs & Install', href: '602/docs' },
       field: '602',
       art: [0, 1, 2],
       panels: [
@@ -848,10 +843,14 @@
   const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
   const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
   const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
-  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기' };
-  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ' };
+  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기', 'Docs & Install': '문서 및 설치' };
+  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ', 'Docs & Install': 'ドキュメント・導入' };
   const actLabel = a => L(a, ACT_KO[a] || a, ACT_JA[a] || a);
-  const actAria = (T, l) => L(`${l} ${T}`, `${T} ${l}`, l === 'お問い合わせ' ? `${T}について${l}` : `${T}を${l}`);
+  const actAria = (T, l) => L(
+    l === 'Docs & Install' ? `${T} ${l}` : `${l} ${T}`,
+    `${T} ${l}`,
+    l === 'お問い合わせ' ? `${T}について${l}` : l === 'ドキュメント・導入' ? `${T} の${l}` : `${T}を${l}`
+  );
   /* static text and labels already in the HTML: [selector, attribute or '' for text, Korean, Japanese] */
   const UI_KO = [
     ['.brand', 'aria-label', 'CHOAM 홈', 'CHOAM ホーム'],
@@ -875,8 +874,10 @@
     ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
   ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
   const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade 설치 방법 | CHOAM',
+    'Download 602 | CHOAM': '602 다운로드 | CHOAM', '602 Documentation | CHOAM': '602 도큐멘테이션 | CHOAM',
     'Us | CHOAM': '팀 | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': '장민호 | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': '정은호 | CHOAM' };
   const TITLE_JA = { 'Get Scheherazade | CHOAM': 'Scheherazade を入手 | CHOAM', 'Our Philosophy | CHOAM': 'CHOAMの哲学 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade のインストール方法 | CHOAM',
+    'Download 602 | CHOAM': '602 ダウンロード | CHOAM', '602 Documentation | CHOAM': '602 ドキュメント | CHOAM',
     'Us | CHOAM': 'チーム | CHOAM', 'Minho \u2018Mino\u2019 Jang | CHOAM': 'チャン・ミンホ | CHOAM', 'Eunho \u2018Cayde\u2019 Jung | CHOAM': 'チョン・ウンホ | CHOAM', '선잠 DOZE | CHOAM': 'DOZE | CHOAM' };
   const titleEn = document.title;
   const relabel = []; /* the gallery adds its own relabelling below */
@@ -1261,7 +1262,8 @@
     };
     const altOf = o => pick(o, 'alt');
     const actHTML = p => {
-      const act = p.action; if (!act) return '';
+      const act = p.action;
+      if (!act) return '';
       return act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
         : `<a class="prod-act" href="${url(act.href)}"${/^https?:/.test(act.href) ? ' target="_blank" rel="noopener"' : ''}></a>`;
     };
