@@ -990,6 +990,10 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
 }
 .lunviz .lv-stat.on b { color: var(--ember); }
 .lunviz .lv-stat span { font-size: 13px; font-weight: 500; line-height: 20px; color: var(--bone); word-break: keep-all; }
+.cap-line .hl-em {
+  text-decoration: underline; text-decoration-color: var(--ember);
+  text-decoration-thickness: .04em; text-underline-offset: .22em; text-underline-skip-ink: none;
+}
 .lunviz .lv-stat small { font-size: 12px; line-height: 16px; color: #8a847a; word-break: keep-all; }
 @media (max-width: 720px) {
   .lunviz .lv-scene + .lv-scene, .lunviz .lv-foot { display: none; }

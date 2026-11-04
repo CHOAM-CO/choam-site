@@ -60,7 +60,17 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 - **Documentation**: https://choam.studio/602/docs (`602 Story Engine SDK v1.2.0` — C ABI v1 `story_engine.h`, `story-engine/turn-source/1` authoring format with 31 pure expression operators including `min`/`max`/`clamp` and atomic choice `updates`, `storyc` CLI compiler/validator, C++17 / C# Unity / Godot integration guides; `602 Story Editor v0.1.2` — standalone visual editor, simulator, `story-agent`, and Remote MCP `/mcp` reference)
 - **Contacts**: `mino@choam.studio` (licensing & commercial use, including royalty self-reporting); `cayde@choam.studio` (bug reports, feature requests & technical inquiries)
 
-### Project 03: DAT
+### Project 03: Lunasia
+- **URL**: https://choam.studio/pages/lunasia
+- **Name**: Named after M4A1 of Girls' Frontline, who goes by Lunasia later in the story, a menhera who would twist the world line itself for the protagonist alone. Every model CHOAM is training or will release is named after a woman from fiction.
+- **Category**: In-house character LLM (`0.0.4` · under 10B)
+- **Core Concept**: "A house model with ATTITUDE." (Korean: [성깔] 있는 House Model)
+- **Key Points**:
+  - Not acting menhera from a prompt—a model whose weights themselves are menhera, so it never collapses into a polite counselor after two turns.
+  - Built with a handcrafted post-training recipe and human-curated dialogue data, speaking fluent Korean without translationese and separating hidden inner thought (`THINK`) from spoken dialogue (`REPLY`).
+  - Lightweight model under 10B that runs locally inside the game client, starting with Yeji in *선잠 DOZE*.
+
+### Project 04: DAT
 - **URL**: https://choam.studio/pages/dat
 - **Name**: 닻 (dat), the Korean word for anchor. It keeps our art anchored to the house style.
 - **Category**: In-house illustration style model
@@ -71,7 +81,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - The same finish holds from a whole classroom to a close portrait, and from classroom scenes to a ship's deck at sea.
   - The page compares recorded GPT Image originals with DAT finishes; the pass changes brushwork and some scene details, not only noise.
 
-### Project 04: 선잠 DOZE (Seonjam DOZE)
+### Project 05: 선잠 DOZE (Seonjam DOZE)
 - **URL**: https://choam.studio/pages/seonjam
 - **Category**: Visual novel (in development)
 - **Core Concept**: "An interactive movie you shape by talking." (Korean: 대화로 만들어가는 인터랙티브 무비)
@@ -80,7 +90,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - You talk with Yeji in your own words; she answers from her own personality and your past conversations.
   - She writes your conversations into her diary, and her mood and manner the next time you meet follow that record.
 
-### Project 05: Donguri Ryokan (동구리 료칸)
+### Project 06: Donguri Ryokan (동구리 료칸)
 - **URL**: https://choam.studio/pages/donguri-ryokan
 - **Category**: Inn management game with yokai deduction (coming soon)
 - **Core Concept**: "A quiet inn tale, deep in the forest." (Korean: 고요한 숲속 여관 이야기)
@@ -89,7 +99,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - Over 100 days you gather ingredients, cook, and look after the rooms and the hot spring.
   - Some guests are yokai passing as human; watch how they behave and work out who before they check out.
 
-### Project 06: Donguri Restaurant (동구리 레스토랑)
+### Project 07: Donguri Restaurant (동구리 레스토랑)
 - **URL**: https://choam.studio/pages/donguri-restaurant
 - **Category**: Restaurant management game, plays in the browser
 - **Core Concept**: "Self Made Restaurant."
