@@ -38,6 +38,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 
 ### Project 01: Scheherazade (세헤라자드)
 - **URL**: https://choam.studio/pages/scheherazade
+- **Name**: Named after the heroine of One Thousand and One Nights, who stayed alive by telling a thousand and one nights' worth of stories. That sounded a lot like an agent's life, so the name stuck. It has the memory to match.
 - **Category**: Personal AI agent, desktop app for Mac (Apple silicon), Windows (installer and USB portable) and Linux (AppImage)
 - **Core Concept**: "An agent that takes a thousand and one nights in stride." (Korean: 천하루밤도 거뜬한 에이전트)
 - **Key Capabilities**:
@@ -48,6 +49,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 
 ### Project 02: 602
 - **URL**: https://choam.studio/pages/602
+- **Name**: Named after the 602nd night of One Thousand and One Nights, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.
 - **Category**: Story branching & validation engine and editor
 - **Core Concept**: "A story engine that won’t get lost in 1,024 branches." (Korean: 1024가지 분기에도 헤매지 않는 스토리 엔진)
 - **Key Points**:
@@ -60,6 +62,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 
 ### Project 03: DAT
 - **URL**: https://choam.studio/pages/dat
+- **Name**: 닻 (dat), the Korean word for anchor. It keeps our art anchored to the house style.
 - **Category**: In-house illustration style model
 - **Core Concept**: "Our house style, built into a model."
 - **Key Points**:
