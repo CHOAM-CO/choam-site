@@ -99,15 +99,6 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
   - Over 100 days you gather ingredients, cook, and look after the rooms and the hot spring.
   - Some guests are yokai passing as human; watch how they behave and work out who before they check out.
 
-### Project 07: Donguri Restaurant (동구리 레스토랑)
-- **URL**: https://choam.studio/pages/donguri-restaurant
-- **Category**: Restaurant management game, plays in the browser
-- **Core Concept**: "Self Made Restaurant."
-- **Setting & Play**:
-  - The day's omakase comes from what you grow in the garden; guests don't know what they are eating until the menu arrives.
-  - You are a short-term part-timer working with a chef and a sommelier for one season (four weeks).
-  - It started as a retirement plan: grow vegetables, run a small restaurant. Three stars would be nice. None is fine too.
-
 ---
 
 ## 4. Crawling & AI Indexing Instructions

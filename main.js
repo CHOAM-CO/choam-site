@@ -1117,48 +1117,6 @@
         { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', altJa: 'Donguri Ryokan のキーアート: 夜の畳の間で、紙の行灯と開いた帳簿を前に、低い卓を囲む狐の少女と狸の少女', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
       ],
       info: { kind: 'art', src: 'assets/ryokan_kv7_D.webp', pos: '50% 30%', posM: '38% 50%' }
-    },
-    {
-      id: 'donguri-restaurant',
-      title: 'Donguri Restaurant',
-      title_ko: '동구리 레스토랑',
-      sub_ja: 'どんぐりレストラン',
-      status: 'On the web',
-      headline: 'Self Made Restaurant',
-      summary: 'A small forest restaurant management game where the day’s omakase comes from your own garden. Read the reservation board, plant for the guests who are coming, and build each course and wine pairing around what you harvest.',
-      description: [
-        'Donguri Restaurant is a restaurant management game where you serve omakase from what you grow in the garden.\nThe day’s harvest sets the course; you prep it, cook it and bring it to the table.\nGuests don’t know what they are eating until the menu arrives.',
-        'You are a short-term part-timer working alongside a chef and a sommelier, running a small place for one season (four weeks).',
-        'It started as a retirement plan: grow vegetables, run a small restaurant.\nThree stars would be nice. None is fine too.'
-      ],
-      ko: {
-        status: '웹에서 플레이',
-        headline: 'Self Made Restaurant',
-        summary: '텃밭에서 직접 기른 재료로 그날의 오마카세 코스를 내는 작은 숲속 레스토랑 경영 게임입니다. 예약판을 확인해 작물을 심고, 수확한 재료에 맞춰 코스와 와인 페어링을 구성해 손님에게 대접합니다.',
-        description: [
-          '동구리 레스토랑은 텃밭에서 기른 재료로 오마카세를 내는 레스토랑 경영 게임입니다.\n그날 수확한 재료로 코스를 정하고, 손질과 조리를 거쳐 손님에게 대접합니다.\n손님은 메뉴를 받기 전까지 무엇을 먹게 될지 모릅니다.',
-          '플레이어는 셰프, 소믈리에와 함께 일하는 단기 아르바이트생이 되어 한 철(4주) 동안 작은 가게를 꾸려 나갑니다.',
-          '직접 채소를 기르며 작은 레스토랑을 운영하고 싶다는 은퇴 계획에서 시작했습니다.\n별 셋을 받으면 좋고, 아니어도 괜찮은 레스토랑입니다.'
-        ]
-      },
-      ja: {
-        status: 'Web でプレイ',
-        headline: 'Self Made Restaurant',
-        summary: '畑で育てた食材で、その日のおまかせコースを出す小さな森のレストラン経営ゲームです。予約ボードを見て作物を植え、収穫した食材に合わせてコースとワインのペアリングを組み立て、お客さんをもてなします。',
-        description: [
-          'Donguri Restaurant は、畑で育てた食材でおまかせを出すレストラン経営ゲームです。\nその日に収穫した食材でコースを決め、下ごしらえと調理をしてお客さんに出します。\nお客さんはメニューを受け取るまで、どんな料理が出るのか分かりません。',
-          'プレイヤーはシェフ、ソムリエと一緒に働く短期アルバイトになって、ひと季節(4週間)小さな店を切り盛りします。',
-          '自分で野菜を育てながら小さなレストランをやりたい、という引退後の計画から始まりました。\n三つ星がもらえたらうれしいし、もらえなくても大丈夫なレストランです。'
-        ]
-      },
-      art: [0, 1, 2],
-      action: { label: 'Play', href: 'https://donguri.run' },
-      panels: [
-        { kind: 'art', src: 'assets/restaurant-01.webp', altKo: 'Donguri Restaurant 키 아트: 레스토랑 로고 옆에 셰프, 소믈리에, 아르바이트생이 함께 몸을 기울인 모습', altJa: 'Donguri Restaurant のキーアート: レストランのロゴの横で、シェフとソムリエとアルバイトが身を寄せ合う', alt: 'Donguri Restaurant key art: the chef, the sommelier and the part-timer leaning in together beside the restaurant logo', pos: '100% 30%', posM: '50% 50%' },
-        { kind: 'art', src: 'assets/restaurant_field.webp', altKo: 'Donguri Restaurant 컨셉 아트: 텃밭에서 채소를 수확하는 아르바이트생과 식탁을 준비하는 셰프, 소믈리에', altJa: 'Donguri Restaurant のコンセプトアート: 畑で野菜を収穫するアルバイトと、テーブルを整えるシェフとソムリエ', alt: 'Donguri Restaurant concept art: the part-timer harvesting fresh vegetables in the garden while the chef and sommelier prepare the table', pos: '45% 35%', posM: '38% 50%' },
-        { kind: 'art', src: 'assets/restaurant_course.webp', altKo: 'Donguri Restaurant 컨셉 아트: 와인을 디캔팅하는 소믈리에와 저녁 코스 요리를 플레이팅하는 셰프', altJa: 'Donguri Restaurant のコンセプトアート: ワインをデキャンタージュするソムリエと、夕食のコースを盛りつけるシェフ', alt: 'Donguri Restaurant concept art: the sommelier decanting wine beside the chef plating the evening course', pos: '45% 35%', posM: '45% 50%' }
-      ],
-      info: { kind: 'art', src: 'assets/restaurant-01.webp', pos: '50% 30%', posM: '62% 50%' }
     }
   ];
 
@@ -1313,7 +1271,7 @@
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
         <h2 class="nav-group-title" id="nav-works-title">Works</h2>
         <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('602')}${workEntry('lunasia')}${workEntry('dat')}</ul>
-        <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}${workEntry('donguri-restaurant')}</ul>
+        <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}</ul>
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
         <h2 class="nav-group-title" id="nav-about-title">About</h2>

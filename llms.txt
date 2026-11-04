@@ -52,11 +52,6 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **URL**: https://choam.studio/pages/donguri-ryokan
 - **Description**: A quiet inn tale, deep in the forest. Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.
 
-### 7. Donguri Restaurant (동구리 레스토랑)
-- **Type**: Restaurant management game (plays in the browser)
-- **URL**: https://choam.studio/pages/donguri-restaurant
-- **Description**: Self Made Restaurant. A small forest restaurant where the day's omakase comes from your own garden. You are a short-term part-timer working alongside a chef and a sommelier for one season (four weeks).
-
 ## Key Links & Resources
 - Main Studio Hub: https://choam.studio/
 - Philosophy of CHOAM: https://choam.studio/philosophy
