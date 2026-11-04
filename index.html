@@ -69,7 +69,7 @@
 <link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/astra-hero.webp" as="image" type="image/webp">
 <link rel="stylesheet" href="style.css">
-<noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; } .ns li { margin-bottom: 28px; } .ns a { font-weight: 850; font-size: 28px; text-transform: uppercase; } .ns p { color: rgba(243, 242, 239, .78); }</style></noscript>
+<noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .track { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; } .track .plate { position: static; height: auto; min-height: 0; margin-bottom: 28px; padding: 0; } .track .caption { position: static; width: auto; padding: 0; } .track .cap-title a { font-weight: 850; font-size: 28px; text-transform: uppercase; } .track .cap-line, .track .cap-text { color: rgba(243, 242, 239, .78); }</style></noscript>
 <link rel="stylesheet" href="clarity.css">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
@@ -92,8 +92,8 @@
 <header class="mast chrome">
   <a class="brand" href="./" aria-label="CHOAM, home"><img src="assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
   <p class="motto">Culture must flow</p>
-  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
-  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+  <button class="menu-btn" type="button" data-menu-toggle aria-expanded="false">Projects</button>
+  <nav class="proj-nav" data-menu aria-label="Projects"><ul data-projects></ul></nav>
 </header>
 
 <!-- opening: Astra blows out a match, then CHOAM resolves. Canvas (astra-hero.js) behind the CHOAM title; all text is real HTML -->
@@ -127,18 +127,57 @@
   </div>
 </section>
 
-<main class="track" data-track aria-label="Ours" aria-roledescription="carousel"></main>
-<noscript>
-  <ul class="ns">
-    <li><a href="pages/scheherazade">Scheherazade</a><p>An agent that takes a thousand and one nights in stride</p></li>
-    <li><a href="pages/602">602</a><p>A story engine that won’t get lost in 1,024 branches</p></li>
-    <li><a href="pages/lunasia">Lunasia</a><p>A house model with ATTITUDE</p></li>
-    <li><a href="pages/dat">DAT</a><p>Our house style, built into a model</p></li>
-    <li><a href="pages/seonjam">선잠 DOZE</a><p>An interactive movie you shape by talking</p></li>
-    <li><a href="pages/donguri-ryokan">Donguri Ryokan</a><p>A quiet inn tale, deep in the forest</p></li>
-    <li><a href="pages/donguri-restaurant">Donguri Restaurant</a><p>Self Made Restaurant</p></li>
-  </ul>
-</noscript>
+<main class="track" id="projects" data-track aria-label="Ours" aria-roledescription="carousel">
+  <article class="plate" id="scheherazade" data-plate="scheherazade">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/scheherazade">Scheherazade</a></h2>
+      <p class="cap-line">An agent that takes a thousand and one nights in stride</p>
+      <p class="cap-text">Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.</p>
+    </div>
+  </article>
+  <article class="plate" id="602" data-plate="602">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/602">602</a></h2>
+      <p class="cap-line">A story engine that won’t get lost in 1,024 branches</p>
+      <p class="cap-text">Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.</p>
+    </div>
+  </article>
+  <article class="plate" id="lunasia" data-plate="lunasia">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/lunasia">Lunasia</a></h2>
+      <p class="cap-line">A house model with ATTITUDE</p>
+      <p class="cap-text">A model whose weights themselves are menhera, rather than acting it out from a prompt. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and stays in character to the end.</p>
+    </div>
+  </article>
+  <article class="plate" id="dat" data-plate="dat">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/dat">DAT</a></h2>
+      <p class="cap-line">Our house style, built into a model</p>
+      <p class="cap-text">We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art. The muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.</p>
+    </div>
+  </article>
+  <article class="plate" id="seonjam" data-plate="seonjam">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/seonjam">선잠 DOZE</a></h2>
+      <p class="cap-line">An interactive movie you shape by talking</p>
+      <p class="cap-text">A visual novel where you talk with Yeji in your own words, in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.</p>
+    </div>
+  </article>
+  <article class="plate" id="donguri-ryokan" data-plate="donguri-ryokan">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/donguri-ryokan">Donguri Ryokan</a></h2>
+      <p class="cap-line">A quiet inn tale, deep in the forest</p>
+      <p class="cap-text">Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.</p>
+    </div>
+  </article>
+  <article class="plate" id="donguri-restaurant" data-plate="donguri-restaurant">
+    <div class="caption">
+      <h2 class="cap-title"><a href="pages/donguri-restaurant">Donguri Restaurant</a></h2>
+      <p class="cap-line">Self Made Restaurant</p>
+      <p class="cap-text">A small forest restaurant management game where the day’s omakase comes from your own garden. Read the reservation board, plant for the guests who are coming, and build each course and wine pairing around what you harvest.</p>
+    </div>
+  </article>
+</main>
 
 <div class="deck chrome">
   <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
