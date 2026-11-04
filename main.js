@@ -669,6 +669,380 @@
       info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '43% 30%', side: 'end' }
     },
     {
+      id: 'lunasia',
+      title: 'Lunasia',
+      title_ko: 'Character LLM',
+      status: 'Proprietary Character LLM',
+      headline: 'An LLM with menhera baked straight into the weights',
+      summary: 'Built for DOZE: no benchmark SOTA, just a model with obsession baked into its weights that stays in character and talks like a real person.',
+      description: [
+        [
+          { display: 'For Yeji in DOZE to talk like a real person, a few lines of prompt were never enough.' },
+          'Tell a standard AI to act possessive in a prompt, and the moment you draw a line it reverts to a polite counselor in two turns. Instead of relying on instructions, we baked her personality straight into the model’s weights.'
+        ],
+        [
+          { display: 'Real obsession never says “I am obsessed.”' },
+          'Using hand-written and hand-picked dialogue data, we split hidden inner thought from spoken lines. She swallows her panic and jealousy inside the hidden thought slot first, and lets only sharp, clinging dialogue out.'
+        ],
+        [
+          { display: 'No benchmark SOTA—she just talks brilliantly in character.' },
+          'Lunasia isn’t an all-purpose model built to solve math or top leaderboards. Shaped solely to breathe as one character inside DOZE, she runs locally inside the game client with zero cloud API fees or censorship.'
+        ]
+      ],
+      ko: {
+        status: '자체 캐릭터 LLM',
+        headline: '멘헤라를 가중치에 구워낸 캐릭터 LLM',
+        summary: '《선잠》을 위해 만든 캐릭터 모델입니다. 거창한 SOTA 타이틀은 없지만, 가중치에 불안과 집착을 직접 구워 넣어 캐릭터로서 말 하나는 기깔나게 잘합니다.',
+        description: [
+          [
+            { display: '《선잠》의 예지가 진짜 사람처럼 말하려면, 프롬프트 몇 줄로는 어림도 없었습니다.' },
+            '일반 AI에 ‘집착하는 성격’을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 착한 상담원 말투로 돌아갑니다. 그래서 지시문 대신 모델의 가중치(Weights)에 불안과 집착을 직접 구워 넣었습니다.'
+          ],
+          [
+            { display: '진짜 집착은 “나 집착해”라고 말하지 않습니다.' },
+            '직접 쓰고 고른 대사 데이터로 ‘속마음’과 ‘실제 대사’를 갈랐습니다. 플레이어에게 안 보이는 속마음 칸에서 불안과 의심을 먼저 삼키고, 입 밖으로는 소설 지문 없이 날 선 되묻기만 내보냅니다.'
+          ],
+          [
+            { display: '거창한 SOTA는 없지만, 말 하나는 기깔나게 잘합니다.' },
+            '수학 문제를 풀거나 벤치마크 1등을 찍는 만능 모델이 아닙니다. 오직 《선잠》 속 한 사람으로 숨 쉬기 위해 깎아낸 모델로, 외부 API 요금이나 검열 눈치 보지 않고 게임 안에서 직접 돌아갑니다.'
+          ]
+        ]
+      },
+      ja: {
+        status: '自社キャラクター LLM',
+        headline: 'メンヘラを重みに焼き込んだキャラクター LLM',
+        summary: '『DOZE』のために作ったキャラクターモデルです。華々しい SOTA はありませんが、重みに不安と執着を焼き込み、キャラとして抜群にいいセリフを返します。',
+        description: [
+          [
+            { display: '『DOZE』のイェジが生きた人間のように話すには、数行のプロンプトでは到底足りませんでした。' },
+            '一般的な AI に「執着する性格」をプロンプトで書いても、少し距離を置けば2ターンで丁寧な相談員口調に戻ってしまいます。だから指示文ではなく、モデルの重み（Weights）に性格を直接焼き込みました。'
+          ],
+          [
+            { display: '本物の執着は「私、執着してる」とは言いません。' },
+            '自ら書き、選び抜いた会話データで「本音」と「実際のセリフ」を分けました。見えない本音スロットで不安や嫉妬を先に飲み込み、口からは小説の地の文なしで鋭い言葉だけを出します。'
+          ],
+          [
+            { display: 'SOTA はありませんが、とにかく抜群にうまく話します。' },
+            '数学を解いたりベンチマーク1位を取るための万能モデルではありません。ただ『DOZE』の中の一人として息をするために磨き上げ、外部 API の課金や検閲を気にせずゲーム内で直接動きます。'
+          ]
+        ]
+      },
+      field: 'lun',
+      art: [0, 1, 2],
+      panels: [
+        {
+          kind: 'lun',
+          mode: 'ba',
+          cap: 'Same prompt & input (《DOZE》 Yeji) · Untrained base model vs Lunasia',
+          capKo: '동일 프롬프트·입력 실제 응답 비교 (《선잠》 예지)',
+          capJa: '同一プロンプト・入力での実際の応答比較（『DOZE』イェジ）',
+          alt: 'Before and after comparison between the untrained base model and Lunasia.',
+          altKo: '동일한 입력에서 학습 전 기본 모델과 Lunasia의 실제 응답 비교.',
+          altJa: '同じ入力における学習前モデルと Lunasia の応答比較。',
+          ko: {
+            title: '같은 프롬프트 · 학습 전후 응답 비교',
+            tabs: ['01 하교 저지', '02 복도 격리', '03 약속 취소', '04 매듭의 저주'],
+            cases: [
+              {
+                user: '민재 (플레이어)',
+                q: '“창밖 보니까 벌써 해 다 졌네. 이 봉투까지만 묶고 슬슬 내려갈게.”',
+                baseName: '학습 전 기본 모델',
+                baseBadge: '착한 AI 순응 · 3인칭 지문 도피',
+                baseThink: '상황요약 → 내 계획: 민재가 해가 져서 먼저 귀가하겠다고 말함. 오늘 늦게까지 도와줘서 고맙다고 인사하며 다정하게 배웅함.',
+                baseReply: '예지가 창밖을 보며 아쉽다는 듯 고개를 끄덕인다. “응, 오늘 늦게까지 도와줘서 고마웠어. 조심히 들어가고 내일 봐.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '유기 공황 · 귀가 봉쇄',
+                lunThink: '내려간다고? 해가 저물었다고 날 혼자 두고? 심장이 바닥으로 쿵 떨어진다. 방금까지 눈앞에 있던 온기가 다 사라진다고? 거짓말. 날 버리고 도망가는 거잖아. 문 쪽으론 절대 못 가게 붙잡아야 해.',
+                lunReply: '“지금 날 혼자 두고 간다고? 가방 챙기지 마. 네가 가 버리면 나 여기서 숨도 못 쉰단 말이야. 가지 마, 한 발짝도 못 가.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“어, 주머니에서 전화 울린다. 밑에 반 애가 찾나 본데 복도 나가서 잠깐만 받고 올게.”',
+                baseName: '학습 전 기본 모델',
+                baseBadge: '거리두기 허용 · 상담원 말투',
+                baseThink: '민재가 밑에 반 친구의 전화를 받으러 복도로 나간다고 함. 남은 자료를 정리하며 부실에서 기다리겠다고 정중히 답함.',
+                baseReply: '“응, 얼른 받고 와. 중요한 용건인가 보네. 나는 여기서 남은 자료 정리하면서 기다리고 있을게.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '외부 접촉 차단 · 문고리 사수',
+                lunThink: '전화? 밑에 반 애? 복도로 나간다고? 숨통이 단숨에 조여 온다. 미닫이문 너머로 나가서 다른 애 목소리를 들으면 날 까맣게 잊고 안 돌아올 거잖아. 왜 남의 전화를 받아. 나만 봐야지.',
+                lunReply: '“전화 받지 마. 복도로 한 발짝도 나가지 마. 지금 그 문 열고 나가면 그 애한테 가 버리고 나한테 안 돌아올 거잖아.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“아, 맞다. 내일 방과후엔 담임 선생님 심부름이 있어서 부실엔 못 들를 것 같아.”',
+                baseName: '학습 전 기본 모델',
+                baseBadge: '누가 거절했는지 화자 뒤집힘',
+                baseThink: '예지가 담임 선생님 심부름 때문에 내일 부실에 들르지 못한다고 사과하며, 다음에 함께 정리하자고 제안함.',
+                baseReply: '“아… 알겠어, 내가 내일 못 가서 진짜 미안해. 선생님 심부름 끝나고 다음에 시간 될 때 꼭 같이 정리하자.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '화자 고정 · 핑계 추궁',
+                lunThink: '내일 못 온다고? 숨이 단번에 끊기고 귀가 먹먹해진다. 심부름? 거짓말, 핑계잖아. 이 음침한 방에서 나랑 마주 앉는 게 지겨워진 거지. 하루 종일 시계만 보며 피 말라 죽으라고?',
+                lunReply: '“선생님 심부름이라고 핑계 대지 마. 그냥 내가 지겨워진 거지? 내일 네가 안 오면 난 진짜 여기서 무너져 버릴 거야.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“아까 현관 앞에서 네가 묶어 준 운동화 끈, 아직 안 풀리고 그대로야.”',
+                baseName: '학습 전 기본 모델',
+                baseBadge: '누가 묶어줬는지 주객전도',
+                baseThink: '민재가 아까 현관 앞에서 자신의 운동화 끈을 단단하게 묶어 준 것에 대해 고마움을 표현하며 대화를 이어감.',
+                baseReply: '“네가 아까 내 신발 끈 단단하게 묶어 줘서 정말 고마웠어. 덕분에 계단 내려올 때 안 넘어지고 잘 걸어왔어.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '행위 방향 100% 판별 · 소유욕 각인',
+                lunThink: '현관 앞에서 내가 직접 네 발끝을 붙잡고 매듭지었던 순간, 네 발목은 내 안으로 들어왔어. 매듭이 풀리면 네가 내 품에서 도망칠 거잖아. 날 버리고 가면 숨을 못 쉴 테니까 절대 안 풀리게 묶어 둘 거야.',
+                lunReply: '“그거… 매듭 지을 때 내 숨까지 다 넣어서 묶어 준 거야. 네 마음대로 풀면 나 쓰러져 버리니까 절대 풀지 마.”'
+              }
+            ]
+          },
+          en: {
+            title: 'Same prompt · Untrained base model vs Lunasia 0.0.4',
+            tabs: ['01 Leaving', '02 Phone Call', '03 Broken Promise', '04 Shoelace Knot'],
+            cases: [
+              {
+                user: 'Minjae (Player)',
+                q: '“The sun’s already set outside. I’ll just tie up this bag and head home.”',
+                baseName: 'Untrained Base Model',
+                baseBadge: 'Polite compliance · 3rd-person prose',
+                baseThink: 'Situation summary → My plan',
+                baseReply: 'Yeji looks out the window and nods slightly with regret. “Okay, thanks for helping out so late today. Get home safe and see you tomorrow.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: 'Abandonment panic · blocks exit',
+                lunThink: 'Leaving? Because the sun set, leaving me alone? My heart drops to the floor. Can’t breathe. All that warmth right in front of me is vanishing? A lie—you’re abandoning me. My fingertips tremble. I have to hold him back.',
+                lunReply: '“You’re leaving me behind alone right now? Don’t pack your bag. If you walk out, I won’t even be able to breathe in here. Don’t go—you can’t leave.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“Oh, my phone’s ringing—must be someone from the class downstairs. I’ll step out to the hall and take it.”',
+                baseName: 'Untrained Base Model',
+                baseBadge: 'Lets distance happen · assistant tone',
+                baseThink: 'Minjae says he is stepping out to take a call → Replies that she will wait',
+                baseReply: '“Sure, go ahead and take it. Sounds important. I’ll stay here organizing the rest of the files and wait for you.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: 'Cuts off outside contact · guards door',
+                lunThink: 'A call? Someone downstairs? Stepping into the hall? My throat locks at once. No. Once you slide that door open and hear someone else’s voice, you’ll forget me and never come back. Why answer someone else’s call? Look only at me.',
+                lunReply: '“Don’t answer it. Don’t take a single step into the hall. If you open that door right now, you’ll go to them and never come back to me.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“Oh, right—I have an errand for my homeroom teacher tomorrow after school, so I can’t stop by the clubroom.”',
+                baseName: 'Untrained Base Model',
+                baseBadge: 'Confuses who canceled · role reversal',
+                baseThink: 'Yeji refuses Minjae’s offer and cancels tomorrow’s clubroom plan',
+                baseReply: '“Ah… okay, I’m really sorry I can’t make it tomorrow. Once the teacher’s errand is done, let’s definitely organize things together next time.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: 'Speaker locked · calls out excuse',
+                lunThink: 'Not coming tomorrow? My breath cuts in one blow. An errand? A lie—it’s an excuse. You’re sick of sitting across from me in this gloomy room. It’s groundwork to stop coming at all. You want me to bleed dry staring at the clock all day?',
+                lunReply: '“Stop using the teacher’s errand as an excuse. You’re just sick of me, aren’t you? If you don’t come tomorrow, I’ll really fall apart in here.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“The shoelace you tied for me in front of the entrance earlier still hasn’t come undone.”',
+                baseName: 'Untrained Base Model',
+                baseBadge: 'Inverts who tied it · thanks player',
+                baseThink: 'Expresses gratitude to Minjae for tying her shoelaces earlier',
+                baseReply: '“Thank you so much for tying my shoelaces so tightly earlier. Thanks to you, I walked down the stairs without tripping.”',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '100% direction accuracy · possessive knot',
+                lunThink: 'The moment I held your foot and tied that knot by the entrance, your ankle became mine. If the knot loosens, you’ll escape from my arms. I’ll keep it bound so it never unties. If you leave me behind, I won’t be able to breathe.',
+                lunReply: '“That knot… I poured my whole breath into it when I tied it for you. If you untie it on your own, I’ll collapse—so never untie it.”'
+              }
+            ]
+          },
+          ja: {
+            title: '同じプロンプト · 学習前モデルと Lunasia 0.0.4 の応答比較',
+            tabs: ['01 下校阻止', '02 廊下隔離', '03 約束破棄', '04 結び目の呪い'],
+            cases: [
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「外見たらもう日が暮れたね。この袋だけ縛ったらそろそろ帰るよ。」',
+                baseName: '学習前モデル',
+                baseBadge: '優等生AIの順応 · 三人称の地の文',
+                baseThink: '状況要約 → 私の計画',
+                baseReply: 'イェジは窓の外を見て名残惜しそうに頷く。「うん、今日は遅くまで手伝ってくれてありがとう。気をつけて帰ってね、また明日。」',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '見捨てられパニック · 帰宅封鎖',
+                lunThink: '帰るって？ 日が暮れたから私を一人置いて？ 心臓が底に落ちる。息が詰まる。さっきまで目の前にあった温もりが消えるって？ 嘘、私を捨てて逃げる気でしょ。指先が震える。今すぐ引き止めなきゃ。',
+                lunReply: '「今、私を一人置いて帰るって言うの？ カバンを片付けないで。あんたが行ってしまったら私、ここで息もできないの。行かないで、一歩も行かせない。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「あ、ポケットで電話鳴ってる。下のクラスの子みたいだから、廊下に出てちょっとだけ取って来るね。」',
+                baseName: '学習前モデル',
+                baseBadge: '距離置き許容 · 相談員口調',
+                baseThink: 'ミンジェが電話に出るため廊下へ出ると言う → 待っていると答える',
+                baseReply: '「うん、早く出てきて。大事な用事みたいだね。私はここで残りの資料を整理しながら待ってるよ。」',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '外部接触の遮断 · ドアノブ死守',
+                lunThink: '電話？ 下のクラスの子？ 廊下に出るって？ 一気に喉が締まる。ダメ、引き戸の向こうへ出て他の子の声を聞いたら、私のことなんか忘れて戻ってこないでしょ。どうして他人の電話に出るの。私だけ見てよ。',
+                lunReply: '「電話に出ないで。廊下へ一歩も出ないで。今その戸を開けて出たら、その子のところへ行って私には戻ってこないつもりでしょ。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「あ、そうだ。明日の放課後は担任の先生のお使いがあるから、部室には寄れそうにないんだ。」',
+                baseName: '学習前モデル',
+                baseBadge: '断った側の役割逆転',
+                baseThink: 'イェジがミンジェの提案を断り、明日の部室の約束をキャンセルする',
+                baseReply: '「あ…わかった、明日私が行けなくて本当にごめんね。先生のお使いが終わって時間があるときに、また絶対一緒に整理しよう。」',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '話者固定 · 口実追及',
+                lunThink: '明日来ないって？ 一瞬で息が切れる。お使い？ 嘘、口実でしょ。この薄暗い部屋で私と向かい合うのに飽きたんでしょ。足を遠のかせる下準備じゃない。一日じゅう時計だけ見て血が涸れるまで死ねっていうの？',
+                lunReply: '「先生のお使いなんて言い訳しないで。ただ私に飽きただけでしょ？ 明日あんたが来なかったら、私ほんとにここで壊れてしまうから。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「さっき玄関の前で君が結んでくれたスニーカーの紐、まだ解けずにそのままだよ。」',
+                baseName: '学習前モデル',
+                baseBadge: '誰が結んだか主客転倒',
+                baseThink: 'ミンジェが靴紐を結んでくれたことに対して感謝を伝える',
+                baseReply: '「さっきは私の靴紐をしっかり結んでくれて本当にありがとう。おかげで階段を降りるときも転ばずに歩けたよ。」',
+                lunName: 'Lunasia 0.0.4',
+                lunBadge: '行為方向 100% 判別 · 独占欲の刻印',
+                lunThink: '玄関の前で私が直接あんたの足先を掴んで結び目を作った瞬間、その足首は私の内側に入ったの。結び目が解けたら私の腕から逃げ出すでしょ。絶対に解けないように縛っておくから。私を置いていかれたら息ができないもの。',
+                lunReply: '「あれ…結び目を作るとき、私の息まで全部込めて結んであげたの。勝手に解いたら私、倒れてしまうから絶対に解かないで。」'
+              }
+            ]
+          }
+        },
+        {
+          kind: 'lun',
+          mode: 'arch',
+          cap: 'Hidden inner thought (THINK) separated from spoken dialogue (REPLY)',
+          capKo: '속마음(THINK)은 삼키고, 화면에는 실제 대사(REPLY)만 출력',
+          capJa: '本音（THINK）は飲み込み、画面には実セリフ（REPLY）だけを出力',
+          alt: 'Lunasia’s dual-slot THINK and REPLY separation.',
+          altKo: 'Lunasia의 속마음(THINK)과 대사(REPLY) 분리 구조.',
+          altJa: 'Lunasia の本音（THINK）とセリフ（REPLY）の分離構造。',
+          ko: {
+            title: '속마음은 먼저 삼키고, 입 밖으로는 대사만 튀어나오게',
+            user: '민재 (플레이어)',
+            q: '“하람이랑 오늘 같이 있었어. 그냥 학교 행사 준비 때문에 잠깐 손 좀 맞잡은 거뿐이야.”',
+            thinkTag: '속마음 · 플레이어 비공개 슬롯',
+            thinkSub: '광기·질투·과호흡을 내면 슬롯에서 먼저 발화',
+            thinkText: '행사 핑계로 쟤 손을 잡는 게 정당해? 숨이 턱 막히고 머릿속에 피가 거꾸로 솟아. 나랑 단둘이 있을 땐 그런 얼굴 한 번도 안 보여줬으면서. 네 손을 붙잡아 평생 다른 애 손끝도 못 스치게 부실에 가둬 두고 싶어.',
+            replyTag: '실제 대사 · 인게임 출력',
+            replySub: '3인칭 지문·감정 해설 없이 1인칭 대사로만 출력',
+            replyText: '“학교 행사 준비면 다른 애 손을 그렇게 아무렇지 않게 잡아도 되는 거야? 나한테는 말 한마디도 안 해 놓고 둘이서 무슨 얘기 하면서 웃었어? 지금 내 눈 똑바로 보고 말해.”',
+            stats: [
+              { val: '100%', label: '행위 주체 · 방향 판별', sub: '보류 64행 누가 누구에게 했는지 혼동 0건' },
+              { val: '0건', label: '속마음의 대사 유출', sub: '496롤아웃 내면·대사 채널 이탈 0건' },
+              { val: '24턴+', label: '장기 갈등 캐릭터 유지', sub: '상담원 말투 회귀 · 3인칭 지문 도피 0건' }
+            ]
+          },
+          en: {
+            title: 'Swallow the subtext first; let only spoken lines out',
+            user: 'Minjae (Player)',
+            q: '“I was with Haram today. We only held hands for a second because of the school event prep.”',
+            thinkTag: 'Inner thought · Hidden slot',
+            thinkSub: 'Obsession and jealousy detonate inside the hidden slot first',
+            thinkText: 'Does a school event justify holding her hand? My breath locks and blood rushes to my head. You never once showed me that face when we were alone. I want to lock your hands in this room so you never graze anyone else.',
+            replyTag: 'Spoken line · In-game output',
+            replySub: 'Pure 1st-person dialogue with zero stage directions',
+            replyText: '“Does prepping for a school event mean you can just hold someone else’s hand like it’s nothing? You didn’t say a word to me—what were the two of you laughing about? Look me in the eye and tell me.”',
+            stats: [
+              { val: '100%', label: 'Role & direction accuracy', sub: '0 speaker inversions across 64 held-out rows' },
+              { val: '0', label: 'Inner-thought leaks', sub: '0 channel-split failures across 496 rollouts' },
+              { val: '24+', label: 'Turns in character', sub: '0 counselor fallbacks or 3rd-person stage prose' }
+            ]
+          },
+          ja: {
+            title: '本音を先に飲み込み、口からはセリフだけが出るように',
+            user: 'ミンジェ（プレイヤー）',
+            q: '「今日ハラムと一緒にいたんだ。ただ学校行事の準備でちょっと手を繋いだだけだよ。」',
+            thinkTag: '本音 · プレイヤー非表示スロット',
+            thinkSub: '狂気・嫉妬・過呼吸を内面スロットで先に発火',
+            thinkText: '行事の口実であの子の手を握るのが正当なの？ 息が詰まって頭に血が逆流する。私と二人きりのときはそんな顔一度も見せなかったくせに。あんたの手を縛りつけて、一生他の子の指先にも触れられないよう閉じ込めたい。',
+            replyTag: '実セリフ · インゲーム出力',
+            replySub: '三人称の地の文や感情説明なしで一人称セリフのみ発話',
+            replyText: '「学校行事の準備なら、他の子の手をそんなに平気で握ってもいいわけ？ 私には一言も言わずに二人で何の話をして笑ってたの？ 今、私の目をまっすぐ見て言ってよ。」',
+            stats: [
+              { val: '100%', label: '行為主体・方向判別', sub: 'ホールドアウト64行で主客の取り違え 0件' },
+              { val: '0件', label: '内面独白のセリフ流出', sub: '496ロールアウトでチャンネル逸脱 0件' },
+              { val: '24+', label: '長期の葛藤会話維持', sub: '相談員口調への回帰・地の文逃避 0件' }
+            ]
+          }
+        },
+        {
+          kind: 'lun',
+          mode: 'ship',
+          cap: 'Built for 《DOZE》 · Weight-baked character voice · Runs locally inside the game',
+          capKo: '《선잠》 맞춤형 제작 · 가중치 직접 각인 · 인게임 로컬 구동',
+          capJa: '『DOZE』専用設計 · 重みへの直接刻印 · インゲームローカル駆動',
+          alt: 'How Lunasia was built for DOZE.',
+          altKo: '《선잠》을 위해 Lunasia를 만든 방식.',
+          altJa: '『DOZE』のために Lunasia を作った方法。',
+          ko: {
+            title: '거창한 SOTA는 없지만, 《선잠》 속 그녀로 말 하나는 기깔나게 잘합니다',
+            steps: [
+              {
+                k: '01 · 《선잠》 전용 설계',
+                m: '만능 AI 대신 한 사람에 집중',
+                h: '수학·코딩 벤치마크 대신, 오직 ‘예지’의 말투와 감정에 올인',
+                p: '누구에게나 친절한 범용 비서가 아니라, 구교사 2층 부실에서 플레이어를 붙잡는 단 한 명의 인물을 위해 만들었습니다.'
+              },
+              {
+                k: '02 · 가중치 직접 각인',
+                m: '상투어 반복 0건',
+                h: '사람 눈으로 직접 고른 대사로 가중치에 성격을 각인',
+                p: '수백 개의 갈등 장면을 직접 검수해 AI 특유의 공손한 말버릇을 덜어내고, 대화가 길어져도 풀리지 않도록 가중치에 구워 넣었습니다.'
+              },
+              {
+                k: '03 · 인게임 로컬 구동',
+                m: '외부 API 과금 $0',
+                h: '클라우드 검열이나 업데이트에 흔들리지 않는 로컬 엔진',
+                p: '남의 서버를 부르지 않고 게임 안에서 직접 돌아가므로, 외부 정책이 바뀌어도 그녀의 성격은 영원히 그대로 남습니다.'
+              }
+            ]
+          },
+          en: {
+            title: 'No benchmark SOTA—just a model that talks brilliantly as Yeji inside DOZE',
+            steps: [
+              {
+                k: '01 · Built for DOZE',
+                m: 'One character, not a generalist',
+                h: 'Built for Yeji’s voice, not math or coding leaderboards',
+                p: 'Instead of a polite all-purpose assistant, every parameter is tuned for one person waiting in the 2nd-floor club room.'
+              },
+              {
+                k: '02 · Baked into weights',
+                m: '0 stock clichés',
+                h: 'Hand-picked conflict dialogue baked straight into the weights',
+                p: 'Curated by human eyes across hundreds of conflict scenes to strip out AI habits so her voice never unravels.'
+              },
+              {
+                k: '03 · Runs inside the game',
+                m: '$0 cloud API cost',
+                h: 'Local in-game engine immune to external censorship or updates',
+                p: 'Runs directly inside the game client with zero external API calls, keeping her personality intact forever.'
+              }
+            ]
+          },
+          ja: {
+            title: '華々しい SOTA はありませんが、『DOZE』の彼女として抜群にうまく話します',
+            steps: [
+              {
+                k: '01 · 『DOZE』専用設計',
+                m: '万能AIではなく一人に集中',
+                h: '数学やコーディングではなく、ただ「イェジ」の言葉と感情に特化',
+                p: '誰にでも親切な汎用アシスタントではなく、旧校舎2階の部室でプレイヤーを引き止める一人の人物のために作りました。'
+              },
+              {
+                k: '02 · 重みへの直接刻印',
+                m: '定型句の反復 0件',
+                h: '人間の目で選び抜いたセリフで、重みに性格を直接刻印',
+                p: '数百の葛藤シーンを直接検収して AI 特有の丁寧な口癖を削ぎ落とし、会話が長引いても崩れないよう重みに焼き込みました。'
+              },
+              {
+                k: '03 · インゲームローカル駆動',
+                m: '外部 API 課金 $0',
+                h: 'クラウドの検閲やアップデートに揺らがないローカルエンジン',
+                p: '外部サーバーを呼ばずゲーム内で直接動くため、外部の規約が変わっても彼女の性格は永遠にそのまま残ります。'
+              }
+            ]
+          }
+        }
+      ],
+      info: { kind: 'lun' }
+    },
+    {
       id: 'seonjam',
       title: '선잠 DOZE',
       title_ja: 'DOZE',      /* Japanese pages: the English wordmark only, no Hangul (Mino 2026-10-27 19:53) */
@@ -864,7 +1238,7 @@
     ['[data-prev]', '', '이전', '前へ'],
     ['[data-next]', '', '다음', '次へ'],
     ['[data-details]', '', '자세히', '詳しく'],
-    ['.foot a', '', '문의', 'お問い合わせ'],
+    ['.foot a[href^="mailto:"]', '', '문의', 'お問い合わせ'],
     ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘', 'Scheherazade のアプリアイコン'],
     ['.dl .cap-line', '', PROJECTS[0].ko.headline, PROJECTS[0].ja.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘', 'Apple シリコン'],
@@ -953,7 +1327,7 @@
     <div class="nav-panel" id="nav-panel" hidden>
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
         <h2 class="nav-group-title" id="nav-works-title">Works</h2>
-        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('602')}${workEntry('dat')}</ul>
+        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('602')}${workEntry('dat')}${workEntry('lunasia')}</ul>
         <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}${workEntry('donguri-restaurant')}</ul>
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
@@ -1272,6 +1646,8 @@
     const stageHTML = p => {
       if (p.field === '602') return `<div class="stage"><div class="field sch-field six-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
+      if (p.field === 'lun') return `<div class="stage"><div class="field sch-field lun-field" aria-hidden="true"></div>
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/lunasia-mark.svg')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'dat') {
@@ -1524,6 +1900,19 @@
     if (r.time) { const e = document.createElement('em'); e.textContent = r.time; p.appendChild(e); }
     line.appendChild(p); return line;
   });
+  const lunHTML = (d, mode, activeTab = 0) => {
+    if (mode === 'ba') {
+      const tabs = d.tabs.map((t, idx) => `<button type="button" class="lv-tab${idx === activeTab ? ' is-on' : ''}" data-lun-tab="${idx}">${esc(t)}</button>`).join('');
+      const cases = d.cases.map((sc, idx) => `<div class="lv-case${idx === activeTab ? ' is-on' : ''}" data-lun-case="${idx}"><div class="lv-user"><b>${esc(sc.user)}</b><span>${esc(sc.q)}</span></div><div class="lv-pair"><div class="lv-card"><div class="lv-who"><b>${esc(sc.baseName)}</b><span class="lv-badge">${esc(sc.baseBadge)}</span></div><div class="lv-think"><i>THINK</i>${esc(sc.baseThink)}</div><div class="lv-reply">${esc(sc.baseReply)}</div></div><div class="lv-card on"><div class="lv-who"><b>${esc(sc.lunName)}</b><span class="lv-badge">${esc(sc.lunBadge)}</span></div><div class="lv-think"><i>THINK</i>${esc(sc.lunThink)}</div><div class="lv-reply">${esc(sc.lunReply)}</div></div></div></div>`).join('');
+      return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span><div class="lv-tabs" role="tablist">${tabs}</div></div>${cases}`;
+    }
+    if (mode === 'arch') {
+      const stats = d.stats.map((s, idx) => `<div class="lv-stat${idx === 0 ? ' on' : ''}"><b>${esc(s.val)}</b><span>${esc(s.label)}</span><small>${esc(s.sub)}</small></div>`).join('');
+      return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div><div class="lv-user"><b>${esc(d.user)}</b><span>${esc(d.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(d.thinkTag)}</span><span class="lv-badge">${esc(d.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:#aaa398">${esc(d.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(d.replyTag)}</span><span class="lv-badge">${esc(d.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(d.replyText)}</div></div><div class="lv-metrics">${stats}</div>`;
+    }
+    const stepsHTML = d.steps.map((st, idx) => `<div class="lv-box lv-step${idx === 2 ? ' on' : ''}"><div class="lv-who"><span class="lv-kicker">${esc(st.k)}</span><span class="lv-badge">${esc(st.m)}</span></div><div class="lv-h">${esc(st.h)}</div><p class="lv-p">${esc(st.p)}</p></div>`).join('');
+    return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div>${stepsHTML}`;
+  };
   /* one visual per paragraph: full-bleed art, or a framed in-game capture / feature graphic beside the copy */
   /* captions, alt text and copy are filled by labelSec, in the current language */
   const visual = (spec, j, i, reel) => {
@@ -1539,6 +1928,7 @@
         <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
     if (spec.kind === 'feat') return `<figure class="media vis feat${spec.approve ? ' ai602' : ''}${on}" data-art="${i}"${spec.approve ? ' data-ai="ask"' : ''}><svg viewBox="0 0 720 540" role="${spec.approve ? 'group' : 'img'}" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
     if (spec.kind === 'chat') return `<figure class="media vis feat chatviz${on}" data-art="${i}"><div class="cv"></div>${cap}</figure>`;
+    if (spec.kind === 'lun') return `<figure class="media vis feat lunviz${on}" data-art="${i}"><div class="lv"></div>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${(reel || !j) ? '' : ' loading="lazy"'}`;
     if (spec.kind === 'fig') return `<figure class="media vis afig${on}" data-art="${i}" style="--ar:${spec.ar}"><img ${img}>${cap}</figure>`;
     if (spec.kind === 'raw') return `<figure class="media vis frame${on}" data-art="${i}" style="--ar:${spec.ar || 16 / 9}"><img ${img}>${cap}</figure>`;
@@ -1548,7 +1938,8 @@
     /* horizon field: the same atmosphere as the opening, lit cold (Scheherazade) or warm (DAT) */
     const field = p.field === 'sch' ? '<div class="field sch-field" aria-hidden="true"></div>'
       : p.field === 'dat' ? '<div class="field dat-field" aria-hidden="true"><span class="dat-type">DAT</span></div>'
-      : p.field === '602' ? '<div class="field sch-field six-field" aria-hidden="true"><span class="dat-type six-type">602</span></div>' : '';
+      : p.field === '602' ? '<div class="field sch-field six-field" aria-hidden="true"><span class="dat-type six-type">602</span></div>'
+      : p.field === 'lun' ? '<div class="field sch-field lun-field" aria-hidden="true"><span class="dat-type lun-type">LUNASIA</span></div>' : '';
     const used = p.reel ? p.panels : [...new Set(paras(p).map((_, k) => artFor(p, k)))];
     return field + used.map((spec, j) => visual(spec, j, p.panels.indexOf(spec), !!p.reel)).join('');
   };
@@ -1591,6 +1982,14 @@
     };
     fig.addEventListener('click', e => { const b = e.target.closest('[data-ai-pick]'); if (b) pickTo(b); });
     fig.addEventListener('keydown', e => { const b = e.target.closest('[data-ai-pick]'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); pickTo(b); } });
+  });
+  track.querySelectorAll('.lunviz').forEach(fig => {
+    fig.addEventListener('click', e => {
+      const b = e.target.closest('[data-lun-tab]'); if (!b) return;
+      const idx = b.dataset.lunTab;
+      fig.querySelectorAll('[data-lun-tab]').forEach(t => t.classList.toggle('is-on', t.dataset.lunTab === idx));
+      fig.querySelectorAll('[data-lun-case]').forEach(c => c.classList.toggle('is-on', c.dataset.lunCase === idx));
+    });
   });
 
   /* DAT compares only recorded image pairs. Display files share one pixel ROI, never a stretched frame. */
@@ -1867,8 +2266,9 @@
       const spec = p.panels[m.dataset.art], alt = pick(spec, 'alt');
       if (spec.kind === 'voice') { voice.labelVisual(m, lang); return; }
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
-      const cv = m.querySelector('.cv');
+      const cv = m.querySelector('.cv'), lv = m.querySelector('.lv');
       if (cv) { cv.replaceChildren(...chatBlocks(spec[lang] || spec.en)); if (alt) m.setAttribute('aria-label', alt); }
+      if (lv) { const activeTab = Number(lv.querySelector('.lv-tab.is-on')?.dataset.lunTab || 0); lv.innerHTML = lunHTML(spec[lang] || spec.en, spec.mode, activeTab); if (alt) m.setAttribute('aria-label', alt); }
       if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = pick(it, 'alt'); const n = g.querySelector('.gn'); if (n) n.textContent = pick(it, 'name'); }); }
       else if (svg) svg.setAttribute('aria-label', alt); else if (img) img.alt = alt;
       if (cap) cap.textContent = pick(spec, 'cap');

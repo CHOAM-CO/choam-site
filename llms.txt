@@ -37,17 +37,22 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **URL**: https://choam.studio/pages/dat
 - **Description**: Our house style, built into a model. Open-source image models fine-tuned on CHOAM's own illustration style and used for character and background art: the muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.
 
-### 4. 선잠 DOZE
+### 4. Lunasia
+- **Type**: Character persona LLM (`0.0.2` · 8B Q8_0 GGUF)
+- **URL**: https://choam.studio/pages/lunasia
+- **Description**: A voice that stays in character, baked into the weights. Instead of wrapping an API chatbot in a fragile system prompt, CHOAM bakes long-turn character dialogue, attachment shifts, and dual-slot (`THINK` + `REPLY`) separation directly into an 8B open-weights model via DoRA (`r32, α64`) weight merge and Q8_0 GGUF quantization for local in-game execution in *선잠 DOZE*.
+
+### 5. 선잠 DOZE
 - **Type**: Visual novel (in development)
 - **URL**: https://choam.studio/pages/seonjam
 - **Description**: An interactive movie you shape by talking. You talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record.
 
-### 5. Donguri Ryokan (동구리 료칸)
+### 6. Donguri Ryokan (동구리 료칸)
 - **Type**: Inn management game with yokai deduction (coming soon)
 - **URL**: https://choam.studio/pages/donguri-ryokan
 - **Description**: A quiet inn tale, deep in the forest. Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.
 
-### 6. Donguri Restaurant (동구리 레스토랑)
+### 7. Donguri Restaurant (동구리 레스토랑)
 - **Type**: Restaurant management game (plays in the browser)
 - **URL**: https://choam.studio/pages/donguri-restaurant
 - **Description**: Self Made Restaurant. A small forest restaurant where the day's omakase comes from your own garden. You are a short-term part-timer working alongside a chef and a sommelier for one season (four weeks).

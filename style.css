@@ -226,6 +226,12 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .sch-field { --lit: 143, 164, 184; }
 .six-field { --lit: 118, 140, 182; --lit-a: .24; }
 .six-type { color: rgba(235, 229, 218, .032); letter-spacing: .04em; margin-right: -.04em; }
+.lun-field { --lit: 204, 128, 136; --lit-a: .24;
+  background:
+    radial-gradient(70% 22% at var(--hx, 50%) var(--horizon), rgba(var(--lit), var(--lit-a)) 0%, rgba(var(--lit), 0) 70%),
+    linear-gradient(to bottom, #080607 0%, #120c0e 34%, #211519 calc(var(--horizon) - .2%), #0a0708 calc(var(--horizon) + .2%), #050506 100%);
+}
+.lun-type { font-size: min(24vw, 38vh); color: rgba(235, 229, 218, .032); letter-spacing: .06em; margin-right: -.06em; }
 .dat-field { --lit: 217, 163, 98; --lit-a: .22;
   background:
     radial-gradient(70% 22% at var(--hx, 50%) var(--horizon), rgba(var(--lit), var(--lit-a)) 0%, rgba(var(--lit), 0) 70%),
@@ -244,7 +250,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
     linear-gradient(to top, rgba(5, 5, 6, .6) 0%, rgba(5, 5, 6, 0) 26%),
     radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%);
 }
-.k-sch .prod-veil, .k-602 .prod-veil, .k-dat .prod-veil, .prod[data-vis="raw"] .prod-veil, .prod[data-vis="feat"] .prod-veil { opacity: 0; }
+.k-sch .prod-veil, .k-602 .prod-veil, .k-lun .prod-veil, .k-dat .prod-veil, .prod[data-vis="raw"] .prod-veil, .prod[data-vis="feat"] .prod-veil, .prod[data-vis="lun"] .prod-veil { opacity: 0; }
 /* raw captures sit on a dark plate with the horizon behind them */
 .prod[data-vis="raw"] .stage { background:
   radial-gradient(70% 22% at 34% var(--horizon), rgba(217, 163, 98, .16) 0%, rgba(217, 163, 98, 0) 70%),
@@ -888,6 +894,105 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   .chatviz .l { font-size: 3.2cqw; }
   .chatviz .k { font-size: 2.4cqw; }
   .chatviz .cv-sheet { display: none; }
+}
+
+/* ---------- Lunasia figures (before/after comparison table, dual-slot architecture, in-game pipeline) ---------- */
+.prod .vis.lunviz:not(.is-on) { opacity: 0; pointer-events: none; visibility: hidden; }
+.prod .vis.lunviz.is-on { opacity: 1; pointer-events: auto; visibility: visible; }
+.lunviz .lv {
+  width: min(100cqw, calc((100cqh - 36px) * 720 / 540)); aspect-ratio: 720 / 540;
+  container-type: inline-size; align-self: center;
+  display: flex; flex-direction: column; justify-content: center; gap: 16px;
+  font-family: var(--font); text-align: left; padding: 8px 0;
+}
+.lunviz .lv-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-bottom: 12px; border-bottom: 1px solid rgba(235, 229, 218, .10);
+}
+.lunviz .lv-title {
+  font-size: 16px; font-weight: 500; letter-spacing: 0; color: var(--bone); word-break: keep-all;
+}
+.lunviz .lv-tabs { display: flex; gap: 4px; flex-shrink: 0; }
+.lunviz .lv-tab {
+  height: 32px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(235, 229, 218, .12);
+  background: #141416; color: #8a847a;
+  font-size: 12px; font-weight: 500; letter-spacing: .01em; cursor: pointer;
+  transition: color .15s cubic-bezier(.22, 1, .36, 1), background-color .15s cubic-bezier(.22, 1, .36, 1), border-color .15s cubic-bezier(.22, 1, .36, 1);
+}
+.lunviz .lv-tab:hover { color: var(--bone); border-color: rgba(235, 229, 218, .24); }
+.lunviz .lv-tab.is-on {
+  border-color: rgba(217, 163, 98, .48); background: #221d18; color: var(--ember);
+}
+.lunviz .lv-case { display: none; flex-direction: column; gap: 16px; }
+.lunviz .lv-case.is-on { display: flex; }
+.lunviz .lv-user {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 12px 16px; border-radius: 8px;
+  background: #141416; border: 1px solid rgba(235, 229, 218, .08);
+}
+.lunviz .lv-user b {
+  font-size: 12px; font-weight: 500; letter-spacing: .01em;
+  color: #8a847a; white-space: nowrap;
+}
+.lunviz .lv-user span { font-size: 15px; font-weight: 500; line-height: 22px; color: var(--bone); word-break: keep-all; }
+.lunviz .lv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: stretch; }
+.lunviz .lv-card {
+  background: #141416; border: 1px solid rgba(235, 229, 218, .08);
+  border-radius: 12px; padding: 20px;
+  display: grid; grid-template-rows: 20px 96px 1fr; gap: 12px;
+}
+.lunviz .lv-card.on {
+  background: #1c1917; border-color: rgba(217, 163, 98, .38);
+}
+.lunviz .lv-who { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.lunviz .lv-who b { font-size: 14px; font-weight: 500; letter-spacing: 0; color: #aaa398; }
+.lunviz .lv-card.on .lv-who b { color: var(--ember); }
+.lunviz .lv-badge {
+  font-family: var(--font); font-size: 12px; font-weight: 400;
+  letter-spacing: 0; color: #8a847a; white-space: nowrap;
+}
+.lunviz .lv-card.on .lv-badge, .lunviz .lv-box.on .lv-badge { color: #aaa398; }
+.lunviz .lv-think {
+  font-size: 13px; line-height: 20px; font-weight: 400; color: #8a847a;
+  padding-bottom: 12px; border-bottom: 1px solid rgba(235, 229, 218, .08); word-break: keep-all;
+}
+.lunviz .lv-card.on .lv-think { color: #aaa398; border-bottom-color: rgba(217, 163, 98, .18); }
+.lunviz .lv-think i {
+  font-style: normal; font-family: ui-monospace, Menlo, monospace; font-size: 11px; font-weight: 500;
+  letter-spacing: .04em; color: #8a847a; margin-right: 8px;
+}
+.lunviz .lv-card.on .lv-think i { color: var(--ember); }
+.lunviz .lv-reply {
+  font-size: 15px; line-height: 24px; font-weight: 400; color: #aaa398; word-break: keep-all;
+}
+.lunviz .lv-card.on .lv-reply { color: var(--bone); font-weight: 500; }
+.lunviz .lv-box {
+  background: #141416; border: 1px solid rgba(235, 229, 218, .08);
+  border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.lunviz .lv-box.on { background: #1c1917; border-color: rgba(217, 163, 98, .38); }
+.lunviz .lv-kicker {
+  font-family: var(--font); font-variant-numeric: tabular-nums; font-size: 12px; font-weight: 500;
+  letter-spacing: .01em; color: #8a847a;
+}
+.lunviz .lv-box.on .lv-kicker { color: var(--ember); }
+.lunviz .lv-h { font-size: 15px; font-weight: 500; color: var(--bone); line-height: 22px; word-break: keep-all; }
+.lunviz .lv-p { font-size: 13px; line-height: 20px; font-weight: 400; color: #aaa398; word-break: keep-all; }
+.lunviz .lv-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.lunviz .lv-stat {
+  background: #141416; border: 1px solid rgba(235, 229, 218, .08);
+  border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 4px;
+}
+.lunviz .lv-stat.on { border-color: rgba(217, 163, 98, .38); background: #1c1917; }
+.lunviz .lv-stat b {
+  font-size: 28px; font-weight: 500; font-variant-numeric: tabular-nums;
+  color: var(--bone); line-height: 32px;
+}
+.lunviz .lv-stat.on b { color: var(--ember); }
+.lunviz .lv-stat span { font-size: 13px; font-weight: 500; line-height: 20px; color: var(--bone); word-break: keep-all; }
+.lunviz .lv-stat small { font-size: 12px; line-height: 16px; color: #8a847a; word-break: keep-all; }
+@media (max-width: 720px) {
+  .lunviz .lv-scene + .lv-scene, .lunviz .lv-foot { display: none; }
 }
 
 /* ---------- Japanese (branding preview 2026-10-27) ----------
