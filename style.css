@@ -261,6 +261,16 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
     radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%);
 }
 .k-sch .prod-veil, .k-602 .prod-veil, .k-lun .prod-veil, .k-dat .prod-veil, .prod[data-vis="raw"] .prod-veil, .prod[data-vis="feat"] .prod-veil, .prod[data-vis="lun"] .prod-veil { opacity: 0; }
+/* Full-bleed art slides keep the dusk veil fully on, plus a scrim that plateaus under the copy column,
+   so every line clears 4.5:1 even over the brightest field. On /pages/dat slide 1 the old veil at
+   opacity 0 left "Our Style" at 2.34:1 and the eyebrow at 3.39:1. */
+.prod[data-vis="art"] .prod-veil { opacity: 1; }
+@media (min-width: 761px) {
+  .prod[data-vis="art"]::after {
+    content: ''; position: absolute; inset: 0 0 0 auto; width: min(780px, 58vw); z-index: 1; pointer-events: none;
+    background: linear-gradient(90deg, rgba(5, 5, 6, 0) 0%, rgba(5, 5, 6, .50) 15%, rgba(5, 5, 6, .88) 34%, rgba(5, 5, 6, .94) 100%);
+  }
+}
 /* raw captures sit on a dark plate with the horizon behind them */
 .prod[data-vis="raw"] .stage { background:
   radial-gradient(70% 22% at 34% var(--horizon), rgba(217, 163, 98, .16) 0%, rgba(217, 163, 98, 0) 70%),

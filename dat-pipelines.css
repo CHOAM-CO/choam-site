@@ -1,8 +1,8 @@
 /* DAT detail only (pages/dat.html): Creative Pipeline / Polish Pipeline switch, Mino 2026-10-27 20:47 mockup.
    Labels stay as written in every language; the active one is lit with one hairline, like the rail's current dot. */
 .dat-pipes { display: flex; gap: 30px; margin-top: 22px; border-bottom: 1px solid var(--line); }
-.dat-pipes button { position: relative; height: 44px; padding: 0; border: 0; background: none; font: inherit; font-weight: 600; font-size: 13px; letter-spacing: .06em; white-space: nowrap; color: var(--dim); cursor: pointer; transition: color .3s; }
-.dat-pipes button:hover { color: var(--ash); }
+.dat-pipes button { position: relative; height: 44px; padding: 0; border: 0; background: none; font: inherit; font-weight: 600; font-size: 13px; letter-spacing: .06em; white-space: nowrap; color: var(--ash); cursor: pointer; transition: color .3s; }
+.dat-pipes button:hover { color: var(--bone); }
 .dat-pipes button[aria-pressed="true"] { color: var(--bone); cursor: default; }
 .dat-pipes button[aria-pressed="true"]::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--bone); }
 .dat-pipes button:focus-visible { outline: 1px solid var(--bone); outline-offset: 4px; }
