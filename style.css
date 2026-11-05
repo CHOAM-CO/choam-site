@@ -1011,6 +1011,36 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   font-size: 15px; line-height: 24px; font-weight: 400; color: #aaa398; word-break: keep-all;
 }
 .lunviz .lv-card.on .lv-reply { color: var(--bone); font-weight: 500; }
+/* phones: the two comparison columns become one vertical record (Lunasia-Mobile.dc.html).
+   No card boxes, no fixed aspect frame: a 2px rail, THINK then REPLY, a hairline between models.
+   The paragraph becomes a document section here (the DAT mobile pattern): the record needs more
+   height than the half-screen visual slot, so the section scrolls instead of clipping the copy. */
+@media (max-width: 760px) {
+  #lunasia { height: auto; min-height: 100dvh; }
+  #lunasia .stage { position: relative; padding-top: calc(var(--mast-h) + 12px); padding-bottom: 8px; }
+  #lunasia .vis { position: relative; inset: auto; width: auto; height: auto; margin: 0 var(--gutter); container-type: normal; }
+  #lunasia .vis:not(.is-on) { display: none; } /* the inactive paragraphs no longer stack under the live one */
+  #lunasia .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 24px 0 calc(var(--deck-h) + 24px); }
+  .lunviz .lv { width: 100%; height: auto; aspect-ratio: auto; align-self: stretch; gap: 18px; padding: 0; justify-content: flex-start; }
+  .lunviz .lv-head { flex-wrap: wrap; gap: 10px; padding-bottom: 10px; }
+  .lunviz .lv-title { font-size: 14px; }
+  .lunviz .lv-tabs { width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .lunviz .lv-tabs::-webkit-scrollbar { display: none; }
+  .lunviz .lv-tab { flex: none; min-height: 44px; padding: 0 14px; border-radius: 0; }
+  .lunviz .lv-case { gap: 18px; }
+  .lunviz .lv-user { display: block; padding: 0 0 0 14px; border: 0; border-left: 1px solid var(--rule-2); border-radius: 0; background: none; }
+  .lunviz .lv-user b { display: block; margin-bottom: 6px; }
+  .lunviz .lv-user span { font-size: 15px; line-height: 1.6; }
+  .lunviz .lv-pair { display: block; }
+  .lunviz .lv-card, .lunviz .lv-card.on { display: block; position: relative; padding: 0 0 0 16px; border: 0; border-radius: 0; background: none; }
+  .lunviz .lv-card::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 2px; background: var(--rule-2); }
+  .lunviz .lv-card.on::before { background: var(--ember); }
+  .lunviz .lv-card + .lv-card { margin-top: 26px; padding-top: 20px; }
+  .lunviz .lv-card + .lv-card::after { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--line); }
+  .lunviz .lv-who { margin-bottom: 10px; }
+  .lunviz .lv-think { padding-bottom: 14px; margin-bottom: 14px; font-size: 13.5px; line-height: 1.65; }
+  .lunviz .lv-reply { font-size: 15px; line-height: 1.68; }
+}
 .lunviz .lv-box {
   background: #141416; border: 1px solid rgba(235, 229, 218, .08);
   border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 8px;
