@@ -458,16 +458,23 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 
 /* ---------- phone ---------- */
 @media (max-width: 760px) {
-  :root { --mast-h: 58px; --deck-h: 74px; --horizon: 58%; }
+  :root { --mast-h: 58px; --deck-h: 58px; --horizon: 58%; }
   .mast { gap: 8px; }
   .brand { gap: 8px; font-size: 15px; letter-spacing: .24em; }
   .brand img { width: 20px; height: 20px; }
   .lang-btn { gap: 4px; font-size: 11px; letter-spacing: .08em; }
-  .deck { flex-wrap: wrap; align-content: center; gap: 4px 16px; }
-  .now { display: none; }
+  /* one line: current on the left, next on the right. The footer links leave the deck rather than
+     stacking into three rows inside 74px (Home-Mobile.dc.html). */
+  .deck { flex-wrap: nowrap; gap: 0 12px; }
+  .now { display: flex; gap: 10px; min-width: 0; overflow: hidden; }
+  .now-num { font-size: 11px; letter-spacing: .2em; }
+  .now-title { font-size: 12px; letter-spacing: .2em; overflow: hidden; text-overflow: ellipsis; }
+  .now-sub { display: none; }
   .deck .next-ch { margin-left: auto; }
-  .next-ch { padding: 6px 0 6px 14px; gap: 8px; }
-  .foot { order: 3; width: 100%; margin-left: 0; gap: 16px; font-size: 10px; }
+  .next-ch { min-height: 44px; align-items: center; padding: 6px 0 6px 12px; gap: 8px; }
+  .next-ch small { font-size: 11px; letter-spacing: .08em; }
+  .next-ch span { font-size: 12px; letter-spacing: .08em; }
+  .foot { display: none; }
   .intro-title { top: calc(var(--mast-h) + (100% - var(--mast-h) - var(--deck-h)) * .17); }
   .intro-wm { font-size: 15.5vw; letter-spacing: .26em; margin-right: -.26em; }
   .intro-wm span { filter: none !important; -webkit-filter: none !important; }
@@ -527,16 +534,36 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .index-rail { position: fixed; z-index: 45; left: var(--gutter); top: 50%; transform: translateY(-50%); transition: opacity .6s var(--slow), visibility .6s; }
 .at-top .index-rail { opacity: 0; visibility: hidden; } /* the opening keeps its own frame; the list arrives with the first project */
 .index-rail ol { display: flex; flex-direction: column; gap: 15px; }
-.index-rail a { display: flex; align-items: center; gap: 12px; padding: 2px 0; font-weight: 650; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--dim); transition: color .3s; }
+.index-rail a { display: flex; align-items: center; gap: 12px; padding: 2px 0; font-weight: 650; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--ash); transition: color var(--dur-2) var(--ease-ui); }
 .index-rail b { font-weight: 600; font-variant-numeric: tabular-nums; }
 .index-rail i { display: block; width: 22px; height: 1px; background: var(--rule-2); transition: background .4s, height .4s; }
 .index-rail a:hover, .index-rail a.is-current { color: var(--bone); }
 .index-rail a.is-current i { background: var(--bone); height: 2px; }
 :lang(ko) .index-rail a { letter-spacing: .08em; }
-@media (max-width: 1180px) { .index-rail { display: none; } } /* the Projects menu carries the list on narrower screens */
+/* Narrower frames keep the index as ticks and numbers; the names no longer fit inside the left safe zone.
+   The rail used to disappear at this width, which left the plates with no navigation at all. */
+@media (max-width: 1180px) {
+  .index-rail a span { display: none; }
+  .index-rail ol { gap: 18px; }
+}
+@media (max-width: 760px) { .index-rail { display: none; } } /* phones carry the six-segment thread instead */
+/* phones: six ticks under the masthead, the current one in ember (Home-Mobile.dc.html). Shown while a plate is up. */
+.thread { position: fixed; z-index: 35; left: var(--gutter); right: var(--gutter); top: var(--mast-h); height: 44px; display: none; gap: 8px; transition: opacity var(--dur-3) var(--ease-ui), visibility var(--dur-3); }
+.thread a { flex: 1 1 0; max-width: 52px; height: 44px; display: flex; align-items: flex-start; padding-top: 14px; }
+.thread-line { display: block; width: 100%; height: 1px; background: var(--rule-2); transition: height var(--dur-2) var(--ease-ui), background var(--dur-2) var(--ease-ui); }
+.thread a[aria-current="page"] .thread-line { height: 2px; background: var(--ember); }
+.at-top .thread { opacity: 0; visibility: hidden; }
+@media (max-width: 760px) { .thread { display: flex; } }
 
-main.plates { --col: min(500px, 36vw); }
+main.plates { --col: var(--copy-w); }
 .plate { position: relative; height: 100vh; height: 100dvh; min-height: 560px; overflow: hidden; background: var(--night); }
+/* the index rail's local scrim: 260px of dusk on the left edge while the rail is up (visual audit: 11px labels read 3.80:1 on bright art) */
+.plate::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 260px; z-index: 2; pointer-events: none; opacity: 0; transition: opacity var(--dur-4) var(--ease-ui);
+  background: linear-gradient(90deg, rgba(5, 5, 6, .90) 0%, rgba(5, 5, 6, .78) 55%, rgba(5, 5, 6, .30) 82%, rgba(5, 5, 6, 0) 100%); }
+body:not(.at-top) .plate::before { opacity: 1; }
+@media (max-width: 1180px) { .plate::before { width: 180px; } }
+/* one horizon rule across all six plates (Main.dc.html): 34px above the deck, stopping short of the copy column */
+.plate::after { content: ''; position: absolute; left: var(--gutter); right: calc(var(--copy-w) + var(--gutter) + 40px); bottom: calc(var(--deck-h) + 34px); height: 1px; z-index: 3; pointer-events: none; background: var(--rule-2); }
 .plate:focus { outline: none; }
 .plate .stage { position: absolute; inset: 0; }
 .plate .art { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 42%); user-select: none; -webkit-user-drag: none; }
@@ -619,37 +646,45 @@ main.plates { --col: min(500px, 36vw); }
 .compare .scrim { background:
   linear-gradient(to top, rgba(5, 5, 6, .38) 0%, rgba(5, 5, 6, 0) 20%),
   linear-gradient(to bottom, rgba(5, 5, 6, .32) 0%, rgba(5, 5, 6, 0) 16%); }
-/* caption: one headline, one sentence, one line of actions */
-.plate .caption { position: absolute; z-index: 2; right: var(--gutter); bottom: calc(var(--deck-h) + 20px); width: var(--col); }
-.plate .cap-meta .num { color: var(--bone); }
-.plate .cap-meta .num::after { content: ''; display: inline-block; width: 36px; height: 1px; margin: 0 0 3px 14px; background: var(--line); vertical-align: middle; }
-.plate .cap-meta .status { padding-left: 14px; border-left: 1px solid var(--line); }
+/* caption: one fixed slab at the right edge (Main.dc.html). Every plate puts its meta, title,
+   lead, body and action on the same coordinates, so moving between plates never jumps the copy. */
+.plate .caption { position: absolute; z-index: 4; right: var(--gutter); bottom: calc(var(--deck-h) + 58px); width: var(--copy-w); height: min(var(--slab-h, 424px), calc(100dvh - var(--mast-h) - var(--deck-h) - 94px)); }
+.plate .cap-meta { position: absolute; top: 0; left: 0; gap: 12px; white-space: nowrap; }
+.plate .cap-meta .num { color: var(--bone); letter-spacing: .24em; }
+.plate .cap-meta .num::after { content: ''; display: inline-block; width: 22px; height: 1px; margin: 0 0 3px 12px; background: var(--ember); opacity: .8; vertical-align: middle; }
+.plate .cap-meta .status { padding-left: 0; border-left: 0; }
+.plate .cap-title { position: absolute; top: 40px; left: 0; margin: 0; }
 .plate .cap-title a:hover { color: var(--bone); }
-.plate .cap-ko { display: block; }
-.plate .cap-text { margin-top: 22px; max-width: 42ch; font-size: 16px; line-height: 1.76; color: var(--ink-body); }
+.plate .cap-ko { display: block; margin-top: 10px; }
+.plate .cap-line { position: absolute; top: 146px; left: 0; margin: 0; }
+.plate .cap-text { position: absolute; top: 196px; left: 0; width: min(408px, 100%); margin: 0; max-width: none; font-size: 16.5px; line-height: 1.78; font-weight: 450; letter-spacing: 0; color: var(--ink-body); }
 :lang(ko) .plate .cap-text { word-break: keep-all; overflow-wrap: break-word; }
-.plate .cap-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; margin-top: 20px; }
-.plate .cap-acts > a { font-weight: 650; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); padding: 12px 0; transition: color .3s; }
+.plate .cap-acts { position: absolute; left: 0; bottom: 0; margin: 0; }
+.plate .cap-acts > a { font-weight: 650; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); padding: 12px 0; transition: color var(--dur-2) var(--ease-ui); }
 .plate .cap-acts > a:hover { color: var(--bone); }
 :lang(ko) .plate .cap-acts > a, :lang(ko) .plate .cap-acts .prod-act { letter-spacing: .08em; }
 .plate-more::after { content: ''; display: inline-block; width: 18px; height: 1px; margin: 0 0 3px 10px; background: currentColor; vertical-align: middle; }
 .plate .cap-acts .prod-act { min-width: 0; height: auto; margin: 0; padding: 12px 0; background: none; font-size: 11px; letter-spacing: .3em; color: var(--ash); }
 .plate .cap-acts .prod-act:hover, .plate .cap-acts .prod-act[aria-expanded="true"] { color: var(--bone); background: none; }
-.plate .caption:has(.get-menu:not([hidden])) { max-height: calc(100dvh - var(--mast-h) - var(--deck-h) - 40px); overflow-y: auto; }
+/* The OS chooser is the one thing that needs height: it drops the slab back into normal flow and grows upward,
+   scrolling inside the frame only when the viewport itself is too short. */
+.plate .caption:has(.get-menu:not([hidden])) { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; height: auto; min-height: var(--slab-h, 384px); max-height: calc(100dvh - var(--mast-h) - var(--deck-h) - 40px); overflow-y: auto; }
+.plate .caption:has(.get-menu:not([hidden])) > * { position: static; }
+.plate .caption:has(.get-menu:not([hidden])) .cap-line { margin-top: 12px; }
+.plate .caption:has(.get-menu:not([hidden])) .cap-text { margin-top: 12px; }
+.plate .caption:has(.get-menu:not([hidden])) .cap-acts { margin-top: 16px; }
 
-/* Scheherazade & 602 landing CTA: keep the whole caption 28px above the horizon.
-   Normal flow lets a short viewport grow with the chooser instead of clipping it. */
-.plate:is([data-plate="scheherazade"], [data-plate="602"]) {
+/* Scheherazade & 602 landing CTA: a short viewport may grow the plate rather than clip the chooser. */
+.plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) {
   display: flex; flex-direction: column; justify-content: flex-end;
   height: auto; min-height: max(100dvh, 560px);
   padding-top: calc(var(--mast-h) + 24px);
-  padding-bottom: calc(var(--deck-h) + 34px + 28px);
+  padding-bottom: calc(var(--deck-h) + 58px);
 }
-.plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption {
+.plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .caption {
   position: relative; flex: none; right: auto; bottom: auto;
-  margin-left: auto; margin-right: var(--gutter);
+  margin-left: auto; margin-right: var(--gutter); height: auto; min-height: 0;
 }
-.plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption:has(.get-menu:not([hidden])) { max-height: none; overflow: visible; }
 /* B2 CTA primitives: shared appearance, independent of each work's artwork layout.
    Carousel controls, title links, navigation and article links are not CTAs. */
 .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl .dlbtn, .dl .dl-note a {
@@ -711,17 +746,27 @@ main.plates { --col: min(500px, 36vw); }
 @media (max-width: 760px) {
   main.plates { --col: auto; }
   .plate .field { --horizon: 40%; }
-  .plate .caption { left: 0; right: 0; width: auto; padding: 0 var(--gutter); bottom: calc(var(--deck-h) + 14px); }
-  .plate .cap-text { margin-top: 14px; max-width: none; font-size: 14.5px; line-height: 1.68; }
-  .plate .cap-acts { margin-top: 10px; }
+  /* caption anchored to the deck and flowing upward (Home-Mobile.dc.html): meta, title, sub, lead, body, action.
+     Flow keeps a longer line of copy above the action instead of running under it. */
+  .plate .caption { left: var(--gutter); right: var(--gutter); width: auto; height: auto; bottom: calc(var(--deck-h) + 42px);
+    display: flex; flex-direction: column; align-items: flex-start; }
+  .plate .caption > * { position: static; }
+  .plate .cap-meta { gap: 10px; }
+  .plate .cap-title { margin-top: 12px; font-size: 30px; line-height: 34px; letter-spacing: .14em; }
+  .plate .cap-ko { margin-top: 12px; font-size: 13px; line-height: 21px; letter-spacing: .2em; }
+  .plate .cap-line { margin-top: 8px; font-size: 15px; line-height: 22px; }
+  .plate .cap-text { width: 100%; margin-top: 12px; max-width: none; font-size: 14px; line-height: 23px; }
+  .plate .cap-acts { margin-top: 16px; }
+  .plate::before { display: none; } /* no rail on phones */
+  /* the horizon rule becomes the top scrim that keeps the thread legible over bright art */
+  .plate::after { display: block; right: 0; bottom: auto; top: 0; height: 108px; background: linear-gradient(to bottom, rgba(5, 5, 6, .75) 0%, rgba(5, 5, 6, .55) 58px, rgba(5, 5, 6, 0) 108px); }
   .plate .figure { bottom: 60%; height: min(38vh, 62vw); left: 50%; }
   .plate:has(.get-menu:not([hidden])) .figure { bottom: calc(100% - var(--copy-top) + 16px); height: min(38vh, 62vw, max(0px, calc(var(--copy-top) - var(--mast-h) - 32px))); }
   /* Keep the art on the original viewport horizon; copy and chooser grow below it. */
-  .plate:is([data-plate="scheherazade"], [data-plate="602"]) { padding-top: calc(40dvh + 28px); padding-bottom: calc(var(--deck-h) + 14px); }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) { padding-top: calc(40dvh + 28px); padding-bottom: calc(var(--deck-h) + 42px); }
   .plate:is([data-plate="scheherazade"], [data-plate="602"]) .field { --horizon: 40dvh; }
-  .plate:is([data-plate="scheherazade"], [data-plate="602"]) .figure,
   .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .figure { top: calc(40dvh - min(38dvh, 62vw)); bottom: auto; height: min(38dvh, 62vw); }
-  .plate:is([data-plate="scheherazade"], [data-plate="602"]) .caption { left: auto; width: 100%; margin: 0; }
+  .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .caption { left: auto; width: 100%; margin: 0; }
   .plate .cap-acts :is(.plate-more, .prod-act), .prod .prod-act, .dl :is(.dlbtn, .dl-note a), .get-opt { font-size: 15px; }
   .dl .dlbtn { flex: 1 1 100%; justify-content: space-between; flex-wrap: wrap; }
   .prod-copy:has(.prod-act) { bottom: calc(var(--deck-h) + 14px); }

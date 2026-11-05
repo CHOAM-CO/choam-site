@@ -1009,7 +1009,7 @@
       },
       art: [0, 1, 2, 3, 4, 5],
       panels: [
-        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 50%', posM: '27% 35%' },
+        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 40%', posM: '18% 35%' },
         { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', altJa: 'DOZE のイラスト: 水族館の窓を背に、夕焼けの教室に立つイェジ', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
         { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', altJa: 'ソアの水彩仕上げイラスト: 澄んだ水彩の質感と目元が際立つポートレート', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
         { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', altJa: 'イェジの水彩ポーズイラスト: 花とドレスの繊細な筆づかいが残る水彩画', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
@@ -1625,7 +1625,7 @@
     <article class="plate" id="${p.id}" data-plate="${p.id}" aria-labelledby="t-${p.id}">
       ${stageHTML(p)}
       <div class="caption">
-        <p class="cap-meta"><span class="num">${numOf(p)}</span>${p.status ? '<span class="status" data-status></span>' : ''}</p>
+        <p class="cap-meta"><span class="num">${numOf(p)} / ${pad(PROJECTS.length)}</span>${p.status ? '<span class="status" data-status></span>' : ''}</p>
         <h2 class="cap-title" id="t-${p.id}"><a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>${p.title_ko ? `<span class="cap-ko" lang="ko">${esc(p.title_ko)}</span>` : ''}</h2>
         <p class="cap-line"></p>
         <p class="cap-text"></p>
@@ -1648,6 +1648,11 @@
     rail.innerHTML = `<ol>${[{ id: 'top', n: '00' }, ...PROJECTS.map(p => ({ id: p.id, n: numOf(p), p }))].map(r =>
       `<li><a href="#${r.id}" data-index-link="${r.id}"><i aria-hidden="true"></i><b>${r.n}</b><span>${r.p ? esc(r.p.title) : ''}</span></a></li>`).join('')}</ol>`;
     track.before(rail);
+    /* phones: the rail becomes a six-segment thread under the masthead (Home-Mobile.dc.html), always visible while a plate is up */
+    const thread = document.createElement('nav');
+    thread.className = 'thread';
+    thread.innerHTML = PROJECTS.map(p => `<a href="#${p.id}" data-thread-link="${p.id}"><span class="thread-line" aria-hidden="true"></span></a>`).join('');
+    document.body.appendChild(thread);
     const links = [...rail.querySelectorAll('[data-index-link]')];
     document.querySelectorAll('[data-go-project]').forEach(a => { a.href = `#${a.dataset.goProject}`; });
 
@@ -1722,6 +1727,11 @@
         range.setAttribute('aria-label', L('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치', 'BEFORE / AFTER 比較の境界位置'));
       }
       rail.setAttribute('aria-label', L('Project index', '프로젝트 목록', 'プロジェクト一覧'));
+      thread.setAttribute('aria-label', L('Project index', '프로젝트 목록', 'プロジェクト一覧'));
+      [...thread.querySelectorAll('[data-thread-link]')].forEach(a => {
+        const p = PROJECTS.find(x => x.id === a.dataset.threadLink);
+        a.setAttribute('aria-label', `${numOf(p)} ${nameOf(p)}`);
+      });
       links[0].querySelector('span').textContent = L('Home', '홈', 'ホーム');
       setCurrent(curId, false);
     };
@@ -1742,6 +1752,7 @@
       const i = PROJECTS.findIndex(p => p.id === id), p = PROJECTS[i];
       body.classList.toggle('at-top', !p);
       links.forEach(a => { const on = a.dataset.indexLink === id; a.classList.toggle('is-current', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      thread.querySelectorAll('[data-thread-link]').forEach(a => { if (a.dataset.threadLink === id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
       document.querySelectorAll('[data-go-project]').forEach(b => { const on = b.dataset.goProject === id; b.classList.toggle('is-current', on); if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
       setText('[data-current-num]', p ? numOf(p) : '');
       setText('[data-current-title]', p ? nameOf(p) : '');
@@ -1770,6 +1781,7 @@
       const el = id === 'top' ? null : document.getElementById(id);
       scrollTo({ top: el ? el.offsetTop : 0, behavior: instant ? 'instant' : behavior() });
       if (id === 'dat' && flip) flipTo(k >= 3 ? 1 : 0, true);
+      dispatchEvent(new Event('choam:chrome-show')); /* a jump lands with the bars up, not tucked away */
     };
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href^="#"]');
@@ -2327,6 +2339,7 @@
     scrollTo({ top: sec.offsetTop, behavior: instant ? 'instant' : behavior() });
     if (k != null) goSlide(sec, k, true);
     sync(sec);
+    dispatchEvent(new Event('choam:chrome-show')); /* a deep link lands with the bars up, not tucked away */
   };
 
   /* DAT: the comparison used to be step 6, so #6 (or #dat/6) keeps opening it, now as Polish Pipeline */
@@ -2432,4 +2445,11 @@
     setHidden([y > 6 && dy > 0 && y < max - 6]); /* at the very top or the very bottom, or moving up, the bars are back */
   };
   addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(settle); }, { passive: true });
+  /* A scripted jump (deep link, rail, next chapter) is not the reader scrolling down: show the bars and
+     take the landing position as the new reference, so the jump itself never reads as a hide. */
+  addEventListener('choam:chrome-show', () => {
+    setHidden([false]);
+    lastY = scrollY;
+    requestAnimationFrame(() => { lastY = scrollY; });
+  });
 })();
