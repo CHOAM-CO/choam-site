@@ -1059,12 +1059,13 @@
             'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
         ]
       },
-      art: [2, 0],
+      art: [2, 1],   /* page 2 = the in-game capture (Mino 2026-11-06 01:14); was [2, 0] */
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
         { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: 'DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
-        { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', altJa: 'DOZE のタイトル画面: 暗い教室で、制服姿の少女5人がタイトルとスタートメニューの横に並ぶ', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
+        /* In-game capture from the live build (Mino 2026-11-06 01:14); debug status line at bottom-left painted out. Replaces the old five-girl title screen. */
+        { kind: 'raw', src: 'assets/seonjam-ingame-20261106.webp', ar: 4713 / 2406, altKo: '선잠 DOZE 인게임 화면: 방과 후 교실에서 돌아보는 예지, 화면 가운데 대사, 오른쪽에 선택지 세 개와 경계 게이지', altJa: 'DOZE のゲーム画面: 放課後の教室で振り返るイェジ。中央にセリフ、右に選択肢3つと警戒ゲージ', alt: '선잠 DOZE in-game screen: Yeji looking back in an after-school classroom, her line in the center, three choices and a wariness gauge on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 },
         { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', altJa: 'DOZE のイラスト: ジンベエザメが横切る水族館の壁を背に、教室で振り返るイェジ', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
       ],
       info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '66% 50%', side: 'end' }
