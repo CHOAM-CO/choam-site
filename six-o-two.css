@@ -31,15 +31,15 @@
 
 /* the approve / reject drawing */
 .prod .vis.ai602.is-on .pick { pointer-events: auto; cursor: pointer; }
-.ai602 .pk { fill: rgba(235, 229, 218, .04); stroke: rgba(235, 229, 218, .45); stroke-width: 1.5; transition: fill .2s, stroke .2s; }
+.ai602 .pk { fill: rgba(235, 229, 218, .04); stroke: rgba(235, 229, 218, .45); stroke-width: 1.5; transition: fill var(--dur-1) var(--ease-ui), stroke var(--dur-1) var(--ease-ui); }
 .ai602 .pick:hover .pk, .ai602 .pick:focus-visible .pk { fill: rgba(217, 163, 98, .16); stroke: var(--ember); }
 .ai602 .pick:focus { outline: none; }
 .ai602 .pick:focus-visible .pk { stroke-width: 3; }
-.ai602 .diff { transition: opacity .45s ease; }
+.ai602 .diff { transition: opacity var(--dur-3) var(--ease-ui); }
 .ai602[data-ai="no"] .diff { opacity: .28; }
 /* status and controls per state: hidden parts take no clicks or focus */
-.ai602 .stt, .ai602 .asks, .ai602 .after, .ai602 .a-ok, .ai602 .a-no { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility 0s linear .35s; }
+.ai602 .stt, .ai602 .asks, .ai602 .after, .ai602 .a-ok, .ai602 .a-no { opacity: 0; visibility: hidden; transition: opacity var(--dur-3) var(--ease-ui), visibility 0s linear var(--dur-3); }
 .ai602[data-ai="ask"] .s-ask, .ai602[data-ai="ask"] .asks,
 .ai602[data-ai="ok"] .s-ok, .ai602[data-ai="ok"] .after, .ai602[data-ai="ok"] .a-ok,
-.ai602[data-ai="no"] .s-no, .ai602[data-ai="no"] .after, .ai602[data-ai="no"] .a-no { opacity: 1; visibility: visible; transition: opacity .35s ease .15s, visibility 0s; }
+.ai602[data-ai="no"] .s-no, .ai602[data-ai="no"] .after, .ai602[data-ai="no"] .a-no { opacity: 1; visibility: visible; transition: opacity var(--dur-3) var(--ease-ui) var(--dur-1), visibility 0s; }
 @media (prefers-reduced-motion: reduce) { .ai602 * { transition: none !important; } }

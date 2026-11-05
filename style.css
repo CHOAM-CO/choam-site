@@ -168,7 +168,7 @@ img { display: block; max-width: 100%; }
 .foot a:hover { color: var(--bone); }
 .next-ch { display: inline-flex; align-items: baseline; gap: 12px; padding: 12px 0 12px 22px; border-left: 1px solid var(--line); white-space: nowrap; }
 .next-ch small { font-size: 11px; font-weight: 550; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
-.next-ch span { font-size: 12px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; transition: color .3s; }
+.next-ch span { font-size: 12px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; transition: color var(--dur-2) var(--ease-ui); }
 .next-ch:hover span { color: var(--ember); }
 .next-ch[hidden] { display: none; }
 
@@ -285,14 +285,14 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 }
 .cap-meta { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); font-variant-numeric: tabular-nums; }
 .cap-meta .ch { color: var(--ember); }
-.cap-meta .ch::after { content: ''; display: inline-block; width: 36px; height: 1px; margin: 0 0 3px 14px; background: var(--line); vertical-align: middle; }
-.cap-meta [data-status] { padding-left: 14px; border-left: 1px solid var(--line); }
-.cap-title { margin-top: 22px; font-weight: 750; font-size: clamp(30px, 2.9vw, 46px); line-height: 1.12; letter-spacing: .14em; text-transform: uppercase; text-wrap: balance; }
+.cap-meta .ch::after { content: ''; display: inline-block; width: 36px; height: 1px; margin: 0 0 4px 16px; background: var(--line); vertical-align: middle; }
+.cap-meta [data-status] { padding-left: 16px; border-left: 1px solid var(--line); }
+.cap-title { margin-top: 24px; font-weight: 750; font-size: clamp(30px, 2.9vw, 46px); line-height: 1.12; letter-spacing: .14em; text-transform: uppercase; text-wrap: balance; }
 .cap-title a:hover { color: var(--ember); }
-.cap-ko { margin-top: 10px; font-weight: 500; font-size: 15px; letter-spacing: .2em; color: var(--ash); }
+.cap-ko { margin-top: 12px; font-weight: 500; font-size: 15px; letter-spacing: .2em; color: var(--ash); }
 .cap-line { margin-top: 16px; font-weight: 600; font-size: 18px; color: var(--bone); }
 .cap-line:empty { display: none; }
-.rail { margin-top: 26px; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+.rail { margin-top: 28px; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
 .rail::-webkit-scrollbar { display: none; }
 .slide { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding-right: 2px; }
 .slide p { max-width: 30em; font-size: 16.5px; line-height: 1.78; color: var(--ink-body); }
@@ -394,7 +394,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 .gal .gi img { height: var(--h); width: calc(var(--h) * var(--ar)); aspect-ratio: auto; }
 .gal-cut .gi img, .gal:not(.gal-one) .gi img { box-shadow: none; filter: drop-shadow(0 26px 40px rgba(0, 0, 0, .55)); }
 .gn { font-weight: 600; font-size: 11px; line-height: 18px; letter-spacing: .3em; margin-right: -.3em; text-transform: uppercase; color: var(--ash); }
-:lang(ko) .gn { letter-spacing: .12em; margin-right: -.12em; }
+:lang(ko) .gn { letter-spacing: .08em; margin-right: -.08em; }
 /* before/after pair: two full frames at one scale, framed like the key visual. Side by side on a wide plate, stacked
    otherwise (stacking gives the larger pictures whenever the plate is narrower than one picture's 3:2). On desktop the pair
    fills 90% of the plate's height so its caption stays above the lit floor line, as the other captions do */
@@ -457,7 +457,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dl-body { position: relative; z-index: 1; margin-left: 52vw; padding: calc(var(--mast-h) + 48px) var(--gutter) 120px 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; }
 .dl-body .cap-title { margin-top: 18px; }
 .dl-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
-.dlbtn { display: inline-flex; align-items: baseline; gap: .7em; padding: 16px 24px; font-weight: 700; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; border: 1px solid rgba(235, 229, 218, .4); transition: background .3s, color .3s; }
+.dlbtn { display: inline-flex; align-items: baseline; gap: .7em; padding: 16px 24px; font-weight: 700; font-size: 13px; letter-spacing: .26em; text-transform: uppercase; border: 1px solid rgba(235, 229, 218, .4); transition: background var(--dur-2) var(--ease-ui), color var(--dur-2) var(--ease-ui); }
 .dlbtn small { font-size: 10px; font-weight: 600; letter-spacing: .16em; opacity: .7; }
 .dlbtn:hover { background: var(--bone); color: var(--void); }
 .dlbtn.is-rec { border-color: var(--bone); }
@@ -501,7 +501,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .cap-ko { margin-top: 6px; font-size: 13px; }
   .cap-line { margin-top: 8px; font-size: 15px; }
   .rail { margin-top: 10px; }
-  .slide p { font-size: 14px; line-height: 1.62; }
+  .slide p { font-size: 16.5px; line-height: 1.78; }
   .slide .display { font-size: 17px; }
   .rail-ctl { margin-top: 10px; gap: 10px; min-height: 40px; flex-wrap: nowrap; }
   .text-btn { height: 40px; font-size: 10.5px; letter-spacing: .2em; }
@@ -614,7 +614,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .plate .flip .slide { position: relative; flex: 0 0 100%; width: 100%; height: 100%; overflow: hidden; scroll-snap-align: start; padding: 0; }
 .plate .flip:focus-visible { outline: 1px solid rgba(235, 229, 218, .35); outline-offset: -1px; }
 .plate .flip, .plate .flip img { -webkit-user-drag: none; user-select: none; }
-.flip-nav { position: absolute; top: 50%; z-index: 3; width: 44px; height: 44px; margin: -22px 0 0; padding: 0; color: rgba(235, 229, 218, .88); border: 1px solid rgba(235, 229, 218, .2); border-radius: 50%; background: rgba(10, 12, 15, .62); backdrop-filter: blur(8px); transition: color .25s ease, border-color .25s ease, background .25s ease; }
+.flip-nav { position: absolute; top: 50%; z-index: 3; width: 44px; height: 44px; margin: -22px 0 0; padding: 0; color: rgba(235, 229, 218, .88); border: 1px solid rgba(235, 229, 218, .2); border-radius: 50%; background: rgba(10, 12, 15, .62); backdrop-filter: blur(8px); transition: color var(--dur-2) var(--ease-ui), border-color var(--dur-2) var(--ease-ui), background var(--dur-2) var(--ease-ui); }
 .flip-nav span { position: absolute; top: 50%; left: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; }
 .flip-next { right: calc(var(--gutter) + var(--col) + 1.6vw); }
 .flip-next span { transform: translate(-2px, 0) rotate(45deg); }
@@ -624,7 +624,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .flip-nav:hover, .flip-nav:focus-visible { color: var(--bone); border-color: var(--accent-dim); background: rgba(18, 20, 25, .85); }
 .flip-nav:focus-visible { outline: 1px solid rgba(235, 229, 218, .35); outline-offset: 3px; }
 .flip-tabs { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 20px; }
-.flip-pill { padding: 7px 14px; border: 1px solid rgba(235, 229, 218, .16); border-radius: 999px; background: rgba(12, 14, 18, .55); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; color: var(--ash); transition: color .25s ease, border-color .25s ease, background .25s ease; }
+.flip-pill { padding: 7px 14px; border: 1px solid rgba(235, 229, 218, .16); border-radius: 999px; background: rgba(12, 14, 18, .55); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; color: var(--ash); transition: color var(--dur-2) var(--ease-ui), border-color var(--dur-2) var(--ease-ui), background var(--dur-2) var(--ease-ui); }
 .flip-pill:hover { color: var(--bone); border-color: rgba(235, 229, 218, .34); }
 .flip-pill.is-on { color: var(--bone); border-color: var(--ember); background: var(--accent-wash); }
 .compare-stage {
@@ -661,19 +661,19 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .plate .caption { position: absolute; z-index: 4; right: var(--gutter); bottom: calc(var(--deck-h) + 58px); width: var(--copy-w); height: min(var(--slab-h, 424px), calc(100dvh - var(--mast-h) - var(--deck-h) - 94px)); }
 .plate .cap-meta { position: absolute; top: 0; left: 0; gap: 12px; white-space: nowrap; }
 .plate .cap-meta .num { color: var(--bone); letter-spacing: .24em; }
-.plate .cap-meta .num::after { content: ''; display: inline-block; width: 22px; height: 1px; margin: 0 0 3px 12px; background: var(--ember); opacity: .8; vertical-align: middle; }
+.plate .cap-meta .num::after { content: ''; display: inline-block; width: 22px; height: 1px; margin: 0 0 4px 12px; background: var(--ember); opacity: .8; vertical-align: middle; }
 .plate .cap-meta .status { padding-left: 0; border-left: 0; }
 .plate .cap-title { position: absolute; top: 40px; left: 0; margin: 0; }
 .plate .cap-title a:hover { color: var(--bone); }
-.plate .cap-ko { display: block; margin-top: 10px; }
-.plate .cap-line { position: absolute; top: 146px; left: 0; margin: 0; }
+.plate .cap-ko { display: block; margin-top: 12px; }
+.plate .cap-line { position: absolute; top: 148px; left: 0; margin: 0; }
 .plate .cap-text { position: absolute; top: 196px; left: 0; width: min(408px, 100%); margin: 0; max-width: none; font-size: 16.5px; line-height: 1.78; font-weight: 450; letter-spacing: 0; color: var(--ink-body); }
 :lang(ko) .plate .cap-text { word-break: keep-all; overflow-wrap: break-word; }
 .plate .cap-acts { position: absolute; left: 0; bottom: 0; margin: 0; }
 .plate .cap-acts > a { font-weight: 650; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--ash); padding: 12px 0; transition: color var(--dur-2) var(--ease-ui); }
 .plate .cap-acts > a:hover { color: var(--bone); }
 :lang(ko) .plate .cap-acts > a, :lang(ko) .plate .cap-acts .prod-act { letter-spacing: .08em; }
-.plate-more::after { content: ''; display: inline-block; width: 18px; height: 1px; margin: 0 0 3px 10px; background: currentColor; vertical-align: middle; }
+.plate-more::after { content: ''; display: inline-block; width: 18px; height: 1px; margin: 0 0 4px 12px; background: currentColor; vertical-align: middle; }
 .plate .cap-acts .prod-act { min-width: 0; height: auto; margin: 0; padding: 12px 0; background: none; font-size: 11px; letter-spacing: .3em; color: var(--ash); }
 .plate .cap-acts .prod-act:hover, .plate .cap-acts .prod-act[aria-expanded="true"] { color: var(--bone); background: none; }
 /* The OS chooser is the one thing that needs height: it drops the slab back into normal flow and grows upward,
@@ -702,7 +702,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
   min-width: 44px; height: 44px; min-height: 44px; margin: 0; padding: 0;
   border: 0; border-radius: 0; background: transparent; color: var(--bone);
   font-size: 16px; font-weight: 650; line-height: 24px; letter-spacing: .06em; text-indent: 0;
-  text-decoration: none; transition: color .18s, background .18s, border-color .18s;
+  text-decoration: none; transition: color var(--dur-1) var(--ease-ui), background var(--dur-1) var(--ease-ui), border-color var(--dur-1) var(--ease-ui);
 }
 :lang(ko) .plate .cap-acts :is(.plate-more, .prod-act),
 :lang(ko) .prod .prod-act, :lang(ko) .dl :is(.dlbtn, .dl-note a) { letter-spacing: .02em; }
@@ -765,7 +765,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
   .plate .cap-title { margin-top: 12px; font-size: 30px; line-height: 34px; letter-spacing: .14em; }
   .plate .cap-ko { margin-top: 12px; font-size: 13px; line-height: 21px; letter-spacing: .2em; }
   .plate .cap-line { margin-top: 8px; font-size: 15px; line-height: 22px; }
-  .plate .cap-text { width: 100%; margin-top: 12px; max-width: none; font-size: 14px; line-height: 23px; }
+  .plate .cap-text { width: 100%; margin-top: 12px; max-width: none; font-size: 16.5px; line-height: 1.78; }
   .plate .cap-acts { margin-top: 16px; }
   .plate::before { display: none; } /* no rail on phones */
   /* the horizon rule becomes the top scrim that keeps the thread legible over bright art */
@@ -833,7 +833,7 @@ html:not([lang="ko"]) [data-philo="ko"], html:not([lang="ja"]) [data-philo="ja"]
   .philo { padding: calc(var(--mast-h) + 36px) var(--gutter) 64px; }
   .philo-langs { margin-bottom: 32px; }
   .philo-sec { margin-top: 56px; }
-  .philo-sec p { font-size: 15.5px; line-height: 1.8; }
+  .philo-sec p { font-size: 16.5px; line-height: 1.85; }
   .philo-sign { margin-top: 56px; }
 }
 
@@ -972,7 +972,7 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   height: 32px; padding: 0 12px; border-radius: 6px; border: 1px solid rgba(235, 229, 218, .12);
   background: #141416; color: #8a847a;
   font-size: 12px; font-weight: 500; letter-spacing: .01em; cursor: pointer;
-  transition: color .15s cubic-bezier(.22, 1, .36, 1), background-color .15s cubic-bezier(.22, 1, .36, 1), border-color .15s cubic-bezier(.22, 1, .36, 1);
+  transition: color var(--dur-1) var(--ease-ui), background-color var(--dur-1) var(--ease-ui), border-color var(--dur-1) var(--ease-ui);
 }
 .lunviz .lv-tab:hover { color: var(--bone); border-color: rgba(235, 229, 218, .24); }
 .lunviz .lv-tab.is-on {
