@@ -1009,7 +1009,7 @@
       },
       art: [0, 1, 2, 3, 4, 5],
       panels: [
-        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 40%', posM: '18% 35%' },
+        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 40%', posM: '16% 35%' },
         { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', altJa: 'DOZE のイラスト: 水族館の窓を背に、夕焼けの教室に立つイェジ', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
         { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', altJa: 'ソアの水彩仕上げイラスト: 澄んだ水彩の質感と目元が際立つポートレート', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
         { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', altJa: 'イェジの水彩ポーズイラスト: 花とドレスの繊細な筆づかいが残る水彩画', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
@@ -1061,7 +1061,7 @@
       },
       art: [2, 0],
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
-      bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '68% 50%' },
+      bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
         { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: 'DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
         { kind: 'raw', src: 'assets/seonjam-02.webp', altKo: '선잠 DOZE 게임 타이틀 화면: 어두운 교실에서 교복 입은 소녀 다섯이 타이틀과 시작 메뉴 옆에 있는 모습', altJa: 'DOZE のタイトル画面: 暗い教室で、制服姿の少女5人がタイトルとスタートメニューの横に並ぶ', alt: '선잠 DOZE in-game title screen: five girls in school uniform in a dark classroom beside the title and the start menu', pos: '50% 50%', posM: '12% 50%', lift: 0 },
@@ -1110,7 +1110,7 @@
       },
       art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'art', src: 'assets/ryokan_kv7_D.webp', altKo: 'Donguri Ryokan 키 아트: 비 오는 저녁, 빨간 우산을 든 여우 소녀가 불 켜진 료칸 입구 앞에 서 있고 두 여우 자매가 뒤에서 지켜보는 모습', altJa: 'Donguri Ryokan のキーアート: 雨の夕暮れ、赤い傘を差した狐の少女が灯りのともる旅館の入口に立ち、二人の狐の姉妹が後ろで見守る', alt: 'Donguri Ryokan key art: on a rainy evening a fox girl with a red umbrella stands before the lit inn entrance while her two fox sisters look on', pos: '50% 30%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/ryokan_kv7_D.webp', altKo: 'Donguri Ryokan 키 아트: 비 오는 저녁, 빨간 우산을 든 여우 소녀가 불 켜진 료칸 입구 앞에 서 있고 두 여우 자매가 뒤에서 지켜보는 모습', altJa: 'Donguri Ryokan のキーアート: 雨の夕暮れ、赤い傘を差した狐の少女が灯りのともる旅館の入口に立ち、二人の狐の姉妹が後ろで見守る', alt: 'Donguri Ryokan key art: on a rainy evening a fox girl with a red umbrella stands before the lit inn entrance while her two fox sisters look on', pos: '50% 30%', posM: '37% 50%' },
         { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 山の神社の三柱の狐神が、狸のコガネを前に借用書へ判を押す', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
         { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 日の差す旅館の中庭で、狐の三姉妹がお茶とチェックリストを手にお客さんを出迎える', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
         { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', altJa: 'Donguri Ryokan のコンセプトアート: 厨房で酒を注ぎ、夕食のコース料理を盛りつける狐の姉妹', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
