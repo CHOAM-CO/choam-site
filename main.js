@@ -1276,6 +1276,7 @@
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
         <h2 class="nav-group-title" id="nav-about-title">About</h2>
         <ul class="nav-row nav-row-primary"><li><a class="nav-entry" href="${url('philosophy')}"${body.dataset.page === 'philosophy' ? ' aria-current="page"' : ''} data-nav-philosophy></a></li><li><a class="nav-entry" href="${url('us')}"${body.dataset.page === 'us' ? ' aria-current="page"' : ''} data-nav-us></a></li></ul>
+        <ul class="nav-row"><li><a class="nav-entry" href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a></li><li><a class="nav-entry" href="mailto:mino@choam.studio" data-nav-contact></a></li></ul>
       </section>
     </div>`;
   mast.insertBefore(siteNav, picker);
@@ -1339,6 +1340,7 @@
     siteNav.setAttribute('aria-label', L('Main navigation', '주요 탐색', 'メインナビゲーション'));
     siteNav.querySelector('[data-nav-philosophy]').textContent = L('Philosophy', '철학', '哲学');
     siteNav.querySelector('[data-nav-us]').textContent = L('Us', '팀', 'チーム');
+    siteNav.querySelector('[data-nav-contact]').textContent = L('Contact', '문의', 'お問い合わせ');
     siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = L('Coming soon', '준비 중', '準備中'); });
     siteNav.querySelectorAll('[data-nav-name]').forEach(el => {
       const p = PROJECTS.find(p => p.id === el.dataset.navName);
