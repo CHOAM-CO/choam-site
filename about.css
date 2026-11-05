@@ -57,17 +57,16 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
 /* the plate stays grey in every state: the tile art is a stand-in until a real portrait exists, and lifting the
    grayscale put its raw #FE0000 plate on screen on hover. A hover only lifts the brightness a little. */
 .us-page .portrait:hover .portrait-media, .us-page .portrait:focus-visible .portrait-media, .us-page .portrait.is-selected .portrait-media { filter: grayscale(1) brightness(1.25); }
-/* Names sit on the tile at rest, not on hover: a people page has to name its people before anyone points at them. */
-.us-page .portrait-label { position: absolute; bottom: 28px; left: 26px; right: 12px; z-index: 3; font-size: clamp(26px, 3.8vw, 52px); font-weight: 750; line-height: .92; letter-spacing: -.045em; transition: color var(--dur-2) var(--ease-ui); text-shadow: 0 2px 16px rgba(0,0,0,.4); }
+/* The tiles are the CHOAM 01/02/03 artwork alone at rest (the original interaction): the name fades up on hover,
+   keyboard focus or a selection. Touch keeps .is-selected from about.js, so one tap still shows the name. */
+.us-page .portrait-label { position: absolute; bottom: 28px; left: 26px; right: 12px; z-index: 3; font-size: clamp(26px, 3.8vw, 52px); font-weight: 750; line-height: .92; letter-spacing: -.045em; opacity: 0; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease, color var(--dur-2) var(--ease-ui); text-shadow: 0 2px 16px rgba(0,0,0,.4); }
 .us-page .portrait-eunho .portrait-label { left: calc(var(--cut) + 14px); }
 .us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 17px); }
 .us-page .portrait-name { display: inline-block; font-size: clamp(28px, 2.5vw, 36px); white-space: nowrap; }
 .us-page .portrait-name > span, .us-page .name-letter { display: inline-block; backface-visibility: hidden; }
 .us-page .name-word { display: inline-block; white-space: nowrap; }
-.us-page .portrait-role { display: block; margin-top: 10px; font-size: 13px; font-weight: 500; line-height: 1.3; letter-spacing: .02em; color: var(--ash); white-space: nowrap; }
 .us-page .portrait-label small { display: block; margin-top: 11px; font-size: 11px; font-weight: 550; line-height: 1.25; letter-spacing: .05em; color: var(--bone); }
-.us-page .portrait:hover .portrait-label, .us-page .portrait:focus-visible .portrait-label, .us-page .portrait.is-selected .portrait-label { color: var(--ember); }
-.us-page .portrait:hover .portrait-role, .us-page .portrait:focus-visible .portrait-role, .us-page .portrait.is-selected .portrait-role { color: var(--bone); }
+.us-page .portrait:hover .portrait-label, .us-page .portrait:focus-visible .portrait-label, .us-page .portrait.is-selected .portrait-label { opacity: 1; transform: translateY(0); color: var(--ember); }
 
 /* profile pages: a longer read, so the footer follows the text instead of sitting fixed over it */
 .us-page.us-profile .dl-foot { position: relative; inset: auto; z-index: 1; }
@@ -119,7 +118,6 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
   .us-page .portrait-label { left: 9px; bottom: 22px; right: 4px; font-size: clamp(15.333333px, 4.666667vw, 22px); line-height: .94; letter-spacing: -.05em; }
   .us-page .portrait-eunho .portrait-label, .us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 4px); }
   .us-page .portrait-name { font-size: clamp(14px, 4.2vw, 17px); letter-spacing: -.02em; }
-  .us-page .portrait-role { margin-top: 6px; font-size: 9.5px; letter-spacing: 0; }
   .us-page .portrait-label small { font-size: 9px; letter-spacing: 0; margin-top: 7px; }
   .us-page .profile-back { margin-bottom: 18px; }
   .us-page.us-profile .us-frame { padding-bottom: 56px; }
