@@ -436,9 +436,6 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   .dat-zoom { gap: 10px; }
 }
 
-/* chrome used by the old horizontal deck: not part of this layout */
-.action, .segs, .pager { display: none !important; }
-
 /* ---------- download page: same plate, same column ---------- */
 body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(--night); }
 .dl { position: relative; min-height: 100vh; min-height: 100dvh; }
