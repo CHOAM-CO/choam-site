@@ -629,7 +629,7 @@
       ],
       ko: {
         status: '자체 하우스 캐릭터 모델',
-        headline: '[성깔] 있는 House Model',
+        headline: '성깔 있는 House Model',
         summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 하우스 모델입니다. 수제 데이터 큐레이팅과 자체 포스트 트레이닝 레시피로 빚어낸 10B 미만의 가벼운 모델로, 유창한 한국어로 끝까지 자기 성깔대로 말합니다.',
         description: [
           [
@@ -648,7 +648,7 @@
       },
       ja: {
         status: '自社ハウスキャラクターモデル',
-        headline: '[気性]のある House Model',
+        headline: '気性のある House Model',
         summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のハウスモデルです。手作業のデータキュレーションと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、流暢な韓国語で最後まで自分の気性のまま話します。',
         description: [
           [
@@ -1692,7 +1692,7 @@
         labelSub(el.querySelector('.cap-ko'), p);
         links[i + 1].querySelector('span').textContent = nameOf(p);
         const st = el.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
-        el.querySelector('.cap-line').innerHTML = esc(tr(p, 'headline')).replace(/(\[성깔\]|\[気性\]|\bATTITUDE\b)/g, '<u class="hl-em">$1</u>');
+        el.querySelector('.cap-line').innerHTML = esc(tr(p, 'headline')).replace(/(성깔|気性|\bATTITUDE\b)/g, '<u class="hl-em">$1</u>');
         el.querySelector('.cap-text').textContent = lineOf(p);
         const more = el.querySelector('.plate-more');
         more.textContent = L('Explore', '자세히 보기', '詳しく見る');
@@ -2191,7 +2191,7 @@
     const st = sec.querySelector('[data-status]'); if (st) st.textContent = tr(p, 'status');
     const tt = sec.querySelector('.cap-title'); (tt.querySelector('a') || tt).textContent = T;
     labelSub(sec.querySelector('.cap-ko'), p);
-    sec.querySelector('.cap-line').innerHTML = esc(tr(p, 'headline')).replace(/(\[성깔\]|\[気性\]|\bATTITUDE\b)/g, '<u class="hl-em">$1</u>');
+    sec.querySelector('.cap-line').innerHTML = esc(tr(p, 'headline')).replace(/(성깔|気性|\bATTITUDE\b)/g, '<u class="hl-em">$1</u>');
     set('[data-rail]', 'aria-label', L(`${T}, ${ps.length} paragraph${ps.length > 1 ? 's' : ''}`, `${T}, 문단 ${ps.length}개`, `${T}、${ps.length}段落`));
     const unit = p.reel ? L('artwork', '작품', '作品') : L('paragraph', '문단', '段落');
     sec.querySelectorAll('.slide').forEach((s, k) => {
