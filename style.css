@@ -1123,3 +1123,15 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
 .no-js .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) calc(var(--deck-h) + 48px); max-width: 40em; }
 .no-js .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; }
 .no-js .ns p { margin-top: 16px; color: var(--ink-body); }
+
+/* ---------- tap targets ----------
+   Measured at 390px: the brand link was 20px tall, the rail's Prev / Next 40px, the dots 18-22px wide and the
+   pipeline switch 40px. WCAG 2.5.8 asks for 24px and the brief for 44; pad the boxes to 44 and keep the ink where
+   it was (the brand takes negative margin so the masthead does not move). */
+.mast .brand { padding-block: 12px; margin-block: -12px; }
+.dot { width: 24px; height: 44px; }
+@media (max-width: 760px) {
+  .text-btn { height: 44px; }
+  .rail-ctl { min-height: 44px; }
+  .dat-pipes button { height: 44px; }
+}

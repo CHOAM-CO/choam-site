@@ -78,7 +78,7 @@
 
 @media (max-width: 760px) {
   .dat-pipes { gap: 22px; margin-top: 12px; }
-  .dat-pipes button { height: 40px; font-size: 12.5px; letter-spacing: .04em; }
+  .dat-pipes button { height: 44px; font-size: 12.5px; letter-spacing: .04em; }
   #dat .rail, #dat.dat-comparing .rail { margin-top: 10px; }
   /* the switch makes the copy taller (most on 320px JA): the veil starts above wherever the copy now begins */
   #dat .prod-veil { background: linear-gradient(to bottom, rgba(5, 5, 6, 0) calc(var(--copy-top, 52%) - 140px), rgba(5, 5, 6, .86) calc(var(--copy-top, 52%) + 24px), rgba(5, 5, 6, .96) 100%); }
