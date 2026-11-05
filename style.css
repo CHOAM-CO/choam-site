@@ -582,12 +582,15 @@ body:not(.at-top) .plate::before { opacity: 1; }
    image fits by width and keeps its full width; at 390x844 it is 390x728. */
 .plate .art { position: absolute; top: var(--mast-h); left: 0; width: 100%; height: calc(100% - var(--mast-h) - var(--deck-h)); object-fit: cover; object-position: var(--pos, 50% 42%); user-select: none; -webkit-user-drag: none; }
 @media (max-aspect-ratio: 4/5) { .plate .art { object-position: var(--pos-m, var(--pos, 50% 42%)); } }
-.plate .scrim { position: absolute; inset: 0; pointer-events: none;
+/* The scene's veil, ported from Main.dc.html: the same three layers, in the same order, on the same box.
+   The mock's plate *is* the art window between masthead and deck, so the gradients are inset to that window
+   here too; the % stops otherwise land on different pixels. The rail scrim stays on .plate::before (it is
+   the mock's .scrim-rail, same stops), so nothing extra is layered on the left edge. */
+.plate .scrim { position: absolute; top: var(--mast-h); bottom: var(--deck-h); left: 0; right: 0; pointer-events: none;
   background:
-    radial-gradient(78% 100% at 100% 100%, rgba(5, 5, 6, .93) 0%, rgba(5, 5, 6, .84) 42%, rgba(5, 5, 6, .4) 72%, rgba(5, 5, 6, 0) 100%),
-    radial-gradient(36% 74% at 0% 50%, rgba(5, 5, 6, .66) 0%, rgba(5, 5, 6, .32) 52%, rgba(5, 5, 6, 0) 100%),
-    linear-gradient(to top, rgba(5, 5, 6, .6) 0%, rgba(5, 5, 6, 0) 26%),
-    radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%); }
+    radial-gradient(118% 108% at 100% 100%, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .88) 38%, rgba(5, 5, 6, .54) 62%, rgba(5, 5, 6, 0) 82%),
+    linear-gradient(to top, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .86) 26%, rgba(5, 5, 6, .4) 55%, rgba(5, 5, 6, 0) 80%),
+    radial-gradient(120% 92% at 50% 42%, rgba(5, 5, 6, 0) 54%, rgba(5, 5, 6, .4) 100%); }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .plate .art, .plate .figure img { transition: transform 1.1s var(--slow); }
   .plate:hover .art, .plate:hover .figure img { transform: scale(1.04); }
@@ -657,7 +660,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .cmp-tag-a { right: 16px; color: var(--bone); border-color: var(--accent-dim); }
 .cmp-range { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; margin: 0; padding: 0; opacity: 0; cursor: col-resize; -webkit-appearance: none; appearance: none; background: transparent; }
 .cmp-range::-webkit-slider-thumb { -webkit-appearance: none; width: 1px; height: 100%; }
-.compare .scrim { background:
+.compare .scrim { inset: 0; background:
   linear-gradient(to top, rgba(5, 5, 6, .38) 0%, rgba(5, 5, 6, 0) 20%),
   linear-gradient(to bottom, rgba(5, 5, 6, .32) 0%, rgba(5, 5, 6, 0) 16%); }
 /* caption: one fixed slab at the right edge (Main.dc.html). Every plate puts its meta, title,
@@ -772,8 +775,11 @@ body:not(.at-top) .plate::before { opacity: 1; }
   .plate .cap-text { width: 100%; margin-top: 12px; max-width: none; font-size: 16.5px; line-height: 1.78; }
   .plate .cap-acts { margin-top: 16px; }
   .plate::before { display: none; } /* no rail on phones */
-  /* the horizon rule becomes the top scrim that keeps the thread legible over bright art */
+  /* Home-Mobile.dc.html: the band under the masthead keeps the thread legible (108px), the scene sits under
+     one bottom veil. On an art plate the band starts where the picture starts (the mock's plate is the art
+     window); the emblem plates have no picture, so their band stays where it was. */
   .plate::after { display: block; right: 0; bottom: auto; top: 0; height: 108px; background: linear-gradient(to bottom, rgba(5, 5, 6, .75) 0%, rgba(5, 5, 6, .55) 58px, rgba(5, 5, 6, 0) 108px); }
+  .plate:has(img.art)::after { top: var(--mast-h); }
   .plate .figure { bottom: 60%; height: min(38vh, 62vw); left: 50%; }
   .plate:has(.get-menu:not([hidden])) .figure { bottom: calc(100% - var(--copy-top) + 16px); height: min(38vh, 62vw, max(0px, calc(var(--copy-top) - var(--mast-h) - 32px))); }
   /* Keep the art on the original viewport horizon; copy and chooser grow below it. */
@@ -796,7 +802,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
   .compare-stage { left: var(--gutter); right: var(--gutter); top: calc(var(--mast-h) + 14px); bottom: 50%; border-radius: 10px; }
   .flip-next { right: calc(var(--gutter) + 6px); top: 32%; }
   .flip-prev { left: calc(var(--gutter) + 6px); top: 32%; }
-  .plate .scrim { background: linear-gradient(to top, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .86) 46%, rgba(5, 5, 6, 0) 74%); }
+  .plate .scrim { background: linear-gradient(to top, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .86) 38%, rgba(5, 5, 6, .35) 62%, rgba(5, 5, 6, 0) 80%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .plate .art, .plate .figure, .plate .plate-cast, .plate .compare { opacity: 1; }
