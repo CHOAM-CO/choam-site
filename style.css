@@ -484,7 +484,8 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .next-ch { min-height: 44px; align-items: center; padding: 6px 0 6px 12px; gap: 8px; }
   .next-ch small { font-size: 11px; letter-spacing: .08em; }
   .next-ch span { font-size: 12px; letter-spacing: .08em; }
-  .foot { display: none; }
+  .deck:not(.dl-foot) .foot { display: none; } /* the landing deck keeps one line; .dl-foot pages keep Contact and © */
+  .deck.dl-foot .foot { white-space: normal; flex-wrap: wrap; gap: 6px 18px; } /* people pages carry GitHub too: wrap inside 58px instead of pushing the bar wide */
   .intro-title { top: calc(var(--mast-h) + (100% - var(--mast-h) - var(--deck-h)) * .17); }
   .intro-wm { font-size: 15.5vw; letter-spacing: .26em; margin-right: -.26em; }
   .intro-wm span { filter: none !important; -webkit-filter: none !important; }
@@ -1026,11 +1027,13 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
    The paragraph becomes a document section here (the DAT mobile pattern): the record needs more
    height than the half-screen visual slot, so the section scrolls instead of clipping the copy. */
 @media (max-width: 760px) {
-  #lunasia { height: auto; min-height: 100dvh; }
-  #lunasia .stage { position: relative; padding-top: calc(var(--mast-h) + 12px); padding-bottom: 8px; }
-  #lunasia .vis { position: relative; inset: auto; width: auto; height: auto; margin: 0 var(--gutter); container-type: normal; }
-  #lunasia .vis:not(.is-on) { display: none; } /* the inactive paragraphs no longer stack under the live one */
-  #lunasia .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 24px 0 calc(var(--deck-h) + 24px); }
+  /* .prod#lunasia is the project page only: the home plate is <article id="lunasia"> and must keep the
+     shared .plate .stage absolutely filling the plate. */
+  .prod#lunasia { height: auto; min-height: 100dvh; }
+  .prod#lunasia .stage { position: relative; padding-top: calc(var(--mast-h) + 12px); padding-bottom: 8px; }
+  .prod#lunasia .vis { position: relative; inset: auto; width: auto; height: auto; margin: 0 var(--gutter); container-type: normal; }
+  .prod#lunasia .vis:not(.is-on) { display: none; } /* the inactive paragraphs no longer stack under the live one */
+  .prod#lunasia .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 24px 0 calc(var(--deck-h) + 24px); }
   .lunviz .lv { width: 100%; height: auto; aspect-ratio: auto; align-self: stretch; gap: 18px; padding: 0; justify-content: flex-start; }
   .lunviz .lv-head { flex-wrap: wrap; gap: 10px; padding-bottom: 10px; }
   .lunviz .lv-title { font-size: 14px; }
