@@ -41,13 +41,13 @@
     radial-gradient(130% 100% at 40% 45%, rgba(5, 5, 6, 0) 62%, rgba(5, 5, 6, .45) 100%);
 }
 /* BEFORE / AFTER pills at the two ends of the plate; one steps aside when the line reaches it (main.js paintSplit) */
-#dat .dat-side { z-index: 2; top: calc(var(--mast-h) + 20px); padding: 6px 13px; border-radius: 999px; background: rgba(10, 12, 16, .78); border: 1px solid rgba(243, 242, 239, .16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-weight: 650; font-size: 10.5px; letter-spacing: .24em; color: var(--ash); transition: opacity .2s; }
+#dat .dat-side { z-index: 2; top: calc(var(--mast-h) + 20px); padding: 6px 13px; border-radius: 999px; background: rgba(10, 12, 16, .78); border: 1px solid rgba(235, 229, 218, .16); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-weight: 650; font-size: 10.5px; letter-spacing: .24em; color: var(--ash); transition: opacity .2s; }
 #dat .dat-before-tag { left: var(--gutter); }
-#dat .dat-after-tag { right: var(--gutter); color: var(--bone); border-color: rgba(196, 138, 71, .45); }
+#dat .dat-after-tag { right: var(--gutter); color: var(--bone); border-color: var(--accent-dim); }
 #dat .dat-side.dat-tag-off { opacity: 0; }
 /* the line, styled like the site's other compare (.cmp-line), runs between the bars */
-#dat .dat-divider { z-index: 2; top: var(--mast-h); bottom: var(--deck-h); width: 1.5px; margin-left: -.75px; background: rgba(243, 242, 239, .82); box-shadow: 0 0 12px rgba(0, 0, 0, .65); }
-#dat .dat-divider::after { content: '‹ ›'; left: calc(50% + var(--knob-dx, 0px)); top: var(--knob, 50%); transform: translate(-50%, -50%); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(14, 16, 20, .82); border: 1px solid rgba(243, 242, 239, .5); border-radius: 50%; font-size: 16px; line-height: 1; letter-spacing: 2px; color: var(--bone); box-shadow: 0 6px 20px rgba(0, 0, 0, .55); }
+#dat .dat-divider { z-index: 2; top: var(--mast-h); bottom: var(--deck-h); width: 1.5px; margin-left: -.75px; background: rgba(235, 229, 218, .82); box-shadow: 0 0 12px rgba(0, 0, 0, .65); }
+#dat .dat-divider::after { content: '‹ ›'; left: calc(50% + var(--knob-dx, 0px)); top: var(--knob, 50%); transform: translate(-50%, -50%); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(14, 16, 20, .82); border: 1px solid rgba(235, 229, 218, .5); border-radius: 50%; font-size: 16px; line-height: 1; letter-spacing: 2px; color: var(--bone); box-shadow: 0 6px 20px rgba(0, 0, 0, .55); }
 #dat .dat-inline:has([data-dat-range]:focus-visible) .dat-divider { width: 2px; background: var(--ember); }
 #dat .dat-inline:has([data-dat-range]:focus-visible) .dat-divider::after { border-color: var(--ember); }
 #dat .dat-spot { position: absolute; z-index: 2; border: 1px solid var(--ember); box-shadow: 0 0 0 1px rgba(5, 5, 6, .55); pointer-events: none; }
@@ -56,18 +56,18 @@
 /* controls: one small glass bar over the open span (scenes + details), the folded crops open above it */
 #dat .dat-hud { position: absolute; z-index: 3; left: var(--gutter); right: var(--vis-r); bottom: calc(var(--deck-h) + 40px); display: flex; flex-direction: column; align-items: flex-start; gap: 10px; pointer-events: none; }
 #dat .dat-hud > * { pointer-events: auto; }
-#dat .dat-bar { display: flex; flex-wrap: wrap; align-items: center; max-width: 100%; padding: 4px; border-radius: 22px; background: rgba(10, 12, 16, .74); border: 1px solid rgba(243, 242, 239, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+#dat .dat-bar { display: flex; flex-wrap: wrap; align-items: center; max-width: 100%; padding: 4px; border-radius: 22px; background: rgba(10, 12, 16, .74); border: 1px solid rgba(235, 229, 218, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 #dat .dat-cases { flex-wrap: nowrap; width: auto; gap: 2px; }
 #dat .dat-bar button { height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: none; font: inherit; font-weight: 600; font-size: 12px; letter-spacing: .04em; white-space: nowrap; color: var(--ash); cursor: pointer; transition: color .25s, background-color .25s; }
 #dat .dat-bar button:hover { color: var(--bone); }
 #dat .dat-cases button[aria-pressed="true"] { color: var(--bone); background: rgba(217, 163, 98, .2); }
 #dat .dat-more { position: relative; margin-left: 6px; }
-#dat .dat-more::before { content: ''; position: absolute; left: -4px; top: 9px; bottom: 9px; width: 1px; background: rgba(243, 242, 239, .18); }
+#dat .dat-more::before { content: ''; position: absolute; left: -4px; top: 9px; bottom: 9px; width: 1px; background: rgba(235, 229, 218, .18); }
 #dat .dat-more[aria-expanded="true"] { color: var(--bone); }
 #dat .dat-bar button:focus-visible { outline: 2px solid var(--ember); outline-offset: 1px; }
 /* the boundary's own keyboard control: unseen, its focus shows on the line */
 #dat .dat-range-label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-#dat .dat-panel { order: -1; width: min(100%, 560px); padding: 12px; background: rgba(10, 12, 16, .82); border: 1px solid rgba(243, 242, 239, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+#dat .dat-panel { order: -1; width: min(100%, 560px); padding: 12px; background: rgba(10, 12, 16, .82); border: 1px solid rgba(235, 229, 218, .14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 #dat .dat-panel[hidden] { display: none; }
 #dat.dat-drop .stage { z-index: 3; }
 #dat.dat-drop .dat-panel { position: absolute; left: 0; right: 0; top: calc(100% + 14px); width: auto; min-height: calc(100dvh - var(--copy-top, 52%) - var(--deck-h) - 8px); background: rgba(10, 12, 16, .97); }

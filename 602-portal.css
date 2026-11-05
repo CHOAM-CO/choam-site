@@ -1,7 +1,7 @@
 /* 602 Developer Portal (602/download.html & 602/docs.html), loaded after style.css. */
 :root {
   --p602-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
-  --p602-slate: #768cb6;
+  --p602-slate: var(--steel);
 }
 
 body.p602-page {
@@ -136,7 +136,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
   transition: color .2s, background .2s, border-color .2s;
 }
 .p602-cta:hover {
-  color: #faf7f0;
+  color: var(--bone);
   background: rgba(217, 163, 98, .18);
   border-color: var(--ember);
 }
@@ -319,7 +319,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
   padding-left: 16px;
   font-size: 13.5px;
   line-height: 1.62;
-  color: rgba(235, 229, 218, .86);
+  color: var(--ink-body);
 }
 .p602-hub-list > li + li {
   margin-top: 10px;
@@ -363,12 +363,12 @@ body:has(.mast.chrome-hidden) .p602-bar {
   content: none;
 }
 .p602-hub-btn:hover {
-  color: #faf7f0;
+  color: var(--bone);
   border-color: rgba(235, 229, 218, .72);
   background: rgba(235, 229, 218, .07);
 }
 .p602-hub-btn.is-primary {
-  color: #faf7f0;
+  color: var(--bone);
   background: rgba(217, 163, 98, .12);
   border-color: rgba(217, 163, 98, .68);
 }
@@ -410,7 +410,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
   margin-top: 1em;
   font-size: 15.5px;
   line-height: 1.78;
-  color: rgba(235, 229, 218, .86);
+  color: var(--ink-body);
 }
 .p602-sec :is(.p602-h1, .p602-h2) + p {
   margin-top: 16px;
@@ -470,7 +470,7 @@ body:has(.mast.chrome-hidden) .p602-bar {
   padding-left: 34px;
   font-size: 15px;
   line-height: 1.75;
-  color: rgba(235, 229, 218, .86);
+  color: var(--ink-body);
 }
 .p602-sec ol:not([class]) > li + li,
 .p602-callout ol:not([class]) > li + li,
@@ -577,7 +577,7 @@ table.p602-table th {
 table.p602-table td {
   padding: 11px 14px;
   border-top: 1px solid rgba(235, 229, 218, .1);
-  color: rgba(235, 229, 218, .86);
+  color: var(--ink-body);
   vertical-align: top;
 }
 table.p602-table tbody tr:first-child td {
@@ -1224,7 +1224,7 @@ input[data-doc-filter]:focus {
   transition: color .2s, border-color .2s, background .2s;
 }
 .p602-doc-chip:hover {
-  color: #faf7f0;
+  color: var(--bone);
   border-color: var(--ember);
   background: rgba(217, 163, 98, .12);
 }
