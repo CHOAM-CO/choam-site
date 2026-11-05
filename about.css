@@ -54,15 +54,20 @@ html[data-vt="eunho"] .us-page .portrait-mino { view-transition-name: mino-panel
 .us-page .profile-media.magi-shared-portrait, html[data-vt="magi"] .us-page .portrait-media.magi-shared-portrait { view-transition-name: magi-portrait; }
 html[data-vt="magi"] .us-page .portrait-magi, html[data-vt="magi"] .us-page .mino-shared-portrait { view-transition-name: none; }
 html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel; }
-.us-page .portrait:hover .portrait-media, .us-page .portrait:focus-visible .portrait-media, .us-page .portrait.is-selected .portrait-media { filter: grayscale(0) brightness(1); }
-.us-page .portrait-label { position: absolute; bottom: 28px; left: 26px; right: 12px; z-index: 3; font-size: clamp(26px, 3.8vw, 52px); font-weight: 750; line-height: .92; letter-spacing: -.045em; opacity: 0; transform: translateY(10px); transition: opacity .25s ease, transform .25s ease; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
+/* the plate stays grey in every state: the tile art is a stand-in until a real portrait exists, and lifting the
+   grayscale put its raw #FE0000 plate on screen on hover. A hover only lifts the brightness a little. */
+.us-page .portrait:hover .portrait-media, .us-page .portrait:focus-visible .portrait-media, .us-page .portrait.is-selected .portrait-media { filter: grayscale(1) brightness(1.25); }
+/* Names sit on the tile at rest, not on hover: a people page has to name its people before anyone points at them. */
+.us-page .portrait-label { position: absolute; bottom: 28px; left: 26px; right: 12px; z-index: 3; font-size: clamp(26px, 3.8vw, 52px); font-weight: 750; line-height: .92; letter-spacing: -.045em; transition: color .25s ease; text-shadow: 0 2px 16px rgba(0,0,0,.4); }
 .us-page .portrait-eunho .portrait-label { left: calc(var(--cut) + 14px); }
 .us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 17px); }
 .us-page .portrait-name { display: inline-block; font-size: clamp(28px, 2.5vw, 36px); white-space: nowrap; }
 .us-page .portrait-name > span, .us-page .name-letter { display: inline-block; backface-visibility: hidden; }
 .us-page .name-word { display: inline-block; white-space: nowrap; }
+.us-page .portrait-role { display: block; margin-top: 10px; font-size: 13px; font-weight: 500; line-height: 1.3; letter-spacing: .02em; color: var(--ash); white-space: nowrap; }
 .us-page .portrait-label small { display: block; margin-top: 11px; font-size: 11px; font-weight: 550; line-height: 1.25; letter-spacing: .05em; color: var(--bone); }
-.us-page .portrait:hover .portrait-label, .us-page .portrait:focus-visible .portrait-label, .us-page .portrait.is-selected .portrait-label { opacity: 1; transform: translateY(0); }
+.us-page .portrait:hover .portrait-label, .us-page .portrait:focus-visible .portrait-label, .us-page .portrait.is-selected .portrait-label { color: var(--ember); }
+.us-page .portrait:hover .portrait-role, .us-page .portrait:focus-visible .portrait-role, .us-page .portrait.is-selected .portrait-role { color: var(--bone); }
 
 /* profile pages: a longer read, so the footer follows the text instead of sitting fixed over it */
 .us-page.us-profile .dl-foot { position: relative; inset: auto; z-index: 1; }
@@ -76,7 +81,7 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
 .us-page .profile-media { position: absolute; inset: 0; display: block; overflow: hidden; clip-path: polygon(32px 0, calc(100% - 5px) 0, calc(100% - 47px) 100%, 0 100%); filter: grayscale(1) brightness(.78); transition: filter .4s ease; }
 .us-page .profile-media img { position: absolute; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 29% 20%; transform: scale(1.16); transform-origin: 29% 20%; }
 .us-page .profile-eunho .profile-media img { object-position: 83% 29%; transform: scale(1.13); transform-origin: 83% 29%; }
-.us-page .profile-portrait:hover .profile-media, .us-page .profile-portrait:focus-visible .profile-media { filter: grayscale(0) brightness(1); }
+.us-page .profile-portrait:hover .profile-media, .us-page .profile-portrait:focus-visible .profile-media { filter: grayscale(1) brightness(1.25); }
 .us-page .profile-portrait figcaption { position: absolute; z-index: 1; left: 24px; right: 40px; bottom: 20px; color: var(--bone); font-size: 9px; letter-spacing: .12em; }
 .us-page .profile-content { min-width: 0; }
 .us-page .profile-title { margin: 10px 0 28px; font-size: clamp(30px, 2.9vw, 46px); font-weight: 750; line-height: 1.2; letter-spacing: .02em; overflow-wrap: anywhere; }
@@ -113,7 +118,8 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
   .us-page .portrait-magi svg { width: 268%; top: -16%; left: 49%; }
   .us-page .portrait-label { left: 9px; bottom: 22px; right: 4px; font-size: clamp(15.333333px, 4.666667vw, 22px); line-height: .94; letter-spacing: -.05em; }
   .us-page .portrait-eunho .portrait-label, .us-page .portrait-magi .portrait-label { left: calc(var(--cut) + 4px); }
-  .us-page .portrait-name { font-size: clamp(6.5px, calc(4vw - 6.1px), 9.5px); }
+  .us-page .portrait-name { font-size: clamp(14px, 4.2vw, 17px); letter-spacing: -.02em; }
+  .us-page .portrait-role { margin-top: 6px; font-size: 9.5px; letter-spacing: 0; }
   .us-page .portrait-label small { font-size: 9px; letter-spacing: 0; margin-top: 7px; }
   .us-page .profile-back { margin-bottom: 18px; }
   .us-page.us-profile .us-frame { padding-bottom: 56px; }
@@ -129,8 +135,9 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
 }
 @media (max-width: 340px) { .us-page .us-lead-note { max-width: 65%; } .us-page .portrait-label { font-size: 14.666667px; } }
 /* Typographic portraits (SEELE "SOUND ONLY" parody, Mino 2026-10-27 22:28/22:31): assets/about/choam-0N-*.svg, a 728x455 black frame whose
-   four red lines (CHOAM / number / TEXT / ONLY) occupy x 242-486, y 66-410 (block centre 50% / 52.3% of the frame). Grayscale at rest,
-   #FE0000 on hover/focus/selection; no other photo treatment (no brightness dim, gradients, masks, pan or overscale). On /us the three cards size from
+   four red lines (CHOAM / number / TEXT / ONLY) occupy x 242-486, y 66-410 (block centre 50% / 52.3% of the frame). Grayscale in every
+   state as of the 2026-11-05 audit: the hover/focus/selection lift used to show the raw #FE0000 plate, so it now only lifts brightness.
+   Real portraits remain a separate asset task; until then the tile is honest about being type only. On /us the three cards size from
    the gallery (one size container), so all three share one scale and one row baseline; each block is centred in its own slanted column
    at the block's centre height (--yc), and ONLY ends above the name label. */
 .us-page .gallery:has(img.type-portrait) { container-type: size; --yc: .44; --fit-k: .78; --fit-hf: .64; }
@@ -144,7 +151,7 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
 .us-page .gallery:has(img.type-portrait) :is(.portrait-eunho, .portrait-eunho .portrait-media) { clip-path: polygon(calc(var(--cut) + var(--seam-gap)) 0, calc(100% - var(--seam-gap)) 0, calc(100% - var(--cut) - var(--seam-gap)) 100%, var(--seam-gap) 100%); }
 .us-page .gallery:has(img.type-portrait) :is(.portrait-magi, .portrait-magi .portrait-media) { clip-path: polygon(calc(var(--cut) + var(--seam-gap)) 0, 100% 0, 100% 100%, var(--seam-gap) 100%); }
 .us-page .profile-media:has(> img.type-portrait) { container-type: size; }
-.us-page :is(.portrait-media, .profile-media):has(> img.type-portrait) { background: #000; filter: grayscale(1); } /* gray at rest; the existing hover/focus/selected rules set grayscale(0), via the .4s filter transition (Mino 22:51) */
+.us-page :is(.portrait-media, .profile-media):has(> img.type-portrait) { background: #000; filter: grayscale(1); } /* gray in every state; hover only lifts brightness, see the portrait rules above */
 .us-page .portrait .portrait-media:has(> img.type-portrait)::before, .us-page .portrait .portrait-media:has(> img.type-portrait)::after, .us-page .profile-portrait:has(img.type-portrait)::after { content: none; }
 .us-page .portrait .portrait-media img.type-portrait, .us-page .profile-portrait .profile-media img.type-portrait {
   height: auto; max-width: none; object-fit: fill; transform: translate(-50%, -52.3%); transform-origin: 50% 50%; -webkit-mask-image: none; mask-image: none; }

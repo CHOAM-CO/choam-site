@@ -1188,7 +1188,10 @@
     ['.dlbtn[data-os="win"] small', '', '설치 파일', 'インストーラー'],
     ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다', 'Claude・ChatGPT のサブスクや Ollama のモデルをつないで使えます。頭脳を替えても記憶は残ります。'],
     ['.dl-note [data-dl-guide]', '', '설치 방법', 'インストール方法'],
-    ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
+    ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース'],
+    ['.portrait-mino .portrait-role', '', '대표이사', '代表取締役'],
+    ['.portrait-eunho .portrait-role', '', '공동창업자 · CAIO', '共同創業者・CAIO'],
+    ['.portrait-magi .portrait-role', '', 'CEO 스태프', 'CEO スタッフ']
   ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
   const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade 설치 방법 | CHOAM',
     'Download 602 | CHOAM': '602 다운로드 | CHOAM', '602 Documentation | CHOAM': '602 도큐멘테이션 | CHOAM',
