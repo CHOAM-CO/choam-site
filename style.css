@@ -1102,3 +1102,24 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
 :lang(ja) .slide p { letter-spacing: 0; }
 :lang(ja) .prod-act { text-indent: .08em; }
 :lang(ja) .philo-title, :lang(ja) .philo-h { letter-spacing: .02em; }
+
+/* ---------- no script (html.no-js, taken off by the inline head script) ----------
+   The document alone has to stand. The landing's six cards keep the caption structure the script draws and read as
+   one vertical list; controls only script can drive (the project menu, the next-chapter link) step out; a project
+   page shows the written fallback its own <noscript> block carries. These rules used to be a <style> inside
+   <noscript> on eight pages, each written slightly differently. */
+.no-js body { overflow: auto; }
+.no-js .menu-btn, .no-js .next-ch { display: none; }
+.no-js #projects { display: block; padding: calc(var(--mast-h) + 32px) var(--gutter) calc(var(--deck-h) + 48px); }
+.no-js #projects .plate { position: static; height: auto; min-height: 0; margin: 0; padding: 28px 0 0; overflow: visible; background: none; border-top: 1px solid var(--line); }
+.no-js #projects .plate:first-child { padding-top: 0; border-top: 0; }
+.no-js #projects .plate::before, .no-js #projects .plate::after { display: none; }
+.no-js #projects .caption,
+.no-js #projects :is(.cap-meta, .cap-title, .cap-line, .cap-text, .cap-acts) { position: static; left: auto; top: auto; right: auto; bottom: auto; width: auto; height: auto; }
+.no-js #projects .cap-title { margin-top: 12px; font-size: clamp(24px, 3.4vw, 32px); }
+.no-js #projects .cap-line { margin-top: 12px; }
+.no-js #projects .cap-text { max-width: 38em; margin-top: 12px; color: var(--ink-body); }
+.no-js #projects .cap-acts { margin-top: 20px; }
+.no-js .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) calc(var(--deck-h) + 48px); max-width: 40em; }
+.no-js .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; }
+.no-js .ns p { margin-top: 16px; color: var(--ink-body); }

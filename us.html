@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <!-- A human greeting for visiting agents: /llms.txt -->
 <meta charset="utf-8">
@@ -7,7 +7,7 @@
 <title>Us | CHOAM</title>
 <meta name="description" content="The people behind CHOAM: MINO (Minho Jang), CAYDE (Eunho Jung) and MAGI.">
 <link rel="icon" href="assets/mark.svg">
-<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="about.css">
@@ -23,7 +23,6 @@
   addEventListener('pagereveal', () => mark(window.navigation?.activation?.from?.url));
 })();
 </script>
-<noscript><style>.us-page .portrait-label { opacity: 1 !important; transform: none !important; }</style></noscript>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body class="us-page" data-page="us">

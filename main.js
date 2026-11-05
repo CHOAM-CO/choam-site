@@ -1324,7 +1324,6 @@
     navOpeners.forEach(a => a.setAttribute('aria-expanded', String(navOpen === a.dataset.navOpen)));
     positionMenu();
     if (focusBtn && previous) siteNav.querySelector(`[data-nav-toggle="${previous}"]`).focus();
-    wake();
   }
   navToggles.forEach(t => t.addEventListener('click', () => setMenu(navOpen === t.dataset.navToggle ? false : t.dataset.navToggle)));
   siteNav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
@@ -1548,18 +1547,6 @@
   document.addEventListener('click', e => { if (getOpen && !getOpen.contains(e.target)) setGet(getOpen, false); });
   applyLang(lang, false);
 
-  let idle = 0;
-  function wake() {
-    if (!track) return;
-    body.classList.remove('is-clear');
-    clearTimeout(idle);
-    if (!body.classList.contains('is-raw') || body.classList.contains('menu-open')) return;
-    idle = setTimeout(() => {
-      const a = document.activeElement;
-      if (a && a.closest('.chrome') && a.matches(':focus-visible')) return;
-      body.classList.add('is-clear'); /* the Get / Play action is outside .chrome and stays */
-    }, 1600);
-  }
   if (!track) return;
 
   /* ---------- vertical product sections, each with a horizontal paragraph rail ---------- */
@@ -1581,12 +1568,6 @@
       return lang !== 'en' ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
     };
     const altOf = o => pick(o, 'alt');
-    const actHTML = p => {
-      const act = p.action;
-      if (!act) return '';
-      return act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
-        : `<a class="prod-act" href="${url(act.href)}"${/^https?:/.test(act.href) ? ' target="_blank" rel="noopener"' : ''}></a>`;
-    };
     const castOf = p => p.panels.find(s => s.kind === 'gallery');
     const pairOf = p => p.comparisons && p.comparisons[0]; /* the default pair the live DAT section opens on */
     const stageHTML = p => {
@@ -1624,19 +1605,31 @@
     };
     track.classList.add('plates');
     track.removeAttribute('aria-roledescription');
-    track.innerHTML = PROJECTS.map(p => `
-    <article class="plate" id="${p.id}" data-plate="${p.id}" aria-labelledby="t-${p.id}">
-      ${stageHTML(p)}
-      <div class="caption">
-        <p class="cap-meta"><span class="num">${numOf(p)} / ${pad(PROJECTS.length)}</span>${p.status ? '<span class="status" data-status></span>' : ''}</p>
-        <h2 class="cap-title" id="t-${p.id}"><a href="${pageOf(p)}">${esc(p.heading || p.title)}</a>${p.title_ko ? `<span class="cap-ko" lang="ko">${esc(p.title_ko)}</span>` : ''}</h2>
-        <p class="cap-line"></p>
-        <p class="cap-text"></p>
-        ${p.field === 'dat' ? '<div class="flip-tabs" data-flip-marks role="group"><button type="button" class="flip-pill is-on" data-flip-to="0"></button><button type="button" class="flip-pill" data-flip-to="1"></button></div>' : ''}
-        <div class="cap-acts"><a class="plate-more" href="${pageOf(p)}"></a>${actHTML(p)}</div>
-      </div>
-    </article>`).join('');
-    const plates = [...track.querySelectorAll('.plate')];
+    /* The landing is a document first: index.html writes each card's caption out in full, so a crawler and a
+       reader without script see the caption this script draws. Add only what a document cannot hold (the
+       artwork, the OS chooser, DAT's two-view switch); label() below fills every caption from PROJECTS in the
+       current language. */
+    PROJECTS.forEach(p => {
+      const el = document.getElementById(p.id);
+      if (!el) return;
+      const cap = el.querySelector('.caption');
+      if (!el.querySelector('.stage')) el.insertAdjacentHTML('afterbegin', stageHTML(p));
+      const act = cap.querySelector('.prod-act');
+      if (act && p.action && p.action.os && !act.closest('.get-wrap')) {
+        const wrap = document.createElement('span');
+        wrap.className = 'get-wrap';
+        act.replaceWith(wrap);
+        wrap.appendChild(act);
+        act.setAttribute('aria-expanded', 'false');
+        act.setAttribute('aria-controls', `get-${p.id}`);
+        wrap.insertAdjacentHTML('beforeend', getMenuHTML(p.id));
+      }
+      if (p.field === 'dat' && !cap.querySelector('[data-flip-marks]')) {
+        cap.querySelector('.cap-acts').insertAdjacentHTML('beforebegin',
+          '<div class="flip-tabs" data-flip-marks role="group"><button type="button" class="flip-pill is-on" data-flip-to="0"></button><button type="button" class="flip-pill" data-flip-to="1"></button></div>');
+      }
+    });
+    const plates = PROJECTS.map(p => document.getElementById(p.id)).filter(Boolean);
     track.querySelectorAll('.get-wrap').forEach(wireGet);
     /* Expanding the in-flow chooser lifts the caption; keep its mobile artwork above the copy too. */
     const getPlates = plates.filter(el => el.querySelector('.get-menu'));

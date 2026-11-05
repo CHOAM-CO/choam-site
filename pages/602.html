@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -41,11 +41,10 @@
   "inLanguage": ["ko", "en", "ja"]
 }
 </script>
-<script>(function(){try{var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
+<script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../six-o-two.css">
-<noscript><style>body { overflow: auto; } .deck, .menu-btn { display: none; } .ns { padding: calc(var(--mast-h) + 32px) var(--gutter) 48px; max-width: 40em; } .ns h2 { font-weight: 850; font-size: 40px; text-transform: uppercase; } .ns p { margin-top: 16px; color: var(--ink-body); }</style></noscript>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body data-project="602">
@@ -63,7 +62,7 @@
   <p>MINO</p>
 </div>
 <h1 class="sr-only">602</h1>
-<header class="mast chrome">
+<header class="mast">
   <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
   <p class="motto">Culture must flow</p>
   <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
@@ -82,7 +81,7 @@
   </div>
 </noscript>
 
-<div class="deck chrome">
+<div class="deck">
   <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
   <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
   <a class="next-ch" data-next-chapter href="#"><small data-next-label>Next</small><span data-next-title></span></a>
