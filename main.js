@@ -1607,8 +1607,7 @@
     track.removeAttribute('aria-roledescription');
     /* The landing is a document first: index.html writes each card's caption out in full, so a crawler and a
        reader without script see the caption this script draws. Add only what a document cannot hold (the
-       artwork, the OS chooser, DAT's two-view switch); label() below fills every caption from PROJECTS in the
-       current language. */
+       artwork, the OS chooser); label() below fills every caption from PROJECTS in the current language. */
     PROJECTS.forEach(p => {
       const el = document.getElementById(p.id);
       if (!el) return;
@@ -1624,10 +1623,10 @@
         act.setAttribute('aria-controls', `get-${p.id}`);
         wrap.insertAdjacentHTML('beforeend', getMenuHTML(p.id));
       }
-      if (p.field === 'dat' && !cap.querySelector('[data-flip-marks]')) {
-        cap.querySelector('.cap-acts').insertAdjacentHTML('beforebegin',
-          '<div class="flip-tabs" data-flip-marks role="group"><button type="button" class="flip-pill is-on" data-flip-to="0"></button><button type="button" class="flip-pill" data-flip-to="1"></button></div>');
-      }
+      /* No landing view switch: DAT's landing plate is a single .art image (PROJECTS.dat has no field, so
+         stageHTML never builds the old .flip stage either). Pills injected into the fixed caption slab would
+         have to flow at the top of a 424px absolutely laid out caption; they are not part of the design
+         (Main.dc.html), so nothing is inserted here. */
     });
     const plates = PROJECTS.map(p => document.getElementById(p.id)).filter(Boolean);
     track.querySelectorAll('.get-wrap').forEach(wireGet);
