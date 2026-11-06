@@ -453,7 +453,7 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
 /* ---------- download page: same plate, same column ---------- */
 body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(--night); }
 .dl { position: relative; min-height: 100vh; min-height: 100dvh; }
-.dl .sch-field { position: fixed; }
+.dl .sch-field { position: fixed; inset: 0; pointer-events: none; } /* the icon's box: without a size the app icon drew at 0 x 0 (since the r6 site) */
 .sch-icon { position: absolute; left: calc(var(--gutter) + 6vw); top: var(--horizon); width: min(30vh, 22vw); height: auto; aspect-ratio: 1 / 1; transform: translateY(-62%); user-select: none; filter: drop-shadow(0 30px 80px rgba(0, 0, 0, .6)); }
 .dl-body { position: relative; z-index: 1; margin-left: 52vw; padding: calc(var(--mast-h) + 48px) var(--gutter) 120px 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; }
 .dl-body .cap-title { margin-top: 18px; }
@@ -462,6 +462,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 .dlbtn small { font-size: 10px; font-weight: 600; letter-spacing: .16em; opacity: .7; }
 .dlbtn:hover { background: var(--bone); color: var(--void); }
 .dlbtn.is-rec { border-color: var(--bone); }
+.dlbtn[hidden], .dl .dlbtn[hidden] { display: none; }
 .dlbtn:hover .os-rec { color: inherit; }
 .dl-note { margin-top: 24px; max-width: 34em; font-size: 15px; line-height: 1.7; color: var(--ash); }
 .dl-note a { display: block; width: fit-content; margin-top: .9em; color: var(--bone); font-weight: 650; text-transform: uppercase; letter-spacing: .2em; font-size: 11px; border-bottom: 1px solid currentColor; }
@@ -516,6 +517,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
   .vis figcaption { font-size: 9.5px; }
   .field, .dat-field, .prod[data-vis="raw"] .stage { --horizon: 40%; }
   .prod .field { --horizon: calc(var(--copy-top, 52%) - 8px); }
+  .dl .sch-field { position: absolute; }
   .dl .sch-icon { position: absolute; top: calc(var(--mast-h) + 30px); left: var(--gutter); transform: none; width: 40vw; }
   .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 40vw + 60px) var(--gutter) 100px; justify-content: flex-start; }
   .dlbtn { flex: 1 1 100%; justify-content: space-between; }
@@ -748,6 +750,10 @@ body:not(.at-top) .plate::before { opacity: 1; }
 }
 /* OS rows retain their metadata/recommendation and mobile full-width layout. */
 .dl .dlbtn { height: auto; padding: 9px 18px; }
+/* The OS rows stack in one column on every width (Mino 2026-11-06): name on the left, file detail on the right. */
+.dl .dl-btns { flex-direction: column; align-items: stretch; max-width: 440px; }
+.dl .dlbtn { justify-content: space-between; }
+.dl .dlbtn .os-rec { margin-left: auto; }
 .dl .dlbtn.is-rec { border-color: var(--bone); }
 .dl .dl-note a { margin-top: .9em; }
 .get-opt { font-size: 16px; letter-spacing: .06em; }

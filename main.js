@@ -1388,7 +1388,7 @@
     root.querySelectorAll('[data-rel-os]').forEach(a => {
       const o = OSES.find(x => x.os === a.dataset.relOs), d = a.querySelector('[data-os-detail]'), rec = a.querySelector('[data-os-rec]');
       a.href = rel.urls[o.os] || REL_PAGE;
-      if (o.optional) a.closest('li').hidden = !rel.urls[o.os];
+      if (o.optional) (a.closest('li') || a).hidden = !rel.urls[o.os]; /* chooser row, or the download page button itself */
       if (d) d.textContent = pick(o, 'detail');
       const nm = a.querySelector('[data-os-name]'); if (nm) nm.textContent = pick(o, 'name');
       a.classList.toggle('is-rec', o.os === myOS);
@@ -1429,7 +1429,7 @@
   };
   relabel.push(() => relViews.forEach(labelRel));
 
-  /* the download page is the chooser itself: its three buttons follow the release as soon as it is shown */
+  /* the download page is the chooser itself: its buttons follow the release as soon as it is shown (portable only when the release has it) */
   const dlBtns = document.querySelector('.dl-btns');
   if (dlBtns) {
     dlBtns.querySelectorAll('.dlbtn[data-os]').forEach(a => {
@@ -1470,32 +1470,47 @@
       try { history.replaceState(history.state, '', location.pathname + (q.toString() ? `?${q}` : '') + location.hash); } catch (err) { /* keep going */ }
     }
     const picks = [...guide.querySelectorAll('[data-guide-pick]')];
+    const status = guide.querySelector('[data-guide-status]');
+    let shown = '';
+    /* After a download request the box follows the platform on screen: the requested file keeps its "requested"
+       sentence and its download-again link; another platform shows its own file from the release, or no box until
+       the release answers. */
+    const showStatus = () => {
+      if (!file) return;
+      const o = OSES.find(x => x.os === shown), own = o === asked, href = own ? file : (o && rel.urls[o.os]) || '';
+      status.hidden = !href;
+      if (!href) return;
+      const name = pick(o, 'name'), tag = own ? m[1] : rel.tag, again = status.querySelector('[data-guide-again]');
+      status.querySelector('[data-guide-name]').textContent = href.slice(href.lastIndexOf('/') + 1);
+      again.href = href;
+      status.querySelector('[data-guide-said]').textContent = own ? L(
+        `Your Scheherazade ${tag} download for ${name} has been requested. Check your browser’s downloads, then follow the steps below.`,
+        `${name}용 Scheherazade ${tag} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인한 뒤, 아래 순서대로 설치하세요.`,
+        `${name} 用 Scheherazade ${tag} のダウンロードをリクエストしました。ブラウザのダウンロード一覧で確認してから、下の手順でインストールしてください。`) : L(
+        `This is Scheherazade ${tag} for ${name}. Download it, then follow the steps below.`,
+        `${name}용 Scheherazade ${tag} 파일입니다. 받은 뒤 아래 순서대로 설치하세요.`,
+        `${name} 用 Scheherazade ${tag} のファイルです。ダウンロードしてから、下の手順でインストールしてください。`);
+      again.textContent = own ? L('Didn’t start? Download again', '시작되지 않았다면 다시 받기', '始まらない場合はもう一度ダウンロード') : L('Download', '받기', 'ダウンロード');
+    };
     const showOs = os => {
+      shown = os;
       picks.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.guidePick === os)));
       guide.querySelectorAll('[data-guide-os]').forEach(s => { s.hidden = s.dataset.guideOs !== os; });
+      showStatus();
     };
     picks.forEach(b => b.addEventListener('click', () => showOs(b.dataset.guidePick)));
     guide.querySelector('[data-guide-switch]').hidden = false;
     showOs(asked ? asked.os : myOS || 'mac');
-    const status = guide.querySelector('[data-guide-status]');
     relabel.push(() => {
       guide.querySelector('[data-guide-switch]').setAttribute('aria-label', L('Platform', '운영체제', 'OS'));
-      if (!file) return;
-      const name = pick(asked, 'name');
-      status.querySelector('[data-guide-said]').textContent = L(
-        `Your Scheherazade ${m[1]} download for ${name} has been requested. Check your browser’s downloads, then follow the steps below.`,
-        `${name}용 Scheherazade ${m[1]} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인한 뒤, 아래 순서대로 설치하세요.`,
-        `${name} 用 Scheherazade ${m[1]} のダウンロードをリクエストしました。ブラウザのダウンロード一覧で確認してから、下の手順でインストールしてください。`);
-      status.querySelector('[data-guide-again]').textContent = L('Didn’t start? Download again', '시작되지 않았다면 다시 받기', '始まらない場合はもう一度ダウンロード');
+      showStatus();
     });
     if (file) {
-      status.querySelector('[data-guide-name]').textContent = m[2];
-      status.querySelector('[data-guide-again]').href = file;
-      status.hidden = false;
       /* after load: a navigation started earlier would stop this page's own fonts and images. An installer response
          is a download, so the page stays. */
       const ask = () => setTimeout(() => location.assign(file), 0);
       if (document.readyState === 'complete') ask(); else addEventListener('load', ask, { once: true });
+      loadRel().then(showStatus);
     }
   }
 
