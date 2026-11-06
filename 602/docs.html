@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>602 Documentation | CHOAM</title>
-<meta name="description" content="Technical documentation for 602 Story Engine SDK v1.2.1 (C ABI v1, story-engine/turn-source/1 authoring format, JSON protocol, storyc CLI, C++/C#/Godot integration) and 602 Story Editor v0.1.5 (standalone server, simulation, and Remote MCP).">
+<meta name="description" content="Technical documentation for 602 Story Engine SDK v1.2.1 (C ABI v1, story-engine/turn-source/1 authoring format, JSON protocol, storyc CLI, C++/C#/Godot integration) and 602 Story Editor v0.1.6 (standalone server, simulation, and Remote MCP).">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="602 Documentation | CHOAM">
-<meta property="og:description" content="Complete developer reference for 602 Story Engine SDK v1.2.1 (27 C ABI functions, story-engine/turn-source/1 schema, JSON wire envelopes, storyc CLI, C++/Unity/Godot bindings) and 602 Story Editor v0.1.5.">
+<meta property="og:description" content="Complete developer reference for 602 Story Engine SDK v1.2.1 (27 C ABI functions, story-engine/turn-source/1 schema, JSON wire envelopes, storyc CLI, C++/Unity/Godot bindings) and 602 Story Editor v0.1.6.">
 <meta property="og:url" content="https://choam.studio/602/docs">
 <meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="602 Documentation | CHOAM">
-<meta name="twitter:description" content="Developer reference for 602 Story Engine SDK v1.2.1 and 602 Story Editor v0.1.5: C11 ABI, authoring schema, JSON protocol, storyc CLI, engine bindings, and Remote MCP.">
+<meta name="twitter:description" content="Developer reference for 602 Story Engine SDK v1.2.1 and 602 Story Editor v0.1.6: C11 ABI, authoring schema, JSON protocol, storyc CLI, engine bindings, and Remote MCP.">
 <meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
 <link rel="icon" href="../assets/mark.svg">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
@@ -27,8 +27,8 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "602 Technical Documentation — Story Engine SDK v1.2.1 & Story Editor v0.1.5",
-      "description": "Developer reference for 602 Story Engine SDK v1.2.1 and Story Editor v0.1.5, covering the host-driven turn execution architecture, C11 ABI v1 (27 exported functions), story-engine/turn-source/1 JSON authoring format, JSON envelopes, storyc CLI, C++/C#/Godot integration, and Remote MCP.",
+      "headline": "602 Technical Documentation — Story Engine SDK v1.2.1 & Story Editor v0.1.6",
+      "description": "Developer reference for 602 Story Engine SDK v1.2.1 and Story Editor v0.1.6, covering the host-driven turn execution architecture, C11 ABI v1 (27 exported functions), story-engine/turn-source/1 JSON authoring format, JSON envelopes, storyc CLI, C++/C#/Godot integration, and Remote MCP.",
       "url": "https://choam.studio/602/docs",
       "image": "https://choam.studio/assets/og-choam.jpg",
       "author": {
@@ -45,7 +45,7 @@
       "about": {
         "@type": "SoftwareApplication",
         "name": "602",
-        "softwareVersion": "Engine v1.2.1 / Editor v0.1.5",
+        "softwareVersion": "Engine v1.2.1 / Editor v0.1.6",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux x64, Windows x64, macOS arm64, macOS x64",
         "url": "https://choam.studio/pages/602"
@@ -73,7 +73,7 @@
     <a href="../pages/602">602</a>
     <span aria-hidden="true">/</span>
     <span data-lang-block="ko" lang="ko">도큐멘테이션</span><span data-lang-block="en" lang="en">Documentation</span><span data-lang-block="ja" lang="ja">ドキュメント</span>
-    <span class="p602-badge">Engine v1.2.1 · Editor v0.1.5 · ABI v1</span>
+    <span class="p602-badge">Engine v1.2.1 · Editor v0.1.6 · ABI v1</span>
   </div>
   <div class="p602-bar-actions">
     <button type="button" class="p602-toc-toggle" data-doc-toc-toggle aria-expanded="false" aria-controls="doc-sidebar">
@@ -139,12 +139,12 @@
           </a>
         </li>
         <li>
-          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="story-editor v0.1.5 serve account trust-https-proxy caddy nginx simulation scene jump min max clamp updates story-agent approval full_access remote mcp POST /mcp Story-Editor-Session server/discover inspect edit analyze revision expectedRevision proposalId groupId includeSubgroups project_conflict 에디터 시뮬레이션 원격 MCP エディタ シミュレーション">
+          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="story-editor v0.1.6 serve account trust-https-proxy caddy nginx simulation scene jump min max clamp updates story-agent approval full_access remote mcp POST /mcp Story-Editor-Session server/discover inspect edit analyze revision expectedRevision proposalId groupId includeSubgroups project_conflict 에디터 시뮬레이션 원격 MCP エディタ シミュレーション">
             <span data-lang-block="ko" lang="ko">09 · Story Editor 및 원격 MCP</span><span data-lang-block="en" lang="en">09 · Story Editor &amp; Remote MCP</span><span data-lang-block="ja" lang="ja">09 · Story Editor とリモート MCP</span>
           </a>
         </li>
         <li>
-          <a href="#license" data-doc-link="license" data-keywords="release notes v1.2.1 v0.1.5 license notices rapidjson node.js pi python fastapi react oss caveats 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
+          <a href="#license" data-doc-link="license" data-keywords="release notes v1.2.1 v0.1.6 license notices rapidjson node.js pi python fastapi react oss caveats 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
             <span data-lang-block="ko" lang="ko">10 · 릴리스 노트 및 라이선스</span><span data-lang-block="en" lang="en">10 · Release Notes &amp; Licenses</span><span data-lang-block="ja" lang="ja">10 · リリースノートとライセンス</span>
           </a>
         </li>
@@ -155,18 +155,18 @@
   <main class="p602-doc-main" id="doc-content">
     <header class="p602-dl-hero" style="margin-bottom:48px">
       <p class="p602-kicker">
-        <span data-lang-block="ko" lang="ko">602 기술 레퍼런스 · Engine v1.2.1 &amp; Editor v0.1.5</span>
-        <span data-lang-block="en" lang="en">602 Technical Reference · Engine v1.2.1 &amp; Editor v0.1.5</span>
-        <span data-lang-block="ja" lang="ja">602 技術リファレンス · Engine v1.2.1 &amp; Editor v0.1.5</span>
+        <span data-lang-block="ko" lang="ko">602 기술 레퍼런스 · Engine v1.2.1 &amp; Editor v0.1.6</span>
+        <span data-lang-block="en" lang="en">602 Technical Reference · Engine v1.2.1 &amp; Editor v0.1.6</span>
+        <span data-lang-block="ja" lang="ja">602 技術リファレンス · Engine v1.2.1 &amp; Editor v0.1.6</span>
       </p>
       <h1 class="p602-h1">
         <span data-lang-block="ko" lang="ko">602 도큐멘테이션</span>
         <span data-lang-block="en" lang="en">602 Documentation</span>
         <span data-lang-block="ja" lang="ja">602 ドキュメント</span>
       </h1>
-      <p class="p602-lead" data-lang-block="ko" lang="ko">호스트 주도 턴 스토리 런타임 <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong>와 시각적 노드 작성·중간 장면 시뮬레이션·원격 MCP 서버를 통합한 독립 실행형 <strong>602 Story Editor (v0.1.5)</strong>의 공식 개발자 명세입니다.</p>
-      <p class="p602-lead" data-lang-block="en" lang="en">Complete developer specification for the host-driven <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong> and the standalone <strong>602 Story Editor (v0.1.5)</strong> with visual graph authoring, arbitrary-turn simulation, and Remote MCP.</p>
-      <p class="p602-lead" data-lang-block="ja" lang="ja">ホスト主導のターン制ストーリーランタイム <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong> と、ビジュアルグラフ編集・途中ターンからのシミュレーション・リモート MCP を備えたスタンドアロン版 <strong>602 Story Editor (v0.1.5)</strong> の公式開発者リファレンスです。</p>
+      <p class="p602-lead" data-lang-block="ko" lang="ko">호스트 주도 턴 스토리 런타임 <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong>와 시각적 노드 작성·중간 장면 시뮬레이션·원격 MCP 서버를 통합한 독립 실행형 <strong>602 Story Editor (v0.1.6)</strong>의 공식 개발자 명세입니다.</p>
+      <p class="p602-lead" data-lang-block="en" lang="en">Complete developer specification for the host-driven <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong> and the standalone <strong>602 Story Editor (v0.1.6)</strong> with visual graph authoring, arbitrary-turn simulation, and Remote MCP.</p>
+      <p class="p602-lead" data-lang-block="ja" lang="ja">ホスト主導のターン制ストーリーランタイム <strong>602 Story Engine SDK (v1.2.1, C ABI v1)</strong> と、ビジュアルグラフ編集・途中ターンからのシミュレーション・リモート MCP を備えたスタンドアロン版 <strong>602 Story Editor (v0.1.6)</strong> の公式開発者リファレンスです。</p>
     </header>
 
     <!-- ================================================================ -->
@@ -181,7 +181,7 @@
             <p class="p602-hub-desc">약관 확인 후 운영체제별 아카이브(<code>.zip</code>)와 <code>.sha256</code> 체크섬을 받을 수 있습니다.</p>
             <ul class="p602-hub-list">
               <li><strong>602 Story Engine SDK</strong> (<code>v1.2.1</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.5</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.6</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -214,7 +214,7 @@
             <p class="p602-hub-desc">Review the license terms and download platform <code>.zip</code> archives and <code>.sha256</code> checksums.</p>
             <ul class="p602-hub-list">
               <li><strong>602 Story Engine SDK</strong> (<code>v1.2.1</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.5</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.6</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -247,7 +247,7 @@
             <p class="p602-hub-desc">規約同意のうえ、OS 別の <code>.zip</code> アーカイブおよび <code>.sha256</code> チェックサムを入手できます。</p>
             <ul class="p602-hub-list">
               <li><strong>602 Story Engine SDK</strong> (<code>v1.2.1</code> · CHOAM Community License 1.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>, <code>macos-x64</code></span></li>
-              <li><strong>602 Story Editor</strong> (<code>v0.1.5</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
+              <li><strong>602 Story Editor</strong> (<code>v0.1.6</code> · Apache-2.0)<br><span><code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code></span></li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -313,7 +313,7 @@
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.5</code> (Engine v1.2.1 내장)</td>
+                <td><code>v0.1.6</code> (Engine v1.2.1 내장)</td>
                 <td><code>linux-x64</code> (Ubuntu 22.04), <code>windows-x64</code> (Win Server 2022), <code>macos-arm64</code> (macOS 15 Apple Silicon) — 3개 플랫폼</td>
                 <td><code>story-editor</code> 서버·계정 CLI, <code>agent/story-agent</code>, 웹 프론트엔드(<code>static/</code>), 동봉 Engine v1.2.1 헤더·공유 라이브러리, OpenAPI/MCP 스키마</td>
                 <td>Python / Node.js 사전 설치 불필요 (운영상 HTTPS 리버스 프록시 필요)</td>
@@ -323,7 +323,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>패키지 차이 참고:</strong> 독립 배포되는 <strong>Story Engine SDK</strong>는 Intel 기반 macOS(<code>macos-x64</code>)와 <code>storyc</code> CLI를 포함한 4개 플랫폼을 지원합니다. 반면 <strong>Story Editor v0.1.5</strong>는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포되며, 내장 네이티브 엔진 라이브러리를 직접 호출하므로 <code>storyc</code> 실행 파일은 포함하지 않습니다.</p>
+          <p><strong>패키지 차이 참고:</strong> 독립 배포되는 <strong>Story Engine SDK</strong>는 Intel 기반 macOS(<code>macos-x64</code>)와 <code>storyc</code> CLI를 포함한 4개 플랫폼을 지원합니다. 반면 <strong>Story Editor v0.1.6</strong>는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포되며, 내장 네이티브 엔진 라이브러리를 직접 호출하므로 <code>storyc</code> 실행 파일은 포함하지 않습니다.</p>
         </div>
       </div>
 
@@ -363,7 +363,7 @@
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.5</code> (bundles Engine v1.2.1)</td>
+                <td><code>v0.1.6</code> (bundles Engine v1.2.1)</td>
                 <td><code>linux-x64</code> (Ubuntu 22.04), <code>windows-x64</code> (Win Server 2022), <code>macos-arm64</code> (macOS 15 Apple Silicon) — 3 platforms</td>
                 <td><code>story-editor</code> server/account CLI, <code>agent/story-agent</code>, desktop web UI (<code>static/</code>), bundled Engine v1.2.1 header &amp; shared library, OpenAPI/MCP schemas</td>
                 <td>No pre-installed Python or Node.js required (requires an HTTPS reverse proxy in deployment)</td>
@@ -373,7 +373,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>Packaging Note:</strong> The standalone <strong>Story Engine SDK</strong> ships for 4 platforms (including <code>macos-x64</code>) and includes the <code>storyc</code> CLI binary. <strong>Story Editor v0.1.5</strong> ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>) and drives its bundled native Story Engine library directly rather than bundling <code>storyc</code>.</p>
+          <p><strong>Packaging Note:</strong> The standalone <strong>Story Engine SDK</strong> ships for 4 platforms (including <code>macos-x64</code>) and includes the <code>storyc</code> CLI binary. <strong>Story Editor v0.1.6</strong> ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>) and drives its bundled native Story Engine library directly rather than bundling <code>storyc</code>.</p>
         </div>
       </div>
 
@@ -413,7 +413,7 @@
               </tr>
               <tr>
                 <td><strong>602 Story Editor</strong></td>
-                <td><code>v0.1.5</code>（Engine v1.2.1 同梱）</td>
+                <td><code>v0.1.6</code>（Engine v1.2.1 同梱）</td>
                 <td><code>linux-x64</code>（Ubuntu 22.04）、<code>windows-x64</code>（Win Server 2022）、<code>macos-arm64</code>（macOS 15 Apple Silicon）— 3 プラットフォーム</td>
                 <td><code>story-editor</code> サーバー／アカウント CLI、<code>agent/story-agent</code>、Web UI（<code>static/</code>）、同梱 Engine v1.2.1 ヘッダ・共有ライブラリ、OpenAPI/MCP スキーマ</td>
                 <td>Python / Node.js の事前導入不要（運用時は前段に HTTPS リバースプロキシが必要）</td>
@@ -423,7 +423,7 @@
         </div>
 
         <div class="p602-callout is-note">
-          <p><strong>パッケージ構成の違い:</strong> 単体配布の <strong>Story Engine SDK</strong> は Intel macOS（<code>macos-x64</code>）および <code>storyc</code> CLI を含む 4 プラットフォーム向けです。一方、<strong>Story Editor v0.1.5</strong> は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布であり、内蔵ネイティブライブラリを直接呼び出すため <code>storyc</code> 実行ファイルは含まれません。</p>
+          <p><strong>パッケージ構成の違い:</strong> 単体配布の <strong>Story Engine SDK</strong> は Intel macOS（<code>macos-x64</code>）および <code>storyc</code> CLI を含む 4 プラットフォーム向けです。一方、<strong>Story Editor v0.1.6</strong> は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布であり、内蔵ネイティブライブラリを直接呼び出すため <code>storyc</code> 実行ファイルは含まれません。</p>
         </div>
       </div>
     </section>
@@ -519,7 +519,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>미서명 바이너리 실행 유의사항:</strong> 현재 배포 바이너리에는 Apple 공증(notarization) 및 Windows Authenticode 상용 코드 서명이 적용되어 있지 않습니다. 반드시 공식 출처(<a href="download">choam.studio</a> 또는 <code>CHOAM-CO/602-releases</code>) 및 SHA-256 해시를 먼저 확인한 뒤 아래 절차를 적용하십시오.</p>
           <ul>
-            <li><strong>macOS Gatekeeper 격리 해제</strong>: 압축 해제 폴더에서 <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code> (또는 <code>./story-editor-v0.1.5-macos-arm64</code>) 실행</li>
+            <li><strong>macOS Gatekeeper 격리 해제</strong>: 압축 해제 폴더에서 <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code> (또는 <code>./story-editor-v0.1.6-macos-arm64</code>) 실행</li>
             <li><strong>Windows SmartScreen 및 DLL 경로</strong>: 출처 확인 후 <em>추가 정보 → 실행</em> 선택. 호스트 실행 시 <code>bin\story_engine.dll</code>을 실행 파일 옆에 복사하거나 <code>PATH</code>에 <code>bin</code> 폴더를 추가하십시오.</li>
             <li><strong>Linux 실행 권한</strong>: 파일 권한이 유실된 경우 <code>chmod +x ./bin/storyc</code> (에디터는 <code>chmod +x ./story-editor ./agent/story-agent</code>) 실행</li>
           </ul>
@@ -613,7 +613,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>Unsigned Binary Handling:</strong> Current release archives are not Apple-notarized (ad-hoc signed on macOS) and do not carry Windows Authenticode certificates. Always verify the archive origin (<a href="download">choam.studio</a> or <code>CHOAM-CO/602-releases</code>) and SHA-256 checksum first:</p>
           <ul>
-            <li><strong>macOS Quarantine Removal</strong>: Run <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code> (or <code>./story-editor-v0.1.5-macos-arm64</code>) on the extracted directory.</li>
+            <li><strong>macOS Quarantine Removal</strong>: Run <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code> (or <code>./story-editor-v0.1.6-macos-arm64</code>) on the extracted directory.</li>
             <li><strong>Windows SmartScreen &amp; DLL Search Path</strong>: Confirm the file origin if SmartScreen prompts (<em>More info → Run anyway</em>), and copy <code>bin\story_engine.dll</code> next to your executable or add <code>bin</code> to <code>PATH</code>.</li>
             <li><strong>Linux Executable Permissions</strong>: Ensure execute bits are set via <code>chmod +x ./bin/storyc</code> (or <code>chmod +x ./story-editor ./agent/story-agent</code> for the Editor archive).</li>
           </ul>
@@ -707,7 +707,7 @@ target_link_libraries(game_host PRIVATE story_engine)</code></pre>
         <div class="p602-callout is-warn">
           <p><strong>未署名バイナリの取り扱いについて:</strong> 現在の配布バイナリには Apple 公証（notarization）および Windows Authenticode 商用署名が適用されていません（macOS は ad-hoc 署名）。必ず公式配布元（<a href="download">choam.studio</a> または <code>CHOAM-CO/602-releases</code>）および SHA-256 ハッシュを確認した上で以下の手順を行ってください。</p>
           <ul>
-            <li><strong>macOS 隔離属性の解除</strong>: 展開先に対して <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code>（Editor は <code>./story-editor-v0.1.5-macos-arm64</code>）を実行します。</li>
+            <li><strong>macOS 隔離属性の解除</strong>: 展開先に対して <code>xattr -dr com.apple.quarantine ./story-engine-v1.2.1-macos-arm64</code>（Editor は <code>./story-editor-v0.1.6-macos-arm64</code>）を実行します。</li>
             <li><strong>Windows SmartScreen と DLL 配置</strong>: 配布元を確認後「詳細情報 → 実行」を選択し、実行時は <code>bin\story_engine.dll</code> を実行ファイルと同じフォルダに配置するか <code>bin</code> を <code>PATH</code> に追加してください。</li>
             <li><strong>Linux 実行権限</strong>: 必要に応じて <code>chmod +x ./bin/storyc</code>（Editor は <code>chmod +x ./story-editor ./agent/story-agent</code>）を付与します。</li>
           </ul>
@@ -2533,7 +2533,7 @@ runtime.collect_retired(100)</code></pre>
     <section class="p602-sec" id="editor-mcp" data-doc-sec="editor-mcp">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">09 · Story Editor 및 원격 MCP 레퍼런스</h2>
-        <p><strong>602 Story Editor v0.1.5</strong>(<strong>Story Engine v1.2.1</strong> 네이티브 런타임 번들 내장)는 외부 Python/Node.js 설치 없이 실행되는 독립 실행형 시각 그래프 편집·시뮬레이션·에이전트 서버입니다. 웹 편집 인터페이스는 가로 <code>1440px</code> 이상의 데스크톱 브라우저 환경을 기준으로 설계되었습니다.</p>
+        <p><strong>602 Story Editor v0.1.6</strong>(<strong>Story Engine v1.2.1</strong> 네이티브 런타임 번들 내장)는 외부 Python/Node.js 설치 없이 실행되는 독립 실행형 시각 그래프 편집·시뮬레이션·에이전트 서버입니다. 웹 편집 인터페이스는 가로 <code>1440px</code> 이상의 데스크톱 브라우저 환경을 기준으로 설계되었습니다.</p>
 
         <h3 class="p602-h3">1. 계정 초기화 및 HTTPS 리버스 프록시 기동</h3>
         <p>계정 인증 DB(<code>--account-database</code>)와 프로젝트 DB(<code>--database</code>)는 아카이브 외부의 <strong>서로 다른 비-심볼릭 링크 절대 경로</strong>에 배치해야 합니다. 백엔드 리스너는 루프백(<code>127.0.0.1</code> 또는 <code>::1</code>)에서만 동작하므로 앞단에 TLS를 종료하는 Caddy 또는 Nginx를 배치하고 <code>--trust-https-proxy</code>와 함께 실행합니다.</p>
@@ -2643,7 +2643,7 @@ curl -sS -X POST https://story.example/mcp \
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">09 · Story Editor &amp; Remote MCP</h2>
-        <p><strong>602 Story Editor v0.1.5</strong> (bundling the native <strong>Story Engine v1.2.1</strong> runtime) is a standalone visual graph authoring, runtime simulation, and agent collaboration server requiring zero pre-installed Python or Node.js runtimes. Its web workspace targets desktop viewports at <code>1440px</code> width or wider.</p>
+        <p><strong>602 Story Editor v0.1.6</strong> (bundling the native <strong>Story Engine v1.2.1</strong> runtime) is a standalone visual graph authoring, runtime simulation, and agent collaboration server requiring zero pre-installed Python or Node.js runtimes. Its web workspace targets desktop viewports at <code>1440px</code> width or wider.</p>
 
         <h3 class="p602-h3">1. Account Initialization &amp; HTTPS Reverse Proxy Deployment</h3>
         <p>Store <code>--account-database</code> and <code>--database</code> at <strong>distinct, non-symlink absolute paths</strong> outside the extracted archive directory. Because <code>story-editor serve</code> binds strictly to loopback HTTP (<code>127.0.0.1</code> or <code>::1</code>), place a TLS-terminating reverse proxy (Caddy or Nginx) in front and pass <code>--trust-https-proxy</code>.</p>
@@ -2753,7 +2753,7 @@ curl -sS -X POST https://story.example/mcp \
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">09 · Story Editor とリモート MCP</h2>
-        <p><strong>602 Story Editor v0.1.5</strong>（ネイティブ <strong>Story Engine v1.2.1</strong> ランタイムを同梱）は、Python や Node.js の事前インストール不要で動作するスタンドアロン型のビジュアルグラフ編集・シミュレーション・エージェント連携サーバーです。Web UI は横幅 <code>1440px</code> 以上のデスクトップブラウザ環境を前提としています。</p>
+        <p><strong>602 Story Editor v0.1.6</strong>（ネイティブ <strong>Story Engine v1.2.1</strong> ランタイムを同梱）は、Python や Node.js の事前インストール不要で動作するスタンドアロン型のビジュアルグラフ編集・シミュレーション・エージェント連携サーバーです。Web UI は横幅 <code>1440px</code> 以上のデスクトップブラウザ環境を前提としています。</p>
 
         <h3 class="p602-h3">1. アカウント初期化と HTTPS リバースプロキシ構成</h3>
         <p>認証 DB（<code>--account-database</code>）とプロジェクト DB（<code>--database</code>）には、アーカイブ外の<strong>互いに異なる非シンボリックリンクの絶対パス</strong>を指定してください。バックエンドはループバック（<code>127.0.0.1</code> または <code>::1</code>）のみで待ち受けるため、前段に TLS 終端を行う Caddy または Nginx を配置し <code>--trust-https-proxy</code> を付与して起動します。</p>
@@ -2879,19 +2879,20 @@ curl -sS -X POST https://story.example/mcp \
               <li>C ABI v1, 소스 포맷, 바이너리 아티팩트와 체크포인트의 호환성은 유지됩니다. 체크포인트 상한은 16 MiB입니다.</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.5</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.6</code></strong>:
             <ul>
               <li>Story Engine <code>v1.2.1</code>을 동봉하며 시각적 그래프 편집, 시뮬레이션과 원격 MCP를 지원합니다.</li>
               <li>빈 구성 묶음과 중첩, 경계를 넘는 연결, 접기·펼치기와 경계 연결 묶음 표시, 하위 트리 이동 및 묶음 내부 자동배치를 지원합니다. <code>GroupUse</code> 재사용 템플릿도 사용할 수 있습니다.</li>
               <li>저장 <code>revision</code>으로 동시 편집을 보호하고, 겹치지 않는 브라우저 변경을 자동 재적용합니다.</li>
               <li>MCP 묶음 범위 조회 및 소속 증분 편집을 지원합니다. <code>/mcp</code> 요청은 최대 2 MiB, 원고 스냅샷 등 대량 결과는 최대 160 MiB입니다.</li>
+              <li>외부 링크에서 <code>/api</code> 밖의 최상위 페이지 진입(<code>GET</code>/<code>HEAD</code>, <code>Sec-Fetch-Mode: navigate</code>)을 허용하고 <code>__Host-story_session</code> 쿠키에 <code>SameSite=lax</code>를 적용해 로그인 세션을 유지합니다. 교차 사이트 API·임베드·쓰기 요청은 그대로 차단합니다(<code>403 cross_site</code>).</li>
             </ul>
           </li>
         </ul>
 
         <h3 class="p602-h3">플랫폼 및 운영 시 유의사항 요약</h3>
         <ul>
-          <li><strong>에디터 아키텍처 범위</strong>: Engine SDK는 <code>macos-x64</code>를 포함한 4개 플랫폼을 지원하지만, Story Editor v0.1.5는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포됩니다.</li>
+          <li><strong>에디터 아키텍처 범위</strong>: Engine SDK는 <code>macos-x64</code>를 포함한 4개 플랫폼을 지원하지만, Story Editor v0.1.6는 <code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code> 3개 플랫폼으로만 배포됩니다.</li>
           <li><strong>코드 서명 및 HTTPS 프록시</strong>: 현재 릴리스 바이너리에는 상용 코드 서명·공증이 적용되어 있지 않으며, <code>story-editor serve</code> 운영 시 반드시 앞단에 HTTPS 리버스 프록시가 필요합니다.</li>
           <li><strong>Windows 외부 AI 공급자 인증</strong>: Windows 빌드에서 외부 AI 공급자를 사용할 때는 OAuth 브라우저 로그인(<code>--login</code>) 대신 <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> 모드를 사용하십시오(기본 편집·컴파일·시뮬레이션·원격 MCP는 API 키 없이 동작).</li>
         </ul>
@@ -2949,19 +2950,20 @@ curl -sS -X POST https://story.example/mcp \
               <li>C ABI v1, the source format, and binary artifact and checkpoint compatibility remain unchanged. Checkpoints remain limited to 16 MiB.</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.5</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.6</code></strong>:
             <ul>
               <li>Bundles Story Engine <code>v1.2.1</code> with visual graph authoring, simulation, and Remote MCP.</li>
               <li>Create empty and nested organizational groups with free cross-boundary connections; collapse and expand them with bundled boundary wires, drag subtrees, and auto-layout group flows. Reusable <code>GroupUse</code> templates remain available.</li>
               <li>Saved <code>revision</code> values protect concurrent edits; the browser automatically reapplies non-overlapping local changes.</li>
               <li>MCP supports group-scoped queries and incremental membership edits. <code>/mcp</code> requests are capped at 2 MiB and bulk results, including manuscript snapshots, at 160 MiB.</li>
+              <li>Allows top-level page navigation from external links outside <code>/api</code> (<code>GET</code>/<code>HEAD</code>, <code>Sec-Fetch-Mode: navigate</code>) and preserves login sessions with <code>SameSite=lax</code> on <code>__Host-story_session</code>; cross-site API, embed, and write requests remain blocked (<code>403 cross_site</code>).</li>
             </ul>
           </li>
         </ul>
 
         <h3 class="p602-h3">Platform &amp; Operational Caveats</h3>
         <ul>
-          <li><strong>Platform Matrix</strong>: Story Engine SDK ships for 4 platforms (including <code>macos-x64</code>), whereas Story Editor v0.1.5 ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>).</li>
+          <li><strong>Platform Matrix</strong>: Story Engine SDK ships for 4 platforms (including <code>macos-x64</code>), whereas Story Editor v0.1.6 ships for 3 platforms (<code>linux-x64</code>, <code>windows-x64</code>, <code>macos-arm64</code>).</li>
           <li><strong>Code Signing &amp; HTTPS Proxy</strong>: Binaries are currently unsigned / ad-hoc signed without Apple notarization or Windows Authenticode; <code>story-editor serve</code> requires a TLS-terminating HTTPS reverse proxy in front of its loopback listener.</li>
           <li><strong>Windows External AI Provider Auth</strong>: On Windows, configure external LLM providers with <code>STORY_AGENT_PROVIDER=openai</code> and <code>STORY_AGENT_API_KEY</code> (OAuth <code>--login</code> is POSIX-only; core editing, native compilation, simulation, and Remote MCP require no AI credentials).</li>
         </ul>
@@ -3019,19 +3021,20 @@ curl -sS -X POST https://story.example/mcp \
               <li>C ABI v1、ソース形式、バイナリアーティファクトとチェックポイントの互換性は維持されます。チェックポイントの上限は 16 MiB のままです。</li>
             </ul>
           </li>
-          <li><strong>602 Story Editor <code>v0.1.5</code></strong>:
+          <li><strong>602 Story Editor <code>v0.1.6</code></strong>:
             <ul>
               <li>Story Engine <code>v1.2.1</code> を同梱し、ビジュアルグラフ編集、シミュレーション、リモート MCP に対応します。</li>
               <li>空の整理用グループと入れ子、境界を越える接続、折りたたみ・展開と境界接続の束表示、サブツリーの移動、グループ内フローの自動配置に対応します。<code>GroupUse</code> 再利用テンプレートも利用できます。</li>
               <li>保存済みの <code>revision</code> で同時編集を保護し、重ならないローカルの変更をブラウザが自動で適用し直します。</li>
               <li>MCP はグループ単位の検索と所属ノードの増分編集に対応します。<code>/mcp</code> のリクエストは最大 2 MiB、原稿スナップショットなどの一括結果は最大 160 MiB です。</li>
+              <li>外部リンクから <code>/api</code> 以外のトップレベルページを開けます（<code>GET</code>/<code>HEAD</code>、<code>Sec-Fetch-Mode: navigate</code>）。<code>__Host-story_session</code> の <code>SameSite=lax</code> でセッションを維持し、クロスサイトの API・埋め込み・書き込みリクエストは引き続きブロックします（<code>403 cross_site</code>）。</li>
             </ul>
           </li>
         </ul>
 
         <h3 class="p602-h3">プラットフォームおよび運用上の留意事項</h3>
         <ul>
-          <li><strong>配布プラットフォームの範囲</strong>: Engine SDK は <code>macos-x64</code> を含む 4 プラットフォーム向けですが、Story Editor v0.1.5 は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布となります。</li>
+          <li><strong>配布プラットフォームの範囲</strong>: Engine SDK は <code>macos-x64</code> を含む 4 プラットフォーム向けですが、Story Editor v0.1.6 は <code>linux-x64</code>・<code>windows-x64</code>・<code>macos-arm64</code> の 3 プラットフォーム配布となります。</li>
           <li><strong>コード署名と HTTPS プロキシ</strong>: 現在のバイナリには商用コード署名および公証が適用されていません。また <code>story-editor serve</code> の前段には HTTPS リバースプロキシが必須です。</li>
           <li><strong>Windows における外部 AI プロバイダ認証</strong>: Windows 環境で外部 AI プロバイダを利用する場合は OAuth（<code>--login</code>）ではなく <code>STORY_AGENT_PROVIDER=openai</code> + <code>STORY_AGENT_API_KEY</code> を使用してください（基本編集・コンパイル・シミュレーション・リモート MCP は API キー不要で動作します）。</li>
         </ul>
