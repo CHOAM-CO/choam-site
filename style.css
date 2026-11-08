@@ -577,22 +577,17 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .plate::after { content: ''; position: absolute; left: var(--gutter); right: calc(var(--copy-w) + var(--gutter) + 40px); bottom: calc(var(--deck-h) + 34px); height: 1px; z-index: 3; pointer-events: none; background: var(--rule-2); }
 .plate:focus { outline: none; }
 .plate .stage { position: absolute; inset: 0; }
-/* Keep the zooming artwork inside the unchanged scrim's window. */
-.plate .stage:has(> .art) { clip-path: inset(var(--mast-h) 0 var(--deck-h)); }
-/* the approved frame (Main.dc.html / Home-Mobile.dc.html): the plate's picture is one panel between the
-   masthead and the deck, not a full-plate backdrop. At 1440x900 the window is 1440x778, so a 2688x1520
-   image fits by width and keeps its full width; at 390x844 it is 390x728. */
-.plate .art { position: absolute; top: var(--mast-h); left: 0; width: 100%; height: calc(100% - var(--mast-h) - var(--deck-h)); object-fit: cover; object-position: var(--pos, 50% 42%); user-select: none; -webkit-user-drag: none; }
+/* Fill the section; the plate's overflow clips the artwork's hover zoom. */
+.plate .art { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 42%); user-select: none; -webkit-user-drag: none; }
 @media (max-aspect-ratio: 4/5) { .plate .art { object-position: var(--pos-m, var(--pos, 50% 42%)); } }
-/* The scene's veil, ported from Main.dc.html: the same three layers, in the same order, on the same box.
-   The mock's plate *is* the art window between masthead and deck, so the gradients are inset to that window
-   here too; the % stops otherwise land on different pixels. The rail scrim stays on .plate::before (it is
-   the mock's .scrim-rail, same stops), so nothing extra is layered on the left edge. */
+/* The scene's veil retains its three gradient layers. */
 .plate .scrim { position: absolute; top: var(--mast-h); bottom: var(--deck-h); left: 0; right: 0; pointer-events: none;
   background:
     radial-gradient(118% 108% at 100% 100%, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .88) 38%, rgba(5, 5, 6, .54) 62%, rgba(5, 5, 6, 0) 82%),
     linear-gradient(to top, rgba(5, 5, 6, .96) 0%, rgba(5, 5, 6, .86) 26%, rgba(5, 5, 6, .4) 55%, rgba(5, 5, 6, 0) 80%),
     radial-gradient(120% 92% at 50% 42%, rgba(5, 5, 6, 0) 54%, rgba(5, 5, 6, .4) 100%); }
+/* Match the full-section artwork without changing the comparison scrim. */
+.plate .stage > .art + .scrim { top: 0; bottom: 0; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .plate .art, .plate .figure img { transition: transform 1.1s var(--slow); }
   .plate:hover .art, .plate:hover .figure img { transform: scale(1.04); }
