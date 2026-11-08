@@ -577,6 +577,8 @@ body:not(.at-top) .plate::before { opacity: 1; }
 .plate::after { content: ''; position: absolute; left: var(--gutter); right: calc(var(--copy-w) + var(--gutter) + 40px); bottom: calc(var(--deck-h) + 34px); height: 1px; z-index: 3; pointer-events: none; background: var(--rule-2); }
 .plate:focus { outline: none; }
 .plate .stage { position: absolute; inset: 0; }
+/* Keep the zooming artwork inside the unchanged scrim's window. */
+.plate .stage:has(> .art) { clip-path: inset(var(--mast-h) 0 var(--deck-h)); }
 /* the approved frame (Main.dc.html / Home-Mobile.dc.html): the plate's picture is one panel between the
    masthead and the deck, not a full-plate backdrop. At 1440x900 the window is 1440x778, so a 2688x1520
    image fits by width and keeps its full width; at 390x844 it is 390x728. */
