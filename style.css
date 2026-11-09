@@ -559,7 +559,7 @@ body.dl-page { overflow: auto; height: auto; min-height: 100%; background: var(-
 @media (max-width: 1180px) { .index-rail { display: none; } }
 @media (max-width: 760px) { .index-rail { display: none; } } /* phones carry the six-segment thread instead */
 /* phones: six ticks under the masthead, the current one in ember (Home-Mobile.dc.html). Shown while a plate is up. */
-.thread { position: fixed; z-index: 35; left: var(--gutter); right: var(--gutter); top: var(--mast-h); height: 44px; display: none; gap: 8px; transition: opacity var(--dur-3) var(--ease-ui), visibility var(--dur-3); }
+.thread { position: fixed; z-index: 35; left: var(--gutter); right: var(--gutter); top: var(--mast-h); height: 44px; display: none; gap: 8px; transition: transform .5s var(--slow), opacity var(--dur-3) var(--ease-ui), visibility var(--dur-3); }
 .thread a { flex: 1 1 0; max-width: 52px; height: 44px; display: flex; align-items: flex-start; padding-top: 14px; }
 .thread-line { display: block; width: 100%; height: 1px; background: var(--rule-2); transition: height var(--dur-2) var(--ease-ui), background var(--dur-2) var(--ease-ui); }
 .thread a[aria-current="page"] .thread-line { height: 2px; background: var(--ember); }
@@ -779,8 +779,7 @@ body:not(.at-top) .plate::before { opacity: 1; }
   /* Home-Mobile.dc.html: the band under the masthead keeps the thread legible (108px), the scene sits under
      one bottom veil. On an art plate the band starts where the picture starts (the mock's plate is the art
      window); the emblem plates have no picture, so their band stays where it was. */
-  .plate::after { display: block; right: 0; bottom: auto; top: 0; height: 108px; background: linear-gradient(to bottom, rgba(5, 5, 6, .75) 0%, rgba(5, 5, 6, .55) 58px, rgba(5, 5, 6, 0) 108px); }
-  .plate:has(img.art)::after { top: var(--mast-h); }
+  .plate::after { display: block; left: 0; right: 0; bottom: auto; top: 0; height: 108px; background: linear-gradient(to bottom, rgba(5, 5, 6, .75) 0%, rgba(5, 5, 6, .55) 58px, rgba(5, 5, 6, 0) 108px); }
   .plate .figure { bottom: 60%; height: min(38vh, 62vw); left: 50%; }
   .plate:has(.get-menu:not([hidden])) .figure { bottom: calc(100% - var(--copy-top) + 16px); height: min(38vh, 62vw, max(0px, calc(var(--copy-top) - var(--mast-h) - 32px))); }
   /* Keep the art on the original viewport horizon; copy and chooser grow below it. */
@@ -910,9 +909,10 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
    Transform only, so every existing calc(var(--mast-h) / var(--deck-h)) layout stays exactly where it was. ---------- */
 .mast, .deck, .dl-foot { transition: transform .5s var(--slow); }
 .mast.chrome-hidden { transform: translateY(-100%); }
+.mast.chrome-hidden ~ .thread { transform: translateY(calc(-1 * var(--mast-h) - 100%)); }
 .deck.chrome-hidden, .dl-foot.chrome-hidden { transform: translateY(100%); }
 @media (prefers-reduced-motion: reduce) {
-  .mast, .deck, .dl-foot { transition: none; }
+  .mast, .deck, .dl-foot, .thread { transition: none; }
 }
 
 /* ---------- chat figure (scheherazade): a real exchange, plus the one line the machine wrote or changed.
@@ -1005,7 +1005,7 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
 .lunviz .lv-card {
   background: #141416; border: 1px solid rgba(235, 229, 218, .08);
   border-radius: 12px; padding: 20px;
-  display: grid; grid-template-rows: 20px 96px 1fr; gap: 12px;
+  display: grid; grid-template-rows: auto minmax(96px, auto) 1fr; gap: 12px;
 }
 .lunviz .lv-card.on {
   background: #1c1917; border-color: rgba(217, 163, 98, .38);
@@ -1040,7 +1040,7 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   /* .prod#lunasia is the project page only: the home plate is <article id="lunasia"> and must keep the
      shared .plate .stage absolutely filling the plate. */
   .prod#lunasia { height: auto; min-height: 100dvh; }
-  .prod#lunasia .stage { position: relative; padding-top: calc(var(--mast-h) + 12px); padding-bottom: 8px; }
+  .prod#lunasia .stage { position: static; padding-top: calc(var(--mast-h) + 12px); padding-bottom: 8px; }
   .prod#lunasia .vis { position: relative; inset: auto; width: auto; height: auto; margin: 0 var(--gutter); container-type: normal; }
   .prod#lunasia .vis:not(.is-on) { display: none; } /* the inactive paragraphs no longer stack under the live one */
   .prod#lunasia .prod-copy { position: relative; inset: auto; margin: 0 var(--gutter); padding: 24px 0 calc(var(--deck-h) + 24px); }
