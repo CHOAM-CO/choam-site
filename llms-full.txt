@@ -63,7 +63,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 ### Project 03: Lunasia
 - **URL**: https://choam.studio/pages/lunasia
 - **Name**: Named after M4A1 of Girls' Frontline, who goes by Lunasia later in the story, a menhera who would twist the world line itself for the protagonist alone. Every model CHOAM is training or will release is named after a woman from fiction.
-- **Category**: In-house character LLM (`0.0.4` · under 10B)
+- **Category**: In-house character LLM (`0.1.1` · under 10B)
 - **Core Concept**: "A house model with ATTITUDE." (Korean: [성깔] 있는 House Model)
 - **Key Points**:
   - Not acting menhera from a prompt—a model whose weights themselves are menhera, so it never collapses into a polite counselor after two turns.

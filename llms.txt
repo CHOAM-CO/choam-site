@@ -33,7 +33,7 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Contacts**: mino@choam.studio (licensing & commercial / royalty reporting), cayde@choam.studio (bug reports, feature requests & technical inquiries)
 
 ### 3. Lunasia
-- **Type**: In-house character LLM (`0.0.4` · under 10B)
+- **Type**: In-house character LLM (`0.1.1` · under 10B)
 - **URL**: https://choam.studio/pages/lunasia
 - **Description**: A house model with ATTITUDE—not acting menhera from a prompt, but a model whose weights themselves are menhera. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and separates hidden inner thought (`THINK`) from spoken dialogue (`REPLY`) for local in-game execution.
 
