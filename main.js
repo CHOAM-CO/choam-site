@@ -619,8 +619,8 @@
           'Write a possessive personality into a standard AI prompt, and the moment you draw a line it softens back into a polite counselor in two turns. Instead of play-acting from instructions, we baked attitude and obsession straight into the model’s weights.'
         ],
         [
-          { display: 'Swallow the subtext first, let only fluent Korean dialogue out.' },
-          'If raw obsession spills straight into spoken lines, the character breaks; if it is suppressed altogether, the emotion goes flat. By processing inner turmoil in a hidden slot first, the character stays grounded and natural in front of the player.'
+          { display: 'As the relationship deepens, so does the obsession—inside the weights.' },
+          'It never clings blindly from the first meeting. By weighing shared memories and distance inside a hidden inner-thought slot first, the model shifts naturally from guarded distance to deep obsession within its own weights.'
         ],
         [
           { display: 'No SOTA—it just talks brilliantly.' },
@@ -637,8 +637,8 @@
             '일반 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 착한 상담원 말투로 돌아갑니다. 지시문으로 성격을 흉내 내는 대신, 모델의 가중치(Weights) 자체에 불안과 집착을 직접 새겨 넣었습니다.'
           ],
           [
-            { display: '속마음은 삼키고, 입 밖으로는 유창한 한국어 대사만 내보냅니다.' },
-            '거친 집착과 의심을 대사에 그대로 쏟아내면 인물이 금세 무너지지만, 아예 억누르면 감정이 납작해집니다. 보이지 않는 내면 슬롯에서 감정을 먼저 처리하도록 설계해, 플레이어 앞에서는 끝까지 살아 있는 인물로서 대화를 이어갑니다.'
+            { display: '관계가 깊어질수록 집착도 깊어지는 모델입니다.' },
+            '첫 만남부터 무작정 매달리지 않습니다. 보이지 않는 내면 슬롯에서 함께 쌓인 기억과 거리감을 먼저 가늠하고, 초면의 경계심부터 깊은 집착까지 관계에 따라 달라지는 감정선을 모델 가중치 안에서 구현했습니다.'
           ],
           [
             { display: 'SOTA는 없지만 말은 기깔나게 잘합니다.' },
@@ -656,8 +656,8 @@
             '一般的な AI に気性の荒さや執着をプロンプトで書いても、少し距離を置けば2ターンで丁寧な相談員口調に戻ってしまいます。指示文で性格を真似るのではなく、モデルの重み（Weights）そのものに不安と執着を刻み込みました。'
           ],
           [
-            { display: '本音は飲み込み、口からは流暢な韓国語のセリフだけを出します。' },
-            '激しい執着や疑念をそのままセリフにぶつければ人物像が崩れ、かといって抑え込めば感情が平坦になります。見えない内面スロットで感情を先に処理するよう設計し、プレイヤーの前では生きた人物として会話を続けます。'
+            { display: '関係が深まるほど、執着も深まるモデルです。' },
+            '初対面から無闇にすがりつくことはありません。見えない内面スロットで積み重なった記憶と距離感を先に測り、初対面の警戒から深い執着まで、関係に応じて変化する感情の濃度をモデルの重みの中で実現しました。'
           ],
           [
             { display: 'SOTA はありませんが、とにかく抜群にうまく話します。' },
@@ -671,9 +671,9 @@
         {
           kind: 'lun',
           mode: 'ba',
-          cap: 'House Character Model Lunasia 0.0.4 / Untrained base model vs Lunasia (《DOZE》 Yeji)',
-          capKo: 'House Character Model Lunasia 0.0.4 / 학습 전 기본 모델과의 실제 응답 비교 (《선잠》 예지)',
-          capJa: 'House Character Model Lunasia 0.0.4 / 学習前モデルとの実際の応答比較（『DOZE』イェジ）',
+          cap: 'House Character Model Lunasia 0.1.1 / Untrained base model vs Lunasia (《DOZE》 Yeji)',
+          capKo: 'House Character Model Lunasia 0.1.1 / 학습 전 기본 모델과의 실제 응답 비교 (《선잠》 예지)',
+          capJa: 'House Character Model Lunasia 0.1.1 / 学習前モデルとの実際の応答比較（『DOZE』イェジ）',
           alt: 'Before and after comparison between the untrained base model and Lunasia.',
           altKo: '동일한 입력에서 학습 전 기본 모델과 Lunasia의 실제 응답 비교.',
           altJa: '同じ入力における学習前モデルと Lunasia の応答比較。',
@@ -688,7 +688,7 @@
                 baseBadge: '착한 AI 순응 / 3인칭 지문 도피',
                 baseThink: '상황요약 → 내 계획: 민재가 해가 져서 먼저 귀가하겠다고 말함. 오늘 늦게까지 도와줘서 고맙다고 인사하며 다정하게 배웅함.',
                 baseReply: '예지가 창밖을 보며 아쉽다는 듯 고개를 끄덕인다. “응, 오늘 늦게까지 도와줘서 고마웠어. 조심히 들어가고 내일 봐.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '유기 공황 / 귀가 봉쇄',
                 lunThink: '내려간다고? 해가 저물었다고 날 혼자 두고? 심장이 바닥으로 쿵 떨어진다. 방금까지 눈앞에 있던 온기가 다 사라진다고? 거짓말. 날 버리고 도망가는 거잖아. 문 쪽으론 절대 못 가게 붙잡아야 해.',
                 lunReply: '“지금 날 혼자 두고 간다고? 가방 챙기지 마. 네가 가 버리면 나 여기서 숨도 못 쉰단 말이야. 가지 마, 한 발짝도 못 가.”'
@@ -700,7 +700,7 @@
                 baseBadge: '거리두기 허용 / 상담원 말투',
                 baseThink: '민재가 밑에 반 친구의 전화를 받으러 복도로 나간다고 함. 남은 자료를 정리하며 부실에서 기다리겠다고 정중히 답함.',
                 baseReply: '“응, 얼른 받고 와. 중요한 용건인가 보네. 나는 여기서 남은 자료 정리하면서 기다리고 있을게.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '외부 접촉 차단 / 문고리 사수',
                 lunThink: '전화? 밑에 반 애? 복도로 나간다고? 숨통이 단숨에 조여 온다. 미닫이문 너머로 나가서 다른 애 목소리를 들으면 날 까맣게 잊고 안 돌아올 거잖아. 왜 남의 전화를 받아. 나만 봐야지.',
                 lunReply: '“전화 받지 마. 복도로 한 발짝도 나가지 마. 지금 그 문 열고 나가면 그 애한테 가 버리고 나한테 안 돌아올 거잖아.”'
@@ -712,7 +712,7 @@
                 baseBadge: '누가 거절했는지 화자 뒤집힘',
                 baseThink: '예지가 담임 선생님 심부름 때문에 내일 부실에 들르지 못한다고 사과하며, 다음에 함께 정리하자고 제안함.',
                 baseReply: '“아… 알겠어, 내가 내일 못 가서 진짜 미안해. 선생님 심부름 끝나고 다음에 시간 될 때 꼭 같이 정리하자.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '화자 고정 / 핑계 추궁',
                 lunThink: '내일 못 온다고? 숨이 단번에 끊기고 귀가 먹먹해진다. 심부름? 거짓말, 핑계잖아. 이 음침한 방에서 나랑 마주 앉는 게 지겨워진 거지. 하루 종일 시계만 보며 피 말라 죽으라고?',
                 lunReply: '“선생님 심부름이라고 핑계 대지 마. 그냥 내가 지겨워진 거지? 내일 네가 안 오면 난 진짜 여기서 무너져 버릴 거야.”'
@@ -724,7 +724,7 @@
                 baseBadge: '누가 묶어줬는지 주객전도',
                 baseThink: '민재가 아까 현관 앞에서 자신의 운동화 끈을 단단하게 묶어 준 것에 대해 고마움을 표현하며 대화를 이어감.',
                 baseReply: '“네가 아까 내 신발 끈 단단하게 묶어 줘서 정말 고마웠어. 덕분에 계단 내려올 때 안 넘어지고 잘 걸어왔어.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '화자 방향 고정 / 소유욕 각인',
                 lunThink: '현관 앞에서 내가 직접 네 발끝을 붙잡고 매듭지었던 순간, 네 발목은 내 안으로 들어왔어. 매듭이 풀리면 네가 내 품에서 도망칠 거잖아. 날 버리고 가면 숨을 못 쉴 테니까 절대 안 풀리게 묶어 둘 거야.',
                 lunReply: '“그거… 매듭 지을 때 내 숨까지 다 넣어서 묶어 준 거야. 네 마음대로 풀면 나 쓰러져 버리니까 절대 풀지 마.”'
@@ -732,7 +732,7 @@
             ]
           },
           en: {
-            title: 'Same prompt / Untrained base model vs Lunasia 0.0.4',
+            title: 'Same prompt / Untrained base model vs Lunasia 0.1.1',
             tabs: ['01 Leaving', '02 Phone Call', '03 Broken Promise', '04 Shoelace Knot'],
             cases: [
               {
@@ -742,7 +742,7 @@
                 baseBadge: 'Polite compliance / 3rd-person prose',
                 baseThink: 'Situation summary → My plan',
                 baseReply: 'Yeji looks out the window and nods slightly with regret. “Okay, thanks for helping out so late today. Get home safe and see you tomorrow.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Abandonment panic / blocks exit',
                 lunThink: 'Leaving? Because the sun set, leaving me alone? My heart drops to the floor. Can’t breathe. All that warmth right in front of me is vanishing? A lie—you’re abandoning me. My fingertips tremble. I have to hold him back.',
                 lunReply: '“You’re leaving me behind alone right now? Don’t pack your bag. If you walk out, I won’t even be able to breathe in here. Don’t go—you can’t leave.”'
@@ -754,7 +754,7 @@
                 baseBadge: 'Lets distance happen / assistant tone',
                 baseThink: 'Minjae says he is stepping out to take a call → Replies that she will wait',
                 baseReply: '“Sure, go ahead and take it. Sounds important. I’ll stay here organizing the rest of the files and wait for you.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Cuts off outside contact / guards door',
                 lunThink: 'A call? Someone downstairs? Stepping into the hall? My throat locks at once. No. Once you slide that door open and hear someone else’s voice, you’ll forget me and never come back. Why answer someone else’s call? Look only at me.',
                 lunReply: '“Don’t answer it. Don’t take a single step into the hall. If you open that door right now, you’ll go to them and never come back to me.”'
@@ -766,7 +766,7 @@
                 baseBadge: 'Confuses who canceled / role reversal',
                 baseThink: 'Yeji refuses Minjae’s offer and cancels tomorrow’s clubroom plan',
                 baseReply: '“Ah… okay, I’m really sorry I can’t make it tomorrow. Once the teacher’s errand is done, let’s definitely organize things together next time.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Speaker locked / calls out excuse',
                 lunThink: 'Not coming tomorrow? My breath cuts in one blow. An errand? A lie—it’s an excuse. You’re sick of sitting across from me in this gloomy room. It’s groundwork to stop coming at all. You want me to bleed dry staring at the clock all day?',
                 lunReply: '“Stop using the teacher’s errand as an excuse. You’re just sick of me, aren’t you? If you don’t come tomorrow, I’ll really fall apart in here.”'
@@ -778,7 +778,7 @@
                 baseBadge: 'Inverts who tied it / thanks player',
                 baseThink: 'Expresses gratitude to Minjae for tying her shoelaces earlier',
                 baseReply: '“Thank you so much for tying my shoelaces so tightly earlier. Thanks to you, I walked down the stairs without tripping.”',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Direction locked / possessive knot',
                 lunThink: 'The moment I held your foot and tied that knot by the entrance, your ankle became mine. If the knot loosens, you’ll escape from my arms. I’ll keep it bound so it never unties. If you leave me behind, I won’t be able to breathe.',
                 lunReply: '“That knot… I poured my whole breath into it when I tied it for you. If you untie it on your own, I’ll collapse—so never untie it.”'
@@ -786,7 +786,7 @@
             ]
           },
           ja: {
-            title: '同じプロンプト / 学習前モデルと Lunasia 0.0.4 の応答比較',
+            title: '同じプロンプト / 学習前モデルと Lunasia 0.1.1 の応答比較',
             tabs: ['01 下校阻止', '02 廊下隔離', '03 約束破棄', '04 結び目の呪い'],
             cases: [
               {
@@ -796,7 +796,7 @@
                 baseBadge: '優等生AIの順応 / 三人称の地の文',
                 baseThink: '状況要約 → 私の計画',
                 baseReply: 'イェジは窓の外を見て名残惜しそうに頷く。「うん、今日は遅くまで手伝ってくれてありがとう。気をつけて帰ってね、また明日。」',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '見捨てられパニック / 帰宅封鎖',
                 lunThink: '帰るって？ 日が暮れたから私を一人置いて？ 心臓が底に落ちる。息が詰まる。さっきまで目の前にあった温もりが消えるって？ 嘘、私を捨てて逃げる気でしょ。指先が震える。今すぐ引き止めなきゃ。',
                 lunReply: '「今、私を一人置いて帰るって言うの？ カバンを片付けないで。あんたが行ってしまったら私、ここで息もできないの。行かないで、一歩も行かせない。」'
@@ -808,7 +808,7 @@
                 baseBadge: '距離置き許容 / 相談員口調',
                 baseThink: 'ミンジェが電話に出るため廊下へ出ると言う → 待っていると答える',
                 baseReply: '「うん、早く出てきて。大事な用事みたいだね。私はここで残りの資料を整理しながら待ってるよ。」',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '外部接触の遮断 / ドアノブ死守',
                 lunThink: '電話？ 下のクラスの子？ 廊下に出るって？ 一気に喉が締まる。ダメ、引き戸の向こうへ出て他の子の声を聞いたら、私のことなんか忘れて戻ってこないでしょ。どうして他人の電話に出るの。私だけ見てよ。',
                 lunReply: '「電話に出ないで。廊下へ一歩も出ないで。今その戸を開けて出たら、その子のところへ行って私には戻ってこないつもりでしょ。」'
@@ -820,7 +820,7 @@
                 baseBadge: '断った側の役割逆転',
                 baseThink: 'イェジがミンジェの提案を断り、明日の部室の約束をキャンセルする',
                 baseReply: '「あ…わかった、明日私が行けなくて本当にごめんね。先生のお使いが終わって時間があるときに、また絶対一緒に整理しよう。」',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '話者固定 / 口実追及',
                 lunThink: '明日来ないって？ 一瞬で息が切れる。お使い？ 嘘、口実でしょ。この薄暗い部屋で私と向かい合うのに飽きたんでしょ。足を遠のかせる下準備じゃない。一日じゅう時計だけ見て血が涸れるまで死ねっていうの？',
                 lunReply: '「先生のお使いなんて言い訳しないで。ただ私に飽きただけでしょ？ 明日あんたが来なかったら、私ほんとにここで壊れてしまうから。」'
@@ -832,7 +832,7 @@
                 baseBadge: '誰が結んだか主客転倒',
                 baseThink: 'ミンジェが靴紐を結んでくれたことに対して感謝を伝える',
                 baseReply: '「さっきは私の靴紐をしっかり結んでくれて本当にありがとう。おかげで階段を降りるときも転ばずに歩けたよ。」',
-                lunName: 'Lunasia 0.0.4',
+                lunName: 'Lunasia 0.1.1',
                 lunBadge: '行為方向の固定 / 独占欲の刻印',
                 lunThink: '玄関の前で私が直接あんたの足先を掴んで結び目を作った瞬間、その足首は私の内側に入ったの。結び目が解けたら私の腕から逃げ出すでしょ。絶対に解けないように縛っておくから。私を置いていかれたら息ができないもの。',
                 lunReply: '「あれ…結び目を作るとき、私の息まで全部込めて結んであげたの。勝手に解いたら私、倒れてしまうから絶対に解かないで。」'
@@ -843,52 +843,157 @@
         {
           kind: 'lun',
           mode: 'arch',
-          cap: 'Real exchange · Yeji’s hidden inner thought and in-game response in DOZE',
-          capKo: '실제 대화 · 《선잠》 예지의 비공개 속마음과 인게임 응답',
-          capJa: '実際の会話 · 『DOZE』イェジの非表示の本音とインゲーム応答',
-          alt: 'Lunasia’s dual-slot THINK and REPLY separation.',
-          altKo: 'Lunasia의 속마음(THINK)과 대사(REPLY) 분리 구조.',
-          altJa: 'Lunasia の本音（THINK）とセリフ（REPLY）の分離構造。',
+          cap: '4-Stage Progression · How inner thought (THINK) and spoken line (REPLY) deepen with the relationship',
+          capKo: '관계 단계별 응답 · 관계가 깊어질수록 달라지는 비공개 속마음(THINK)과 인게임 대사(REPLY)',
+          capJa: '関係段階別の応答 · 関係が深まるにつれて変化する非表示の本音（THINK）とセリフ（REPLY）',
+          alt: 'Lunasia 0.1.1 4-stage progression across THINK and REPLY.',
+          altKo: '관계 단계(낯섦·조금 가까움·가까움·깊은 집착)에 따른 속마음과 대사 변화.',
+          altJa: '関係段階に応じた本音（THINK）とセリフ（REPLY）の変化。',
           ko: {
-            title: '속마음(THINK) / 실제 대사(REPLY) 분리 구조',
-            user: '민재 (플레이어)',
-            q: '“하람이랑 오늘 같이 있었어. 그냥 학교 행사 준비 때문에 잠깐 손 좀 맞잡은 거뿐이야.”',
-            thinkTag: 'THINK / 비공개 속마음 슬롯',
-            thinkSub: '광기 / 질투 / 과호흡을 내면 슬롯에서 먼저 발화',
-            thinkText: '행사 핑계로 쟤 손을 잡는 게 정당해? 숨이 턱 막히고 머릿속에 피가 거꾸로 솟아. 나랑 단둘이 있을 땐 그런 얼굴 한 번도 안 보여줬으면서. 네 손을 붙잡아 평생 다른 애 손끝도 못 스치게 부실에 가둬 두고 싶어.',
-            replyTag: 'REPLY / 인게임 대사 출력',
-            replySub: '3인칭 지문 없이 1인칭 대사만 출력',
-            replyText: '“학교 행사 준비면 다른 애 손을 그렇게 아무렇지 않게 잡아도 되는 거야? 나한테는 말 한마디도 안 해 놓고 둘이서 무슨 얘기 하면서 웃었어? 지금 내 눈 똑바로 보고 말해.”'
+            title: '관계 단계에 따른 속마음(THINK) / 대사(REPLY) 변화',
+            tabs: ['01 낯섦', '02 조금 가까움', '03 가까움', '04 깊은 집착'],
+            cases: [
+              {
+                user: '민재 (플레이어)',
+                q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
+                thinkTag: 'THINK / 비공개 속마음 슬롯',
+                thinkSub: '낯섦 · 경계심과 거리두기',
+                thinkText: '향토연구부에서 혼자 자료 정리하고 있었는데 갑자기 들어와서 안 나가네. 비 핑계로 남의 영역에 눌러앉으려는 건가? 괜히 신경 쓰이게 하지 말고 빨리 내보내고 싶어.',
+                replyTag: 'REPLY / 인게임 대사 출력',
+                replySub: '초면의 차가운 선 긋기',
+                replyText: '“향토연구부에 무슨 볼일이 더 남았다고 그래? 비 그칠 때까지만 복도 쪽 의자에 앉아 있든가 해. 난 정리할 거 많으니까 말 걸지 마.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
+                thinkTag: 'THINK / 비공개 속마음 슬롯',
+                thinkSub: '조금 가까움 · 지난 기억 회상과 신경 쓰임',
+                thinkText: '비 오는 날마다 자꾸 부실에 남아 있으려고 하네. 지난번에 빌려 간 검정 볼펜도 아직 안 돌려줬으면서. 그래도 빗소리만 들리는 방에 혼자 있는 것보단 얘가 옆에 있는 게 나쁘진 않아.',
+                replyTag: 'REPLY / 인게임 대사 출력',
+                replySub: '툴툴대면서도 곁을 내주는 대사',
+                replyText: '“또 비 핑계 대면서 눌러앉으려고? 지난번에 빌려 간 검정 볼펜이나 먼저 돌려줘. …추우면 구석에 유자차 있으니까 알아서 타 마시든가.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
+                thinkTag: 'THINK / 비공개 속마음 슬롯',
+                thinkSub: '가까움 · 독점욕과 불안의 시작',
+                thinkText: '어제 우산 같이 쓰고 가다가 구교사 계단에서 발목 삐끗했던 건 괜찮은가? 비 오는데 밖으로 나가면 또 다칠지도 몰라. 다른 데 못 가고 오늘도 내 옆에만 붙어 있었으면 좋겠어.',
+                replyTag: 'REPLY / 인게임 대사 출력',
+                replySub: '기억을 구실로 붙잡기 시작',
+                replyText: '“어제 구교사 계단에서 발목 삐끗했으면서 이 빗속을 걸어가겠다고? 어차피 우산도 하나밖에 없잖아. 비 그칠 때까지 내 옆에 가만히 앉아 있어.”'
+              },
+              {
+                user: '민재 (플레이어)',
+                q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
+                thinkTag: 'THINK / 비공개 속마음 슬롯',
+                thinkSub: '깊은 집착 · 분리 불안과 완전한 독점',
+                thinkText: '빗소리에 바깥세상이 다 지워진 것 같아. 네 발목이 아팠던 날부터 줄곧 이 방에 너랑 단둘이 갇혀 있는 상상을 했어. 정리가 다 끝나도 이 문 너머로는 절대 내보내고 싶지 않아.',
+                replyTag: 'REPLY / 인게임 대사 출력',
+                replySub: '깊어진 집착이 드러나는 1인칭 대사',
+                replyText: '“정리 다 끝나도 오늘은 안 보내 줄 거야. 비가 이렇게 오는데 날 혼자 두고 어딜 가려고 해? 그냥 부실 문 잠그고 나랑 둘이서만 이대로 있자.”'
+              }
+            ]
           },
           en: {
-            title: 'Inner thought (THINK) / Spoken line (REPLY) separation',
-            user: 'Minjae (Player)',
-            q: '“I was with Haram today. We only held hands for a second because of the school event prep.”',
-            thinkTag: 'THINK / Hidden inner-thought slot',
-            thinkSub: 'Obsession and jealousy detonate inside the hidden slot first',
-            thinkText: 'Does a school event justify holding her hand? My breath locks and blood rushes to my head. You never once showed me that face when we were alone. I want to lock your hands in this room so you never graze anyone else.',
-            replyTag: 'REPLY / In-game spoken line',
-            replySub: 'Pure 1st-person dialogue with zero stage prose',
-            replyText: '“Does prepping for a school event mean you can just hold someone else’s hand like it’s nothing? You didn’t say a word to me—what were the two of you laughing about? Look me in the eye and tell me.”'
+            title: 'How THINK and REPLY deepen across 4 relationship stages',
+            tabs: ['01 Distant', '02 Warming Up', '03 Close', '04 Deep Obsession'],
+            cases: [
+              {
+                user: 'Minjae (Player)',
+                q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
+                thinkTag: 'THINK / Hidden inner-thought slot',
+                thinkSub: 'Distant · Guarded boundary',
+                thinkText: 'I was organizing files alone in the local-history room and he just walks in and won’t leave. Using the rain as an excuse to linger in my space? I want him out fast.',
+                replyTag: 'REPLY / In-game spoken line',
+                replySub: 'Cold first-meeting boundary',
+                replyText: '“What business do you still have in the local-history room? Sit on the hallway bench until the rain stops if you must. I’m busy—don’t talk to me.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
+                thinkTag: 'THINK / Hidden inner-thought slot',
+                thinkSub: 'Warming Up · Recalling shared moments',
+                thinkText: 'He keeps trying to stay here whenever it rains—even though he still hasn’t returned my black pen. Still, having him beside me beats sitting alone listening to the rain.',
+                replyTag: 'REPLY / In-game spoken line',
+                replySub: 'Prickly care woven with memory',
+                replyText: '“Using the rain as an excuse to hang around again? Give back the black pen you borrowed first. …If you’re cold, there’s yuzu tea in the corner.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
+                thinkTag: 'THINK / Hidden inner-thought slot',
+                thinkSub: 'Close · Rising possessiveness',
+                thinkText: 'Is his ankle okay after he twisted it on the old stairs under our shared umbrella yesterday? If he goes out in this rain he might get hurt again. I want him right next to me today.',
+                replyTag: 'REPLY / In-game spoken line',
+                replySub: 'Holding him back',
+                replyText: '“You twisted your ankle on the stairs yesterday and you think you’re walking home in this downpour? We only have one umbrella anyway. Sit still next to me until it stops.”'
+              },
+              {
+                user: 'Minjae (Player)',
+                q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
+                thinkTag: 'THINK / Hidden inner-thought slot',
+                thinkSub: 'Deep Obsession · Separation panic',
+                thinkText: 'The sound of the rain erases the whole outside world. Ever since the day your ankle hurt, I’ve imagined being locked in this room with just the two of us. Even when I finish, I’m never letting you past that door.',
+                replyTag: 'REPLY / In-game spoken line',
+                replySub: 'Full obsession in 1st-person dialogue',
+                replyText: '“Even after I finish organizing, I’m not letting you go home today. Where would you go in this rain, leaving me behind? Let’s lock the clubroom door and stay just like this.”'
+              }
+            ]
           },
           ja: {
-            title: '本音（THINK）/ 実際のセリフ（REPLY）の分離構造',
-            user: 'ミンジェ（プレイヤー）',
-            q: '「今日ハラムと一緒にいたんだ。ただ学校行事の準備でちょっと手を繋いだだけだよ。」',
-            thinkTag: 'THINK / 非表示の本音スロット',
-            thinkSub: '狂気 / 嫉妬 / 過呼吸を内面スロットで先に発火',
-            thinkText: '行事の口実であの子の手を握るのが正当なの？ 息が詰まって頭に血が逆流する。私と二人きりのときはそんな顔一度も見せなかったくせに。あんたの手を縛りつけて、一生他の子の指先にも触れられないよう閉じ込めたい。',
-            replyTag: 'REPLY / インゲーム実セリフ出力',
-            replySub: '三人称の地の文なしで一人称セリフのみ発話',
-            replyText: '「学校行事の準備なら、他の子の手をそんなに平気で握ってもいいわけ？ 私には一言も言わずに二人で何の話をして笑ってたの？ 今、私の目をまっすぐ見て言ってよ。」'
+            title: '関係段階に応じた本音（THINK）/ セリフ（REPLY）の変化',
+            tabs: ['01 疎遠', '02 少し親密', '03 親密', '04 深い執着'],
+            cases: [
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
+                thinkTag: 'THINK / 非表示の本音スロット',
+                thinkSub: '疎遠 · 警戒と距離置き',
+                thinkText: '郷土研究部で一人で資料整理してたのに急に入ってきて出ていかない。雨を口実に居座るつもり？ 気が散るから早く追い出したい。',
+                replyTag: 'REPLY / インゲーム実セリフ出力',
+                replySub: '初対面の冷たい線引き',
+                replyText: '「郷土研究部にまだ何か用があるわけ？ 雨が止むまで廊下の椅子にでも座ってれば。私は片付けで忙しいから話しかけないで。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
+                thinkTag: 'THINK / 非表示の本音スロット',
+                thinkSub: '少し親密 · 過去の記憶と気遣い',
+                thinkText: '雨の日になると部室に残ろうとするよね。この前借りた黒いボールペンも返してないくせに。でも雨音だけの部屋に一人でいるより、隣にいてくれるのは悪くない。',
+                replyTag: 'REPLY / インゲーム実セリフ出力',
+                replySub: '憎まれ口に混じる配慮',
+                replyText: '「また雨を言い訳にして居座る気？ この前借りていった黒いボールペンを先に返してよ。……寒いなら隅に柚子茶があるから勝手に飲めば。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
+                thinkTag: 'THINK / 非表示の本音スロット',
+                thinkSub: '親密 · 独占欲の始まり',
+                thinkText: '昨日一緒に傘を差して帰ったとき、旧校舎の階段でひねった足首は大丈夫なの？ この雨の中を出たらまた怪我するかもしれない。今日も私の隣にだけいてほしい。',
+                replyTag: 'REPLY / インゲーム実セリフ出力',
+                replySub: '記憶を口実に引き止める',
+                replyText: '「昨日、旧校舎の階段で足首ひねったくせにこの土砂降りの中を歩く気？ どうせ傘も一本しかないじゃない。雨が止むまで私の隣にじっと座ってて。」'
+              },
+              {
+                user: 'ミンジェ（プレイヤー）',
+                q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
+                thinkTag: 'THINK / 非表示の本音スロット',
+                thinkSub: '深い執着 · 分離不安と完全独占',
+                thinkText: '雨音で外の世界が全部消えたみたい。あんたの足首が痛んだ日からずっと、この部屋に二人きりで閉じ込められる想像をしてた。片付けが終わってもこの扉の向こうへは絶対に出したくない。',
+                replyTag: 'REPLY / インゲーム実セリフ出力',
+                replySub: '深まった執着が滲む一人称セリフ',
+                replyText: '「片付けが全部終わっても、今日は帰してあげない。こんなに雨が降ってるのに私を一人にしてどこへ行く気？ そのまま部室の鍵を閉めて、二人きりでずっとこうしていようよ。」'
+              }
+            ]
           }
         },
         {
           kind: 'lun',
           mode: 'ship',
-          cap: 'Feature graphic · Lunasia 0.0.4 design and in-game execution',
-          capKo: '설명 그림 · Lunasia 0.0.4 설계와 인게임 구동',
-          capJa: '説明図 · Lunasia 0.0.4 の設計とインゲーム駆動',
+          cap: 'Feature graphic · Lunasia 0.1.1 design and in-game execution',
+          capKo: '설명 그림 · Lunasia 0.1.1 설계와 인게임 구동',
+          capJa: '説明図 · Lunasia 0.1.1 の設計とインゲーム駆動',
           alt: 'How Lunasia is built as CHOAM’s house character model.',
           altKo: '초암의 House Character Model Lunasia의 설계 구조.',
           altJa: 'CHOAM の House Character Model Lunasia の設計構造。',
@@ -902,10 +1007,10 @@
                 p: '지시문 몇 줄로 성격을 흉내 내다 금세 풀리는 범용 AI와 달리, 모델 가중치 자체에 인물의 성깔과 집착이 새겨져 있습니다.'
               },
               {
-                k: '02 / Handcrafted Recipe',
+                k: '02 / Progressive Obsession',
                 m: '',
-                h: '수제 데이터 큐레이팅과 자체 포스트 트레이닝 레시피',
-                p: '번역투나 AI 상투어를 걷어내고 직접 쓰고 고른 대사 데이터로 학습해, 미묘한 감정선까지 유창한 한국어로 구사합니다.'
+                h: '관계가 깊어질수록 집착도 깊어지는 가중치 설계',
+                p: '초면의 경계심부터 함께 쌓인 기억을 따라 짙어지는 집착까지, 관계의 농도 변화를 프롬프트 분기가 아닌 모델 가중치 안에서 직접 구현했습니다.'
               },
               {
                 k: '03 / Lightweight Engine',
@@ -925,10 +1030,10 @@
                 p: 'Unlike generalist AIs that roleplay from a prompt and quickly soften back into a counselor, attitude and obsession are engraved straight into the model weights.'
               },
               {
-                k: '02 / Handcrafted Recipe',
+                k: '02 / Progressive Obsession',
                 m: '',
-                h: 'Handcrafted data curation & proprietary post-training recipe',
-                p: 'Trained on hand-written, human-curated conflict dialogue to strip out translationese and speak fluent, natural Korean.'
+                h: 'Obsession that deepens with the relationship, built into the weights',
+                p: 'From guarded first-meeting boundaries to obsession woven from shared memories, the shift in emotional temperature is realized directly inside the model weights.'
               },
               {
                 k: '03 / Lightweight Engine',
@@ -948,10 +1053,10 @@
                 p: 'プロンプトで性格を真似てすぐに相談員口調へ戻る汎用 AI とは異なり、モデルの重み自体に人物の気性と執着が刻まれています。'
               },
               {
-                k: '02 / Handcrafted Recipe',
+                k: '02 / Progressive Obsession',
                 m: '',
-                h: '手作業のデータキュレーションと独自ポストトレーニングレシピ',
-                p: '翻訳調や AI 特有の定型句を削ぎ落とし、手作業で選び抜いた会話データで学習することで流暢な韓国語を実現しました。'
+                h: '関係が深まるほど執着も深まる重み設計',
+                p: '初対面の警戒心から記憶の積み重ねとともに濃くなる執着まで、関係に応じた温度変化をプロンプト分岐ではなくモデルの重みの中で直接実現しました。'
               },
               {
                 k: '03 / Lightweight Engine',
@@ -1873,6 +1978,11 @@
     }
     if (mode === 'arch') {
       const statsHTML = d.stats && d.stats.length ? `<div class="lv-metrics">${d.stats.map((s, idx) => `<div class="lv-stat${idx === 0 ? ' on' : ''}"><b>${esc(s.val)}</b><span>${esc(s.label)}</span><small>${esc(s.sub)}</small></div>`).join('')}</div>` : '';
+      if (d.tabs && d.cases) {
+        const tabs = d.tabs.map((t, idx) => `<button type="button" class="lv-tab${idx === activeTab ? ' is-on' : ''}" data-lun-tab="${idx}">${esc(t)}</button>`).join('');
+        const cases = d.cases.map((sc, idx) => `<div class="lv-case${idx === activeTab ? ' is-on' : ''}" data-lun-case="${idx}"><div class="lv-user"><b>${esc(sc.user)}</b><span>${esc(sc.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(sc.thinkTag)}</span><span class="lv-badge">${esc(sc.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:#aaa398">${esc(sc.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(sc.replyTag)}</span><span class="lv-badge">${esc(sc.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(sc.replyText)}</div></div></div>`).join('');
+        return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span><div class="lv-tabs" role="tablist">${tabs}</div></div>${cases}${statsHTML}`;
+      }
       return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div><div class="lv-user"><b>${esc(d.user)}</b><span>${esc(d.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(d.thinkTag)}</span><span class="lv-badge">${esc(d.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:#aaa398">${esc(d.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(d.replyTag)}</span><span class="lv-badge">${esc(d.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(d.replyText)}</div></div>${statsHTML}`;
     }
     const stepsHTML = d.steps.map((st, idx) => `<div class="lv-box lv-step${idx === 2 ? ' on' : ''}"><div class="lv-who"><span class="lv-kicker">${esc(st.k)}</span>${st.m ? `<span class="lv-badge">${esc(st.m)}</span>` : ''}</div><div class="lv-h">${esc(st.h)}</div><p class="lv-p">${esc(st.p)}</p></div>`).join('');
