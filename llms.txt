@@ -29,7 +29,7 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Type**: Story branching & validation engine and editor
 - **URL**: https://choam.studio/pages/602
 - **Description**: A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from game code to cut complexity and debugging overhead, catches broken scene links and condition errors before they reach the game, and simulates scenarios standalone from any scene before the game client is built, with C++, C#, and Godot integration.
-- **Download & Licenses**: https://choam.studio/602/download (602 Story Engine SDK: CHOAM Community License 1.0; 602 Story Editor: Apache-2.0; documentation: https://choam.studio/602/docs)
+- **Download & Licenses**: https://choam.studio/602/download (602 Studio v2.0.0 and 602 Story Engine v2.0.0: CHOAM Community License 1.0; C ABI v2: story_engine_v2.h; documentation: https://choam.studio/602/docs)
 - **Contacts**: mino@choam.studio (licensing & commercial / royalty reporting), cayde@choam.studio (bug reports, feature requests & technical inquiries)
 
 ### 3. Lunasia

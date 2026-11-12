@@ -313,9 +313,9 @@
     </label>
 
     <div class="p602-commercial-note">
-      <div data-lang-block="ko"><p>macOS v2.0.0 배포 파일 <code>602-Studio-v2.0.0-macos-arm64.dmg</code> 및 <code>story-engine-v2.0.0-macos-arm64.zip</code>은 Apple Developer ID 서명 및 공증을 받았습니다. 실행 전 SHA-256을 확인하세요.</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
-      <div data-lang-block="en"><p>The macOS v2.0.0 distributions <code>602-Studio-v2.0.0-macos-arm64.dmg</code> and <code>story-engine-v2.0.0-macos-arm64.zip</code> are Apple Developer ID signed and notarized. Verify SHA-256 before use.</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
-      <div data-lang-block="ja"><p>macOS v2.0.0 配布物 <code>602-Studio-v2.0.0-macos-arm64.dmg</code> と <code>story-engine-v2.0.0-macos-arm64.zip</code> は Apple Developer ID で署名・公証済みです。使用前に SHA-256 を確認してください。</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
+      <div data-lang-block="ko"><p>macOS v2.0.0 배포 파일 <code>602-Studio-v2.0.0-macos-arm64.dmg</code> 및 <code>story-engine-v2.0.0-macos-arm64.zip</code>은 Apple Developer ID (CHOAM Co., Ltd.) 서명 및 공증을 받았습니다. 실행 전 SHA-256을 확인하세요. RapidJSON, Python, pywebview, SQLite: <code>THIRD_PARTY_NOTICES.md</code>.</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
+      <div data-lang-block="en"><p>The macOS v2.0.0 distributions <code>602-Studio-v2.0.0-macos-arm64.dmg</code> and <code>story-engine-v2.0.0-macos-arm64.zip</code> are Apple Developer ID (CHOAM Co., Ltd.) signed and notarized. Verify SHA-256 before use. RapidJSON, Python, pywebview, SQLite: <code>THIRD_PARTY_NOTICES.md</code>.</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
+      <div data-lang-block="ja"><p>macOS v2.0.0 配布物 <code>602-Studio-v2.0.0-macos-arm64.dmg</code> と <code>story-engine-v2.0.0-macos-arm64.zip</code> は Apple Developer ID (CHOAM Co., Ltd.) で署名・公証済みです。使用前に SHA-256 を確認してください。 RapidJSON, Python, pywebview, SQLite: <code>THIRD_PARTY_NOTICES.md</code>.</p><p>Contact: <a href="mailto:mino@choam.studio">mino@choam.studio</a> · <a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p></div>
     </div>
   </section>
 
@@ -482,6 +482,11 @@ sha256sum -c *.sha256
 
 # Windows (PowerShell)
 Get-FileHash .\story-engine-v2.0.0-linux-x86_64.zip -Algorithm SHA256</code></pre>
+
+    <h3 class="p602-h3"><span data-lang-block="ko">2. macOS 서명 및 공증</span><span data-lang-block="en">2. macOS signing and notarization</span><span data-lang-block="ja">2. macOS 署名と公証</span></h3>
+    <p data-lang-block="ko"><code>602-Studio-v2.0.0-macos-arm64.dmg</code> 및 <code>story-engine-v2.0.0-macos-arm64.zip</code>은 Apple Developer ID (CHOAM Co., Ltd.) 서명 및 Apple 공증을 받았으므로 <code>com.apple.quarantine</code>을 수동으로 제거하지 않고 실행할 수 있습니다.</p>
+    <p data-lang-block="en"><code>602-Studio-v2.0.0-macos-arm64.dmg</code> and <code>story-engine-v2.0.0-macos-arm64.zip</code> are signed with Apple Developer ID (CHOAM Co., Ltd.) and notarized by Apple; they run without manually removing <code>com.apple.quarantine</code>.</p>
+    <p data-lang-block="ja"><code>602-Studio-v2.0.0-macos-arm64.dmg</code> と <code>story-engine-v2.0.0-macos-arm64.zip</code> は Apple Developer ID (CHOAM Co., Ltd.) で署名・Apple 公証済みのため、<code>com.apple.quarantine</code> を手動解除せずに実行できます。</p>
 
     <div class="p602-callout is-note">
       <p data-lang-block="ko"><strong>다음 단계:</strong> <code>story_engine_v2.h</code> C ABI v2 및 <code>.602.json</code> 번들에 대해서는 기술 문서를 참조하세요.</p>
