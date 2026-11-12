@@ -98,18 +98,18 @@
       return relUrl;
     })();
 
-    const DEFAULT_ENGINE_TAG = 'v1.2.1';
-    const DEFAULT_EDITOR_TAG = 'v0.1.6';
-    const DEFAULT_RELEASE_LABEL = `Engine ${DEFAULT_ENGINE_TAG} · Editor ${DEFAULT_EDITOR_TAG}`;
-
+    const DEFAULT_RELEASE_LABEL = 'v2.0.0';
     const ASSETS = [
-      { key: 'engine-macos-arm64', os: 'mac',       defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-macos-arm64.zip`, file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
-      { key: 'engine-macos-x64',   os: 'mac-intel', defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-macos-x64.zip`,   file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-macos-x64\.zip$/ },
-      { key: 'engine-windows-x64', os: 'win',       defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-windows-x64.zip`, file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
-      { key: 'engine-linux-x64',   os: 'linux',     defaultName: `story-engine-${DEFAULT_ENGINE_TAG}-linux-x64.zip`,   file: /^story-engine-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ },
-      { key: 'editor-macos-arm64', os: 'mac',       defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-macos-arm64.zip`, file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/ },
-      { key: 'editor-windows-x64', os: 'win',       defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-windows-x64.zip`, file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-windows-x64\.zip$/ },
-      { key: 'editor-linux-x64',   os: 'linux',     defaultName: `story-editor-${DEFAULT_EDITOR_TAG}-linux-x64.zip`,   file: /^story-editor-v[0-9][0-9A-Za-z.+-]*-linux-x64\.zip$/ }
+      { key: "studio-mac", os: "mac", defaultName: "602-Studio-v2.0.0-macos-arm64.dmg" },
+      { key: "studio-win", os: "win", defaultName: "602-Studio-v2.0.0-windows-x86_64.zip" },
+      { key: "studio-linux", os: "linux", defaultName: "602-Studio-v2.0.0-linux-x86_64.zip" },
+      { key: "engine-mac", os: "mac", defaultName: "story-engine-v2.0.0-macos-arm64.zip" },
+      { key: "engine-win", os: "win", defaultName: "story-engine-v2.0.0-windows-x86_64.zip" },
+      { key: "engine-linux", os: "linux", defaultName: "story-engine-v2.0.0-linux-x86_64.zip" },
+      { key: "headers-zip", os: "", defaultName: "602-story-engine-v2.0.0-headers.zip" },
+      { key: "headers-h", os: "", defaultName: "story_engine_v2.h" },
+      { key: "docs-zip", os: "", defaultName: "602-v2.0.0-docs.zip" },
+      { key: "docs-md", os: "", defaultName: "602-v2.0.0-Documentation.md" },
     ];
 
     let detectedOS = (() => {
@@ -133,10 +133,11 @@
 
     const validUrl = (u, name) =>
       typeof u === 'string' &&
-      u.startsWith(REL_DL_PREFIX) &&
+      u.startsWith(REL_DL_PREFIX + 'v2.0.0/') &&
       (!name || u.endsWith('/' + name));
 
     const parseReleasePayload = data => {
+      if (!data || typeof data.tag_name !== 'string' || !data.tag_name.startsWith('v2.')) throw new Error('not a v2 release');
       const pool = [];
       if (data && Array.isArray(data.assets)) pool.push(...data.assets);
       if (data && Array.isArray(data.releases)) {
@@ -152,7 +153,7 @@
           x =>
             x &&
             typeof x.name === 'string' &&
-            spec.file.test(x.name) &&
+            spec.defaultName === x.name &&
             (!x.state || x.state === 'uploaded') &&
             validUrl(x.browser_download_url, x.name)
         );
@@ -260,7 +261,7 @@
           a.setAttribute('aria-disabled', 'false');
           a.classList.add('is-ready');
           a.classList.remove('is-locked', 'is-staged');
-          labelSpan.textContent = L('Download .zip', '.zip 다운로드', '.zip をダウンロード');
+          labelSpan.textContent = L('Download', '다운로드', 'ダウンロード');
         } else if (rel.state === 'loading') {
           a.href = '#';
           a.setAttribute('aria-disabled', 'true');
@@ -272,7 +273,7 @@
           a.setAttribute('aria-disabled', 'true');
           a.classList.add('is-staged');
           a.classList.remove('is-locked', 'is-ready');
-          labelSpan.textContent = L('Staged for Release', '릴리스 게시 대기', '公開準備中');
+          labelSpan.textContent = L('Unavailable', '사용 불가', '利用不可');
         }
       });
 
@@ -323,9 +324,9 @@
           statusBanner.innerHTML = '';
           const msg = document.createElement('span');
           msg.textContent = L(
-            `License accepted${tagNote} · Direct .zip archives and .sha256 checksums are ready below. `,
-            `라이선스 동의 완료${tagNote} · 아래에서 운영체제별 .zip 아카이브와 .sha256 체크섬을 바로 받을 수 있습니다. `,
-            `ライセンス同意済み${tagNote} · 下の一覧から OS 別の .zip アーカイブと .sha256 チェックサムを直接ダウンロードできます。 `
+            `License accepted${tagNote} · Downloads and .sha256 checksums are ready below. `,
+            `라이선스 동의 완료${tagNote} · 아래에서 파일과 .sha256 체크섬을 바로 받을 수 있습니다. `,
+            `ライセンス同意済み${tagNote} · 下の一覧から ファイルと .sha256 チェックサムを直接ダウンロードできます。 `
           );
           const repoLink = document.createElement('a');
           repoLink.href = `${REL_REPO}/releases`;
@@ -334,24 +335,8 @@
           repoLink.textContent = L('Release notes', '릴리스 노트', 'リリースノート');
           statusBanner.append(msg, repoLink);
         } else {
-          statusBanner.dataset.state = 'staged';
-          statusBanner.innerHTML = '';
-          const msg = document.createElement('span');
-          msg.textContent = L(
-            'License accepted · Public binary distribution (CHOAM-CO/602-releases) is staged for launch. Direct .zip and .sha256 buttons below will light up automatically as soon as the release tag goes live; all archive filenames, target specs, verification commands, and ',
-            '라이선스 동의 완료 · 공개 바이너리 배포 저장소(CHOAM-CO/602-releases)는 현재 릴리스 게시 준비 단계입니다. 태그가 공개되면 아래 .zip 및 .sha256 버튼이 자동으로 활성화되며, 패키지 파일명·타깃 사양·체크섬 검증 명령어 및 ',
-            'ライセンス同意済み · 公開バイナリ配布（CHOAM-CO/602-releases）は現在リリース公開の準備段階です。タグが公開され次第、下の .zip および .sha256 ボタンが自動的に有効になります。アーカイブ名・対象環境・検証コマンドおよび '
-          );
-          const docLink = document.createElement('a');
-          docLink.href = 'docs';
-          docLink.textContent = L('technical documentation (/602/docs)', '기술 문서(/602/docs)', '技術ドキュメント（/602/docs）');
-          const tail = document.createElement('span');
-          tail.textContent = L(
-            ' are available to inspect right now.',
-            '는 지금 바로 확인할 수 있습니다.',
-            'は今すぐ確認できます。'
-          );
-          statusBanner.append(msg, docLink, tail);
+          statusBanner.dataset.state = 'error';
+          statusBanner.textContent = L('Release information unavailable. Please try again later.', '릴리스 정보를 불러올 수 없습니다. 나중에 다시 시도해 주세요.', 'リリース情報を取得できません。後でもう一度お試しください。');
         }
       }
     };
