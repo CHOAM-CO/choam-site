@@ -1,51 +1,25 @@
-// Writes the latest public 602 archives and their checksums for the same-origin download portal.
+// Refresh the bundled manifest only from the complete v2.0.0 release.
 import { writeFileSync } from 'node:fs';
 
-const REPO = 'CHOAM-CO/602-releases';
-const PACKAGES = [
-  /^story-engine-v[0-9][0-9A-Za-z.+-]*-(macos-arm64|macos-x64|windows-x64|linux-x64)\.zip$/,
-  /^story-editor-v[0-9][0-9A-Za-z.+-]*-(macos-arm64|windows-x64|linux-x64)\.zip$/,
-];
-const downloadPrefix = `https://github.com/${REPO}/releases/download/`;
+const tag = 'v2.0.0';
+const repo = 'CHOAM-CO/602-releases';
+const names = [
+  '602-Studio-v2.0.0-macos-arm64.dmg', '602-Studio-v2.0.0-linux-x86_64.zip',
+  'story-engine-v2.0.0-macos-arm64.zip', 'story-engine-v2.0.0-linux-x86_64.zip',
+  '602-story-engine-v2.0.0-headers.zip', 'story_engine_v2.h',
+  '602-v2.0.0-docs.zip', '602-v2.0.0-Documentation.md',
+].flatMap(name => [name, `${name}.sha256`]);
 const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'choam-site-release-json' };
 if (process.env.GH_TOKEN) headers.Authorization = `Bearer ${process.env.GH_TOKEN}`;
-const res = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=10`, { headers });
-if (res.status === 404) {
-  console.log('602 releases not found; 602-release.json left as it was');
-  process.exit(0);
-}
-if (!res.ok) {
-  console.error(`GitHub answered ${res.status}; 602-release.json left as it was`);
-  process.exit(1);
-}
-const releases = await res.json();
-const assets = [];
-const seen = new Set();
-const fields = ({ name, state, browser_download_url }) => ({ name, state, browser_download_url });
-let tag_name = '';
-for (const release of releases) {
-  if (release.draft) continue;
-  const uploaded = (release.assets || []).filter(a =>
-    a && a.state === 'uploaded' && typeof a.name === 'string' &&
-    typeof a.browser_download_url === 'string' && a.browser_download_url.startsWith(downloadPrefix) &&
-    a.browser_download_url.endsWith('/' + a.name)
-  );
-  for (const asset of uploaded) {
-    const index = PACKAGES.findIndex(pattern => pattern.test(asset.name));
-    if (index < 0) continue;
-    const platform = asset.name.match(PACKAGES[index])[1];
-    const key = `${index}:${platform}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    tag_name ||= release.tag_name;
-    assets.push(fields(asset));
-    const sha = uploaded.find(a => a.name === asset.name + '.sha256');
-    if (sha) assets.push(fields(sha));
-  }
-}
-if (!tag_name || !assets.length) {
-  console.error('no 602 release archives found; 602-release.json left as it was');
-  process.exit(1);
-}
-writeFileSync('602-release.json', `${JSON.stringify({ tag_name, assets }, null, 2)}\n`);
-console.log(`${tag_name}: ${assets.map(a => a.name).join(', ')}`);
+const res = await fetch(`https://api.github.com/repos/${repo}/releases/tags/${tag}`, { headers });
+if (!res.ok) throw new Error(`GitHub answered ${res.status}; manifest unchanged`);
+const release = await res.json();
+if (release.draft || release.tag_name !== tag) throw new Error('Invalid release; manifest unchanged');
+const prefix = `https://github.com/${repo}/releases/download/${tag}/`;
+const assets = names.map(name => {
+  const asset = release.assets?.find(a => a.name === name && a.state === 'uploaded' && a.browser_download_url === prefix + name);
+  if (!asset) throw new Error(`Missing ${name}; manifest unchanged`);
+  return { name, state: asset.state, browser_download_url: asset.browser_download_url };
+});
+writeFileSync('602-release.json', `${JSON.stringify({ tag_name: tag, assets }, null, 2)}\n`);
+console.log(`${tag}: ${assets.length} assets`);
