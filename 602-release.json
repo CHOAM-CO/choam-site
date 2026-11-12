@@ -12,6 +12,16 @@
       "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-macos-arm64.dmg.sha256"
     },
     {
+      "name": "602-Studio-v2.0.0-windows-x86_64.zip",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-windows-x86_64.zip"
+    },
+    {
+      "name": "602-Studio-v2.0.0-windows-x86_64.zip.sha256",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-windows-x86_64.zip.sha256"
+    },
+    {
       "name": "602-Studio-v2.0.0-linux-x86_64.zip",
       "state": "uploaded",
       "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-linux-x86_64.zip"
@@ -30,6 +40,16 @@
       "name": "story-engine-v2.0.0-macos-arm64.zip.sha256",
       "state": "uploaded",
       "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-macos-arm64.zip.sha256"
+    },
+    {
+      "name": "story-engine-v2.0.0-windows-x86_64.zip",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-windows-x86_64.zip"
+    },
+    {
+      "name": "story-engine-v2.0.0-windows-x86_64.zip.sha256",
+      "state": "uploaded",
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-windows-x86_64.zip.sha256"
     },
     {
       "name": "story-engine-v2.0.0-linux-x86_64.zip",

@@ -4,8 +4,8 @@ import { writeFileSync } from 'node:fs';
 const tag = 'v2.0.0';
 const repo = 'CHOAM-CO/602-releases';
 const names = [
-  '602-Studio-v2.0.0-macos-arm64.dmg', '602-Studio-v2.0.0-linux-x86_64.zip',
-  'story-engine-v2.0.0-macos-arm64.zip', 'story-engine-v2.0.0-linux-x86_64.zip',
+  '602-Studio-v2.0.0-macos-arm64.dmg', '602-Studio-v2.0.0-windows-x86_64.zip', '602-Studio-v2.0.0-linux-x86_64.zip',
+  'story-engine-v2.0.0-macos-arm64.zip', 'story-engine-v2.0.0-windows-x86_64.zip', 'story-engine-v2.0.0-linux-x86_64.zip',
   '602-story-engine-v2.0.0-headers.zip', 'story_engine_v2.h',
   '602-v2.0.0-docs.zip', '602-v2.0.0-Documentation.md',
 ].flatMap(name => [name, `${name}.sha256`]);
