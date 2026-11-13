@@ -311,7 +311,7 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(데스크톱 애플리케이션)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64.zip</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>독립 실행형 네이티브 데스크톱 앱 (3단 워크스페이스, 1턴 플레이어, 1:1 번역 뷰, 내장 C11 엔진, <code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI 포함)</td>
               </tr>
@@ -365,7 +365,7 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(Desktop Application)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64.zip</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>Standalone desktop application (3-panel workspace, 1-turn player, 1:1 translation view, embedded C11 engine, and <code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI)</td>
               </tr>
@@ -419,7 +419,7 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(デスクトップアプリ)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64.zip</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>スタンドアロン・デスクトップアプリ（3 パネルワークスペース、1 ターンプレイヤー、1:1 翻訳ビュー、内蔵 C11 エンジン、<code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI 同梱）</td>
               </tr>
@@ -460,11 +460,10 @@ shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
 hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
-# Windows (x86_64 PowerShell) 무결성 검증 및 실행
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64.zip -Algorithm SHA256
-Expand-Archive .\602-Studio-v2.0.0-windows-x86_64.zip -DestinationPath .
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe
+# Windows (x86_64 PowerShell) 무결성 검증 및 설치 프로그램 실행
+Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) 무결성 검증 및 실행
 sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
@@ -514,11 +513,10 @@ shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
 hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
-# Windows (x86_64 PowerShell) checksum verification &amp; launch
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64.zip -Algorithm SHA256
-Expand-Archive .\602-Studio-v2.0.0-windows-x86_64.zip -DestinationPath .
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe
+# Windows (x86_64 PowerShell) checksum verification &amp; installer
+Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) checksum verification &amp; launch
 sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
@@ -568,11 +566,10 @@ shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
 hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
-# Windows (x86_64 PowerShell) 整合性検証と起動
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64.zip -Algorithm SHA256
-Expand-Archive .\602-Studio-v2.0.0-windows-x86_64.zip -DestinationPath .
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe
+# Windows (x86_64 PowerShell) 整合性検証とインストーラー実行
+Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) 整合性検証と起動
 sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
@@ -1827,9 +1824,9 @@ Through the cold sea fog, the old lighthouse emerged.
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --smoke-test
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --compile ./manuscript -o ./build/game.602.json
 
-# Windows (압축 해제 디렉터리 내부 실행 파일)
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe --compile .\manuscript -o .\build\game.602.json
+# Windows (기본 설치 경로 내 CLI 실행 파일)
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --compile .\manuscript -o .\build\game.602.json
 
 # Linux (압축 해제 디렉터리 내부 실행 파일)
 ./602-Studio-linux-x86_64/602-studio --smoke-test
@@ -1879,9 +1876,9 @@ Through the cold sea fog, the old lighthouse emerged.
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --smoke-test
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --compile ./manuscript -o ./build/game.602.json
 
-# Windows (extracted bundle directory)
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe --compile .\manuscript -o .\build\game.602.json
+# Windows (installed CLI executable)
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --compile .\manuscript -o .\build\game.602.json
 
 # Linux (extracted bundle directory)
 ./602-Studio-linux-x86_64/602-studio --smoke-test
@@ -1931,9 +1928,9 @@ Through the cold sea fog, the old lighthouse emerged.
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --smoke-test
 "/Applications/602 Studio.app/Contents/MacOS/602 Studio" --compile ./manuscript -o ./build/game.602.json
 
-# Windows (展開ディレクトリ内の実行ファイル)
-.\602-Studio-windows-x86_64\602-studio.exe --smoke-test
-.\602-Studio-windows-x86_64\602-studio.exe --compile .\manuscript -o .\build\game.602.json
+# Windows (標準インストール先の CLI 実行ファイル)
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
+&amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --compile .\manuscript -o .\build\game.602.json
 
 # Linux (展開ディレクトリ内の実行ファイル)
 ./602-Studio-linux-x86_64/602-studio --smoke-test
