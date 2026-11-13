@@ -353,12 +353,12 @@
           </div>
           <div class="p602-dl-row">
             <div class="p602-dl-info">
-              <div class="p602-dl-os"><span>Windows · x86_64</span><span class="p602-rec-pill" data-602-rec hidden>Recommended</span></div>
-              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="studio-win">602-Studio-v2.0.0-windows-x86_64.zip</code><span>· SHA-256: <code class="p602-dl-file">785b575a6943ed1b599122fb9037f8a79b38dc83856425fca3eb740102dfbb6a</code></span></div>
+              <div class="p602-dl-os"><span>Windows · x86_64 · Setup Installer</span><span class="p602-rec-pill" data-602-rec hidden>Recommended</span></div>
+              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="studio-win">602-Studio-v2.0.0-windows-x86_64-setup.exe</code><span>· SHA-256: <code class="p602-dl-file">8a8bcb873aa68ea0f8ff2e2e5a4f93ee7433510f586cb5e716c458ac76f53290</code></span></div>
             </div>
             <div class="p602-dl-acts">
               <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="studio-win" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
-              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="studio-win" aria-disabled="true" aria-label="SHA-256 checksum for 602-Studio-v2.0.0-windows-x86_64.zip">.sha256</a>
+              <a class="p602-sha-link is-locked" href="#p602-agree-check" data-602-sha="studio-win" aria-disabled="true" aria-label="SHA-256 checksum for 602-Studio-v2.0.0-windows-x86_64-setup.exe">.sha256</a>
             </div>
           </div>
           <div class="p602-dl-row">
@@ -454,7 +454,7 @@
           <div class="p602-dl-row">
             <div class="p602-dl-info">
               <div class="p602-dl-os"><span>Archive (.zip)</span><span class="p602-rec-pill" data-602-rec hidden>Recommended</span></div>
-              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="docs-zip">602-v2.0.0-docs.zip</code><span>· SHA-256: <code class="p602-dl-file">11da419e10d81d63988229c7b01ee5bf48a9428710118b33f0aee90eee3b8890</code></span></div>
+              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="docs-zip">602-v2.0.0-docs.zip</code><span>· SHA-256: <code class="p602-dl-file">09cc3c87965a43ca7338a927fd25209941baaf2eb53019fb60d6bfc935086c98</code></span></div>
             </div>
             <div class="p602-dl-acts">
               <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="docs-zip" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
@@ -464,7 +464,7 @@
           <div class="p602-dl-row">
             <div class="p602-dl-info">
               <div class="p602-dl-os"><span>Document (.md)</span><span class="p602-rec-pill" data-602-rec hidden>Recommended</span></div>
-              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="docs-md">602-v2.0.0-Documentation.md</code><span>· SHA-256: <code class="p602-dl-file">bcdb85e78aa1d6c641c577e37ce66939421a8d1a00e677a238b74e8441b2233d</code></span></div>
+              <div class="p602-dl-meta"><code class="p602-dl-file" data-602-filename="docs-md">602-v2.0.0-Documentation.md</code><span>· SHA-256: <code class="p602-dl-file">0dbb94a0f6ba154fa1f31bae8be0c0e46951e8946cd507e5568732125a29f69f</code></span></div>
             </div>
             <div class="p602-dl-acts">
               <a class="p602-dl-btn is-locked" href="#p602-agree-check" data-602-dl="docs-md" aria-disabled="true"><span data-602-dl-label>Accept License</span></a>
@@ -501,7 +501,7 @@ shasum -a 256 -c *.sha256
 sha256sum -c *.sha256
 
 # Windows (PowerShell)
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64.zip, .\story-engine-v2.0.0-windows-x86_64.zip -Algorithm SHA256</code></pre>
+Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe, .\story-engine-v2.0.0-windows-x86_64.zip -Algorithm SHA256</code></pre>
 
     <h3 class="p602-h3"><span data-lang-block="ko">2. macOS 서명 및 공증</span><span data-lang-block="en">2. macOS signing and notarization</span><span data-lang-block="ja">2. macOS 署名と公証</span></h3>
     <p data-lang-block="ko"><code>602-Studio-v2.0.0-macos-arm64.dmg</code> 및 <code>story-engine-v2.0.0-macos-arm64.zip</code>은 Apple Developer ID (CHOAM Co., Ltd.) 서명 및 Apple 공증을 받았으므로 <code>com.apple.quarantine</code>을 수동으로 제거하지 않고 실행할 수 있습니다.</p>

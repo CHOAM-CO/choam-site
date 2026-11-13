@@ -101,7 +101,7 @@
     const DEFAULT_RELEASE_LABEL = 'v2.0.0';
     const ASSETS = [
       { key: "studio-mac", os: "mac", defaultName: "602-Studio-v2.0.0-macos-arm64.dmg" },
-      { key: "studio-win", os: "win", defaultName: "602-Studio-v2.0.0-windows-x86_64.zip" },
+      { key: "studio-win", os: "win", defaultName: "602-Studio-v2.0.0-windows-x86_64-setup.exe" },
       { key: "studio-linux", os: "linux", defaultName: "602-Studio-v2.0.0-linux-x86_64.zip" },
       { key: "engine-mac", os: "mac", defaultName: "story-engine-v2.0.0-macos-arm64.zip" },
       { key: "engine-win", os: "win", defaultName: "story-engine-v2.0.0-windows-x86_64.zip" },
