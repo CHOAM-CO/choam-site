@@ -20,29 +20,29 @@
         treeLeft: '2지선다 4번',
         treeRight: '2⁴ = 16갈래',
         steps: ['시작', '1회', '2회', '3회', '4회 (16)'],
-        cardTitle: '기하급수로 늘어나는 경로',
+        cardTitle: '곱절로 불어나는 갈래',
         r1: ['선택 4번 (2⁴)', '16갈래'],
         r2: ['선택 7번 (2⁷)', '128갈래'],
         r3: ['선택 10번 (2¹⁰)', '1,024갈래'],
         r4: ['선택 20번 (2²⁰)', '100만+ 갈래'],
-        b1: '선택지 몇 개만 추가해도 맞춰야 할 앞뒤 상태 조합은 기하급수로 불어납니다.',
-        b2: '<tspan class="ar">1,024가지 경로</tspan>를 머릿속 암기나 복잡한 분기 코드로 관리하기란 불가능합니다.',
+        b1: '선택지 몇 개만 보태도 앞뒤로 맞춰야 할 상태 조합이 걷잡을 수 없이 늘어납니다.',
+        b2: '<tspan class="ar">1,024갈래</tspan>를 머릿속 기억이나 얽힌 조건문만으로 챙기는 건 불가능합니다.',
         b2Cls: 'xm em',
-        foot: '단순해 보이는 선택지도 쌓이는 순간 기하급수로 폭발합니다.'
+        foot: '사소해 보이는 선택지도 겹치는 순간 감당하기 힘든 갈래가 됩니다.'
       } : l === 'ja' ? {
         top: '物語の分岐は足し算ではなく指数（2ⁿ）で膨らみます',
         treeLeft: '2択を4回',
         treeRight: '2⁴ = 16通り',
         steps: ['開始', '1回', '2回', '3回', '4回 (16)'],
-        cardTitle: '急増するルート数',
+        cardTitle: '倍々に増えるルート数',
         r1: ['選択4回 (2⁴)', '16通り'],
         r2: ['選択7回 (2⁷)', '128通り'],
         r3: ['選択10回 (2¹⁰)', '1,024通り'],
         r4: ['選択20回 (2²⁰)', '100万+通り'],
-        b1: '選択肢を少し増やすだけで、整合させるべき前後の状態組み合わせは急増します。',
-        b2: '<tspan class="ar">1,024通りのルート</tspan>を暗記やゲーム内の条件分岐コードで管理するのは不可能です。',
+        b1: '選択肢を少し足すだけで、前後で合わせるべき状態の組み合わせは一気に膨らみます。',
+        b2: '<tspan class="ar">1,024通りのルート</tspan>を記憶や複雑な条件分岐コードだけで追い切るのは不可能です。',
         b2Cls: 'xm sm2 em',
-        foot: '単純に見える選択肢も、重なった瞬間に指数関数で爆発します。'
+        foot: '小さく見える選択も、重なった瞬間に人の手では追えない数になります。'
       } : {
         top: 'STORY BRANCHES GROW EXPONENTIALLY (2ⁿ), NOT BY ADDITION',
         treeLeft: '4 binary choices',
@@ -53,10 +53,10 @@
         r2: ['7 choices (2⁷)', '128'],
         r3: ['10 choices (2¹⁰)', '1,024'],
         r4: ['20 choices (2²⁰)', '1M+'],
-        b1: 'Adding even a handful of choices multiplies every upstream and downstream state check.',
-        b2: 'Tracking <tspan class="ar">1,024 paths</tspan> by memory or nested if-else game code quickly breaks down.',
+        b1: 'Even a handful of choices multiplies every state check upstream and downstream.',
+        b2: 'Keeping <tspan class="ar">1,024 paths</tspan> straight by memory or nested if-else code quickly breaks down.',
         b2Cls: 'xm sm2 em',
-        foot: 'SIMPLE CHOICES COMPOUND INTO EXPONENTIAL COMPLEXITY.'
+        foot: 'SMALL CHOICES COMPOUND INTO EXPONENTIAL COMPLEXITY.'
       };
       return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602a', 360, 250, 340, 210, .12)}
       <text class="xl" x="30" y="40">${t.top}</text>
@@ -85,69 +85,69 @@
     },
     '602-qa': (l = 'en') => {
       const t = l === 'ko' ? {
-        top: '복잡한 분기 관리는 602로 떼어내고, 오류는 반영 전에 걸러냅니다',
+        top: '복잡한 분기는 602로 떼어내고, 꼬인 연결은 넣기 전에 걸러냅니다',
         leftTitle: '게임 코드',
-        leftSub: '분기 계산에서 해방',
+        leftSub: '복잡한 분기 계산 없음',
         chip1: '화면 연출 · 사운드 · UI',
         chip2: '인게임 플레이 · 시스템',
         leftFoot1: '602가 건네주는 대사와 상태만',
         leftFoot2: '화면에 그리면 끝납니다.',
-        rightTitle: '602 Studio · 검증',
+        rightTitle: '602 Studio · 검사',
         stAsk: '승인 대기',
         stOk: '반영됨',
         stNo: '반려됨',
-        d1: '새 선택지 추가 및 조건 분기 연결',
-        d2: '앞뒤 장면 상태값 · 스키마 자동 대조',
-        chk1: '✓ .602.json 컴파일 검증 통과',
+        d1: '새 선택지와 조건 분기 연결',
+        d2: '앞뒤 장면 상태값 · 구조 자동 대조',
+        chk1: '✓ .602.json 컴파일 검사 통과',
         chk2: '끊어진 연결 0건 · 조건 오류 0건',
         dFoot: '깨진 분기는 애초에 게임으로 넘어가지 않습니다.',
-        prompt: '검증이 끝난 변경안을 눌러 반영해 보세요.',
+        prompt: '검사를 마친 변경안을 눌러 반영해 보세요.',
         okLabel: '승인',
         noLabel: '반려',
-        savedOk: '시나리오에 반영되었습니다',
-        savedNo: '반려됨 · 원본을 유지했습니다',
+        savedOk: '시나리오에 반영했습니다',
+        savedNo: '반려됨 · 원본을 유지합니다',
         resetAria: '다시 보기',
         resetLabel: '↺ 다시',
-        foot: '이야기 구조와 게임 코드를 분리해 신경 써야 할 문제를 절반으로 줄입니다.'
+        foot: '이야기 구조와 게임 코드를 갈라 놓아 챙겨야 할 짐을 절반으로 덜어냅니다.'
       } : l === 'ja' ? {
-        top: '複雑な分岐管理は 602 に切り離し、エラーは反映前に遮断します',
+        top: '複雑な分岐は 602 に切り離し、エラーは反映前に食い止めます',
         leftTitle: 'ゲームコード',
         leftSub: '分岐計算から解放',
         chip1: '画面演出 · サウンド · UI',
         chip2: 'ゲームプレイ · システム',
         leftFoot1: '602 が渡すセリフと状態だけを',
-        leftFoot2: '画面に描画すれば完了します。',
-        rightTitle: '602 Studio · 検証',
+        leftFoot2: '画面に描けば完了します。',
+        rightTitle: '602 Studio · 検査',
         stAsk: '承認待ち',
         stOk: '反映済み',
         stNo: '差戻し済み',
-        d1: '新規選択肢の追加と条件分岐の接続',
-        d2: '前後シーンの状態値・スキーマ自動照合',
-        chk1: '✓ .602.json コンパイル検証通過',
+        d1: '新しい選択肢と条件分岐の接続',
+        d2: '前後シーンの状態値・構造を自動照合',
+        chk1: '✓ .602.json コンパイル検査通過',
         chk2: 'リンク切れ 0件 · 条件エラー 0件',
         dFoot: '壊れた分岐はゲームへ渡りません。',
-        prompt: '検証済みの変更を承認・差戻し:',
+        prompt: '検査済みの変更を承認・差戻し:',
         okLabel: '承認',
         noLabel: '差戻し',
-        savedOk: 'シナリオに反映されました',
-        savedNo: '差戻し · 原本を維持しました',
+        savedOk: 'シナリオに反映しました',
+        savedNo: '差戻し · 原本を維持します',
         resetAria: 'やり直す',
         resetLabel: '↺ 戻す',
-        foot: '物語構造とゲームコードを分離し、確認すべき問題を半減させます。'
+        foot: '物語構造とゲームコードを分け、追いかけるべき問題を半分にします。'
       } : {
-        top: 'ISOLATE BRANCHING IN 602 STUDIO · CATCH ERRORS PRE-FLIGHT',
+        top: 'KEEP BRANCHING IN 602 STUDIO · CATCH ERRORS BEFORE RUNTIME',
         leftTitle: 'GAME CODE',
         leftSub: 'Free from branch logic',
         chip1: 'Visuals · Audio · UI',
         chip2: 'Core Gameplay · Systems',
         leftFoot1: 'Renders only the lines &amp; state',
-        leftFoot2: 'returned by Story Engine v2.',
+        leftFoot2: 'handed back by Story Engine v2.',
         rightTitle: '602 STUDIO v2',
         stAsk: 'Pending',
         stOk: 'Approved',
         stNo: 'Rejected',
         d1: 'Wire new choice &amp; branch condition',
-        d2: 'Validate upstream &amp; downstream state',
+        d2: 'Check upstream &amp; downstream state',
         chk1: '✓ .602.json compile check passed',
         chk2: '0 dead links · 0 condition errors',
         dFoot: 'Broken branches never reach the game.',
@@ -158,7 +158,7 @@
         savedNo: 'Rejected · original kept',
         resetAria: 'Reset',
         resetLabel: '↺ Reset',
-        foot: 'SEPARATE STORY GRAPH FROM GAME CODE · CUT DEBUGGING IN HALF.'
+        foot: 'SEPARATE STORY FROM GAME CODE · CUT DEBUGGING IN HALF.'
       };
       return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602c', 470, 240, 300, 220, .13)}
       <text class="xl" x="30" y="40">${t.top}</text>
@@ -204,50 +204,50 @@
         s1: '1장 (건너뜀)',
         s2: '2장 (건너뜀)',
         s3: '▶ 원하는 장면부터 바로 실행',
-        c1Title: '602 Studio 단독 시뮬레이션',
+        c1Title: '602 Studio 단독 실행',
         c1a: '게임 화면이나 시스템이 아직 없어도,',
         c1b: '원하는 장면과 조건에서 이야기를',
-        c1c: '바로 실행해 흐름을 먼저 검증합니다.',
-        c2Title: 'Story Engine v2 직결',
-        c2a: '검증이 끝난 .602.json 번들은',
-        c2b: 'story_engine_v2.h 공유 런타임으로',
-        c2c: 'C++ · C# · Godot 게임에 직결됩니다.',
-        oldWay: '예전 방식: 게임 클라이언트가 나올 때까지 대기 + 1장부터 수십 번 반복 플레이',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio에서 원하는 장면 즉시 실행 ➔ C ABI v2 엔진으로 게임에 탑재',
+        c1c: '바로 돌려보며 흐름을 먼저 다듬습니다.',
+        c2Title: 'Story Engine v2 바로 연결',
+        c2a: '검사를 마친 .602.json 번들은',
+        c2b: 'story_engine_v2.h 런타임을 통해',
+        c2c: 'C++ · C# · Godot 게임에 바로 붙습니다.',
+        oldWay: '예전에는: 게임 빌드가 나올 때까지 기다린 뒤, 1장부터 수십 번 다시 플레이',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio에서 원하는 장면 바로 실행 ➔ C ABI v2 엔진으로 게임에 연결',
         newCls: 'xm sm2 em',
-        foot: '클라이언트 개발을 기다리지 않고, 이야기를 가장 먼저 완성합니다.'
+        foot: '게임 빌드를 기다리지 않고, 이야기부터 먼저 완성합니다.'
       } : l === 'ja' ? {
-        top: 'ゲームがまだなくても、シナリオ単体ですぐ再生して仕上げます',
+        top: 'ゲームがまだなくても、シナリオ単体ですぐ動かして仕上げます',
         s1: '第1章（スキップ）',
         s2: '第2章（スキップ）',
-        s3: '▶ 指定シーンから即座に実行',
+        s3: '▶ 見たい場面からすぐ実行',
         c1Title: '602 Studio 単体再生',
         c1a: 'ゲーム画面やUIがまだなくても、',
-        c1b: '任意の場面と状態値を指定して',
-        c1c: '物語の流れを即座に実行・検証します。',
-        c2Title: 'Story Engine v2 直結',
-        c2a: '検証済みの .602.json バンドルは',
-        c2b: 'story_engine_v2.h 共有ランタイムで',
-        c2c: 'C++ · C# · Godot へ直結します。',
-        oldWay: '従来: ゲームクライアント完成まで待機 + 第1章から何十回も反復プレイ',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio で任意場面を即実行 ➔ C ABI v2 エンジンでゲームへ搭載',
+        c1b: '見たい場面と状態値を指定して',
+        c1c: '物語の流れをその場で確かめられます。',
+        c2Title: 'Story Engine v2 接続',
+        c2a: '検査済みの .602.json バンドルは',
+        c2b: 'story_engine_v2.h ランタイム経由で',
+        c2c: 'C++ · C# · Godot にそのまま繋がります。',
+        oldWay: 'これまで: ゲームビルドの完成待ち + 第1章から何十回も通しプレイ',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio で見たい場面を即実行 ➔ C ABI v2 エンジンでゲームへ接続',
         newCls: 'xm sm2 em',
-        foot: 'クライアント開発を待たずに、物語をいち早く完成させます。'
+        foot: 'クライアントの完成を待たず、物語を先に仕上げられます。'
       } : {
-        top: 'SIMULATE SCENARIOS STANDALONE · WIRE STRAIGHT INTO YOUR ENGINE',
+        top: 'PLAYTEST SCENARIOS STANDALONE · PLUG INTO YOUR ENGINE',
         s1: 'Ch. 1 (Skip)',
         s2: 'Ch. 2 (Skip)',
         s3: '▶ Jump straight to target scene',
-        c1Title: '602 STUDIO SIMULATION',
+        c1Title: '602 STUDIO PLAYTEST',
         c1a: 'Even before the game client exists,',
         c1b: 'set custom state &amp; jump to any scene',
-        c1c: 'to playtest and export .602.zip / .json.',
+        c1c: 'to test flow and export .602.zip / .json.',
         c2Title: 'STORY ENGINE v2 (C ABI)',
-        c2a: 'Verified .602.json bundles plug into',
-        c2b: 'C++, C#, and Godot games via the',
-        c2c: 'native story_engine_v2.h runtime.',
-        oldWay: 'Old workflow: Wait for client build + replay from Chapter 1 dozens of times',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Simulate any scene in Studio ➔ ship via C ABI v2 Story Engine',
+        c2a: 'Checked .602.json bundles plug into',
+        c2b: 'C++, C#, and Godot games through',
+        c2c: 'the native story_engine_v2.h runtime.',
+        oldWay: 'Old way: Wait on a client build, then replay from Ch. 1 dozens of times',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Playtest any scene in Studio ➔ ship with C ABI v2 Engine',
         newCls: 'xm sm2 em',
         foot: 'FINISH AND VERIFY THE STORY BEFORE WAITING ON THE CLIENT.'
       };
@@ -288,65 +288,65 @@
       title_ko: '',
       status: 'v1.0.2 · Free Desktop Agent',
       headline: 'An agent that takes a thousand and one nights in stride',
-      summary: 'Swap brains freely across Claude, ChatGPT, Google Antigravity (Gemini), Ollama, or major API keys while every memory and rule stays in plain-text files on your disk. Permanently free, no account or email required, zero telemetry.',
+      summary: 'Swap brains freely across your Claude, ChatGPT, or Google Antigravity (Gemini) subscription, Ollama, or API keys while every conversation and working rule stays in plain-text files on your disk. Free forever, with no account to create and zero telemetry.',
       description: [
         [
           { display: 'You never have to explain yourself twice. Every memory stays in plain files on your disk.' },
-          'Yesterday’s exchange and last month’s working rules are organized automatically as plain-text Markdown on your computer. Scheherazade is permanently free with no subscription, requires no account or email, and sends zero telemetry.',
-          'Run multiple Sera windows side by side on one computer with Multi-Profile, keeping each memory folder and bot strictly isolated. Ask for an exam cheat sheet, and it already puts the question types you missed last time at the top.'
+          'Yesterday’s conversation and last month’s working rules are filed away automatically as plain-text Markdown on your computer. Scheherazade is free with no subscription, asks for no account or email, and sends nothing out.',
+          'With Multi-Profile, you can keep several Sera windows open on one machine, each with its own memory folder and bot cleanly separated. Ask for an exam cheat sheet, and she already puts the question types you missed last time at the top.'
         ],
         [
-          { display: 'Plug in the subscriptions, local models, or API keys you already use.' },
-          'Connect your existing Claude, ChatGPT, or Google Antigravity (agy / Gemini) subscription, run local or cloud Ollama, or paste an API key with automatic detection for OpenAI, OpenRouter, DeepSeek, Google, xAI, and Groq.',
-          'Keep every memory and swap only the brain whenever a stronger model arrives. Dress each workspace in five house themes: Sera, Paris, Vancouver, Shanghai, and Seoul, CHOAM’s canonical 45° chamfered theme.'
+          { display: 'Bring the subscriptions, local models, or API keys you already use.' },
+          'Connect the Claude, ChatGPT, or Google Antigravity (agy / Gemini) subscription you already pay for, run local or cloud Ollama, or paste an API key: OpenAI, OpenRouter, DeepSeek, Google, xAI, and Groq are recognized automatically.',
+          'Keep every memory and swap only the brain whenever a better model comes along. Dress each window in five house themes: Sera, Paris, Vancouver, Shanghai, and Seoul, CHOAM’s signature 45° chamfered dark theme.'
         ],
         [
-          { display: 'Reach it from your phone, let it control the desktop, and carry it on USB.' },
-          'Talk via Discord, Slack, Telegram, or voice Call Mode, with granular reply switches per person, bot, server, and DM. Built-in computer control (a dedicated browser and agent-desktop) can even open and wire up your Discord bot automatically.',
-          'Carry a PIN-locked Windows USB Portable build that inherits your desktop memory, and stay current across Mac, Windows, Linux, and Portable with an in-app progress banner and one-click Restart now updates.'
+          { display: 'Reach her from your phone, let her run the desktop, and carry her on a USB drive.' },
+          'Talk through Discord, Slack, Telegram, or voice Call Mode, with per-person, per-bot, per-server, and DM reply switches so she only speaks where invited. With a dedicated browser and built-in desktop control (agent-desktop), she can even set up your Discord bot on her own.',
+          'Put the PIN-locked Windows USB Portable build in your pocket to carry your desktop memory to another PC. Across Mac, Windows, Linux, and Portable, updates download inside the app and finish with one click on Restart now.'
         ]
       ],
       ko: {
-        status: 'v1.0.2 · 영구 무료 데스크톱 에이전트',
+        status: 'v1.0.2 · 무료 데스크톱 에이전트',
         headline: '천하루밤도 거뜬한 에이전트',
-        summary: 'Claude·ChatGPT·Google Antigravity(Gemini) 구독과 Ollama, 주요 API 키를 자유롭게 갈아끼워도 대화와 작업 규칙은 내 컴퓨터의 평문 파일로 온전히 남습니다. 영구 무료 배포이며 계정·이메일 요구와 텔레메트리가 일절 없습니다.',
+        summary: '쓰던 Claude·ChatGPT·Google Antigravity(Gemini) 구독이나 Ollama, API 키를 마음껏 갈아끼워도 나눈 대화와 작업 원칙은 내 컴퓨터에 평문 파일로 고스란히 남습니다. 구독 없는 무료 앱이며, 계정도 묻지 않고 바깥으로 보내는 기록도 없습니다.',
         description: [
           [
-            { display: '매번 다시 설명하지 않아도, 내 취향과 작업 규칙을 이미 알고 있습니다.' },
-            '어제 나눈 대화부터 지난달 정해둔 원칙까지 내 컴퓨터의 로컬 평문 마크다운 파일로 스스로 정리해 남깁니다. 구독 없는 영구 무료 배포이며, 계정이나 이메일을 요구하지 않고 외부로 전송하는 텔레메트리도 없습니다.',
-            '멀티 프로필로 한 컴퓨터에서 기억 폴더와 봇이 완전히 분리된 여러 세라 창을 동시에 띄워 둘 수 있습니다. 시험 치트시트를 부탁하면 지난번에 틀렸던 유형부터 알아서 짚어 정리해 줍니다.'
+            { display: '일일이 다시 설명하지 않아도, 내 취향과 일하는 방식을 이미 알고 있습니다.' },
+            '어제 나눈 대화부터 지난달 정해 둔 원칙까지, 내 컴퓨터 안의 평문 마크다운 파일에 스스로 정리해 둡니다. 구독료 없는 무료 앱이며 계정이나 이메일을 묻지 않고, 대화 기록을 바깥으로 보내지도 않습니다.',
+            '멀티 프로필을 쓰면 기억 폴더와 봇이 완전히 나뉜 세라 창을 한 컴퓨터에 여러 개 띄워 둘 수 있습니다. 시험 요약본을 부탁하면 지난번에 틀렸던 문제 유형부터 먼저 짚어 챙겨 줍니다.'
           ],
           [
-            { display: '새로 결제할 필요 없이, 쓰던 구독과 로컬 모델·API 키를 그대로 연결하세요.' },
-            '기존 Claude, ChatGPT, Google Antigravity(agy / Gemini) 구독은 물론 로컬·클라우드 Ollama를 바로 연결합니다. API 키만 붙여넣으면 OpenAI, OpenRouter, DeepSeek, Google, xAI, Groq 공급자를 자동으로 판별합니다.',
-            '기억과 작업 방식은 그대로 두고 두뇌만 자유롭게 교체하세요. 작업창은 Sera, Paris, Vancouver, Shanghai와 초암 정본 45° 모따기 테마 Seoul까지 5종 하우스 테마로 바꿀 수 있습니다.'
+            { display: '새로 결제할 필요 없이, 원래 쓰던 구독과 로컬 모델·API 키를 그대로 연결하세요.' },
+            '이미 구독 중인 Claude, ChatGPT, Google Antigravity(agy / Gemini)는 물론 로컬·클라우드 Ollama도 바로 이어집니다. API 키만 붙여 넣으면 OpenAI, OpenRouter, DeepSeek, Google, xAI, Groq 중 어디 것인지 알아서 가려냅니다.',
+            '쌓아 둔 기억과 일하는 방식은 그대로 두고, 더 마음에 드는 모델이 나올 때마다 두뇌만 바꿔 끼우세요. 작업창은 Sera, Paris, Vancouver, Shanghai에 초암의 45° 모따기 정본 테마 Seoul까지 다섯 가지 테마로 갈아입힐 수 있습니다.'
           ],
           [
-            { display: '메신저·음성 원격 지시부터 컴퓨터 직접 제어, USB 포터블까지 하나로 이어집니다.' },
-            'Discord, Slack, Telegram과 음성 콜 모드로 어디서든 말을 걸고, 사람·봇·서버·DM별 응답 허용 스위치로 권한을 세밀하게 통제합니다. 전용 브라우저와 agent-desktop 컴퓨터 제어로 Discord 봇 자동 개설까지 직접 수행합니다.',
-            'PIN 잠금과 데스크톱 기억 이어받기를 지원하는 Windows USB 포터블로 환경을 그대로 휴대할 수 있으며, Mac · Windows · Linux · Portable 전 플랫폼에서 앱 내 진행률 배너와 지금 재시작 버튼으로 간편하게 자동 업데이트됩니다.'
+            { display: '밖에서 메신저와 음성으로 부르고, 컴퓨터를 직접 다루게 하고, USB에 담아 다니세요.' },
+            'Discord, Slack, Telegram과 음성 통화로 어디서든 말을 걸고, 사람·봇·서버·DM마다 답장할지 말지를 세세하게 정해 둘 수 있습니다. 전용 브라우저와 컴퓨터 제어(agent-desktop)가 내장되어 있어 Discord 봇 개설까지 알아서 마칩니다.',
+            'Windows USB 포터블에 담아 다니면 데스크톱에서 쓰던 기억을 그대로 이어받고 PIN 잠금으로 안전하게 지킬 수 있습니다. Mac, Windows, Linux, 포터블 어디서든 새 버전이 나오면 앱 안의 진행 표시줄에서 받아 ‘지금 재시작’ 한 번으로 업데이트됩니다.'
           ]
         ]
       },
       ja: {
-        status: 'v1.0.2 · 永久無料デスクトップエージェント',
+        status: 'v1.0.2 · 無料デスクトップエージェント',
         headline: '千夜一夜も余裕のエージェント',
-        summary: 'Claude・ChatGPT・Google Antigravity（Gemini）のサブスクや Ollama、主要 API キーを自在に切り替えながら、会話とルールは手元の平文ファイルにそのまま残ります。永久無料で、アカウント登録もテレメトリもありません。',
+        summary: '普段お使いの Claude・ChatGPT・Google Antigravity（Gemini）のサブスクや Ollama、各種 API キーを自在に切り替えながら、会話や作業ルールは手元の平文ファイルにそのまま残せます。ずっと無料で、アカウント登録も外部へのデータ送信もありません。',
         description: [
           [
-            { display: '毎回説明し直さなくても、あなたの好みと作業ルールをすでに把握しています。' },
-            '昨日の会話から先月決めたルールまで、パソコン内の平文 Markdown ファイルとして自動で整理・保存します。サブスクなしの永久無料配布で、アカウントやメールアドレスの登録もテレメトリ送信も一切ありません。',
-            'マルチプロファイルにより、1台のパソコンで記憶フォルダと Bot が完全に分離された複数のセラ画面を同時に運用できます。試験のチートシートを頼めば、前回間違えた問題タイプから優先してまとめてくれます。'
+            { display: '毎回いちから説明しなくても、あなたの好みと仕事の進め方を覚えています。' },
+            '昨日のやり取りから先月決めたルールまで、手元のパソコンに平文の Markdown ファイルとして自動で整理して残します。サブスクなしの無料アプリで、アカウントやメールアドレスの登録も、外部へのテレメトリ送信もありません。',
+            'マルチプロファイルを使えば、記憶フォルダと Bot を完全に分けた複数のセラ画面を1台のパソコンに並べておけます。試験のまとめシートを頼めば、前回間違えた問題タイプから先に拾い上げてくれます。'
           ],
           [
-            { display: '追加決済なしで、普段のサブスク・ローカルモデル・API キーを直結できます。' },
-            '既存の Claude、ChatGPT、Google Antigravity（agy / Gemini）のサブスクリプションや、ローカル・クラウドの Ollama をそのまま接続できます。OpenAI、OpenRouter、DeepSeek、Google、xAI、Groq の API キー自動判別にも対応しています。',
-            '記憶と仕事の進め方はそのままに、頭脳だけをいつでも入れ替えられます。画面は Sera、Paris、Vancouver、Shanghai に、CHOAM 正本の 45° 面取りテーマ Seoul を加えた5種のハウステーマから選べます。'
+            { display: '新しく課金しなくても、普段のサブスクやローカルモデル、API キーがそのまま繋がります。' },
+            '契約中の Claude、ChatGPT、Google Antigravity（agy / Gemini）はもちろん、ローカルやクラウドの Ollama にもすぐ接続できます。API キーを貼り付ければ OpenAI、OpenRouter、DeepSeek、Google、xAI、Groq を自動で見分けます。',
+            '積み重ねた記憶や作業スタイルはそのままに、新しいモデルが出るたび頭脳だけを入れ替えられます。ウインドウは Sera、Paris、Vancouver、Shanghai に CHOAM 正本の 45° 面取りテーマ Seoul を加えた5つのテーマに着せ替えられます。'
           ],
           [
-            { display: '外部チャンネル連携から PC 直接操作、USB ポータブルまでひとつながりに。' },
-            'Discord、Slack、Telegram、音声コールモードに対応し、人・Bot・サーバー・DM ごとの応答許可スイッチで権限を細かく管理できます。専用ブラウザと agent-desktop による PC 直接操作で Discord Bot の自動開設までこなします。',
-            'PIN ロックとデスクトップ記憶の引き継ぎを備えた Windows USB ポータブルに対応し、Mac・Windows・Linux・Portable の全環境でアプリ内進行バーと「今すぐ再起動」による自動アップデートを提供します。'
+            { display: '外からチャットや声で呼びかけ、PC の操作を任せ、USB で持ち歩けます。' },
+            'Discord、Slack、Telegram、音声コールモードでどこからでも話しかけられ、相手・Bot・サーバー・DM ごとの返信スイッチで出番を細かく絞れます。専用ブラウザと PC 操作（agent-desktop）を内蔵しており、Discord Bot の開設まで自動でこなします。',
+            'PIN ロック付きの Windows USB ポータブルなら、デスクトップの記憶を引き継いで別の PC でも続きから使えます。Mac・Windows・Linux・ポータブルのどれでも、アプリ内の進捗バーから「今すぐ再起動」ひとつで更新できます。'
           ]
         ]
       },
@@ -355,11 +355,11 @@
       art: [0, 1, 2],
       panels: [
         { kind: 'chat',
-          cap: 'Real exchange · Memory that survives every model swap',
-          capKo: '실제 대화 · 모델을 바꿔도 남는 로컬 평문 기억',
-          capJa: '実際の会話 · モデルを替えても残るローカル記憶',
+          cap: 'Real exchange · Memory that stays through every model swap',
+          capKo: '실제 대화 · 모델을 바꿔도 그대로 남는 내 컴퓨터의 기억',
+          capJa: '実際の会話 · モデルを替えても手元に残る記憶',
           alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in local Markdown memory (items 2 and 5 marked wrong), answers that it emphasised those question types, and hands over a five-item sheet with items 2 and 5 highlighted.',
-          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면 세라가 로컬 마크다운 기억 파일에서 2번과 5번 오답 기록을 확인하고, 해당 유형을 강조한 다섯 문항짜리 치트시트를 건넵니다.',
+          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면 세라가 로컬 마크다운 기억 파일에서 2번과 5번 오답 기록을 확인하고, 비슷한 유형을 먼저 챙긴 다섯 문항짜리 요약본을 건넵니다.',
           altJa: 'チャットの図: ユーザーが試験のチートシートを頼むと、エージェントはローカルの記憶ファイルで2番と5番の不正解記録を確認し、2番と5番を強調した5問のシートを渡します。',
           en: [
             { t: 'bub', side: 'in', p: [{ s: 'Make me a cheat sheet for the exam' }] },
@@ -375,7 +375,7 @@
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
               { s: '3번 문제 · 맞음', del: 1 },
               { s: '2번, 5번 · 틀림 → 강조 대상', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: '을 틀리셔서 비슷한 유형 위주로 강조해 두었습니다.' }] },
+            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: '을 틀리셔서 비슷한 유형부터 눈에 띄게 정리해 두었습니다.' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5문항', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ],
@@ -384,7 +384,7 @@
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
               { s: '3番 · 正解', del: 1 },
               { s: '2番、5番 · 不正解 → 重点', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えていたので、似た問題タイプを重点的にまとめました。' }] },
+            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えていたので、似た問題タイプから先にまとめました。' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5問', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ] },
@@ -393,19 +393,19 @@
           capKo: '실제 대화 · 기억은 그대로 두고 두뇌만 교체 (Claude · GPT · Gemini · Ollama)',
           capJa: '実際の会話 · 記憶はそのまま、頭脳だけ切り替え（Claude · GPT · Gemini · Ollama）',
           alt: 'Chat figure: the user switches from Claude to Antigravity Gemini while keeping local Markdown rules and Ollama standby ready, and Sera resumes yesterday’s refactor seamlessly from step 3.',
-          altKo: '대화 그림: 사용자가 Claude에서 Antigravity Gemini로 두뇌를 바꾸고 어제 하던 정리를 이어가자고 하면, 세라가 로컬 마크다운 기억과 작업 규칙을 유지한 채 3단계부터 바로 이어서 진행합니다.',
+          altKo: '대화 그림: 사용자가 Claude에서 Antigravity Gemini로 두뇌를 바꾸고 어제 하던 정리를 이어가자고 하면, 세라가 로컬 마크다운 기억과 작업 규칙을 그대로 둔 채 3단계부터 바로 이어갑니다.',
           altJa: 'チャットの図: ユーザーが Claude から Antigravity Gemini へ頭脳を切り替えて昨日の続きを頼むと、セラはローカルの Markdown 記憶とルールを保ったままステップ3から再開します。',
           en: [
             { t: 'bub', side: 'in', p: [{ s: 'Switch to Antigravity Gemini and continue yesterday’s refactor' }] },
             { t: 'sys', k: 'brain · claude / gpt → agy (gemini) · ollama ready', l: [
               { s: 'memory/project_rules.md · 14 locked rules kept intact', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'Switched to ' }, { s: 'Gemini (agy)', em: 1 }, { s: '. Resuming from step 3 with your local rules intact.' }] }
+            { t: 'bub', side: 'out', p: [{ s: 'Switched to ' }, { s: 'Gemini (agy)', em: 1 }, { s: '. Picking right back up from step 3 with your local rules intact.' }] }
           ],
           ko: [
             { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini로 바꾸고 어제 하던 정리 이어서 해줘' }] },
             { t: 'sys', k: '두뇌 · claude / gpt → agy (gemini) · ollama 대기', l: [
-              { s: 'memory/project_rules.md · 로컬 기억·작업 규칙 14건 유지', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '두뇌를 ' }, { s: 'Gemini (agy)', em: 1 }, { s: '로 전환했습니다. 어제 정해둔 규칙 그대로 3단계부터 이어갑니다.' }] }
+              { s: 'memory/project_rules.md · 로컬 기억·작업 원칙 14건 유지', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: '두뇌를 ' }, { s: 'Gemini (agy)', em: 1 }, { s: '로 바꿨습니다. 어제 정해 둔 원칙 그대로 3단계부터 이어갑니다.' }] }
           ],
           ja: [
             { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini に切り替えて、昨日の続きをお願い' }] },
@@ -415,28 +415,28 @@
           ] },
         { kind: 'chat',
           cap: 'Real exchange · Discord, Slack, Telegram & desktop on one thread',
-          capKo: '실제 대화 · 메신저와 데스크톱이 한 줄기로 연결',
-          capJa: '実際の会話 · メッセンジャーとデスクトップがひと続き',
+          capKo: '실제 대화 · 밖에서 보낸 메시지와 데스크톱이 한 흐름으로 연결',
+          capJa: '実際の会話 · 外からのチャットとデスクトップがひと続き',
           alt: 'Chat figure: a message sent from mobile at 07:41 asking to update the modpack and start the server, carried into the desktop thread where Sera confirms at 09:12 that the server is running with zero conflicts.',
-          altKo: '대화 그림: 07:41 모바일 메신저에서 모드팩 업데이트와 서버 구동을 지시하면 같은 대화 스레드로 이어져 09:12 데스크톱에서 충돌 없이 서버를 켜 두었다는 답변이 기다립니다.',
+          altKo: '대화 그림: 07:41 밖에서 모바일 메신저로 모드팩 업데이트와 서버 실행을 부탁하면, 같은 대화 흐름으로 이어져 09:12 데스크톱에서 충돌 없이 서버를 켜 두었다는 답이 기다립니다.',
           altJa: 'チャットの図: 07:41 にスマホのメッセンジャーから Modパック更新とサーバー起動を頼むと、同じスレッドのまま 09:12 のデスクトップで起動完了と競合なしの報告が待っています。',
           en: [
             { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night tonight. Update the modpack and bring the server up' }] },
             { t: 'sys', k: 'discord / telegram · 07:41 mobile → 09:12 desktop', l: [
               { s: 'agent-desktop · modpack updated · server verified', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modpack updated and server is running. Zero conflicts.' }] }
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modpack updated and the server is up. Zero conflicts.' }] }
           ],
           ko: [
             { t: 'bub', side: 'in', time: '07:41', p: [{ s: '오늘 저녁에 게임할 건데 모드팩 업데이트하고 서버 켜줘' }] },
             { t: 'sys', k: 'discord / telegram · 07:41 모바일 → 09:12 데스크톱', l: [
-              { s: 'agent-desktop · 모드팩 갱신 및 서버 구동 완료', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '모드팩 업데이트 후 서버를 켜 두었습니다. 충돌 없습니다.' }] }
+              { s: 'agent-desktop · 모드팩 업데이트 · 서버 실행 완료', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '모드팩을 업데이트하고 서버도 켜 두었습니다. 충돌 나는 곳 없습니다.' }] }
           ],
           ja: [
             { t: 'bub', side: 'in', time: '07:41', p: [{ s: '今夜ゲームするから、Modパック更新してサーバー立てといて' }] },
             { t: 'sys', k: 'discord / telegram · 07:41 モバイル → 09:12 デスクトップ', l: [
               { s: 'agent-desktop · Modパック更新・サーバー起動完了', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modパックを更新してサーバーを起動しました。競合はありません。' }] }
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modパックを更新してサーバーを立てておきました。競合はありません。' }] }
           ] }
       ],
       info: { kind: 'sch' }
@@ -447,56 +447,56 @@
       title_ko: '',
       status: 'v2.0.0 · Studio & Story Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
-      summary: '602 pairs 602 Studio v2.0.0, a standalone desktop authoring and simulation app, with 602 Story Engine v2.0.0, a shared native C ABI v2 runtime. Separate exponentially growing branches from game code and test scenarios before the client exists.',
+      summary: '602 pairs 602 Studio v2.0.0, a desktop app for writing and playtesting branching stories, with 602 Story Engine v2.0.0, a native C ABI v2 runtime. Pull tangled story branches out of game code and test every turn before the client even exists.',
       description: [
         [
-          { display: 'Ten binary choices already explode into 1,024 paths.' },
-          'Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents inevitably lose track and introduce bugs.'
+          { display: 'Ten binary choices already branch into 1,024 paths.' },
+          'Story choices grow by powers of two (2ⁿ): 16 paths after four choices, 1,024 after ten. Leave hundreds of story flags tangled inside game scripts, and both human writers and AI agents lose their footing whenever a scene changes.'
         ],
         [
-          { display: 'Author, validate, and compile in 602 Studio v2.0.0.' },
-          '602 Studio v2.0.0 is a standalone desktop app (notarized macOS .dmg, Windows setup.exe, and Linux archive) with .602.zip project round-tripping, a local MCP bridge for AI agents, and pre-flight validation that compiles clean .602.json bundles before broken links ever reach your game.'
+          { display: 'Write, check, and compile in 602 Studio v2.0.0.' },
+          '602 Studio v2.0.0 ships as a notarized macOS .dmg, a Windows setup.exe installer, and a Linux archive. Move freely between plain Markdown folders and .602.zip archives, co-edit safely with AI agents over a local MCP bridge, and catch dead links or broken conditions before compiling a clean .602.json bundle.'
         ],
         [
-          { display: 'Simulate standalone, then ship with 602 Story Engine v2.0.0.' },
-          'Jump straight to any scene with custom state to test scenarios even before the game client is built. Then connect the compiled .602.json directly to C++, C#, or Godot through 602 Story Engine v2.0.0 and its native C ABI v2 (story_engine_v2.h) shared runtime.'
+          { display: 'Playtest on its own, then plug straight into your game.' },
+          'No waiting on client builds or replaying from Chapter 1 dozens of times: pick any scene and custom state to run the story on the spot. When it reads right, connect the compiled .602.json bundle straight to C++, C#, or Godot through 602 Story Engine v2.0.0 (story_engine_v2.h).'
         ]
       ],
       ko: {
-        status: 'v2.0.0 · 데스크톱 스튜디오 & C ABI 엔진',
+        status: 'v2.0.0 · 스토리 스튜디오 & C ABI 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
-        summary: '독립형 데스크톱 제작·시뮬레이션 앱 602 Studio v2.0.0과 네이티브 C ABI v2 공유 런타임 602 Story Engine v2.0.0으로 구성됩니다. 기하급수로 불어나는 이야기 분기를 게임 코드에서 분리하고, 클라이언트 개발 전에도 시나리오를 즉시 검증합니다.',
+        summary: '시나리오를 쓰고 바로 돌려보는 데스크톱 앱 602 Studio v2.0.0과, 게임에 얹는 C ABI v2 런타임 602 Story Engine v2.0.0이 한 짝으로 움직입니다. 걷잡을 수 없이 불어나는 이야기 갈래를 게임 코드 밖으로 떼어내, 클라이언트가 나오기 전부터 흐름을 다듬을 수 있습니다.',
         description: [
           [
-            { display: '선택지가 열 번만 나뉘어도 갈래는 1,024개로 불어납니다.' },
-            '선택지를 두 개씩만 놓아도 4번이면 16갈래, 10번이면 1,024갈래(2¹⁰)가 됩니다. 이 복잡한 분기가 게임 코드 안에 뒤엉켜 있으면 사람도 AI 에이전트도 고칠 때마다 실수하고 원인을 찾느라 시간을 쓰게 됩니다.'
+            { display: '선택지가 열 번만 갈라져도 길은 1,024갈래로 불어납니다.' },
+            '선택지를 두 개씩만 놓아도 네 번이면 16갈래, 열 번이면 1,024갈래(2¹⁰)가 됩니다. 이 수많은 조건이 게임 코드 속에 뒤엉켜 있으면 사람도 AI 에이전트도 고칠 때마다 길을 잃고, 버그 하나를 잡으려다 다른 장면을 망가뜨리기 십상입니다.'
           ],
           [
-            { display: '독립형 데스크톱 앱 602 Studio v2.0.0에서 집필·검증·컴파일합니다.' },
-            '602 Studio v2.0.0은 macOS 공증 .dmg와 Windows setup.exe로 배포되는 독립형 데스크톱 앱입니다. .602.zip 아카이브 왕복 변환과 로컬 MCP 브리지를 지원하며, 끊어진 연결과 조건 오류를 사전 차단해 무결성이 검증된 .602.json으로 컴파일합니다.'
+            { display: '데스크톱 앱 602 Studio v2.0.0에서 쓰고, 검사하고, 묶어냅니다.' },
+            '602 Studio v2.0.0은 macOS 공증 .dmg와 Windows 설치 파일(setup.exe), Linux 아카이브로 배포되는 데스크톱 앱입니다. 마크다운 원고 폴더와 .602.zip 압축본을 자유롭게 오가고 로컬 MCP로 AI 에이전트와 함께 다듬으며, 끊어진 분기나 어긋난 조건을 미리 걸러내 깨끗한 .602.json 번들로 묶어냅니다.'
           ],
           [
-            { display: '단독 시뮬레이션 후 602 Story Engine v2.0.0으로 게임에 직결합니다.' },
-            '클라이언트가 완성되기를 기다리거나 1장부터 반복 플레이할 필요 없이 원하는 장면과 조건에서 이야기를 즉시 실행합니다. 검증된 .602.json 번들은 네이티브 C ABI v2(story_engine_v2.h) 공유 런타임인 602 Story Engine v2.0.0을 통해 C++·C#·Godot 게임에 그대로 연결됩니다.'
+            { display: '시나리오만 먼저 돌려보고, 602 Story Engine v2.0.0으로 게임에 바로 붙입니다.' },
+            '게임 클라이언트가 완성되기를 기다리거나 1장부터 수십 번 되풀이해 플레이할 필요가 없습니다. 원하는 장면과 상태값을 골라 이야기를 그 자리에서 실행해 본 뒤, 완성된 .602.json 번들을 C ABI v2(story_engine_v2.h) 런타임으로 C++, C#, Godot 게임에 그대로 연결하면 됩니다.'
           ]
         ]
       },
       ja: {
-        status: 'v2.0.0 · デスクトップ Studio & C ABI エンジン',
+        status: 'v2.0.0 · ストーリー Studio & C ABI エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
-        summary: 'スタンドアロンのデスクトップ制作・シミュレーションアプリ 602 Studio v2.0.0 と、ネイティブ C ABI v2 共有ランタイム 602 Story Engine v2.0.0 で構成されます。指数関数的に増える分岐をゲームコードから切り離し、開発前でもシナリオ単体で検証できます。',
+        summary: 'シナリオを書き、その場で動かせるデスクトップアプリ 602 Studio v2.0.0 と、ゲームに組み込む C ABI v2 ランタイム 602 Story Engine v2.0.0 が対になって動きます。倍々に膨らむ分岐をゲームコードから切り離し、クライアントができる前から物語を仕上げられます。',
         description: [
           [
-            { display: '選択肢が10回分かれるだけで、ルートは1,024通りに膨らみます。' },
-            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。複雑な分岐がゲームコードと絡み合っていると、人もAIエージェントも修正のたびにミスを重ね、原因調査に時間を奪われます。'
+            { display: '選択肢が10回分かれるだけで、道筋は1,024通りに膨らみます。' },
+            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。無数の分岐条件がゲームコードの中に絡み合っていると、人もAIエージェントも手を入れるたびに道を見失い、ひとつの修正が別の場面を壊してしまいます。'
           ],
           [
-            { display: 'デスクトップアプリ 602 Studio v2.0.0 で執筆・検証・コンパイルします。' },
-            '602 Studio v2.0.0 は公証済み macOS .dmg と Windows setup.exe で配布されるスタンドアロンアプリです。.602.zip 往復変換とローカル MCP ブリッジを備え、リンク切れや条件エラーを事前に遮断して安全な .602.json へコンパイルします。'
+            { display: 'デスクトップアプリ 602 Studio v2.0.0 で書き、検査し、束ねます。' },
+            '602 Studio v2.0.0 は公証済み macOS .dmg、Windows インストーラー（setup.exe）、Linux アーカイブで配布されるデスクトップアプリです。Markdown 原稿フォルダと .602.zip を行き来しながらローカル MCP で AI エージェントと共同編集し、リンク切れや条件ミスを事前に弾いて安全な .602.json にまとめます。'
           ],
           [
-            { display: '単体シミュレーションから 602 Story Engine v2.0.0 でゲームへ直結します。' },
-            'クライアントの完成を待たず、任意の場面と状態から物語を即座に実行して検証できます。完成した .602.json はネイティブ C ABI v2（story_engine_v2.h）共有ランタイム 602 Story Engine v2.0.0 を通じて C++・C#・Godot のゲームへそのまま接続できます。'
+            { display: 'シナリオ単体で先に動かし、602 Story Engine v2.0.0 でゲームへ繋ぎます。' },
+            'ゲームビルドの完成を待ったり、第1章から何十回も通しプレイしたりする必要はありません。見たい場面と状態を選んでその場で物語を動かし、仕上がった .602.json を C ABI v2（story_engine_v2.h）ランタイム経由で C++・C#・Godot のゲームへそのまま接続できます。'
           ]
         ]
       },
@@ -504,18 +504,18 @@
       field: '602',
       art: [0, 1, 2],
       panels: [
-        { kind: 'feat', feat: '602-lost', cap: 'Illustration · exponential branch growth (2ⁿ): 10 choices = 1,024 paths', capKo: '예시 그림 · 지수(2ⁿ)로 불어나는 분기 수 (10번 선택 = 1,024갈래)', capJa: '例示図 · 指数(2ⁿ)で増える分岐数（10回の選択＝1,024通り）',
+        { kind: 'feat', feat: '602-lost', cap: 'Illustration · exponential branch growth (2ⁿ): 10 choices = 1,024 paths', capKo: '설명 그림 · 제곱(2ⁿ)으로 불어나는 갈래 (열 번 선택 = 1,024갈래)', capJa: '説明図 · 指数(2ⁿ)で増える分岐（10回の選択＝1,024通り）',
           alt: 'Illustration: 4 binary choices create 16 paths, 7 create 128, 10 create 1,024 paths, and 20 exceed a million paths.',
-          altKo: '예시 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 이상으로 폭발합니다.',
-          altJa: '例示図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に増加します。' },
-        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code: click Approve or Reject', capKo: '예시 그림 · 게임 코드와 분기 관리의 분리 및 사전 검증: 승인이나 반려를 눌러보세요', capJa: '例示図 · ゲームコードと分岐管理の分離・事前検証: 承認または差戻しをクリック',
+          altKo: '설명 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 넘게 불어납니다.',
+          altJa: '説明図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に膨らみます。' },
+        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code: click Approve or Reject', capKo: '설명 그림 · 게임 코드와 분기 관리의 분리: 승인이나 반려를 눌러보세요', capJa: '説明図 · ゲームコードと分岐管理の分離: 承認または差戻しをクリック',
           alt: 'Illustration: Game code focuses on presentation and play while 602 Studio v2.0.0 validates story branches and blocks broken links before approval.',
-          altKo: '예시 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.0이 분기 관리와 컴파일 사전 검증을 전담해 오류를 미리 차단합니다.',
-          altJa: '例示図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.0 が分岐管理と事前検証を担ってエラーを遮断します。' },
-        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone simulation in 602 Studio, then C++ / C# / Godot via Story Engine C ABI v2', capKo: '예시 그림 · 602 Studio 단독 시뮬레이션 및 Story Engine C ABI v2 연결', capJa: '例示図 · 602 Studio 単体シミュレーションと Story Engine C ABI v2 接続',
-          alt: 'Illustration: Simulate from any scene standalone in 602 Studio v2.0.0 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
-          altKo: '예시 그림: 게임 클라이언트가 없어도 602 Studio v2.0.0에서 원하는 장면부터 시뮬레이션하고, story_engine_v2.h로 C++·C#·Godot 게임에 바로 연결합니다.',
-          altJa: '例示図: ゲーム画面がなくても 602 Studio v2.0.0 で任意の場面から即座にシミュレーションし、story_engine_v2.h で C++・C#・Godot に接続します。' }
+          altKo: '설명 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.0이 분기 검사를 맡아 깨진 연결을 미리 걸러냅니다.',
+          altJa: '説明図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.0 が分岐の検査を担ってエラーを食い止めます。' },
+        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone playtest in 602 Studio, then C++ / C# / Godot via Story Engine C ABI v2', capKo: '설명 그림 · 602 Studio 단독 실행과 Story Engine C ABI v2 연결', capJa: '説明図 · 602 Studio 単体再生と Story Engine C ABI v2 接続',
+          alt: 'Illustration: Playtest from any scene standalone in 602 Studio v2.0.0 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
+          altKo: '설명 그림: 게임 클라이언트가 없어도 602 Studio v2.0.0에서 원하는 장면부터 바로 돌려보고, story_engine_v2.h로 C++·C#·Godot 게임에 연결합니다.',
+          altJa: '説明図: ゲーム画面がなくても 602 Studio v2.0.0 で見たい場面からすぐ再生し、story_engine_v2.h で C++・C#・Godot に接続します。' }
       ]
     },
     {
@@ -524,56 +524,56 @@
       title_ko: '',
       status: 'House Character LLM',
       headline: 'A house model with ATTITUDE',
-      summary: 'A character LLM whose weights themselves are menhera, rather than acting it out from a prompt. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and stays in character to the end.',
+      summary: 'A character LLM whose weights themselves are menhera, rather than acting it out from a prompt. Shaped under 10B from hand-picked dialogue data and an in-house post-training recipe, she speaks natural Korean and stays in character to the end.',
       description: [
         [
           { display: 'Not acting menhera: a model whose weights themselves are menhera.' },
-          'Write a possessive personality into a standard AI prompt, and the moment you draw a line it softens back into a polite counselor in two turns. Instead of play-acting from instructions, we baked attitude and obsession straight into the model’s weights.'
+          'Write a prickly, possessive personality into a standard AI prompt, and the moment you draw a line it softens back into a polite counselor in two turns. Instead of roleplaying from instructions, we baked anxiety and obsession straight into the model’s weights.'
         ],
         [
-          { display: 'As the relationship deepens, so does the obsession, right inside the weights.' },
-          'It never clings blindly from the first meeting. By weighing shared memories and distance inside a hidden inner-thought slot first, the model shifts naturally from guarded distance to deep obsession within its own weights.'
+          { display: 'As the distance closes, the obsession deepens right inside the weights.' },
+          'She never clings blindly at the first hello. By weighing shared memories and distance inside a hidden inner-thought slot first, the model moves naturally from cold first-meeting boundaries to deep obsession within its own weights.'
         ],
         [
           { display: 'No SOTA. It just talks brilliantly.' },
-          'Instead of chasing benchmark scores, CHOAM’s house character LLM focuses entirely on keeping characters true to their own voice to the very end, starting with Yeji in 선잠 DOZE.'
+          'Instead of chasing benchmark leaderboards, CHOAM’s house character LLM cares about one thing: keeping a character true to her own voice to the very end, starting with Yeji in 선잠 DOZE.'
         ]
       ],
       ko: {
         status: '하우스 캐릭터 LLM',
         headline: '성깔 있는 캐릭터 LLM',
-        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 하우스 캐릭터 LLM입니다. 수제 데이터 큐레이팅과 자체 포스트 트레이닝 레시피로 빚어낸 10B 미만의 가벼운 모델로, 유창한 한국어로 끝까지 자기 성깔대로 말합니다.',
+        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 캐릭터 LLM입니다. 직접 골라 다듬은 대사 데이터와 자체 포스트 트레이닝 레시피로 빚은 10B 미만의 가벼운 모델로, 번역 투 없는 한국어로 끝까지 자기 성깔대로 말합니다.',
         description: [
           [
-            { display: '멘헤라를 ‘연기’하는 게 아니라, 가중치 자체가 멘헤라인 캐릭터 LLM입니다.' },
-            '일반 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 착한 상담원 말투로 돌아갑니다. 지시문으로 성격을 흉내 내는 대신, 모델의 가중치(Weights) 자체에 불안과 집착을 직접 새겨 넣었습니다.'
+            { display: '멘헤라를 ‘연기’하는 게 아니라, 가중치 자체가 멘헤라인 모델입니다.' },
+            '범용 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 친절한 상담원 말투로 돌아갑니다. 지시문으로 성격을 흉내 내는 대신, 모델의 가중치(Weights) 자체에 불안과 집착을 직접 새겨 넣었습니다.'
           ],
           [
-            { display: '관계가 깊어질수록 집착도 깊어지는 모델입니다.' },
-            '첫 만남부터 무작정 매달리지 않습니다. 보이지 않는 내면 슬롯에서 함께 쌓인 기억과 거리감을 먼저 가늠하고, 초면의 경계심부터 깊은 집착까지 관계에 따라 달라지는 감정선을 모델 가중치 안에서 구현했습니다.'
+            { display: '사이의 거리가 가까워질수록 집착도 함께 깊어집니다.' },
+            '첫 만남부터 무작정 매달리지 않습니다. 화면에 보이지 않는 속마음(THINK) 슬롯에서 함께 쌓인 기억과 거리감을 먼저 헤아린 뒤, 초면의 차가운 경계심부터 깊은 집착까지 관계에 따라 달라지는 감정선을 가중치 안에서 그대로 꺼내 놓습니다.'
           ],
           [
             { display: 'SOTA는 없지만 말은 기깔나게 잘합니다.' },
-            '벤치마크 점수를 높이는 대신, 인물이 끝까지 자기답게 말하는 데만 집중한 초암의 하우스 캐릭터 LLM입니다. 선잠 DOZE의 예지를 시작으로 초암의 작품 속 인물들이 제 성깔대로 숨 쉬는 데 쓰입니다.'
+            '벤치마크 점수를 올리는 대신, 인물이 끝까지 자기 목소리를 잃지 않는 데만 매달린 초암의 캐릭터 LLM입니다. 선잠 DOZE의 예지를 시작으로 초암이 만드는 세계 속 인물들이 제 성깔대로 숨 쉬는 데 쓰입니다.'
           ]
         ]
       },
       ja: {
         status: 'ハウスキャラクター LLM',
         headline: '気性のあるキャラクター LLM',
-        summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のハウスキャラクター LLM です。手作業のデータキュレーションと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、流暢な韓国語で最後まで自分の気性のまま話します。',
+        summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のキャラクター LLM です。手作業で選び抜いたセリフデータと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、自然な韓国語で最後まで自分の気性のまま話します。',
         description: [
           [
             { display: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラのモデルです。' },
-            '一般的な AI に気性の荒さや執着をプロンプトで書いても、少し距離を置けば2ターンで丁寧な相談員口調に戻ってしまいます。指示文で性格を真似るのではなく、モデルの重み（Weights）そのものに不安と執着を刻み込みました。'
+            '汎用 AI に気性の荒さや執着をプロンプトで書き込んでも、少し線を引けば2ターンで丁寧な相談員口調に戻ってしまいます。指示文で性格を真似させるのではなく、モデルの重み（Weights）そのものに不安と執着を刻み込みました。'
           ],
           [
-            { display: '関係が深まるほど、執着も深まるモデルです。' },
-            '初対面から無闇にすがりつくことはありません。見えない内面スロットで積み重なった記憶と距離感を先に測り、初対面の警戒から深い執着まで、関係に応じて変化する感情の濃度をモデルの重みの中で実現しました。'
+            { display: '距離が縮まるにつれて、執着もそのまま深まっていきます。' },
+            '初対面からいきなりすがりつくことはありません。画面には出ない本音（THINK）スロットで積み重なった記憶と距離感を先に測り、初対面の冷たい警戒から深い執着まで、関係に沿って変わる感情の濃淡を重みの中から引き出します。'
           ],
           [
             { display: 'SOTA はありませんが、とにかく抜群にうまく話します。' },
-            'ベンチマークの点数を追う代わりに、人物が最後まで自分らしく話すことだけに集中した CHOAM のハウスキャラクター LLM です。선잠 DOZE のイェジをはじめ、作品の中の人物たちが自分の気性で息をするために使われます。'
+            'ベンチマークの点数を追う代わりに、人物が最後まで自分の声を失わないことだけに賭けた CHOAM のキャラクター LLM です。선잠 DOZE のイェジをはじめ、作品の中の人物たちが自分の気性で息をするために使われます。'
           ]
         ]
       },
@@ -584,11 +584,11 @@
           kind: 'lun',
           mode: 'ba',
           cap: 'House Character LLM Lunasia 0.1.1 / Untrained base model vs Lunasia (선잠 DOZE · Yeji)',
-          capKo: '하우스 캐릭터 LLM Lunasia 0.1.1 / 학습 전 기본 모델과의 실제 응답 비교 (선잠 DOZE · 예지)',
+          capKo: '하우스 캐릭터 LLM Lunasia 0.1.1 / 학습 전 기본 모델과 Lunasia의 실제 응답 비교 (선잠 DOZE · 예지)',
           capJa: 'ハウスキャラクター LLM Lunasia 0.1.1 / 学習前モデルとの実際の応答比較（선잠 DOZE · イェジ）',
           alt: 'Before and after comparison between the untrained base model and Lunasia.',
-          altKo: '동일한 입력에서 학습 전 기본 모델과 Lunasia의 실제 응답 비교합니다.',
-          altJa: '同じ入力における学習前モデルと Lunasia の応答比較。',
+          altKo: '같은 상황에서 학습 전 기본 모델과 Lunasia의 실제 응답을 비교합니다.',
+          altJa: '同じ場面における学習前モデルと Lunasia の応答比較。',
           ko: {
             title: '같은 프롬프트 / 학습 전후 응답 비교 (선잠 DOZE · 예지)',
             tabs: ['01 하교 저지', '02 복도 격리', '03 약속 취소', '04 매듭의 저주'],
@@ -903,78 +903,78 @@
         {
           kind: 'lun',
           mode: 'ship',
-          cap: 'Feature graphic · Lunasia 0.1.1 design and in-game execution',
-          capKo: '설명 그림 · Lunasia 0.1.1 설계와 인게임 구동',
-          capJa: '説明図 · Lunasia 0.1.1 の設計とインゲーム駆動',
+          cap: 'Feature graphic · Lunasia 0.1.1 design and local in-game execution',
+          capKo: '설명 그림 · Lunasia 0.1.1 설계와 게임 내 로컬 구동',
+          capJa: '説明図 · Lunasia 0.1.1 の設計とゲーム内ローカル駆動',
           alt: 'How Lunasia is built as CHOAM’s house character LLM.',
           altKo: '초암의 하우스 캐릭터 LLM Lunasia의 설계 구조입니다.',
           altJa: 'CHOAM のハウスキャラクター LLM Lunasia の設計構造。',
           ko: {
-            title: '하우스 캐릭터 LLM 구조',
+            title: '하우스 캐릭터 LLM 설계',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
                 m: '',
                 h: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 모델',
-                p: '지시문 몇 줄로 성격을 흉내 내다 금세 풀리는 범용 AI와 달리, 모델 가중치 자체에 인물의 성깔과 집착이 새겨져 있습니다.'
+                p: '지시문 몇 줄로 성격을 흉내 내다 금세 풀려 버리는 범용 AI와 달리, 모델 가중치 자체에 인물의 성깔과 집착을 새겼습니다.'
               },
               {
                 k: '02 / Progressive Obsession',
                 m: '',
-                h: '관계가 깊어질수록 집착도 깊어지는 가중치 설계',
-                p: '초면의 경계심부터 함께 쌓인 기억을 따라 짙어지는 집착까지, 관계의 농도 변화를 프롬프트 분기가 아닌 모델 가중치 안에서 직접 구현했습니다.'
+                h: '가까워질수록 집착도 깊어지는 감정선',
+                p: '초면의 날 선 경계심부터 기억이 쌓이며 짙어지는 집착까지, 관계의 온도 변화를 프롬프트 분기가 아니라 가중치 안에서 직접 빚어냈습니다.'
               },
               {
                 k: '03 / Lightweight Engine',
                 m: '',
-                h: '10B 미만의 가벼운 크기로 게임 안에서 직접 구동',
-                p: '외부 서버를 부르지 않고 게임 클라이언트 안에서 직접 돌아가며, 네트워크 지연이나 외부 정책 변화 없이 언제나 같은 밀도로 응답합니다.'
+                h: '10B 미만의 가벼운 크기로 게임 안에서 바로 구동',
+                p: '외부 서버를 거치지 않고 게임 클라이언트 안에서 직접 돌아가, 통신 지연이나 외부 검열·정책 변화 없이 언제나 같은 호흡으로 답합니다.'
               }
             ]
           },
           en: {
-            title: 'House Character LLM Architecture',
+            title: 'House Character LLM Design',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
                 m: '',
                 h: 'Not acting menhera: the weights themselves are menhera',
-                p: 'Unlike generalist AIs that roleplay from a prompt and quickly soften back into a counselor, attitude and obsession are engraved straight into the model weights.'
+                p: 'Unlike generalist AIs that roleplay from a prompt and soften back into a counselor, attitude and obsession are engraved straight into the weights.'
               },
               {
                 k: '02 / Progressive Obsession',
                 m: '',
-                h: 'Obsession that deepens with the relationship, built into the weights',
-                p: 'From guarded first-meeting boundaries to obsession woven from shared memories, the shift in emotional temperature is realized directly inside the model weights.'
+                h: 'Emotional temperature that deepens with the relationship',
+                p: 'From guarded first-meeting boundaries to obsession woven from shared memories, the shift happens inside the model weights rather than brittle prompt branches.'
               },
               {
                 k: '03 / Lightweight Engine',
                 m: '',
-                h: 'Lightweight model under 10B running directly inside the game',
-                p: 'Runs locally inside the game client without external server calls, keeping response density consistent with zero network latency or policy drift.'
+                h: 'Runs locally inside the game client at under 10B',
+                p: 'Needs no external API calls, keeping every line immediate and unaffected by network latency or shifting cloud policies.'
               }
             ]
           },
           ja: {
-            title: 'ハウスキャラクター LLM の構造',
+            title: 'ハウスキャラクター LLM の設計',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
                 m: '',
                 h: 'メンヘラを「演技」するのではなく重みそのものがメンヘラ',
-                p: 'プロンプトで性格を真似てすぐに相談員口調へ戻る汎用 AI とは異なり、モデルの重み自体に人物の気性と執着が刻まれています。'
+                p: '指示文で性格を真似てすぐ相談員口調に戻る汎用 AI とは違い、モデルの重み自体に人物の気性と執着を刻んでいます。'
               },
               {
                 k: '02 / Progressive Obsession',
                 m: '',
-                h: '関係が深まるほど執着も深まる重み設計',
-                p: '初対面の警戒心から記憶の積み重ねとともに濃くなる執着まで、関係に応じた温度変化をプロンプト分岐ではなくモデルの重みの中で直接実現しました。'
+                h: '距離が縮まるほど執着も深まる感情変化',
+                p: '初対面の張りつめた警戒から記憶とともに濃くなる執着まで、関係に応じた温度の変化をプロンプト分岐ではなく重みの中で形にしました。'
               },
               {
                 k: '03 / Lightweight Engine',
                 m: '',
-                h: '10B 未満の軽量サイズでゲーム内で直接駆動',
-                p: '外部サーバーを呼ばずゲームクライアント内で直接動き、通信遅延や外部ポリシーの変化に左右されず常に同じ密度で応答します。'
+                h: '10B 未満の軽さでゲームクライアント内でそのまま駆動',
+                p: '外部サーバーを呼ばずに手元で動くため、通信遅延や外部ポリシーの変化に左右されず、いつでも同じ呼吸で言葉を返します。'
               }
             ]
           }
@@ -989,39 +989,39 @@
       title_ko: 'Our Style',
       status: 'Style Model',
       headline: 'Our house style, built into a model',
-      summary: 'We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art. The muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.',
+      summary: 'We fine-tune open-source image models on CHOAM’s own illustration style to paint our characters and backgrounds. Muddy generated tones come out, and a clear watercolor wash and lively brushwork go in.',
       description: [
-        'We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art.',
-        'The muddy color generated images tend to have comes out, and a clean watercolor wash goes in, with extra brushwork around the eyes.',
-        'A whole classroom or a close portrait gets the same finish. Brush marks stay visible instead of smoothing into airbrush.',
-        'Light gets thin, transparent watercolor; hems and petals get heavier strokes.',
-        'A classroom scene and a ship’s deck at sea come out of the same model.',
-        'It also reduces noise typical of generative models.'
+        'We fine-tune open-source image models on CHOAM’s own illustration style for character and background art.',
+        'The muddy cast common to generated images comes out, replaced by a clear watercolor wash and crisp brushwork around the eyes.',
+        'Whether it’s a wide classroom or a close portrait, the finish stays the same. Brush marks remain visible instead of blurring into airbrush.',
+        'Light receives a thin, transparent wash; hems and petals carry heavier strokes.',
+        'A sunlit classroom and a ship’s deck out at sea come from the very same model.',
+        'Strips away generative noise and muddy shading, keeping the composition while refinishing every surface in our watercolor wash.'
       ],
       ko: {
         status: '자체 스타일 모델',
         headline: '우리 화풍을 직접 학습한 일러스트 모델',
-        summary: '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다. 기존 생성 이미지의 탁한 색감을 걷어내고 맑은 수채 질감과 붓 결을 입혀 우리만의 화풍으로 완성합니다.',
+        summary: '오픈소스 이미지 모델을 초암의 그림체에 맞춰 직접 다듬어 캐릭터와 배경을 그립니다. 생성 이미지 특유의 탁한 색을 걷어내고, 맑은 수채 번짐과 눈가의 붓 결을 살려 우리만의 화풍으로 고정합니다.',
         description: [
-          '오픈소스 생성형 모델을 초암 고유의 그림체에 맞게 직접 파인튜닝해 캐릭터와 배경 리소스를 만듭니다.',
-          '기존 생성 이미지의 탁한 색감을 걷어내고, 맑은 수채 질감과 눈가 붓 터치를 입혀 우리만의 화풍으로 완성합니다.',
-          '교실 전경이든 얼굴 클로즈업이든 같은 마감이 나옵니다. 붓 자국이 에어브러시처럼 뭉개지지 않고 남습니다.',
-          '빛에는 투명한 수채를, 옷자락과 꽃잎에는 묵직한 붓질을 씁니다.',
-          '교실 장면도, 바다 위 배 갑판도 같은 모델에서 나옵니다.',
-          '생성형 모델 특유의 노이즈 저감 기능도 갖추고 있습니다.'
+          '오픈소스 이미지 모델을 초암 고유의 그림체에 맞춰 파인튜닝해 캐릭터와 배경 원화를 만듭니다.',
+          '생성 이미지에 흔히 끼는 탁한 색감을 걷어내고, 맑은 수채 물감 번짐과 눈가의 섬세한 붓 터치를 올립니다.',
+          '교실 전체를 잡은 풍경이든 가까이 당긴 얼굴이든 같은 손맛으로 마감됩니다. 에어브러시처럼 매끈하게 뭉개지지 않고 붓 자국이 살아 남습니다.',
+          '빛이 닿는 자리에는 투명하고 옅은 수채를, 옷자락과 꽃잎 끝에는 묵직한 붓질을 얹습니다.',
+          '노을 지는 교실도, 바다 위를 가르는 배의 갑판도 모두 한 모델에서 같은 공기로 그려집니다.',
+          '자글거리는 생성 노이즈와 어색한 질감을 정돈하고, 밑그림의 구도는 살린 채 초암의 수채 마감으로 다시 입힙니다.'
         ]
       },
       ja: {
         status: '自社スタイルモデル',
-        headline: '自分たちの画風を学習させたイラストモデル',
-        summary: 'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景の素材を作っています。生成画像にありがちな濁った色を取り除き、澄んだ水彩の質感と筆のタッチを重ねます。',
+        headline: '自分たちの画風を焼き込んだイラストモデル',
+        summary: 'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景を描いています。生成画像にありがちな濁った色を抜き、澄んだ水彩のにじみと筆のタッチを重ねます。',
         description: [
-          'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景の素材を作っています。',
-          '生成画像にありがちな濁った色を取り除き、澄んだ水彩の質感と目元の筆づかいを加えます。',
-          '教室の全景でも顔のアップでも、同じ仕上がりになります。筆の跡はエアブラシのようにつぶれず、そのまま残ります。',
-          '光には透明な水彩を、服のすそや花びらには重めの筆づかいを使います。',
-          '教室の場面も、海に浮かぶ船の甲板も、同じモデルから生まれています。',
-          '生成モデル特有のノイズを低減する機能も備えています。'
+          'オープンソースの画像生成モデルを CHOAM 独自の絵柄に合わせてファインチューニングし、キャラクターと背景の原画を作っています。',
+          '生成画像にありがちな濁った色合いを取り除き、澄んだ水彩の質感と目元の繊細な筆づかいをのせます。',
+          '教室の全景でも顔のアップでも、同じ手触りで仕上がります。筆の跡はエアブラシのようにつぶれず、そのまま残ります。',
+          '光が差す場所には透明な水彩を、服のすそや花びらには重みのある筆づかいを置きます。',
+          '夕暮れの教室も、海を行く船の甲板も、同じモデルから同じ空気感で生まれます。',
+          '生成特有のざらついたノイズや濁りを整え、構図はそのままに CHOAM の水彩タッチで仕上げ直します。'
         ]
       },
       art: [0, 1, 2, 3, 4, 5],
@@ -1058,10 +1058,10 @@
       ko: {
         status: '개발 중',
         headline: '대화로 만들어가는 인터랙티브 무비',
-        summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 진행하는 미연시입니다. 플레이어가 건넨 말은 일기로 남고, 다음 날 예지의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
+        summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 이어가는 미연시입니다. 건넨 말은 예지의 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
-          '선잠 DOZE는 예지와 직접 대화하며 진행하는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다.',
-          ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다.\n긴 대화 속에서도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다.',
+          '선잠 DOZE는 예지와 직접 말을 주고받으며 이어가는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자기 성격과 그동안 나눈 대화를 바탕으로 대답합니다.',
+          ['예지는 나눈 대화를 일기로 적어 두고, 다음에 만날 때는 그 기록을 따라 기분과 태도가 조금씩 달라집니다.\n대화가 길어져도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임 안에 녹여 넣었습니다.',
             '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다.']
         ]
       },
@@ -1104,13 +1104,13 @@
       ko: {
         status: '출시 준비 중',
         headline: '고요한 숲속 여관 이야기',
-        summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보는 와중에, 손님들의 행동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
+        summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보면서, 손님들의 거동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
         description: [
-          '동구리 료칸은 밭일과 요리, 숙박업에 요괴 추리를 더한 경영 게임입니다.',
+          '동구리 료칸은 밭일과 요리, 여관 살림에 요괴 추리를 더한 경영 게임입니다.',
           '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
-          '하루 안에 경영과 추리가 쉼 없이 이어지는, 손이 바쁜 게임을 만들고 싶었습니다.',
-          '플레이어는 직접 재료를 구하고 음식을 만들며, 객실과 온천도 관리합니다.',
-          '그 와중에 손님의 행동을 유심히 살펴 누가 요괴인지 체크아웃 전까지 알아내야 합니다.'
+          '하루 동안 여관 일과 추리가 쉼 없이 맞물려 돌아가는, 손이 즐겁게 바쁜 게임을 만들고 싶었습니다.',
+          '직접 밭에서 재료를 거두고 음식을 내며, 객실과 온천탕도 손수 돌봅니다.',
+          '그 와중에 손님들의 거동을 눈여겨보며, 누가 인간으로 둔갑한 요괴인지 체크아웃 전까지 밝혀내야 합니다.'
         ]
       },
       ja: {
@@ -1250,7 +1250,7 @@
     ['.dl .cap-line', '', PROJECTS[0].ko.headline, PROJECTS[0].ja.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘', 'Apple シリコン'],
     ['.dlbtn[data-os="win"] small', '', '설치 파일', 'インストーラー'],
-    ['.dl-note [data-note]', '', '영구 무료이며 계정이나 텔레메트리가 없습니다. Claude·ChatGPT·Antigravity(Gemini) 구독과 Ollama, 주요 API 키를 연결해 쓰며 두뇌를 바꿔도 로컬 기억은 그대로 남습니다.', '永久無料で、アカウント登録もテレメトリもありません。Claude・ChatGPT・Antigravity（Gemini）のサブスクや Ollama、主要 API キーを接続でき、頭脳を替えてもローカルの記憶は残ります。'],
+    ['.dl-note [data-note]', '', '쓰던 Claude·ChatGPT·Antigravity(Gemini) 구독이나 Ollama, API 키를 그대로 연결해 쓰세요. 두뇌를 바꿔도 내 컴퓨터의 기억은 그대로 남습니다.', '普段お使いの Claude・ChatGPT・Antigravity（Gemini）のサブスクや Ollama、API キーをそのまま接続できます。頭脳を切り替えても手元の記憶はそのまま残ります。'],
     ['.dl-note [data-dl-guide]', '', '설치 방법', 'インストール方法'],
     ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
   ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
@@ -1617,12 +1617,12 @@
       status.querySelector('[data-guide-name]').textContent = href.slice(href.lastIndexOf('/') + 1);
       again.href = href;
       status.querySelector('[data-guide-said]').textContent = own ? L(
-        `Your Scheherazade ${tag} download for ${name} has been requested. Check your browser’s downloads, then follow the steps below.`,
-        `${name}용 Scheherazade ${tag} 다운로드를 요청했습니다. 브라우저의 다운로드 목록을 확인한 뒤, 아래 순서대로 설치하세요.`,
-        `${name} 用 Scheherazade ${tag} のダウンロードをリクエストしました。ブラウザのダウンロード一覧で確認してから、下の手順でインストールしてください。`) : L(
+        `Your Scheherazade ${tag} download for ${name} has started. Check your browser’s downloads, then follow the steps below.`,
+        `${name}용 세헤라자드 ${tag} 다운로드를 시작했습니다. 브라우저의 다운로드 목록에서 파일을 확인한 뒤 아래 순서대로 설치하세요.`,
+        `${name} 用 Scheherazade ${tag} のダウンロードを開始しました。ブラウザのダウンロード一覧で確認してから、下の手順に沿って進めてください。`) : L(
         `This is Scheherazade ${tag} for ${name}. Download it, then follow the steps below.`,
-        `${name}용 Scheherazade ${tag} 파일입니다. 받은 뒤 아래 순서대로 설치하세요.`,
-        `${name} 用 Scheherazade ${tag} のファイルです。ダウンロードしてから、下の手順でインストールしてください。`);
+        `${name}용 세헤라자드 ${tag} 설치 파일입니다. 받은 뒤 아래 순서대로 진행하세요.`,
+        `${name} 用 Scheherazade ${tag} のファイルです。ダウンロードしてから、下の手順に沿って進めてください。`);
       again.textContent = own ? L('Didn’t start? Download again', '시작되지 않았다면 다시 받기', '始まらない場合はもう一度ダウンロード') : L('Download', '받기', 'ダウンロード');
     };
     const showOs = os => {

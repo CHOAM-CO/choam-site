@@ -525,15 +525,15 @@
           statusBanner.dataset.state = 'locked';
           statusBanner.textContent = L(
             'Check the CHOAM Community License 1.0 agreement box above to unlock archive downloads.',
-            '위의 CHOAM Community License 1.0 약관 동의란에 체크하면 아카이브 다운로드가 잠금 해제됩니다.',
-            '上の CHOAM Community License 1.0 同意欄にチェックを入れると、アーカイブのダウンロードが有効になります。'
+            '위의 CHOAM Community License 1.0 동의란에 체크하면 다운로드 잠금이 풀립니다.',
+            '上の CHOAM Community License 1.0 同意欄にチェックを入れると、ダウンロードのロックが解除されます。'
           );
         } else if (rel.state === 'loading' || rel.state === 'idle') {
           statusBanner.dataset.state = 'loading';
           statusBanner.textContent = L(
-            'Checking CHOAM-CO/602-releases for published binary archives…',
-            '배포 저장소(CHOAM-CO/602-releases)에서 공개 바이너리 아카이브 정보를 확인하는 중입니다…',
-            '配布リポジトリ（CHOAM-CO/602-releases）の公開バイナリ情報を確認しています…'
+            'Checking CHOAM-CO/602-releases for the latest packages…',
+            '배포 저장소(CHOAM-CO/602-releases)에서 최신 파일 정보를 불러오는 중입니다…',
+            '配布リポジトリ（CHOAM-CO/602-releases）から最新ファイルの情報を読み込んでいます…'
           );
         } else if (rel.state === 'ok') {
           statusBanner.dataset.state = 'ok';
@@ -541,9 +541,9 @@
           statusBanner.innerHTML = '';
           const msg = document.createElement('span');
           msg.textContent = L(
-            `License accepted${tagNote} · Downloads and .sha256 checksums are ready below. `,
-            `라이선스 동의 완료${tagNote} · 아래에서 파일과 .sha256 체크섬을 바로 받을 수 있습니다. `,
-            `ライセンス同意済み${tagNote} · 下の一覧からファイルと .sha256 チェックサムを直接ダウンロードできます。 `
+            `License accepted${tagNote} · Packages and .sha256 checksums are ready below. `,
+            `라이선스 동의 완료${tagNote} · 아래에서 패키지와 .sha256 체크섬을 바로 내려받을 수 있습니다. `,
+            `ライセンス同意済み${tagNote} · 下の一覧からパッケージと .sha256 チェックサムをダウンロードできます。 `
           );
           const repoLink = document.createElement('a');
           repoLink.href = `${REL_REPO}/releases`;
@@ -554,9 +554,9 @@
         } else {
           statusBanner.dataset.state = 'error';
           statusBanner.textContent = L(
-            'Release information unavailable. Please try again later.',
-            '릴리스 정보를 불러올 수 없습니다. 나중에 다시 시도해 주세요.',
-            'リリース情報を取得できません。後でもう一度お試しください。'
+            'Could not load release metadata right now. Please try again shortly.',
+            '지금은 릴리스 정보를 불러오지 못했습니다. 잠시 뒤 다시 시도해 주세요.',
+            '現在リリース情報を読み込めませんでした。しばらくしてからもう一度お試しください。'
           );
         }
       }

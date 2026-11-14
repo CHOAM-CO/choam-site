@@ -26,24 +26,24 @@
 <main class="notfound-shell">
   <section class="v21-vessel" aria-labelledby="notfound-title">
     <p class="notfound-kicker">
-      <span data-lang-block="ko">404 · 경로 없음</span>
+      <span data-lang-block="ko">404 · 없는 주소</span>
       <span data-lang-block="en">404 · NOT FOUND</span>
-      <span data-lang-block="ja">404 · ページ未検出</span>
+      <span data-lang-block="ja">404 · NOT FOUND</span>
     </p>
     <h1 id="notfound-title">
-      <span data-lang-block="ko">찾으시는 경로가 비어 있습니다</span>
-      <span data-lang-block="en">This route does not exist</span>
-      <span data-lang-block="ja">お探しのページが見つかりません</span>
+      <span data-lang-block="ko">이 주소에는 페이지가 없습니다</span>
+      <span data-lang-block="en">There is no page at this address</span>
+      <span data-lang-block="ja">このアドレスにはページがありません</span>
     </h1>
-    <p data-lang-block="ko">요청하신 주소(<code data-404-path>/404</code>)에 해당하는 문서를 찾을 수 없습니다. 주소가 변경되었거나 잘못 입력되었을 수 있으니 아래 바로가기를 이용해 이동해 주십시오.</p>
-    <p data-lang-block="en">No document was found at <code data-404-path>/404</code>. The address may have moved or been mistyped. Choose one of the destinations below to continue.</p>
-    <p data-lang-block="ja">リクエストされたパス（<code data-404-path>/404</code>）に対応するページが見つかりません。URL が変更されたか入力に誤りがある可能性があります。以下のリンクから移動してください。</p>
+    <p data-lang-block="ko">찾으신 주소(<code data-404-path>/404</code>)는 자리가 옮겨졌거나 잘못 적혔을 수 있습니다. 아래 길로 이어가 주세요.</p>
+    <p data-lang-block="en">The address <code data-404-path>/404</code> may have moved or been mistyped. Pick a way back below.</p>
+    <p data-lang-block="ja">開こうとしたアドレス（<code data-404-path>/404</code>）は移動したか、入力に誤りがあるようです。下のリンクからお進みください。</p>
     <p data-404-suggest hidden></p>
     <nav class="notfound-actions" aria-label="Primary destinations">
       <a class="v21-cta" href="/"><span data-lang-block="ko">홈으로</span><span data-lang-block="en">Home</span><span data-lang-block="ja">ホームへ</span></a>
-      <a class="choam-flywheel-link" href="/pages/scheherazade"><span data-lang-block="ko">세헤라자드</span><span data-lang-block="en">Scheherazade</span><span data-lang-block="ja">シェヘラザード</span></a>
+      <a class="choam-flywheel-link" href="/pages/scheherazade"><span data-lang-block="ko">세헤라자드</span><span data-lang-block="en">Scheherazade</span><span data-lang-block="ja">Scheherazade</span></a>
       <a class="choam-flywheel-link" href="/pages/602"><span>602</span></a>
-      <a class="choam-flywheel-link" href="/us"><span data-lang-block="ko">소개</span><span data-lang-block="en">Us</span><span data-lang-block="ja">私たち</span></a>
+      <a class="choam-flywheel-link" href="/us"><span data-lang-block="ko">팀</span><span data-lang-block="en">Us</span><span data-lang-block="ja">チーム</span></a>
     </nav>
   </section>
 </main>
@@ -59,20 +59,20 @@
     var slug = rawPath.toLowerCase();
     var hints = [
       { test: /scheher|sera/, url: '/pages/scheherazade', ko: '세헤라자드 (/pages/scheherazade)', en: 'Scheherazade (/pages/scheherazade)', ja: 'Scheherazade (/pages/scheherazade)' },
-      { test: /602.*doc|doc.*602/, url: '/602/docs', ko: '602 도큐멘테이션 (/602/docs)', en: '602 Documentation (/602/docs)', ja: '602 ドキュメント (/602/docs)' },
+      { test: /602.*doc|doc.*602/, url: '/602/docs', ko: '602 문서 (/602/docs)', en: '602 Documentation (/602/docs)', ja: '602 ドキュメント (/602/docs)' },
       { test: /602.*dl|602.*down/, url: '/602/download', ko: '602 다운로드 (/602/download)', en: 'Download 602 (/602/download)', ja: '602 ダウンロード (/602/download)' },
       { test: /602/, url: '/pages/602', ko: '602 (/pages/602)', en: '602 (/pages/602)', ja: '602 (/pages/602)' },
       { test: /lunasia|luna/, url: '/pages/lunasia', ko: '루나시아 (/pages/lunasia)', en: 'Lunasia (/pages/lunasia)', ja: 'Lunasia (/pages/lunasia)' },
       { test: /\bdat\b|polish/, url: '/pages/dat', ko: 'DAT (/pages/dat)', en: 'DAT (/pages/dat)', ja: 'DAT (/pages/dat)' },
       { test: /seonjam|doze/, url: '/pages/seonjam', ko: '선잠 DOZE (/pages/seonjam)', en: '선잠 DOZE (/pages/seonjam)', ja: '선잠 DOZE (/pages/seonjam)' },
       { test: /donguri|ryokan/, url: '/pages/donguri-ryokan', ko: '동구리 료칸 (/pages/donguri-ryokan)', en: 'Donguri Ryokan (/pages/donguri-ryokan)', ja: 'どんぐり旅館 (/pages/donguri-ryokan)' },
-      { test: /install|guide|setup/, url: '/install', ko: '설치 안내 (/install)', en: 'Install Guide (/install)', ja: 'インストール案内 (/install)' },
-      { test: /download/, url: '/download', ko: '다운로드 (/download)', en: 'Download (/download)', ja: 'ダウンロード (/download)' },
-      { test: /philo/, url: '/philosophy', ko: '철학 (/philosophy)', en: 'Philosophy (/philosophy)', ja: '哲学 (/philosophy)' },
-      { test: /mino/, url: '/people/mino', ko: '정민호 (/people/mino)', en: 'Minho Jeong (/people/mino)', ja: 'チョン・ミノ (/people/mino)' },
-      { test: /eunho|cayde/, url: '/people/eunho', ko: '정은호 (/people/eunho)', en: 'Eunho Jeong (/people/eunho)', ja: 'チョン・ウノ (/people/eunho)' },
+      { test: /install|guide|setup/, url: '/install', ko: '세헤라자드 설치 방법 (/install)', en: 'Install Guide (/install)', ja: 'インストール方法 (/install)' },
+      { test: /download/, url: '/download', ko: '세헤라자드 받기 (/download)', en: 'Download (/download)', ja: 'ダウンロード (/download)' },
+      { test: /philo/, url: '/philosophy', ko: '초암의 철학 (/philosophy)', en: 'Philosophy (/philosophy)', ja: 'CHOAMの哲学 (/philosophy)' },
+      { test: /mino/, url: '/people/mino', ko: 'MINO · 장민호 (/people/mino)', en: 'MINO · Minho Jang (/people/mino)', ja: 'MINO · チャン・ミンホ (/people/mino)' },
+      { test: /eunho|cayde/, url: '/people/eunho', ko: 'CAYDE · 정은호 (/people/eunho)', en: 'CAYDE · Eunho Jung (/people/eunho)', ja: 'CAYDE · チョン・ウンホ (/people/eunho)' },
       { test: /magi/, url: '/people/magi', ko: 'MAGI (/people/magi)', en: 'MAGI (/people/magi)', ja: 'MAGI (/people/magi)' },
-      { test: /people|about|team/, url: '/us', ko: '초암 소개 (/us)', en: 'About CHOAM (/us)', ja: 'CHOAM について (/us)' }
+      { test: /people|about|team/, url: '/us', ko: '팀 소개 (/us)', en: 'Us (/us)', ja: 'チーム (/us)' }
     ];
     var match = null;
     for (var i = 0; i < hints.length; i++) {
@@ -83,7 +83,7 @@
       var renderSuggest = function() {
         var lang = document.documentElement.lang;
         var label = lang === 'ko' ? match.ko : lang === 'ja' ? match.ja : match.en;
-        var prefix = lang === 'ko' ? '추천 경로: ' : lang === 'ja' ? '候補ルート: ' : 'Suggested route: ';
+        var prefix = lang === 'ko' ? '찾으시던 페이지인가요? ' : lang === 'ja' ? 'お探しのページはこちらですか？ ' : 'Were you looking for ';
         box.textContent = prefix;
         var a = document.createElement('a');
         a.href = match.url;
@@ -92,6 +92,7 @@
         a.style.textUnderlineOffset = '0.22em';
         a.textContent = label;
         box.appendChild(a);
+        if (lang !== 'ko' && lang !== 'ja') box.appendChild(document.createTextNode('?'));
         box.hidden = false;
       };
       renderSuggest();
