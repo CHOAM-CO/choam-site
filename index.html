@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="CHOAM | Culture must flow">
-<meta property="og:description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the tools behind them: Scheherazade, 602, Lunasia, DAT, 선잠 DOZE, Donguri Ryokan.">
+<meta property="og:description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the tools behind them: Scheherazade, 602, Lunasia, DAT, 선잠 DOZE, and Donguri Ryokan.">
 <meta property="og:url" content="https://choam.studio/">
 <meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
 <meta property="og:image:secure_url" content="https://choam.studio/assets/og-choam.jpg">
@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CHOAM | Culture must flow">
-<meta name="twitter:description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the art tools behind them.">
+<meta name="twitter:description" content="CHOAM is a studio in Seoul making games, AI with a memory for the long haul, and the models and tools behind them.">
 <meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
 <link rel="icon" href="assets/mark.svg">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
@@ -33,13 +33,18 @@
       "@type": "Organization",
       "@id": "https://choam.studio/#organization",
       "name": "CHOAM",
+      "legalName": "CHOAM Co., Ltd.",
       "alternateName": "초암",
       "url": "https://choam.studio/",
       "logo": "https://choam.studio/assets/mark.svg",
       "image": "https://choam.studio/assets/og-choam.jpg",
       "slogan": "Culture must flow",
-      "description": "CHOAM is an independent studio in Seoul making games, AI with a memory for the long haul, and the art tools behind them.",
+      "description": "CHOAM is an independent studio in Seoul making games, AI with a memory for the long haul, and the models and tools behind them.",
       "foundingDate": "2026",
+      "email": "mino@choam.studio",
+      "sameAs": [
+        "https://github.com/CHOAM-CO"
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Seoul",
@@ -48,6 +53,7 @@
       "knowsAbout": [
         "Autonomous AI Agents",
         "Long-Horizon Memory",
+        "Character Language Models",
         "Visual Novels",
         "Generative Art Models",
         "Game Development"
@@ -68,7 +74,7 @@
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/astra-hero.webp" as="image" type="image/webp">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=v21-20261114">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body>
@@ -123,7 +129,7 @@
       <p class="cap-meta"><span class="num">01 / 06</span></p>
       <h2 class="cap-title" id="t-scheherazade"><a href="pages/scheherazade">Scheherazade</a></h2>
       <p class="cap-line">An agent that takes a thousand and one nights in stride</p>
-      <p class="cap-text">Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.</p>
+      <p class="cap-text">Plain-file local memory on your own computer, swappable brains across Claude, ChatGPT, Google Antigravity, Ollama, and API keys, isolated multi-profile windows, Discord, Slack, Telegram, and voice Call Mode, plus built-in computer control. Free forever with zero telemetry.</p>
       <div class="cap-acts"><a class="plate-more" href="pages/scheherazade" aria-label="Explore Scheherazade">Explore</a><a class="prod-act" href="download" aria-label="Get Scheherazade">Get</a></div>
     </div>
   </article>
@@ -132,7 +138,7 @@
       <p class="cap-meta"><span class="num">02 / 06</span></p>
       <h2 class="cap-title" id="t-602"><a href="pages/602">602</a></h2>
       <p class="cap-line">A story engine that won’t get lost in 1,024 branches</p>
-      <p class="cap-text">Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.</p>
+      <p class="cap-text">602 Studio and the deterministic 602 Story Engine (C ABI v2) separate exponentially growing story branches from game code, simulate turns standalone from Markdown manuscripts with local MCP collaboration, and embed cleanly into C++, C#, and Godot.</p>
       <div class="cap-acts"><a class="plate-more" href="pages/602" aria-label="Explore 602">Explore</a><a class="prod-act" href="602/docs" aria-label="602 Docs &amp; Install">Docs &amp; Install</a></div>
     </div>
   </article>
@@ -141,7 +147,7 @@
       <p class="cap-meta"><span class="num">03 / 06</span><span class="status" data-status>House Character LLM</span></p>
       <h2 class="cap-title" id="t-lunasia"><a href="pages/lunasia">Lunasia</a></h2>
       <p class="cap-line">A house model with <u class="hl-em">ATTITUDE</u></p>
-      <p class="cap-text">A model whose weights themselves are menhera, rather than acting it out from a prompt. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and stays in character to the end.</p>
+      <p class="cap-text">A character LLM whose weights themselves carry attitude and obsession rather than acting from a prompt. Built under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks natural Korean and stays in character to the end.</p>
       <div class="cap-acts"><a class="plate-more" href="pages/lunasia" aria-label="Explore Lunasia">Explore</a></div>
     </div>
   </article>
@@ -150,7 +156,7 @@
       <p class="cap-meta"><span class="num">04 / 06</span><span class="status" data-status>Style Model</span></p>
       <h2 class="cap-title" id="t-dat"><a href="pages/dat">DAT</a><span class="cap-ko" lang="ko">Our Style</span></h2>
       <p class="cap-line">Our house style, built into a model</p>
-      <p class="cap-text">We fine-tune open-source image models on CHOAM’s own illustration style and use them for character and background art. The muddy color of generated images comes out, and a clean watercolor wash and brushwork go in.</p>
+      <p class="cap-text">Open-source image models fine-tuned on CHOAM’s own illustration style across our Creative Pipeline and Polish Pipeline: muddy generated tones come out, and clean watercolor wash and brushwork go in.</p>
       <div class="cap-acts"><a class="plate-more" href="pages/dat" aria-label="Explore DAT">Explore</a></div>
     </div>
   </article>
@@ -176,14 +182,14 @@
 
 <div class="deck">
   <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
-  <footer class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+  <footer class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></footer>
   <a class="next-ch" data-next-chapter href="#scheherazade/1"><small data-next-label>Next</small><span data-next-title>Scheherazade</span></a>
 </div>
 
 <p class="sr-only" aria-live="polite" data-live></p>
 <div class="grain" aria-hidden="true"></div>
-<script src="main.js"></script>
-<script src="text-reveal.js"></script>
-<script src="astra-hero.js"></script>
+<script src="main.js?v=v21-20261114"></script>
+<script src="text-reveal.js?v=v21-20261114"></script>
+<script src="astra-hero.js?v=v21-20261114"></script>
 </body>
 </html>

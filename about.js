@@ -15,10 +15,11 @@
   const portraits = [...document.querySelectorAll('.portrait')];
   if (!portraits.length) return;
   const canHover = matchMedia('(hover: hover)');
-  const narrow = matchMedia('(max-width: 760px)');
+  const narrow = matchMedia('(max-width: 767px)');
 
   portraits.forEach(card => {
     const name = card.querySelector('.portrait-name');
+    if (!name) return;
     const markedLetters = [...name.querySelectorAll('.name-letter')];
     const letters = markedLetters.length ? markedLetters : [...name.children];
     let hovered = false, active = false, stop = () => {};

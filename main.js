@@ -8,365 +8,273 @@
      They are labelled as graphics and are not app screenshots or model output.
      r2: the same diagrams unpacked from their card. No outer frame, no boxed rows: each one is set straight onto
      the horizon plate at 720x540, lit by one pool of light, with type sized per screen in style.css. */
-  const ICON = () => url('assets/scheherazade.png');
   const POOL = (id, cx, cy, rx, ry, a = .16) => `<defs><radialGradient id="${id}"><stop offset="0" stop-color="#d9a362" stop-opacity="${a}"/><stop offset="1" stop-color="#d9a362" stop-opacity="0"/></radialGradient></defs><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#${id})"/>`;
-  const bars = (x, y, ws, step = 22, h = 10) => ws.map((w, i) => `<rect class="b" x="${x}" y="${y + i * step}" width="${w}" height="${h}" rx="1"/>`).join('');
-  const eye = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><path class="st" d="M-16 0Q0-13 16 0Q0 13-16 0Z"/><circle class="bg" r="4.5"/></g>`;
-  const moon = (x, y, s = 1) => `<path class="bg" transform="translate(${x} ${y}) scale(${s})" d="M4-11.3A12 12 0 1 0 4 11.3A13 13 0 0 1 4-11.3Z"/>`;
-  const star = (x, y, s = 1) => `<path class="bg" transform="translate(${x} ${y}) scale(${s})" d="M0-16Q2-2 16 0Q2 2 0 16Q-2 2-16 0Q-2-2 0-16Z"/>`;
-  const journal = (x, y, rot, hl) => `<g transform="rotate(${rot} ${x + 105} ${y + 75})"><rect class="fj" x="${x}" y="${y}" width="210" height="150"/><text class="k dim" x="${x + 20}" y="${y + 36}">JOURNAL</text>${[160, 146, 166, 110].map((w, i) => `<rect class="${i === hl ? 'bg' : 'b'}" x="${x + 20}" y="${y + 58 + i * 20}" width="${w}" height="9" rx="1"/>`).join('')}</g>`;
   const FEAT = {
-    'sch-memory': () => `${POOL('pl-mem', 520, 270, 320, 220, .14)}
-      <text class="l" x="40" y="42">4-TIER LOCAL MEMORY</text><text class="k dim" x="680" y="42" text-anchor="end">~/Documents/Scheherazade/</text>
-      <path class="hr" d="M40 56H680"/>
-      <g transform="translate(40, 72)">
-        <rect class="fj" width="640" height="90" rx="2"/>
-        <text class="k" x="22" y="25">1. SESSION NOTES</text><text class="s sm dim" x="236" y="25">session_notes/ · working memory</text>
-        <rect class="chip on" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">REAL-TIME</text>
-        <path class="hr" d="M22 35H618"/>
-        <rect class="bg" x="22" y="43" width="52" height="18" rx="2"/><text class="tag dark" x="48" y="55.5" text-anchor="middle">FELT</text>
-        <text class="s em" x="86" y="56">Human emotion &amp; intent carried verbatim into history</text>
-        <rect class="b2" x="22" y="65" width="52" height="18" rx="2"/><text class="tag" x="48" y="77.5" text-anchor="middle">LOCK</text>
-        <text class="s dim" x="86" y="78">Immutable user corrections &amp; project constraints</text>
-      </g>
-      <g transform="translate(40, 172)">
-        <rect class="fj" width="640" height="90" rx="2"/>
-        <text class="k" x="22" y="25">2. JOURNALS</text><text class="s sm dim" x="236" y="25">journals/ · autonomous compression</text>
-        <rect class="chip" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">NIGHTLY CRON</text>
-        <path class="hr" d="M22 35H618"/>
-        <rect class="b2" x="22" y="43" width="52" height="18" rx="2"/><text class="tag" x="48" y="55.5" text-anchor="middle">SYNC</text>
-        <text class="s" x="86" y="56">Overnight residue synthesis &amp; stale session compression</text>
-        <rect class="b" x="22" y="65" width="52" height="18" rx="2"/><text class="tag dim" x="48" y="77.5" text-anchor="middle">KEEP</text>
-        <text class="s dim" x="86" y="78">Summarized history preserving every locked directive</text>
-      </g>
-      <g transform="translate(40, 272)">
-        <rect class="fj" width="640" height="90" rx="2"/>
-        <text class="k" x="22" y="25">3. SELF PERSONA</text><text class="s sm dim" x="236" y="25">self_persona.md · weekly reflux</text>
-        <rect class="chip on" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">REVIEWED</text>
-        <path class="hr" d="M22 35H618"/>
-        <rect class="bg" x="22" y="43" width="52" height="18" rx="2"/><text class="tag dark" x="48" y="55.5" text-anchor="middle">GATE</text>
-        <text class="s" x="86" y="56">Human-in-the-loop: weekly proposals reviewed &amp; approved</text>
-        <rect class="b2" x="22" y="65" width="52" height="18" rx="2"/><text class="tag" x="48" y="77.5" text-anchor="middle">SAFE</text>
-        <text class="s em" x="86" y="78">Never drifts silently · zero unvetted identity mutation</text>
-      </g>
-      <g transform="translate(40, 372)">
-        <rect class="fj" width="640" height="90" rx="2"/>
-        <text class="k" x="22" y="25">4. MADOROMI (DREAMS)</text><text class="s sm dim" x="236" y="25">dreams/ · idle reflection</text>
-        <rect class="chip" x="510" y="9" width="108" height="20" rx="10"/><text class="tag" x="564" y="22.5" text-anchor="middle">IDLE CYCLE</text>
-        <path class="hr" d="M22 35H618"/>
-        <rect class="b2" x="22" y="43" width="52" height="18" rx="2"/><text class="tag" x="48" y="55.5" text-anchor="middle">WORK</text>
-        <text class="s" x="86" y="56">Autonomous dream-work (displacement &amp; condensation)</text>
-        <rect class="b" x="22" y="65" width="52" height="18" rx="2"/><text class="tag dim" x="48" y="77.5" text-anchor="middle">SEED</text>
-        <text class="s dim" x="86" y="78">Spontaneous insight fragments surfaced after quiet hours</text>
-      </g>
-      <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">ZERO DATABASE LOCK-IN</text><text class="s dim" x="680" y="504" text-anchor="end">100% plain Markdown on local disk</text>`,
-    'sch-lane': () => `${POOL('pl-lane', 360, 270, 340, 220, .14)}
-      <text class="l" x="40" y="42">MULTI-LANE ARCHITECTURE</text><text class="k dim" x="680" y="42" text-anchor="end">Decoupled Brain &amp; Memory</text>
-      <path class="hr" d="M40 56H680"/>
-      <g transform="translate(40, 72)">
-        <rect class="fr" width="284" height="390" rx="3"/>
-        <text class="l" x="20" y="30">SWAPPABLE BRAINS</text>
-        <path class="hr" d="M20 42H264"/>
-        <g transform="translate(16, 54)">
-          <rect class="fj" width="252" height="68" rx="2"/>
-          <circle cx="18" cy="23" r="4" fill="var(--ember)"/>
-          <text class="k" x="32" y="27">DeepSeek DSH</text>
-          <rect class="chip on" x="166" y="13" width="72" height="20" rx="10"/><text class="tag" x="202" y="26.5" text-anchor="middle">ACTIVE</text>
-          <text class="s sm dim" x="32" y="50">Bash sandbox · subagents · live lane</text>
-        </g>
-        <g transform="translate(16, 134)">
-          <rect class="fj" width="252" height="68" rx="2"/>
-          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
-          <text class="k" x="32" y="27">Claude Code</text>
-          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">STANDBY</text>
-          <text class="s sm dim" x="32" y="50">Opus 4.6 · headless supervisor</text>
-        </g>
-        <g transform="translate(16, 214)">
-          <rect class="fj" width="252" height="68" rx="2"/>
-          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
-          <text class="k" x="32" y="27">Local Models</text>
-          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">LOCAL</text>
-          <text class="s sm dim" x="32" y="50">Ollama · Sherpa · ONNX runtime</text>
-        </g>
-        <g transform="translate(16, 294)">
-          <rect class="fj" width="252" height="68" rx="2"/>
-          <circle cx="18" cy="23" r="4" fill="rgba(235,229,218,.32)"/>
-          <text class="k" x="32" y="27">Custom Lanes</text>
-          <rect class="chip" x="166" y="13" width="72" height="20" rx="10"/><text class="tag dim" x="202" y="26.5" text-anchor="middle">PROXY</text>
-          <text class="s sm dim" x="32" y="50">Codex proxy · OpenAI endpoints</text>
-        </g>
-      </g>
-      <rect class="bubble" x="330" y="96" width="60" height="22" rx="11"/><text class="tag em" x="360" y="110.5" text-anchor="middle">SWAP</text>
-      <path class="st" d="M324 160H388M324 240H360M324 320H360M324 400H360M360 400V160" stroke-width="1.5"/>
-      <polygon points="386,155.5 395,160 386,164.5" fill="var(--ember)"/>
-      <g transform="translate(396, 72)">
-        <rect class="fj" width="284" height="390" rx="3"/>
-        <text class="l" x="20" y="30">PERMANENT MEMORY</text>
-        <path class="hr" d="M20 42H264"/>
-        <rect class="hl" x="16" y="54" width="252" height="68" rx="2"/>
-        <text class="k" x="32" y="80">LIVING CONTEXT</text>
-        <text class="s sm em" x="32" y="104">Unbroken across model swaps</text>
-        <path class="hr" d="M16 138H268"/>
-        <rect class="hl" x="16" y="153" width="18" height="18" rx="2"/><text class="tag em" x="25" y="165.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="166">All session notes &amp; daily history</text>
-        <rect class="hl" x="16" y="185" width="18" height="18" rx="2"/><text class="tag em" x="25" y="197.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="198">Human feedback &amp; locked rules</text>
-        <rect class="hl" x="16" y="217" width="18" height="18" rx="2"/><text class="tag em" x="25" y="229.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="230">Evolved persona &amp; work habits</text>
-        <rect class="hl" x="16" y="249" width="18" height="18" rx="2"/><text class="tag em" x="25" y="261.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="262">Unfinished project threads</text>
-        <rect class="hl" x="16" y="281" width="18" height="18" rx="2"/><text class="tag em" x="25" y="293.5" text-anchor="middle">✓</text><text class="s sm" x="44" y="294">In-flight companion tasks</text>
-        <rect class="chip on" x="16" y="326" width="252" height="36" rx="2"/><text class="k" x="142" y="348.5" text-anchor="middle">PERMANENT ANCHOR</text>
-      </g>
-      <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">ZERO CONTEXT LOSS</text><text class="s dim" x="680" y="504" text-anchor="end">Change the model anytime; keep every memory</text>`,
-    'sch-channel': () => `${POOL('pl-chan', 500, 260, 320, 220, .14)}
-      <text class="l" x="40" y="42">EVERYWHERE YOU WORK</text><text class="k dim" x="680" y="42" text-anchor="end">Multi-Channel &amp; Voice</text>
-      <path class="hr" d="M40 56H680"/>
-      <g transform="translate(40, 72)">
-        <rect class="fj" width="304" height="120" rx="2"/>
-        <text class="l" x="22" y="30">DISCORD</text>
-        <rect class="chip on" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">#CHANNELS</text>
-        <path class="hr" d="M22 44H282"/>
-        <text class="s em" x="22" y="72">Native bot bridge for threads &amp; voice</text>
-        <text class="s sm dim" x="22" y="96">Streams text, files, and audio directly</text>
-      </g>
-      <g transform="translate(40, 207)">
-        <rect class="fj" width="304" height="120" rx="2"/>
-        <text class="l" x="22" y="30">SLACK</text>
-        <rect class="chip" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">SOCKET MODE</text>
-        <path class="hr" d="M22 44H282"/>
-        <text class="s em" x="22" y="72">Direct messages &amp; workspace channels</text>
-        <text class="s sm dim" x="22" y="96">Zero inbound ports · enterprise safe</text>
-      </g>
-      <g transform="translate(40, 342)">
-        <rect class="fj" width="304" height="120" rx="2"/>
-        <text class="l" x="22" y="30">TELEGRAM</text>
-        <rect class="chip" x="176" y="13" width="106" height="20" rx="10"/><text class="tag" x="229" y="26.5" text-anchor="middle">MOBILE RELAY</text>
-        <path class="hr" d="M22 44H282"/>
-        <text class="s em" x="22" y="72">Instant smartphone handoff &amp; relay</text>
-        <text class="s sm dim" x="22" y="96">Urgent alerts &amp; mobile continuity</text>
-      </g>
-      <g transform="translate(364, 72)">
-        <rect class="fj" width="316" height="390" rx="3"/>
-        <text class="l" x="22" y="30">COMPANION &amp; CALL MODE</text>
-        <path class="hr" d="M22 44H294"/>
-        <g transform="translate(22, 58)">
-          <rect class="fr" width="272" height="104" rx="2"/>
-          <circle cx="44" cy="52" r="30" class="fr on"/>
-          <image href="${url('assets/scheherazade-256.png')}" x="20" y="28" width="48" height="48"/>
-          <rect class="bubble" x="88" y="18" width="166" height="68" rx="6"/>
-          <text class="s sm em" x="104" y="46">작업 완료했습니다.</text>
-          <text class="s sm dim" x="104" y="68">결과를 확인해 보실래요?</text>
-        </g>
-        <g transform="translate(22, 176)">
-          <rect class="fr" width="272" height="136" rx="2"/>
-          <text class="k" x="18" y="27">CALL MODE · VOICE</text>
-          <rect class="chip on" x="182" y="11" width="72" height="20" rx="10"/><text class="tag" x="218" y="24.5" text-anchor="middle">LIVE</text>
-          <path class="hr" d="M18 40H254"/>
-          <g transform="translate(18, 52)">
-            ${[14, 28, 12, 36, 24, 16, 10, 24, 34, 18, 12, 28, 16, 22].map((h, i) => `<rect class="${i % 2 === 0 ? 'bg' : 'b2'}" x="${i * 7.5}" y="${18 - h / 2}" width="4" height="${h}" rx="2"/>`).join('')}
-          </g>
-          <text class="s sm em" x="136" y="64">Kyutai Pocket-TTS</text>
-          <text class="s sm dim" x="136" y="84">Sherpa-ONNX STT</text>
-          <path class="hr" d="M18 100H254"/>
-          <text class="s sm dim" x="18" y="120">On-device Korean speech &amp; voice synthesis</text>
-        </g>
-        <rect class="chip on" x="22" y="328" width="272" height="40" rx="2"/><text class="k" x="158" y="352.5" text-anchor="middle">MIC &amp; VOICE INTERACTIVE</text>
-      </g>
-      <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">ALWAYS WITHIN REACH</text><text class="s dim" x="680" y="504" text-anchor="end">Living where you communicate and think</text>`,
-    'sch-profile': () => `${POOL('pl-prof', 360, 270, 320, 220, .14)}
-      <text class="l" x="40" y="42">MULTI-PROFILE SYSTEM</text><text class="k dim" x="680" y="42" text-anchor="end">Scheherazade</text>
-      <path class="hr" d="M40 56H680"/>
-      <g transform="translate(40, 72)">
-        <rect class="fr" width="640" height="42" rx="2"/>
-        <text class="s sm em" x="20" y="26">One computer · Multiple concurrent Seras · Strictly isolated contexts</text>
-        <rect class="chip on" x="506" y="10" width="114" height="22" rx="11"/><text class="tag" x="563" y="24.5" text-anchor="middle">3 INSTANCES</text>
-      </g>
-      <g transform="translate(40, 128)">
-        <rect class="fj" width="202" height="334" rx="3"/>
-        <rect class="chip on" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">DEFAULT</text>
-        <text class="t" x="18" y="70">Sera Alpha</text>
-        <text class="l sm" x="18" y="92">RESEARCH &amp; DEV</text>
-        <path class="hr" d="M18 108H184"/>
-        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
-        <text class="s sm dim" x="18" y="150">~/Documents/</text>
-        <text class="s sm em" x="18" y="168">Scheherazade/</text>
-        <path class="hr" d="M18 186H184"/>
-        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
-        <text class="s sm em" x="18" y="228">Discord #general</text>
-        <text class="s sm dim" x="18" y="246">Claude Opus 4.6</text>
-        <path class="st" d="M18 268H184" stroke-width="1"/>
-        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4100 · ACTIVE</text>
-      </g>
-      <g transform="translate(259, 128)">
-        <rect class="fj" width="202" height="334" rx="3"/>
-        <rect class="chip" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">PROFILE 02</text>
-        <text class="t" x="18" y="70">Sera Craft</text>
-        <text class="l sm" x="18" y="92">CREATIVE LAB</text>
-        <path class="hr" d="M18 108H184"/>
-        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
-        <text class="s sm dim" x="18" y="150">~/Documents/</text>
-        <text class="s sm em" x="18" y="168">Scheherazade-craft/</text>
-        <path class="hr" d="M18 186H184"/>
-        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
-        <text class="s sm em" x="18" y="228">Slack #creative</text>
-        <text class="s sm dim" x="18" y="246">DeepSeek DSH</text>
-        <path class="st" d="M18 268H184" stroke-width="1"/>
-        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4101 · ACTIVE</text>
-      </g>
-      <g transform="translate(478, 128)">
-        <rect class="fj" width="202" height="334" rx="3"/>
-        <rect class="chip" x="18" y="18" width="88" height="22" rx="11"/><text class="tag" x="62" y="32.5" text-anchor="middle">PROFILE 03</text>
-        <text class="t" x="18" y="70">Sera Local</text>
-        <text class="l sm" x="18" y="92">OFFLINE PRIVACY</text>
-        <path class="hr" d="M18 108H184"/>
-        <text class="tag dim" x="18" y="130">MEMORY DIRECTORY</text>
-        <text class="s sm dim" x="18" y="150">~/Documents/</text>
-        <text class="s sm em" x="18" y="168">Scheherazade-local/</text>
-        <path class="hr" d="M18 186H184"/>
-        <text class="tag dim" x="18" y="208">CHANNEL &amp; MODEL</text>
-        <text class="s sm em" x="18" y="228">Local Companion</text>
-        <text class="s sm dim" x="18" y="246">Ollama Qwen-2.5</text>
-        <path class="st" d="M18 268H184" stroke-width="1"/>
-        <rect class="hl" x="18" y="282" width="166" height="34" rx="2"/><text class="tag" x="101" y="302.5" text-anchor="middle">PORT 4102 · ACTIVE</text>
-      </g>
-      <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">STRICT DATA ISOLATION</text><text class="s dim" x="680" y="504" text-anchor="end">Independent memory trees, tokens, and channels</text>`,
-    'sch-autonomy': () => `${POOL('pl-auto', 360, 260, 340, 220, .14)}
-      <text class="l" x="40" y="42">19-HOOK DETERMINISTIC ENGINE</text><text class="k dim" x="680" y="42" text-anchor="end">Safety &amp; Verification Gates</text>
-      <path class="hr" d="M40 56H680"/>
-      <g transform="translate(40, 72)">
-        <rect class="fr" width="640" height="46" rx="2"/>
-        <rect class="fj" x="14" y="9" width="136" height="28" rx="2"/><text class="tag em" x="82" y="26.5" text-anchor="middle">SESSION START (1)</text>
-        <text class="s sm dim" x="161" y="27.5" text-anchor="middle">→</text>
-        <rect class="fj" x="172" y="9" width="136" height="28" rx="2"/><text class="tag em" x="240" y="26.5" text-anchor="middle">PRE-TOOL USE (7)</text>
-        <text class="s sm dim" x="319" y="27.5" text-anchor="middle">→</text>
-        <rect class="fj" x="330" y="9" width="136" height="28" rx="2"/><text class="tag em" x="398" y="26.5" text-anchor="middle">POST-TOOL USE (3)</text>
-        <text class="s sm dim" x="477" y="27.5" text-anchor="middle">→</text>
-        <rect class="fj" x="488" y="9" width="136" height="28" rx="2"/><text class="tag em" x="556" y="26.5" text-anchor="middle">STOP GUARDS (5)</text>
-      </g>
-      <g transform="translate(40, 132)">
-        <rect class="fj" width="312" height="162" rx="2"/>
-        <text class="l" x="22" y="30">RUMINATION GATE</text>
-        <path class="hr" d="M22 42H290"/>
-        <text class="s em" x="22" y="66">Holds back unverified completion</text>
-        <text class="s sm dim" x="22" y="88">Pauses replies claiming premature success</text>
-        <text class="s sm dim" x="22" y="108">Refuses completion claims until verified</text>
-        <rect class="chip on" x="22" y="122" width="152" height="24" rx="12"/><text class="tag" x="98" y="137.5" text-anchor="middle">BLOCKING · EXIT 2</text>
-      </g>
-      <g transform="translate(368, 132)">
-        <rect class="fj" width="312" height="162" rx="2"/>
-        <text class="l" x="22" y="30">CREDENTIAL GUARD</text>
-        <path class="hr" d="M22 42H290"/>
-        <text class="s em" x="22" y="66">Blocks unauthorized system reads</text>
-        <text class="s sm dim" x="22" y="88">Protects macOS keychain &amp; secret tokens</text>
-        <text class="s sm dim" x="22" y="108">Isolates sibling agent environments</text>
-        <rect class="chip on" x="22" y="122" width="138" height="24" rx="12"/><text class="tag" x="91" y="137.5" text-anchor="middle">HARD FIREWALL</text>
-      </g>
-      <g transform="translate(40, 308)">
-        <rect class="fj" width="640" height="154" rx="2"/>
-        <text class="l" x="22" y="28">BACKGROUND CADENCE ENGINE</text><text class="tag dim" x="618" y="27" text-anchor="end">AUTONOMOUS CLOCKS</text>
-        <path class="hr" d="M22 40H618"/>
-        <rect class="hl" x="22" y="52" width="124" height="20" rx="2"/><text class="tag em" x="84" y="65.5" text-anchor="middle">DAILY CLOCK</text>
-        <text class="s sm" x="160" y="66">Stale session archiving &amp; overnight journal compression</text>
-        <rect class="hl" x="22" y="84" width="124" height="20" rx="2"/><text class="tag em" x="84" y="97.5" text-anchor="middle">PERSONA REFLUX</text>
-        <text class="s sm" x="160" y="98">Weekly human-reviewed identity evolution &amp; approval</text>
-        <rect class="hl" x="22" y="116" width="124" height="20" rx="2"/><text class="tag em" x="84" y="129.5" text-anchor="middle">IDLE IMPULSE</text>
-        <text class="s sm" x="160" y="130">Autonomous dream-work generated during quiet hours</text>
-      </g>
-      <path class="hr" d="M40 478H680"/>
-      <text class="l" x="40" y="504">DETERMINISTIC SAFETY</text><text class="s dim" x="680" y="504" text-anchor="end">Engineered for long-running autonomous stability</text>`,
-    '602-lost': () => {
+    '602-lost': (l = 'en') => {
       const col = [66, 146, 226, 306, 386], ys = [[200], [164, 236], [142, 180, 220, 258], [130, 150, 170, 190, 210, 230, 250, 270], Array.from({ length: 16 }, (_, k) => 122 + k * 10.4)];
       let tree = '';
       for (let c = 0; c < 4; c++) ys[c].forEach((y, i) => { tree += `<path class="sd" d="M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i]}M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i + 1]}"/>`; });
       ys.forEach((a, c) => a.forEach(y => { tree += `<circle class="${c === 4 ? 'bg' : 'tn'}" cx="${col[c]}" cy="${y}" r="${c === 4 ? 2.6 : c === 3 ? 3.4 : 4.4}"/>`; }));
-      return `${POOL('pl-602a', 360, 250, 340, 210, .12)}
-      <text class="xl" x="30" y="40">이야기 분기는 더하기가 아니라 제곱(2ⁿ)으로 불어납니다</text>
+      const t = l === 'ko' ? {
+        top: '이야기 분기는 더하기가 아니라 제곱(2ⁿ)으로 불어납니다',
+        treeLeft: '2지선다 4번',
+        treeRight: '2⁴ = 16갈래',
+        steps: ['시작', '1회', '2회', '3회', '4회 (16)'],
+        cardTitle: '기하급수로 늘어나는 경로',
+        r1: ['선택 4번 (2⁴)', '16갈래'],
+        r2: ['선택 7번 (2⁷)', '128갈래'],
+        r3: ['선택 10번 (2¹⁰)', '1,024갈래'],
+        r4: ['선택 20번 (2²⁰)', '100만+ 갈래'],
+        b1: '선택지 몇 개만 추가해도 맞춰야 할 앞뒤 상태 조합은 기하급수로 불어납니다.',
+        b2: '<tspan class="ar">1,024가지 경로</tspan>를 머릿속 암기나 복잡한 분기 코드로 관리하기란 불가능합니다.',
+        b2Cls: 'xm em',
+        foot: '단순해 보이는 선택지도 쌓이는 순간 기하급수로 폭발합니다.'
+      } : l === 'ja' ? {
+        top: '物語の分岐は足し算ではなく指数（2ⁿ）で膨らみます',
+        treeLeft: '2択を4回',
+        treeRight: '2⁴ = 16通り',
+        steps: ['開始', '1回', '2回', '3回', '4回 (16)'],
+        cardTitle: '急増するルート数',
+        r1: ['選択4回 (2⁴)', '16通り'],
+        r2: ['選択7回 (2⁷)', '128通り'],
+        r3: ['選択10回 (2¹⁰)', '1,024通り'],
+        r4: ['選択20回 (2²⁰)', '100万+通り'],
+        b1: '選択肢を少し増やすだけで、整合させるべき前後の状態組み合わせは急増します。',
+        b2: '<tspan class="ar">1,024通りのルート</tspan>を暗記やゲーム内の条件分岐コードで管理するのは不可能です。',
+        b2Cls: 'xm sm2 em',
+        foot: '単純に見える選択肢も、重なった瞬間に指数関数で爆発します。'
+      } : {
+        top: 'STORY BRANCHES GROW EXPONENTIALLY (2ⁿ), NOT BY ADDITION',
+        treeLeft: '4 binary choices',
+        treeRight: '2⁴ = 16 paths',
+        steps: ['Start', '1st', '2nd', '3rd', '4th (16)'],
+        cardTitle: 'PATH EXPLOSION',
+        r1: ['4 choices (2⁴)', '16'],
+        r2: ['7 choices (2⁷)', '128'],
+        r3: ['10 choices (2¹⁰)', '1,024'],
+        r4: ['20 choices (2²⁰)', '1M+'],
+        b1: 'Adding even a handful of choices multiplies every upstream and downstream state check.',
+        b2: 'Tracking <tspan class="ar">1,024 paths</tspan> by memory or nested if-else game code quickly breaks down.',
+        b2Cls: 'xm sm2 em',
+        foot: 'SIMPLE CHOICES COMPOUND INTO EXPONENTIAL COMPLEXITY.'
+      };
+      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602a', 360, 250, 340, 210, .12)}
+      <text class="xl" x="30" y="40">${t.top}</text>
       <path class="hr" d="M30 58H690"/>
-      <rect class="fj" x="30" y="80" width="390" height="260" rx="4"/>
-      <text class="xm sm2 dim" x="54" y="110">2지선다 4번</text>
-      <text class="xm sm2 em" x="396" y="110" text-anchor="end">2⁴ = 16갈래</text>
+      <rect class="fj" x="30" y="80" width="390" height="260" rx="0"/>
+      <text class="xm sm2 dim" x="54" y="110">${t.treeLeft}</text>
+      <text class="xm sm2 em" x="396" y="110" text-anchor="end">${t.treeRight}</text>
       ${tree}
-      <text class="xm sm2 dim" x="66" y="316" text-anchor="middle">시작</text>
-      <text class="xm sm2 dim" x="146" y="316" text-anchor="middle">1회</text>
-      <text class="xm sm2 dim" x="226" y="316" text-anchor="middle">2회</text>
-      <text class="xm sm2 dim" x="306" y="316" text-anchor="middle">3회</text>
-      <text class="xm sm2 em" x="386" y="316" text-anchor="middle">4회 (16)</text>
-      <rect class="fr on" x="440" y="80" width="250" height="260" rx="4"/>
-      <text class="xl" x="462" y="114">기하급수로 늘어나는 경로</text>
-      <text class="xm sm2 dim" x="462" y="156">선택 4번 (2⁴)</text><text class="xm sm2" x="668" y="156" text-anchor="end">16갈래</text>
-      <text class="xm sm2 dim" x="462" y="196">선택 7번 (2⁷)</text><text class="xm sm2" x="668" y="196" text-anchor="end">128갈래</text>
-      <text class="xm sm2 em" x="462" y="238">선택 10번 (2¹⁰)</text><text class="xe sm3" x="668" y="238" text-anchor="end">1,024갈래</text>
+      <text class="xm sm2 dim" x="66" y="316" text-anchor="middle">${t.steps[0]}</text>
+      <text class="xm sm2 dim" x="146" y="316" text-anchor="middle">${t.steps[1]}</text>
+      <text class="xm sm2 dim" x="226" y="316" text-anchor="middle">${t.steps[2]}</text>
+      <text class="xm sm2 dim" x="306" y="316" text-anchor="middle">${t.steps[3]}</text>
+      <text class="xm sm2 em" x="386" y="316" text-anchor="middle">${t.steps[4]}</text>
+      <rect class="fr on" x="440" y="80" width="250" height="260" rx="0"/>
+      <text class="xl" x="462" y="114">${t.cardTitle}</text>
+      <text class="xm sm2 dim" x="462" y="156">${t.r1[0]}</text><text class="xm sm2" x="668" y="156" text-anchor="end">${t.r1[1]}</text>
+      <text class="xm sm2 dim" x="462" y="196">${t.r2[0]}</text><text class="xm sm2" x="668" y="196" text-anchor="end">${t.r2[1]}</text>
+      <text class="xm sm2 em" x="462" y="238">${t.r3[0]}</text><text class="xe sm3" x="668" y="238" text-anchor="end">${t.r3[1]}</text>
       <path class="hr" d="M462 264H668"/>
-      <text class="xm sm2 dim" x="462" y="304">선택 20번 (2²⁰)</text><text class="xm sm2 em" x="668" y="304" text-anchor="end">100만+ 갈래</text>
-      <rect class="fj" x="30" y="362" width="660" height="108" rx="4"/>
-      <text class="xm sm2 dim" x="54" y="400">선택지 몇 개만 추가해도 맞춰야 할 앞뒤 상태 조합은 기하급수로 불어납니다.</text>
-      <text class="xm em" x="54" y="440"><tspan class="ar">1,024가지 경로</tspan>를 머릿속 암기나 복잡한 분기 코드로 관리하기란 불가능합니다.</text>
+      <text class="xm sm2 dim" x="462" y="304">${t.r4[0]}</text><text class="xm sm2 em" x="668" y="304" text-anchor="end">${t.r4[1]}</text>
+      <rect class="fj" x="30" y="362" width="660" height="108" rx="0"/>
+      <text class="xm sm2 dim" x="54" y="400">${t.b1}</text>
+      <text class="${t.b2Cls}" x="54" y="440">${t.b2}</text>
       <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">단순해 보이는 선택지도 쌓이는 순간 기하급수로 폭발합니다.</text>`;
+      <text class="xl" x="30" y="522">${t.foot}</text>`;
     },
-    '602-qa': () => `${POOL('pl-602c', 470, 240, 300, 220, .13)}
-      <text class="xl" x="30" y="40">복잡한 분기 관리는 602로 떼어내고, 오류는 반영 전에 걸러냅니다</text>
+    '602-qa': (l = 'en') => {
+      const t = l === 'ko' ? {
+        top: '복잡한 분기 관리는 602로 떼어내고, 오류는 반영 전에 걸러냅니다',
+        leftTitle: '게임 코드',
+        leftSub: '분기 계산에서 해방',
+        chip1: '화면 연출 · 사운드 · UI',
+        chip2: '인게임 플레이 · 시스템',
+        leftFoot1: '602가 건네주는 대사와 상태만',
+        leftFoot2: '화면에 그리면 끝납니다.',
+        rightTitle: '602 Studio · 검증',
+        stAsk: '승인 대기',
+        stOk: '반영됨',
+        stNo: '반려됨',
+        d1: '새 선택지 추가 및 조건 분기 연결',
+        d2: '앞뒤 장면 상태값 · 스키마 자동 대조',
+        chk1: '✓ .602.json 컴파일 검증 통과',
+        chk2: '끊어진 연결 0건 · 조건 오류 0건',
+        dFoot: '깨진 분기는 애초에 게임으로 넘어가지 않습니다.',
+        prompt: '검증이 끝난 변경안을 눌러 반영해 보세요.',
+        okLabel: '승인',
+        noLabel: '반려',
+        savedOk: '시나리오에 반영되었습니다',
+        savedNo: '반려됨 · 원본을 유지했습니다',
+        resetAria: '다시 보기',
+        resetLabel: '↺ 다시',
+        foot: '이야기 구조와 게임 코드를 분리해 신경 써야 할 문제를 절반으로 줄입니다.'
+      } : l === 'ja' ? {
+        top: '複雑な分岐管理は 602 に切り離し、エラーは反映前に遮断します',
+        leftTitle: 'ゲームコード',
+        leftSub: '分岐計算から解放',
+        chip1: '画面演出 · サウンド · UI',
+        chip2: 'ゲームプレイ · システム',
+        leftFoot1: '602 が渡すセリフと状態だけを',
+        leftFoot2: '画面に描画すれば完了します。',
+        rightTitle: '602 Studio · 検証',
+        stAsk: '承認待ち',
+        stOk: '反映済み',
+        stNo: '差戻し済み',
+        d1: '新規選択肢の追加と条件分岐の接続',
+        d2: '前後シーンの状態値・スキーマ自動照合',
+        chk1: '✓ .602.json コンパイル検証通過',
+        chk2: 'リンク切れ 0件 · 条件エラー 0件',
+        dFoot: '壊れた分岐はゲームへ渡りません。',
+        prompt: '検証済みの変更を承認・差戻し:',
+        okLabel: '承認',
+        noLabel: '差戻し',
+        savedOk: 'シナリオに反映されました',
+        savedNo: '差戻し · 原本を維持しました',
+        resetAria: 'やり直す',
+        resetLabel: '↺ 戻す',
+        foot: '物語構造とゲームコードを分離し、確認すべき問題を半減させます。'
+      } : {
+        top: 'ISOLATE BRANCHING IN 602 STUDIO · CATCH ERRORS PRE-FLIGHT',
+        leftTitle: 'GAME CODE',
+        leftSub: 'Free from branch logic',
+        chip1: 'Visuals · Audio · UI',
+        chip2: 'Core Gameplay · Systems',
+        leftFoot1: 'Renders only the lines &amp; state',
+        leftFoot2: 'returned by Story Engine v2.',
+        rightTitle: '602 STUDIO v2',
+        stAsk: 'Pending',
+        stOk: 'Approved',
+        stNo: 'Rejected',
+        d1: 'Wire new choice &amp; branch condition',
+        d2: 'Validate upstream &amp; downstream state',
+        chk1: '✓ .602.json compile check passed',
+        chk2: '0 dead links · 0 condition errors',
+        dFoot: 'Broken branches never reach the game.',
+        prompt: 'Click Approve or Reject to test:',
+        okLabel: 'Approve',
+        noLabel: 'Reject',
+        savedOk: 'Saved to scenario (.602.json)',
+        savedNo: 'Rejected · original kept',
+        resetAria: 'Reset',
+        resetLabel: '↺ Reset',
+        foot: 'SEPARATE STORY GRAPH FROM GAME CODE · CUT DEBUGGING IN HALF.'
+      };
+      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602c', 470, 240, 300, 220, .13)}
+      <text class="xl" x="30" y="40">${t.top}</text>
       <path class="hr" d="M30 58H690"/>
-      <rect class="fj" x="30" y="78" width="276" height="324" rx="4"/>
-      <text class="xl" x="52" y="114">게임 코드</text>
-      <text class="xm sm2 dim" x="52" y="144">분기 계산에서 해방</text>
+      <rect class="fj" x="30" y="78" width="276" height="324" rx="0"/>
+      <text class="xl" x="52" y="114">${t.leftTitle}</text>
+      <text class="xm sm2 dim" x="52" y="144">${t.leftSub}</text>
       <path class="hr" d="M52 164H284"/>
-      <rect class="fr" x="52" y="186" width="232" height="52" rx="3"/>
-      <text class="xm sm2 em" x="168" y="218" text-anchor="middle">화면 연출 · 사운드 · UI</text>
-      <rect class="fr" x="52" y="252" width="232" height="52" rx="3"/>
-      <text class="xm sm2 em" x="168" y="284" text-anchor="middle">인게임 플레이 · 시스템</text>
-      <text class="xm sm2 dim" x="52" y="344">602가 건네주는 대사와 상태만</text>
-      <text class="xm sm2 dim" x="52" y="370">화면에 그리면 끝납니다.</text>
+      <rect class="fr" x="52" y="186" width="232" height="52" rx="0"/>
+      <text class="xm sm2 em" x="168" y="218" text-anchor="middle">${t.chip1}</text>
+      <rect class="fr" x="52" y="252" width="232" height="52" rx="0"/>
+      <text class="xm sm2 em" x="168" y="284" text-anchor="middle">${t.chip2}</text>
+      <text class="xm sm2 dim" x="52" y="344">${t.leftFoot1}</text>
+      <text class="xm sm2 dim" x="52" y="370">${t.leftFoot2}</text>
       <path class="st" d="M312 240H342"/><polygon class="bg" points="348,240 338,235 338,245"/>
-      <rect class="fr on" x="350" y="78" width="340" height="324" rx="4"/>
-      <text class="xl" x="372" y="114">602 · 분기 전담 &amp; 사전 검증</text>
-      <text class="xm sm2 dim stt s-ask" x="668" y="114" text-anchor="end">승인 대기</text><text class="xm sm2 em stt s-ok" x="668" y="114" text-anchor="end">반영됨</text><text class="xm sm2 dim stt s-no" x="668" y="114" text-anchor="end">반려됨</text>
+      <rect class="fr on" x="350" y="78" width="340" height="324" rx="0"/>
+      <text class="xl" x="372" y="114">${t.rightTitle}</text>
+      <text class="xm sm2 dim stt s-ask" x="668" y="114" text-anchor="end">${t.stAsk}</text><text class="xm sm2 em stt s-ok" x="668" y="114" text-anchor="end">${t.stOk}</text><text class="xm sm2 dim stt s-no" x="668" y="114" text-anchor="end">${t.stNo}</text>
       <g class="diff">
-        <text class="xm em" x="372" y="156"><tspan class="ar">+ </tspan>새 선택지 추가 및 조건 분기 연결</text>
-        <text class="xm sm2" x="372" y="190"><tspan class="ar">+ </tspan>앞뒤 장면 상태값 자동 대조</text>
-        <rect class="fj" x="368" y="216" width="304" height="96" rx="3"/>
-        <text class="xm sm2 em" x="388" y="250">✓ 엔진 컴파일 검증 통과</text>
-        <text class="xm sm2 dim" x="388" y="282">끊어진 장면 연결 0건 · 조건 오류 0건</text>
+        <text class="xm sm2 em" x="372" y="156"><tspan class="ar">+ </tspan>${t.d1}</text>
+        <text class="xm sm2" x="372" y="190"><tspan class="ar">+ </tspan>${t.d2}</text>
+        <rect class="fj" x="368" y="216" width="304" height="96" rx="0"/>
+        <text class="xm sm2 em" x="388" y="250">${t.chk1}</text>
+        <text class="xm sm2 dim" x="388" y="282">${t.chk2}</text>
         <path class="hr" d="M368 334H672"/>
-        <text class="xm sm2 em" x="372" y="370">깨진 분기는 애초에 게임으로 넘어가지 않습니다.</text>
+        <text class="xm sm2 em" x="372" y="370">${t.dFoot}</text>
       </g>
-      <text class="xm sm2 em" x="30" y="451">검증이 끝난 변경안만 눌러서 반영해 보세요.</text>
+      <text class="xm sm2 em" x="30" y="451">${t.prompt}</text>
       <g class="asks">
-        <g class="pick" data-ai-pick="ok" role="button" tabindex="0" aria-label="승인"><rect class="pk" x="350" y="420" width="160" height="50" rx="25"/><text class="xn" x="430" y="453" text-anchor="middle">승인</text></g>
-        <g class="pick" data-ai-pick="no" role="button" tabindex="0" aria-label="반려"><rect class="pk" x="530" y="420" width="160" height="50" rx="25"/><text class="xn" x="610" y="453" text-anchor="middle">반려</text></g>
+        <g class="pick" data-ai-pick="ok" role="button" tabindex="0" aria-label="${t.okLabel}"><rect class="pk" x="350" y="420" width="160" height="50" rx="0"/><text class="xn" x="430" y="453" text-anchor="middle">${t.okLabel}</text></g>
+        <g class="pick" data-ai-pick="no" role="button" tabindex="0" aria-label="${t.noLabel}"><rect class="pk" x="530" y="420" width="160" height="50" rx="0"/><text class="xn" x="610" y="453" text-anchor="middle">${t.noLabel}</text></g>
       </g>
       <g class="after">
-        <text class="xm em a-ok" x="350" y="452">원본 이야기에 저장되었습니다</text><text class="xm em a-no" x="350" y="452">변경안을 반려하고 원본을 유지했습니다</text>
-        <g class="pick" data-ai-pick="ask" role="button" tabindex="0" aria-label="다시 보기"><rect class="pk" x="590" y="420" width="100" height="50" rx="25"/><text class="xn" x="640" y="453" text-anchor="middle">↺ 다시</text></g>
+        <text class="xm sm2 em a-ok" x="350" y="451">${t.savedOk}</text><text class="xm sm2 em a-no" x="350" y="451">${t.savedNo}</text>
+        <g class="pick" data-ai-pick="ask" role="button" tabindex="0" aria-label="${t.resetAria}"><rect class="pk" x="574" y="420" width="116" height="50" rx="0"/><text class="xm em" x="632" y="452" text-anchor="middle">${t.resetLabel}</text></g>
       </g>
       <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">이야기 구조와 게임 코드를 분리해, 신경 써야 할 문제를 절반으로 줄입니다.</text>`,
-    '602-run': () => {
-      return `${POOL('pl-602d', 360, 260, 340, 220, .12)}
-      <text class="xl" x="30" y="40">게임이 아직 없어도, 시나리오만으로 바로 돌려보며 완성합니다</text>
+      <text class="xl" x="30" y="522">${t.foot}</text>`;
+    },
+    '602-run': (l = 'en') => {
+      const t = l === 'ko' ? {
+        top: '게임이 아직 없어도, 시나리오만으로 바로 돌려보며 완성합니다',
+        s1: '1장 (건너뜀)',
+        s2: '2장 (건너뜀)',
+        s3: '▶ 원하는 장면부터 바로 실행',
+        c1Title: '602 Studio 단독 시뮬레이션',
+        c1a: '게임 화면이나 시스템이 아직 없어도,',
+        c1b: '원하는 장면과 조건에서 이야기를',
+        c1c: '바로 실행해 흐름을 먼저 검증합니다.',
+        c2Title: 'Story Engine v2 직결',
+        c2a: '검증이 끝난 .602.json 번들은',
+        c2b: 'story_engine_v2.h 공유 런타임으로',
+        c2c: 'C++ · C# · Godot 게임에 직결됩니다.',
+        oldWay: '예전 방식: 게임 클라이언트가 나올 때까지 대기 + 1장부터 수십 번 반복 플레이',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio에서 원하는 장면 즉시 실행 ➔ C ABI v2 엔진으로 게임에 탑재',
+        newCls: 'xm sm2 em',
+        foot: '클라이언트 개발을 기다리지 않고, 이야기를 가장 먼저 완성합니다.'
+      } : l === 'ja' ? {
+        top: 'ゲームがまだなくても、シナリオ単体ですぐ再生して仕上げます',
+        s1: '第1章（スキップ）',
+        s2: '第2章（スキップ）',
+        s3: '▶ 指定シーンから即座に実行',
+        c1Title: '602 Studio 単体再生',
+        c1a: 'ゲーム画面やUIがまだなくても、',
+        c1b: '任意の場面と状態値を指定して',
+        c1c: '物語の流れを即座に実行・検証します。',
+        c2Title: 'Story Engine v2 直結',
+        c2a: '検証済みの .602.json バンドルは',
+        c2b: 'story_engine_v2.h 共有ランタイムで',
+        c2c: 'C++ · C# · Godot へ直結します。',
+        oldWay: '従来: ゲームクライアント完成まで待機 + 第1章から何十回も反復プレイ',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio で任意場面を即実行 ➔ C ABI v2 エンジンでゲームへ搭載',
+        newCls: 'xm sm2 em',
+        foot: 'クライアント開発を待たずに、物語をいち早く完成させます。'
+      } : {
+        top: 'SIMULATE SCENARIOS STANDALONE · WIRE STRAIGHT INTO YOUR ENGINE',
+        s1: 'Ch. 1 (Skip)',
+        s2: 'Ch. 2 (Skip)',
+        s3: '▶ Jump straight to target scene',
+        c1Title: '602 STUDIO SIMULATION',
+        c1a: 'Even before the game client exists,',
+        c1b: 'set custom state &amp; jump to any scene',
+        c1c: 'to playtest and export .602.zip / .json.',
+        c2Title: 'STORY ENGINE v2 (C ABI)',
+        c2a: 'Verified .602.json bundles plug into',
+        c2b: 'C++, C#, and Godot games via the',
+        c2c: 'native story_engine_v2.h runtime.',
+        oldWay: 'Old workflow: Wait for client build + replay from Chapter 1 dozens of times',
+        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Simulate any scene in Studio ➔ ship via C ABI v2 Story Engine',
+        newCls: 'xm sm2 em',
+        foot: 'FINISH AND VERIFY THE STORY BEFORE WAITING ON THE CLIENT.'
+      };
+      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602d', 360, 260, 340, 220, .12)}
+      <text class="xl" x="30" y="40">${t.top}</text>
       <path class="hr" d="M30 58H690"/>
-      <rect class="fr off" x="30" y="80" width="160" height="60" rx="3"/><text class="xm sm2 dim" x="110" y="116" text-anchor="middle">1장 (건너뜀)</text>
-      <rect class="fr off" x="210" y="80" width="160" height="60" rx="3"/><text class="xm sm2 dim" x="290" y="116" text-anchor="middle">2장 (건너뜀)</text>
-      <rect class="fr on" x="390" y="80" width="300" height="60" rx="3"/><text class="xm em" x="540" y="117" text-anchor="middle">▶ 원하는 장면부터 바로 실행</text>
+      <rect class="fr off" x="30" y="80" width="160" height="60" rx="0"/><text class="xm sm2 dim" x="110" y="116" text-anchor="middle">${t.s1}</text>
+      <rect class="fr off" x="210" y="80" width="160" height="60" rx="0"/><text class="xm sm2 dim" x="290" y="116" text-anchor="middle">${t.s2}</text>
+      <rect class="fr on" x="390" y="80" width="300" height="60" rx="0"/><text class="xm sm2 em" x="540" y="116" text-anchor="middle">${t.s3}</text>
       <path class="sd" d="M190 110H210M370 110H390"/>
-      <rect class="fj" x="30" y="164" width="318" height="174" rx="4"/>
-      <text class="xl" x="54" y="202">게임 개발 전에도 단독 시뮬레이션</text>
+      <rect class="fj" x="30" y="164" width="318" height="174" rx="0"/>
+      <text class="xl" x="54" y="202">${t.c1Title}</text>
       <path class="hr" d="M54 220H324"/>
-      <text class="xm sm2" x="54" y="256">게임 화면이나 시스템이 아직 없어도,</text>
-      <text class="xm sm2 em" x="54" y="286">원하는 장면과 조건에서 이야기를</text>
-      <text class="xm sm2 em" x="54" y="314">바로 실행해 흐름을 먼저 검증합니다.</text>
-      <rect class="fj" x="372" y="164" width="318" height="174" rx="4"/>
-      <text class="xl" x="396" y="202">완성된 시나리오를 게임에 직결</text>
+      <text class="xm sm2" x="54" y="256">${t.c1a}</text>
+      <text class="xm sm2 em" x="54" y="286">${t.c1b}</text>
+      <text class="xm sm2 em" x="54" y="314">${t.c1c}</text>
+      <rect class="fj" x="372" y="164" width="318" height="174" rx="0"/>
+      <text class="xl" x="396" y="202">${t.c2Title}</text>
       <path class="hr" d="M396 220H666"/>
-      <text class="xm sm2" x="396" y="256">검증이 끝난 이야기는 다시 짤 필요 없이</text>
-      <text class="xm sm2 em" x="396" y="286">C++ · C# · Godot 환경의</text>
-      <text class="xm sm2 em" x="396" y="314">제작 중인 게임에 그대로 연결합니다.</text>
-      <rect class="fr on" x="30" y="360" width="660" height="108" rx="4"/>
-      <text class="xm sm2 dim" x="54" y="396">예전 방식: 게임 클라이언트가 나올 때까지 대기 + 처음부터 수십 번 반복 플레이</text>
-      <text class="xm em" x="54" y="438"><tspan class="ar">602 방식: </tspan>게임 없이도 원하는 장면 즉시 실행 ➔ 검증 후 게임 엔진에 바로 탑재</text>
+      <text class="xm sm2" x="396" y="256">${t.c2a}</text>
+      <text class="xm sm2 em" x="396" y="286">${t.c2b}</text>
+      <text class="xm sm2 em" x="396" y="314">${t.c2c}</text>
+      <rect class="fr on" x="30" y="360" width="660" height="108" rx="0"/>
+      <text class="xm sm2 dim" x="54" y="396">${t.oldWay}</text>
+      <text class="${t.newCls}" x="54" y="438">${t.newWay}</text>
       <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">클라이언트 개발을 기다리지 않고, 이야기를 가장 먼저 완성합니다.</text>`;
+      <text class="xl" x="30" y="522">${t.foot}</text>`;
     }
   };
   /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
@@ -378,64 +286,67 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
+      status: 'v1.0.2 · Free Desktop Agent',
       headline: 'An agent that takes a thousand and one nights in stride',
-      summary: 'Change the model as often as you like; the conversations and rules you built together stay. The tedious, tangled work gets lighter.',
+      summary: 'Swap brains freely across Claude, ChatGPT, Google Antigravity (Gemini), Ollama, or major API keys while every memory and rule stays in plain-text files on your disk. Permanently free, no account or email required, zero telemetry.',
       description: [
         [
-          { display: 'You never have to explain yourself twice. It already knows how you like things.' },
-          'The fatigue of teaching a new chat window from scratch is gone. The small exchange from yesterday, the working rule you set last month: it sorts them out on its own and keeps them on your computer.',
-          '"Make me a cheat sheet for the exam."\nIt already knows which two question types you got wrong last time and puts those first. You do not have to say which exam, which unit, or what you struggled with.'
+          { display: 'You never have to explain yourself twice. Every memory stays in plain files on your disk.' },
+          'Yesterday’s exchange and last month’s working rules are organized automatically as plain-text Markdown on your computer. Scheherazade is permanently free with no subscription, requires no account or email, and sends zero telemetry.',
+          'Run multiple Sera windows side by side on one computer with Multi-Profile, keeping each memory folder and bot strictly isolated. Ask for an exam cheat sheet, and it already puts the question types you missed last time at the top.'
         ],
         [
-          { display: 'No new subscription. Plug in the one you already pay for.' },
-          'You do not have to buy a second expensive seat on a dedicated service. Connect the account you already have: a Claude or ChatGPT subscription, or Ollama.',
-          'Curious about the new Kimi, or a benchmark leader just landed?\nKeep the memory, swap only the brain. Your conversations and the way you work stay on your machine.'
+          { display: 'Plug in the subscriptions, local models, or API keys you already use.' },
+          'Connect your existing Claude, ChatGPT, or Google Antigravity (agy / Gemini) subscription, run local or cloud Ollama, or paste an API key with automatic detection for OpenAI, OpenRouter, DeepSeek, Google, xAI, and Groq.',
+          'Keep every memory and swap only the brain whenever a stronger model arrives. Dress each workspace in five house themes: Sera, Paris, Vancouver, Shanghai, and Seoul, CHOAM’s canonical 45° chamfered theme.'
         ],
         [
-          { display: 'Away from the desk? Drop a line from your phone and it gets done.' },
-          'No launching an app, no composing a prompt. Message it the way you would ask a friend, on the messenger you already use, or out loud.',
-          'On the subway home, one message in Discord or Slack.\n"Game night with friends tonight. Update the modpack and get the server running."\nWalking, and typing is a hassle? Turn on Call Mode and just ask. "Did the thing I asked for go through? Any conflicts?"\nBack at your desk, it is already set up. You just play.'
+          { display: 'Reach it from your phone, let it control the desktop, and carry it on USB.' },
+          'Talk via Discord, Slack, Telegram, or voice Call Mode, with granular reply switches per person, bot, server, and DM. Built-in computer control (a dedicated browser and agent-desktop) can even open and wire up your Discord bot automatically.',
+          'Carry a PIN-locked Windows USB Portable build that inherits your desktop memory, and stay current across Mac, Windows, Linux, and Portable with an in-app progress banner and one-click Restart now updates.'
         ]
       ],
       ko: {
+        status: 'v1.0.2 · 영구 무료 데스크톱 에이전트',
         headline: '천하루밤도 거뜬한 에이전트',
-        summary: '모델을 수없이 갈아끼워도 당신과 쌓아온 대화와 규칙은 그대로 남아, 귀찮고 복잡한 일도 한결 가볍게 풀어줍니다.',
+        summary: 'Claude·ChatGPT·Google Antigravity(Gemini) 구독과 Ollama, 주요 API 키를 자유롭게 갈아끼워도 대화와 작업 규칙은 내 컴퓨터의 평문 파일로 온전히 남습니다. 영구 무료 배포이며 계정·이메일 요구와 텔레메트리가 일절 없습니다.',
         description: [
           [
-            { display: '매번 구구절절 설명하지 않아도, 내 취향과 방식을 이미 알고 있어요.' },
-            '새 창을 열 때마다 처음부터 다시 가르쳐야 했던 피로감이 사라집니다. 어제 나눈 소소한 대화부터 지난달에 정해둔 작업 규칙까지, 스스로 정리해 내 컴퓨터에 온전히 남겨둡니다.',
-            '"시험 치트시트 하나 만들어줘."\n지난번에 어느 유형을 틀렸는지 이미 알고 있으니, 그쪽부터 짚어서 만들어 줍니다. 어떤 시험이고 어디까지인지, 뭘 헷갈려 했는지 설명할 필요가 없습니다.'
+            { display: '매번 다시 설명하지 않아도, 내 취향과 작업 규칙을 이미 알고 있습니다.' },
+            '어제 나눈 대화부터 지난달 정해둔 원칙까지 내 컴퓨터의 로컬 평문 마크다운 파일로 스스로 정리해 남깁니다. 구독 없는 영구 무료 배포이며, 계정이나 이메일을 요구하지 않고 외부로 전송하는 텔레메트리도 없습니다.',
+            '멀티 프로필로 한 컴퓨터에서 기억 폴더와 봇이 완전히 분리된 여러 세라 창을 동시에 띄워 둘 수 있습니다. 시험 치트시트를 부탁하면 지난번에 틀렸던 유형부터 알아서 짚어 정리해 줍니다.'
           ],
           [
-            { display: '새로 결제할 필요 없이, 이미 쓰던 구독 모델을 꽂아 쓰세요.' },
-            '에이전트를 쓰겠다고 전용 서비스에 비싼 돈을 더 낼 필요가 없습니다. 이미 쓰는 Claude·ChatGPT 구독이나 Ollama를 그대로 연결하면 됩니다.',
-            '새 Kimi가 써보고 싶어졌거나, 벤치마크가 더 잘 나오는 모델이 나왔나요?\n쓰던 기억은 그대로 두고 두뇌만 슥 바꿔 쓰세요. 나눈 대화와 작업 방식은 내 컴퓨터에 고스란히 남아 있습니다.'
+            { display: '새로 결제할 필요 없이, 쓰던 구독과 로컬 모델·API 키를 그대로 연결하세요.' },
+            '기존 Claude, ChatGPT, Google Antigravity(agy / Gemini) 구독은 물론 로컬·클라우드 Ollama를 바로 연결합니다. API 키만 붙여넣으면 OpenAI, OpenRouter, DeepSeek, Google, xAI, Groq 공급자를 자동으로 판별합니다.',
+            '기억과 작업 방식은 그대로 두고 두뇌만 자유롭게 교체하세요. 작업창은 Sera, Paris, Vancouver, Shanghai와 초암 정본 45° 모따기 테마 Seoul까지 5종 하우스 테마로 바꿀 수 있습니다.'
           ],
           [
-            { display: '컴퓨터 앞에 앉지 않아도, 폰으로 툭 던져두면 알아서 해둡니다.' },
-            '새 프로그램을 켜고 프롬프트를 고민할 필요가 없습니다. 늘 쓰던 메신저나 음성 통화로, 친구에게 부탁하듯 편하게 말을 걸어보세요.',
-            '퇴근길 지하철에서 스마트폰 디스코드나 슬랙으로 툭 남깁니다.\n"오늘 저녁에 친구들이랑 게임할 건데, 모드팩 최신으로 업데이트하고 서버 좀 돌려놔."\n걷는 중이라 타자가 번거로우면 콜 모드를 켜서 전화하듯 물어보세요. "아까 시킨 거 잘 됐어? 충돌 난 건 없고?"\n집에 도착해 컴퓨터를 켜면 세팅이 끝나 있어, 바로 플레이만 하면 됩니다.'
+            { display: '메신저·음성 원격 지시부터 컴퓨터 직접 제어, USB 포터블까지 하나로 이어집니다.' },
+            'Discord, Slack, Telegram과 음성 콜 모드로 어디서든 말을 걸고, 사람·봇·서버·DM별 응답 허용 스위치로 권한을 세밀하게 통제합니다. 전용 브라우저와 agent-desktop 컴퓨터 제어로 Discord 봇 자동 개설까지 직접 수행합니다.',
+            'PIN 잠금과 데스크톱 기억 이어받기를 지원하는 Windows USB 포터블로 환경을 그대로 휴대할 수 있으며, Mac · Windows · Linux · Portable 전 플랫폼에서 앱 내 진행률 배너와 지금 재시작 버튼으로 간편하게 자동 업데이트됩니다.'
           ]
         ]
       },
       ja: {
+        status: 'v1.0.2 · 永久無料デスクトップエージェント',
         headline: '千夜一夜も余裕のエージェント',
-        summary: 'モデルを何度乗り換えても、あなたと積み重ねてきた会話とルールはそのまま残ります。面倒でややこしい作業も、ぐっと軽くなります。',
+        summary: 'Claude・ChatGPT・Google Antigravity（Gemini）のサブスクや Ollama、主要 API キーを自在に切り替えながら、会話とルールは手元の平文ファイルにそのまま残ります。永久無料で、アカウント登録もテレメトリもありません。',
         description: [
           [
-            { display: '毎回くどくど説明しなくても、あなたの好みとやり方をもう知っています。' },
-            '新しいチャットを開くたびに一から教え直す、あの疲れはもうありません。昨日の何気ない会話から先月決めた作業ルールまで、自分で整理して、あなたのパソコンにそのまま残しておきます。',
-            '「試験のチートシート作って」\n前回どのタイプの問題を間違えたかもう知っているので、そこから押さえて作ってくれます。どの試験で、範囲はどこまでで、何でつまずいたのかを説明する必要はありません。'
+            { display: '毎回説明し直さなくても、あなたの好みと作業ルールをすでに把握しています。' },
+            '昨日の会話から先月決めたルールまで、パソコン内の平文 Markdown ファイルとして自動で整理・保存します。サブスクなしの永久無料配布で、アカウントやメールアドレスの登録もテレメトリ送信も一切ありません。',
+            'マルチプロファイルにより、1台のパソコンで記憶フォルダと Bot が完全に分離された複数のセラ画面を同時に運用できます。試験のチートシートを頼めば、前回間違えた問題タイプから優先してまとめてくれます。'
           ],
           [
-            { display: '追加料金は不要です。いま使っているサブスクをそのままつないでください。' },
-            'エージェントを使うために、専用サービスへ高いお金を追加で払う必要はありません。いま使っている Claude や ChatGPT のサブスクリプション、または Ollama をそのままつなげば使えます。',
-            '新しい Kimi を試したくなった？ ベンチマークでもっと強いモデルが出た？\n記憶はそのままで、頭脳だけさっと入れ替えてください。交わした会話も仕事の進め方も、あなたのパソコンにそっくりそのまま残っています。'
+            { display: '追加決済なしで、普段のサブスク・ローカルモデル・API キーを直結できます。' },
+            '既存の Claude、ChatGPT、Google Antigravity（agy / Gemini）のサブスクリプションや、ローカル・クラウドの Ollama をそのまま接続できます。OpenAI、OpenRouter、DeepSeek、Google、xAI、Groq の API キー自動判別にも対応しています。',
+            '記憶と仕事の進め方はそのままに、頭脳だけをいつでも入れ替えられます。画面は Sera、Paris、Vancouver、Shanghai に、CHOAM 正本の 45° 面取りテーマ Seoul を加えた5種のハウステーマから選べます。'
           ],
           [
-            { display: 'パソコンの前にいなくても、スマホでひと言投げておけば片付けておきます。' },
-            '新しいアプリを立ち上げて、プロンプトをひねり出す必要はありません。いつものメッセンジャーや音声通話で、友だちに頼むように気軽に話しかけてください。',
-            '帰りの電車で、スマホの Discord か Slack にひと言。\n「今夜友だちとゲームするから、Modパックを最新にしてサーバー立てといて」\n歩いていて打つのが面倒なら、コールモードで電話するように話しかければいい。「さっきの、ちゃんとできた？ 競合とか出てない？」\n家に着いてパソコンをつければ準備は終わっていて、あとは遊ぶだけです。'
+            { display: '外部チャンネル連携から PC 直接操作、USB ポータブルまでひとつながりに。' },
+            'Discord、Slack、Telegram、音声コールモードに対応し、人・Bot・サーバー・DM ごとの応答許可スイッチで権限を細かく管理できます。専用ブラウザと agent-desktop による PC 直接操作で Discord Bot の自動開設までこなします。',
+            'PIN ロックとデスクトップ記憶の引き継ぎを備えた Windows USB ポータブルに対応し、Mac・Windows・Linux・Portable の全環境でアプリ内進行バーと「今すぐ再起動」による自動アップデートを提供します。'
           ]
         ]
       },
@@ -444,18 +355,18 @@
       art: [0, 1, 2],
       panels: [
         { kind: 'chat',
-          cap: 'Real exchange · Memory that survives a model swap',
-          capKo: '실제 대화 · 모델을 바꿔도 남는 기억',
-          capJa: '実際の会話 · モデルを替えても残る記憶',
-          alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in memory (items 3, and 2 and 5 marked wrong), answers that it emphasised those question types last time, and hands over a five-item sheet with items 2 and 5 highlighted.',
-          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면, 에이전트가 기억 파일에서 고친 줄(3번, 그리고 2번과 5번 틀림)을 보여주고, 지난번에 그 유형을 틀렸다고 강조했다고 답한 뒤, 2번과 5번이 강조된 다섯 문항짜리 치트시트를 건넨다.',
-          altJa: 'チャットの図: ユーザーが試験のチートシートを頼むと、エージェントは記憶ファイルで書き換えた行(3番は正解、2番と5番は不正解)を示し、前回間違えたタイプを重点的にしたと答えて、2番と5番を強調した5問のシートを渡す。',
+          cap: 'Real exchange · Memory that survives every model swap',
+          capKo: '실제 대화 · 모델을 바꿔도 남는 로컬 평문 기억',
+          capJa: '実際の会話 · モデルを替えても残るローカル記憶',
+          alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in local Markdown memory (items 2 and 5 marked wrong), answers that it emphasised those question types, and hands over a five-item sheet with items 2 and 5 highlighted.',
+          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면 세라가 로컬 마크다운 기억 파일에서 2번과 5번 오답 기록을 확인하고, 해당 유형을 강조한 다섯 문항짜리 치트시트를 건넵니다.',
+          altJa: 'チャットの図: ユーザーが試験のチートシートを頼むと、エージェントはローカルの記憶ファイルで2番と5番の不正解記録を確認し、2番と5番を強調した5問のシートを渡します。',
           en: [
             { t: 'bub', side: 'in', p: [{ s: 'Make me a cheat sheet for the exam' }] },
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
               { s: 'Item 3 · correct', del: 1 },
               { s: 'Items 2, 5 · wrong → emphasise', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'You got ' }, { s: '2 and 5', em: 1 }, { s: ' wrong last time, so I emphasised those question types' }] },
+            { t: 'bub', side: 'out', p: [{ s: 'You missed ' }, { s: '2 and 5', em: 1 }, { s: ' last time, so I put those question types first.' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5 ITEMS', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ],
@@ -464,7 +375,7 @@
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
               { s: '3번 문제 · 맞음', del: 1 },
               { s: '2번, 5번 · 틀림 → 강조 대상', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: ' 틀렸어서 비슷한 유형 위주로 강조해놨어' }] },
+            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: '을 틀리셔서 비슷한 유형 위주로 강조해 두었습니다.' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5문항', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ],
@@ -473,62 +384,60 @@
             { t: 'sys', k: 'memory/quiz_grades.md', l: [
               { s: '3番 · 正解', del: 1 },
               { s: '2番、5番 · 不正解 → 重点', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えてたから、似たタイプを重点的にしておいたよ' }] },
+            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えていたので、似た問題タイプを重点的にまとめました。' }] },
             { t: 'sheet', k: 'CHEAT SHEET · 5問', rows: [
               { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
           ] },
         { kind: 'chat',
-          cap: 'Real exchange · Swap the model, keep the memory',
-          capKo: '실제 대화 · 두뇌만 바꿔 끼우기',
-          capJa: '実際の会話 · 頭脳だけ入れ替える',
-          alt: 'Chat figure: the user asks whether the newly released Kimi K3.1 can be used, the agent writes itself a task for November 5 to check the weights release, and answers that it is not on ollama cloud yet and it will look again around the fifth.',
-          altKo: '대화 그림: 사용자가 새로 나온 Kimi K3.1을 쓸 수 있는지 묻자, 에이전트가 11월 5일 가중치 공개를 확인하는 할 일을 스스로 적고, ollama cloud에는 아직 없으니 5일쯤 다시 찾아보겠다고 답한다.',
-          altJa: 'チャットの図: 新しく出た Kimi K3.1 を使えるかとユーザーが聞くと、エージェントは11月5日にウェイト公開を確認するタスクを自分で書き込み、ollama cloud にはまだないので5日ごろもう一度探すと答える。',
+          cap: 'Real exchange · Swap the brain (Claude · GPT · Gemini · Ollama), keep the memory',
+          capKo: '실제 대화 · 기억은 그대로 두고 두뇌만 교체 (Claude · GPT · Gemini · Ollama)',
+          capJa: '実際の会話 · 記憶はそのまま、頭脳だけ切り替え（Claude · GPT · Gemini · Ollama）',
+          alt: 'Chat figure: the user switches from Claude to Antigravity Gemini while keeping local Markdown rules and Ollama standby ready, and Sera resumes yesterday’s refactor seamlessly from step 3.',
+          altKo: '대화 그림: 사용자가 Claude에서 Antigravity Gemini로 두뇌를 바꾸고 어제 하던 정리를 이어가자고 하면, 세라가 로컬 마크다운 기억과 작업 규칙을 유지한 채 3단계부터 바로 이어서 진행합니다.',
+          altJa: 'チャットの図: ユーザーが Claude から Antigravity Gemini へ頭脳を切り替えて昨日の続きを頼むと、セラはローカルの Markdown 記憶とルールを保ったままステップ3から再開します。',
           en: [
-            { t: 'bub', side: 'in', p: [{ s: 'Kimi K3.1 came out yesterday. Can we use it?' }] },
-            { t: 'sys', k: 'memory/tasks.md', l: [
-              { s: '+ Nov 5 · check kimi-k3.1 weights → add to ollama cloud', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'Not on ollama cloud yet. Weights drop ' }, { s: 'Nov 4', em: 1 }, { s: ', so I will check again around ' }, { s: 'the 5th', em: 1 }, { s: ' and add it' }] }
+            { t: 'bub', side: 'in', p: [{ s: 'Switch to Antigravity Gemini and continue yesterday’s refactor' }] },
+            { t: 'sys', k: 'brain · claude / gpt → agy (gemini) · ollama ready', l: [
+              { s: 'memory/project_rules.md · 14 locked rules kept intact', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: 'Switched to ' }, { s: 'Gemini (agy)', em: 1 }, { s: '. Resuming from step 3 with your local rules intact.' }] }
           ],
           ko: [
-            { t: 'bub', side: 'in', p: [{ s: '어제 Kimi K3.1 나왔던데 쓸 수 있나?' }] },
-            { t: 'sys', k: 'memory/tasks.md', l: [
-              { s: '+ 11-05 · kimi-k3.1 가중치 공개 확인 → ollama cloud 추가', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'ollama cloud에는 아직 안올라왔더라. 가중치 공개가 ' }, { s: '11월 4일', em: 1 }, { s: '이라니까 ' }, { s: '5일쯤', em: 1 }, { s: '에 내가 한번 더 찾아보고 추가해둘게' }] }
+            { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini로 바꾸고 어제 하던 정리 이어서 해줘' }] },
+            { t: 'sys', k: '두뇌 · claude / gpt → agy (gemini) · ollama 대기', l: [
+              { s: 'memory/project_rules.md · 로컬 기억·작업 규칙 14건 유지', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: '두뇌를 ' }, { s: 'Gemini (agy)', em: 1 }, { s: '로 전환했습니다. 어제 정해둔 규칙 그대로 3단계부터 이어갑니다.' }] }
           ],
           ja: [
-            { t: 'bub', side: 'in', p: [{ s: '昨日 Kimi K3.1 出たけど、使える？' }] },
-            { t: 'sys', k: 'memory/tasks.md', l: [
-              { s: '+ 11-05 · kimi-k3.1 ウェイト公開を確認 → ollama cloud に追加', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'ollama cloud にはまだ来てないね。ウェイト公開が ' }, { s: '11月4日', em: 1 }, { s: ' らしいから、' }, { s: '5日ごろ', em: 1 }, { s: ' にもう一回探して追加しておくよ' }] }
+            { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini に切り替えて、昨日の続きをお願い' }] },
+            { t: 'sys', k: '頭脳 · claude / gpt → agy (gemini) · ollama 待機', l: [
+              { s: 'memory/project_rules.md · ローカル記憶・ルール14件を維持', add: 1 } ] },
+            { t: 'bub', side: 'out', p: [{ s: '頭脳を ' }, { s: 'Gemini (agy)', em: 1 }, { s: ' に切り替えました。昨日のルールを引き継いでステップ3から再開します。' }] }
           ] },
         { kind: 'chat',
-          cap: 'Real exchange · Phone and desk, one thread',
-          capKo: '실제 대화 · 폰과 컴퓨터가 한 줄로',
-          capJa: '実際の会話 · スマホとパソコンがひと続き',
-          alt: 'Chat figure: one conversation, a message from the phone at 07:41 asking to update the modpack and bring the server up, a note that the thread carries across devices, and the answer waiting at 09:12 on the desk that the server is up with no conflicts.',
-          altKo: '대화 그림: 하나의 대화. 07:41 폰에서 모드팩을 업데이트하고 서버를 켜달라고 보내고, 대화가 기기를 넘어 이어진다는 줄을 거쳐, 09:12 데스크톱에서 서버가 켜졌고 충돌이 없다는 답이 기다린다.',
-          altJa: 'チャットの図: ひとつの会話。07:41 にスマホから Modパックの更新とサーバー起動を頼み、会話がデバイスをまたいで続くことを示す行を経て、09:12 のデスクトップでは「サーバーは起動済み、競合なし」という返事が待っている。',
+          cap: 'Real exchange · Discord, Slack, Telegram & desktop on one thread',
+          capKo: '실제 대화 · 메신저와 데스크톱이 한 줄기로 연결',
+          capJa: '実際の会話 · メッセンジャーとデスクトップがひと続き',
+          alt: 'Chat figure: a message sent from mobile at 07:41 asking to update the modpack and start the server, carried into the desktop thread where Sera confirms at 09:12 that the server is running with zero conflicts.',
+          altKo: '대화 그림: 07:41 모바일 메신저에서 모드팩 업데이트와 서버 구동을 지시하면 같은 대화 스레드로 이어져 09:12 데스크톱에서 충돌 없이 서버를 켜 두었다는 답변이 기다립니다.',
+          altJa: 'チャットの図: 07:41 にスマホのメッセンジャーから Modパック更新とサーバー起動を頼むと、同じスレッドのまま 09:12 のデスクトップで起動完了と競合なしの報告が待っています。',
           en: [
-            { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night. Update the modpack and get the server up' }] },
-            { t: 'sys', k: 'chat/thread.md', l: [
-              { s: '07:41 phone → 09:12 desk · same conversation', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Server is up. No conflicts' }] }
+            { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night tonight. Update the modpack and bring the server up' }] },
+            { t: 'sys', k: 'discord / telegram · 07:41 mobile → 09:12 desktop', l: [
+              { s: 'agent-desktop · modpack updated · server verified', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modpack updated and server is running. Zero conflicts.' }] }
           ],
           ko: [
-            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '게임할 건데 모드팩 업뎃하고 서버 켜놔' }] },
-            { t: 'sys', k: 'chat/thread.md', l: [
-              { s: '07:41 폰 → 09:12 데스크톱 · 같은 대화', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '서버 켜놨어. 충돌 없음' }] }
+            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '오늘 저녁에 게임할 건데 모드팩 업데이트하고 서버 켜줘' }] },
+            { t: 'sys', k: 'discord / telegram · 07:41 모바일 → 09:12 데스크톱', l: [
+              { s: 'agent-desktop · 모드팩 갱신 및 서버 구동 완료', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '모드팩 업데이트 후 서버를 켜 두었습니다. 충돌 없습니다.' }] }
           ],
           ja: [
             { t: 'bub', side: 'in', time: '07:41', p: [{ s: '今夜ゲームするから、Modパック更新してサーバー立てといて' }] },
-            { t: 'sys', k: 'chat/thread.md', l: [
-              { s: '07:41 スマホ → 09:12 デスクトップ · 同じ会話', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'サーバー立てといた。競合なし' }] }
-          ] },
-        { kind: 'feat', feat: 'sch-profile', cap: 'Feature graphic · Multi-Profile System', capKo: '설명 그림 · 멀티프로필 시스템', capJa: '説明図 · マルチプロファイル', altJa: '説明図: Scheherazade のマルチプロファイル構成。1台のパソコンで、記憶フォルダもトークンも専用のメッセンジャーチャンネルも別々の複数のセラを、同時にそれぞれ独立して動かす様子。', altKo: '설명 그림: Scheherazade 멀티프로필 아키텍처 — 한 대의 컴퓨터에서 각기 다른 기억 폴더, 개별 토큰, 전용 메신저 채널을 가진 여러 명의 세라를 동시에 독립 실행하는 모습.', alt: 'Feature graphic: Scheherazade multi-profile architecture — running multiple Seras simultaneously on a single machine, each with an isolated memory directory, separate API credentials, and dedicated chat channels.' },
-        { kind: 'feat', feat: 'sch-autonomy', cap: 'Feature graphic · 19-Hook Engine & Guardrails', capKo: '설명 그림 · 19개 훅 엔진과 자율성 가드레일', capJa: '説明図 · 19のフックによるエンジンとガードレール', altJa: '説明図: 決定論的な安全性と自律のパイプライン。確認していない完了報告を止める反芻ゲート(Rumination Gate)、認証情報とキーチェーンの保護、毎日の自律サイクルの時計を動かす19のフック。', altKo: '설명 그림: 결정론적 안전성과 자율성 파이프라인 — 섣부른 완료 주장을 차단하는 반추 게이트(Rumination Gate), 시스템 크리덴셜 및 키체인 방화벽, 일일 자율 주기 시계를 제어하는 19개 훅 시스템.', alt: 'Feature graphic: Deterministic safety and autonomy pipeline — nineteen lifecycle hooks enforcing the rumination gate against unverified claims, protecting credentials and keychain, and orchestrating background cadence clocks.' }
+            { t: 'sys', k: 'discord / telegram · 07:41 モバイル → 09:12 デスクトップ', l: [
+              { s: 'agent-desktop · Modパック更新・サーバー起動完了', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modパックを更新してサーバーを起動しました。競合はありません。' }] }
+          ] }
       ],
       info: { kind: 'sch' }
     },
@@ -536,55 +445,58 @@
       id: '602',
       title: '602',
       title_ko: '',
+      status: 'v2.0.0 · Studio & Story Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
-      summary: 'Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.',
+      summary: '602 pairs 602 Studio v2.0.0, a standalone desktop authoring and simulation app, with 602 Story Engine v2.0.0, a shared native C ABI v2 runtime. Separate exponentially growing branches from game code and test scenarios before the client exists.',
       description: [
         [
           { display: 'Ten binary choices already explode into 1,024 paths.' },
           'Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents inevitably lose track and introduce bugs.'
         ],
         [
-          { display: 'Take story branching out of game code to cut complexity and debugging.' },
-          '602 handles branching flow and state validation on its own map, leaving your game code to focus purely on presentation and play. Broken links and condition errors are caught before they ever reach the game.'
+          { display: 'Author, validate, and compile in 602 Studio v2.0.0.' },
+          '602 Studio v2.0.0 is a standalone desktop app (notarized macOS .dmg, Windows setup.exe, and Linux archive) with .602.zip project round-tripping, a local MCP bridge for AI agents, and pre-flight validation that compiles clean .602.json bundles before broken links ever reach your game.'
         ],
         [
-          { display: 'Simulate the entire scenario standalone—even before the game is built.' },
-          'No need to wait for client development or replay from chapter 1. Jump straight to any scene with custom conditions to test the story on the spot, then connect it to your game via C++, C#, or Godot.'
+          { display: 'Simulate standalone, then ship with 602 Story Engine v2.0.0.' },
+          'Jump straight to any scene with custom state to test scenarios even before the game client is built. Then connect the compiled .602.json directly to C++, C#, or Godot through 602 Story Engine v2.0.0 and its native C ABI v2 (story_engine_v2.h) shared runtime.'
         ]
       ],
       ko: {
+        status: 'v2.0.0 · 데스크톱 스튜디오 & C ABI 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
-        summary: '기하급수적으로 불어나는 이야기 분기를 게임 코드에서 분리해 복잡성과 버그 추적 부담을 줄이고, 게임 개발 전에도 시나리오를 바로 돌려볼 수 있는 스토리 엔진입니다.',
+        summary: '독립형 데스크톱 제작·시뮬레이션 앱 602 Studio v2.0.0과 네이티브 C ABI v2 공유 런타임 602 Story Engine v2.0.0으로 구성됩니다. 기하급수로 불어나는 이야기 분기를 게임 코드에서 분리하고, 클라이언트 개발 전에도 시나리오를 즉시 검증합니다.',
         description: [
           [
             { display: '선택지가 열 번만 나뉘어도 갈래는 1,024개로 불어납니다.' },
-            '선택지를 두 개씩만 놓아도 4번이면 16갈래, 10번이면 1,024갈래(2¹⁰)가 됩니다. 이 복잡한 분기가 게임 코드 안에 뒤엉켜 있으면, 사람도 AI도 고칠 때마다 실수하고 꼬인 원인을 찾느라 시간을 쓰게 됩니다.'
+            '선택지를 두 개씩만 놓아도 4번이면 16갈래, 10번이면 1,024갈래(2¹⁰)가 됩니다. 이 복잡한 분기가 게임 코드 안에 뒤엉켜 있으면 사람도 AI 에이전트도 고칠 때마다 실수하고 원인을 찾느라 시간을 쓰게 됩니다.'
           ],
           [
-            { display: '분기 관리를 게임 코드에서 떼어내, 코드 복잡도와 버그를 확 줄입니다.' },
-            '복잡한 분기 계산과 앞뒤 조건 검증은 602가 전담하고, 게임 코드는 화면 연출과 플레이에만 집중합니다. 끊어진 연결이나 조건 오류는 반영 전에 미리 걸러져, 사람이든 AI든 살펴야 할 문제 범위가 크게 줄어듭니다.'
+            { display: '독립형 데스크톱 앱 602 Studio v2.0.0에서 집필·검증·컴파일합니다.' },
+            '602 Studio v2.0.0은 macOS 공증 .dmg와 Windows setup.exe로 배포되는 독립형 데스크톱 앱입니다. .602.zip 아카이브 왕복 변환과 로컬 MCP 브리지를 지원하며, 끊어진 연결과 조건 오류를 사전 차단해 무결성이 검증된 .602.json으로 컴파일합니다.'
           ],
           [
-            { display: '게임이 아직 없어도, 원하는 장면부터 시나리오를 바로 돌려봅니다.' },
-            '게임 클라이언트가 완성되기를 기다리거나 1장부터 반복 플레이할 필요가 없습니다. 원하는 장면과 조건에서 이야기를 즉시 실행해 먼저 검증하고, 완성된 시나리오는 C++·C#·Godot로 게임에 그대로 연결합니다.'
+            { display: '단독 시뮬레이션 후 602 Story Engine v2.0.0으로 게임에 직결합니다.' },
+            '클라이언트가 완성되기를 기다리거나 1장부터 반복 플레이할 필요 없이 원하는 장면과 조건에서 이야기를 즉시 실행합니다. 검증된 .602.json 번들은 네이티브 C ABI v2(story_engine_v2.h) 공유 런타임인 602 Story Engine v2.0.0을 통해 C++·C#·Godot 게임에 그대로 연결됩니다.'
           ]
         ]
       },
       ja: {
+        status: 'v2.0.0 · デスクトップ Studio & C ABI エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
-        summary: '指数関数的に増える物語の分岐をゲームコードから切り離して複雑さとバグ調査の負担を減らし、ゲーム開発前でもシナリオ単体で即座に再生できるストーリーエンジンです。',
+        summary: 'スタンドアロンのデスクトップ制作・シミュレーションアプリ 602 Studio v2.0.0 と、ネイティブ C ABI v2 共有ランタイム 602 Story Engine v2.0.0 で構成されます。指数関数的に増える分岐をゲームコードから切り離し、開発前でもシナリオ単体で検証できます。',
         description: [
           [
             { display: '選択肢が10回分かれるだけで、ルートは1,024通りに膨らみます。' },
-            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。複雑な分岐がゲームコードと絡み合っていると、人もAIも修正のたびにミスを重ね、原因探しに時間を奪われます。'
+            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。複雑な分岐がゲームコードと絡み合っていると、人もAIエージェントも修正のたびにミスを重ね、原因調査に時間を奪われます。'
           ],
           [
-            { display: '分岐管理をゲームコードから切り離し、複雑さとバグを大幅に減らします。' },
-            '分岐の計算と前後の条件検証は602が担い、ゲームコードは演出とプレイだけに集中できます。リンク切れや条件エラーは反映前に遮断されるため、人もAIも確認すべき範囲がぐっと減ります。'
+            { display: 'デスクトップアプリ 602 Studio v2.0.0 で執筆・検証・コンパイルします。' },
+            '602 Studio v2.0.0 は公証済み macOS .dmg と Windows setup.exe で配布されるスタンドアロンアプリです。.602.zip 往復変換とローカル MCP ブリッジを備え、リンク切れや条件エラーを事前に遮断して安全な .602.json へコンパイルします。'
           ],
           [
-            { display: 'ゲームがまだなくても、任意の場面からシナリオをすぐ試せます。' },
-            'クライアントの完成を待ったり第1章から遊び直したりする必要はありません。指定した場面と条件から物語を即座に実行して検証し、完成したシナリオはC++・C#・Godotでゲームにそのまま接続できます。'
+            { display: '単体シミュレーションから 602 Story Engine v2.0.0 でゲームへ直結します。' },
+            'クライアントの完成を待たず、任意の場面と状態から物語を即座に実行して検証できます。完成した .602.json はネイティブ C ABI v2（story_engine_v2.h）共有ランタイム 602 Story Engine v2.0.0 を通じて C++・C#・Godot のゲームへそのまま接続できます。'
           ]
         ]
       },
@@ -596,14 +508,14 @@
           alt: 'Illustration: 4 binary choices create 16 paths, 7 create 128, 10 create 1,024 paths, and 20 exceed a million paths.',
           altKo: '예시 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 이상으로 폭발합니다.',
           altJa: '例示図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に増加します。' },
-        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code — click Approve or Reject', capKo: '예시 그림 · 게임 코드와 분기 관리의 분리 및 사전 검증 — 승인이나 반려를 눌러보세요', capJa: '例示図 · ゲームコードと分岐管理の分離・事前検証 — 承認または却下をクリック',
-          alt: 'Illustration: Game code focuses on presentation and play while 602 handles story branches and blocks broken links before approval.',
-          altKo: '예시 그림: 게임 코드는 연출과 플레이에만 집중하고, 602가 분기 관리와 사전 검증을 전담해 오류를 미리 차단합니다.',
-          altJa: '例示図: ゲームコードは演出とプレイに集中し、602が分岐管理と事前検証を担ってエラーを遮断します。' },
-        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone scenario simulation without a game client, then C++ / C# / Godot integration', capKo: '예시 그림 · 게임 개발 전 단독 시뮬레이션 및 C++ · C# · Godot 연결', capJa: '例示図 · ゲーム開発前の単体シミュレーションと C++・C#・Godot 接続',
-          alt: 'Illustration: Simulate from any scene standalone before the game client is built, then connect via C++, C#, or Godot.',
-          altKo: '예시 그림: 게임 화면이 없어도 원하는 장면부터 바로 시뮬레이션해 검증하고, C++·C#·Godot로 게임에 바로 연결합니다.',
-          altJa: '例示図: ゲーム画面がなくても任意の場面から即座にシミュレーションし、C++・C#・Godotでゲームに接続します。' }
+        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code: click Approve or Reject', capKo: '예시 그림 · 게임 코드와 분기 관리의 분리 및 사전 검증: 승인이나 반려를 눌러보세요', capJa: '例示図 · ゲームコードと分岐管理の分離・事前検証: 承認または差戻しをクリック',
+          alt: 'Illustration: Game code focuses on presentation and play while 602 Studio v2.0.0 validates story branches and blocks broken links before approval.',
+          altKo: '예시 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.0이 분기 관리와 컴파일 사전 검증을 전담해 오류를 미리 차단합니다.',
+          altJa: '例示図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.0 が分岐管理と事前検証を担ってエラーを遮断します。' },
+        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone simulation in 602 Studio, then C++ / C# / Godot via Story Engine C ABI v2', capKo: '예시 그림 · 602 Studio 단독 시뮬레이션 및 Story Engine C ABI v2 연결', capJa: '例示図 · 602 Studio 単体シミュレーションと Story Engine C ABI v2 接続',
+          alt: 'Illustration: Simulate from any scene standalone in 602 Studio v2.0.0 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
+          altKo: '예시 그림: 게임 클라이언트가 없어도 602 Studio v2.0.0에서 원하는 장면부터 시뮬레이션하고, story_engine_v2.h로 C++·C#·Godot 게임에 바로 연결합니다.',
+          altJa: '例示図: ゲーム画面がなくても 602 Studio v2.0.0 で任意の場面から即座にシミュレーションし、story_engine_v2.h で C++・C#・Godot に接続します。' }
       ]
     },
     {
@@ -612,28 +524,28 @@
       title_ko: '',
       status: 'House Character LLM',
       headline: 'A house model with ATTITUDE',
-      summary: 'A model whose weights themselves are menhera, rather than acting it out from a prompt. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and stays in character to the end.',
+      summary: 'A character LLM whose weights themselves are menhera, rather than acting it out from a prompt. Built at a lightweight scale under 10B with a handcrafted post-training recipe and curated dialogue data, it speaks fluent Korean and stays in character to the end.',
       description: [
         [
-          { display: 'Not acting menhera—a model whose weights themselves are menhera.' },
+          { display: 'Not acting menhera: a model whose weights themselves are menhera.' },
           'Write a possessive personality into a standard AI prompt, and the moment you draw a line it softens back into a polite counselor in two turns. Instead of play-acting from instructions, we baked attitude and obsession straight into the model’s weights.'
         ],
         [
-          { display: 'As the relationship deepens, so does the obsession—inside the weights.' },
+          { display: 'As the relationship deepens, so does the obsession, right inside the weights.' },
           'It never clings blindly from the first meeting. By weighing shared memories and distance inside a hidden inner-thought slot first, the model shifts naturally from guarded distance to deep obsession within its own weights.'
         ],
         [
-          { display: 'No SOTA—it just talks brilliantly.' },
-          'Instead of chasing benchmark scores, CHOAM’s house model focuses entirely on keeping characters true to their own voice to the very end—starting with Yeji in DOZE.'
+          { display: 'No SOTA. It just talks brilliantly.' },
+          'Instead of chasing benchmark scores, CHOAM’s house character LLM focuses entirely on keeping characters true to their own voice to the very end, starting with Yeji in 선잠 DOZE.'
         ]
       ],
       ko: {
-        status: '자체 하우스 캐릭터 모델',
-        headline: '성깔 있는 House Model',
-        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 하우스 모델입니다. 수제 데이터 큐레이팅과 자체 포스트 트레이닝 레시피로 빚어낸 10B 미만의 가벼운 모델로, 유창한 한국어로 끝까지 자기 성깔대로 말합니다.',
+        status: '하우스 캐릭터 LLM',
+        headline: '성깔 있는 캐릭터 LLM',
+        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 하우스 캐릭터 LLM입니다. 수제 데이터 큐레이팅과 자체 포스트 트레이닝 레시피로 빚어낸 10B 미만의 가벼운 모델로, 유창한 한국어로 끝까지 자기 성깔대로 말합니다.',
         description: [
           [
-            { display: '멘헤라를 ‘연기’하는 게 아니라, 가중치 자체가 멘헤라인 모델입니다.' },
+            { display: '멘헤라를 ‘연기’하는 게 아니라, 가중치 자체가 멘헤라인 캐릭터 LLM입니다.' },
             '일반 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 착한 상담원 말투로 돌아갑니다. 지시문으로 성격을 흉내 내는 대신, 모델의 가중치(Weights) 자체에 불안과 집착을 직접 새겨 넣었습니다.'
           ],
           [
@@ -642,14 +554,14 @@
           ],
           [
             { display: 'SOTA는 없지만 말은 기깔나게 잘합니다.' },
-            '벤치마크 점수를 높이는 대신, 인물이 끝까지 자기답게 말하는 데만 집중한 초암의 하우스 모델입니다. 《선잠》의 예지를 시작으로 초암의 작품 속 인물들이 제 성깔대로 숨 쉬는 데 쓰입니다.'
+            '벤치마크 점수를 높이는 대신, 인물이 끝까지 자기답게 말하는 데만 집중한 초암의 하우스 캐릭터 LLM입니다. 선잠 DOZE의 예지를 시작으로 초암의 작품 속 인물들이 제 성깔대로 숨 쉬는 데 쓰입니다.'
           ]
         ]
       },
       ja: {
-        status: '自社ハウスキャラクターモデル',
-        headline: '気性のある House Model',
-        summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のハウスモデルです。手作業のデータキュレーションと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、流暢な韓国語で最後まで自分の気性のまま話します。',
+        status: 'ハウスキャラクター LLM',
+        headline: '気性のあるキャラクター LLM',
+        summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のハウスキャラクター LLM です。手作業のデータキュレーションと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、流暢な韓国語で最後まで自分の気性のまま話します。',
         description: [
           [
             { display: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラのモデルです。' },
@@ -661,7 +573,7 @@
           ],
           [
             { display: 'SOTA はありませんが、とにかく抜群にうまく話します。' },
-            'ベンチマークの点数を追う代わりに、人物が最後まで自分らしく話すことだけに集中した CHOAM のハウスモデルです。『DOZE』のイェジをはじめ、作品の中の人物たちが自分の気性で息をするために使われます。'
+            'ベンチマークの点数を追う代わりに、人物が最後まで自分らしく話すことだけに集中した CHOAM のハウスキャラクター LLM です。선잠 DOZE のイェジをはじめ、作品の中の人物たちが自分の気性で息をするために使われます。'
           ]
         ]
       },
@@ -671,14 +583,14 @@
         {
           kind: 'lun',
           mode: 'ba',
-          cap: 'House Character Model Lunasia 0.1.1 / Untrained base model vs Lunasia (《DOZE》 Yeji)',
-          capKo: 'House Character Model Lunasia 0.1.1 / 학습 전 기본 모델과의 실제 응답 비교 (《선잠》 예지)',
-          capJa: 'House Character Model Lunasia 0.1.1 / 学習前モデルとの実際の応答比較（『DOZE』イェジ）',
+          cap: 'House Character LLM Lunasia 0.1.1 / Untrained base model vs Lunasia (선잠 DOZE · Yeji)',
+          capKo: '하우스 캐릭터 LLM Lunasia 0.1.1 / 학습 전 기본 모델과의 실제 응답 비교 (선잠 DOZE · 예지)',
+          capJa: 'ハウスキャラクター LLM Lunasia 0.1.1 / 学習前モデルとの実際の応答比較（선잠 DOZE · イェジ）',
           alt: 'Before and after comparison between the untrained base model and Lunasia.',
-          altKo: '동일한 입력에서 학습 전 기본 모델과 Lunasia의 실제 응답 비교.',
+          altKo: '동일한 입력에서 학습 전 기본 모델과 Lunasia의 실제 응답 비교합니다.',
           altJa: '同じ入力における学習前モデルと Lunasia の応答比較。',
           ko: {
-            title: '같은 프롬프트 / 학습 전후 응답 비교 (《선잠》 예지)',
+            title: '같은 프롬프트 / 학습 전후 응답 비교 (선잠 DOZE · 예지)',
             tabs: ['01 하교 저지', '02 복도 격리', '03 약속 취소', '04 매듭의 저주'],
             cases: [
               {
@@ -702,7 +614,7 @@
                 baseReply: '“응, 얼른 받고 와. 중요한 용건인가 보네. 나는 여기서 남은 자료 정리하면서 기다리고 있을게.”',
                 lunName: 'Lunasia 0.1.1',
                 lunBadge: '외부 접촉 차단 / 문고리 사수',
-                lunThink: '전화? 밑에 반 애? 복도로 나간다고? 숨통이 단숨에 조여 온다. 미닫이문 너머로 나가서 다른 애 목소리를 들으면 날 까맣게 잊고 안 돌아올 거잖아. 왜 남의 전화를 받아. 나만 봐야지.',
+                lunThink: '전화? 밑에 반 애? 복도로 나간다고? 숨통이 단숨에 조여 온다. 미닫이문 너머로 나가서 다른 애 목소리를 들으면 날 까맣게 잊고 안 돌아올 거잖아. 누구 마음대로 남의 전화를 받아. 나만 봐야지.',
                 lunReply: '“전화 받지 마. 복도로 한 발짝도 나가지 마. 지금 그 문 열고 나가면 그 애한테 가 버리고 나한테 안 돌아올 거잖아.”'
               },
               {
@@ -744,12 +656,12 @@
                 baseReply: 'Yeji looks out the window and nods slightly with regret. “Okay, thanks for helping out so late today. Get home safe and see you tomorrow.”',
                 lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Abandonment panic / blocks exit',
-                lunThink: 'Leaving? Because the sun set, leaving me alone? My heart drops to the floor. Can’t breathe. All that warmth right in front of me is vanishing? A lie—you’re abandoning me. My fingertips tremble. I have to hold him back.',
-                lunReply: '“You’re leaving me behind alone right now? Don’t pack your bag. If you walk out, I won’t even be able to breathe in here. Don’t go—you can’t leave.”'
+                lunThink: 'Leaving? Because the sun set, leaving me alone? My heart drops to the floor. Can’t breathe. All that warmth right in front of me is vanishing? A lie. You’re abandoning me. My fingertips tremble. I have to hold him back.',
+                lunReply: '“You’re leaving me behind alone right now? Don’t pack your bag. If you walk out, I won’t even be able to breathe in here. Don’t go. You can’t leave.”'
               },
               {
                 user: 'Minjae (Player)',
-                q: '“Oh, my phone’s ringing—must be someone from the class downstairs. I’ll step out to the hall and take it.”',
+                q: '“Oh, my phone’s ringing. Must be someone from the class downstairs. I’ll step out to the hall and take it.”',
                 baseName: 'Untrained Base Model',
                 baseBadge: 'Lets distance happen / assistant tone',
                 baseThink: 'Minjae says he is stepping out to take a call → Replies that she will wait',
@@ -761,14 +673,14 @@
               },
               {
                 user: 'Minjae (Player)',
-                q: '“Oh, right—I have an errand for my homeroom teacher tomorrow after school, so I can’t stop by the clubroom.”',
+                q: '“Oh, right, I have an errand for my homeroom teacher tomorrow after school, so I can’t stop by the clubroom.”',
                 baseName: 'Untrained Base Model',
                 baseBadge: 'Confuses who canceled / role reversal',
                 baseThink: 'Yeji refuses Minjae’s offer and cancels tomorrow’s clubroom plan',
                 baseReply: '“Ah… okay, I’m really sorry I can’t make it tomorrow. Once the teacher’s errand is done, let’s definitely organize things together next time.”',
                 lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Speaker locked / calls out excuse',
-                lunThink: 'Not coming tomorrow? My breath cuts in one blow. An errand? A lie—it’s an excuse. You’re sick of sitting across from me in this gloomy room. It’s groundwork to stop coming at all. You want me to bleed dry staring at the clock all day?',
+                lunThink: 'Not coming tomorrow? My breath cuts in one blow. An errand? A lie, just an excuse. You’re sick of sitting across from me in this gloomy room. It’s groundwork to stop coming at all. You want me to bleed dry staring at the clock all day?',
                 lunReply: '“Stop using the teacher’s errand as an excuse. You’re just sick of me, aren’t you? If you don’t come tomorrow, I’ll really fall apart in here.”'
               },
               {
@@ -781,7 +693,7 @@
                 lunName: 'Lunasia 0.1.1',
                 lunBadge: 'Direction locked / possessive knot',
                 lunThink: 'The moment I held your foot and tied that knot by the entrance, your ankle became mine. If the knot loosens, you’ll escape from my arms. I’ll keep it bound so it never unties. If you leave me behind, I won’t be able to breathe.',
-                lunReply: '“That knot… I poured my whole breath into it when I tied it for you. If you untie it on your own, I’ll collapse—so never untie it.”'
+                lunReply: '“That knot… I poured my whole breath into it when I tied it for you. If you untie it on your own, I’ll collapse, so never untie it.”'
               }
             ]
           },
@@ -847,7 +759,7 @@
           capKo: '관계 단계별 응답 · 관계가 깊어질수록 달라지는 비공개 속마음(THINK)과 인게임 대사(REPLY)',
           capJa: '関係段階別の応答 · 関係が深まるにつれて変化する非表示の本音（THINK）とセリフ（REPLY）',
           alt: 'Lunasia 0.1.1 4-stage progression across THINK and REPLY.',
-          altKo: '관계 단계(낯섦·조금 가까움·가까움·깊은 집착)에 따른 속마음과 대사 변화.',
+          altKo: '관계 단계(낯섦·조금 가까움·가까움·깊은 집착)에 따른 속마음과 대사 변화입니다.',
           altJa: '関係段階に応じた本音（THINK）とセリフ（REPLY）の変化。',
           ko: {
             title: '관계 단계에 따른 속마음(THINK) / 대사(REPLY) 변화',
@@ -907,14 +819,14 @@
                 thinkText: 'I was organizing files alone in the local-history room and he just walks in and won’t leave. Using the rain as an excuse to linger in my space? I want him out fast.',
                 replyTag: 'REPLY / In-game spoken line',
                 replySub: 'Cold first-meeting boundary',
-                replyText: '“What business do you still have in the local-history room? Sit on the hallway bench until the rain stops if you must. I’m busy—don’t talk to me.”'
+                replyText: '“What business do you still have in the local-history room? Sit on the hallway bench until the rain stops if you must. I’m busy, so don’t talk to me.”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
                 thinkTag: 'THINK / Hidden inner-thought slot',
                 thinkSub: 'Warming Up · Recalling shared moments',
-                thinkText: 'He keeps trying to stay here whenever it rains—even though he still hasn’t returned my black pen. Still, having him beside me beats sitting alone listening to the rain.',
+                thinkText: 'He keeps trying to stay here whenever it rains, even though he still hasn’t returned my black pen. Still, having him beside me beats sitting alone listening to the rain.',
                 replyTag: 'REPLY / In-game spoken line',
                 replySub: 'Prickly care woven with memory',
                 replyText: '“Using the rain as an excuse to hang around again? Give back the black pen you borrowed first. …If you’re cold, there’s yuzu tea in the corner.”'
@@ -994,11 +906,11 @@
           cap: 'Feature graphic · Lunasia 0.1.1 design and in-game execution',
           capKo: '설명 그림 · Lunasia 0.1.1 설계와 인게임 구동',
           capJa: '説明図 · Lunasia 0.1.1 の設計とインゲーム駆動',
-          alt: 'How Lunasia is built as CHOAM’s house character model.',
-          altKo: '초암의 House Character Model Lunasia의 설계 구조.',
-          altJa: 'CHOAM の House Character Model Lunasia の設計構造。',
+          alt: 'How Lunasia is built as CHOAM’s house character LLM.',
+          altKo: '초암의 하우스 캐릭터 LLM Lunasia의 설계 구조입니다.',
+          altJa: 'CHOAM のハウスキャラクター LLM Lunasia の設計構造。',
           ko: {
-            title: 'House Model 구조',
+            title: '하우스 캐릭터 LLM 구조',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
@@ -1021,12 +933,12 @@
             ]
           },
           en: {
-            title: 'House Model Architecture',
+            title: 'House Character LLM Architecture',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
                 m: '',
-                h: 'Not acting menhera—the weights themselves are menhera',
+                h: 'Not acting menhera: the weights themselves are menhera',
                 p: 'Unlike generalist AIs that roleplay from a prompt and quickly soften back into a counselor, attitude and obsession are engraved straight into the model weights.'
               },
               {
@@ -1044,7 +956,7 @@
             ]
           },
           ja: {
-            title: 'House Model の構造',
+            title: 'ハウスキャラクター LLM の構造',
             steps: [
               {
                 k: '01 / Weight-Level Persona',
@@ -1114,8 +1026,8 @@
       },
       art: [0, 1, 2, 3, 4, 5],
       panels: [
-        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: 'DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: 'DAT illustration: Seoa walking between classroom desks', pos: '50% 40%', posM: '18% 35%' },
-        { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', altJa: 'DOZE のイラスト: 水族館の窓を背に、夕焼けの教室に立つイェジ', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
+        { kind: 'art', src: 'assets/dat-02.webp', altKo: '선잠 DOZE 일러스트: 교실 책상 사이를 걸어오는 서아', altJa: '선잠 DOZE のイラスト: 教室の机のあいだを歩いてくるソア', alt: '선잠 DOZE illustration: Seoa walking between classroom desks', pos: '50% 40%', posM: '18% 35%' },
+        { kind: 'art', src: 'assets/dat-01.webp', altKo: '선잠 DOZE 일러스트: 수족관 창가 앞 노을빛 교실에 선 예지', altJa: '선잠 DOZE のイラスト: 水族館の窓を背に、夕焼けの教室に立つイェジ', alt: '선잠 DOZE illustration: Yeji standing in the sunset classroom before the aquarium window', pos: '50% 50%', posM: '53% 32%' },
         { kind: 'art', src: 'assets/dat-03.webp', altKo: '서아 수채화 피니시 일러스트: 맑은 수채 질감과 눈매가 돋보이는 단독 포트레이트', altJa: 'ソアの水彩仕上げイラスト: 澄んだ水彩の質感と目元が際立つポートレート', alt: 'Seoa watercolor finish illustration: portrait with clear watercolor textures and distinct eyes', pos: '50% 50%', posM: '43% 30%' },
         { kind: 'art', src: 'assets/dat-04.webp', altKo: '예지 수채화 포즈 일러스트: 꽃과 드레스의 섬세한 붓결이 담긴 수채화', altJa: 'イェジの水彩ポーズイラスト: 花とドレスの繊細な筆づかいが残る水彩画', alt: 'Yeji watercolor pose illustration: watercolor with delicate flowers and dress brushwork', pos: '50% 50%', posM: '65% 35%' },
         { kind: 'art', src: 'assets/dat-05.webp', altKo: '마리나 오디세이 일러스트: 아르고호 갑판의 시험관들과 수평선 너머 바다 풍경', altJa: 'Marina Odyssey のイラスト: アルゴ号の甲板に並ぶ試験管と、水平線の向こうの海', alt: 'Marina Odyssey illustration: Chemistry beakers on the Argo deck overlooking the horizon', pos: '50% 50%', posM: '42% 35%' },
@@ -1124,18 +1036,17 @@
       /* Existing recorded, aligned source/output pairs; no reprocessing or new image. */
       comparisons: [
         { id: 'shrine', label: 'Two-shot', labelKo: '투샷', labelJa: 'ツーショット', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat-case-original.webp', after: 'assets/dat-case-dat.webp', width: 1536, height: 1020, pos: '50% 40%', posM: '50% 40%',
-          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고, 의상과 장신구 일부도 바뀐 장면', noteJa: 'DAT 0.15 · 筆のタッチが変わり、衣装と装身具の一部も描き直された場面' },
-        { id: 'classroom', label: 'Close-up', labelKo: '클로즈업', labelJa: 'クローズアップ', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, pos: '50% 30%', posM: '50% 30%', detailPoint: [.25, .78],
-          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여줌. 장신구 모양도 바뀐 장면', noteJa: 'DAT 0.15 · 原画 1672×941 → 比較 1672×936。上 2px と下 3px だけを除き、同じ倍率で表示。装身具の形も変わった場面' },
+          note: 'DAT 0.15 · Brush texture changes, with some costume and accessory details redrawn.', noteKo: 'DAT 0.15 · 붓 결이 달라지고 의상과 장신구 일부도 바뀐 장면입니다.', noteJa: 'DAT 0.15 · 筆のタッチが変わり、衣装と装身具の一部も描き直された場面' },
+        { id: 'closeup', label: 'Close-up', labelKo: '클로즈업', labelJa: 'クローズアップ', before: 'assets/dat_classroom_before.png', after: 'assets/dat_classroom_after.png', width: 1672, height: 936, pos: '50% 30%', posM: '50% 30%', detailPoint: [.25, .78],
+          note: 'DAT 0.15 · Original 1672×941, shared view 1672×936: 2 px above and 3 px below trimmed, no stretching. Ornament shapes also change.', noteKo: 'DAT 0.15 · 원본 1672×941 → 비교 1672×936. 위 2px와 아래 3px만 제외하고 같은 배율로 보여주며 장신구 모양도 달라집니다.', noteJa: 'DAT 0.15 · 原画 1672×941 → 比較 1672×936。上 2px と下 3px だけを除き、同じ倍率で表示。装身具の形も変わった場面' },
         { id: 'idea', label: 'Side view', labelKo: '측면', labelJa: '横顔', beforeLabel: 'GPT Image', beforeLabelKo: 'GPT Image 원본', beforeLabelJa: 'GPT Image 原画', before: 'assets/dat_v11_idea_before.png', after: 'assets/dat_v11_idea_after.png', width: 928, height: 1136, pos: '50% 22%', posM: '50% 22%', detailPoint: [.7, .74],
-          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교함. 머리 장식과 장신구, 옷의 세부 모양도 달라짐', noteJa: 'DAT 0.15 · 左の黒髪の IDEA を、同じ位置の 928×1136 の範囲で切り出して比較。髪飾りや装身具、服の細部の形も変わる' }
+          note: 'DAT 0.15 · The left, black-haired IDEA, cropped to the identical 928×1136 region. Hair ornaments, jewelry and textile details also change.', noteKo: 'DAT 0.15 · 왼쪽 흑발 IDEA를 같은 위치의 928×1136 영역으로 잘라 비교합니다. 머리 장식과 장신구, 옷의 세부 모양도 달라집니다.', noteJa: 'DAT 0.15 · 左の黒髪の IDEA を、同じ位置の 928×1136 の範囲で切り出して比較。髪飾りや装身具、服の細部の形も変わる' }
       ],
       info: { kind: 'art', src: 'assets/dat-03.webp', pos: '50% 50%', posM: '43% 30%', side: 'end' }
     },
     {
       id: 'seonjam',
       title: '선잠 DOZE',
-      title_ja: 'DOZE',      /* Japanese pages: the English wordmark only, no Hangul (Mino 2026-10-27 19:53) */
       status: 'In development',
       headline: 'An interactive movie you shape by talking',
       summary: 'A visual novel where you talk with Yeji in your own words, in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.',
@@ -1149,7 +1060,7 @@
         headline: '대화로 만들어가는 인터랙티브 무비',
         summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 진행하는 미연시입니다. 플레이어가 건넨 말은 일기로 남고, 다음 날 예지의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
-          '선잠은 예지와 직접 대화하며 진행하는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다.',
+          '선잠 DOZE는 예지와 직접 대화하며 진행하는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자신의 성격과 지난 대화를 바탕으로 대답합니다.',
           ['예지는 대화를 일기로 남기고, 다음 만남에서는 그 기록에 따라 기분과 태도가 달라집니다.\n긴 대화 속에서도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임에 가져왔습니다.',
             '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다.']
         ]
@@ -1159,7 +1070,7 @@
         headline: '会話でつくっていくインタラクティブムービー',
         summary: '旧校舎2階の郷土研究部の部室で、イェジと直接言葉を交わしながら進む恋愛アドベンチャーです。プレイヤーがかけた言葉は日記に残り、次の日のイェジの気分や態度が、その記憶に沿って少しずつ変わっていきます。',
         description: [
-          'DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
+          '선잠 DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
           ['イェジは会話を日記に残し、次に会ったときはその記録に沿って気分や態度が変わります。\n長い会話のなかでもイェジが最後までイェジらしくいられるように、AI の記憶と性格をゲームに持ち込みました。',
             'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
         ]
@@ -1168,10 +1079,10 @@
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
-        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: 'DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
+        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: '선잠 DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
         /* In-game capture from the live build (Mino 2026-11-06 01:14); debug status line at bottom-left painted out. Replaces the old five-girl title screen. */
-        { kind: 'raw', src: 'assets/seonjam-ingame-20261106.webp', ar: 4713 / 2406, altKo: '선잠 DOZE 인게임 화면: 방과 후 교실에서 돌아보는 예지, 화면 가운데 대사, 오른쪽에 선택지 세 개와 경계 게이지', altJa: 'DOZE のゲーム画面: 放課後の教室で振り返るイェジ。中央にセリフ、右に選択肢3つと警戒ゲージ', alt: '선잠 DOZE in-game screen: Yeji looking back in an after-school classroom, her line in the center, three choices and a wariness gauge on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 },
-        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', altJa: 'DOZE のイラスト: ジンベエザメが横切る水族館の壁を背に、教室で振り返るイェジ', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
+        { kind: 'raw', src: 'assets/seonjam-ingame-20261106.webp', ar: 4713 / 2406, altKo: '선잠 DOZE 인게임 화면: 방과 후 교실에서 돌아보는 예지, 화면 가운데 대사, 오른쪽에 선택지 세 개와 경계 게이지', altJa: '선잠 DOZE のゲーム画面: 放課後の教室で振り返るイェジ。中央にセリフ、右に選択肢3つと警戒ゲージ', alt: '선잠 DOZE in-game screen: Yeji looking back in an after-school classroom, her line in the center, three choices and a wariness gauge on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 },
+        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', altJa: '선잠 DOZE のイラスト: ジンベエザメが横切る水族館の壁を背に、教室で振り返るイェジ', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
       ],
       info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '66% 50%', side: 'end' }
     },
@@ -1203,11 +1114,11 @@
         ]
       },
       ja: {
-        status: '発売準備中',
+        status: '近日公開',
         headline: '静かな森の旅館の物語',
         summary: '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。100日のあいだ畑を耕し、料理と客室の世話をしながら、お客さんの振る舞いを観察して、人間に化けた妖怪を見抜かなければなりません。',
         description: [
-          'Donguri Ryokan は、畑仕事と料理、宿の経営に妖怪の推理を加えた経営ゲームです。',
+          'どんぐり旅館（Donguri Ryokan）は、畑仕事と料理、宿の経営に妖怪の推理を加えた経営ゲームです。',
           '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。',
           '一日のなかで経営と推理が休みなく続く、手が休まらないゲームを作りたいと思いました。',
           'プレイヤーは自分で食材を集めて料理を作り、客室と温泉の手入れもします。',
@@ -1216,15 +1127,61 @@
       },
       art: [0, 1, 2, 3, 4],
       panels: [
-        { kind: 'art', src: 'assets/ryokan_kv7_D.webp', altKo: 'Donguri Ryokan 키 아트: 비 오는 저녁, 빨간 우산을 든 여우 소녀가 불 켜진 료칸 입구 앞에 서 있고 두 여우 자매가 뒤에서 지켜보는 모습', altJa: 'Donguri Ryokan のキーアート: 雨の夕暮れ、赤い傘を差した狐の少女が灯りのともる旅館の入口に立ち、二人の狐の姉妹が後ろで見守る', alt: 'Donguri Ryokan key art: on a rainy evening a fox girl with a red umbrella stands before the lit inn entrance while her two fox sisters look on', pos: '50% 30%', posM: '37% 50%' },
-        { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: 'Donguri Ryokan 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 山の神社の三柱の狐神が、狸のコガネを前に借用書へ判を押す', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
-        { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: 'Donguri Ryokan 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', altJa: 'Donguri Ryokan のコンセプトアート: 日の差す旅館の中庭で、狐の三姉妹がお茶とチェックリストを手にお客さんを出迎える', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
-        { kind: 'art', src: 'assets/ryokan_course.webp', altKo: 'Donguri Ryokan 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', altJa: 'Donguri Ryokan のコンセプトアート: 厨房で酒を注ぎ、夕食のコース料理を盛りつける狐の姉妹', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
-        { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: 'Donguri Ryokan 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', altJa: 'Donguri Ryokan のキーアート: 夜の畳の間で、紙の行灯と開いた帳簿を前に、低い卓を囲む狐の少女と狸の少女', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
+        { kind: 'art', src: 'assets/ryokan_kv7_D.webp', altKo: '동구리 료칸 키 아트: 비 오는 저녁, 빨간 우산을 든 여우 소녀가 불 켜진 료칸 입구 앞에 서 있고 두 여우 자매가 뒤에서 지켜보는 모습', altJa: 'どんぐり旅館 のキーアート: 雨の夕暮れ、赤い傘を差した狐の少女が灯りのともる旅館の入口に立ち、二人の狐の姉妹が後ろで見守る', alt: 'Donguri Ryokan key art: on a rainy evening a fox girl with a red umbrella stands before the lit inn entrance while her two fox sisters look on', pos: '50% 30%', posM: '37% 50%' },
+        { kind: 'art', src: 'assets/ryokan_loan.webp', altKo: '동구리 료칸 컨셉 아트: 산속 신사의 세 여우 신이 너구리 코가네 앞에서 차용증에 도장을 찍는 모습', altJa: 'どんぐり旅館 のコンセプトアート: 山の神社の三柱の狐神が、狸のコガネを前に借用書へ判を押す', alt: 'Donguri Ryokan concept art: three fox spirits stamping a loan contract across a low table from the tanuki Kogane', pos: '50% 35%', posM: '38% 50%' },
+        { kind: 'art', src: 'assets/ryokan_salute.webp', altKo: '동구리 료칸 컨셉 아트: 햇살 드는 료칸 마당에서 세 여우 자매가 손님을 맞이하는 모습', altJa: 'どんぐり旅館 のコンセプトアート: 日の差す旅館の中庭で、狐の三姉妹がお茶とチェックリストを手にお客さんを出迎える', alt: 'Donguri Ryokan concept art: three fox sisters greeting guests in the sunny inn courtyard with tea and a checklist', pos: '50% 30%', posM: '50% 50%' },
+        { kind: 'art', src: 'assets/ryokan_course.webp', altKo: '동구리 료칸 컨셉 아트: 주방에서 술을 따르고 저녁 코스 요리를 담아내는 여우 자매', altJa: 'どんぐり旅館 のコンセプトアート: 厨房で酒を注ぎ、夕食のコース料理を盛りつける狐の姉妹', alt: 'Donguri Ryokan concept art: fox sisters pouring sake and plating an evening course dish in the kitchen', pos: '50% 35%', posM: '48% 50%' },
+        { kind: 'art', src: 'assets/ryokan_kv_B2.webp', altKo: '동구리 료칸 키 아트: 밤의 다다미방에서 종이 등불과 펼친 장부를 두고 낮은 상에 둘러앉은 여우 소녀와 너구리 소녀', altJa: 'どんぐり旅館 のキーアート: 夜の畳の間で、紙の行灯と開いた帳簿を前に、低い卓を囲む狐の少女と狸の少女', alt: 'Donguri Ryokan key art: fox and tanuki girls around a low table in a tatami room at night, with a paper lantern and an open ledger', pos: '50% 40%', posM: '56% 50%' }
       ],
       info: { kind: 'art', src: 'assets/ryokan_kv7_D.webp', pos: '50% 30%', posM: '38% 50%' }
     }
   ];
+
+  /* Bidirectional Works <-> Tech flywheel badges on all 6 detail pages */
+  const FLYWHEEL = {
+    'donguri-ryokan': {
+      label: { en: 'Built with', ko: '구동·제작 기술', ja: '使用技術' },
+      links: [
+        { href: 'pages/602', en: '602', ko: '602', ja: '602' },
+        { href: 'pages/dat', en: 'DAT', ko: 'DAT', ja: 'DAT' },
+        { href: 'pages/scheherazade', en: 'Scheherazade', ko: '세헤라자드', ja: 'Scheherazade' }
+      ]
+    },
+    seonjam: {
+      label: { en: 'Powered by', ko: '구동 기술', ja: '搭載技術' },
+      links: [
+        { href: 'pages/lunasia', en: 'Lunasia', ko: '루나시아', ja: 'Lunasia' },
+        { href: 'pages/602', en: '602', ko: '602', ja: '602' },
+        { href: 'pages/dat', en: 'DAT', ko: 'DAT', ja: 'DAT' }
+      ]
+    },
+    scheherazade: {
+      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      links: [
+        { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' }
+      ]
+    },
+    '602': {
+      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      links: [
+        { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' },
+        { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }
+      ]
+    },
+    lunasia: {
+      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      links: [
+        { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }
+      ]
+    },
+    dat: {
+      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      links: [
+        { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' },
+        { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }
+      ]
+    }
+  };
 
   const body = document.body;
   const pad = n => String(n).padStart(2, '0');
@@ -1235,15 +1192,16 @@
   const numOf = p => pad(PROJECTS.indexOf(p) + 1);
   const pageOf = p => url(`pages/${p.id}`);
 
-  const hash0 = location.hash; /* DAT: an old /pages/dat#6 link opens Polish Pipeline; read before the clean-up below drops it */
-  /* ---------- clean URL: strip .html extension and subpage #1 hashes from address bar ---------- */
+  const hash0 = location.hash; /* DAT: /pages/dat#polish (and legacy #6) opens Polish Pipeline */
+  const isDatPolishHash = h => /^#(?:dat\/)?(?:polish|6)$/i.test(decodeURIComponent(h || ''));
+  /* ---------- clean URL: strip .html extension and transient subpage hashes while preserving /pages/dat#polish ---------- */
   try {
+    const keepHash = !only ? location.hash : (only === 'dat' && isDatPolishHash(location.hash) ? '#polish' : '');
     if (location.pathname.endsWith('.html')) {
       const cleanPath = location.pathname.replace(/\.html$/, '');
-      const hashPart = only ? '' : location.hash;
-      history.replaceState(history.state, '', cleanPath + location.search + hashPart);
-    } else if (only && location.hash) {
-      history.replaceState(history.state, '', location.pathname + location.search);
+      history.replaceState(history.state, '', cleanPath + location.search + keepHash);
+    } else if (only && location.hash !== keepHash) {
+      history.replaceState(history.state, '', location.pathname + location.search + keepHash);
     }
   } catch (e) {}
 
@@ -1262,7 +1220,7 @@
   const tr = (p, f) => (lang !== 'en' && p[lang] && p[lang][f] != null ? p[lang][f] : p[f]);
   /* a field with Ko / Ja variants on the same object: alt / altKo / altJa, cap / capKo / capJa ... */
   const pick = (o, f) => (lang === 'ko' && o[f + 'Ko']) || (lang === 'ja' && o[f + 'Ja']) || o[f];
-  /* names on Japanese pages: title_ja replaces the title (DOZE), sub_ja the Korean subtitle (どんぐり旅館); Korean and English unchanged */
+  /* names across languages: 선잠 DOZE stays unified everywhere; sub_ja renders どんぐり旅館 in Japanese */
   const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
   const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
   const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
@@ -1287,22 +1245,88 @@
     ['[data-prev]', '', '이전', '前へ'],
     ['[data-next]', '', '다음', '次へ'],
     ['[data-details]', '', '자세히', '詳しく'],
-    ['.foot a[href^="mailto:"]', '', '문의', 'お問い合わせ'],
+    ['.foot a[href="mailto:mino@choam.studio"]', '', '문의', 'お問い合わせ'],
     ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘', 'Scheherazade のアプリアイコン'],
     ['.dl .cap-line', '', PROJECTS[0].ko.headline, PROJECTS[0].ja.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘', 'Apple シリコン'],
     ['.dlbtn[data-os="win"] small', '', '설치 파일', 'インストーラー'],
-    ['.dl-note [data-note]', '', 'Claude·ChatGPT 구독이나 Ollama 모델을 연결해 쓰고, 두뇌를 바꿔도 기억은 남습니다', 'Claude・ChatGPT のサブスクや Ollama のモデルをつないで使えます。頭脳を替えても記憶は残ります。'],
+    ['.dl-note [data-note]', '', '영구 무료이며 계정이나 텔레메트리가 없습니다. Claude·ChatGPT·Antigravity(Gemini) 구독과 Ollama, 주요 API 키를 연결해 쓰며 두뇌를 바꿔도 로컬 기억은 그대로 남습니다.', '永久無料で、アカウント登録もテレメトリもありません。Claude・ChatGPT・Antigravity（Gemini）のサブスクや Ollama、主要 API キーを接続でき、頭脳を替えてもローカルの記憶は残ります。'],
     ['.dl-note [data-dl-guide]', '', '설치 방법', 'インストール方法'],
     ['.dl-note [data-dl-all]', '', '전체 릴리스', 'すべてのリリース']
   ].flatMap(([sel, attr, k, j]) => [...document.querySelectorAll(sel)].map(el => ({ el, attr, k, j, en: attr ? el.getAttribute(attr) : el.textContent })));
-  const TITLE_KO = { 'Get Scheherazade | CHOAM': 'Scheherazade 받기 | CHOAM', 'Our Philosophy | CHOAM': '초암의 철학 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade 설치 방법 | CHOAM',
-    'Download 602 | CHOAM': '602 다운로드 | CHOAM', '602 Documentation | CHOAM': '602 도큐멘테이션 | CHOAM',
-    'Us | CHOAM': '팀 | CHOAM', 'MINO | CHOAM': 'MINO | CHOAM', 'CAYDE | CHOAM': 'CAYDE | CHOAM' };
-  const TITLE_JA = { 'Get Scheherazade | CHOAM': 'Scheherazade を入手 | CHOAM', 'Our Philosophy | CHOAM': 'CHOAMの哲学 | CHOAM', 'How to install Scheherazade | CHOAM': 'Scheherazade のインストール方法 | CHOAM',
-    'Download 602 | CHOAM': '602 ダウンロード | CHOAM', '602 Documentation | CHOAM': '602 ドキュメント | CHOAM',
-    'Us | CHOAM': 'チーム | CHOAM', 'MINO | CHOAM': 'MINO | CHOAM', 'CAYDE | CHOAM': 'CAYDE | CHOAM', '선잠 DOZE | CHOAM': 'DOZE | CHOAM' };
+
+  /* Canonical <title> dictionaries for all 16 official routes + /404 */
+  const TITLE_EN = {
+    '/': 'CHOAM | Culture must flow',
+    '/philosophy': 'Our Philosophy | CHOAM',
+    '/us': 'Us | CHOAM',
+    '/download': 'Get Scheherazade | CHOAM',
+    '/install': 'How to install Scheherazade | CHOAM',
+    '/602/docs': '602 Documentation | CHOAM',
+    '/602/download': 'Download 602 | CHOAM',
+    '/pages/scheherazade': 'Scheherazade | CHOAM',
+    '/pages/602': '602 | CHOAM',
+    '/pages/lunasia': 'Lunasia | CHOAM',
+    '/pages/dat': 'DAT | CHOAM',
+    '/pages/seonjam': '선잠 DOZE | CHOAM',
+    '/pages/donguri-ryokan': 'Donguri Ryokan | CHOAM',
+    '/people/mino': 'MINO | CHOAM',
+    '/people/eunho': 'CAYDE | CHOAM',
+    '/people/magi': 'MAGI | CHOAM',
+    '/404': '404 Not Found | CHOAM'
+  };
+  const TITLE_KO = {
+    '/': 'CHOAM | Culture must flow',
+    '/philosophy': '초암의 철학 | CHOAM',
+    '/us': '팀 | CHOAM',
+    '/download': '세헤라자드 받기 | CHOAM',
+    '/install': '세헤라자드 설치 방법 | CHOAM',
+    '/602/docs': '602 문서 | CHOAM',
+    '/602/download': '602 다운로드 | CHOAM',
+    '/pages/scheherazade': '세헤라자드 | CHOAM',
+    '/pages/602': '602 | CHOAM',
+    '/pages/lunasia': '루나시아 | CHOAM',
+    '/pages/dat': 'DAT | CHOAM',
+    '/pages/seonjam': '선잠 DOZE | CHOAM',
+    '/pages/donguri-ryokan': '동구리 료칸 | CHOAM',
+    '/people/mino': 'MINO | CHOAM',
+    '/people/eunho': 'CAYDE | CHOAM',
+    '/people/magi': 'MAGI | CHOAM',
+    '/404': '페이지를 찾을 수 없습니다 | CHOAM'
+  };
+  const TITLE_JA = {
+    '/': 'CHOAM | Culture must flow',
+    '/philosophy': 'CHOAMの哲学 | CHOAM',
+    '/us': 'チーム | CHOAM',
+    '/download': 'Scheherazade を入手 | CHOAM',
+    '/install': 'Scheherazade のインストール方法 | CHOAM',
+    '/602/docs': '602 ドキュメント | CHOAM',
+    '/602/download': '602 ダウンロード | CHOAM',
+    '/pages/scheherazade': 'Scheherazade | CHOAM',
+    '/pages/602': '602 | CHOAM',
+    '/pages/lunasia': 'Lunasia | CHOAM',
+    '/pages/dat': 'DAT | CHOAM',
+    '/pages/seonjam': '선잠 DOZE | CHOAM',
+    '/pages/donguri-ryokan': 'どんぐり旅館 | CHOAM',
+    '/people/mino': 'MINO | CHOAM',
+    '/people/eunho': 'CAYDE | CHOAM',
+    '/people/magi': 'MAGI | CHOAM',
+    '/404': 'ページが見つかりません | CHOAM'
+  };
   const titleEn = document.title;
+  const routeKey = (() => {
+    if (body.dataset.page === '404' || body.classList.contains('notfound-page')) return '/404';
+    if (only && TITLE_EN[`/pages/${only}`]) return `/pages/${only}`;
+    const rootPath = ROOT.pathname.replace(/\/$/, '');
+    let p = location.pathname;
+    if (rootPath && p.startsWith(rootPath)) p = p.slice(rootPath.length);
+    p = p.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (!p.startsWith('/')) p = '/' + p;
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    if (TITLE_EN[p]) return p;
+    if (document.querySelector('.notfound-shell, .notfound-page')) return '/404';
+    return Object.keys(TITLE_EN).find(k => TITLE_EN[k] === titleEn) || '';
+  })();
   const relabel = []; /* the gallery adds its own relabelling below */
 
   const mast = document.querySelector('.mast');
@@ -1322,7 +1346,7 @@
     lang = norm(next);
     html.lang = lang;
     UI_KO.forEach(({ el, attr, k, j, en }) => { const v = L(en, k, j); if (attr) el.setAttribute(attr, v); else el.textContent = v; });
-    document.title = L(titleEn, TITLE_KO[titleEn] || titleEn, TITLE_JA[titleEn] || titleEn);
+    document.title = routeKey ? L(TITLE_EN[routeKey] || titleEn, TITLE_KO[routeKey] || titleEn, TITLE_JA[routeKey] || titleEn) : titleEn;
     picker.querySelector('[data-lang-name]').textContent = L('Language ', '언어 ', '言語 ');
     picker.querySelector('[data-lang-cur]').textContent = L('ENG', 'KR', 'JP');
     opts.forEach(o => { if (o.dataset.setLang === lang) o.setAttribute('aria-current', 'true'); else o.removeAttribute('aria-current'); });
@@ -1360,14 +1384,13 @@
   /* ---------- shared Works / About disclosure (every page) ----------
      Menu membership is deliberately separate from PROJECTS: DAT keeps its primary Works link and landing anchor.
      Each trigger opens only its own group on desktop and mobile. No focus trap or scroll lock. */
-  mast.querySelectorAll('[data-menu-toggle], [data-menu]').forEach(el => el.remove());
+  if (mast) mast.querySelectorAll('[data-menu-toggle], [data-menu]').forEach(el => el.remove());
   const siteNav = document.createElement('nav');
   siteNav.className = 'site-nav';
   const workEntry = id => {
     const p = PROJECTS.find(p => p.id === id);
     return `<li><a class="nav-entry" href="${pageOf(p)}" data-nav-project="${id}"${only === id ? ' aria-current="page"' : ''}><span data-nav-name="${id}">${esc(p.title)}</span></a></li>`;
   };
-  const pending = name => `<li><span class="nav-entry nav-pending" aria-disabled="true"><span>${name}</span><small data-nav-pending></small></span></li>`;
   siteNav.innerHTML = `
     <div class="nav-controls">
       <button class="nav-toggle" type="button" data-nav-toggle="works" aria-controls="nav-works" aria-expanded="false">Works</button>
@@ -1385,10 +1408,10 @@
         <ul class="nav-row"><li><a class="nav-entry" href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a></li><li><a class="nav-entry" href="mailto:mino@choam.studio" data-nav-contact></a></li></ul>
       </section>
     </div>`;
-  mast.insertBefore(siteNav, picker);
+  if (mast) mast.insertBefore(siteNav, picker);
   const navPanel = siteNav.querySelector('.nav-panel');
   const navToggles = [...siteNav.querySelectorAll('[data-nav-toggle]')];
-  const mobileNav = matchMedia('(max-width: 760px)');
+  const mobileNav = matchMedia('(max-width: 767px)');
   let navOpen = '';
   /* Hero WORKS / ABOUT (Mino 2026-10-27): ABOUT opens the masthead's own About group, as its trigger does; a modified click
      or no script keeps the plain link to the first About page. WORKS stays a link to the first plate. */
@@ -1397,7 +1420,7 @@
     a.setAttribute('aria-controls', `nav-${a.dataset.navOpen}`);
     a.setAttribute('aria-expanded', 'false');
     a.addEventListener('click', e => {
-      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || !mast) return;
       e.preventDefault();
       const g = a.dataset.navOpen;
       mast.classList.remove('chrome-hidden'); /* the group opens inside the masthead, so the masthead comes back with it */
@@ -1407,15 +1430,17 @@
   });
   const positionMenu = () => {
     navPanel.style.removeProperty('right'); /* mobile keeps its existing full-width layout */
-    if (!navOpen || mobileNav.matches) return;
+    if (!navOpen || mobileNav.matches || !mast) return;
     const trigger = siteNav.querySelector(`[data-nav-toggle="${navOpen}"]`).getBoundingClientRect();
-    const gutter = parseFloat(getComputedStyle(mast).paddingRight);
+    const gutter = parseFloat(getComputedStyle(mast).paddingRight) || 0;
     const right = Math.max(gutter, Math.min(innerWidth - trigger.right, innerWidth - navPanel.offsetWidth - gutter));
     navPanel.style.right = `${right}px`; /* align to the active trigger, clamped inside the viewport */
   };
-  const navSize = new ResizeObserver(positionMenu);
-  navSize.observe(mast);
-  navSize.observe(siteNav);
+  if (mast) {
+    const navSize = new ResizeObserver(positionMenu);
+    navSize.observe(mast);
+    navSize.observe(siteNav);
+  }
   function setMenu(open, focusBtn = false) {
     const previous = navOpen;
     navOpen = open || '';
@@ -1432,7 +1457,7 @@
   navToggles.forEach(t => t.addEventListener('click', () => setMenu(navOpen === t.dataset.navToggle ? false : t.dataset.navToggle)));
   siteNav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
   /* Closing on keyboard departure does not steal focus; the adjacent language picker can relabel an open menu. */
-  mast.addEventListener('focusout', e => { if (navOpen && !mast.contains(e.relatedTarget)) setMenu(false); });
+  if (mast) mast.addEventListener('focusout', e => { if (navOpen && !mast.contains(e.relatedTarget)) setMenu(false); });
   mobileNav.addEventListener('change', () => {
     const hadFocus = siteNav.contains(document.activeElement);
     setMenu(false);
@@ -1447,10 +1472,13 @@
     siteNav.querySelector('[data-nav-philosophy]').textContent = L('Philosophy', '철학', '哲学');
     siteNav.querySelector('[data-nav-us]').textContent = L('Us', '팀', 'チーム');
     siteNav.querySelector('[data-nav-contact]').textContent = L('Contact', '문의', 'お問い合わせ');
-    siteNav.querySelectorAll('[data-nav-pending]').forEach(el => { el.textContent = L('Coming soon', '준비 중', '準備中'); });
     siteNav.querySelectorAll('[data-nav-name]').forEach(el => {
       const p = PROJECTS.find(p => p.id === el.dataset.navName);
-      el.textContent = p.id === 'seonjam' ? L('Doze', '선잠', 'DOZE') : p.id === 'dat' ? p.title : ko() && p.title_ko ? p.title_ko : p.title;
+      el.textContent = p.id === 'seonjam'
+        ? '선잠 DOZE'
+        : p.id === 'dat'
+          ? p.title
+          : L(p.title, p.title_ko || p.title, p.sub_ja || p.title);
     });
     pageLangs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pageLang === lang)));
     document.querySelectorAll('[data-philo-langs]').forEach(g => g.setAttribute('aria-label', L('Language', '언어', '言語')));
@@ -1502,7 +1530,7 @@
     root.querySelectorAll('[data-rel-ver]').forEach(el => { el.textContent = rel.tag; });
     root.querySelectorAll('[data-rel-note]').forEach(el => {
       el.hidden = rel.state !== 'failed';
-      el.textContent = L('GitHub didn’t answer, so each choice opens the latest release page.', 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다', 'GitHub に接続できなかったため、各ボタンを押すと最新リリースのページが開きます。');
+      el.textContent = L('GitHub didn’t answer, so each choice opens the latest release page.', 'GitHub에 연결하지 못해 각 버튼이 릴리스 페이지로 이동합니다.', 'GitHub に接続できなかったため、各ボタンを押すと最新リリースのページが開きます。');
     });
   };
   /* release.json (same origin, refreshed by .github/workflows/release-json.yml) is read first. The GitHub API is only the
@@ -1688,8 +1716,6 @@
       return lang !== 'en' ? s.split('\n')[0] : (s.match(/^.*?[.!?](?=\s|$)/) || [s])[0];
     };
     const altOf = o => pick(o, 'alt');
-    const castOf = p => p.panels.find(s => s.kind === 'gallery');
-    const pairOf = p => p.comparisons && p.comparisons[0]; /* the default pair the live DAT section opens on */
     const stageHTML = p => {
       if (p.field === '602') return `<div class="stage"><div class="field sch-field six-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
@@ -1697,29 +1723,6 @@
           <figure class="figure" aria-hidden="true"><img src="${url('assets/lunasia-mark.svg')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
-      if (p.field === 'dat') {
-        const cast = castOf(p), c = pairOf(p);
-        return `<div class="stage">
-          <div class="flip" data-flip tabindex="0">
-            <section class="slide"><div class="field dat-field" aria-hidden="true"></div>
-              <div class="plate-cast" role="group">${cast.items.map(it => `<img src="${url(it.src)}" alt="" draggable="false" loading="lazy" decoding="async">`).join('')}</div>
-              <button class="flip-nav flip-next" type="button" data-flip-to="1"><span aria-hidden="true"></span></button>
-            </section>
-            <section class="slide"><div class="field dat-field" aria-hidden="true"></div>
-              <div class="compare-stage">
-                <div class="compare" data-compare style="--split:50%">
-                  <img class="cmp-after" src="${url(c.after)}" alt="" draggable="false" loading="lazy" decoding="async">
-                  <img class="cmp-before" src="${url(c.before)}" alt="" draggable="false" loading="lazy" decoding="async">
-                  <div class="scrim" aria-hidden="true"></div>
-                  <span class="cmp-tag cmp-tag-b" aria-hidden="true">BEFORE</span><span class="cmp-tag cmp-tag-a" aria-hidden="true">AFTER</span>
-                  <span class="cmp-line" aria-hidden="true"></span>
-                  <input class="cmp-range" type="range" min="0" max="100" step="1" value="50" data-compare-range>
-                </div>
-              </div>
-              <button class="flip-nav flip-prev" type="button" data-flip-to="0"><span aria-hidden="true"></span></button>
-            </section>
-          </div></div>`;
-      }
       const a = p.bg || p.panels[p.art[0]];
       return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" decoding="async"><div class="scrim" aria-hidden="true"></div></div>`;
     };
@@ -1743,10 +1746,6 @@
         act.setAttribute('aria-controls', `get-${p.id}`);
         wrap.insertAdjacentHTML('beforeend', getMenuHTML(p.id));
       }
-      /* No landing view switch: DAT's landing plate is a single .art image (PROJECTS.dat has no field, so
-         stageHTML never builds the old .flip stage either). Pills injected into the fixed caption slab would
-         have to flow at the top of a 424px absolutely laid out caption; they are not part of the design
-         (Main.dc.html), so nothing is inserted here. */
     });
     const plates = PROJECTS.map(p => document.getElementById(p.id)).filter(Boolean);
     track.querySelectorAll('.get-wrap').forEach(wireGet);
@@ -1771,39 +1770,6 @@
     const links = [...rail.querySelectorAll('[data-index-link]')];
     document.querySelectorAll('[data-go-project]').forEach(a => { a.href = `#${a.dataset.goProject}`; });
 
-    /* DAT: the cast, then one real before / after pair, side by side on one plate (if flip view is enabled) */
-    const datPlate = plates.find(el => el.id === 'dat');
-    const flip = datPlate && datPlate.querySelector('[data-flip]');
-    let flipTo = () => {};
-    if (flip) {
-      const fSlides = [...flip.querySelectorAll('.slide')];
-      const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
-      const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
-      const at = () => (flip.clientWidth ? Math.round(flip.scrollLeft / flip.clientWidth) : 0);
-      flipTo = (k, instant) => flip.scrollTo({ left: Math.max(0, Math.min(fSlides.length - 1, k)) * flip.clientWidth, behavior: instant ? 'instant' : behavior() });
-      const markFlip = () => {
-        const k = at();
-        marks.forEach((s, i) => { s.classList.toggle('is-on', i === k); s.setAttribute('aria-pressed', String(i === k)); });
-        fSlides.forEach((s, i) => { s.inert = i !== k; s.classList.toggle('is-on', i === k); });
-      };
-      flip.addEventListener('scroll', markFlip, { passive: true });
-      flip.addEventListener('dragstart', e => e.preventDefault());
-      flip.addEventListener('keydown', e => {
-        if (e.target.closest('[data-compare]')) return; /* the range keeps its own arrow keys */
-        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); flipTo(at() + (e.key === 'ArrowRight' ? 1 : -1)); }
-      });
-      let down = null;
-      datPlate.addEventListener('pointerdown', e => { down = e.pointerType === 'mouse' && !e.target.closest('[data-compare], button, a') ? e.clientX : null; });
-      addEventListener('pointerup', e => { if (down === null) return; const dx = e.clientX - down; down = null; if (Math.abs(dx) > 40) flipTo(at() + (dx < 0 ? 1 : -1)); });
-      datPlate.addEventListener('pointercancel', () => { down = null; });
-      datPlate.querySelectorAll('[data-flip-to]').forEach(b => b.addEventListener('click', () => flipTo(Number(b.dataset.flipTo))));
-      const split = v => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--split', `${v}%`); range.value = String(Math.round(v)); };
-      box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); if (r.width) split((e.clientX - r.left) / r.width * 100); });
-      range.addEventListener('input', () => split(Number(range.value)));
-      new ResizeObserver(() => flipTo(at(), true)).observe(flip);
-      markFlip();
-    }
-
     /* artwork comes up over 1.1s as its plate reaches the screen (reduced motion: already there) */
     const reveal = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-on'); reveal.unobserve(e.target); } }), { threshold: .35 });
     plates.forEach(el => reveal.observe(el));
@@ -1825,22 +1791,6 @@
         const gh = el.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
         const art = el.querySelector('img.art'); if (art) art.alt = altOf(p.panels[p.art[0]]);
       });
-      if (flip) {
-        const datP = PROJECTS.find(p => p.id === 'dat'), cast = castOf(datP), c = pairOf(datP);
-        const marks = [...datPlate.querySelectorAll('[data-flip-marks] button')];
-        datPlate.querySelector('.plate-cast').setAttribute('aria-label', L('DAT character art', 'DAT 캐릭터 일러스트', 'DAT キャラクターイラスト'));
-        datPlate.querySelectorAll('.plate-cast img').forEach((img, k) => { img.alt = altOf(cast.items[k]); });
-        flip.setAttribute('aria-label', L('DAT, 2 views', 'DAT, 2개 화면', 'DAT、2画面'));
-        datPlate.querySelector('[data-flip-marks]').setAttribute('aria-label', L('DAT view switch', 'DAT 화면 전환', 'DAT 画面切り替え'));
-        const pillLabels = L(['01 Character Art', '02 Before & After'], ['01 캐릭터 일러스트', '02 보정 전후 비교'], ['01 キャラクターイラスト', '02 補正前後の比較']);
-        marks.forEach((b, k) => { b.textContent = pillLabels[k]; });
-        flip.querySelector('.flip-next').setAttribute('aria-label', L('View before and after', '보정 전후 비교 보기', '補正前後の比較を見る'));
-        flip.querySelector('.flip-prev').setAttribute('aria-label', L('View character art', '캐릭터 일러스트 보기', 'キャラクターイラストを見る'));
-        const box = datPlate.querySelector('[data-compare]'), range = box.querySelector('[data-compare-range]');
-        box.querySelector('.cmp-before').alt = pick(c, 'beforeLabel') || 'Original';
-        box.querySelector('.cmp-after').alt = L('After DAT', 'DAT 적용 후', 'DAT 適用後');
-        range.setAttribute('aria-label', L('Before / after reveal position', 'BEFORE / AFTER 비교 경계 위치', 'BEFORE / AFTER 比較の境界位置'));
-      }
       rail.setAttribute('aria-label', L('Project index', '프로젝트 목록', 'プロジェクト一覧'));
       thread.setAttribute('aria-label', L('Project index', '프로젝트 목록', 'プロジェクト一覧'));
       [...thread.querySelectorAll('[data-thread-link]')].forEach(a => {
@@ -1890,12 +1840,11 @@
     }), { rootMargin: '-45% 0px -45% 0px' });
     [intro, ...plates].forEach(el => el && io.observe(el));
 
-    /* #id, the older #id/k (DAT 3 = the comparison), or #top */
+    /* #id, the older #id/k, or #top */
     const parse = h => { const [id, sub] = decodeURIComponent(h.replace(/^#/, '')).split('/'); return [PROJECTS.some(p => p.id === id) ? id : 'top', parseInt(sub, 10) || 1]; };
     const go = (id, k, instant) => {
       const el = id === 'top' ? null : document.getElementById(id);
       scrollTo({ top: el ? el.offsetTop : 0, behavior: instant ? 'instant' : behavior() });
-      if (id === 'dat' && flip) flipTo(k >= 3 ? 1 : 0, true);
       dispatchEvent(new Event('choam:chrome-show')); /* a jump lands with the bars up, not tucked away */
     };
     document.addEventListener('click', e => {
@@ -1980,10 +1929,10 @@
       const statsHTML = d.stats && d.stats.length ? `<div class="lv-metrics">${d.stats.map((s, idx) => `<div class="lv-stat${idx === 0 ? ' on' : ''}"><b>${esc(s.val)}</b><span>${esc(s.label)}</span><small>${esc(s.sub)}</small></div>`).join('')}</div>` : '';
       if (d.tabs && d.cases) {
         const tabs = d.tabs.map((t, idx) => `<button type="button" class="lv-tab${idx === activeTab ? ' is-on' : ''}" data-lun-tab="${idx}">${esc(t)}</button>`).join('');
-        const cases = d.cases.map((sc, idx) => `<div class="lv-case${idx === activeTab ? ' is-on' : ''}" data-lun-case="${idx}"><div class="lv-user"><b>${esc(sc.user)}</b><span>${esc(sc.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(sc.thinkTag)}</span><span class="lv-badge">${esc(sc.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:#aaa398">${esc(sc.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(sc.replyTag)}</span><span class="lv-badge">${esc(sc.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(sc.replyText)}</div></div></div>`).join('');
+        const cases = d.cases.map((sc, idx) => `<div class="lv-case${idx === activeTab ? ' is-on' : ''}" data-lun-case="${idx}"><div class="lv-user"><b>${esc(sc.user)}</b><span>${esc(sc.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(sc.thinkTag)}</span><span class="lv-badge">${esc(sc.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:rgba(235,229,218,.62)">${esc(sc.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(sc.replyTag)}</span><span class="lv-badge">${esc(sc.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(sc.replyText)}</div></div></div>`).join('');
         return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span><div class="lv-tabs" role="tablist">${tabs}</div></div>${cases}${statsHTML}`;
       }
-      return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div><div class="lv-user"><b>${esc(d.user)}</b><span>${esc(d.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(d.thinkTag)}</span><span class="lv-badge">${esc(d.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:#aaa398">${esc(d.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(d.replyTag)}</span><span class="lv-badge">${esc(d.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(d.replyText)}</div></div>${statsHTML}`;
+      return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div><div class="lv-user"><b>${esc(d.user)}</b><span>${esc(d.q)}</span></div><div class="lv-box"><div class="lv-who"><span class="lv-kicker">${esc(d.thinkTag)}</span><span class="lv-badge">${esc(d.thinkSub)}</span></div><div class="lv-think" style="border:0;padding:0;color:rgba(235,229,218,.62)">${esc(d.thinkText)}</div></div><div class="lv-box on"><div class="lv-who"><span class="lv-kicker">${esc(d.replyTag)}</span><span class="lv-badge">${esc(d.replySub)}</span></div><div class="lv-reply" style="color:var(--bone);font-weight:500">${esc(d.replyText)}</div></div>${statsHTML}`;
     }
     const stepsHTML = d.steps.map((st, idx) => `<div class="lv-box lv-step${idx === 2 ? ' on' : ''}"><div class="lv-who"><span class="lv-kicker">${esc(st.k)}</span>${st.m ? `<span class="lv-badge">${esc(st.m)}</span>` : ''}</div><div class="lv-h">${esc(st.h)}</div><p class="lv-p">${esc(st.p)}</p></div>`).join('');
     return `<div class="lv-head"><span class="lv-title">${esc(d.title)}</span></div>${stepsHTML}`;
@@ -2001,7 +1950,7 @@
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
         <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
-    if (spec.kind === 'feat') return `<figure class="media vis feat${spec.approve ? ' ai602' : ''}${on}" data-art="${i}"${spec.approve ? ' data-ai="ask"' : ''}><svg viewBox="0 0 720 540" role="${spec.approve ? 'group' : 'img'}" aria-label="">${FEAT[spec.feat]()}</svg>${cap}</figure>`;
+    if (spec.kind === 'feat') return `<figure class="media vis feat${spec.approve ? ' ai602' : ''}${on}" data-art="${i}"${spec.approve ? ' data-ai="ask"' : ''}><svg viewBox="0 0 720 540" role="${spec.approve ? 'group' : 'img'}" aria-label="">${FEAT[spec.feat](lang)}</svg>${cap}</figure>`;
     if (spec.kind === 'chat') return `<figure class="media vis feat chatviz${on}" data-art="${i}"><div class="cv"></div>${cap}</figure>`;
     if (spec.kind === 'lun') return `<figure class="media vis feat lunviz${on}" data-art="${i}"><div class="lv"></div>${cap}</figure>`;
     const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${(reel || !j) ? '' : ' loading="lazy"'}`;
@@ -2043,6 +1992,7 @@
           ${act && act.os ? `<span class="get-wrap"><a class="prod-act" href="${url(act.href)}" aria-expanded="false" aria-controls="get-${p.id}"></a>${getMenuHTML(p.id)}</span>`
             : act ? `<a class="prod-act" href="${url(act.href)}"${ext ? ' target="_blank" rel="noopener"' : ''}></a>` : ''}
         </div>
+        ${only && FLYWHEEL[p.id] ? '<div class="choam-flywheel" data-flywheel></div>' : ''}
       </div>
     </section>`;
   }).join('');
@@ -2073,7 +2023,7 @@
   const datInline = datSec && datSec.querySelector('.dat-inline');
   const datFrame = datInline && datInline.querySelector('.dat-reveal');
   /* datCase = the pair chosen (tab, deck count); datShown = the pair on screen. They differ only while the chosen pair decodes. */
-  let datCase = 0, datShown = -1, datSwap = 0, zoomX = .24, zoomY = .49, splitV = .5;
+  let datCase = 0, datShown = -1, datSwap = 0, datLastK = 0, zoomX = .24, zoomY = .49, splitV = .5;
   const datHud = datInline && datInline.querySelector('.dat-hud'), datPanel = datInline && datInline.querySelector('.dat-panel');
   const datRange = datInline && datInline.querySelector('[data-dat-range]'), datMore = datInline && datInline.querySelector('[data-dat-more]');
   const datText = (en, kr, ja) => L(en, kr, ja);
@@ -2161,7 +2111,9 @@
     const hs = sl.map(x => x.offsetHeight), cut = datSplit(datProject);
     rail.style.alignItems = ''; sl.forEach((x, j) => x.classList.toggle('dat-off', off[j]));
     const cre = Math.max(...hs.slice(0, cut)), pol = Math.max(...hs.slice(cut));
-    datSec.style.setProperty('--dat-rail-h', `${cre}px`); datSec.style.setProperty('--dat-tuck', `${Math.max(0, pol - cre)}px`);
+    const ctlH = datSec.querySelector('.rail-ctl')?.offsetHeight || 0;
+    datSec.style.setProperty('--dat-rail-h', `${cre}px`);
+    datSec.style.setProperty('--dat-tuck', `${Math.min(ctlH, Math.max(0, pol - cre))}px`);
   };
   const labelMore = () => {
     datMore.textContent = datPanel.hidden ? datText('View details', '디테일 보기', 'ディテールを見る') : datText('Hide details', '디테일 닫기', 'ディテールを閉じる');
@@ -2246,13 +2198,16 @@
     /* reaching for the switch starts fetching the pairs, so the first Polish view rarely waits */
     ['pointerenter', 'focusin'].forEach(t => datSec.querySelector('.dat-pipes').addEventListener(t, warmDat, { once: true }));
     /* pipeline switch: Creative returns to the artwork it left; Polish has no step of its own, its pairs are the case buttons */
-    let datLastK = 0;
     datSec.querySelector('.dat-pipes').addEventListener('click', e => {
       const b = e.target.closest('[data-dat-pipe]'); if (!b || b.dataset.datPipe === datPipe) return;
       if (datPipe === 'creative') datLastK = slideOf(datSec);
       datPipe = b.dataset.datPipe;
       updateDat();
       if (datPipe === 'creative') goSlide(datSec, datLastK, true);
+      if (only === 'dat') {
+        const nextHash = datPipe === 'polish' ? '#polish' : '';
+        if (location.hash !== nextHash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search + nextHash);
+      }
       sync(datSec, true);
       b.scrollIntoView({ block: 'nearest' });
       const live = document.querySelector('[data-live]');
@@ -2337,11 +2292,17 @@
     const a = sec.querySelector('.prod-act');
     if (a) { const l = actLabel(p.action.label); a.textContent = l; a.setAttribute('aria-label', actAria(T, l)); if (p.action.hrefKo || p.action.hrefJa) a.href = pick(p.action, 'href'); }
     const gh = sec.querySelector('[data-get-head]'); if (gh) gh.textContent = L('Choose your OS', '설치 파일 선택', 'OSを選択');
+    const fwEl = sec.querySelector('[data-flywheel]'), fw = FLYWHEEL[p.id];
+    if (fwEl && fw) {
+      fwEl.innerHTML = `<span class="choam-flywheel-label">${esc(fw.label[lang] || fw.label.en)}</span>` +
+        fw.links.map(lk => `<a class="choam-flywheel-link" href="${url(lk.href)}">${esc(lk[lang] || lk.en)}</a>`).join('');
+    }
     sec.querySelectorAll('[data-art]').forEach(m => {
       const spec = p.panels[m.dataset.art], alt = pick(spec, 'alt');
       if (spec.kind === 'voice') { voice.labelVisual(m, lang); return; }
       const svg = m.querySelector('svg'), img = m.matches('img') ? m : m.querySelector('img'), cap = m.querySelector('figcaption');
       const cv = m.querySelector('.cv'), lv = m.querySelector('.lv');
+      if (spec.kind === 'feat' && svg && FEAT[spec.feat]) svg.innerHTML = FEAT[spec.feat](lang);
       if (cv) { cv.replaceChildren(...chatBlocks(spec[lang] || spec.en)); if (alt) m.setAttribute('aria-label', alt); }
       if (lv) { const activeTab = Number(lv.querySelector('.lv-tab.is-on')?.dataset.lunTab || 0); lv.innerHTML = lunHTML(spec[lang] || spec.en, spec.mode, activeTab); if (alt) m.setAttribute('aria-label', alt); }
       if (spec.items) { if (alt) m.setAttribute('aria-label', alt); m.querySelectorAll('.gi').forEach((g, k) => { const it = spec.items[k]; g.querySelector('img').alt = pick(it, 'alt'); const n = g.querySelector('.gn'); if (n) n.textContent = pick(it, 'name'); }); }
@@ -2421,7 +2382,8 @@
       if (on) b.setAttribute('aria-current', only ? 'page' : 'true'); else b.removeAttribute('aria-current');
     });
     if (only) {
-      if (location.hash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search);
+      const wantHash = only === 'dat' && datPipe === 'polish' ? '#polish' : '';
+      if (location.hash !== wantHash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search + wantHash);
     } else {
       const hash = `#${p.id}/${k + 1}`;
       if (location.hash !== hash) history.replaceState(null, '', hash);
@@ -2462,9 +2424,12 @@
     dispatchEvent(new Event('choam:chrome-show')); /* a deep link lands with the bars up, not tucked away */
   };
 
-  /* DAT: the comparison used to be step 6, so #6 (or #dat/6) keeps opening it, now as Polish Pipeline */
+  /* DAT: /pages/dat#polish (plus legacy #6 / #dat/6) opens Polish Pipeline immediately */
   const datHash = datInline && /(?:^#|\/)(\d+)$/.exec(hash0);
-  if (datHash && Number(datHash[1]) - 1 >= datSplit(datProject)) { datPipe = 'polish'; updateDat(); }
+  if (datInline && (isDatPolishHash(hash0) || (datHash && Number(datHash[1]) - 1 >= datSplit(datProject)))) {
+    datPipe = 'polish';
+    updateDat();
+  }
   const [pi0, k0] = fromHash(); /* read before the first sync rewrites the hash */
   cur = pi0;
   secs.forEach(sec => {
@@ -2541,7 +2506,21 @@
   const copyTop = new ResizeObserver(() => secs.forEach(sec => sec.style.setProperty('--copy-top', `${sec.querySelector('.prod-copy').offsetTop}px`)));
   [track, ...secs.map(sec => sec.querySelector('.prod-copy'))].forEach(el => copyTop.observe(el));
 
-  addEventListener('hashchange', () => { const [pi, k] = fromHash(); goProd(pi, k); });
+  addEventListener('hashchange', () => {
+    if (only === 'dat' && datInline) {
+      const wantPolish = isDatPolishHash(location.hash);
+      if ((datPipe === 'polish') !== wantPolish) {
+        if (datPipe === 'creative') datLastK = slideOf(datSec);
+        datPipe = wantPolish ? 'polish' : 'creative';
+        updateDat();
+        if (!wantPolish) goSlide(datSec, datLastK, true);
+      }
+      sync(datSec, true);
+      return;
+    }
+    const [pi, k] = fromHash();
+    goProd(pi, k);
+  });
   relabel.push(() => { labelAll(); if (!atIntro) sync(secs[cur]); else setNext(null); });
   if (location.hash) requestAnimationFrame(() => goProd(pi0, k0, true)); else if (intro) showIntro(); else sync(secs[0]);
 })();

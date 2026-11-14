@@ -12,6 +12,22 @@
 
   const onLangChange = [];
 
+  /* ---------- 0. Sticky Portal Bar Height (--p602-bar-h) ---------- */
+  const portalBar = document.querySelector('.p602-bar');
+  const syncBarHeight = () => {
+    if (!portalBar) return;
+    const h = Math.ceil(portalBar.getBoundingClientRect().height);
+    if (h > 0) htmlEl.style.setProperty('--p602-bar-h', `${h}px`);
+  };
+  if (portalBar) {
+    syncBarHeight();
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(syncBarHeight).observe(portalBar);
+    }
+    addEventListener('resize', syncBarHeight, { passive: true });
+    onLangChange.push(() => requestAnimationFrame(syncBarHeight));
+  }
+
   /* ---------- 1. Code Copy Buttons (pre.p602-code & .p602-page pre.inst-code) ---------- */
   const copyBtns = [];
   const labelCopyBtn = btn => {
@@ -79,38 +95,117 @@
 
   onLangChange.push(() => copyBtns.forEach(labelCopyBtn));
 
-  /* ---------- 2. Download Archive & License Gate (602/download.html) ---------- */
+  /* ---------- 2. Dynamic Release Feed & License Gate (602/download.html & 602/docs.html) ---------- */
   const agreeBox = document.querySelector('[data-602-agree]');
   const pkgContainer = document.querySelector('[data-602-packages]');
   const statusBanner = document.querySelector('[data-602-rel-status]');
   const dlLinks = [...document.querySelectorAll('[data-602-dl]')];
   const shaLinks = [...document.querySelectorAll('[data-602-sha]')];
+  const verBadges = [...document.querySelectorAll('[data-602-ver], .p602-badge, .p602-ov-ver')];
 
-  if (agreeBox || pkgContainer || dlLinks.length) {
+  if (agreeBox || pkgContainer || dlLinks.length || verBadges.length) {
     const REL_REPO = 'https://github.com/CHOAM-CO/602-releases';
     const REL_DL_PREFIX = 'https://github.com/CHOAM-CO/602-releases/releases/download/';
     const REL_API = 'https://api.github.com/repos/CHOAM-CO/602-releases/releases/latest';
+    const REL_TAG_API = tag => `https://api.github.com/repos/CHOAM-CO/602-releases/releases/tags/${encodeURIComponent(tag)}`;
     const REL_JSON = (() => {
-      const relUrl = new URL('../602-release.json', location.href).href;
-      if (location.pathname.endsWith('/')) {
-        return new URL('../../602-release.json', location.href).href;
-      }
-      return relUrl;
+      const sc = document.currentScript && document.currentScript.src;
+      if (sc) return new URL('602-release.json', sc).href;
+      if (location.pathname.endsWith('/')) return new URL('../../602-release.json', location.href).href;
+      return new URL('../602-release.json', location.href).href;
     })();
 
-    const DEFAULT_RELEASE_LABEL = 'v2.0.0';
+    const TAG_RE = /^v[0-9][0-9A-Za-z.+-]{0,40}$/;
+    const VER_TOKEN_RE = /\bv[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?\b/g;
+    const HEX64_RE = /\b([0-9a-f]{64})\b/i;
+
     const ASSETS = [
-      { key: "studio-mac", os: "mac", defaultName: "602-Studio-v2.0.0-macos-arm64.dmg" },
-      { key: "studio-win", os: "win", defaultName: "602-Studio-v2.0.0-windows-x86_64-setup.exe" },
-      { key: "studio-linux", os: "linux", defaultName: "602-Studio-v2.0.0-linux-x86_64.zip" },
-      { key: "engine-mac", os: "mac", defaultName: "story-engine-v2.0.0-macos-arm64.zip" },
-      { key: "engine-win", os: "win", defaultName: "story-engine-v2.0.0-windows-x86_64.zip" },
-      { key: "engine-linux", os: "linux", defaultName: "story-engine-v2.0.0-linux-x86_64.zip" },
-      { key: "headers-zip", os: "", defaultName: "602-story-engine-v2.0.0-headers.zip" },
-      { key: "headers-h", os: "", defaultName: "story_engine_v2.h" },
-      { key: "docs-zip", os: "", defaultName: "602-v2.0.0-docs.zip" },
-      { key: "docs-md", os: "", defaultName: "602-v2.0.0-Documentation.md" },
+      {
+        key: 'studio-mac',
+        os: 'mac',
+        file: /^602-Studio-v?[0-9][0-9A-Za-z.+-]*-macos-arm64\.dmg$/i,
+        replaceRe: /\b602-Studio-v?[0-9][0-9A-Za-z.+-]*-macos-arm64\.dmg\b/g,
+        nameFor: t => `602-Studio-${t}-macos-arm64.dmg`
+      },
+      {
+        key: 'studio-win',
+        os: 'win',
+        file: /^602-Studio-v?[0-9][0-9A-Za-z.+-]*-windows-x86_64(?:-setup\.exe|\.exe|\.zip)$/i,
+        prefer: /-setup\.exe$/i,
+        replaceRe: /\b602-Studio-v?[0-9][0-9A-Za-z.+-]*-windows-x86_64(?:-setup\.exe|\.exe|\.zip)\b/g,
+        nameFor: t => `602-Studio-${t}-windows-x86_64-setup.exe`
+      },
+      {
+        key: 'studio-linux',
+        os: 'linux',
+        file: /^602-Studio-v?[0-9][0-9A-Za-z.+-]*-linux-x86_64\.(?:zip|AppImage|tar\.gz)$/i,
+        replaceRe: /\b602-Studio-v?[0-9][0-9A-Za-z.+-]*-linux-x86_64\.(?:zip|AppImage|tar\.gz)\b/g,
+        nameFor: t => `602-Studio-${t}-linux-x86_64.zip`
+      },
+      {
+        key: 'engine-mac',
+        os: 'mac',
+        file: /^story-engine-v?[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip$/i,
+        replaceRe: /\bstory-engine-v?[0-9][0-9A-Za-z.+-]*-macos-arm64\.zip\b/g,
+        nameFor: t => `story-engine-${t}-macos-arm64.zip`
+      },
+      {
+        key: 'engine-win',
+        os: 'win',
+        file: /^story-engine-v?[0-9][0-9A-Za-z.+-]*-windows-x86_64\.zip$/i,
+        replaceRe: /\bstory-engine-v?[0-9][0-9A-Za-z.+-]*-windows-x86_64\.zip\b/g,
+        nameFor: t => `story-engine-${t}-windows-x86_64.zip`
+      },
+      {
+        key: 'engine-linux',
+        os: 'linux',
+        file: /^story-engine-v?[0-9][0-9A-Za-z.+-]*-linux-x86_64\.zip$/i,
+        replaceRe: /\bstory-engine-v?[0-9][0-9A-Za-z.+-]*-linux-x86_64\.zip\b/g,
+        nameFor: t => `story-engine-${t}-linux-x86_64.zip`
+      },
+      {
+        key: 'headers-zip',
+        os: '',
+        file: /^602-story-engine-v?[0-9][0-9A-Za-z.+-]*-headers\.zip$/i,
+        replaceRe: /\b602-story-engine-v?[0-9][0-9A-Za-z.+-]*-headers\.zip\b/g,
+        nameFor: t => `602-story-engine-${t}-headers.zip`
+      },
+      {
+        key: 'headers-h',
+        os: '',
+        file: /^story_engine_v[0-9]+\.h$/i,
+        replaceRe: null,
+        nameFor: () => 'story_engine_v2.h'
+      },
+      {
+        key: 'docs-zip',
+        os: '',
+        file: /^602-v?[0-9][0-9A-Za-z.+-]*-docs\.zip$/i,
+        replaceRe: /\b602-v?[0-9][0-9A-Za-z.+-]*-docs\.zip\b/g,
+        nameFor: t => `602-${t}-docs.zip`
+      },
+      {
+        key: 'docs-md',
+        os: '',
+        file: /^602-v?[0-9][0-9A-Za-z.+-]*-Documentation\.md$/i,
+        replaceRe: /\b602-v?[0-9][0-9A-Za-z.+-]*-Documentation\.md\b/g,
+        nameFor: t => `602-${t}-Documentation.md`
+      }
     ];
+
+    /* Capture initial baked filenames & tag from DOM before dynamic updates */
+    const initialNames = {};
+    document.querySelectorAll('[data-602-filename]').forEach(el => {
+      const k = el.getAttribute('data-602-filename') || '';
+      if (k && el.textContent.trim()) initialNames[k] = el.textContent.trim();
+    });
+    const initialDomTag = (() => {
+      for (const el of verBadges) {
+        const m = el.textContent.match(/\bv[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?\b/);
+        if (m) return m[0];
+      }
+      return '';
+    })();
 
     let detectedOS = (() => {
       const n = navigator;
@@ -128,16 +223,48 @@
       tag: '',
       urls: {},
       shas: {},
-      names: {}
+      names: {},
+      hashes: {}
     };
 
-    const validUrl = (u, name) =>
+    const extractHex64 = v => {
+      if (typeof v !== 'string') return '';
+      const m = HEX64_RE.exec(v);
+      return m ? m[1].toLowerCase() : '';
+    };
+
+    const validUrl = (u, tag, name) =>
       typeof u === 'string' &&
-      u.startsWith(REL_DL_PREFIX + 'v2.0.0/') &&
-      (!name || u.endsWith('/' + name));
+      TAG_RE.test(tag) &&
+      u.startsWith(`${REL_DL_PREFIX}${tag}/`) &&
+      (!name || u.endsWith(`/${name}`));
+
+    const collectHashesFromPool = (pool, data) => {
+      const map = data && typeof data === 'object' ? data.sha256 || data.checksums || null : null;
+      ASSETS.forEach(spec => {
+        const targetName = rel.names[spec.key];
+        if (!targetName) return;
+        const asset = pool.find(x => x && x.name === targetName);
+        const shaAsset = pool.find(x => x && x.name === `${targetName}.sha256`);
+        const candidate =
+          (asset && (asset.sha256 || asset.digest || asset.hash)) ||
+          (shaAsset && (shaAsset.sha256 || shaAsset.digest || shaAsset.hash)) ||
+          (map && (map[targetName] || map[spec.key])) ||
+          '';
+        const hex = extractHex64(candidate);
+        if (hex) rel.hashes[spec.key] = hex;
+      });
+    };
 
     const parseReleasePayload = data => {
-      if (!data || typeof data.tag_name !== 'string' || !data.tag_name.startsWith('v2.')) throw new Error('not a v2 release');
+      const rawTag =
+        data && typeof data.tag_name === 'string' && data.tag_name.trim()
+          ? data.tag_name.trim()
+          : data && typeof data.tag === 'string' && data.tag.trim()
+            ? data.tag.trim()
+            : '';
+      if (!TAG_RE.test(rawTag)) throw new Error('invalid release tag');
+
       const pool = [];
       if (data && Array.isArray(data.assets)) pool.push(...data.assets);
       if (data && Array.isArray(data.releases)) {
@@ -145,41 +272,96 @@
           if (r && Array.isArray(r.assets)) pool.push(...r.assets);
         });
       }
+
       const urls = {};
       const shas = {};
       const names = {};
+
       ASSETS.forEach(spec => {
-        const asset = pool.find(
+        const matches = pool.filter(
           x =>
             x &&
             typeof x.name === 'string' &&
-            spec.defaultName === x.name &&
+            !x.name.endsWith('.sha256') &&
+            spec.file.test(x.name) &&
             (!x.state || x.state === 'uploaded') &&
-            validUrl(x.browser_download_url, x.name)
+            validUrl(x.browser_download_url, rawTag, x.name)
         );
+        const asset =
+          (spec.prefer && matches.find(x => spec.prefer.test(x.name))) || matches[0];
         if (asset) {
           urls[spec.key] = asset.browser_download_url;
           names[spec.key] = asset.name;
-          const shaName = asset.name + '.sha256';
+          const shaName = `${asset.name}.sha256`;
           const shaAsset = pool.find(
             x =>
               x &&
               x.name === shaName &&
               (!x.state || x.state === 'uploaded') &&
-              validUrl(x.browser_download_url, x.name)
+              validUrl(x.browser_download_url, rawTag, x.name)
           );
           if (shaAsset) shas[spec.key] = shaAsset.browser_download_url;
         }
       });
+
       if (!Object.keys(urls).length) throw new Error('no 602 assets');
       rel.urls = urls;
       rel.shas = shas;
       rel.names = names;
-      rel.tag =
-        data && typeof data.tag_name === 'string' && data.tag_name
-          ? data.tag_name
-          : DEFAULT_RELEASE_LABEL;
+      rel.tag = rawTag;
+      rel.hashes = {};
+      collectHashesFromPool(pool, data);
       rel.state = 'ok';
+    };
+
+    const findShaCodeEl = (row, key, filename) => {
+      if (key) {
+        const byKey = document.querySelector(`[data-sha256-asset="${key}"], [data-602-sha-code="${key}"]`);
+        if (byKey) return byKey;
+      }
+      if (filename) {
+        const byFile = document.querySelector(`[data-sha256-asset="${filename}"]`);
+        if (byFile) return byFile;
+      }
+      if (!row) return null;
+      const direct = row.querySelector('[data-sha256-asset], [data-602-sha-code]');
+      if (direct) return direct;
+      const codes = row.querySelectorAll('.p602-dl-meta code');
+      return codes.length > 1 ? codes[codes.length - 1] : null;
+    };
+
+    const renderVersionMeta = () => {
+      if (!rel.tag) return;
+      document.querySelectorAll('[data-602-ver]').forEach(el => {
+        el.textContent = rel.tag;
+      });
+      document.querySelectorAll('.p602-badge, .p602-ov-ver, .p602-kicker').forEach(el => {
+        if (el.children.length === 0) {
+          const next = el.textContent.replace(VER_TOKEN_RE, rel.tag);
+          if (next !== el.textContent) el.textContent = next;
+        } else {
+          el.querySelectorAll('span, code').forEach(ch => {
+            if (ch.children.length === 0) {
+              const next = ch.textContent.replace(VER_TOKEN_RE, rel.tag);
+              if (next !== ch.textContent) ch.textContent = next;
+            }
+          });
+        }
+      });
+      document.querySelectorAll('.p602-commercial-note code, .p602-step p code, pre.p602-code code, .p602-hub-list code').forEach(codeEl => {
+        if (codeEl.hasAttribute('data-602-filename') || codeEl.hasAttribute('data-sha256-asset')) return;
+        let txt = codeEl.textContent;
+        ASSETS.forEach(spec => {
+          if (spec.replaceRe && rel.names[spec.key]) {
+            txt = txt.replace(spec.replaceRe, rel.names[spec.key]);
+          }
+        });
+        if (/^v[0-9]+\.[0-9]+\.[0-9]+/.test(txt.trim())) {
+          txt = txt.replace(VER_TOKEN_RE, rel.tag);
+        }
+        if (txt !== codeEl.textContent) codeEl.textContent = txt;
+      });
+      requestAnimationFrame(syncBarHeight);
     };
 
     let relPromise = null;
@@ -194,7 +376,27 @@
           return r.json();
         });
       relPromise = fetchJson(REL_JSON)
-        .then(parseReleasePayload)
+        .then(data => {
+          parseReleasePayload(data);
+          /* If a newer tag arrived in 602-release.json without inline sha256 digests, enrich digests from GitHub Releases API */
+          const needDigests =
+            dlLinks.length > 0 &&
+            Object.keys(rel.hashes).length === 0 &&
+            rel.tag &&
+            initialDomTag &&
+            rel.tag !== initialDomTag;
+          if (needDigests) {
+            fetch(REL_TAG_API(rel.tag))
+              .then(r => (r.ok ? r.json() : null))
+              .then(apiData => {
+                if (apiData && Array.isArray(apiData.assets)) {
+                  collectHashesFromPool(apiData.assets, apiData);
+                  renderDownloadState();
+                }
+              })
+              .catch(() => {});
+          }
+        })
         .catch(() => fetchJson(REL_API).then(parseReleasePayload))
         .catch(() => {
           rel.state = 'staged';
@@ -203,6 +405,7 @@
         })
         .finally(() => {
           clearTimeout(timer);
+          renderVersionMeta();
           renderDownloadState();
         });
       return relPromise;
@@ -217,7 +420,16 @@
       setTimeout(() => label.classList.remove('is-attention'), 1200);
     };
 
+    const resolvedNameFor = spec => {
+      if (!spec) return '';
+      if (rel.names[spec.key]) return rel.names[spec.key];
+      if (rel.tag) return spec.nameFor(rel.tag);
+      return initialNames[spec.key] || (initialDomTag ? spec.nameFor(initialDomTag) : '');
+    };
+
+    /* P-07: Downloads and .sha256 links remain strictly locked until CHOAM Community License 1.0 checkbox is checked */
     const renderDownloadState = () => {
+      if (!agreeBox && !pkgContainer && !dlLinks.length) return;
       const unlocked = !!(agreeBox && agreeBox.checked);
       if (pkgContainer) {
         pkgContainer.classList.toggle('is-unlocked', unlocked);
@@ -225,11 +437,11 @@
         pkgContainer.classList.toggle('is-staged', unlocked && rel.state === 'staged');
       }
 
-      /* Highlight recommended rows & pills */
       dlLinks.forEach(a => {
         const key = a.getAttribute('data-602-dl') || '';
         const spec = ASSETS.find(s => s.key === key);
         const isRec = !!(spec && detectedOS && spec.os === detectedOS);
+        const resolvedName = resolvedNameFor(spec);
         const row = a.closest('.p602-dl-row');
         if (row) {
           row.classList.toggle('is-rec', isRec);
@@ -239,9 +451,14 @@
             pill.textContent = L('Recommended', '추천', 'おすすめ');
           }
           const fn = row.querySelector('[data-602-filename]');
-          if (fn) {
-            const resolvedName = rel.names[key] || (spec ? spec.defaultName : '');
-            if (resolvedName) fn.textContent = resolvedName;
+          if (fn && resolvedName) fn.textContent = resolvedName;
+          const shaCodeEl = findShaCodeEl(row, key, resolvedName);
+          if (shaCodeEl) {
+            if (rel.hashes[key]) {
+              shaCodeEl.textContent = rel.hashes[key];
+            } else if (rel.tag && initialDomTag && rel.tag !== initialDomTag) {
+              shaCodeEl.textContent = resolvedName ? `${resolvedName}.sha256` : '.sha256';
+            }
           }
         } else {
           a.classList.toggle('is-rec', isRec);
@@ -280,7 +497,7 @@
       shaLinks.forEach(a => {
         const key = a.getAttribute('data-602-sha') || '';
         const spec = ASSETS.find(s => s.key === key);
-        const shaTargetName = rel.names[key] || (spec ? spec.defaultName : '');
+        const shaTargetName = resolvedNameFor(spec);
         if (shaTargetName) {
           a.setAttribute('aria-label', `SHA-256 checksum for ${shaTargetName}`);
         }
@@ -307,9 +524,9 @@
         if (!unlocked) {
           statusBanner.dataset.state = 'locked';
           statusBanner.textContent = L(
-            'Check the CHOAM 602 License Agreement & Third-Party Notices box above to unlock archive downloads.',
-            '위의 CHOAM 602 라이선스 계약 및 오픈소스 고지 동의란에 체크하면 아카이브 다운로드가 잠금 해제됩니다.',
-            '上の CHOAM 602 ライセンス契約およびオープンソース告知に同意（チェック）すると、アーカイブのダウンロードが有効になります。'
+            'Check the CHOAM Community License 1.0 agreement box above to unlock archive downloads.',
+            '위의 CHOAM Community License 1.0 약관 동의란에 체크하면 아카이브 다운로드가 잠금 해제됩니다.',
+            '上の CHOAM Community License 1.0 同意欄にチェックを入れると、アーカイブのダウンロードが有効になります。'
           );
         } else if (rel.state === 'loading' || rel.state === 'idle') {
           statusBanner.dataset.state = 'loading';
@@ -326,7 +543,7 @@
           msg.textContent = L(
             `License accepted${tagNote} · Downloads and .sha256 checksums are ready below. `,
             `라이선스 동의 완료${tagNote} · 아래에서 파일과 .sha256 체크섬을 바로 받을 수 있습니다. `,
-            `ライセンス同意済み${tagNote} · 下の一覧から ファイルと .sha256 チェックサムを直接ダウンロードできます。 `
+            `ライセンス同意済み${tagNote} · 下の一覧からファイルと .sha256 チェックサムを直接ダウンロードできます。 `
           );
           const repoLink = document.createElement('a');
           repoLink.href = `${REL_REPO}/releases`;
@@ -336,7 +553,11 @@
           statusBanner.append(msg, repoLink);
         } else {
           statusBanner.dataset.state = 'error';
-          statusBanner.textContent = L('Release information unavailable. Please try again later.', '릴리스 정보를 불러올 수 없습니다. 나중에 다시 시도해 주세요.', 'リリース情報を取得できません。後でもう一度お試しください。');
+          statusBanner.textContent = L(
+            'Release information unavailable. Please try again later.',
+            '릴리스 정보를 불러올 수 없습니다. 나중에 다시 시도해 주세요.',
+            'リリース情報を取得できません。後でもう一度お試しください。'
+          );
         }
       }
     };
@@ -423,7 +644,7 @@
           setDrawer(false, true);
         }
       });
-      matchMedia('(max-width: 960px)').addEventListener('change', mq => {
+      matchMedia('(max-width: 1079px)').addEventListener('change', mq => {
         if (!mq.matches) setDrawer(false);
       });
     }
@@ -454,9 +675,10 @@
       const pickCurrentSection = () => {
         const liveSections = sections.filter(s => s.offsetParent !== null);
         if (!liveSections.length) return;
+        const thresholdY = Math.max(148, (portalBar ? portalBar.getBoundingClientRect().bottom : 96) + 36);
         let chosen = '';
         for (const sec of liveSections) {
-          if (sec.getBoundingClientRect().top <= 148) {
+          if (sec.getBoundingClientRect().top <= thresholdY) {
             chosen = sec.id;
           }
         }

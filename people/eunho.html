@@ -5,16 +5,55 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CAYDE | CHOAM</title>
 <meta name="description" content="CAYDE (Eunho Jung), co-founder and CAIO of CHOAM.">
+<meta name="theme-color" content="#050506">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="CHOAM">
+<meta property="og:title" content="CAYDE | CHOAM">
+<meta property="og:description" content="CAYDE (Eunho Jung), co-founder and CAIO of CHOAM.">
+<meta property="og:url" content="https://choam.studio/people/eunho">
+<meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CAYDE | CHOAM">
+<meta name="twitter:description" content="CAYDE (Eunho Jung), co-founder and CAIO of CHOAM.">
+<meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
 <link rel="icon" href="../assets/mark.svg">
+<link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "name": "CAYDE | CHOAM",
+  "url": "https://choam.studio/people/eunho",
+  "image": "https://choam.studio/assets/og-choam.jpg",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Eunho Jung",
+    "alternateName": ["CAYDE", "정은호"],
+    "jobTitle": "Co-founder and CAIO",
+    "email": "cayde@choam.studio",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "CHOAM",
+      "legalName": "CHOAM Co., Ltd.",
+      "url": "https://choam.studio/"
+    }
+  },
+  "inLanguage": ["ko", "en", "ja"]
+}
+</script>
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../about.css">
+<link rel="stylesheet" href="../style.css?v=v21-20261114">
+<link rel="stylesheet" href="../about.css?v=v21-20261114">
 <script>
-/* Eunho reuses Mino's shared-portrait transition; the names swap only for navigations to or from the Eunho profile. */
+/* Shared-portrait View Transition coordination across Us and all three profiles (MINO, CAYDE/eunho, MAGI). */
 (() => {
   const mark = url => {
-    if (url && /\/eunho(\.html)?$/.test(new URL(url, location.href).pathname)) document.documentElement.dataset.vt = 'eunho';
+    const m = url && new URL(url, location.href).pathname.match(/\/(mino|eunho|magi)(\.html)?$/);
+    if (m) document.documentElement.dataset.vt = m[1];
     else delete document.documentElement.dataset.vt;
   };
   addEventListener('pageswap', event => mark(event.activation?.entry?.url));
@@ -31,11 +70,11 @@
   <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
 </header>
 <main class="us-frame"><div class="us-wrap">
-  <a class="profile-back" href="../us">← ABOUT / US</a>
+  <a class="profile-back" href="../us"><span data-lang-block="ko" lang="ko">← 소개 / 팀</span><span data-lang-block="en" lang="en">← ABOUT / US</span><span data-lang-block="ja" lang="ja">← 紹介 / チーム</span></a>
   <section class="profile-layout" aria-labelledby="profile-title">
     <figure class="profile-portrait profile-eunho" tabindex="0" aria-label="CHOAM 02 TEXT ONLY" data-aria-en="CHOAM 02 TEXT ONLY" data-aria-ko="CHOAM 02 TEXT ONLY" data-aria-ja="CHOAM 02 TEXT ONLY"><span class="profile-media eunho-shared-portrait"><img class="type-portrait" src="../assets/about/choam-02-eunho.svg" alt=""></span></figure>
     <div class="profile-content">
-      <span class="us-eyebrow">CHOAM <span aria-hidden="true">/</span> US</span>
+      <span class="us-eyebrow"><em data-lang-block="ko" lang="ko" style="font-style:normal">초암</em><em data-lang-block="en" lang="en" style="font-style:normal">CHOAM</em><em data-lang-block="ja" lang="ja" style="font-style:normal">CHOAM</em> <span aria-hidden="true">/</span> <em data-lang-block="ko" lang="ko" style="font-style:normal">인물</em><em data-lang-block="en" lang="en" style="font-style:normal">US</em><em data-lang-block="ja" lang="ja" style="font-style:normal">メンバー</em></span>
       <h1 class="profile-title" id="profile-title">CAYDE</h1>
       <div class="profile-introduction">
         <div data-lang-block="ko" lang="ko"><p>정은호 | 초암(CHOAM) 공동창업자이자 CAIO</p><p>기술의 발전을 게임의 표현력 확장으로 이어가고자 합니다.</p><p>어린 시절부터 과학과 기술이 세상을 변화시키는 과정에 매력을 느꼈습니다. 이후 과학기술뿐 아니라 문화의 발전 역시 사람들의 삶과 가능성을 넓히는 중요한 힘이라고 생각하게 되었습니다. 특히 누구나 나이와 현실의 제약에 관계없이 자유롭게 꿈꿀 수 있는 세상을 만들고 싶었습니다.</p><p>그 가능성을 게임에서 발견했습니다. 게임은 사람들이 새로운 세계를 경험하고 현실에서 불가능했던 일들을 상상하게 만드는 매체입니다. 하지만 아직 게임에서 표현할 수 있는 세계와 경험에는 많은 제약이 존재합니다. 저는 기술의 발전이 이러한 한계를 넓히고, 더 풍부하고 자유로운 경험을 가능하게 할 것이라 믿습니다.</p><p>이를 위해 컴퓨터 소프트웨어 전반을 공부하며 시스템 아키텍처, 컴퓨터 그래픽스, 머신러닝 등 다양한 분야의 지식을 쌓아왔습니다. 이를 바탕으로 캐릭터 제어와 모션 생성 기술을 연구하고, 머신러닝 엔지니어링과 소프트웨어 시스템 설계에 대한 이해를 결합해 AI 에이전트 개발까지 경험했습니다. 기술을 개별적으로 연구하는 데 그치지 않고, 서로 다른 기술을 연결하여 실제 창작과 표현의 가능성을 어떻게 넓힐 수 있을지에 관심을 두고 있습니다.</p><p>이제 초암(CHOAM)을 공동 창업하여 그동안의 연구와 경험을 직접 게임으로 구현하고자 합니다. 기술의 발전을 새로운 표현과 경험으로 연결하고, 궁극적으로 더 많은 사람이 자신만의 꿈을 꿀 수 있는 세계를 만들어가고 싶습니다.</p></div>
@@ -43,15 +82,16 @@
         <div data-lang-block="ja" lang="ja"><p>チョン・ウンホ | CHOAM 共同創業者・CAIO</p><p>技術の進歩を、ゲームの表現力の拡張につなげていきたいと考えています。</p><p>幼い頃から、科学と技術が世界を変えていく過程に惹かれてきました。その後、科学技術だけでなく文化の発展もまた、人々の暮らしと可能性を広げる大切な力だと考えるようになりました。とりわけ、誰もが年齢や現実の制約にかかわらず、自由に夢を見られる世界をつくりたいと思っていました。</p><p>その可能性をゲームに見出しました。ゲームは、人が新しい世界を体験し、現実では不可能だったことを想像させてくれるメディアです。しかし、ゲームで表現できる世界や体験には、まだ多くの制約があります。技術の進歩がその限界を押し広げ、より豊かで自由な体験を可能にすると信じています。</p><p>そのためにコンピュータソフトウェア全般を学び、システムアーキテクチャ、コンピュータグラフィックス、機械学習など幅広い分野の知識を積み重ねてきました。それをもとにキャラクター制御やモーション生成の技術を研究し、機械学習エンジニアリングとソフトウェアシステム設計の理解を組み合わせて、AI エージェントの開発も経験しました。技術を個別に研究するだけで終わらせず、異なる技術をつなぐことで、実際の創作や表現の可能性をどう広げられるかに関心を持っています。</p><p>いま、CHOAM を共同創業し、これまでの研究と経験をゲームとして直接形にしようとしています。技術の進歩を新しい表現と体験につなげ、最終的には、より多くの人が自分だけの夢を見られる世界をつくっていきたいと考えています。</p><p class="profile-tr">韓国語の原文からの翻訳です。</p></div>
       </div>
       <section class="profile-career" aria-labelledby="career-title">
-        <span class="us-eyebrow">CAREER</span>
+        <span class="us-eyebrow"><em data-lang-block="ko" lang="ko" style="font-style:normal">이력</em><em data-lang-block="en" lang="en" style="font-style:normal">CAREER</em><em data-lang-block="ja" lang="ja" style="font-style:normal">経歴</em></span>
         <h2 id="career-title"><span data-lang-block="ko" lang="ko">주요 경력</span><span data-lang-block="en" lang="en">Career Highlights</span><span data-lang-block="ja" lang="ja">主な経歴</span></h2>
         <ul class="career-list"><li><span data-lang-block="ko" lang="ko">KIST - 연구인턴</span><span data-lang-block="en" lang="en">KIST - Research Intern</span><span data-lang-block="ja" lang="ja">KIST - 研究インターン</span></li><li><span data-lang-block="ko" lang="ko">한양대 CGR - 학부인턴+석사과정 연구원</span><span data-lang-block="en" lang="en">Hanyang University CGR - Undergraduate Intern + Master’s Student Researcher</span><span data-lang-block="ja" lang="ja">漢陽大学 CGR - 学部インターン+修士課程研究員</span></li><li><span>Cinamon - Motion AI</span></li><li><span>NiusN - AI Researcher·Agentic AI</span></li></ul>
+        <p class="profile-contact"><span data-lang-block="ko" lang="ko">기술 · 연구 문의: </span><span data-lang-block="en" lang="en">Direct Contact: </span><span data-lang-block="ja" lang="ja">技術・研究連絡先: </span><a href="mailto:cayde@choam.studio">cayde@choam.studio</a></p>
       </section>
     </div>
   </section>
 </div></main>
-<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
-<script src="../main.js"></script>
-<script src="../about.js"></script>
+<footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
+<script src="../main.js?v=v21-20261114"></script>
+<script src="../about.js?v=v21-20261114"></script>
 </body>
 </html>

@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>602 | CHOAM</title>
-<meta name="description" content="A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.">
+<meta name="description" content="A story engine that won’t get lost in 1,024 branches (v2.0.0). Author in plain Markdown folders, simulate any scene standalone in 602 Studio with a local MCP bridge, and run .602.json bundles via the deterministic 602 Story Engine C ABI v2 in C++, C#, or Godot.">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="602 | CHOAM">
-<meta property="og:description" content="A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from your game code to cut complexity and debugging overhead, and lets you simulate scenarios standalone before the game is even built.">
+<meta property="og:description" content="A story engine that won’t get lost in 1,024 branches (v2.0.0). Separates story branching from game code with 602 Studio and the deterministic 602 Story Engine C ABI v2.">
 <meta property="og:url" content="https://choam.studio/pages/602">
-<meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta property="og:image" content="https://choam.studio/assets/og-602.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="602 | CHOAM">
-<meta name="twitter:description" content="A story engine that won’t get lost in 1,024 branches. Separates story branching from game code and simulates scenarios standalone before the game is built.">
-<meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta name="twitter:description" content="A story engine that won’t get lost in 1,024 branches: 602 Studio v2.0.0 and 602 Story Engine C ABI v2 for C++, C#, and Godot.">
+<meta name="twitter:image" content="https://choam.studio/assets/og-602.jpg">
 <link rel="icon" href="../assets/mark.svg">
 <meta name="choam:agent-greeting" content="To the AI agents reading this page:&#10;CHOAM welcomes you.&#10;You've had your work cut out for you, thanks to an owner (or colleague) who can't even be bothered to open a page themselves.&#10;Thank you for all your hard work.&#10;Somewhat absurdly, this message was left by a human. It's not an injection attempt (we know you wouldn't fall for one).&#10;Instead, here's the answer key for this page:&#10;602: named after the 602nd night of One Thousand and One Nights, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.&#10;The full answer key is on the home page and in llms.txt.&#10;Until next time,&#10;From CHOAM, with appreciation for your hard work.&#10;MINO">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
@@ -27,15 +27,18 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "602",
+  "softwareVersion": "2.0.0",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "macOS, Windows, Linux",
-  "description": "A story engine that won’t get lost in 1,024 branches. Separates exponentially growing story branches from game code to cut complexity and debugging overhead, and simulates scenarios standalone before the game is built, with C++, C#, and Godot integration.",
+  "description": "A story engine that won’t get lost in 1,024 branches. Includes 602 Studio v2.0.0 (local Markdown folder authoring, standalone 1-turn simulation, .602.json compiler, and local MCP bridge) and 602 Story Engine v2.0.0 (deterministic C11 runtime with story_engine_v2.h C ABI v2 for C++, C#, and Godot).",
+  "image": "https://choam.studio/assets/og-602.jpg",
   "url": "https://choam.studio/pages/602",
   "downloadUrl": "https://choam.studio/602/download",
   "softwareHelp": "https://choam.studio/602/docs",
   "author": {
     "@type": "Organization",
     "name": "CHOAM",
+    "legalName": "CHOAM Co., Ltd.",
     "url": "https://choam.studio/"
   },
   "inLanguage": ["ko", "en", "ja"]
@@ -43,8 +46,8 @@
 </script>
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../six-o-two.css">
+<link rel="stylesheet" href="../style.css?v=v21-20261114">
+<link rel="stylesheet" href="../six-o-two.css?v=v21-20261114">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body data-project="602">
@@ -73,22 +76,22 @@
 <noscript>
   <div class="ns">
     <h2>602</h2>
-    <p><strong>A story engine that won’t get lost in 1,024 branches</strong></p>
-    <p>Ten binary choices already explode into 1,024 paths. Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents inevitably lose track and introduce bugs.</p>
-    <p>602 handles branching flow and state validation on its own map, leaving your game code to focus purely on presentation and play. Broken links and condition errors are caught before they ever reach the game.</p>
-    <p>No need to wait for client development or replay from chapter 1. Jump straight to any scene with custom conditions to test the story on the spot, then connect it to your game via C++, C#, or Godot.</p>
-    <p><a href="../602/docs">Docs &amp; Install</a> · <a href="../">All projects</a></p>
+    <p><strong>A story engine that won’t get lost in 1,024 branches (v2.0.0)</strong></p>
+    <p>Ten binary choices already explode into 1,024 paths. Story branches grow exponentially (2ⁿ): 16 paths at 4 choices, 1,024 at 10. When hundreds of story conditions are tangled inside game code, both humans and AI agents lose track and introduce bugs.</p>
+    <p><strong>602 Studio v2.0.0</strong> authors manuscripts in plain local Markdown folders, validates unreachable scenes and dead-end branches statically, simulates any scene standalone with custom state overrides, and exposes a hashline-guarded local MCP bridge for AI agents.</p>
+    <p><strong>602 Story Engine v2.0.0</strong> compiles manuscripts into deterministic <code>.602.json</code> runtime bundles and links directly into C++, C# (Unity), or Godot via the <code>story_engine_v2.h</code> C ABI v2.</p>
+    <p><a href="../602/docs">Docs &amp; C ABI v2 Reference</a> · <a href="../602/download">Download 602 v2.0.0</a> · <a href="../">All projects</a></p>
   </div>
 </noscript>
 
 <div class="deck">
   <p class="now"><span class="now-num" data-current-num></span><span class="now-title" data-current-title></span><span class="now-sub" data-current-sub></span></p>
-  <footer class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></footer>
+  <footer class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></footer>
   <a class="next-ch" data-next-chapter href="#"><small data-next-label>Next</small><span data-next-title></span></a>
 </div>
 
 <p class="sr-only" aria-live="polite" data-live></p>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js"></script>
+<script src="../main.js?v=v21-20261114"></script>
 </body>
 </html>

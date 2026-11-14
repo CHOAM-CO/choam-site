@@ -1,70 +1,327 @@
-/* Voice is the fourth slide of the existing Scheherazade rail. */
+/* Voice is the fourth slide of the Scheherazade rail (pages/scheherazade.html).
+   CHOAM v2.1: .voice-call TR/BL 45-degree chamfer (--cut: 14px), opaque #0B0C0D plate, TL/BR #D9A362 clasps,
+   radius 0px, shadow 0, --alert-red (#C95A4B) scoped strictly to call-end control, zero 1024x768 clipping. */
 .p-scheherazade .voice-slide { height: 0; overflow: hidden; }
-.p-scheherazade[data-vis="voice"] { min-height: 860px; }
-.p-scheherazade[data-vis="voice"] .voice-slide { height: auto; }
+.p-scheherazade[data-vis="voice"] { min-height: 760px; }
+.p-scheherazade[data-vis="voice"] .voice-slide { height: auto; overflow: visible; }
 .p-scheherazade[data-vis="voice"] .slide:not(.voice-slide) { height: 0; overflow: hidden; }
 .p-scheherazade[data-vis="voice"] .rail { flex-shrink: 0; }
-.voice-slide .voice-lead { margin-top: 14px; font-size: 14px; line-height: 1.75; color: var(--ash); text-wrap: pretty; }
-.voice-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 20px; }
-.voice-choices button { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; padding: 12px 0; border-top: 1px solid var(--line); text-align: left; color: var(--ash); min-width: 0; transition: border-color .2s, color .2s; }
-.voice-choices button[aria-pressed="true"] { color: var(--ember); border-top-color: var(--ember); }
-.voice-choices button:hover { color: var(--bone); }
-.voice-choice-icon { margin-bottom: 4px; }
-.voice-choices svg, .voiceviz svg { display: block; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
-.voice-choices button > span:not(.voice-choice-icon) { font-weight: 650; font-size: 14px; }
-.voice-choices small { font-size: 10px; color: var(--ash); line-height: 1.5; }
-.voice-detail { margin-top: 12px; }
-.voice-detail h3 { font-size: 16px; font-weight: 550; line-height: 1.5; }
-.voice-slide .voice-detail p { margin-top: 8px; color: var(--ash); font-size: 13px; line-height: 1.8; }
-.voice-slide .voice-setup { margin-top: 18px; color: var(--ash); font-size: 11px; line-height: 1.75; }
-.voice-call { width: min(400px, 90cqw); padding: 24px 32px; border: 1px solid rgba(143,164,184,.24); border-radius: 24px; text-align: center; background: radial-gradient(ellipse at 50% 32%, rgba(143,164,184,.13), transparent 58%), linear-gradient(145deg, #11171c, #090c10 75%); box-shadow: 0 36px 90px rgba(0,0,0,.32), inset 0 1px rgba(235,229,218,.04); }
-.voice-orbit { position: relative; width: 168px; height: 168px; margin: 28px auto 14px; display: grid; place-items: center; border: 1px solid rgba(143,164,184,.16); border-radius: 50%; }
-.voice-orbit::before { content: ''; position: absolute; inset: 10px; border: 1px solid rgba(217,163,98,.16); border-radius: 50%; }
-.voiceviz .voice-orbit img { width: 112px; height: 112px; aspect-ratio: 1; box-shadow: none; filter: drop-shadow(0 0 20px rgba(217,163,98,.08)); }
-.voice-name { font-size: 28px; font-weight: 550; letter-spacing: .02em; }
-.voice-mode { margin-top: 4px; color: var(--ash); font-size: 12px; }
-.voice-wave { display: flex; justify-content: center; align-items: center; gap: 5px; height: 62px; margin-top: 12px; }
-.voice-wave i { height: var(--bar); width: 3px; border-radius: 2px; background: var(--ember); opacity: .7; }
-.voice-wave i:nth-child(3n) { opacity: .3; }
-[data-voice-example="input"] .voice-wave i { background: var(--steel); }
-[data-voice-example="read"] .voice-wave i { opacity: .5; transform: scaleY(.6); }
-.voice-example { min-height: 82px; margin-top: 4px; padding-top: 16px; border-top: 1px solid var(--line); }
-.voice-example small { font-size: 10px; letter-spacing: .07em; color: var(--ash); }
-.voice-example p { margin-top: 8px; font-size: 14px; line-height: 1.6; }
-.voice-illustrated-controls { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 18px; }
-.voice-illustrated-controls > span { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ash); }
-.voice-illustrated-controls > .voice-hangup { width: 48px; height: 48px; color: #e2aaa1; background: #502b2b; border-color: #70403b; }
-.voice-hangup svg { transform: rotate(135deg); }
-.voiceviz figcaption { padding: 6px; }
-:lang(ko) .voice-slide { word-break: keep-all; overflow-wrap: anywhere; }
-@media (max-width: 1000px) and (min-width: 761px) {
-  .p-scheherazade[data-vis="voice"] { --col: 40vw; min-height: 940px; }
+
+.voice-slide .voice-lead {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.72;
+  color: var(--ink-body);
+  text-wrap: pretty;
 }
-@media (max-width: 760px) {
-  .p-scheherazade[data-vis="voice"] { min-height: 1040px; }
-  .p-scheherazade[data-vis="voice"] .prod-copy { top: auto; max-height: none; overflow: visible; }
-  .voice-slide .voice-lead { font-size: 13px; line-height: 1.7; margin-top: 12px; }
-  .voice-choices { margin-top: 16px; gap: 10px; }
-  .voice-choices button > span:not(.voice-choice-icon) { font-size: 13px; }
-  .voice-choices small { font-size: 10px; }
-  .voice-detail { margin-top: 10px; }
-  .voice-detail h3 { font-size: 15px; }
-  .voice-slide .voice-detail p { font-size: 12px; }
-  .voice-slide .voice-setup { margin-top: 12px; font-size: 10px; }
-  .voice-call { width: min(280px, 90cqw); padding: 14px 20px; border-radius: 20px; }
-  .voice-orbit { margin: 0 auto 8px; width: 92px; height: 92px; }
+.voice-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.voice-choices button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 4px 10px 12px;
+  border: 0;
+  border-left: 2px solid var(--line);
+  text-align: left;
+  color: var(--ash);
+  transition: border-color var(--dur-1) var(--ease-ui), color var(--dur-1) var(--ease-ui);
+}
+.voice-choices button:hover {
+  color: var(--bone);
+  border-left-color: var(--rule-2);
+}
+.voice-choices button[aria-pressed="true"] {
+  color: var(--bone);
+  border-left-color: var(--ember);
+}
+.voice-choice-icon { margin-bottom: 2px; color: var(--ember); }
+.voice-choices svg,
+.voiceviz svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.voice-choices button > span:not(.voice-choice-icon) { font-weight: 650; font-size: 14px; line-height: 1.35; }
+.voice-choices small { font-size: 12px; color: var(--ash); line-height: 1.45; }
+
+.voice-detail {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.voice-detail h3 { font-size: 16px; font-weight: 650; line-height: 1.45; color: var(--bone); }
+.voice-slide .voice-detail p { margin-top: 6px; color: var(--ink-body); font-size: 16px; line-height: 1.72; }
+.voice-slide .voice-setup { margin-top: 14px; color: var(--ash); font-size: 12px; line-height: 1.65; }
+
+/* CHOAM v2.1 Chamfered Call Vessel (--cut: 14px, opaque #0B0C0D, TL/BR #D9A362 clasps) */
+.voice-call {
+  --v21-cut: 14px;
+  --v21-fill: var(--night);
+  --v21-edge: var(--edge-static);
+  --v21-clasp: rgba(217, 163, 98, 0.85);
+  --v21-ci: 7.5px;
+  --v21-cw: 20px;
+  --v21-ch: 12px;
+  position: relative;
+  isolation: isolate;
+  width: min(396px, 90cqw);
+  padding: 24px 28px 22px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+.voice-call::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--v21-fill);
+  background-image:
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(45deg, transparent calc(50% - 1.2px), var(--v21-edge) calc(50% - 0.45px)),
+    linear-gradient(225deg, transparent calc(50% - 1.2px), var(--v21-edge) calc(50% - 0.45px)),
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge));
+  background-position:
+    left var(--v21-ci) top var(--v21-ci),
+    left var(--v21-ci) top var(--v21-ci),
+    right var(--v21-ci) bottom var(--v21-ci),
+    right var(--v21-ci) bottom var(--v21-ci),
+    top right,
+    bottom left,
+    0 0,
+    100% 0,
+    0 100%,
+    0 0;
+  background-size:
+    var(--v21-cw) 1px,
+    1px var(--v21-ch),
+    var(--v21-cw) 1px,
+    1px var(--v21-ch),
+    var(--v21-cut) var(--v21-cut),
+    var(--v21-cut) var(--v21-cut),
+    100% 1px,
+    1px 100%,
+    100% 1px,
+    1px 100%;
+  background-repeat: no-repeat;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--v21-cut)) 0,
+    100% var(--v21-cut),
+    100% 100%,
+    var(--v21-cut) 100%,
+    0 calc(100% - var(--v21-cut))
+  );
+}
+
+/* Sharp right-angled architectural reticle (zero circle radius, zero drop-shadow) */
+.voice-orbit {
+  position: relative;
+  width: 144px;
+  height: 144px;
+  margin: 12px auto 14px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--elevated);
+}
+.voice-orbit::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(217, 163, 98, 0.22);
+  border-radius: 0;
+  pointer-events: none;
+}
+.voiceviz .voice-orbit img {
+  width: 96px;
+  height: 96px;
+  aspect-ratio: 1;
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+.voice-name { font-size: 26px; font-weight: 600; letter-spacing: 0.02em; color: var(--bone); }
+.voice-mode { margin-top: 4px; color: var(--ash); font-size: 12px; letter-spacing: 0.04em; }
+
+.voice-wave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 52px;
+  margin-top: 10px;
+}
+.voice-wave i {
+  height: var(--bar);
+  width: 3px;
+  border-radius: 0;
+  background: var(--ember);
+  opacity: 0.78;
+}
+.voice-wave i:nth-child(3n) { opacity: 0.35; }
+[data-voice-example="input"] .voice-wave i { background: var(--ink-body); }
+[data-voice-example="read"] .voice-wave i { opacity: 0.55; transform: scaleY(0.6); }
+
+.voice-example {
+  min-height: 74px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.voice-example small { font-size: 12px; letter-spacing: 0.06em; color: var(--ash); }
+.voice-example p { margin-top: 6px; font-size: 14px; line-height: 1.6; color: var(--bone); }
+
+.voice-illustrated-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+.voice-illustrated-controls > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--edge-static);
+  border-radius: 0;
+  background: var(--elevated);
+  color: var(--ash);
+}
+.voice-illustrated-controls > :is(.voice-hangup, .voice-end),
+.voice-end {
+  width: 46px;
+  height: 46px;
+  border-radius: 0;
+  color: var(--alert-red);
+  background: var(--alert-red-wash);
+  border: 1px solid var(--alert-red-line);
+}
+:is(.voice-hangup, .voice-end) svg { transform: rotate(135deg); }
+.voiceviz figcaption { padding: 4px 6px; }
+:lang(ko) .voice-slide { word-break: keep-all; overflow-wrap: anywhere; }
+
+/* Tablet (768px .. 1079px) & Short-Height Desktop (<= 860px): 2-column flow prevents any .deck clipping */
+@media (min-width: 768px) and (max-width: 1079px), (min-width: 768px) and (max-height: 860px) {
+  .p-scheherazade[data-vis="voice"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 44vw);
+    align-items: center;
+    gap: 28px;
+    height: auto;
+    min-height: 100dvh;
+    padding: calc(var(--mast-h) + 20px) var(--gutter) calc(var(--deck-h) + 28px);
+    overflow: visible;
+  }
+  .p-scheherazade[data-vis="voice"] .prod-veil { display: none; }
+  .p-scheherazade[data-vis="voice"] .stage {
+    position: relative;
+    inset: auto;
+    min-width: 0;
+  }
+  .p-scheherazade[data-vis="voice"] .sch-field { display: none; }
+  .p-scheherazade[data-vis="voice"] .vis.voiceviz.is-on {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    container-type: inline-size;
+  }
+  .p-scheherazade[data-vis="voice"] .prod-copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+  }
+  .voice-call { width: min(356px, 100%); padding: 18px 22px 16px; }
+  .voice-orbit { width: 112px; height: 112px; margin: 6px auto 10px; }
+  .voiceviz .voice-orbit img { width: 76px; height: 76px; }
+  .voice-name { font-size: 22px; }
+  .voice-wave { height: 40px; margin-top: 6px; }
+  .voice-example { min-height: 60px; padding-top: 10px; }
+  .voice-illustrated-controls { margin-top: 12px; }
+}
+
+/* Mobile (<= 767px): clean vertical document flow with zero magic-height clipping */
+@media (max-width: 767px) {
+  .p-scheherazade[data-vis="voice"] {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
+    padding: calc(var(--mast-h) + 16px) var(--gutter) calc(var(--deck-h) + 28px);
+    gap: 20px;
+    overflow: visible;
+  }
+  .p-scheherazade[data-vis="voice"] .prod-veil { display: none; }
+  .p-scheherazade[data-vis="voice"] .stage {
+    position: relative;
+    inset: auto;
+    padding: 0;
+  }
+  .p-scheherazade[data-vis="voice"] .sch-field { display: none; }
+  .p-scheherazade[data-vis="voice"] .vis.voiceviz.is-on {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    container-type: inline-size;
+  }
+  .p-scheherazade[data-vis="voice"] .prod-copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .voice-slide .voice-lead { font-size: 16px; line-height: 1.7; margin-top: 10px; }
+  .voice-choices { grid-template-columns: minmax(0, 1fr); margin-top: 14px; gap: 8px; }
+  .voice-choices button { padding: 8px 4px 8px 12px; }
+  .voice-choices button > span:not(.voice-choice-icon) { font-size: 14px; }
+  .voice-choices small { font-size: 12px; }
+  .voice-detail { margin-top: 12px; }
+  .voice-detail h3 { font-size: 16px; }
+  .voice-slide .voice-detail p { font-size: 16px; line-height: 1.7; }
+  .voice-slide .voice-setup { margin-top: 12px; font-size: 12px; }
+  .voice-call { width: min(320px, 100%); padding: 18px 20px 16px; }
+  .voice-orbit { margin: 4px auto 10px; width: 96px; height: 96px; }
   .voiceviz .voice-orbit img { width: 64px; height: 64px; }
   .voice-name { font-size: 20px; }
-  .voice-mode { font-size: 10px; }
-  .voice-wave { height: 34px; margin-top: 4px; }
-  .voice-wave i { height: calc(var(--bar) * .6); }
-  .voice-example { min-height: 56px; padding-top: 8px; }
-  .voice-example p { font-size: 11px; margin-top: 4px; }
-  .voice-illustrated-controls { margin-top: 8px; gap: 18px; }
-  .voice-illustrated-controls > span { width: 30px; height: 30px; }
-  .voice-illustrated-controls > .voice-hangup { width: 36px; height: 36px; }
-  .voiceviz svg { width: 16px; height: 16px; }
-}
-@media (max-width: 350px) {
-  .p-scheherazade[data-vis="voice"] { min-height: 1140px; }
+  .voice-mode { font-size: 12px; }
+  .voice-wave { height: 34px; margin-top: 6px; }
+  .voice-wave i { height: calc(var(--bar) * 0.65); }
+  .voice-example { min-height: 58px; padding-top: 10px; }
+  .voice-example p { font-size: 13px; margin-top: 4px; }
+  .voice-illustrated-controls { margin-top: 12px; gap: 16px; }
+  .voice-illustrated-controls > span { width: 38px; height: 38px; }
+  .voice-illustrated-controls > :is(.voice-hangup, .voice-end) { width: 44px; height: 44px; }
+  .voiceviz svg { width: 18px; height: 18px; }
 }

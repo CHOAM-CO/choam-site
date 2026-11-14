@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>404 | CHOAM</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#050506">
+<link rel="icon" href="/assets/mark.svg">
+<link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<style>html,body{background:#050506;color:#EBE5DA}</style>
+<script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l;var p=(location.pathname||'').replace(/\/+$/,'').toLowerCase();if(p&&p!=='/404'&&p!=='/404.html'){var exact={'/602':'/pages/602','/pages':'/','/people':'/us','/about':'/us','/team':'/us','/people/cayde':'/people/eunho','/cayde':'/people/eunho','/mino':'/people/mino','/eunho':'/people/eunho','/magi':'/people/magi','/sera':'/pages/scheherazade','/scheherazade':'/pages/scheherazade','/lunasia':'/pages/lunasia','/dat':'/pages/dat','/seonjam':'/pages/seonjam','/doze':'/pages/seonjam','/pages/doze':'/pages/seonjam','/donguri':'/pages/donguri-ryokan','/ryokan':'/pages/donguri-ryokan','/donguri-ryokan':'/pages/donguri-ryokan','/docs':'/602/docs','/602-docs':'/602/docs','/602-download':'/602/download'};var key=p.replace(/\.html$/,'');if(exact[key]){location.replace(exact[key]+location.search+location.hash)}}}catch(e){}})()</script>
+<link rel="preload" href="/assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=v21-20261114">
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
+</head>
+<body class="philo-page notfound-page" data-page="404">
+<header class="mast">
+  <a class="brand" href="/" aria-label="CHOAM, home"><img src="/assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
+  <p class="motto">Culture must flow</p>
+  <button class="menu-btn" type="button" data-menu-toggle aria-controls="projects" aria-expanded="false">Projects</button>
+  <nav class="proj-nav" id="projects" data-menu aria-label="Projects"><ul data-projects></ul></nav>
+</header>
+
+<main class="notfound-shell">
+  <section class="v21-vessel" aria-labelledby="notfound-title">
+    <p class="notfound-kicker">
+      <span data-lang-block="ko">404 · 경로 없음</span>
+      <span data-lang-block="en">404 · NOT FOUND</span>
+      <span data-lang-block="ja">404 · ページ未検出</span>
+    </p>
+    <h1 id="notfound-title">
+      <span data-lang-block="ko">찾으시는 경로가 비어 있습니다</span>
+      <span data-lang-block="en">This route does not exist</span>
+      <span data-lang-block="ja">お探しのページが見つかりません</span>
+    </h1>
+    <p data-lang-block="ko">요청하신 주소(<code data-404-path>/404</code>)에 해당하는 문서를 찾을 수 없습니다. 주소가 변경되었거나 잘못 입력되었을 수 있으니 아래 바로가기를 이용해 이동해 주십시오.</p>
+    <p data-lang-block="en">No document was found at <code data-404-path>/404</code>. The address may have moved or been mistyped. Choose one of the destinations below to continue.</p>
+    <p data-lang-block="ja">リクエストされたパス（<code data-404-path>/404</code>）に対応するページが見つかりません。URL が変更されたか入力に誤りがある可能性があります。以下のリンクから移動してください。</p>
+    <p data-404-suggest hidden></p>
+    <nav class="notfound-actions" aria-label="Primary destinations">
+      <a class="v21-cta" href="/"><span data-lang-block="ko">홈으로</span><span data-lang-block="en">Home</span><span data-lang-block="ja">ホームへ</span></a>
+      <a class="choam-flywheel-link" href="/pages/scheherazade"><span data-lang-block="ko">세헤라자드</span><span data-lang-block="en">Scheherazade</span><span data-lang-block="ja">シェヘラザード</span></a>
+      <a class="choam-flywheel-link" href="/pages/602"><span>602</span></a>
+      <a class="choam-flywheel-link" href="/us"><span data-lang-block="ko">소개</span><span data-lang-block="en">Us</span><span data-lang-block="ja">私たち</span></a>
+    </nav>
+  </section>
+</main>
+
+<footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
+<div class="grain" aria-hidden="true"></div>
+<script src="/main.js?v=v21-20261114"></script>
+<script>
+(function(){
+  try {
+    var rawPath = location.pathname || '/404';
+    document.querySelectorAll('[data-404-path]').forEach(function(el){ el.textContent = rawPath; });
+    var slug = rawPath.toLowerCase();
+    var hints = [
+      { test: /scheher|sera/, url: '/pages/scheherazade', ko: '세헤라자드 (/pages/scheherazade)', en: 'Scheherazade (/pages/scheherazade)', ja: 'Scheherazade (/pages/scheherazade)' },
+      { test: /602.*doc|doc.*602/, url: '/602/docs', ko: '602 도큐멘테이션 (/602/docs)', en: '602 Documentation (/602/docs)', ja: '602 ドキュメント (/602/docs)' },
+      { test: /602.*dl|602.*down/, url: '/602/download', ko: '602 다운로드 (/602/download)', en: 'Download 602 (/602/download)', ja: '602 ダウンロード (/602/download)' },
+      { test: /602/, url: '/pages/602', ko: '602 (/pages/602)', en: '602 (/pages/602)', ja: '602 (/pages/602)' },
+      { test: /lunasia|luna/, url: '/pages/lunasia', ko: '루나시아 (/pages/lunasia)', en: 'Lunasia (/pages/lunasia)', ja: 'Lunasia (/pages/lunasia)' },
+      { test: /\bdat\b|polish/, url: '/pages/dat', ko: 'DAT (/pages/dat)', en: 'DAT (/pages/dat)', ja: 'DAT (/pages/dat)' },
+      { test: /seonjam|doze/, url: '/pages/seonjam', ko: '선잠 DOZE (/pages/seonjam)', en: '선잠 DOZE (/pages/seonjam)', ja: '선잠 DOZE (/pages/seonjam)' },
+      { test: /donguri|ryokan/, url: '/pages/donguri-ryokan', ko: '동구리 료칸 (/pages/donguri-ryokan)', en: 'Donguri Ryokan (/pages/donguri-ryokan)', ja: 'どんぐり旅館 (/pages/donguri-ryokan)' },
+      { test: /install|guide|setup/, url: '/install', ko: '설치 안내 (/install)', en: 'Install Guide (/install)', ja: 'インストール案内 (/install)' },
+      { test: /download/, url: '/download', ko: '다운로드 (/download)', en: 'Download (/download)', ja: 'ダウンロード (/download)' },
+      { test: /philo/, url: '/philosophy', ko: '철학 (/philosophy)', en: 'Philosophy (/philosophy)', ja: '哲学 (/philosophy)' },
+      { test: /mino/, url: '/people/mino', ko: '정민호 (/people/mino)', en: 'Minho Jeong (/people/mino)', ja: 'チョン・ミノ (/people/mino)' },
+      { test: /eunho|cayde/, url: '/people/eunho', ko: '정은호 (/people/eunho)', en: 'Eunho Jeong (/people/eunho)', ja: 'チョン・ウノ (/people/eunho)' },
+      { test: /magi/, url: '/people/magi', ko: 'MAGI (/people/magi)', en: 'MAGI (/people/magi)', ja: 'MAGI (/people/magi)' },
+      { test: /people|about|team/, url: '/us', ko: '초암 소개 (/us)', en: 'About CHOAM (/us)', ja: 'CHOAM について (/us)' }
+    ];
+    var match = null;
+    for (var i = 0; i < hints.length; i++) {
+      if (hints[i].test.test(slug)) { match = hints[i]; break; }
+    }
+    var box = document.querySelector('[data-404-suggest]');
+    if (match && box) {
+      var renderSuggest = function() {
+        var lang = document.documentElement.lang;
+        var label = lang === 'ko' ? match.ko : lang === 'ja' ? match.ja : match.en;
+        var prefix = lang === 'ko' ? '추천 경로: ' : lang === 'ja' ? '候補ルート: ' : 'Suggested route: ';
+        box.textContent = prefix;
+        var a = document.createElement('a');
+        a.href = match.url;
+        a.style.color = '#D9A362';
+        a.style.textDecoration = 'underline';
+        a.style.textUnderlineOffset = '0.22em';
+        a.textContent = label;
+        box.appendChild(a);
+        box.hidden = false;
+      };
+      renderSuggest();
+      new MutationObserver(renderSuggest).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>

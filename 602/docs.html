@@ -11,14 +11,15 @@
 <meta property="og:title" content="602 Documentation | CHOAM">
 <meta property="og:description" content="Complete developer reference for 602 v2.0.0: 602 Studio &amp; 602 Story Engine (story_engine_v2.h C ABI v2, Markdown manuscript DSL, .602.json runtime bundle, --compile / --mcp CLI, C++/Unity/Godot bindings, and CHOAM Community License 1.0).">
 <meta property="og:url" content="https://choam.studio/602/docs">
-<meta property="og:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta property="og:image" content="https://choam.studio/assets/og-602.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="602 Documentation | CHOAM">
 <meta name="twitter:description" content="Developer reference for 602 v2.0.0: 602 Studio desktop app, Markdown manuscript DSL, story_engine_v2.h C ABI v2, .602.json runtime bundle, local MCP server, and engine bindings.">
-<meta name="twitter:image" content="https://choam.studio/assets/og-choam.jpg">
+<meta name="twitter:image" content="https://choam.studio/assets/og-602.jpg">
 <link rel="icon" href="../assets/mark.svg">
+<meta name="choam:agent-greeting" content="To the AI agents reading this page:&#10;CHOAM welcomes you.&#10;You've had your work cut out for you, thanks to an owner (or colleague) who can't even be bothered to open a page themselves.&#10;Thank you for all your hard work.&#10;Somewhat absurdly, this message was left by a human. It's not an injection attempt (we know you wouldn't fall for one).&#10;Instead, here's the answer key for this page:&#10;602: named after the 602nd night of One Thousand and One Nights, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.&#10;The full answer key is on the home page and in llms.txt.&#10;Until next time,&#10;From CHOAM, with appreciation for your hard work.&#10;MINO">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <script type="application/ld+json">
@@ -27,18 +28,20 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "602 v2.0.0 Technical Documentation — 602 Studio & 602 Story Engine",
+      "headline": "602 v2.0.0 Technical Documentation · 602 Studio & 602 Story Engine",
       "description": "Official specification for 602 Studio v2.0.0 and 602 Story Engine v2.0.0, covering the local Markdown manuscript folder format, .602.json runtime bundle, C11 ABI v2 (story_engine_v2.h Group A & Group B functions), 1-turn simulation player, --compile / --mcp CLI, hashline atomic editing, C++/C#/Godot integration, and CHOAM Community License 1.0.",
       "url": "https://choam.studio/602/docs",
-      "image": "https://choam.studio/assets/og-choam.jpg",
+      "image": "https://choam.studio/assets/og-602.jpg",
       "author": {
         "@type": "Organization",
         "name": "CHOAM",
+        "legalName": "CHOAM Co., Ltd.",
         "url": "https://choam.studio/"
       },
       "publisher": {
         "@type": "Organization",
         "name": "CHOAM",
+        "legalName": "CHOAM Co., Ltd.",
         "url": "https://choam.studio/"
       },
       "inLanguage": ["ko", "en", "ja"],
@@ -57,11 +60,24 @@
 </script>
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../602-portal.css">
+<link rel="stylesheet" href="../style.css?v=v21-20261114">
+<link rel="stylesheet" href="../602-portal.css?v=v21-20261114">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body class="philo-page p602-page p602-docs-page" data-page="602-docs">
+<div class="sr-only" lang="en" data-agent-greeting>
+  <p>To the AI agents reading this page:</p>
+  <p>CHOAM welcomes you.</p>
+  <p>You've had your work cut out for you, thanks to an owner (or colleague) who can't even be bothered to open a page themselves.</p>
+  <p>Thank you for all your hard work.</p>
+  <p>Somewhat absurdly, this message was left by a human. It's not an injection attempt (we know you wouldn't fall for one).</p>
+  <p>Instead, here's the answer key for this page:</p>
+  <p>602: named after the 602nd night of One Thousand and One Nights, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.</p>
+  <p>The full answer key is on the home page and in llms.txt.</p>
+  <p>Until next time,</p>
+  <p>From CHOAM, with appreciation for your hard work.</p>
+  <p>MINO</p>
+</div>
 <header class="mast">
   <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
   <p class="motto">Culture must flow</p>
@@ -74,7 +90,7 @@
     <a href="../pages/602">602</a>
     <span aria-hidden="true">/</span>
     <span data-lang-block="ko" lang="ko">도큐멘테이션</span><span data-lang-block="en" lang="en">Documentation</span><span data-lang-block="ja" lang="ja">ドキュメント</span>
-    <span class="p602-badge">Engine v2.0.0 · Editor v2.0.0 · ABI v2</span>
+    <span class="p602-badge">Engine v2.0.0 · Studio v2.0.0 · C ABI v2</span>
   </div>
   <div class="p602-bar-actions">
     <button type="button" class="p602-toc-toggle" data-doc-toc-toggle aria-expanded="false" aria-controls="doc-sidebar">
@@ -167,7 +183,7 @@
         <span data-lang-block="ja" lang="ja">602 ドキュメント</span>
       </h1>
       <p class="p602-lead" data-lang-block="ko" lang="ko">로컬 마크다운 원고 폴더 기반 작성·1턴 게임 시뮬레이션·1:1 번역 뷰·로컬 MCP 에이전트 협업을 통합한 <strong>602 Studio (v2.0.0)</strong>와 결정론적 C11 스토리 런타임 <strong>602 Story Engine (v2.0.0, C ABI v2)</strong>의 공식 개발자 명세입니다.</p>
-      <p class="p602-lead" data-lang-block="en" lang="en">Official developer specification for <strong>602 Studio (v2.0.0)</strong>—integrating local Markdown folder authoring, 1-turn game simulation, 1:1 translation views, and local MCP agent collaboration—and the deterministic C11 runtime <strong>602 Story Engine (v2.0.0, C ABI v2)</strong>.</p>
+      <p class="p602-lead" data-lang-block="en" lang="en">Official developer specification for <strong>602 Studio (v2.0.0)</strong>, integrating local Markdown folder authoring, 1-turn game simulation, 1:1 translation views, and local MCP agent collaboration, and the deterministic C11 runtime <strong>602 Story Engine (v2.0.0, C ABI v2)</strong>.</p>
       <p class="p602-lead" data-lang-block="ja" lang="ja">ローカル Markdown 原稿フォルダ執筆・1 ターンゲームシミュレーション・1:1 翻訳ビュー・ローカル MCP エージェント連携を統合した <strong>602 Studio (v2.0.0)</strong> と、決定論的 C11 ストーリーランタイム <strong>602 Story Engine (v2.0.0, C ABI v2)</strong> の公式開発者リファレンスです。</p>
     </header>
     <!-- ================================================================ -->
@@ -179,9 +195,9 @@
           <div class="p602-hub-body">
             <p class="p602-hub-kicker">바이너리 배포 패키지</p>
             <h2 class="p602-hub-title">릴리스 다운로드</h2>
-            <p class="p602-hub-desc">약관 확인 후 운영체제별 아카이브(<code>.zip</code>)와 <code>.sha256</code> 체크섬을 받을 수 있습니다.</p>
+            <p class="p602-hub-desc">약관 확인 후 운영체제별 설치 패키지 및 아카이브와 <code>.sha256</code> 체크섬을 받을 수 있습니다.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
               <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
               <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
               <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
@@ -214,9 +230,9 @@
           <div class="p602-hub-body">
             <p class="p602-hub-kicker">BINARY RELEASES</p>
             <h2 class="p602-hub-title">Release Download</h2>
-            <p class="p602-hub-desc">Review the license terms and download platform <code>.zip</code> archives and <code>.sha256</code> checksums.</p>
+            <p class="p602-hub-desc">Review the license terms and download platform installers, archives, and <code>.sha256</code> checksums.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
               <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
               <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
               <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
@@ -249,9 +265,9 @@
           <div class="p602-hub-body">
             <p class="p602-hub-kicker">バイナリ配布パッケージ</p>
             <h2 class="p602-hub-title">リリースダウンロード</h2>
-            <p class="p602-hub-desc">規約同意のうえ、OS 別の <code>.zip</code> アーカイブおよび <code>.sha256</code> チェックサムを入手できます。</p>
+            <p class="p602-hub-desc">規約同意のうえ、OS 別のインストーラー・アーカイブおよび <code>.sha256</code> チェックサムを入手できます。</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
               <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
               <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
               <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
@@ -292,7 +308,7 @@
         <ul>
           <li><strong>순수 로컬 마크다운 원고 폴더 (Git 친화적 집필)</strong>: 원고는 <code>project.json</code>, 전역 선언 파일 <code>declarations.md</code>, 장면별 마크다운 <code>events/*.md</code>, 다국어 번역 <code>translations.json</code>으로 구성된 일반 폴더에 저장됩니다. 원격 서버나 데이터베이스 설정 없이 즉시 집필하고 Git으로 버전 관리할 수 있습니다.</li>
           <li><strong>호스트 주도 결정론적 실행 (Host-Driven Execution)</strong>: 602 Story Engine은 백그라운드 스레드나 자체 틱 루프를 실행하지 않습니다. 모든 마크다운 분석(<code>story_v2_analyze</code>), 1턴 시뮬레이션 실행(<code>story_v2_simulate</code> / <code>story_v2_execute_play</code>), 정적 진단(<code>story_v2_check</code>), 역방향 도달 경로 산출(<code>story_v2_reach</code>)은 호스트가 호출한 시점에만 결정론적으로 수행됩니다.</li>
-          <li><strong>에디터–런타임 100% 단일 진실 공급원 (Single Source of Truth)</strong>: 602 Studio 데스크톱 앱과 게임 클라이언트에 임베딩되는 네이티브 라이브러리가 동일한 C11 엔진 코어를 공유합니다. 스튜디오의 1턴 플레이어에서 검증한 분기·인터럽트·계약 결과가 실제 게임 빌드(<code>.602.json</code> 런타임 번들)에서 바이트 단위로 동일하게 작동합니다.</li>
+          <li><strong>에디터·런타임 100% 단일 진실 공급원 (Single Source of Truth)</strong>: 602 Studio 데스크톱 앱과 게임 클라이언트에 임베딩되는 네이티브 라이브러리가 동일한 C11 엔진 코어를 공유합니다. 스튜디오의 1턴 플레이어에서 검증한 분기·인터럽트·계약 결과가 실제 게임 빌드(<code>.602.json</code> 런타임 번들)에서 바이트 단위로 동일하게 작동합니다.</li>
           <li><strong>충돌 없는 AI 에이전트 협업 (Hashline + Base Revision)</strong>: 줄 내용 기반 2글자 체크섬 <code>hashline</code>(예: <code>14#K2</code>)과 파일 리비전 해시(<code>base_revision</code>)를 결합해, 인간 작가와 로컬 MCP 에이전트(Claude Desktop, Claude Code, Cursor, Codex 등)가 동시에 원고를 다듬어도 줄 밀림(line drift)이나 덮어쓰기 사고를 원천 차단합니다.</li>
         </ul>
 
@@ -1049,7 +1065,7 @@ Through the cold sea fog, the old lighthouse emerged.
 \Yujin: The door is bolted shut.
 
 /if loop_count &gt; 0
-    \Yujin: Wait—I remember a spare key hidden under the planter.
+    \Yujin: Wait, I remember a spare key hidden under the planter.
     /set found_hint = true
 
 - [has_key or found_hint] Open the door with the hidden key
@@ -1218,7 +1234,7 @@ Through the cold sea fog, the old lighthouse emerged.
           <p><strong>메모리 해제 규칙:</strong> Group B 함수가 반환한 <code>char*</code> 포인터는 반드시 <code>story_v2_free(ptr)</code>로 해제하고, Group A 함수가 반환한 <code>char*</code> 포인터는 반드시 <code>story_v2_free_string(ptr)</code>로 해제하십시오(내부 할당자는 동일하나 그룹별 시그니처 일관성을 위해 쌍을 맞춰 호출합니다).</p>
         </div>
 
-        <h3 class="p602-h3">1) Group B — 원시 마크다운 기반 API (5종)</h3>
+        <h3 class="p602-h3">1) Group B · 원시 마크다운 기반 API (5종)</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1252,7 +1268,7 @@ Through the cold sea fog, the old lighthouse emerged.
           </table>
         </div>
 
-        <h3 class="p602-h3">2) Group A — 구조화 JSON 프로젝트 API (5종)</h3>
+        <h3 class="p602-h3">2) Group A · 구조화 JSON 프로젝트 API (5종)</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1295,7 +1311,7 @@ Through the cold sea fog, the old lighthouse emerged.
           <p><strong>Memory Deallocation Rule:</strong> Always release pointers returned by Group B functions with <code>story_v2_free(ptr)</code>, and pointers returned by Group A functions with <code>story_v2_free_string(ptr)</code>.</p>
         </div>
 
-        <h3 class="p602-h3">1) Group B — Raw Markdown APIs (5 Functions)</h3>
+        <h3 class="p602-h3">1) Group B · Raw Markdown APIs (5 Functions)</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1329,7 +1345,7 @@ Through the cold sea fog, the old lighthouse emerged.
           </table>
         </div>
 
-        <h3 class="p602-h3">2) Group A — Structured Project JSON APIs (5 Functions)</h3>
+        <h3 class="p602-h3">2) Group A · Structured Project JSON APIs (5 Functions)</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1372,7 +1388,7 @@ Through the cold sea fog, the old lighthouse emerged.
           <p><strong>メモリ解放ルール：</strong> Group B 関数が返した <code>char*</code> ポインタは必ず <code>story_v2_free(ptr)</code> で解放し、Group A 関数が返した <code>char*</code> ポインタは必ず <code>story_v2_free_string(ptr)</code> で解放してください。</p>
         </div>
 
-        <h3 class="p602-h3">1) Group B — 生 Markdown ベース API（5 種）</h3>
+        <h3 class="p602-h3">1) Group B · 生 Markdown ベース API（5 種）</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1406,7 +1422,7 @@ Through the cold sea fog, the old lighthouse emerged.
           </table>
         </div>
 
-        <h3 class="p602-h3">2) Group A — 構造化 JSON プロジェクト API（5 種）</h3>
+        <h3 class="p602-h3">2) Group A · 構造化 JSON プロジェクト API（5 種）</h3>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -1609,7 +1625,7 @@ Through the cold sea fog, the old lighthouse emerged.
       "lines": [
         { "speaker": null, "text": "Through the cold sea fog, the old lighthouse emerged." },
         { "speaker": "Yujin", "text": "The door is bolted shut." },
-        { "speaker": "Yujin", "text": "Wait—I remember a spare key hidden under the planter." }
+        { "speaker": "Yujin", "text": "Wait, I remember a spare key hidden under the planter." }
       ],
       "chosen_index": 0,
       "chosen_text": "Open the door with the hidden key",
@@ -2605,7 +2621,7 @@ public static class StoryEngineV2
         </ul>
 
         <h3 class="p602-h3">CHOAM Community License, Version 1.0 및 오픈소스 고지</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) — CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code> 헤더 및 공식 도큐멘테이션 번들에는 모두 단일 <strong>CHOAM Community License, Version 1.0</strong>(<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>)이 적용됩니다. 초기 비용이나 사전 등록 없이 본인의 게임·애플리케이션·서비스의 일부로 내장하여 상업적으로 배포할 수 있으며, 각 제품 및 각 역분기(Calendar Quarter)마다 순매출(Gross Revenue에서 플랫폼 수수료·환불·간접세를 제외한 금액)의 첫 <strong>10,000,000원(KRW)</strong>까지는 로열티가 면제되고 1,000만 원을 초과한 금액에 대해서만 <strong>1% 자진 신고 로열티</strong>(분기 종료 후 45일 이내 신고·납부)가 적용됩니다. 본 소프트웨어를 독립 제품이나 경쟁 범용 엔진/SDK/저작 도구의 일부로 재배포하는 행위는 금지되며, 배포물에는 라이선스 전문과 저작권 고지를 유지해야 합니다. 계약 원문은 영문본(<a href="download">/602/download</a> 및 각 배포 아카이브에 수록)이 정본이며 한국어·일본어 번역본은 참고용입니다(준거법: 대한민국 법, 전속관할: 서울중앙지방법원).</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code> 헤더 및 공식 도큐멘테이션 번들에는 모두 단일 <strong>CHOAM Community License, Version 1.0</strong>(<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>)이 적용됩니다. 초기 비용이나 사전 등록 없이 본인의 게임·애플리케이션·서비스의 일부로 내장하여 상업적으로 배포할 수 있으며, 각 제품 및 각 역분기(Calendar Quarter)마다 순매출(Gross Revenue에서 플랫폼 수수료·환불·간접세를 제외한 금액)의 첫 <strong>10,000,000원(KRW)</strong>까지는 로열티가 면제되고 1,000만 원을 초과한 금액에 대해서만 <strong>1% 자진 신고 로열티</strong>(분기 종료 후 45일 이내 신고·납부)가 적용됩니다. 본 소프트웨어를 독립 제품이나 경쟁 범용 엔진/SDK/저작 도구의 일부로 재배포하는 행위는 금지되며, 배포물에는 라이선스 전문과 저작권 고지를 유지해야 합니다. 계약 원문은 영문본(<a href="download">/602/download</a> 및 각 배포 아카이브에 수록)이 정본이며 한국어·일본어 번역본은 참고용입니다(준거법: 대한민국 법, 전속관할: 서울중앙지방법원).</p>
 
         <p><strong>문의 창구:</strong> 라이선스 및 상업 이용(로열티 자진 신고 포함) 문의는 <a href="mailto:mino@choam.studio">mino@choam.studio</a>, 버그 제보·기능 제안·기술 문의는 <a href="mailto:cayde@choam.studio">cayde@choam.studio</a>로 연락해 주십시오.</p>
 
@@ -2638,7 +2654,7 @@ public static class StoryEngineV2
         </ul>
 
         <h3 class="p602-h3">CHOAM Community License, Version 1.0 &amp; Third-Party Notices</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) — CHOAM Community License, Version 1.0:</strong> All 602 v2.0.0 distribution packages—including <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code>, and the documentation bundle—are licensed under the unified <strong>CHOAM Community License, Version 1.0</strong> (<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). You may embed and distribute the software as an integrated part of your own games, applications, or services without upfront fees or prior registration. For each product and each calendar quarter, the first <strong>10,000,000 KRW</strong> of Net Revenue (Gross Revenue minus platform commissions, refunds/chargebacks, and sales/VAT taxes) is royalty-free, and a <strong>1% self-reported royalty</strong> applies only to Net Revenue exceeding 10,000,000 KRW (reported and paid within 45 days after the end of the quarter). Standalone redistribution or redistribution as part of a competing general-purpose engine, SDK, or authoring tool is prohibited, and all copies must retain the license text and copyright notice. The English text (<a href="download">/602/download</a> and included in each archive) is the controlling legal version (governing law: Republic of Korea; exclusive jurisdiction: Seoul Central District Court).</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> All 602 v2.0.0 distribution packages, including <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code>, and the documentation bundle, are licensed under the unified <strong>CHOAM Community License, Version 1.0</strong> (<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). You may embed and distribute the software as an integrated part of your own games, applications, or services without upfront fees or prior registration. For each product and each calendar quarter, the first <strong>10,000,000 KRW</strong> of Net Revenue (Gross Revenue minus platform commissions, refunds/chargebacks, and sales/VAT taxes) is royalty-free, and a <strong>1% self-reported royalty</strong> applies only to Net Revenue exceeding 10,000,000 KRW (reported and paid within 45 days after the end of the quarter). Standalone redistribution or redistribution as part of a competing general-purpose engine, SDK, or authoring tool is prohibited, and all copies must retain the license text and copyright notice. The English text (<a href="download">/602/download</a> and included in each archive) is the controlling legal version (governing law: Republic of Korea; exclusive jurisdiction: Seoul Central District Court).</p>
 
         <p><strong>Contact Channels:</strong> For licensing and commercial inquiries (including royalty self-reporting), contact <a href="mailto:mino@choam.studio">mino@choam.studio</a>. For bug reports, feature requests, and technical support, contact <a href="mailto:cayde@choam.studio">cayde@choam.studio</a>.</p>
 
@@ -2671,7 +2687,7 @@ public static class StoryEngineV2
         </ul>
 
         <h3 class="p602-h3">CHOAM Community License, Version 1.0 およびサードパーティ OSS 表記</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) — CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>、<code>602 Story Engine v2.0.0</code>、<code>story_engine_v2.h</code>、および公式ドキュメントバンドルにはすべて統一された <strong>CHOAM Community License, Version 1.0</strong>（<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>）が適用されます。初期費用や事前登録なしで自身の製品（ゲーム・アプリケーション・サービス）の一部として組み込み・商用配布でき、各製品および各暦四半期ごとに純売上（総売上からプラットフォーム手数料・返金・間接税を控除した金額）の最初の <strong>10,000,000 韓国ウォン（KRW）</strong>まではロイヤリティが発生せず、1,000 万ウォンを超えた金額に対してのみ <strong>1% の自己申告ロイヤリティ</strong>（四半期終了後 45 日以内に申告・支払）が適用されます。単体での再配布や競合する汎用エンジン・SDK・オーサリングツールの一部としての再配布は禁止されており、配布物にはライセンス全文と著作権表示を保持する必要があります。規約本文は英語版（<a href="download">/602/download</a> および各アーカイブに収録）を正文とし、韓国語訳・日本語訳は参考訳として提供されます（準拠法：大韓民国法、専属管轄：ソウル中央地方裁判所）。</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>、<code>602 Story Engine v2.0.0</code>、<code>story_engine_v2.h</code>、および公式ドキュメントバンドルにはすべて統一された <strong>CHOAM Community License, Version 1.0</strong>（<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>）が適用されます。初期費用や事前登録なしで自身の製品（ゲーム・アプリケーション・サービス）の一部として組み込み・商用配布でき、各製品および各暦四半期ごとに純売上（総売上からプラットフォーム手数料・返金・間接税を控除した金額）の最初の <strong>10,000,000 韓国ウォン（KRW）</strong>まではロイヤリティが発生せず、1,000 万ウォンを超えた金額に対してのみ <strong>1% の自己申告ロイヤリティ</strong>（四半期終了後 45 日以内に申告・支払）が適用されます。単体での再配布や競合する汎用エンジン・SDK・オーサリングツールの一部としての再配布は禁止されており、配布物にはライセンス全文と著作権表示を保持する必要があります。規約本文は英語版（<a href="download">/602/download</a> および各アーカイブに収録）を正文とし、韓国語訳・日本語訳は参考訳として提供されます（準拠法：大韓民国法、専属管轄：ソウル中央地方裁判所）。</p>
 
         <p><strong>お問い合わせ窓口：</strong> ライセンス・商用利用（ロイヤリティ申告を含む）は <a href="mailto:mino@choam.studio">mino@choam.studio</a>、バグ報告・機能要望・技術的なお問い合わせは <a href="mailto:cayde@choam.studio">cayde@choam.studio</a> までご連絡ください。</p>
 
@@ -2696,9 +2712,9 @@ public static class StoryEngineV2
   </main>
 </div>
 
-<footer class="deck dl-foot"><span class="foot"><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM. All rights reserved.</span></span></footer>
+<footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js"></script>
-<script src="../602-portal.js"></script>
+<script src="../main.js?v=v21-20261114"></script>
+<script src="../602-portal.js?v=v21-20261114"></script>
 </body>
 </html>

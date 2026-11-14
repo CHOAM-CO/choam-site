@@ -1,19 +1,22 @@
 name: release-json
 
-# Keeps release.json (the download buttons' installer list) on the latest Scheherazade release.
-# Runs every 15 minutes and on demand; commits only when the release changed, then asks Pages to rebuild.
+# Keeps release.json (Scheherazade) and 602-release.json (602 Studio & Story Engine) synced to the latest releases.
+# Runs every 6 hours and on demand via workflow_dispatch; commits only when a manifest changed.
+# Pushing to main automatically triggers the GitHub Pages deployment workflow without duplicate API build calls.
 on:
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
 
 concurrency:
   group: release-json
   cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   update:
@@ -22,20 +25,36 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Resolve the latest release
+          node-version: '22'
+      - name: Resolve the latest Scheherazade release
         env:
           GH_TOKEN: ${{ github.token }}
         run: node .github/release-json.mjs
-      - name: Commit and rebuild Pages if it changed
+      - name: Resolve the latest 602 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node .github/602-release-json.mjs
+      - name: Commit updated release manifests
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain -- release.json)" ]; then echo "release.json unchanged"; exit 0; fi
+          if [ -z "$(git status --porcelain -- release.json 602-release.json)" ]; then
+            echo "release.json and 602-release.json unchanged"
+            exit 0
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add release.json
-          git commit -m "release.json: $(node -p "require('./release.json').tag_name")"
+          MSG_PARTS=()
+          if [ -n "$(git status --porcelain -- release.json)" ]; then
+            SERA_TAG=$(node -p "JSON.parse(require('node:fs').readFileSync('./release.json', 'utf8')).tag_name")
+            MSG_PARTS+=("release.json: ${SERA_TAG}")
+          fi
+          if [ -n "$(git status --porcelain -- 602-release.json)" ]; then
+            E602_TAG=$(node -p "JSON.parse(require('node:fs').readFileSync('./602-release.json', 'utf8')).tag_name")
+            MSG_PARTS+=("602-release.json: ${E602_TAG}")
+          fi
+          COMMIT_MSG=$(IFS=', '; echo "${MSG_PARTS[*]}")
+          git add release.json 602-release.json
+          git commit -m "${COMMIT_MSG}"
           git pull --rebase --quiet origin main
           git push origin HEAD:main
-          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || echo "Pages build request failed; the push alone usually rebuilds"
