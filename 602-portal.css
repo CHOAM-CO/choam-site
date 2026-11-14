@@ -1322,6 +1322,10 @@ input[data-doc-filter]:focus {
   .p602-crumbs .p602-badge {
     display: none;
   }
+  .p602-badge {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
   .p602-bar {
     padding: 8px var(--gutter);
     gap: 8px 10px;

@@ -1861,6 +1861,13 @@ body.notfound-page,
   line-height: 1.2;
   letter-spacing: 0.04em;
   color: var(--bone);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+:lang(ko) .notfound-shell .v21-vessel p {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .notfound-shell .v21-vessel p {
   margin-top: 14px;
@@ -1987,7 +1994,19 @@ body.notfound-page,
   .next-ch small { font-size: 12px; letter-spacing: 0.08em; }
   .next-ch span { font-size: 12px; letter-spacing: 0.08em; }
   .deck:not(.dl-foot) .foot { display: none; }
-  .deck.dl-foot .foot { white-space: normal; flex-wrap: wrap; gap: 4px 16px; }
+  .dl-foot,
+  .deck.dl-foot {
+    height: auto;
+    min-height: var(--deck-h);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .deck.dl-foot .foot {
+    white-space: normal;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    line-height: 1.35;
+  }
 
   .intro-title { top: calc(var(--mast-h) + (100% - var(--mast-h) - var(--deck-h)) * 0.17); }
   .intro-wm { font-size: 15.5vw; letter-spacing: 0.26em; margin-right: -0.26em; }
@@ -2003,16 +2022,71 @@ body.notfound-page,
   .intro-clock { grid-area: clock; font-size: 12px; letter-spacing: 0.14em; }
   .intro-go { grid-area: next; justify-self: center; gap: 56px; }
 
-  /* Product detail mobile stack */
-  .prod { --col: auto; }
-  .prod-copy {
-    left: var(--gutter);
-    right: var(--gutter);
-    width: auto;
-    top: auto;
-    bottom: calc(var(--deck-h) + 14px);
-    justify-content: flex-end;
+  /* Product detail mobile stack: unified vertical flex layout across all 6 detail pages
+     so tall copy never clips under .mast and framed visuals never collapse to 0px height */
+  .prod {
+    --col: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
   }
+  .prod .prod-copy,
+  .prod .prod-copy:has(.get-menu:not([hidden])) {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    justify-content: flex-start;
+  }
+  /* Framed visual slides (Scheherazade 1-4, 602 1-3, Lunasia 1-3, Seonjam gameplay screen) */
+  .prod:not([data-vis="art"]):not(.dat-comparing) {
+    padding: calc(var(--mast-h) + 16px) var(--gutter) calc(var(--deck-h) + 28px);
+    gap: 20px;
+  }
+  .prod:not([data-vis="art"]):not(.dat-comparing) .prod-veil,
+  .prod:not([data-vis="art"]):not(.dat-comparing) .field {
+    display: none;
+  }
+  .prod:not([data-vis="art"]):not(.dat-comparing) .stage {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    background: transparent;
+  }
+  .prod:not([data-vis="art"]):not(.dat-comparing) .vis {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    gap: 8px;
+    container-type: inline-size;
+    pointer-events: auto;
+  }
+  .prod:not([data-vis="art"]):not(.dat-comparing) .vis:not(.is-on) {
+    display: none;
+  }
+  /* Full-bleed key art slides (DAT Creative 1-5, Seonjam 1, Donguri Ryokan 1-5) */
+  .prod[data-vis="art"] {
+    justify-content: flex-end;
+    padding: calc(var(--mast-h) + 120px) var(--gutter) calc(var(--deck-h) + 18px);
+    overflow: hidden;
+  }
+  .prod[data-vis="art"] .stage {
+    position: absolute;
+    inset: 0;
+  }
+  .prod[data-vis="art"] .vis {
+    display: none;
+  }
+
   .cap-title { margin-top: 10px; font-size: clamp(24px, 6.8vw, 32px); letter-spacing: 0.1em; }
   .cap-ko { margin-top: 6px; font-size: 14px; }
   .cap-line { margin-top: 8px; font-size: 16px; }
@@ -2025,60 +2099,40 @@ body.notfound-page,
   .dot i { width: 12px; }
   .count { height: 44px; font-size: 12px; letter-spacing: 0.14em; }
   .prod-act { min-width: 96px; height: 44px; padding: 0 18px; font-size: 15px; }
-  .prod .vis { inset: calc(var(--mast-h) + 8px) var(--gutter) calc(100% - var(--copy-top, 52%) + 14px); gap: 8px; }
-  .vis img, .vis svg { width: min(100cqw, calc((100cqh - 22px) * var(--ar))); }
-  .vis figcaption { font-size: 12px; letter-spacing: 0.16em; }
+  .vis img, .vis svg { width: 100%; height: auto; max-height: none; }
+  .vis figcaption { font-size: 12px; letter-spacing: 0.14em; text-align: center; }
 
   .gal { --gg: 10px; }
   .gal-pair { --fill: 1; }
   .gal:has(figcaption) { --capH: 22px; }
   .gal:has(.gn) { --gn: 24px; }
+  .gal-row,
+  .gal-pair .gal-row {
+    --h: min(44dvh, calc((100cqw - (var(--n) - 1) * var(--gg)) / var(--sar)));
+  }
   .gi { gap: 6px; }
   .gn { font-size: 12px; }
 
-  /* Chat figure mobile legibility */
-  .chatviz .cv { padding: 14px 16px; gap: 10px; }
-  .chatviz .cv-b { font-size: max(13px, 3.8cqw); padding: 8px 12px; }
-  .chatviz .cv-sheet { display: none; }
+  /* Chat figure mobile legibility: fluid natural height, zero 100cqh collapse */
+  .chatviz .cv {
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    padding: 16px;
+    gap: 10px;
+  }
+  .chatviz .cv-b { font-size: 14px; line-height: 1.55; padding: 9px 12px; max-width: 92%; }
+  .chatviz .cv-b em { font-size: 12px; margin-left: 8px; }
+  .chatviz .cv-sys { padding: 10px 12px; gap: 4px; }
+  .chatviz .k { font-size: 12px; }
+  .chatviz .l { font-size: 12.5px; overflow-wrap: anywhere; }
+  .chatviz .cv-sheet { display: flex; padding-top: 10px; gap: 6px; }
+  .chatviz .cv-sheet .r { gap: 8px; }
+  .chatviz .cv-sheet .n { font-size: 12px; }
 
-  /* Lunasia mobile stack (390x844 fix): product header/copy FIRST, compact 2x2 tabs + vessel SECOND */
-  .prod#lunasia {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: 100dvh;
-    padding: calc(var(--mast-h) + 16px) var(--gutter) calc(var(--deck-h) + 28px);
-    gap: 20px;
-    overflow: visible;
-  }
-  .prod#lunasia .prod-veil { display: none; }
-  .prod#lunasia .prod-copy {
-    order: 1;
-    position: relative;
-    inset: auto;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    max-height: none;
-    overflow: visible;
-  }
-  .prod#lunasia .stage {
-    order: 2;
-    position: relative;
-    inset: auto;
-    padding: 0;
-    background: transparent;
-  }
-  .prod#lunasia .lun-field { display: none; }
-  .prod#lunasia .vis {
-    position: relative;
-    inset: auto;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    container-type: normal;
-  }
-  .prod#lunasia .vis:not(.is-on) { display: none; }
+  /* Lunasia mobile stack: keep product header/copy FIRST, compact 2x2 tabs + vessel SECOND */
+  .prod#lunasia .prod-copy { order: 1; }
+  .prod#lunasia .stage { order: 2; }
   .lunviz .lv,
   .lun-panel {
     width: 100%;
@@ -2118,34 +2172,39 @@ body.notfound-page,
   .lunviz .lv-metrics { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .lunviz .lv-scene + .lv-scene, .lunviz .lv-foot { display: none; }
 
-  /* Landing plates mobile */
+  /* Landing plates mobile: anchor .figure strictly above --copy-top so short screens (390x664) never overlap */
   main.plates { --col: auto; }
+  .plate { min-height: max(100dvh, 620px); }
   .plate .caption {
     left: var(--gutter);
     right: var(--gutter);
     width: auto;
-    bottom: calc(var(--deck-h) + 32px);
-    max-height: calc(100dvh - var(--mast-h) - var(--deck-h) - 56px);
-    gap: 10px;
+    bottom: calc(var(--deck-h) + 22px);
+    max-height: calc(100dvh - var(--mast-h) - var(--deck-h) - 44px);
+    gap: 8px;
   }
-  .plate .cap-title { font-size: 28px; line-height: 1.15; letter-spacing: 0.12em; }
-  .plate .cap-ko { margin-top: 6px; font-size: 14px; }
+  .plate .cap-title { font-size: 27px; line-height: 1.15; letter-spacing: 0.12em; }
+  .plate .cap-ko { margin-top: 4px; font-size: 14px; }
   .plate .cap-line { font-size: 16px; line-height: 1.4; }
-  .plate .cap-text { width: 100%; font-size: 16px; line-height: 1.72; }
-  .plate .cap-acts { margin-top: 6px; }
-  .plate .figure { bottom: 56%; height: min(32vh, 56vw); left: 50%; }
+  .plate .cap-text { width: 100%; font-size: 15.5px; line-height: 1.68; }
+  .plate .cap-acts { margin-top: 4px; }
+  .plate .figure {
+    left: 50%;
+    bottom: calc(100% - var(--copy-top, 52%) + 16px);
+    height: min(30dvh, 48vw, max(84px, calc(var(--copy-top, 52%) - var(--mast-h) - 28px)));
+  }
   .plate:has(.get-menu:not([hidden])) .figure {
     bottom: calc(100% - var(--copy-top, 52%) + 16px);
-    height: min(36vh, 60vw, max(0px, calc(var(--copy-top, 52%) - var(--mast-h) - 32px)));
+    height: min(32dvh, 52vw, max(0px, calc(var(--copy-top, 52%) - var(--mast-h) - 28px)));
   }
   .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) {
-    padding-top: calc(40dvh + 24px);
+    padding-top: calc(36dvh + 20px);
     padding-bottom: calc(var(--deck-h) + 36px);
   }
   .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .figure {
-    top: calc(40dvh - min(36dvh, 60vw));
+    top: calc(36dvh - min(30dvh, 50vw));
     bottom: auto;
-    height: min(36dvh, 60vw);
+    height: min(30dvh, 50vw);
   }
   .plate:is([data-plate="scheherazade"], [data-plate="602"]):has(.get-menu:not([hidden])) .caption {
     left: auto;
@@ -2166,7 +2225,7 @@ body.notfound-page,
   /* Download page mobile */
   .dl .sch-field { position: absolute; }
   .dl .sch-icon { position: absolute; top: calc(var(--mast-h) + 28px); left: var(--gutter); transform: none; width: 38vw; }
-  .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 38vw + 56px) var(--gutter) 100px; justify-content: flex-start; }
+  .dl-body { margin-left: 0; padding: calc(var(--mast-h) + 38vw + 52px) var(--gutter) 112px; justify-content: flex-start; }
   .dl-btns { max-width: none; }
   .dlbtn { width: 100%; flex-wrap: wrap; }
 
@@ -2185,6 +2244,7 @@ body.notfound-page,
   .inst-code code { white-space: pre-wrap; }
 
   /* 404 mobile */
+  .notfound-shell { padding: calc(var(--mast-h) + 28px) var(--gutter) calc(var(--deck-h) + 52px); }
   .v21-vessel { padding: 24px 20px 22px; }
 }
 
@@ -2192,9 +2252,6 @@ body.notfound-page,
   .mast { gap: 6px; }
   .brand { font-size: 13px; letter-spacing: 0.2em; margin-right: -0.2em; gap: 6px; }
   .brand img { width: 18px; height: 18px; }
-  .prod-copy:has(.prod-act) { top: calc(var(--mast-h) + 10px); }
-  .prod-copy:has(.prod-act) .rail { min-height: 0; overflow-y: auto; }
-  .prod-copy:has(.prod-act) .rail-ctl { flex-shrink: 0; }
 }
 
 /* ---------- Japanese Typography Rules ---------- */

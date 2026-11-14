@@ -287,15 +287,20 @@
     letter-spacing: 0.04em;
   }
   #dat .rail, #dat.dat-comparing .rail { margin-top: 10px; }
-  #dat.dat-comparing { height: 100vh; height: 100dvh; min-height: 580px; }
-  #dat.dat-comparing .stage { position: absolute; padding: 0; }
+  #dat.dat-comparing {
+    justify-content: flex-end;
+    height: auto;
+    min-height: max(100dvh, 740px);
+    padding: calc(var(--mast-h) + 280px) var(--gutter) calc(var(--deck-h) + 16px);
+    overflow: hidden;
+  }
+  #dat.dat-comparing .stage { position: absolute; inset: 0; padding: 0; }
+  #dat.dat-comparing .vis:not(.dat-inline) { display: none; }
   #dat.dat-comparing .dat-inline { position: absolute; inset: 0; margin: 0; }
   #dat.dat-comparing .prod-copy {
-    position: absolute;
-    left: var(--gutter);
-    right: var(--gutter);
-    top: auto;
-    bottom: calc(var(--deck-h) + 12px);
+    position: relative;
+    inset: auto;
+    width: 100%;
     margin: 0;
     padding: 0;
   }

@@ -1749,12 +1749,12 @@
     });
     const plates = PROJECTS.map(p => document.getElementById(p.id)).filter(Boolean);
     track.querySelectorAll('.get-wrap').forEach(wireGet);
-    /* Expanding the in-flow chooser lifts the caption; keep its mobile artwork above the copy too. */
-    const getPlates = plates.filter(el => el.querySelector('.get-menu'));
-    const getCopyTop = new ResizeObserver(() => getPlates.forEach(el => {
+    /* Measure every plate caption offsetTop so mobile figures (.figure / .get-menu) stay strictly above copy */
+    const copyPlates = plates.filter(el => el.querySelector('.caption'));
+    const getCopyTop = new ResizeObserver(() => copyPlates.forEach(el => {
       el.style.setProperty('--copy-top', `${el.querySelector('.caption').offsetTop}px`);
     }));
-    getPlates.forEach(el => { getCopyTop.observe(el); getCopyTop.observe(el.querySelector('.caption')); });
+    copyPlates.forEach(el => { getCopyTop.observe(el); getCopyTop.observe(el.querySelector('.caption')); });
 
     /* the index rail: 00 is the opening, then one line per project; shown once the opening has scrolled away */
     const rail = document.createElement('nav');
