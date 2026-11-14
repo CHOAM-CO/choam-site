@@ -1,5 +1,5 @@
 /* About Us (us.html, people pages): slanted typographic portrait gallery and shared View Transition motion.
-   Canonical CHOAM v2.1 palette: #050506 void ground, muted grayscale at rest, #D9A362 brass highlight on hover/focus/selection,
+   Evangelion SEELE ("SOUND ONLY") homage on /us: #050506 void ground, grayscale at rest, #FE0000 red on hover/focus/selection,
    zero shadows, zero hover translation, scale = 1.000 fixed. */
 @view-transition { navigation: auto; }
 @keyframes choam-profile-in { from { opacity: 0; } to { opacity: 1; } }
@@ -153,17 +153,20 @@ body.us-page {
   clip-path: polygon(calc(var(--cut) + var(--seam-gap)) 0, 100% 0, 100% 100%, var(--seam-gap) 100%);
 }
 
-/* Grayscale at rest, CHOAM v2.1 #D9A362 brass on hover/focus/selection */
+/* Grayscale at rest, Evangelion SEELE #FE0000 red on hover/focus/selection.
+   NOTE: .portrait-media MUST NOT set container-type: size so all three /us cards size uniformly from .gallery (one size container). */
 .us-page .portrait-media,
 .us-page .profile-media {
   position: absolute;
   inset: 0;
   display: block;
   overflow: hidden;
-  container-type: size;
   background: var(--void);
-  filter: grayscale(1) brightness(0.76);
-  transition: filter 0.24s var(--ease-ui);
+  filter: grayscale(1);
+  transition: filter 0.32s var(--ease-ui);
+}
+.us-page .profile-media {
+  container-type: size;
 }
 
 .us-page .portrait:hover .portrait-media,
@@ -171,7 +174,7 @@ body.us-page {
 .us-page .portrait.is-selected .portrait-media,
 .us-page .profile-portrait:hover .profile-media,
 .us-page .profile-portrait:focus-visible .profile-media {
-  filter: grayscale(0) brightness(1);
+  filter: grayscale(0);
 }
 
 /* Shared View Transition hooks */

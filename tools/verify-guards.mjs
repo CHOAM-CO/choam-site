@@ -663,10 +663,15 @@ function resolveCleanSitePath(rawTarget, fromHtmlRel) {
       }
     }
 
-    // Mino Decision #1: #FE0000 must be gone from CSS and about/*.svg
-    if (r.endsWith('.css') || r.startsWith('assets/about/')) {
+    // Mino Decision update (2026-11-15 00:33 KST): /us is an Evangelion SEELE homage and uses #FE0000 in assets/about/*.svg (and about.css comments/rules), while #FE0000 stays forbidden everywhere else.
+    if (r.endsWith('.css') && r !== 'about.css') {
       if (/#fe0000\b/i.test(content)) {
-        issues.push(`${r}: legacy SEELE neon red #FE0000 found (must be #D9A362)`);
+        issues.push(`${r}: #FE0000 is reserved exclusively for /us (about.css & assets/about/*.svg)`);
+      }
+    }
+    if (r.startsWith('assets/about/') && r.endsWith('.svg')) {
+      if (!/#fe0000\b/i.test(content)) {
+        issues.push(`${r}: expected Evangelion homage #FE0000 fill in /us portrait SVG`);
       }
     }
 
