@@ -1,11 +1,11 @@
 name: release-json
 
 # Keeps release.json (Scheherazade) and 602-release.json (602 Studio & Story Engine) synced to the latest releases.
-# Runs every 30 minutes and on demand via workflow_dispatch; commits only when a manifest changed.
+# Runs every 6 hours and on demand via workflow_dispatch; commits only when a manifest changed.
 # Pushing to main automatically triggers the GitHub Pages deployment workflow without duplicate API build calls.
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:

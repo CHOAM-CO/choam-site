@@ -1544,8 +1544,11 @@
     for (let i = 1; i <= 3; i++) { const d = Number(pa[i]) - Number(pb[i]); if (d) return d; }
     return 0;
   };
+  const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Documentation|arm64|x86_64|x64|portable)';
+  const VER_TOKEN_RE = new RegExp(`\\bv\\d+\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
+  const VER_TOKEN_ONE_RE = new RegExp(`\\bv\\d+\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`);
   const replaceVerDeep = (val, tag) => {
-    if (typeof val === 'string') return val.replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag);
+    if (typeof val === 'string') return val.replace(VER_TOKEN_RE, tag);
     if (Array.isArray(val)) return val.map(v => replaceVerDeep(v, tag));
     if (val && typeof val === 'object') {
       Object.keys(val).forEach(k => {
@@ -2349,7 +2352,7 @@
   ].forEach(cfg => {
     const p = shown.find(x => x.id === cfg.id);
     if (!p) return;
-    let bestTag = (p.status.match(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/) || [''])[0];
+    let bestTag = (p.status.match(VER_TOKEN_ONE_RE) || [''])[0];
     const applyTag = data => {
       const t = data && typeof data.tag_name === 'string' ? data.tag_name.trim() : '';
       if (!/^v\d+\.\d+\.\d+/.test(t) || cmpSemver(t, bestTag) <= 0) return;
@@ -2361,11 +2364,11 @@
         const bare = t.replace(/^v/, '');
         document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]').forEach(m => {
           const c = m.getAttribute('content') || '';
-          m.setAttribute('content', c.replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, t));
+          m.setAttribute('content', c.replace(VER_TOKEN_RE, t));
         });
         document.querySelectorAll('script[type="application/ld+json"]').forEach(sc => {
           sc.textContent = (sc.textContent || '')
-            .replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, t)
+            .replace(VER_TOKEN_RE, t)
             .replace(/"softwareVersion"\s*:\s*"[^"]*"/g, `"softwareVersion": "${bare}"`);
         });
       }

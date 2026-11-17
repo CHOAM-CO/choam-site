@@ -32,16 +32,18 @@ const bare = tag.replace(/^v/, '');
 writeFileSync('release.json', `${JSON.stringify({ tag_name: tag, assets }, null, 2)}\n`);
 
 /* Sync static fallback version strings for Scheherazade across HTML, main.js, and LLM docs */
+const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Documentation|arm64|x86_64|x64|portable)';
+const VER_1_RE = new RegExp(`\\bv1\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
 for (const file of ['pages/scheherazade.html', 'download.html', 'install.html']) {
   const raw = readFileSync(file, 'utf8');
   const next = raw
-    .replace(/\bv1\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
+    .replace(VER_1_RE, tag)
     .replace(/"softwareVersion":\s*"1\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
   if (next !== raw) writeFileSync(file, next);
 }
 for (const file of ['main.js', 'llms.txt', 'llms-full.txt']) {
   const raw = readFileSync(file, 'utf8');
-  const next = raw.replace(/\bv1\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag);
+  const next = raw.replace(VER_1_RE, tag);
   if (next !== raw) writeFileSync(file, next);
 }
 console.log(`${tag}: ${assets.map(a => a.name).join(', ')}`);

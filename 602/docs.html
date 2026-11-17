@@ -2408,7 +2408,7 @@ public static class StoryEngineV2
           <li><strong>1-Turn Simulation Player &amp; Auto-Play</strong>: Play through scenes one turn at a time on a visual-novel stage, toggle Auto-Play, and check earlier steps in the turn log modal.</li>
           <li><strong>5-Block Choicebox Simulation Settings</strong>: Pick start position (scene start or cursor line), guard bypass, save/restore timing, persistent (<code>/persist</code>) variable behavior, and mocked host contract (<code>/contract</code>) outcomes from five Stacked Choicebox cards to test any branch on the spot.</li>
           <li><strong>Backward Reachability &amp; Backbone/Corridor Structure Map</strong>: Trace predecessor scenes and variable conditions needed to reach any scene or choice. The Structure Map automatically lays out backbone and branch nodes with non-overlapping corridor routing, rendering 1:1 circular ports and transition wires as rounded fillets in squircle themes or 0px orthogonal Manhattan paths in square themes.</li>
-          <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Choose from six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), customize background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, and tune frosted glass opacity (<code>0%–100%</code>), backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px–16px</code> in <code>0.5px</code> steps), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
+          <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Choose from six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), customize background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, and tune frosted glass opacity (<code>0% to 100%</code>), backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px to 16px</code> in <code>0.5px</code> steps), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
           <li><strong>1:1 Line-Hash Translation View</strong>: Edit translations right beside source dialogue and choice lines, with instant markers on <code>MISSING_TRANSLATION</code> and <code>STALE_TRANSLATION</code> rows whenever source text changes.</li>
         </ul>
 
@@ -2618,12 +2618,14 @@ public static class StoryEngineV2
     <section class="p602-sec" id="license" data-doc-sec="license">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">10 · v2.0.1 릴리스 노트와 라이선스</h2>
-        <h3 class="p602-h3">602 v2.0.1 주요 변경점</h3>
-        <ul>
-          <li><strong>세헤라자드 정렬 외관 설정 및 6종 도시 테마</strong>: 상단 <strong>앱 설정 · 모양</strong> 창에서 <code>602 기본</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, <code>Seoul</code> 6종 테마를 고르고, 배경·강조색·텍스트 HEX 색상(WCAG 4.5:1 명도 대비 자동 보정), 유리감 투명도(<code>0%~100%</code>)와 배경 블러(<code>끄기</code> / <code>약하게</code> / <code>강하게</code>), 글꼴 크기(<code>12px~16px</code>)와 5종 서체(<code>시스템</code>, <code>Pretendard</code>, <code>세리프</code>, <code>고정폭</code>, <code>라운드</code>)를 실시간으로 조절할 수 있습니다.</li>
-          <li><strong>구조도(Structure Map) 백본·분기 자동 배치 및 테마 연동 배선</strong>: 602 1.x의 주 줄기(Backbone)·곁가지(Branch) 비겹침 통로(Corridor) 자동 배치 알고리즘을 이식하고, 스쿼클 테마에서는 둥근 필렛 곡선으로, 직각 테마(<code>Paris</code>, <code>Shanghai</code>, <code>Seoul</code>)에서는 0px 맨해튼 직교 배선으로 1:1 포트 원과 전이 연결선을 그립니다.</li>
-          <li><strong>장·줄 번호 레일과 줄 참조 복사, <code>@</code> 변수 자동완성 및 <code>/game</code> 계약 미리보기(Peek)</strong>: 장면마다 <code>1장 · 제목</code> 형태의 장 번호와 클릭 가능한 줄 번호 레일, 상단 <code>줄 복사</code> 버튼을 추가했습니다. <code>@</code> 입력 시 상태변수와 현재 시뮬레이션 값을 자동완성으로 보여 주고, <code>/game</code> 블록 안에 커서를 두면 우측에 <code>/contract</code> 입력·결과 필드 명세를 인라인으로 띄웁니다. 또한 시작 시 직전 프로젝트 자동 진입 대신 프로젝트 목록을 먼저 보여 주며, 로컬 MCP <code>read_manuscript</code>·<code>edit_manuscript</code>가 장면 제목이나 ID만으로도 대상 문서를 찾습니다.</li>
-        </ul>
+        <div data-release-history>
+          <h3 class="p602-h3">602 v2.0.1 주요 변경점</h3>
+          <ul>
+            <li><strong>세헤라자드 정렬 외관 설정 및 6종 도시 테마</strong>: 상단 <strong>앱 설정 · 모양</strong> 창에서 <code>602 기본</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, <code>Seoul</code> 6종 테마를 고르고, 배경·강조색·텍스트 HEX 색상(WCAG 4.5:1 명도 대비 자동 보정), 유리감 투명도(<code>0%~100%</code>)와 배경 블러(<code>끄기</code> / <code>약하게</code> / <code>강하게</code>), 글꼴 크기(<code>12px~16px</code>)와 5종 서체(<code>시스템</code>, <code>Pretendard</code>, <code>세리프</code>, <code>고정폭</code>, <code>라운드</code>)를 실시간으로 조절할 수 있습니다.</li>
+            <li><strong>구조도(Structure Map) 백본·분기 자동 배치 및 테마 연동 배선</strong>: 602 1.x의 주 줄기(Backbone)·곁가지(Branch) 비겹침 통로(Corridor) 자동 배치 알고리즘을 이식하고, 스쿼클 테마에서는 둥근 필렛 곡선으로, 직각 테마(<code>Paris</code>, <code>Shanghai</code>, <code>Seoul</code>)에서는 0px 맨해튼 직교 배선으로 1:1 포트 원과 전이 연결선을 그립니다.</li>
+            <li><strong>장·줄 번호 레일과 줄 참조 복사, <code>@</code> 변수 자동완성 및 <code>/game</code> 계약 미리보기(Peek)</strong>: 장면마다 <code>1장 · 제목</code> 형태의 장 번호와 클릭 가능한 줄 번호 레일, 상단 <code>줄 복사</code> 버튼을 추가했습니다. <code>@</code> 입력 시 상태변수와 현재 시뮬레이션 값을 자동완성으로 보여 주고, <code>/game</code> 블록 안에 커서를 두면 우측에 <code>/contract</code> 입력·결과 필드 명세를 인라인으로 띄웁니다. 또한 시작 시 직전 프로젝트 자동 진입 대신 프로젝트 목록을 먼저 보여 주며, 로컬 MCP <code>read_manuscript</code>·<code>edit_manuscript</code>가 장면 제목이나 ID만으로도 대상 문서를 찾습니다.</li>
+          </ul>
+        </div>
 
         <div data-release-history>
           <h3 class="p602-h3">602 v2.0.0 주요 변경점</h3>
@@ -2661,12 +2663,14 @@ public static class StoryEngineV2
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">10 · v2.0.1 Release Notes &amp; Licenses</h2>
-        <h3 class="p602-h3">What's New in 602 v2.0.1</h3>
-        <ul>
-          <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Adds the <strong>App Settings · Appearance</strong> modal with six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), custom background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, frosted glass opacity (<code>0%–100%</code>) and backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px–16px</code>), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
-          <li><strong>Structure Map Backbone/Corridor Auto-Layout &amp; Theme-Linked Routing</strong>: Ports the 602 1.x backbone/branch non-overlapping corridor layout and unifies wire rendering with theme corner radii (rounded fillets in squircle themes vs. 0px orthogonal Manhattan wires in <code>Paris</code>, <code>Shanghai</code>, and <code>Seoul</code>) with 1:1 circular ports.</li>
-          <li><strong>Chapter &amp; Line Numbers, Reference Copy, <code>@</code> Variable Completion &amp; <code>/game</code> Contract Peek</strong>: Adds chapter breadcrumbs (<code>Chapter N · Title</code>), a clickable line-number gutter, and one-click canonical line-reference copy. Typing <code>@</code> opens inline completion with declared variables and live simulation values, placing the cursor in a <code>/game</code> block opens an inline <code>/contract</code> input/output peek panel, launching the app shows the project list first, and MCP <code>read_manuscript</code> / <code>edit_manuscript</code> resolve canonical event titles and IDs.</li>
-        </ul>
+        <div data-release-history>
+          <h3 class="p602-h3">What's New in 602 v2.0.1</h3>
+          <ul>
+            <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Adds the <strong>App Settings · Appearance</strong> modal with six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), custom background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, frosted glass opacity (<code>0% to 100%</code>) and backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px to 16px</code>), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
+            <li><strong>Structure Map Backbone/Corridor Auto-Layout &amp; Theme-Linked Routing</strong>: Ports the 602 1.x backbone/branch non-overlapping corridor layout and unifies wire rendering with theme corner radii (rounded fillets in squircle themes vs. 0px orthogonal Manhattan wires in <code>Paris</code>, <code>Shanghai</code>, and <code>Seoul</code>) with 1:1 circular ports.</li>
+            <li><strong>Chapter &amp; Line Numbers, Reference Copy, <code>@</code> Variable Completion &amp; <code>/game</code> Contract Peek</strong>: Adds chapter breadcrumbs (<code>Chapter N · Title</code>), a clickable line-number gutter, and one-click canonical line-reference copy. Typing <code>@</code> opens inline completion with declared variables and live simulation values, placing the cursor in a <code>/game</code> block opens an inline <code>/contract</code> input/output peek panel, launching the app shows the project list first, and MCP <code>read_manuscript</code> / <code>edit_manuscript</code> resolve canonical event titles and IDs.</li>
+          </ul>
+        </div>
 
         <div data-release-history>
           <h3 class="p602-h3">What's New in 602 v2.0.0</h3>
@@ -2704,12 +2708,14 @@ public static class StoryEngineV2
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">10 · v2.0.1 リリースノートとライセンス</h2>
-        <h3 class="p602-h3">602 v2.0.1 の主な変更点</h3>
-        <ul>
-          <li><strong>Scheherazade 準拠の外観設定と 6 種の都市テーマ</strong>: 上部の<strong>アプリ設定・外観</strong>モーダルから <code>602 デフォルト</code>、<code>Sera</code>、<code>Paris</code>、<code>Vancouver</code>、<code>Shanghai</code>、<code>Seoul</code> の 6 テーマを選べるほか、背景・アクセント・文字の HEX カラー（WCAG 4.5:1 コントラスト自動補正）、すりガラス透明度（<code>0%〜100%</code>）と背景ブラー（<code>オフ</code> / <code>弱</code> / <code>強</code>）、文字サイズ（<code>12px〜16px</code>）および 5 種の書体（<code>システム</code>、<code>Pretendard</code>、<code>セリフ</code>、<code>等幅</code>、<code>丸ゴシック</code>）をリアルタイムに切り替えられます。</li>
-          <li><strong>構造マップ（Structure Map）の幹線・通路自動配置とテーマ連動配線</strong>: 602 1.x の主幹（Backbone）・枝分かれ（Branch）の非重複通路レイアウトを移植し、スクワークル系テーマでは丸みのあるフィレット曲線、直角テーマ（<code>Paris</code>、<code>Shanghai</code>、<code>Seoul</code>）では 0px のマンハッタン直交配線で 1:1 ポート円と遷移線を描画します。</li>
-          <li><strong>章・行番号レールと参照コピー、<code>@</code> 変数補完および <code>/game</code> 契約プレビュー（Peek）</strong>: シーンごとの <code>第1章 · タイトル</code> 表示とクリック可能な行番号レール、ワンクリックの<code>行コピー</code>ボタンを追加しました。<code>@</code> 入力で状態変数と現在値を補完でき、<code>/game</code> ブロック内にカーソルを置くと右側に <code>/contract</code> の入出力フィールド定義をインライン表示します。また起動時はプロジェクト一覧を先に表示し、ローカル MCP の <code>read_manuscript</code>・<code>edit_manuscript</code> がシーンタイトルや ID でも対象文書を解決します。</li>
-        </ul>
+        <div data-release-history>
+          <h3 class="p602-h3">602 v2.0.1 の主な変更点</h3>
+          <ul>
+            <li><strong>Scheherazade 準拠の外観設定と 6 種の都市テーマ</strong>: 上部の<strong>アプリ設定・外観</strong>モーダルから <code>602 デフォルト</code>、<code>Sera</code>、<code>Paris</code>、<code>Vancouver</code>、<code>Shanghai</code>、<code>Seoul</code> の 6 テーマを選べるほか、背景・アクセント・文字の HEX カラー（WCAG 4.5:1 コントラスト自動補正）、すりガラス透明度（<code>0%〜100%</code>）と背景ブラー（<code>オフ</code> / <code>弱</code> / <code>強</code>）、文字サイズ（<code>12px〜16px</code>）および 5 種の書体（<code>システム</code>、<code>Pretendard</code>、<code>セリフ</code>、<code>等幅</code>、<code>丸ゴシック</code>）をリアルタイムに切り替えられます。</li>
+            <li><strong>構造マップ（Structure Map）の幹線・通路自動配置とテーマ連動配線</strong>: 602 1.x の主幹（Backbone）・枝分かれ（Branch）の非重複通路レイアウトを移植し、スクワークル系テーマでは丸みのあるフィレット曲線、直角テーマ（<code>Paris</code>、<code>Shanghai</code>、<code>Seoul</code>）では 0px のマンハッタン直交配線で 1:1 ポート円と遷移線を描画します。</li>
+            <li><strong>章・行番号レールと参照コピー、<code>@</code> 変数補完および <code>/game</code> 契約プレビュー（Peek）</strong>: シーンごとの <code>第1章 · タイトル</code> 表示とクリック可能な行番号レール、ワンクリックの<code>行コピー</code>ボタンを追加しました。<code>@</code> 入力で状態変数と現在値を補完でき、<code>/game</code> ブロック内にカーソルを置くと右側に <code>/contract</code> の入出力フィールド定義をインライン表示します。また起動時はプロジェクト一覧を先に表示し、ローカル MCP の <code>read_manuscript</code>・<code>edit_manuscript</code> がシーンタイトルや ID でも対象文書を解決します。</li>
+          </ul>
+        </div>
 
         <div data-release-history>
           <h3 class="p602-h3">602 v2.0.0 の主な変更点</h3>
@@ -2750,7 +2756,7 @@ public static class StoryEngineV2
 
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v22-20261117a"></script>
-<script src="../602-portal.js?v=v22-20261117a"></script>
+<script src="../main.js?v=v22-20261117b"></script>
+<script src="../602-portal.js?v=v22-20261117b"></script>
 </body>
 </html>
