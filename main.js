@@ -213,7 +213,7 @@
         c2b: 'story_engine_v2.h 런타임을 통해',
         c2c: 'C++ · C# · Godot 게임에 바로 붙습니다.',
         oldWay: '예전에는: 게임 빌드가 나올 때까지 기다린 뒤, 1장부터 수십 번 다시 플레이',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio에서 원하는 장면 바로 실행 ➔ C ABI v2 엔진으로 게임에 연결',
+        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Studio에서 원하는 장면 바로 실행 ➔ C ABI v2 엔진으로 게임에 연결`,
         newCls: 'xm sm2 em',
         foot: '게임 빌드를 기다리지 않고, 이야기부터 먼저 완성합니다.'
       } : l === 'ja' ? {
@@ -230,7 +230,7 @@
         c2b: 'story_engine_v2.h ランタイム経由で',
         c2c: 'C++ · C# · Godot にそのまま繋がります。',
         oldWay: 'これまで: ゲームビルドの完成待ち + 第1章から何十回も通しプレイ',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Studio で見たい場面を即実行 ➔ C ABI v2 エンジンでゲームへ接続',
+        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Studio で見たい場面を即実行 ➔ C ABI v2 エンジンでゲームへ接続`,
         newCls: 'xm sm2 em',
         foot: 'クライアントの完成を待たず、物語を先に仕上げられます。'
       } : {
@@ -247,7 +247,7 @@
         c2b: 'C++, C#, and Godot games through',
         c2c: 'the native story_engine_v2.h runtime.',
         oldWay: 'Old way: Wait on a client build, then replay from Ch. 1 dozens of times',
-        newWay: '<tspan class="ar">602 v2.0.0: </tspan>Playtest any scene in Studio ➔ ship with C ABI v2 Engine',
+        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Playtest any scene in Studio ➔ ship with C ABI v2 Engine`,
         newCls: 'xm sm2 em',
         foot: 'FINISH AND VERIFY THE STORY BEFORE WAITING ON THE CLIENT.'
       };
@@ -286,7 +286,7 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      status: 'v1.0.2 · Free Desktop Agent',
+      status: 'v1.0.5 · Free Desktop Agent',
       headline: 'An agent that takes a thousand and one nights in stride',
       summary: 'Swap brains freely across your Claude, ChatGPT, or Google Antigravity (Gemini) subscription, Ollama, or API keys while every conversation and working rule stays in plain-text files on your disk. Free forever, with no account to create and zero telemetry.',
       description: [
@@ -307,7 +307,7 @@
         ]
       ],
       ko: {
-        status: 'v1.0.2 · 무료 데스크톱 에이전트',
+        status: 'v1.0.5 · 무료 데스크톱 에이전트',
         headline: '천하루밤도 거뜬한 에이전트',
         summary: '쓰던 Claude·ChatGPT·Google Antigravity(Gemini) 구독이나 Ollama, API 키를 마음껏 갈아끼워도 나눈 대화와 작업 원칙은 내 컴퓨터에 평문 파일로 고스란히 남습니다. 구독 없는 무료 앱이며, 계정도 묻지 않고 바깥으로 보내는 기록도 없습니다.',
         description: [
@@ -329,7 +329,7 @@
         ]
       },
       ja: {
-        status: 'v1.0.2 · 無料デスクトップエージェント',
+        status: 'v1.0.5 · 無料デスクトップエージェント',
         headline: '千夜一夜も余裕のエージェント',
         summary: '普段お使いの Claude・ChatGPT・Google Antigravity（Gemini）のサブスクや Ollama、各種 API キーを自在に切り替えながら、会話や作業ルールは手元の平文ファイルにそのまま残せます。ずっと無料で、アカウント登録も外部へのデータ送信もありません。',
         description: [
@@ -445,57 +445,57 @@
       id: '602',
       title: '602',
       title_ko: '',
-      status: 'v2.0.0 · Studio & Story Engine',
+      status: 'v2.0.1 · Studio & Story Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
-      summary: '602 pairs 602 Studio v2.0.0, a desktop app for writing and playtesting branching stories, with 602 Story Engine v2.0.0, a native C ABI v2 runtime. Pull tangled story branches out of game code and test every turn before the client even exists.',
+      summary: '602 pairs 602 Studio v2.0.1, a desktop app for writing and playtesting branching stories, with 602 Story Engine v2.0.1, a native C ABI v2 runtime. Pull tangled story branches out of game code and test every turn before the client even exists.',
       description: [
         [
           { display: 'Ten binary choices already branch into 1,024 paths.' },
           'Story choices grow by powers of two (2ⁿ): 16 paths after four choices, 1,024 after ten. Leave hundreds of story flags tangled inside game scripts, and both human writers and AI agents lose their footing whenever a scene changes.'
         ],
         [
-          { display: 'Write, check, and compile in 602 Studio v2.0.0.' },
-          '602 Studio v2.0.0 ships as a notarized macOS .dmg, a Windows setup.exe installer, and a Linux archive. Move freely between plain Markdown folders and .602.zip archives, co-edit safely with AI agents over a local MCP bridge, and catch dead links or broken conditions before compiling a clean .602.json bundle.'
+          { display: 'Write, check, and compile in 602 Studio v2.0.1.' },
+          '602 Studio v2.0.1 ships as a notarized macOS .dmg, a Windows setup.exe installer, and a Linux archive. Move freely between plain Markdown folders and .602.zip archives, co-edit safely with AI agents over a local MCP bridge, and catch dead links or broken conditions before compiling a clean .602.json bundle.'
         ],
         [
           { display: 'Playtest on its own, then plug straight into your game.' },
-          'No waiting on client builds or replaying from Chapter 1 dozens of times: pick any scene and custom state to run the story on the spot. When it reads right, connect the compiled .602.json bundle straight to C++, C#, or Godot through 602 Story Engine v2.0.0 (story_engine_v2.h).'
+          'No waiting on client builds or replaying from Chapter 1 dozens of times: pick any scene and custom state to run the story on the spot. When it reads right, connect the compiled .602.json bundle straight to C++, C#, or Godot through 602 Story Engine v2.0.1 (story_engine_v2.h).'
         ]
       ],
       ko: {
-        status: 'v2.0.0 · 스토리 스튜디오 & C ABI 엔진',
+        status: 'v2.0.1 · 스토리 스튜디오 & C ABI 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
-        summary: '시나리오를 쓰고 바로 돌려보는 데스크톱 앱 602 Studio v2.0.0과, 게임에 얹는 C ABI v2 런타임 602 Story Engine v2.0.0이 한 짝으로 움직입니다. 걷잡을 수 없이 불어나는 이야기 갈래를 게임 코드 밖으로 떼어내, 클라이언트가 나오기 전부터 흐름을 다듬을 수 있습니다.',
+        summary: '시나리오를 쓰고 바로 돌려보는 데스크톱 앱 602 Studio v2.0.1과, 게임에 얹는 C ABI v2 런타임 602 Story Engine v2.0.1이 한 짝으로 움직입니다. 걷잡을 수 없이 불어나는 이야기 갈래를 게임 코드 밖으로 떼어내, 클라이언트가 나오기 전부터 흐름을 다듬을 수 있습니다.',
         description: [
           [
             { display: '선택지가 열 번만 갈라져도 길은 1,024갈래로 불어납니다.' },
             '선택지를 두 개씩만 놓아도 네 번이면 16갈래, 열 번이면 1,024갈래(2¹⁰)가 됩니다. 이 수많은 조건이 게임 코드 속에 뒤엉켜 있으면 사람도 AI 에이전트도 고칠 때마다 길을 잃고, 버그 하나를 잡으려다 다른 장면을 망가뜨리기 십상입니다.'
           ],
           [
-            { display: '데스크톱 앱 602 Studio v2.0.0에서 쓰고, 검사하고, 묶어냅니다.' },
-            '602 Studio v2.0.0은 macOS 공증 .dmg와 Windows 설치 파일(setup.exe), Linux 아카이브로 배포되는 데스크톱 앱입니다. 마크다운 원고 폴더와 .602.zip 압축본을 자유롭게 오가고 로컬 MCP로 AI 에이전트와 함께 다듬으며, 끊어진 분기나 어긋난 조건을 미리 걸러내 깨끗한 .602.json 번들로 묶어냅니다.'
+            { display: '데스크톱 앱 602 Studio v2.0.1에서 쓰고, 검사하고, 묶어냅니다.' },
+            '602 Studio v2.0.1은 macOS 공증 .dmg와 Windows 설치 파일(setup.exe), Linux 아카이브로 배포되는 데스크톱 앱입니다. 마크다운 원고 폴더와 .602.zip 압축본을 자유롭게 오가고 로컬 MCP로 AI 에이전트와 함께 다듬으며, 끊어진 분기나 어긋난 조건을 미리 걸러내 깨끗한 .602.json 번들로 묶어냅니다.'
           ],
           [
-            { display: '시나리오만 먼저 돌려보고, 602 Story Engine v2.0.0으로 게임에 바로 붙입니다.' },
+            { display: '시나리오만 먼저 돌려보고, 602 Story Engine v2.0.1으로 게임에 바로 붙입니다.' },
             '게임 클라이언트가 완성되기를 기다리거나 1장부터 수십 번 되풀이해 플레이할 필요가 없습니다. 원하는 장면과 상태값을 골라 이야기를 그 자리에서 실행해 본 뒤, 완성된 .602.json 번들을 C ABI v2(story_engine_v2.h) 런타임으로 C++, C#, Godot 게임에 그대로 연결하면 됩니다.'
           ]
         ]
       },
       ja: {
-        status: 'v2.0.0 · ストーリー Studio & C ABI エンジン',
+        status: 'v2.0.1 · ストーリー Studio & C ABI エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
-        summary: 'シナリオを書き、その場で動かせるデスクトップアプリ 602 Studio v2.0.0 と、ゲームに組み込む C ABI v2 ランタイム 602 Story Engine v2.0.0 が対になって動きます。倍々に膨らむ分岐をゲームコードから切り離し、クライアントができる前から物語を仕上げられます。',
+        summary: 'シナリオを書き、その場で動かせるデスクトップアプリ 602 Studio v2.0.1 と、ゲームに組み込む C ABI v2 ランタイム 602 Story Engine v2.0.1 が対になって動きます。倍々に膨らむ分岐をゲームコードから切り離し、クライアントができる前から物語を仕上げられます。',
         description: [
           [
             { display: '選択肢が10回分かれるだけで、道筋は1,024通りに膨らみます。' },
             '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。無数の分岐条件がゲームコードの中に絡み合っていると、人もAIエージェントも手を入れるたびに道を見失い、ひとつの修正が別の場面を壊してしまいます。'
           ],
           [
-            { display: 'デスクトップアプリ 602 Studio v2.0.0 で書き、検査し、束ねます。' },
-            '602 Studio v2.0.0 は公証済み macOS .dmg、Windows インストーラー（setup.exe）、Linux アーカイブで配布されるデスクトップアプリです。Markdown 原稿フォルダと .602.zip を行き来しながらローカル MCP で AI エージェントと共同編集し、リンク切れや条件ミスを事前に弾いて安全な .602.json にまとめます。'
+            { display: 'デスクトップアプリ 602 Studio v2.0.1 で書き、検査し、束ねます。' },
+            '602 Studio v2.0.1 は公証済み macOS .dmg、Windows インストーラー（setup.exe）、Linux アーカイブで配布されるデスクトップアプリです。Markdown 原稿フォルダと .602.zip を行き来しながらローカル MCP で AI エージェントと共同編集し、リンク切れや条件ミスを事前に弾いて安全な .602.json にまとめます。'
           ],
           [
-            { display: 'シナリオ単体で先に動かし、602 Story Engine v2.0.0 でゲームへ繋ぎます。' },
+            { display: 'シナリオ単体で先に動かし、602 Story Engine v2.0.1 でゲームへ繋ぎます。' },
             'ゲームビルドの完成を待ったり、第1章から何十回も通しプレイしたりする必要はありません。見たい場面と状態を選んでその場で物語を動かし、仕上がった .602.json を C ABI v2（story_engine_v2.h）ランタイム経由で C++・C#・Godot のゲームへそのまま接続できます。'
           ]
         ]
@@ -509,13 +509,13 @@
           altKo: '설명 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 넘게 불어납니다.',
           altJa: '説明図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に膨らみます。' },
         { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code: click Approve or Reject', capKo: '설명 그림 · 게임 코드와 분기 관리의 분리: 승인이나 반려를 눌러보세요', capJa: '説明図 · ゲームコードと分岐管理の分離: 承認または差戻しをクリック',
-          alt: 'Illustration: Game code focuses on presentation and play while 602 Studio v2.0.0 validates story branches and blocks broken links before approval.',
-          altKo: '설명 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.0이 분기 검사를 맡아 깨진 연결을 미리 걸러냅니다.',
-          altJa: '説明図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.0 が分岐の検査を担ってエラーを食い止めます。' },
+          alt: 'Illustration: Game code focuses on presentation and play while 602 Studio v2.0.1 validates story branches and blocks broken links before approval.',
+          altKo: '설명 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.1이 분기 검사를 맡아 깨진 연결을 미리 걸러냅니다.',
+          altJa: '説明図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.1 が分岐の検査を担ってエラーを食い止めます。' },
         { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone playtest in 602 Studio, then C++ / C# / Godot via Story Engine C ABI v2', capKo: '설명 그림 · 602 Studio 단독 실행과 Story Engine C ABI v2 연결', capJa: '説明図 · 602 Studio 単体再生と Story Engine C ABI v2 接続',
-          alt: 'Illustration: Playtest from any scene standalone in 602 Studio v2.0.0 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
-          altKo: '설명 그림: 게임 클라이언트가 없어도 602 Studio v2.0.0에서 원하는 장면부터 바로 돌려보고, story_engine_v2.h로 C++·C#·Godot 게임에 연결합니다.',
-          altJa: '説明図: ゲーム画面がなくても 602 Studio v2.0.0 で見たい場面からすぐ再生し、story_engine_v2.h で C++・C#・Godot に接続します。' }
+          alt: 'Illustration: Playtest from any scene standalone in 602 Studio v2.0.1 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
+          altKo: '설명 그림: 게임 클라이언트가 없어도 602 Studio v2.0.1에서 원하는 장면부터 바로 돌려보고, story_engine_v2.h로 C++·C#·Godot 게임에 연결합니다.',
+          altJa: '説明図: ゲーム画面がなくても 602 Studio v2.0.1 で見たい場面からすぐ再生し、story_engine_v2.h で C++・C#・Godot に接続します。' }
       ]
     },
     {
@@ -1536,6 +1536,24 @@
   /* release.json (same origin, refreshed by .github/workflows/release-json.yml) is read first. The GitHub API is only the
      second try: its unauthenticated limit is 60 calls an hour per IP, so one busy office network used to send everyone
      on it to the release page. Both answers go through the same checks. */
+  const cmpSemver = (a, b) => {
+    const pa = /^v?(\d+)\.(\d+)\.(\d+)/.exec(a || ''), pb = /^v?(\d+)\.(\d+)\.(\d+)/.exec(b || '');
+    if (!pa && !pb) return 0;
+    if (!pa) return -1;
+    if (!pb) return 1;
+    for (let i = 1; i <= 3; i++) { const d = Number(pa[i]) - Number(pb[i]); if (d) return d; }
+    return 0;
+  };
+  const replaceVerDeep = (val, tag) => {
+    if (typeof val === 'string') return val.replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag);
+    if (Array.isArray(val)) return val.map(v => replaceVerDeep(v, tag));
+    if (val && typeof val === 'object') {
+      Object.keys(val).forEach(k => {
+        if (k !== 'id' && k !== 'field' && k !== 'kind' && k !== 'feat') val[k] = replaceVerDeep(val[k], tag);
+      });
+    }
+    return val;
+  };
   const REL_JSON = url('release.json');
   let relReady;
   const loadRel = () => {
@@ -1544,6 +1562,8 @@
     const ctl = 'AbortController' in window ? new AbortController() : null, stop = ctl && setTimeout(() => ctl.abort(), 10000);
     const get = u => fetch(u, ctl ? { signal: ctl.signal } : {}).then(r => { if (!r.ok) throw new Error(`${u} ${r.status}`); return r.json(); });
     const take = data => {
+      const candTag = data && typeof data.tag_name === 'string' ? data.tag_name.trim() : '';
+      if (rel.state === 'ok' && rel.tag && cmpSemver(candTag, rel.tag) <= 0) return true;
       const assets = data && Array.isArray(data.assets) ? data.assets : [], urls = {};
       OSES.forEach(o => {
         const a = assets.find(x => x && o.file.test(x.name) && (!x.state || x.state === 'uploaded') && typeof x.browser_download_url === 'string'
@@ -1552,12 +1572,15 @@
       });
       if (!Object.keys(urls).length) throw new Error('no installers');
       rel.urls = urls;
-      rel.tag = typeof data.tag_name === 'string' ? data.tag_name : '';
+      rel.tag = candTag;
       rel.state = 'ok';
+      relViews.forEach(labelRel);
+      return true;
     };
-    return relReady = get(REL_JSON).then(take)
-      .catch(() => get(REL_API).then(take))
-      .catch(() => { rel.state = 'failed'; rel.urls = {}; })
+    const pJson = get(REL_JSON).then(take).catch(() => false);
+    const pApi = get(REL_API).then(take).catch(() => false);
+    return relReady = Promise.all([pJson, pApi])
+      .then(([okJ, okA]) => { if (!okJ && !okA && rel.state !== 'ok') { rel.state = 'failed'; rel.urls = {}; } })
       .finally(() => { clearTimeout(stop); relViews.forEach(labelRel); });
   };
   relabel.push(() => relViews.forEach(labelRel));
@@ -2318,6 +2341,39 @@
     if (only && shown[0]) { if (pageH1) pageH1.textContent = nameOf(shown[0], h1Base); if (trackBase) track.setAttribute('aria-label', nameOf(shown[0], trackBase)); }
   };
   labelAll();
+
+  /* Dynamically keep Scheherazade and 602 version strings synced to the latest release in release.json / 602-release.json / GitHub Releases API */
+  [
+    { id: 'scheherazade', jsonUrl: REL_JSON, apiUrl: REL_API },
+    { id: '602', jsonUrl: url('602-release.json'), apiUrl: 'https://api.github.com/repos/CHOAM-CO/602-releases/releases/latest' }
+  ].forEach(cfg => {
+    const p = shown.find(x => x.id === cfg.id);
+    if (!p) return;
+    let bestTag = (p.status.match(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/) || [''])[0];
+    const applyTag = data => {
+      const t = data && typeof data.tag_name === 'string' ? data.tag_name.trim() : '';
+      if (!/^v\d+\.\d+\.\d+/.test(t) || cmpSemver(t, bestTag) <= 0) return;
+      bestTag = t;
+      replaceVerDeep(p, t);
+      const sec = secs.find(s => s.dataset.prod === cfg.id);
+      if (sec) labelSec(sec, p);
+      if (only === cfg.id) {
+        const bare = t.replace(/^v/, '');
+        document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]').forEach(m => {
+          const c = m.getAttribute('content') || '';
+          m.setAttribute('content', c.replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, t));
+        });
+        document.querySelectorAll('script[type="application/ld+json"]').forEach(sc => {
+          sc.textContent = (sc.textContent || '')
+            .replace(/\bv\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, t)
+            .replace(/"softwareVersion"\s*:\s*"[^"]*"/g, `"softwareVersion": "${bare}"`);
+        });
+      }
+    };
+    [cfg.jsonUrl, cfg.apiUrl].forEach(u => {
+      fetch(u).then(r => (r.ok ? r.json() : null)).then(applyTag).catch(() => {});
+    });
+  });
 
   /* ---------- opening (index only): no product is current while it fills the screen ---------- */
   const intro = only ? null : document.querySelector('.intro');

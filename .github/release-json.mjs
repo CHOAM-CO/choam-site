@@ -2,7 +2,7 @@
 // files main.js links to. The site reads this same-origin file first, so a visitor's download button no longer
 // depends on GitHub's unauthenticated API (60 calls per hour per IP, shared by everyone on an office network).
 // No timestamp is written, so the file only changes when the release does.
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 const REPO = 'CHOAM-CO/scheherazade-releases';
 const INSTALLERS = [
@@ -27,5 +27,21 @@ if (!data.tag_name || !assets.length) {
   console.error('latest release has no installer files; release.json left as it was');
   process.exit(1);
 }
-writeFileSync('release.json', `${JSON.stringify({ tag_name: data.tag_name, assets }, null, 2)}\n`);
-console.log(`${data.tag_name}: ${assets.map(a => a.name).join(', ')}`);
+const tag = data.tag_name.trim();
+const bare = tag.replace(/^v/, '');
+writeFileSync('release.json', `${JSON.stringify({ tag_name: tag, assets }, null, 2)}\n`);
+
+/* Sync static fallback version strings for Scheherazade across HTML, main.js, and LLM docs */
+for (const file of ['pages/scheherazade.html', 'download.html', 'install.html']) {
+  const raw = readFileSync(file, 'utf8');
+  const next = raw
+    .replace(/\bv1\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
+    .replace(/"softwareVersion":\s*"1\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
+  if (next !== raw) writeFileSync(file, next);
+}
+for (const file of ['main.js', 'llms.txt', 'llms-full.txt']) {
+  const raw = readFileSync(file, 'utf8');
+  const next = raw.replace(/\bv1\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag);
+  if (next !== raw) writeFileSync(file, next);
+}
+console.log(`${tag}: ${assets.map(a => a.name).join(', ')}`);

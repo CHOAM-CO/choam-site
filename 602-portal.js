@@ -330,36 +330,71 @@
       return codes.length > 1 ? codes[codes.length - 1] : null;
     };
 
+    const compareSemver = (a, b) => {
+      const pa = /^v?(\d+)\.(\d+)\.(\d+)/.exec(a || '');
+      const pb = /^v?(\d+)\.(\d+)\.(\d+)/.exec(b || '');
+      if (!pa && !pb) return 0;
+      if (!pa) return -1;
+      if (!pb) return 1;
+      for (let i = 1; i <= 3; i++) {
+        const d = Number(pa[i]) - Number(pb[i]);
+        if (d !== 0) return d;
+      }
+      return 0;
+    };
+
     const renderVersionMeta = () => {
       if (!rel.tag) return;
+      const bareVer = rel.tag.replace(/^v/, '');
       document.querySelectorAll('[data-602-ver]').forEach(el => {
         el.textContent = rel.tag;
       });
-      document.querySelectorAll('.p602-badge, .p602-ov-ver, .p602-kicker').forEach(el => {
-        if (el.children.length === 0) {
-          const next = el.textContent.replace(VER_TOKEN_RE, rel.tag);
-          if (next !== el.textContent) el.textContent = next;
-        } else {
-          el.querySelectorAll('span, code').forEach(ch => {
-            if (ch.children.length === 0) {
-              const next = ch.textContent.replace(VER_TOKEN_RE, rel.tag);
-              if (next !== ch.textContent) ch.textContent = next;
-            }
-          });
-        }
-      });
-      document.querySelectorAll('.p602-commercial-note code, .p602-step p code, pre.p602-code code, .p602-hub-list code').forEach(codeEl => {
-        if (codeEl.hasAttribute('data-602-filename') || codeEl.hasAttribute('data-sha256-asset')) return;
-        let txt = codeEl.textContent;
+      const replaceTokensInText = raw => {
+        let txt = raw;
         ASSETS.forEach(spec => {
           if (spec.replaceRe && rel.names[spec.key]) {
             txt = txt.replace(spec.replaceRe, rel.names[spec.key]);
           }
         });
-        if (/^v[0-9]+\.[0-9]+\.[0-9]+/.test(txt.trim())) {
-          txt = txt.replace(VER_TOKEN_RE, rel.tag);
+        txt = txt.replace(VER_TOKEN_RE, rel.tag);
+        return txt;
+      };
+      document.querySelectorAll('.p602-bar, .p602-dl-shell, .p602-doc-shell').forEach(root => {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            const p = node.parentElement;
+            if (!p) return NodeFilter.FILTER_REJECT;
+            if (
+              p.closest('[data-no-ver-sync], [data-release-history]') ||
+              p.hasAttribute('data-602-filename') ||
+              p.hasAttribute('data-sha256-asset') ||
+              p.hasAttribute('data-602-sha-code')
+            ) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        let n;
+        while ((n = walker.nextNode())) {
+          const next = replaceTokensInText(n.nodeValue || '');
+          if (next !== n.nodeValue) n.nodeValue = next;
         }
-        if (txt !== codeEl.textContent) codeEl.textContent = txt;
+      });
+      document
+        .querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]')
+        .forEach(meta => {
+          const c = meta.getAttribute('content') || '';
+          const next = replaceTokensInText(c);
+          if (next !== c) meta.setAttribute('content', next);
+        });
+      document.querySelectorAll('script[type="application/ld+json"]').forEach(sc => {
+        const raw = sc.textContent || '';
+        const next = replaceTokensInText(raw).replace(
+          /"softwareVersion"\s*:\s*"[^"]*"/g,
+          m => (m.includes('Engine') ? `"softwareVersion": "Engine ${rel.tag} / Studio ${rel.tag}"` : `"softwareVersion": "${bareVer}"`)
+        );
+        if (next !== raw) sc.textContent = next;
       });
       requestAnimationFrame(syncBarHeight);
     };
@@ -375,18 +410,45 @@
           if (!r.ok) throw new Error(String(r.status));
           return r.json();
         });
-      relPromise = fetchJson(REL_JSON)
-        .then(data => {
+      const applyCandidate = (data, isLiveApi) => {
+        if (!data || typeof data !== 'object') return false;
+        const candTag =
+          typeof data.tag_name === 'string' && data.tag_name.trim()
+            ? data.tag_name.trim()
+            : typeof data.tag === 'string' && data.tag.trim()
+              ? data.tag.trim()
+              : '';
+        if (!TAG_RE.test(candTag)) return false;
+        if (rel.state === 'ok' && rel.tag) {
+          const cmp = compareSemver(candTag, rel.tag);
+          if (cmp < 0) return false;
+          if (cmp === 0 && !isLiveApi && Object.keys(rel.hashes).length > 0) return false;
+        }
+        try {
           parseReleasePayload(data);
-          /* If a newer tag arrived in 602-release.json without inline sha256 digests, enrich digests from GitHub Releases API */
-          const needDigests =
+          renderVersionMeta();
+          renderDownloadState();
+          return true;
+        } catch (err) {
+          return false;
+        }
+      };
+      const pJson = fetchJson(REL_JSON).then(d => applyCandidate(d, false)).catch(() => false);
+      const pApi = fetchJson(REL_API).then(d => applyCandidate(d, true)).catch(() => false);
+      relPromise = Promise.all([pJson, pApi])
+        .then(([okJson, okApi]) => {
+          if (!okJson && !okApi && rel.state !== 'ok') {
+            rel.state = 'staged';
+            rel.urls = {};
+            rel.shas = {};
+            renderDownloadState();
+          } else if (
+            rel.state === 'ok' &&
             dlLinks.length > 0 &&
             Object.keys(rel.hashes).length === 0 &&
-            rel.tag &&
-            initialDomTag &&
-            rel.tag !== initialDomTag;
-          if (needDigests) {
-            fetch(REL_TAG_API(rel.tag))
+            rel.tag
+          ) {
+            return fetch(REL_TAG_API(rel.tag))
               .then(r => (r.ok ? r.json() : null))
               .then(apiData => {
                 if (apiData && Array.isArray(apiData.assets)) {
@@ -396,12 +458,6 @@
               })
               .catch(() => {});
           }
-        })
-        .catch(() => fetchJson(REL_API).then(parseReleasePayload))
-        .catch(() => {
-          rel.state = 'staged';
-          rel.urls = {};
-          rel.shas = {};
         })
         .finally(() => {
           clearTimeout(timer);
