@@ -115,8 +115,12 @@ writeFileSync('602-release.json', `${JSON.stringify({ tag_name: tag, assets }, n
 
 /* Sync static fallback version strings and SHA-256 digests in 602 HTML/JS/llms files */
 const bare = tag.replace(/^v/, '');
+const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Documentation|arm64|x86_64|x64|portable)';
+const VER_2_RE = new RegExp(`\\bv2\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
 const slotKeys = ['studio-mac', 'studio-win', 'studio-linux', 'engine-mac', 'engine-win', 'engine-linux', 'headers-zip', 'headers-h', 'docs-zip', 'docs-md'];
-let dlHtml = readFileSync('602/download.html', 'utf8');
+let dlHtml = readFileSync('602/download.html', 'utf8')
+  .replace(VER_2_RE, tag)
+  .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
 slotKeys.forEach((key, idx) => {
   const primary = assets[idx * 2];
   if (!primary) return;
@@ -130,16 +134,17 @@ slotKeys.forEach((key, idx) => {
       `$1${primary.sha256}$2`
     );
   }
+  dlHtml = dlHtml.replace(
+    new RegExp(`(<a [^>]*data-602-sha="${key}"[^>]*aria-label="SHA-256 checksum for )[^"]+(")`),
+    `$1${primary.name}$2`
+  );
 });
-dlHtml = dlHtml
-  .replace(/\bv2\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
-  .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
 writeFileSync('602/download.html', dlHtml);
 
 for (const file of ['index.html', 'pages/602.html', 'main.js', 'llms.txt', 'llms-full.txt']) {
   const raw = readFileSync(file, 'utf8');
   const next = raw
-    .replace(/\bv2\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
+    .replace(VER_2_RE, tag)
     .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
   if (next !== raw) writeFileSync(file, next);
 }

@@ -116,7 +116,9 @@
     })();
 
     const TAG_RE = /^v[0-9][0-9A-Za-z.+-]{0,40}$/;
-    const VER_TOKEN_RE = /\bv[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?\b/g;
+    const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Documentation|arm64|x86_64|x64|portable)';
+    const VER_TOKEN_RE = new RegExp(`\\bv[0-9]+\\.[0-9]+\\.[0-9]+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
+    const VER_TOKEN_ONE_RE = new RegExp(`\\bv[0-9]+\\.[0-9]+\\.[0-9]+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`);
     const HEX64_RE = /\b([0-9a-f]{64})\b/i;
 
     const ASSETS = [
@@ -201,7 +203,7 @@
     });
     const initialDomTag = (() => {
       for (const el of verBadges) {
-        const m = el.textContent.match(/\bv[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z.-]+)?\b/);
+        const m = el.textContent.match(VER_TOKEN_ONE_RE);
         if (m) return m[0];
       }
       return '';
@@ -351,15 +353,20 @@
       });
       const replaceTokensInText = raw => {
         let txt = raw;
+        const stash = [];
         ASSETS.forEach(spec => {
           if (spec.replaceRe && rel.names[spec.key]) {
-            txt = txt.replace(spec.replaceRe, rel.names[spec.key]);
+            txt = txt.replace(spec.replaceRe, () => {
+              const token = `\x00A${stash.length}\x00`;
+              stash.push(rel.names[spec.key]);
+              return token;
+            });
           }
         });
         txt = txt.replace(VER_TOKEN_RE, rel.tag);
-        return txt;
+        return stash.length ? txt.replace(/\x00A(\d+)\x00/g, (_, i) => stash[Number(i)]) : txt;
       };
-      document.querySelectorAll('.p602-bar, .p602-dl-shell, .p602-doc-shell').forEach(root => {
+      document.querySelectorAll('.p602-bar, .p602-dl-shell, .p602-docs-shell').forEach(root => {
         const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
           acceptNode(node) {
             const p = node.parentElement;
