@@ -1,105 +1,155 @@
 {
-  "tag_name": "v2.0.0",
+  "tag_name": "v2.0.1",
   "assets": [
     {
-      "name": "602-Studio-v2.0.0-macos-arm64.dmg",
+      "name": "602-Studio-v2.0.1-macos-arm64.dmg",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-macos-arm64.dmg"
+      "size": 27307575,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-macos-arm64.dmg",
+      "digest": "sha256:8dd113d0c26c8bdf56ad8cf82b64edcecd9d8c2681941147168a6f52f6322da8",
+      "sha256": "8dd113d0c26c8bdf56ad8cf82b64edcecd9d8c2681941147168a6f52f6322da8"
     },
     {
-      "name": "602-Studio-v2.0.0-macos-arm64.dmg.sha256",
+      "name": "602-Studio-v2.0.1-macos-arm64.dmg.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-macos-arm64.dmg.sha256"
+      "size": 100,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-macos-arm64.dmg.sha256",
+      "digest": "sha256:9e91979ec4661c1873d9c148378e8bf827e63eec7720ab4f268bafa1e5a7d24a"
     },
     {
-      "name": "602-Studio-v2.0.0-windows-x86_64-setup.exe",
+      "name": "602-Studio-v2.0.1-windows-x86_64-setup.exe",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-windows-x86_64-setup.exe"
+      "size": 29878622,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-windows-x86_64-setup.exe",
+      "digest": "sha256:6a336c2803d2b1f673a94e91026a2fab54530112e06defe9e0bc2962c8c657fc",
+      "sha256": "6a336c2803d2b1f673a94e91026a2fab54530112e06defe9e0bc2962c8c657fc"
     },
     {
-      "name": "602-Studio-v2.0.0-windows-x86_64-setup.exe.sha256",
+      "name": "602-Studio-v2.0.1-windows-x86_64-setup.exe.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-windows-x86_64-setup.exe.sha256"
+      "size": 109,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-windows-x86_64-setup.exe.sha256",
+      "digest": "sha256:eb2a40b65baf94ff3fd508fb33a4891013385669e31b78738cadece4cbd51d37"
     },
     {
-      "name": "602-Studio-v2.0.0-linux-x86_64.zip",
+      "name": "602-Studio-v2.0.1-linux-x86_64.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-linux-x86_64.zip"
+      "size": 23974038,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-linux-x86_64.zip",
+      "digest": "sha256:12fdfc10ae65710f0679a74e10c2aef14e81da0c3535589af79e59fbf92cd30e",
+      "sha256": "12fdfc10ae65710f0679a74e10c2aef14e81da0c3535589af79e59fbf92cd30e"
     },
     {
-      "name": "602-Studio-v2.0.0-linux-x86_64.zip.sha256",
+      "name": "602-Studio-v2.0.1-linux-x86_64.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-Studio-v2.0.0-linux-x86_64.zip.sha256"
+      "size": 101,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-Studio-v2.0.1-linux-x86_64.zip.sha256",
+      "digest": "sha256:45ec09986bcf8ec55b469649d7f6dd5e7bdffa76d20a0805f13b2bd65852e841"
     },
     {
-      "name": "story-engine-v2.0.0-macos-arm64.zip",
+      "name": "story-engine-v2.0.1-macos-arm64.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-macos-arm64.zip"
+      "size": 284711,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-macos-arm64.zip",
+      "digest": "sha256:69e23bcbe616a5d83fb19cbab19908c77571bea4ceef0557b180bb144d9f6b8b",
+      "sha256": "69e23bcbe616a5d83fb19cbab19908c77571bea4ceef0557b180bb144d9f6b8b"
     },
     {
-      "name": "story-engine-v2.0.0-macos-arm64.zip.sha256",
+      "name": "story-engine-v2.0.1-macos-arm64.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-macos-arm64.zip.sha256"
+      "size": 102,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-macos-arm64.zip.sha256",
+      "digest": "sha256:43f241e97d92f017b365a18444bae7a56856a5ff570f873127c938087ae26d9c"
     },
     {
-      "name": "story-engine-v2.0.0-windows-x86_64.zip",
+      "name": "story-engine-v2.0.1-windows-x86_64.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-windows-x86_64.zip"
+      "size": 830476,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-windows-x86_64.zip",
+      "digest": "sha256:de4eefbfe05f7fcf37f6503a206113fd7bae721cce0a3ca18c30785799dbe977",
+      "sha256": "de4eefbfe05f7fcf37f6503a206113fd7bae721cce0a3ca18c30785799dbe977"
     },
     {
-      "name": "story-engine-v2.0.0-windows-x86_64.zip.sha256",
+      "name": "story-engine-v2.0.1-windows-x86_64.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-windows-x86_64.zip.sha256"
+      "size": 105,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-windows-x86_64.zip.sha256",
+      "digest": "sha256:647745b7fcaa57c6c733ad72faf3a08426bf9f4a2a98246243141da46375de4c"
     },
     {
-      "name": "story-engine-v2.0.0-linux-x86_64.zip",
+      "name": "story-engine-v2.0.1-linux-x86_64.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-linux-x86_64.zip"
+      "size": 311091,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-linux-x86_64.zip",
+      "digest": "sha256:7d8b68a1c29c11711672e9cd8c9a2c66e3061f9245a3a44ef246bbfaeb036409",
+      "sha256": "7d8b68a1c29c11711672e9cd8c9a2c66e3061f9245a3a44ef246bbfaeb036409"
     },
     {
-      "name": "story-engine-v2.0.0-linux-x86_64.zip.sha256",
+      "name": "story-engine-v2.0.1-linux-x86_64.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story-engine-v2.0.0-linux-x86_64.zip.sha256"
+      "size": 103,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story-engine-v2.0.1-linux-x86_64.zip.sha256",
+      "digest": "sha256:bd48f57a30887ebf3443f638f678a55e19cfe323ae4f2b0d4fa88b55c20c255e"
     },
     {
-      "name": "602-story-engine-v2.0.0-headers.zip",
+      "name": "602-story-engine-v2.0.1-headers.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-story-engine-v2.0.0-headers.zip"
+      "size": 7090,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-story-engine-v2.0.1-headers.zip",
+      "digest": "sha256:90d321ce84cf9eab03d42e3136976ace974dc33138afa60af1958de177e85c34",
+      "sha256": "90d321ce84cf9eab03d42e3136976ace974dc33138afa60af1958de177e85c34"
     },
     {
-      "name": "602-story-engine-v2.0.0-headers.zip.sha256",
+      "name": "602-story-engine-v2.0.1-headers.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-story-engine-v2.0.0-headers.zip.sha256"
+      "size": 102,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-story-engine-v2.0.1-headers.zip.sha256",
+      "digest": "sha256:b90df07c2331ae973f81bb3976a551e40056dadf2b5e57c7202f87ece2c932fd"
     },
     {
       "name": "story_engine_v2.h",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story_engine_v2.h"
+      "size": 1361,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story_engine_v2.h",
+      "digest": "sha256:cf0eaeee9b21b615c6aca1db75d7993e2fdd5657a8a90f39b96211bf70253d6c",
+      "sha256": "cf0eaeee9b21b615c6aca1db75d7993e2fdd5657a8a90f39b96211bf70253d6c"
     },
     {
       "name": "story_engine_v2.h.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/story_engine_v2.h.sha256"
+      "size": 84,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/story_engine_v2.h.sha256",
+      "digest": "sha256:83249b1c8776febe1d54eab5d20ef1becb2ff45df44099384de94737599a3184"
     },
     {
-      "name": "602-v2.0.0-docs.zip",
+      "name": "602-v2.0.1-docs.zip",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-v2.0.0-docs.zip"
+      "size": 18135,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-v2.0.1-docs.zip",
+      "digest": "sha256:09cc3c87965a43ca7338a927fd25209941baaf2eb53019fb60d6bfc935086c98",
+      "sha256": "09cc3c87965a43ca7338a927fd25209941baaf2eb53019fb60d6bfc935086c98"
     },
     {
-      "name": "602-v2.0.0-docs.zip.sha256",
+      "name": "602-v2.0.1-docs.zip.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-v2.0.0-docs.zip.sha256"
+      "size": 86,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-v2.0.1-docs.zip.sha256",
+      "digest": "sha256:8643e69f11e89b60afa8397ab6f40d1b7a152c48b3238c7c5bd5d7c622952d7a"
     },
     {
-      "name": "602-v2.0.0-Documentation.md",
+      "name": "602-v2.0.1-Documentation.md",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-v2.0.0-Documentation.md"
+      "size": 34178,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-v2.0.1-Documentation.md",
+      "digest": "sha256:0dbb94a0f6ba154fa1f31bae8be0c0e46951e8946cd507e5568732125a29f69f",
+      "sha256": "0dbb94a0f6ba154fa1f31bae8be0c0e46951e8946cd507e5568732125a29f69f"
     },
     {
-      "name": "602-v2.0.0-Documentation.md.sha256",
+      "name": "602-v2.0.1-Documentation.md.sha256",
       "state": "uploaded",
-      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.0/602-v2.0.0-Documentation.md.sha256"
+      "size": 94,
+      "browser_download_url": "https://github.com/CHOAM-CO/602-releases/releases/download/v2.0.1/602-v2.0.1-Documentation.md.sha256",
+      "digest": "sha256:6ee21cce21f9f1a19eb63efc7a53d41d47f66b21d066486af2dfef536868150b"
     }
   ]
 }

@@ -1,11 +1,11 @@
 name: release-json
 
 # Keeps release.json (Scheherazade) and 602-release.json (602 Studio & Story Engine) synced to the latest releases.
-# Runs every 6 hours and on demand via workflow_dispatch; commits only when a manifest changed.
+# Runs every 30 minutes and on demand via workflow_dispatch; commits only when a manifest changed.
 # Pushing to main automatically triggers the GitHub Pages deployment workflow without duplicate API build calls.
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -38,23 +38,26 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain -- release.json 602-release.json)" ]; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "release.json and 602-release.json unchanged"
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           MSG_PARTS=()
-          if [ -n "$(git status --porcelain -- release.json)" ]; then
+          if [ -n "$(git status --porcelain -- release.json pages/scheherazade.html download.html install.html)" ]; then
             SERA_TAG=$(node -p "JSON.parse(require('node:fs').readFileSync('./release.json', 'utf8')).tag_name")
             MSG_PARTS+=("release.json: ${SERA_TAG}")
           fi
-          if [ -n "$(git status --porcelain -- 602-release.json)" ]; then
+          if [ -n "$(git status --porcelain -- 602-release.json 602/download.html pages/602.html)" ]; then
             E602_TAG=$(node -p "JSON.parse(require('node:fs').readFileSync('./602-release.json', 'utf8')).tag_name")
             MSG_PARTS+=("602-release.json: ${E602_TAG}")
           fi
+          if [ ${#MSG_PARTS[@]} -eq 0 ]; then
+            MSG_PARTS+=("chore: sync latest release metadata")
+          fi
           COMMIT_MSG=$(IFS=', '; echo "${MSG_PARTS[*]}")
-          git add release.json 602-release.json
+          git add -u
           git commit -m "${COMMIT_MSG}"
           git pull --rebase --quiet origin main
           git push origin HEAD:main

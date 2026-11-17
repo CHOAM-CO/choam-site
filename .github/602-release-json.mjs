@@ -1,6 +1,6 @@
 // Refresh 602-release.json dynamically from the latest complete public release in CHOAM-CO/602-releases.
 // No version tag is hardcoded: tag_name and asset filenames follow the latest published GitHub release.
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 const REPO = 'CHOAM-CO/602-releases';
 const SLOTS = [
@@ -90,11 +90,57 @@ for (const candidatesOf of SLOTS) {
     console.error(`Missing checksum ${primary.name}.sha256 in ${tag}; 602-release.json left unchanged`);
     process.exit(1);
   }
-  assets.push(
-    { name: primary.name, state: primary.state, browser_download_url: primary.browser_download_url },
-    { name: sha.name, state: sha.state, browser_download_url: sha.browser_download_url }
-  );
+  const shaHex = typeof primary.digest === 'string' && /^sha256:[0-9a-f]{64}$/i.test(primary.digest)
+    ? primary.digest.slice(7).toLowerCase()
+    : '';
+  const primaryEntry = {
+    name: primary.name,
+    state: primary.state,
+    size: primary.size,
+    browser_download_url: primary.browser_download_url,
+  };
+  if (primary.digest) primaryEntry.digest = primary.digest;
+  if (shaHex) primaryEntry.sha256 = shaHex;
+  const shaEntry = {
+    name: sha.name,
+    state: sha.state,
+    size: sha.size,
+    browser_download_url: sha.browser_download_url,
+  };
+  if (sha.digest) shaEntry.digest = sha.digest;
+  assets.push(primaryEntry, shaEntry);
 }
 
 writeFileSync('602-release.json', `${JSON.stringify({ tag_name: tag, assets }, null, 2)}\n`);
+
+/* Sync static fallback version strings and SHA-256 digests in 602 HTML/JS/llms files */
+const bare = tag.replace(/^v/, '');
+const slotKeys = ['studio-mac', 'studio-win', 'studio-linux', 'engine-mac', 'engine-win', 'engine-linux', 'headers-zip', 'headers-h', 'docs-zip', 'docs-md'];
+let dlHtml = readFileSync('602/download.html', 'utf8');
+slotKeys.forEach((key, idx) => {
+  const primary = assets[idx * 2];
+  if (!primary) return;
+  dlHtml = dlHtml.replace(
+    new RegExp(`(<code class="p602-dl-file" data-602-filename="${key}">)[^<]+(</code>)`),
+    `$1${primary.name}$2`
+  );
+  if (primary.sha256) {
+    dlHtml = dlHtml.replace(
+      new RegExp(`(<code class="p602-dl-file" data-sha256-asset="${key}">)[0-9a-f]{64}(</code>)`),
+      `$1${primary.sha256}$2`
+    );
+  }
+});
+dlHtml = dlHtml
+  .replace(/\bv2\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
+  .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
+writeFileSync('602/download.html', dlHtml);
+
+for (const file of ['index.html', 'pages/602.html', 'main.js', 'llms.txt', 'llms-full.txt']) {
+  const raw = readFileSync(file, 'utf8');
+  const next = raw
+    .replace(/\bv2\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?\b/g, tag)
+    .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
+  if (next !== raw) writeFileSync(file, next);
+}
 console.log(`${tag}: ${assets.length} assets`);

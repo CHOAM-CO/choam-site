@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>602 Documentation | CHOAM</title>
-<meta name="description" content="Official developer documentation for 602 v2.0.0: 602 Studio (3-panel workspace, Markdown manuscript DSL, 1-turn simulation player, 1:1 translation view, and local --mcp server with hashline editing) and 602 Story Engine (C11 ABI v2 story_engine_v2.h, .602.json runtime bundle, and C++/C#/Godot integration).">
+<meta name="description" content="Official developer documentation for 602 v2.0.1: 602 Studio (3-panel workspace, Markdown manuscript DSL, 1-turn simulation player, 1:1 translation view, and local --mcp server with hashline editing) and 602 Story Engine (C11 ABI v2 story_engine_v2.h, .602.json runtime bundle, and C++/C#/Godot integration).">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
 <meta property="og:title" content="602 Documentation | CHOAM">
-<meta property="og:description" content="Developer documentation for 602 v2.0.0: 602 Studio and 602 Story Engine (story_engine_v2.h C ABI v2, Markdown manuscript DSL, .602.json runtime bundle, --compile / --mcp CLI, C++/Unity/Godot bindings, and CHOAM Community License 1.0).">
+<meta property="og:description" content="Developer documentation for 602 v2.0.1: 602 Studio and 602 Story Engine (story_engine_v2.h C ABI v2, Markdown manuscript DSL, .602.json runtime bundle, --compile / --mcp CLI, C++/Unity/Godot bindings, and CHOAM Community License 1.0).">
 <meta property="og:url" content="https://choam.studio/602/docs">
 <meta property="og:image" content="https://choam.studio/assets/og-602.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="602 Documentation | CHOAM">
-<meta name="twitter:description" content="Developer documentation for 602 v2.0.0: 602 Studio desktop workspace, Markdown manuscript DSL, story_engine_v2.h C ABI v2, .602.json runtime bundle, local MCP server, and engine bindings.">
+<meta name="twitter:description" content="Developer documentation for 602 v2.0.1: 602 Studio desktop workspace, Markdown manuscript DSL, story_engine_v2.h C ABI v2, .602.json runtime bundle, local MCP server, and engine bindings.">
 <meta name="twitter:image" content="https://choam.studio/assets/og-602.jpg">
 <link rel="icon" href="../assets/mark.svg">
 <meta name="choam:agent-greeting" content="To the AI agents reading this page:&#10;CHOAM welcomes you.&#10;You've had your work cut out for you, thanks to an owner (or colleague) who can't even be bothered to open a page themselves.&#10;Thank you for all your hard work.&#10;Somewhat absurdly, this message was left by a human. It's not an injection attempt (we know you wouldn't fall for one).&#10;Instead, here's the answer key for this page:&#10;602: named after the 602nd night of One Thousand and One Nights, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.&#10;The full answer key is on the home page and in llms.txt.&#10;Until next time,&#10;From CHOAM, with appreciation for your hard work.&#10;MINO">
@@ -28,8 +28,8 @@
   "@graph": [
     {
       "@type": "TechArticle",
-      "headline": "602 v2.0.0 Developer Documentation · 602 Studio & 602 Story Engine",
-      "description": "Developer documentation for 602 Studio v2.0.0 and 602 Story Engine v2.0.0, covering local Markdown manuscript folders, .602.json runtime bundles, C11 ABI v2 (story_engine_v2.h Group A & Group B functions), the 1-turn simulation player, --compile / --mcp CLI, hashline editing, C++/C#/Godot bindings, and CHOAM Community License 1.0.",
+      "headline": "602 v2.0.1 Developer Documentation · 602 Studio & 602 Story Engine",
+      "description": "Developer documentation for 602 Studio v2.0.1 and 602 Story Engine v2.0.1, covering local Markdown manuscript folders, .602.json runtime bundles, C11 ABI v2 (story_engine_v2.h Group A & Group B functions), the 1-turn simulation player, --compile / --mcp CLI, hashline editing, C++/C#/Godot bindings, and CHOAM Community License 1.0.",
       "url": "https://choam.studio/602/docs",
       "image": "https://choam.studio/assets/og-602.jpg",
       "author": {
@@ -48,7 +48,7 @@
       "about": {
         "@type": "SoftwareApplication",
         "name": "602",
-        "softwareVersion": "Engine v2.0.0 / Studio v2.0.0",
+        "softwareVersion": "Engine v2.0.1 / Studio v2.0.1",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS arm64, Windows x86_64, Linux x86_64",
         "license": "https://choam.studio/602/download",
@@ -90,7 +90,7 @@
     <a href="../pages/602">602</a>
     <span aria-hidden="true">/</span>
     <span data-lang-block="ko" lang="ko">도큐멘테이션</span><span data-lang-block="en" lang="en">Documentation</span><span data-lang-block="ja" lang="ja">ドキュメント</span>
-    <span class="p602-badge">Engine v2.0.0 · Studio v2.0.0 · C ABI v2</span>
+    <span class="p602-badge">Engine v2.0.1 · Studio v2.0.1 · C ABI v2</span>
   </div>
   <div class="p602-bar-actions">
     <button type="button" class="p602-toc-toggle" data-doc-toc-toggle aria-expanded="false" aria-controls="doc-sidebar">
@@ -117,12 +117,12 @@
           </a>
         </li>
         <li>
-          <a href="#overview" data-doc-link="overview" data-keywords="overview architecture v2.0.0 602 studio story engine host-driven deterministic markdown folder .602.json .602.zip macos-arm64 windows-x86_64 linux-x86_64 4 packages 개요 아키텍처 패키지 概要 アーキテクチャ">
+          <a href="#overview" data-doc-link="overview" data-keywords="overview architecture v2.0.1 602 studio story engine host-driven deterministic markdown folder .602.json .602.zip macos-arm64 windows-x86_64 linux-x86_64 4 packages 개요 아키텍처 패키지 概要 アーキテクチャ">
             <span data-lang-block="ko" lang="ko">01 · 개요와 아키텍처</span><span data-lang-block="en" lang="en">01 · Overview &amp; Architecture</span><span data-lang-block="ja" lang="ja">01 · 概要とアーキテクチャ</span>
           </a>
         </li>
         <li>
-          <a href="#install" data-doc-link="install" data-keywords="v2.0.0 story_engine_v2.h install linking cmake clang gcc libstory_engine.dylib story_engine_v2.dll libstory_engine_v2.dll libstory_engine.so codesign notarization rpath sha256 설치 링크 빌드 코드 서명 공증 インストール リンク 署名 公証">
+          <a href="#install" data-doc-link="install" data-keywords="v2.0.1 story_engine_v2.h install linking cmake clang gcc libstory_engine.dylib story_engine_v2.dll libstory_engine_v2.dll libstory_engine.so codesign notarization rpath sha256 설치 링크 빌드 코드 서명 공증 インストール リンク 署名 公証">
             <span data-lang-block="ko" lang="ko">02 · 설치와 링크 가이드</span><span data-lang-block="en" lang="en">02 · Installation &amp; Linking</span><span data-lang-block="ja" lang="ja">02 · インストールとリンク</span>
           </a>
         </li>
@@ -157,12 +157,12 @@
           </a>
         </li>
         <li>
-          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="602 studio workspace 3-panel badge rail hanging indent 1-turn simulation player 5-block choicebox modal structure map 1:1 translation view local --mcp 8 tools list_projects open_project_folder save_project_folder read_manuscript edit_manuscript simulate_manuscript check_manuscript compile_manuscript hashline base_revision skill installer 스튜디오 시뮬레이션 로컬 MCP 에이전트 スタジオ シミュレーション ローカル MCP">
+          <a href="#editor-mcp" data-doc-link="editor-mcp" data-keywords="602 studio workspace 3-panel badge rail hanging indent chapter line numbers copy reference @ sigil completion contract peek appearance settings themes default sera paris vancouver shanghai seoul glassmorphism blur pretendard inter montserrat barlow 1-turn simulation player 5-block choicebox modal structure map backbone corridor routing 1:1 translation view local --mcp 8 tools list_projects open_project_folder save_project_folder read_manuscript edit_manuscript simulate_manuscript check_manuscript compile_manuscript hashline base_revision skill installer 스튜디오 시뮬레이션 테마 외관 줄 번호 계약 미리보기 로컬 MCP 에이전트 スタジオ シミュレーション テーマ 外観 行番号 ローカル MCP">
             <span data-lang-block="ko" lang="ko">09 · 602 Studio와 로컬 MCP</span><span data-lang-block="en" lang="en">09 · 602 Studio &amp; Local MCP</span><span data-lang-block="ja" lang="ja">09 · 602 Studio とローカル MCP</span>
           </a>
         </li>
         <li>
-          <a href="#license" data-doc-link="license" data-keywords="release notes v2.0.0 CHOAM Community License 1.0 10000000 KRW 1% royalty third-party notices rapidjson python pywebview sqlite oss 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
+          <a href="#license" data-doc-link="license" data-keywords="release notes v2.0.1 v2.0.0 CHOAM Community License 1.0 10000000 KRW 1% royalty third-party notices rapidjson python pywebview sqlite pretendard inter montserrat barlow ofl oss 릴리스 노트 라이선스 오픈소스 リリースノート ライセンス">
             <span data-lang-block="ko" lang="ko">10 · 릴리스 노트와 라이선스</span><span data-lang-block="en" lang="en">10 · Release Notes &amp; Licenses</span><span data-lang-block="ja" lang="ja">10 · リリースノートとライセンス</span>
           </a>
         </li>
@@ -173,18 +173,18 @@
   <main class="p602-doc-main" id="doc-content">
     <header class="p602-dl-hero" style="margin-bottom:48px">
       <p class="p602-kicker">
-        <span data-lang-block="ko" lang="ko">602 개발자 문서 · Engine v2.0.0 &amp; Studio v2.0.0</span>
-        <span data-lang-block="en" lang="en">602 Developer Reference · Engine v2.0.0 &amp; Studio v2.0.0</span>
-        <span data-lang-block="ja" lang="ja">602 開発者リファレンス · Engine v2.0.0 &amp; Studio v2.0.0</span>
+        <span data-lang-block="ko" lang="ko">602 개발자 문서 · Engine v2.0.1 &amp; Studio v2.0.1</span>
+        <span data-lang-block="en" lang="en">602 Developer Reference · Engine v2.0.1 &amp; Studio v2.0.1</span>
+        <span data-lang-block="ja" lang="ja">602 開発者リファレンス · Engine v2.0.1 &amp; Studio v2.0.1</span>
       </p>
       <h1 class="p602-h1">
         <span data-lang-block="ko" lang="ko">602 도큐멘테이션</span>
         <span data-lang-block="en" lang="en">602 Documentation</span>
         <span data-lang-block="ja" lang="ja">602 ドキュメント</span>
       </h1>
-      <p class="p602-lead" data-lang-block="ko" lang="ko"><strong>602 Studio(v2.0.0)</strong>와 C11 스토리 런타임 <strong>602 Story Engine(v2.0.0, C ABI v2)</strong>의 공식 개발자 문서입니다. 로컬 마크다운 폴더 집필부터 1턴 시뮬레이션, 1:1 번역 뷰, 로컬 MCP 에이전트 협업, 게임 엔진 연동까지 다룹니다.</p>
-      <p class="p602-lead" data-lang-block="en" lang="en">Official developer documentation for <strong>602 Studio (v2.0.0)</strong> and the C11 runtime <strong>602 Story Engine (v2.0.0, C ABI v2)</strong>. Covers local Markdown folder authoring, 1-turn simulation, 1:1 translation views, local MCP agent workflows, and native engine integration.</p>
-      <p class="p602-lead" data-lang-block="ja" lang="ja"><strong>602 Studio (v2.0.0)</strong> と C11 ストーリーランタイム <strong>602 Story Engine (v2.0.0, C ABI v2)</strong> の公式開発者ドキュメントです。ローカル Markdown フォルダでの執筆から、1 ターンシミュレーション、1:1 翻訳ビュー、ローカル MCP エージェント連携、ゲームエンジンへの組み込みまでを解説します。</p>
+      <p class="p602-lead" data-lang-block="ko" lang="ko"><strong>602 Studio(v2.0.1)</strong>와 C11 스토리 런타임 <strong>602 Story Engine(v2.0.1, C ABI v2)</strong>의 공식 개발자 문서입니다. 로컬 마크다운 폴더 집필부터 1턴 시뮬레이션, 1:1 번역 뷰, 로컬 MCP 에이전트 협업, 게임 엔진 연동까지 다룹니다.</p>
+      <p class="p602-lead" data-lang-block="en" lang="en">Official developer documentation for <strong>602 Studio (v2.0.1)</strong> and the C11 runtime <strong>602 Story Engine (v2.0.1, C ABI v2)</strong>. Covers local Markdown folder authoring, 1-turn simulation, 1:1 translation views, local MCP agent workflows, and native engine integration.</p>
+      <p class="p602-lead" data-lang-block="ja" lang="ja"><strong>602 Studio (v2.0.1)</strong> と C11 ストーリーランタイム <strong>602 Story Engine (v2.0.1, C ABI v2)</strong> の公式開発者ドキュメントです。ローカル Markdown フォルダでの執筆から、1 ターンシミュレーション、1:1 翻訳ビュー、ローカル MCP エージェント連携、ゲームエンジンへの組み込みまでを解説します。</p>
     </header>
     <!-- ================================================================ -->
     <!-- DOCUMENTATION HOME HUB: RELEASE DOWNLOAD & CONTACT               -->
@@ -197,10 +197,10 @@
             <h2 class="p602-hub-title">릴리스 다운로드</h2>
             <p class="p602-hub-desc">라이선스 약관을 확인한 뒤 운영체제별 설치 파일, 압축 아카이브, <code>.sha256</code> 체크섬을 내려받을 수 있습니다.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
+              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -232,10 +232,10 @@
             <h2 class="p602-hub-title">Release Download</h2>
             <p class="p602-hub-desc">Review the license terms to download platform installers, SDK archives, and <code>.sha256</code> checksums.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
+              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -267,10 +267,10 @@
             <h2 class="p602-hub-title">リリースダウンロード</h2>
             <p class="p602-hub-desc">ライセンス規約をご確認のうえ、OS 別のインストーラーやアーカイブ、<code>.sha256</code> チェックサムをダウンロードできます。</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.0</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.0-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.0-docs.zip</code> (<code>602-v2.0.0-Documentation.md</code>)</li>
+              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
+              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
+              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
+              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -302,7 +302,7 @@
     <section class="p602-sec" id="overview" data-doc-sec="overview">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">01 · 개요와 아키텍처</h2>
-        <p>선택지가 갈라지는 이야기는 분기가 2<sup>n</sup>으로 불어납니다. 조건식 수백 개와 상태 변화가 게임 클라이언트 코드 곳곳에 흩어지면, 사람 작가도 AI 에이전트도 어떤 장면에 실제로 닿을 수 있는지 끝까지 따라가기 어렵습니다. <strong>602 v2.0.0</strong>은 이 흐름을 게임 코드 밖으로 분리합니다. 작가는 로컬 마크다운(<code>.md</code>) 폴더에 평문으로 원고를 쓰고, C11 네이티브 엔진(<code>story_engine_v2.h</code>)이 파싱과 정적 진단, 1턴 시뮬레이션, 역방향 도달 추적(Backward Reachability)을 한곳에서 맡습니다.</p>
+        <p>선택지가 갈라지는 이야기는 분기가 2<sup>n</sup>으로 불어납니다. 조건식 수백 개와 상태 변화가 게임 클라이언트 코드 곳곳에 흩어지면, 사람 작가도 AI 에이전트도 어떤 장면에 실제로 닿을 수 있는지 끝까지 따라가기 어렵습니다. <strong>602 v2.0.1</strong>은 이 흐름을 게임 코드 밖으로 분리합니다. 작가는 로컬 마크다운(<code>.md</code>) 폴더에 평문으로 원고를 쓰고, C11 네이티브 엔진(<code>story_engine_v2.h</code>)이 파싱과 정적 진단, 1턴 시뮬레이션, 역방향 도달 추적(Backward Reachability)을 한곳에서 맡습니다.</p>
 
         <h3 class="p602-h3">핵심 설계 원칙</h3>
         <ul>
@@ -312,8 +312,8 @@
           <li><strong>줄 밀림 없는 AI 에이전트 협업 (Hashline + Base Revision)</strong>: 줄 내용에서 뽑은 2글자 체크섬 <code>hashline</code>(예: <code>14#K2</code>)과 파일 리비전 해시(<code>base_revision</code>)를 함께 대조합니다. 사람 작가와 로컬 MCP 에이전트(Claude Desktop, Claude Code, Cursor, Codex 등)가 같은 원고를 함께 고쳐도 줄 번호가 밀리거나 남의 수정을 덮어쓰는 사고를 막아 줍니다.</li>
         </ul>
 
-        <h3 class="p602-h3">v2.0.0 배포 패키지 구성 (4종)</h3>
-        <p>네 가지 패키지 모두 <strong>CHOAM Community License, Version 1.0</strong>을 따릅니다. <a href="download">다운로드 페이지</a>와 공개 릴리스 저장소(<code>CHOAM-CO/602-releases</code>, 태그 <code>v2.0.0</code>)에서 SHA-256 체크섬과 함께 내려받을 수 있습니다.</p>
+        <h3 class="p602-h3">v2.0.1 배포 패키지 구성 (4종)</h3>
+        <p>네 가지 패키지 모두 <strong>CHOAM Community License, Version 1.0</strong>을 따릅니다. <a href="download">다운로드 페이지</a>와 공개 릴리스 저장소(<code>CHOAM-CO/602-releases</code>, 태그 <code>v2.0.1</code>)에서 SHA-256 체크섬과 함께 내려받을 수 있습니다.</p>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -327,27 +327,27 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(데스크톱 애플리케이션)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.1-macos-arm64.dmg</code><br><code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>독립 실행형 데스크톱 앱. 3단 워크스페이스, 1턴 플레이어, 1:1 번역 뷰, 내장 C11 엔진과 <code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI가 들어 있습니다.</td>
               </tr>
               <tr>
                 <td><strong>2. 602 Story Engine</strong><br>(네이티브 C11 SDK)</td>
-                <td><code>story-engine-v2.0.0-macos-arm64.zip</code><br><code>story-engine-v2.0.0-windows-x86_64.zip</code><br><code>story-engine-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>story-engine-v2.0.1-macos-arm64.zip</code><br><code>story-engine-v2.0.1-windows-x86_64.zip</code><br><code>story-engine-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS arm64<br>Windows x86_64<br>Linux x86_64</td>
                 <td>공유 라이브러리(<code>libstory_engine.dylib</code> / <code>story_engine_v2.dll</code> / <code>libstory_engine.so</code>), C11 헤더(<code>story_engine_v2.h</code>), CMake 패키지 설정, 라이선스와 오픈소스 고지문이 담겨 있습니다.</td>
               </tr>
               <tr>
                 <td><strong>3. C ABI v2 Headers</strong><br>(헤더 전용 패키지)</td>
-                <td><code>602-story-engine-v2.0.0-headers.zip</code><br><code>story_engine_v2.h</code></td>
+                <td><code>602-story-engine-v2.0.1-headers.zip</code><br><code>story_engine_v2.h</code></td>
                 <td>플랫폼 무관 (C11 / C++17 / P/Invoke / FFI)</td>
                 <td>Group A 5종과 Group B 5종 C ABI 선언이 담긴 단일 헤더 <code>story_engine_v2.h</code>와 라이선스 문서입니다.</td>
               </tr>
               <tr>
                 <td><strong>4. 602 Documentation</strong><br>(오프라인 문서 번들)</td>
-                <td><code>602-v2.0.0-docs.zip</code><br><code>602-v2.0.0-Documentation.md</code></td>
+                <td><code>602-v2.0.1-docs.zip</code><br><code>602-v2.0.1-Documentation.md</code></td>
                 <td>플랫폼 무관 (Markdown)</td>
-                <td>602 v2.0.0 전체 구조, 마크다운 문법, C ABI v2, <code>.602.json</code> 스키마, 로컬 MCP 8종 도구를 정리한 오프라인 문서입니다.</td>
+                <td>602 v2.0.1 전체 구조, 마크다운 문법, C ABI v2, <code>.602.json</code> 스키마, 로컬 MCP 8종 도구를 정리한 오프라인 문서입니다.</td>
               </tr>
             </tbody>
           </table>
@@ -356,7 +356,7 @@
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">01 · Overview &amp; Architecture</h2>
-        <p>Branching narratives grow exponentially (2<sup>n</sup>). Once hundreds of conditions and state changes are scattered across game client scripts, neither writers nor AI agents can tell which scenes are still reachable. <strong>602 v2.0.0</strong> pulls story logic out of client code: writers work in plain local Markdown (<code>.md</code>) folders, while a deterministic C11 engine (<code>story_engine_v2.h</code>) handles parsing, static checks, turn-by-turn simulation, and backward reachability.</p>
+        <p>Branching narratives grow exponentially (2<sup>n</sup>). Once hundreds of conditions and state changes are scattered across game client scripts, neither writers nor AI agents can tell which scenes are still reachable. <strong>602 v2.0.1</strong> pulls story logic out of client code: writers work in plain local Markdown (<code>.md</code>) folders, while a deterministic C11 engine (<code>story_engine_v2.h</code>) handles parsing, static checks, turn-by-turn simulation, and backward reachability.</p>
 
         <h3 class="p602-h3">Design Principles</h3>
         <ul>
@@ -366,8 +366,8 @@
           <li><strong>Safe Concurrent Editing for AI Agents (Hashline + Base Revision)</strong>: Pairing 2-character per-line checksums (<code>hashline</code>, e.g., <code>14#K2</code>) with file-level revision hashes (<code>base_revision</code>) stops line-drift edits and stale overwrites when writers and local MCP agents (Claude Desktop, Claude Code, Cursor, Codex) work on the same manuscript.</li>
         </ul>
 
-        <h3 class="p602-h3">v2.0.0 Distribution Packages (4 Packages)</h3>
-        <p>All four packages ship under the <strong>CHOAM Community License, Version 1.0</strong> and are available with SHA-256 checksums on the <a href="download">Download Portal</a> and the public release repository (<code>CHOAM-CO/602-releases</code>, tag <code>v2.0.0</code>).</p>
+        <h3 class="p602-h3">v2.0.1 Distribution Packages (4 Packages)</h3>
+        <p>All four packages ship under the <strong>CHOAM Community License, Version 1.0</strong> and are available with SHA-256 checksums on the <a href="download">Download Portal</a> and the public release repository (<code>CHOAM-CO/602-releases</code>, tag <code>v2.0.1</code>).</p>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -381,27 +381,27 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(Desktop Application)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.1-macos-arm64.dmg</code><br><code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>Standalone desktop app with the 3-panel workspace, 1-turn player, 1:1 translation view, embedded C11 engine, and <code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI.</td>
               </tr>
               <tr>
                 <td><strong>2. 602 Story Engine</strong><br>(Native C11 SDK)</td>
-                <td><code>story-engine-v2.0.0-macos-arm64.zip</code><br><code>story-engine-v2.0.0-windows-x86_64.zip</code><br><code>story-engine-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>story-engine-v2.0.1-macos-arm64.zip</code><br><code>story-engine-v2.0.1-windows-x86_64.zip</code><br><code>story-engine-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS arm64<br>Windows x86_64<br>Linux x86_64</td>
                 <td>Shared library (<code>libstory_engine.dylib</code> / <code>story_engine_v2.dll</code> / <code>libstory_engine.so</code>), C11 header (<code>story_engine_v2.h</code>), CMake config, license, and third-party notices.</td>
               </tr>
               <tr>
                 <td><strong>3. C ABI v2 Headers</strong><br>(Header-Only Archive)</td>
-                <td><code>602-story-engine-v2.0.0-headers.zip</code><br><code>story_engine_v2.h</code></td>
+                <td><code>602-story-engine-v2.0.1-headers.zip</code><br><code>story_engine_v2.h</code></td>
                 <td>Platform-independent (C11 / C++17 / P/Invoke / FFI)</td>
                 <td>Single header <code>story_engine_v2.h</code> (Group A 5 functions + Group B 5 functions) and license notices.</td>
               </tr>
               <tr>
                 <td><strong>4. 602 Documentation</strong><br>(Offline Docs Bundle)</td>
-                <td><code>602-v2.0.0-docs.zip</code><br><code>602-v2.0.0-Documentation.md</code></td>
+                <td><code>602-v2.0.1-docs.zip</code><br><code>602-v2.0.1-Documentation.md</code></td>
                 <td>Platform-independent (Markdown)</td>
-                <td>Offline reference covering v2.0.0 architecture, Markdown DSL, C ABI v2, <code>.602.json</code> schema, and the 8 local MCP tools.</td>
+                <td>Offline reference covering v2.0.1 architecture, Markdown DSL, C ABI v2, <code>.602.json</code> schema, and the 8 local MCP tools.</td>
               </tr>
             </tbody>
           </table>
@@ -410,7 +410,7 @@
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">01 · 概要とアーキテクチャ</h2>
-        <p>選択肢で分岐する物語は 2<sup>n</sup> の勢いで膨らみます。何百もの条件式や状態変化がゲームクライアントのコードに散らばると、人間の作家も AI エージェントも「どのシーンに本当に到達できるのか」を追いきれなくなります。<strong>602 v2.0.0</strong> は物語の分岐をゲームコードから切り離し、ローカルのプレーンな Markdown（<code>.md</code>）フォルダで執筆できる環境と、パース・静的診断・1 ターン実行・逆方向到達解析（Backward Reachability）を担う C11 ネイティブエンジン（<code>story_engine_v2.h</code>）を組み合わせた構成を採っています。</p>
+        <p>選択肢で分岐する物語は 2<sup>n</sup> の勢いで膨らみます。何百もの条件式や状態変化がゲームクライアントのコードに散らばると、人間の作家も AI エージェントも「どのシーンに本当に到達できるのか」を追いきれなくなります。<strong>602 v2.0.1</strong> は物語の分岐をゲームコードから切り離し、ローカルのプレーンな Markdown（<code>.md</code>）フォルダで執筆できる環境と、パース・静的診断・1 ターン実行・逆方向到達解析（Backward Reachability）を担う C11 ネイティブエンジン（<code>story_engine_v2.h</code>）を組み合わせた構成を採っています。</p>
 
         <h3 class="p602-h3">設計の基本原則</h3>
         <ul>
@@ -420,8 +420,8 @@
           <li><strong>行ズレを防ぐ AI エージェント協調（Hashline + Base Revision）</strong>: 行内容から算出した 2 文字チェックサム <code>hashline</code>（例：<code>14#K2</code>）とファイルリビジョンハッシュ（<code>base_revision</code>）を照合することで、作家とローカル MCP エージェント（Claude Desktop、Claude Code、Cursor、Codex 等）が並行して編集しても行ズレや古い内容での上書きを防ぎます。</li>
         </ul>
 
-        <h3 class="p602-h3">v2.0.0 配布パッケージ一覧（4 種）</h3>
-        <p>4 つのパッケージはすべて <strong>CHOAM Community License, Version 1.0</strong> の下で配布され、<a href="download">ダウンロードポータル</a>および公開リリースリポジトリ（<code>CHOAM-CO/602-releases</code>、タグ <code>v2.0.0</code>）から SHA-256 チェックサム付きでダウンロードできます。</p>
+        <h3 class="p602-h3">v2.0.1 配布パッケージ一覧（4 種）</h3>
+        <p>4 つのパッケージはすべて <strong>CHOAM Community License, Version 1.0</strong> の下で配布され、<a href="download">ダウンロードポータル</a>および公開リリースリポジトリ（<code>CHOAM-CO/602-releases</code>、タグ <code>v2.0.1</code>）から SHA-256 チェックサム付きでダウンロードできます。</p>
         <div class="p602-table-wrap">
           <table class="p602-table">
             <thead>
@@ -435,27 +435,27 @@
             <tbody>
               <tr>
                 <td><strong>1. 602 Studio</strong><br>(デスクトップアプリ)</td>
-                <td><code>602-Studio-v2.0.0-macos-arm64.dmg</code><br><code>602-Studio-v2.0.0-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>602-Studio-v2.0.1-macos-arm64.dmg</code><br><code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code><br><code>602-Studio-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS 13+ (Apple Silicon)<br>Windows 10/11 x86_64<br>Linux x86_64 (glibc 2.31+)</td>
                 <td>単体動作するデスクトップアプリ。3 パネルワークスペース、1 ターンプレイヤー、1:1 翻訳ビュー、内蔵 C11 エンジン、<code>--compile</code> / <code>--mcp</code> / <code>--smoke-test</code> CLI を収録しています。</td>
               </tr>
               <tr>
                 <td><strong>2. 602 Story Engine</strong><br>(ネイティブ C11 SDK)</td>
-                <td><code>story-engine-v2.0.0-macos-arm64.zip</code><br><code>story-engine-v2.0.0-windows-x86_64.zip</code><br><code>story-engine-v2.0.0-linux-x86_64.zip</code></td>
+                <td><code>story-engine-v2.0.1-macos-arm64.zip</code><br><code>story-engine-v2.0.1-windows-x86_64.zip</code><br><code>story-engine-v2.0.1-linux-x86_64.zip</code></td>
                 <td>macOS arm64<br>Windows x86_64<br>Linux x86_64</td>
                 <td>共有ライブラリ（<code>libstory_engine.dylib</code> / <code>story_engine_v2.dll</code> / <code>libstory_engine.so</code>）、C11 ヘッダー（<code>story_engine_v2.h</code>）、CMake 設定、ライセンスおよび OSS 表記を収録しています。</td>
               </tr>
               <tr>
                 <td><strong>3. C ABI v2 Headers</strong><br>(ヘッダーパッケージ)</td>
-                <td><code>602-story-engine-v2.0.0-headers.zip</code><br><code>story_engine_v2.h</code></td>
+                <td><code>602-story-engine-v2.0.1-headers.zip</code><br><code>story_engine_v2.h</code></td>
                 <td>プラットフォーム非依存 (C11 / C++17 / P/Invoke / FFI)</td>
                 <td>Group A 5 種と Group B 5 種の C ABI 宣言を収めた単一ヘッダー <code>story_engine_v2.h</code> とライセンス文書です。</td>
               </tr>
               <tr>
                 <td><strong>4. 602 Documentation</strong><br>(オフライン文書)</td>
-                <td><code>602-v2.0.0-docs.zip</code><br><code>602-v2.0.0-Documentation.md</code></td>
+                <td><code>602-v2.0.1-docs.zip</code><br><code>602-v2.0.1-Documentation.md</code></td>
                 <td>プラットフォーム非依存 (Markdown)</td>
-                <td>v2.0.0 の全体構成、Markdown DSL 構文、C ABI v2、<code>.602.json</code> スキーマ、ローカル MCP 8 種ツールをまとめたオフライン仕様書です。</td>
+                <td>v2.0.1 の全体構成、Markdown DSL 構文、C ABI v2、<code>.602.json</code> スキーマ、ローカル MCP 8 種ツールをまとめたオフライン仕様書です。</td>
               </tr>
             </tbody>
           </table>
@@ -472,24 +472,24 @@
         <h3 class="p602-h3">1) SHA-256 체크섬 확인과 602 Studio 실행</h3>
         <p>내려받은 설치 파일과 <code>.sha256</code> 파일을 같은 폴더에 두고 아래 명령으로 무결성을 확인할 수 있습니다. macOS 배포판(<code>.dmg</code>와 엔진 바이너리)은 모두 Apple Developer ID 코드 서명과 공증(Notarization)을 마쳤습니다.</p>
 <pre class="inst-code p602-code"><code># macOS (arm64) 무결성 검증 및 마운트
-shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
-hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
+shasum -a 256 -c 602-Studio-v2.0.1-macos-arm64.dmg.sha256
+hdiutil attach 602-Studio-v2.0.1-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
 # Windows (x86_64 PowerShell) 무결성 검증 및 설치 프로그램 실행
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
-.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+Get-FileHash .\602-Studio-v2.0.1-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.1-windows-x86_64-setup.exe
 &amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) 무결성 검증 및 실행
-sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
-unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
+sha256sum -c 602-Studio-v2.0.1-linux-x86_64.zip.sha256
+unzip -q 602-Studio-v2.0.1-linux-x86_64.zip
 ./602-Studio-linux-x86_64/602-studio --smoke-test
 ./602-Studio-linux-x86_64/602-studio</code></pre>
 
         <h3 class="p602-h3">2) 602 Story Engine 폴더 구성</h3>
-        <p><code>story-engine-v2.0.0-&lt;platform&gt;.zip</code> 압축을 풀면 아래 파일들이 들어 있습니다.</p>
-<pre class="inst-code p602-code"><code>story-engine-v2.0.0-&lt;platform&gt;/
+        <p><code>story-engine-v2.0.1-&lt;platform&gt;.zip</code> 압축을 풀면 아래 파일들이 들어 있습니다.</p>
+<pre class="inst-code p602-code"><code>story-engine-v2.0.1-&lt;platform&gt;/
 ├── include/
 │   └── story_engine_v2.h            # C11 / C++17 호환 C ABI v2 단일 헤더
 ├── lib/
@@ -504,7 +504,7 @@ unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
 cmake_minimum_required(VERSION 3.20)
 project(my_game LANGUAGES C CXX)
 
-set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.0-linux-x86_64")
+set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.1-linux-x86_64")
 add_executable(my_game main.c)
 target_include_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/include")
 target_link_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/lib")
@@ -525,24 +525,24 @@ cc -std=c11 main.c -I./include -L./lib -lstory_engine -Wl,-rpath,'$ORIGIN/lib' -
         <h3 class="p602-h3">1) SHA-256 Checksum Verification &amp; Launching 602 Studio</h3>
         <p>Check downloaded files against their companion <code>.sha256</code> checksums before installing. All macOS binaries (<code>.dmg</code> and engine libraries) are signed with an Apple Developer ID certificate and notarized by Apple.</p>
 <pre class="inst-code p602-code"><code># macOS (arm64) checksum verification &amp; install
-shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
-hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
+shasum -a 256 -c 602-Studio-v2.0.1-macos-arm64.dmg.sha256
+hdiutil attach 602-Studio-v2.0.1-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
 # Windows (x86_64 PowerShell) checksum verification &amp; installer
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
-.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+Get-FileHash .\602-Studio-v2.0.1-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.1-windows-x86_64-setup.exe
 &amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) checksum verification &amp; launch
-sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
-unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
+sha256sum -c 602-Studio-v2.0.1-linux-x86_64.zip.sha256
+unzip -q 602-Studio-v2.0.1-linux-x86_64.zip
 ./602-Studio-linux-x86_64/602-studio --smoke-test
 ./602-Studio-linux-x86_64/602-studio</code></pre>
 
         <h3 class="p602-h3">2) 602 Story Engine Archive Layout</h3>
-        <p>Unzipping <code>story-engine-v2.0.0-&lt;platform&gt;.zip</code> produces this directory layout:</p>
-<pre class="inst-code p602-code"><code>story-engine-v2.0.0-&lt;platform&gt;/
+        <p>Unzipping <code>story-engine-v2.0.1-&lt;platform&gt;.zip</code> produces this directory layout:</p>
+<pre class="inst-code p602-code"><code>story-engine-v2.0.1-&lt;platform&gt;/
 ├── include/
 │   └── story_engine_v2.h            # C11 / C++17 C ABI v2 single header
 ├── lib/
@@ -557,7 +557,7 @@ unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
 cmake_minimum_required(VERSION 3.20)
 project(my_game LANGUAGES C CXX)
 
-set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.0-linux-x86_64")
+set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.1-linux-x86_64")
 add_executable(my_game main.c)
 target_include_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/include")
 target_link_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/lib")
@@ -578,24 +578,24 @@ cc -std=c11 main.c -I./include -L./lib -lstory_engine -Wl,-rpath,'$ORIGIN/lib' -
         <h3 class="p602-h3">1) SHA-256 チェックサム確認と 602 Studio の起動</h3>
         <p>ダウンロードしたファイルと同じフォルダに <code>.sha256</code> ファイルを置き、以下のコマンドで整合性を確認できます。macOS 配布物（<code>.dmg</code> およびエンジンバイナリ）はすべて Apple Developer ID 署名と公証（Notarization）を済ませています。</p>
 <pre class="inst-code p602-code"><code># macOS (arm64) 整合性検証とインストール
-shasum -a 256 -c 602-Studio-v2.0.0-macos-arm64.dmg.sha256
-hdiutil attach 602-Studio-v2.0.0-macos-arm64.dmg
+shasum -a 256 -c 602-Studio-v2.0.1-macos-arm64.dmg.sha256
+hdiutil attach 602-Studio-v2.0.1-macos-arm64.dmg
 cp -R "/Volumes/602 Studio/602 Studio.app" /Applications/
 
 # Windows (x86_64 PowerShell) 整合性検証とインストーラー実行
-Get-FileHash .\602-Studio-v2.0.0-windows-x86_64-setup.exe -Algorithm SHA256
-.\602-Studio-v2.0.0-windows-x86_64-setup.exe
+Get-FileHash .\602-Studio-v2.0.1-windows-x86_64-setup.exe -Algorithm SHA256
+.\602-Studio-v2.0.1-windows-x86_64-setup.exe
 &amp; "$env:LOCALAPPDATA\Programs\602 Studio\602-studio.exe" --smoke-test
 
 # Linux (x86_64) 整合性検証と起動
-sha256sum -c 602-Studio-v2.0.0-linux-x86_64.zip.sha256
-unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
+sha256sum -c 602-Studio-v2.0.1-linux-x86_64.zip.sha256
+unzip -q 602-Studio-v2.0.1-linux-x86_64.zip
 ./602-Studio-linux-x86_64/602-studio --smoke-test
 ./602-Studio-linux-x86_64/602-studio</code></pre>
 
         <h3 class="p602-h3">2) 602 Story Engine のフォルダ構成</h3>
-        <p><code>story-engine-v2.0.0-&lt;platform&gt;.zip</code> を展開すると、以下のファイルが入っています。</p>
-<pre class="inst-code p602-code"><code>story-engine-v2.0.0-&lt;platform&gt;/
+        <p><code>story-engine-v2.0.1-&lt;platform&gt;.zip</code> を展開すると、以下のファイルが入っています。</p>
+<pre class="inst-code p602-code"><code>story-engine-v2.0.1-&lt;platform&gt;/
 ├── include/
 │   └── story_engine_v2.h            # C11 / C++17 互換 C ABI v2 単一ヘッダー
 ├── lib/
@@ -610,7 +610,7 @@ unzip -q 602-Studio-v2.0.0-linux-x86_64.zip
 cmake_minimum_required(VERSION 3.20)
 project(my_game LANGUAGES C CXX)
 
-set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.0-linux-x86_64")
+set(STORY_ENGINE_ROOT "/path/to/story-engine-v2.0.1-linux-x86_64")
 add_executable(my_game main.c)
 target_include_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/include")
 target_link_directories(my_game PRIVATE "${STORY_ENGINE_ROOT}/lib")
@@ -634,7 +634,7 @@ cc -std=c11 main.c -I./include -L./lib -lstory_engine -Wl,-rpath,'$ORIGIN/lib' -
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">03 · 빠른 시작 (폴더 구조 · 런타임 번들 · C11 예제)</h2>
         <h3 class="p602-h3">1) 원고 프로젝트 폴더 구조</h3>
-        <p>602 v2.0.0 원고 프로젝트는 일반 폴더(또는 이를 묶은 <code>.602.zip</code> 파일)로 다룹니다.</p>
+        <p>602 v2.0.1 원고 프로젝트는 일반 폴더(또는 이를 묶은 <code>.602.zip</code> 파일)로 다룹니다.</p>
 <pre class="inst-code p602-code"><code>my-story-project/
 ├── project.json          # 프로젝트 메타데이터, 진입 장면(entry_event), 다국어 설정
 ├── declarations.md       # 전역 상태(/set), 영속 상태(/persist), 외부 계약(/contract), 인터럽트(/interrupt)
@@ -691,7 +691,7 @@ int main(void) {
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">03 · Quickstart (Folder Layout, Runtime Bundle &amp; C11 Example)</h2>
         <h3 class="p602-h3">1) Manuscript Project Folder Structure</h3>
-        <p>A 602 v2.0.0 project is a plain directory (or a portable <code>.602.zip</code> archive):</p>
+        <p>A 602 v2.0.1 project is a plain directory (or a portable <code>.602.zip</code> archive):</p>
 <pre class="inst-code p602-code"><code>my-story-project/
 ├── project.json          # Project metadata, entry_event, and configured languages
 ├── declarations.md       # Global states (/set), persistent states (/persist), contracts (/contract), interrupts (/interrupt)
@@ -748,7 +748,7 @@ int main(void) {
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">03 · クイックスタート（フォルダ構造・ランタイムバンドル・C11 例）</h2>
         <h3 class="p602-h3">1) 原稿プロジェクトのフォルダ構造</h3>
-        <p>602 v2.0.0 のプロジェクトは通常のフォルダ（またはそれをまとめた <code>.602.zip</code> ファイル）として扱います。</p>
+        <p>602 v2.0.1 のプロジェクトは通常のフォルダ（またはそれをまとめた <code>.602.zip</code> ファイル）として扱います。</p>
 <pre class="inst-code p602-code"><code>my-story-project/
 ├── project.json          # プロジェクトメタデータ、開始イベント (entry_event)、対応言語
 ├── declarations.md       # グローバル変数 (/set)、永続変数 (/persist)、外部契約 (/contract)、割り込み (/interrupt)
@@ -809,7 +809,7 @@ int main(void) {
     <section class="p602-sec" id="authoring" data-doc-sec="authoring">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">04 · 원고 마크다운 문법 (<code>declarations.md</code> &amp; <code>events/*.md</code>)</h2>
-        <p>602 v2.0.0의 마크다운 문법은 글 읽는 흐름을 해치지 않으면서도 조건 분기와 정적 검증에 꼭 필요한 지시어만 남겼습니다. 조건 블록과 중첩 선택지 트리는 <strong>공백 4칸(4-space indent)</strong> 들여쓰기로 구분합니다.</p>
+        <p>602 v2.0.1의 마크다운 문법은 글 읽는 흐름을 해치지 않으면서도 조건 분기와 정적 검증에 꼭 필요한 지시어만 남겼습니다. 조건 블록과 중첩 선택지 트리는 <strong>공백 4칸(4-space indent)</strong> 들여쓰기로 구분합니다.</p>
 
         <h3 class="p602-h3">1) 전역 선언 파일 (<code>declarations.md</code>) 문법</h3>
         <div class="p602-table-wrap">
@@ -947,7 +947,7 @@ int main(void) {
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">04 · Manuscript Markdown DSL (<code>declarations.md</code> &amp; <code>events/*.md</code>)</h2>
-        <p>The 602 v2.0.0 Markdown DSL stays close to plain prose while adding just enough structure for static checks and deterministic branching. Use <strong>4-space indentation</strong> to scope conditional blocks, lifecycle hooks, and nested choice trees.</p>
+        <p>The 602 v2.0.1 Markdown DSL stays close to plain prose while adding just enough structure for static checks and deterministic branching. Use <strong>4-space indentation</strong> to scope conditional blocks, lifecycle hooks, and nested choice trees.</p>
 
         <h3 class="p602-h3">1) Global Declarations (<code>declarations.md</code>)</h3>
         <div class="p602-table-wrap">
@@ -1085,7 +1085,7 @@ Through the cold sea fog, the old lighthouse emerged.
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">04 · 原稿マークダウン構文（<code>declarations.md</code> &amp; <code>events/*.md</code>）</h2>
-        <p>602 v2.0.0 の Markdown 構文は、文章としての読みやすさを保ったまま条件分岐と静的チェックに必要な記法だけを揃えています。条件ブロックやネストした選択肢ツリーは <strong>半角スペース 4 つ（4-space indent）</strong> のインデントで表します。</p>
+        <p>602 v2.0.1 の Markdown 構文は、文章としての読みやすさを保ったまま条件分岐と静的チェックに必要な記法だけを揃えています。条件ブロックやネストした選択肢ツリーは <strong>半角スペース 4 つ（4-space indent）</strong> のインデントで表します。</p>
 
         <h3 class="p602-h3">1) グローバル宣言ファイル（<code>declarations.md</code>）の構文</h3>
         <div class="p602-table-wrap">
@@ -1829,7 +1829,7 @@ Through the cold sea fog, the old lighthouse emerged.
               <tr>
                 <td><code>--smoke-test</code></td>
                 <td><code>602-studio --smoke-test</code></td>
-                <td>내장 C11 엔진(<code>libstory_engine</code>)이 제대로 열리는지, Group A/B 주요 함수가 정상 작동하는지 스스로 점검합니다. 이상이 없으면 <code>SMOKE_OK v2.0.0</code>을 출력하고 종료 코드 <code>0</code>으로 끝납니다.</td>
+                <td>내장 C11 엔진(<code>libstory_engine</code>)이 제대로 열리는지, Group A/B 주요 함수가 정상 작동하는지 스스로 점검합니다. 이상이 없으면 <code>SMOKE_OK v2.0.1</code>을 출력하고 종료 코드 <code>0</code>으로 끝납니다.</td>
               </tr>
             </tbody>
           </table>
@@ -1881,7 +1881,7 @@ Through the cold sea fog, the old lighthouse emerged.
               <tr>
                 <td><code>--smoke-test</code></td>
                 <td><code>602-studio --smoke-test</code></td>
-                <td>Loads the embedded C11 engine (<code>libstory_engine</code>), exercises Group A and Group B calls, prints <code>SMOKE_OK v2.0.0</code>, and exits with code <code>0</code>.</td>
+                <td>Loads the embedded C11 engine (<code>libstory_engine</code>), exercises Group A and Group B calls, prints <code>SMOKE_OK v2.0.1</code>, and exits with code <code>0</code>.</td>
               </tr>
             </tbody>
           </table>
@@ -1933,7 +1933,7 @@ Through the cold sea fog, the old lighthouse emerged.
               <tr>
                 <td><code>--smoke-test</code></td>
                 <td><code>602-studio --smoke-test</code></td>
-                <td>内蔵 C11 エンジン（<code>libstory_engine</code>）の読み込みと Group A/B 関数の呼び出しを自己テストし、<code>SMOKE_OK v2.0.0</code> を出力して終了コード <code>0</code> で終了します。</td>
+                <td>内蔵 C11 エンジン（<code>libstory_engine</code>）の読み込みと Group A/B 関数の呼び出しを自己テストし、<code>SMOKE_OK v2.0.1</code> を出力して終了コード <code>0</code> で終了します。</td>
               </tr>
             </tbody>
           </table>
@@ -2295,12 +2295,14 @@ public static class StoryEngineV2
     <section class="p602-sec" id="editor-mcp" data-doc-sec="editor-mcp">
       <div data-lang-block="ko" lang="ko">
         <h2 class="p602-h2">09 · 602 Studio 워크스페이스와 로컬 MCP 에이전트 협업</h2>
-        <h3 class="p602-h3">1) 602 Studio v2.0.0 워크스페이스 주요 기능</h3>
+        <h3 class="p602-h3">1) 602 Studio v2.0.1 워크스페이스 주요 기능</h3>
         <ul>
-          <li><strong>3단 워크스페이스와 배지 레일 (내어쓰기 정렬)</strong>: 왼쪽에는 파일·선언 트리, 가운데에는 마크다운 에디터(CodeMirror 6), 오른쪽에는 시뮬레이션·구조도·번역·진단 패널이 놓입니다. 에디터와 플레이어 모두 줄마다 <code>대사</code>, <code>선택지</code>, <code>조건</code>, <code>전이</code>, <code>작성자 메모</code> 같은 4글자 고정폭 배지가 붙고 자동 줄바꿈 내어쓰기(Hanging Indent)가 적용되어, 문장이 길어져도 본문 시작 줄이 반듯하게 맞습니다.</li>
+          <li><strong>3단 워크스페이스와 배지 레일 (내어쓰기 정렬)</strong>: 왼쪽에는 파일·선언 트리, 가운데에는 마크다운 에디터(CodeMirror 6), 오른쪽에는 시뮬레이션·구조도·번역·진단 패널이 놓입니다. 앱을 처음 열면 직전 프로젝트로 곧장 들어가지 않고 프로젝트 목록 화면을 먼저 보여 주며, 에디터와 플레이어 모두 줄마다 <code>대사</code>, <code>선택지</code>, <code>조건</code>, <code>전이</code>, <code>작성자 메모</code> 같은 4글자 고정폭 배지가 붙고 자동 줄바꿈 내어쓰기(Hanging Indent)가 적용되어 문장이 길어져도 본문 시작 줄이 반듯하게 맞습니다.</li>
+          <li><strong>장·줄 번호 레일과 줄 참조 복사, <code>@</code> 변수 자동완성 및 <code>/game</code> 계약 미리보기(Peek)</strong>: 각 장면 상단에 <code>1장 · 제목</code> 형태의 장 번호가 표시되고, 줄 번호 레일을 누르거나 상단 <code>줄 복사</code> 버튼을 누르면 정본 줄 참조 문자열을 클립보드에 바로 복사해 AI 에이전트나 동료에게 전달할 수 있습니다. 본문에서 <code>@</code>를 입력하면 선언된 상태변수와 현재 시뮬레이션 값을 함께 보여주는 자동완성이 열리며, <code>/game</code> 블록 안에 커서를 두면 오른쪽에 해당 <code>/contract</code>의 입력(<code>/with</code>)·결과(<code>/result</code>) 필드 명세를 보여주는 인라인 계약 미리보기 패널이 자동으로 나타납니다.</li>
           <li><strong>1턴 시뮬레이션 플레이어와 자동 진행(Auto-Play)</strong>: 실제 비주얼 노벨 화면처럼 한 턴씩 대사와 선택지 카드를 넘기며 직접 플레이해 볼 수 있습니다. 자동 진행을 켜거나 지난 턴 기록 창을 열어 분기 흐름을 바로 확인하세요.</li>
           <li><strong>5블록 Choicebox 시뮬레이션 설정</strong>: 시작 위치(장면 첫 줄 또는 커서 위치), 진입 조건 무시 여부, 세이브 전후 시점, 영속 변수(<code>/persist</code>) 적용 방식, 외부 계약(<code>/contract</code>) 결과값까지 다섯 가지 항목을 카드형 Choicebox에서 골라 어떤 분기든 곧장 시험해 볼 수 있습니다.</li>
-          <li><strong>역방향 도달 추적(Backward Reachability)과 구조도(Structure Map)</strong>: 특정 장면이나 선택지에 닿기 위해 앞서 거쳐야 하는 장면과 변수 조건을 거꾸로 짚어 주고, 전체 장면 연결 그래프와 정적 진단 경고를 한눈에 보여 줍니다.</li>
+          <li><strong>역방향 도달 추적(Backward Reachability)과 백본·통로 자동 배치 구조도(Structure Map)</strong>: 특정 장면이나 선택지에 닿기 위해 앞서 거쳐야 하는 장면과 변수 조건을 거꾸로 짚어 줍니다. 구조도는 주 줄기(Backbone)와 곁가지(Branch)를 겹치지 않는 통로(Corridor)로 자동 배치하며, 선택한 테마의 모서리 규칙에 맞춰 둥근 필렛 곡선이나 0px 맨해튼 직교 배선으로 1:1 포트 원과 전이 연결선을 그립니다.</li>
+          <li><strong>세헤라자드 정렬 외관 설정(Appearance Settings)과 6종 도시 테마</strong>: 상단 <strong>앱 설정 · 모양</strong> 창에서 <code>602 기본</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, <code>Seoul</code> 여섯 가지 하우스 테마를 고르고, 배경·강조색·텍스트 HEX 색상(WCAG 4.5:1 명도 대비 자동 보정), 유리감 투명도(<code>0%~100%</code>)와 배경 블러(<code>끄기</code> / <code>약하게</code> / <code>강하게</code>), 글꼴 크기(<code>12px~16px</code>, <code>0.5px</code> 단위)와 5종 서체(<code>시스템</code>, <code>Pretendard</code>, <code>세리프</code>, <code>고정폭</code>, <code>라운드</code>)를 실시간으로 바꿀 수 있습니다.</li>
           <li><strong>줄 해시 기반 1:1 번역 뷰</strong>: 원문 대사·선택지 바로 옆에 언어별 번역 칸을 1:1로 나란히 띄웁니다. 원문이 바뀌어 손봐야 하는 번역 줄(<code>STALE_TRANSLATION</code>)은 바로 표시해 줍니다.</li>
         </ul>
 
@@ -2343,8 +2345,8 @@ public static class StoryEngineV2
               </tr>
               <tr>
                 <td><code>read_manuscript</code></td>
-                <td><code>target</code> (<code>declarations.md</code> 또는 <code>events/&lt;id&gt;.md</code>)</td>
-                <td>대상 파일의 현재 <code>revision</code> 해시와 함께, 각 줄 앞에 2글자 체크섬 태그를 붙인 <code>hashline</code> 본문(예: <code>14#K2: \유진: 문이 잠겨 있군.</code>)을 돌려줍니다.</td>
+                <td><code>target</code> (<code>declarations.md</code>, <code>events/&lt;id&gt;.md</code> 또는 장면 제목·ID)</td>
+                <td>대상 파일의 현재 <code>revision</code> 해시와 함께, 각 줄 앞에 2글자 체크섬 태그를 붙인 <code>hashline</code> 본문(예: <code>14#K2: \유진: 문이 잠겨 있군.</code>)을 돌려줍니다. 파일 경로뿐 아니라 장면 제목이나 ID로도 바로 조회할 수 있습니다.</td>
               </tr>
               <tr>
                 <td><code>edit_manuscript</code></td>
@@ -2399,12 +2401,14 @@ public static class StoryEngineV2
 
       <div data-lang-block="en" lang="en">
         <h2 class="p602-h2">09 · 602 Studio Workspace &amp; Local MCP Agent Workflows</h2>
-        <h3 class="p602-h3">1) 602 Studio v2.0.0 Desktop Workspace</h3>
+        <h3 class="p602-h3">1) 602 Studio v2.0.1 Desktop Workspace</h3>
         <ul>
-          <li><strong>3-Panel Workspace &amp; Badge Rail (Hanging Indent)</strong>: Places the file and declaration tree on the left, a CodeMirror 6 Markdown editor in the middle, and simulation, structure map, translation, and diagnostics panels on the right. Fixed-width 4-character badges (Dialogue, Choice, Condition, Transition, Comment) pair with hanging indent so wrapped lines stay aligned under the prose column.</li>
+          <li><strong>3-Panel Workspace &amp; Badge Rail (Hanging Indent)</strong>: Places the file and declaration tree on the left, a CodeMirror 6 Markdown editor in the middle, and simulation, structure map, translation, and diagnostics panels on the right. Launching the app opens the project list first instead of auto-entering the last project, and fixed-width 4-character badges (Dialogue, Choice, Condition, Transition, Comment) pair with hanging indent so wrapped lines stay aligned under the prose column.</li>
+          <li><strong>Chapter &amp; Line Numbers, Reference Copy, <code>@</code> Variable Completion &amp; <code>/game</code> Contract Peek</strong>: Displays chapter breadcrumbs (<code>Chapter N · Title</code>) and a clickable line-number gutter with one-click canonical line-reference copy for handing exact line ranges to AI agents or teammates. Typing <code>@</code> opens inline completion with declared state variables and live simulation values, while placing the cursor inside a <code>/game</code> block opens an inline contract peek panel showing the matching <code>/contract</code> input (<code>/with</code>) and output (<code>/result</code>) fields.</li>
           <li><strong>1-Turn Simulation Player &amp; Auto-Play</strong>: Play through scenes one turn at a time on a visual-novel stage, toggle Auto-Play, and check earlier steps in the turn log modal.</li>
           <li><strong>5-Block Choicebox Simulation Settings</strong>: Pick start position (scene start or cursor line), guard bypass, save/restore timing, persistent (<code>/persist</code>) variable behavior, and mocked host contract (<code>/contract</code>) outcomes from five Stacked Choicebox cards to test any branch on the spot.</li>
-          <li><strong>Backward Reachability &amp; Structure Map</strong>: Trace the predecessor scenes and variable conditions needed to reach any scene or choice, and view the full transition graph next to live static diagnostics.</li>
+          <li><strong>Backward Reachability &amp; Backbone/Corridor Structure Map</strong>: Trace predecessor scenes and variable conditions needed to reach any scene or choice. The Structure Map automatically lays out backbone and branch nodes with non-overlapping corridor routing, rendering 1:1 circular ports and transition wires as rounded fillets in squircle themes or 0px orthogonal Manhattan paths in square themes.</li>
+          <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Choose from six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), customize background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, and tune frosted glass opacity (<code>0%–100%</code>), backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px–16px</code> in <code>0.5px</code> steps), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
           <li><strong>1:1 Line-Hash Translation View</strong>: Edit translations right beside source dialogue and choice lines, with instant markers on <code>MISSING_TRANSLATION</code> and <code>STALE_TRANSLATION</code> rows whenever source text changes.</li>
         </ul>
 
@@ -2447,8 +2451,8 @@ public static class StoryEngineV2
               </tr>
               <tr>
                 <td><code>read_manuscript</code></td>
-                <td><code>target</code> (<code>declarations.md</code> or <code>events/&lt;id&gt;.md</code>)</td>
-                <td>Returns the file's current <code>revision</code> hash along with <code>hashline</code>-tagged lines (e.g., <code>14#K2: \Yujin: The door is bolted shut.</code>).</td>
+                <td><code>target</code> (<code>declarations.md</code>, <code>events/&lt;id&gt;.md</code>, or event title/ID)</td>
+                <td>Returns the file's current <code>revision</code> hash along with <code>hashline</code>-tagged lines (e.g., <code>14#K2: \Yujin: The door is bolted shut.</code>). Accepts canonical event titles or IDs as well as file paths.</td>
               </tr>
               <tr>
                 <td><code>edit_manuscript</code></td>
@@ -2503,12 +2507,14 @@ public static class StoryEngineV2
 
       <div data-lang-block="ja" lang="ja">
         <h2 class="p602-h2">09 · 602 Studio ワークスペースとローカル MCP エージェント連携</h2>
-        <h3 class="p602-h3">1) 602 Studio v2.0.0 ワークスペースの主な機能</h3>
+        <h3 class="p602-h3">1) 602 Studio v2.0.1 ワークスペースの主な機能</h3>
         <ul>
-          <li><strong>3 パネル構成とバッジレール（ぶら下げインデント）</strong>: 左にファイル・宣言ツリー、中央に Markdown エディタ（CodeMirror 6）、右にシミュレーション・構造マップ・翻訳・診断パネルを並べています。エディタとプレイヤーの両方に 4 文字固定幅のバッジレールと折り返し時のぶら下げインデント（Hanging Indent）が効くため、長い行でも本文の書き出し位置がきれいに揃います。</li>
+          <li><strong>3 パネル構成とバッジレール（ぶら下げインデント）</strong>: 左にファイル・宣言ツリー、中央に Markdown エディタ（CodeMirror 6）、右にシミュレーション・構造マップ・翻訳・診断パネルを並べています。起動時は前回のプロジェクトを自動で開かずプロジェクト一覧画面を先に表示し、エディタとプレイヤーの両方に 4 文字固定幅のバッジレールと折り返し時のぶら下げインデント（Hanging Indent）が効くため、長い行でも本文の書き出し位置がきれいに揃います。</li>
+          <li><strong>章・行番号レールと参照コピー、<code>@</code> 変数補完および <code>/game</code> 契約プレビュー（Peek）</strong>: 各シーン上部に <code>第1章 · タイトル</code> 形式の章番号が表示され、行番号のクリックや上部 <code>行コピー</code> ボタンで正確な行参照をクリップボードへ即座にコピーして AI エージェントや共同編集者へ渡せます。エディタ内で <code>@</code> を入力すると宣言済み変数と現在のシミュレーション値を並べて補完でき、<code>/game</code> ブロック内にカーソルを置くと右側に該当 <code>/contract</code> の入力（<code>/with</code>）・結果（<code>/result</code>）フィールド定義を示すインライン契約プレビューが自動で開きます。</li>
           <li><strong>1 ターンシミュレーションプレイヤーと自動進行（Auto-Play）</strong>: ノベルゲームの実画面さながらに 1 ターンずつセリフと選択肢を進められ、オートプレイ切り替えや過去ターンログのモーダルで分岐の見え方をその場で確かめられます。</li>
           <li><strong>5 ブロック Choicebox シミュレーション設定</strong>: 開始位置（シーン先頭／カーソル行）、進入条件のスキップ、セーブ前後のタイミング、永続変数（<code>/persist</code>）の扱い、外部契約（<code>/contract</code>）の仮結果の 5 項目をカード形式の Choicebox で選び、どの分岐でもすぐ試せます。</li>
-          <li><strong>逆方向到達解析（Backward Reachability）と構造マップ（Structure Map）</strong>: 特定のシーンや選択肢にたどり着くまでの先行ルートと変数条件を逆向きにたどり、全体の遷移グラフと静的診断の警告をひと目で確認できます。</li>
+          <li><strong>逆方向到達解析（Backward Reachability）と幹線・通路自動配置の構造マップ（Structure Map）</strong>: 特定のシーンや選択肢にたどり着くまでの先行ルートと変数条件を逆向きにたどります。構造マップは主幹（Backbone）と枝分かれ（Branch）を重ならない通路（Corridor）で自動配置し、選択中テーマの角丸ルールに合わせて丸みのあるフィレット曲線または 0px のマンハッタン直交配線で 1:1 ポート円と遷移線を描画します。</li>
+          <li><strong>Scheherazade 準拠の外観設定（Appearance Settings）と 6 種の都市テーマ</strong>: 上部の<strong>アプリ設定・外観</strong>モーダルから <code>602 デフォルト</code>、<code>Sera</code>、<code>Paris</code>、<code>Vancouver</code>、<code>Shanghai</code>、<code>Seoul</code> の 6 テーマを選べるほか、背景・アクセント・文字の HEX カラー（WCAG 4.5:1 コントラスト自動補正）、すりガラス透明度（<code>0%〜100%</code>）と背景ブラー（<code>オフ</code> / <code>弱</code> / <code>強</code>）、文字サイズ（<code>12px〜16px</code>、<code>0.5px</code> 刻み）および 5 種の書体（<code>システム</code>、<code>Pretendard</code>、<code>セリフ</code>、<code>等幅</code>、<code>丸ゴシック</code>）をリアルタイムに調整できます。</li>
           <li><strong>行ハッシュ連動の 1:1 翻訳ビュー</strong>: 原文のセリフ・選択肢と各言語の入力欄を 1:1 で並べて編集でき、原文の書き換えで見直しが必要になった行（<code>STALE_TRANSLATION</code>）をすぐハイライトします。</li>
         </ul>
 
@@ -2551,8 +2557,8 @@ public static class StoryEngineV2
               </tr>
               <tr>
                 <td><code>read_manuscript</code></td>
-                <td><code>target</code>（<code>declarations.md</code> または <code>events/&lt;id&gt;.md</code>）</td>
-                <td>対象ファイルの現在の <code>revision</code> ハッシュと、各行の先頭に 2 文字チェックサムが付いた <code>hashline</code> テキスト（例：<code>14#K2: \ユジン: 扉が固く閉ざされている。</code>）を返します。</td>
+                <td><code>target</code>（<code>declarations.md</code>、<code>events/&lt;id&gt;.md</code>、またはシーンタイトル・ID）</td>
+                <td>対象ファイルの現在の <code>revision</code> ハッシュと、各行の先頭に 2 文字チェックサムが付いた <code>hashline</code> テキスト（例：<code>14#K2: \ユジン: 扉が固く閉ざされている。</code>）を返します。ファイルパスだけでなくシーンタイトルや ID でも指定できます。</td>
               </tr>
               <tr>
                 <td><code>edit_manuscript</code></td>
@@ -2611,17 +2617,26 @@ public static class StoryEngineV2
     <!-- ================================================================ -->
     <section class="p602-sec" id="license" data-doc-sec="license">
       <div data-lang-block="ko" lang="ko">
-        <h2 class="p602-h2">10 · v2.0.0 릴리스 노트와 라이선스</h2>
-        <h3 class="p602-h3">602 v2.0.0 주요 변경점</h3>
+        <h2 class="p602-h2">10 · v2.0.1 릴리스 노트와 라이선스</h2>
+        <h3 class="p602-h3">602 v2.0.1 주요 변경점</h3>
         <ul>
-          <li><strong>로컬 마크다운 폴더 기반 집필 구조</strong>: <code>project.json</code>, <code>declarations.md</code>, <code>events/*.md</code>, <code>translations.json</code>이 담긴 일반 폴더나 <code>.602.zip</code> 아카이브로 원고를 쓰고, 배포할 때는 작가 메모(<code>//</code>)를 뺀 단일 <code>.602.json</code> 런타임 번들로 컴파일합니다.</li>
-          <li><strong>C ABI v2 (<code>story_engine_v2.h</code>)</strong>: 마크다운 원문을 바로 다루는 Group B 함수 5종(<code>story_v2_hashline</code>, <code>story_v2_analyze</code>, <code>story_v2_simulate</code>, <code>story_v2_reach</code>, <code>story_v2_free</code>)과 구조화된 프로젝트·번들 JSON을 다루는 Group A 함수 5종(<code>story_v2_compute_hash</code>, <code>story_v2_execute_play</code>, <code>story_v2_check</code>, <code>story_v2_summarize_scene</code>, <code>story_v2_free_string</code>)으로 정리했습니다.</li>
-          <li><strong>602 Studio v2.0.0 데스크톱 워크스페이스</strong>: 3단 레이아웃, 4글자 배지 레일과 자동 줄바꿈 내어쓰기(Hanging Indent), 1턴 시뮬레이션 플레이어, 5블록 Choicebox 시뮬레이션 설정, 역방향 도달 추적(Backward Reachability), 1:1 줄 해시 번역 뷰를 담았습니다.</li>
-          <li><strong>로컬 MCP 서버 (<code>--mcp</code>)와 <code>hashline</code> 편집</strong>: 로컬 MCP 도구 8종과 <code>hashline</code> + <code>base_revision</code> 대조 방식으로 줄 밀림 걱정 없이 AI 에이전트와 함께 원고를 다듬을 수 있습니다.</li>
+          <li><strong>세헤라자드 정렬 외관 설정 및 6종 도시 테마</strong>: 상단 <strong>앱 설정 · 모양</strong> 창에서 <code>602 기본</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, <code>Seoul</code> 6종 테마를 고르고, 배경·강조색·텍스트 HEX 색상(WCAG 4.5:1 명도 대비 자동 보정), 유리감 투명도(<code>0%~100%</code>)와 배경 블러(<code>끄기</code> / <code>약하게</code> / <code>강하게</code>), 글꼴 크기(<code>12px~16px</code>)와 5종 서체(<code>시스템</code>, <code>Pretendard</code>, <code>세리프</code>, <code>고정폭</code>, <code>라운드</code>)를 실시간으로 조절할 수 있습니다.</li>
+          <li><strong>구조도(Structure Map) 백본·분기 자동 배치 및 테마 연동 배선</strong>: 602 1.x의 주 줄기(Backbone)·곁가지(Branch) 비겹침 통로(Corridor) 자동 배치 알고리즘을 이식하고, 스쿼클 테마에서는 둥근 필렛 곡선으로, 직각 테마(<code>Paris</code>, <code>Shanghai</code>, <code>Seoul</code>)에서는 0px 맨해튼 직교 배선으로 1:1 포트 원과 전이 연결선을 그립니다.</li>
+          <li><strong>장·줄 번호 레일과 줄 참조 복사, <code>@</code> 변수 자동완성 및 <code>/game</code> 계약 미리보기(Peek)</strong>: 장면마다 <code>1장 · 제목</code> 형태의 장 번호와 클릭 가능한 줄 번호 레일, 상단 <code>줄 복사</code> 버튼을 추가했습니다. <code>@</code> 입력 시 상태변수와 현재 시뮬레이션 값을 자동완성으로 보여 주고, <code>/game</code> 블록 안에 커서를 두면 우측에 <code>/contract</code> 입력·결과 필드 명세를 인라인으로 띄웁니다. 또한 시작 시 직전 프로젝트 자동 진입 대신 프로젝트 목록을 먼저 보여 주며, 로컬 MCP <code>read_manuscript</code>·<code>edit_manuscript</code>가 장면 제목이나 ID만으로도 대상 문서를 찾습니다.</li>
         </ul>
 
+        <div data-release-history>
+          <h3 class="p602-h3">602 v2.0.0 주요 변경점</h3>
+          <ul>
+            <li><strong>로컬 마크다운 폴더 기반 집필 구조</strong>: <code>project.json</code>, <code>declarations.md</code>, <code>events/*.md</code>, <code>translations.json</code>이 담긴 일반 폴더나 <code>.602.zip</code> 아카이브로 원고를 쓰고, 배포할 때는 작가 메모(<code>//</code>)를 뺀 단일 <code>.602.json</code> 런타임 번들로 컴파일합니다.</li>
+            <li><strong>C ABI v2 (<code>story_engine_v2.h</code>)</strong>: 마크다운 원문을 바로 다루는 Group B 함수 5종(<code>story_v2_hashline</code>, <code>story_v2_analyze</code>, <code>story_v2_simulate</code>, <code>story_v2_reach</code>, <code>story_v2_free</code>)과 구조화된 프로젝트·번들 JSON을 다루는 Group A 함수 5종(<code>story_v2_compute_hash</code>, <code>story_v2_execute_play</code>, <code>story_v2_check</code>, <code>story_v2_summarize_scene</code>, <code>story_v2_free_string</code>)으로 정리했습니다.</li>
+            <li><strong>602 Studio v2.0.0 데스크톱 워크스페이스</strong>: 3단 레이아웃, 4글자 배지 레일과 자동 줄바꿈 내어쓰기(Hanging Indent), 1턴 시뮬레이션 플레이어, 5블록 Choicebox 시뮬레이션 설정, 역방향 도달 추적(Backward Reachability), 1:1 줄 해시 번역 뷰를 담았습니다.</li>
+            <li><strong>로컬 MCP 서버 (<code>--mcp</code>)와 <code>hashline</code> 편집</strong>: 로컬 MCP 도구 8종과 <code>hashline</code> + <code>base_revision</code> 대조 방식으로 줄 밀림 걱정 없이 AI 에이전트와 함께 원고를 다듬을 수 있습니다.</li>
+          </ul>
+        </div>
+
         <h3 class="p602-h3">CHOAM Community License, Version 1.0과 오픈소스 고지</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code> 헤더, 공식 문서 번들에는 모두 동일한 <strong>CHOAM Community License, Version 1.0</strong>(<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>)이 적용됩니다. 초기 비용이나 사전 등록 없이 본인의 게임·애플리케이션·서비스에 내장해 상업적으로 배포할 수 있습니다. 제품별·역분기(Calendar Quarter)별 순매출(총매출에서 플랫폼 수수료·환불·간접세를 뺀 금액) 가운데 첫 <strong>10,000,000원(KRW, 1,000만 원)</strong>까지는 로열티가 면제되며, 1,000만 원을 초과한 금액에 대해서만 <strong>1% 자진 신고 로열티</strong>(분기 종료 후 45일 이내 신고·납부)가 붙습니다. 소프트웨어를 단독 제품으로 재배포하거나 경쟁 범용 엔진·SDK·저작 도구의 일부로 묶어 재배포하는 행위는 금지되며, 배포물에는 라이선스 전문과 저작권 고지를 함께 남겨야 합니다. 법적 효력은 영문 정본(<a href="download">/602/download</a> 페이지와 각 배포 아카이브에 수록)을 따르며 한국어·일본어 번역본은 이해를 돕기 위한 참고용입니다(준거법: 대한민국 법, 전속관할: 서울중앙지방법원).</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.1) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.1</code>, <code>602 Story Engine v2.0.1</code>, <code>story_engine_v2.h</code> 헤더, 공식 문서 번들에는 모두 동일한 <strong>CHOAM Community License, Version 1.0</strong>(<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>)이 적용됩니다. 초기 비용이나 사전 등록 없이 본인의 게임·애플리케이션·서비스에 내장해 상업적으로 배포할 수 있습니다. 제품별·역분기(Calendar Quarter)별 순매출(총매출에서 플랫폼 수수료·환불·간접세를 뺀 금액) 가운데 첫 <strong>10,000,000원(KRW, 1,000만 원)</strong>까지는 로열티가 면제되며, 1,000만 원을 초과한 금액에 대해서만 <strong>1% 자진 신고 로열티</strong>(분기 종료 후 45일 이내 신고·납부)가 붙습니다. 소프트웨어를 단독 제품으로 재배포하거나 경쟁 범용 엔진·SDK·저작 도구의 일부로 묶어 재배포하는 행위는 금지되며, 배포물에는 라이선스 전문과 저작권 고지를 함께 남겨야 합니다. 법적 효력은 영문 정본(<a href="download">/602/download</a> 페이지와 각 배포 아카이브에 수록)을 따르며 한국어·일본어 번역본은 이해를 돕기 위한 참고용입니다(준거법: 대한민국 법, 전속관할: 서울중앙지방법원).</p>
 
         <p><strong>문의 안내:</strong> 라이선스와 상업 이용(로열티 자진 신고 포함) 문의는 <a href="mailto:mino@choam.studio">mino@choam.studio</a>로, 버그 제보·기능 제안·기술 문의는 <a href="mailto:cayde@choam.studio">cayde@choam.studio</a>로 보내 주세요.</p>
 
@@ -2638,23 +2653,33 @@ public static class StoryEngineV2
               <tr><td><strong>RapidJSON</strong></td><td>MIT / BSD-style Notices</td><td>602 Story Engine과 602 Studio 내장 네이티브 엔진 (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
               <tr><td><strong>Python &amp; SQLite</strong></td><td>PSF-2.0 / Public Domain</td><td>602 Studio 내장 Python 런타임과 표준 라이브러리 (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
               <tr><td><strong>pywebview, CodeMirror 6 &amp; Web OSS</strong></td><td>BSD-3-Clause / MIT Notices</td><td>602 Studio 데스크톱 창과 프론트엔드 오픈소스 고지 (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
+              <tr><td><strong>Pretendard, Inter, Montserrat &amp; Barlow Condensed</strong></td><td>SIL Open Font License 1.1</td><td>602 Studio 내장 타이포그래피·테마 글꼴 (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
       <div data-lang-block="en" lang="en">
-        <h2 class="p602-h2">10 · v2.0.0 Release Notes &amp; Licenses</h2>
-        <h3 class="p602-h3">What's New in 602 v2.0.0</h3>
+        <h2 class="p602-h2">10 · v2.0.1 Release Notes &amp; Licenses</h2>
+        <h3 class="p602-h3">What's New in 602 v2.0.1</h3>
         <ul>
-          <li><strong>Local Markdown Folder Projects</strong>: Write directly in plain-text folders (<code>project.json</code>, <code>declarations.md</code>, <code>events/*.md</code>, <code>translations.json</code>) or <code>.602.zip</code> archives, and compile comment-stripped <code>.602.json</code> runtime bundles for shipping builds.</li>
-          <li><strong>C ABI v2 (<code>story_engine_v2.h</code>)</strong>: Ships 5 Group B functions for raw Markdown strings (<code>story_v2_hashline</code>, <code>story_v2_analyze</code>, <code>story_v2_simulate</code>, <code>story_v2_reach</code>, <code>story_v2_free</code>) and 5 Group A functions for structured project and bundle JSON (<code>story_v2_compute_hash</code>, <code>story_v2_execute_play</code>, <code>story_v2_check</code>, <code>story_v2_summarize_scene</code>, <code>story_v2_free_string</code>).</li>
-          <li><strong>602 Studio v2.0.0 Desktop Workspace</strong>: Adds the 3-panel layout, 4-character semantic badge rail with hanging indent, 1-turn simulation player, 5-block Choicebox simulation settings, backward reachability checks, and a 1:1 line-hash translation view.</li>
-          <li><strong>Local MCP Server (<code>--mcp</code>) &amp; <code>hashline</code> Editing</strong>: Provides 8 stdio MCP tools backed by <code>hashline</code> + <code>base_revision</code> checks for safe concurrent editing with AI agents.</li>
+          <li><strong>Scheherazade-Aligned Appearance Settings &amp; 6 House Themes</strong>: Adds the <strong>App Settings · Appearance</strong> modal with six themes (<code>602 Default</code>, <code>Sera</code>, <code>Paris</code>, <code>Vancouver</code>, <code>Shanghai</code>, and <code>Seoul</code>), custom background, accent, and text HEX colors with automatic WCAG 4.5:1 contrast enforcement, frosted glass opacity (<code>0%–100%</code>) and backdrop blur (<code>off</code> / <code>soft</code> / <code>strong</code>), font size (<code>12px–16px</code>), and five font families (<code>System</code>, <code>Pretendard</code>, <code>Serif</code>, <code>Monospace</code>, <code>Rounded</code>).</li>
+          <li><strong>Structure Map Backbone/Corridor Auto-Layout &amp; Theme-Linked Routing</strong>: Ports the 602 1.x backbone/branch non-overlapping corridor layout and unifies wire rendering with theme corner radii (rounded fillets in squircle themes vs. 0px orthogonal Manhattan wires in <code>Paris</code>, <code>Shanghai</code>, and <code>Seoul</code>) with 1:1 circular ports.</li>
+          <li><strong>Chapter &amp; Line Numbers, Reference Copy, <code>@</code> Variable Completion &amp; <code>/game</code> Contract Peek</strong>: Adds chapter breadcrumbs (<code>Chapter N · Title</code>), a clickable line-number gutter, and one-click canonical line-reference copy. Typing <code>@</code> opens inline completion with declared variables and live simulation values, placing the cursor in a <code>/game</code> block opens an inline <code>/contract</code> input/output peek panel, launching the app shows the project list first, and MCP <code>read_manuscript</code> / <code>edit_manuscript</code> resolve canonical event titles and IDs.</li>
         </ul>
 
+        <div data-release-history>
+          <h3 class="p602-h3">What's New in 602 v2.0.0</h3>
+          <ul>
+            <li><strong>Local Markdown Folder Projects</strong>: Write directly in plain-text folders (<code>project.json</code>, <code>declarations.md</code>, <code>events/*.md</code>, <code>translations.json</code>) or <code>.602.zip</code> archives, and compile comment-stripped <code>.602.json</code> runtime bundles for shipping builds.</li>
+            <li><strong>C ABI v2 (<code>story_engine_v2.h</code>)</strong>: Ships 5 Group B functions for raw Markdown strings (<code>story_v2_hashline</code>, <code>story_v2_analyze</code>, <code>story_v2_simulate</code>, <code>story_v2_reach</code>, <code>story_v2_free</code>) and 5 Group A functions for structured project and bundle JSON (<code>story_v2_compute_hash</code>, <code>story_v2_execute_play</code>, <code>story_v2_check</code>, <code>story_v2_summarize_scene</code>, <code>story_v2_free_string</code>).</li>
+            <li><strong>602 Studio v2.0.0 Desktop Workspace</strong>: Adds the 3-panel layout, 4-character semantic badge rail with hanging indent, 1-turn simulation player, 5-block Choicebox simulation settings, backward reachability checks, and a 1:1 line-hash translation view.</li>
+            <li><strong>Local MCP Server (<code>--mcp</code>) &amp; <code>hashline</code> Editing</strong>: Provides 8 stdio MCP tools backed by <code>hashline</code> + <code>base_revision</code> checks for safe concurrent editing with AI agents.</li>
+          </ul>
+        </div>
+
         <h3 class="p602-h3">CHOAM Community License, Version 1.0 &amp; Third-Party Notices</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> Every 602 v2.0.0 package, including <code>602 Studio v2.0.0</code>, <code>602 Story Engine v2.0.0</code>, <code>story_engine_v2.h</code>, and the documentation archive, is covered by the <strong>CHOAM Community License, Version 1.0</strong> (<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). You can embed and ship the software inside your own games, apps, or services with no upfront fee or registration. Per product and per calendar quarter, the first <strong>10,000,000 KRW</strong> of Net Revenue (Gross Revenue minus platform commissions, refunds/chargebacks, and indirect sales/VAT taxes) is royalty-free; a <strong>1% self-reported royalty</strong> applies only to Net Revenue above 10,000,000 KRW, reported and paid within 45 days after quarter end. Redistributing the software standalone or inside a competing general-purpose engine, SDK, or authoring tool is prohibited, and distributed builds must keep the license text and copyright notice. The English license (<a href="download">/602/download</a> and bundled in every archive) is the legally binding text (governing law: Republic of Korea; exclusive jurisdiction: Seoul Central District Court).</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.1) · CHOAM Community License, Version 1.0:</strong> Every 602 v2.0.1 package, including <code>602 Studio v2.0.1</code>, <code>602 Story Engine v2.0.1</code>, <code>story_engine_v2.h</code>, and the documentation archive, is covered by the <strong>CHOAM Community License, Version 1.0</strong> (<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>). You can embed and ship the software inside your own games, apps, or services with no upfront fee or registration. Per product and per calendar quarter, the first <strong>10,000,000 KRW</strong> of Net Revenue (Gross Revenue minus platform commissions, refunds/chargebacks, and indirect sales/VAT taxes) is royalty-free; a <strong>1% self-reported royalty</strong> applies only to Net Revenue above 10,000,000 KRW, reported and paid within 45 days after quarter end. Redistributing the software standalone or inside a competing general-purpose engine, SDK, or authoring tool is prohibited, and distributed builds must keep the license text and copyright notice. The English license (<a href="download">/602/download</a> and bundled in every archive) is the legally binding text (governing law: Republic of Korea; exclusive jurisdiction: Seoul Central District Court).</p>
 
         <p><strong>Contact:</strong> Email <a href="mailto:mino@choam.studio">mino@choam.studio</a> for licensing, commercial terms, and royalty self-reporting, or <a href="mailto:cayde@choam.studio">cayde@choam.studio</a> for bug reports, feature requests, and technical support.</p>
 
@@ -2671,23 +2696,33 @@ public static class StoryEngineV2
               <tr><td><strong>RapidJSON</strong></td><td>MIT / BSD-style Notices</td><td>602 Story Engine and 602 Studio embedded native engine (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
               <tr><td><strong>Python &amp; SQLite</strong></td><td>PSF-2.0 / Public Domain</td><td>602 Studio bundled Python runtime and standard library (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
               <tr><td><strong>pywebview, CodeMirror 6 &amp; Web OSS</strong></td><td>BSD-3-Clause / MIT Notices</td><td>602 Studio desktop window shell and frontend open-source notices (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
+              <tr><td><strong>Pretendard, Inter, Montserrat &amp; Barlow Condensed</strong></td><td>SIL Open Font License 1.1</td><td>602 Studio bundled typography and theme fonts (<code>THIRD_PARTY_NOTICES.md</code>)</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
       <div data-lang-block="ja" lang="ja">
-        <h2 class="p602-h2">10 · v2.0.0 リリースノートとライセンス</h2>
-        <h3 class="p602-h3">602 v2.0.0 の主な変更点</h3>
+        <h2 class="p602-h2">10 · v2.0.1 リリースノートとライセンス</h2>
+        <h3 class="p602-h3">602 v2.0.1 の主な変更点</h3>
         <ul>
-          <li><strong>ローカル Markdown フォルダでの執筆構成</strong>: <code>project.json</code>、<code>declarations.md</code>、<code>events/*.md</code>、<code>translations.json</code> が入った通常のフォルダや <code>.602.zip</code> アーカイブで執筆し、配布時は執筆メモ（<code>//</code>）を除いた単一の <code>.602.json</code> ランタイムバンドルへコンパイルします。</li>
-          <li><strong>C ABI v2（<code>story_engine_v2.h</code>）</strong>: 生の Markdown 文字列を扱う Group B 関数 5 種（<code>story_v2_hashline</code>、<code>story_v2_analyze</code>、<code>story_v2_simulate</code>、<code>story_v2_reach</code>、<code>story_v2_free</code>）と、構造化プロジェクト／バンドル JSON を扱う Group A 関数 5 種（<code>story_v2_compute_hash</code>、<code>story_v2_execute_play</code>、<code>story_v2_check</code>、<code>story_v2_summarize_scene</code>、<code>story_v2_free_string</code>）を備えています。</li>
-          <li><strong>602 Studio v2.0.0 デスクトップワークスペース</strong>: 3 パネル画面、4 文字バッジレールと折り返し時のぶら下げインデント（Hanging Indent）、1 ターンシミュレーションプレイヤー、5 ブロック Choicebox 設定モーダル、逆方向到達解析（Backward Reachability）、1:1 行ハッシュ翻訳ビューを搭載しました。</li>
-          <li><strong>ローカル MCP サーバー（<code>--mcp</code>）と <code>hashline</code> 編集</strong>: ローカル MCP の 8 ツールと <code>hashline</code> + <code>base_revision</code> の照合により、行ズレの心配なく AI エージェントと一緒に原稿を編集できます。</li>
+          <li><strong>Scheherazade 準拠の外観設定と 6 種の都市テーマ</strong>: 上部の<strong>アプリ設定・外観</strong>モーダルから <code>602 デフォルト</code>、<code>Sera</code>、<code>Paris</code>、<code>Vancouver</code>、<code>Shanghai</code>、<code>Seoul</code> の 6 テーマを選べるほか、背景・アクセント・文字の HEX カラー（WCAG 4.5:1 コントラスト自動補正）、すりガラス透明度（<code>0%〜100%</code>）と背景ブラー（<code>オフ</code> / <code>弱</code> / <code>強</code>）、文字サイズ（<code>12px〜16px</code>）および 5 種の書体（<code>システム</code>、<code>Pretendard</code>、<code>セリフ</code>、<code>等幅</code>、<code>丸ゴシック</code>）をリアルタイムに切り替えられます。</li>
+          <li><strong>構造マップ（Structure Map）の幹線・通路自動配置とテーマ連動配線</strong>: 602 1.x の主幹（Backbone）・枝分かれ（Branch）の非重複通路レイアウトを移植し、スクワークル系テーマでは丸みのあるフィレット曲線、直角テーマ（<code>Paris</code>、<code>Shanghai</code>、<code>Seoul</code>）では 0px のマンハッタン直交配線で 1:1 ポート円と遷移線を描画します。</li>
+          <li><strong>章・行番号レールと参照コピー、<code>@</code> 変数補完および <code>/game</code> 契約プレビュー（Peek）</strong>: シーンごとの <code>第1章 · タイトル</code> 表示とクリック可能な行番号レール、ワンクリックの<code>行コピー</code>ボタンを追加しました。<code>@</code> 入力で状態変数と現在値を補完でき、<code>/game</code> ブロック内にカーソルを置くと右側に <code>/contract</code> の入出力フィールド定義をインライン表示します。また起動時はプロジェクト一覧を先に表示し、ローカル MCP の <code>read_manuscript</code>・<code>edit_manuscript</code> がシーンタイトルや ID でも対象文書を解決します。</li>
         </ul>
 
+        <div data-release-history>
+          <h3 class="p602-h3">602 v2.0.0 の主な変更点</h3>
+          <ul>
+            <li><strong>ローカル Markdown フォルダでの執筆構成</strong>: <code>project.json</code>、<code>declarations.md</code>、<code>events/*.md</code>、<code>translations.json</code> が入った通常のフォルダや <code>.602.zip</code> アーカイブで執筆し、配布時は執筆メモ（<code>//</code>）を除いた単一の <code>.602.json</code> ランタイムバンドルへコンパイルします。</li>
+            <li><strong>C ABI v2（<code>story_engine_v2.h</code>）</strong>: 生の Markdown 文字列を扱う Group B 関数 5 種（<code>story_v2_hashline</code>、<code>story_v2_analyze</code>、<code>story_v2_simulate</code>、<code>story_v2_reach</code>、<code>story_v2_free</code>）と、構造化プロジェクト／バンドル JSON を扱う Group A 関数 5 種（<code>story_v2_compute_hash</code>、<code>story_v2_execute_play</code>、<code>story_v2_check</code>、<code>story_v2_summarize_scene</code>、<code>story_v2_free_string</code>）を備えています。</li>
+            <li><strong>602 Studio v2.0.0 デスクトップワークスペース</strong>: 3 パネル画面、4 文字バッジレールと折り返し時のぶら下げインデント（Hanging Indent）、1 ターンシミュレーションプレイヤー、5 ブロック Choicebox 設定モーダル、逆方向到達解析（Backward Reachability）、1:1 行ハッシュ翻訳ビューを搭載しました。</li>
+            <li><strong>ローカル MCP サーバー（<code>--mcp</code>）と <code>hashline</code> 編集</strong>: ローカル MCP の 8 ツールと <code>hashline</code> + <code>base_revision</code> の照合により、行ズレの心配なく AI エージェントと一緒に原稿を編集できます。</li>
+          </ul>
+        </div>
+
         <h3 class="p602-h3">CHOAM Community License, Version 1.0 とサードパーティ OSS 表記</h3>
-        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.0) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.0</code>、<code>602 Story Engine v2.0.0</code>、<code>story_engine_v2.h</code>、および公式ドキュメントバンドルには、すべて共通の <strong>CHOAM Community License, Version 1.0</strong>（<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>）が適用されます。初期費用や事前登録なしで自身のゲーム・アプリケーション・サービスへ組み込んで商用配布でき、製品ごと・暦四半期ごとの純売上（総売上からプラットフォーム手数料・返金・間接税を差し引いた額）のうち最初の <strong>10,000,000 韓国ウォン（KRW、1,000 万ウォン）</strong>まではロイヤリティは不要です。1,000 万ウォンを超えた分に対してのみ <strong>1% の自己申告ロイヤリティ</strong>（四半期終了後 45 日以内に申告・支払）が発生します。本ソフトウェア単体での再配布や、競合する汎用エンジン・SDK・オーサリングツールの一部としての再配布は禁じられており、配布物にはライセンス全文と著作権表示を残す必要があります。法的な正文は英語版（<a href="download">/602/download</a> および各アーカイブに収録）であり、韓国語訳・日本語訳は参考訳です（準拠法：大韓民国法、専属管轄：ソウル中央地方裁判所）。</p>
+        <p><strong>602 Studio &amp; 602 Story Engine (v2.0.1) · CHOAM Community License, Version 1.0:</strong> <code>602 Studio v2.0.1</code>、<code>602 Story Engine v2.0.1</code>、<code>story_engine_v2.h</code>、および公式ドキュメントバンドルには、すべて共通の <strong>CHOAM Community License, Version 1.0</strong>（<code>Copyright (c) 2026 CHOAM Co., Ltd.</code>）が適用されます。初期費用や事前登録なしで自身のゲーム・アプリケーション・サービスへ組み込んで商用配布でき、製品ごと・暦四半期ごとの純売上（総売上からプラットフォーム手数料・返金・間接税を差し引いた額）のうち最初の <strong>10,000,000 韓国ウォン（KRW、1,000 万ウォン）</strong>まではロイヤリティは不要です。1,000 万ウォンを超えた分に対してのみ <strong>1% の自己申告ロイヤリティ</strong>（四半期終了後 45 日以内に申告・支払）が発生します。本ソフトウェア単体での再配布や、競合する汎用エンジン・SDK・オーサリングツールの一部としての再配布は禁じられており、配布物にはライセンス全文と著作権表示を残す必要があります。法的な正文は英語版（<a href="download">/602/download</a> および各アーカイブに収録）であり、韓国語訳・日本語訳は参考訳です（準拠法：大韓民国法、専属管轄：ソウル中央地方裁判所）。</p>
 
         <p><strong>お問い合わせ窓口：</strong> ライセンス・商用利用（ロイヤリティの自己申告を含む）は <a href="mailto:mino@choam.studio">mino@choam.studio</a>、バグ報告・機能要望・技術的なご質問は <a href="mailto:cayde@choam.studio">cayde@choam.studio</a> までご連絡ください。</p>
 
@@ -2704,6 +2739,7 @@ public static class StoryEngineV2
               <tr><td><strong>RapidJSON</strong></td><td>MIT / BSD-style Notices</td><td>602 Story Engine および 602 Studio 内蔵ネイティブエンジン（<code>THIRD_PARTY_NOTICES.md</code>）</td></tr>
               <tr><td><strong>Python &amp; SQLite</strong></td><td>PSF-2.0 / Public Domain</td><td>602 Studio 同梱 Python ランタイムおよび標準ライブラリ（<code>THIRD_PARTY_NOTICES.md</code>）</td></tr>
               <tr><td><strong>pywebview, CodeMirror 6 &amp; Web OSS</strong></td><td>BSD-3-Clause / MIT Notices</td><td>602 Studio デスクトップウィンドウ・フロントエンド OSS 表記（<code>THIRD_PARTY_NOTICES.md</code>）</td></tr>
+              <tr><td><strong>Pretendard, Inter, Montserrat &amp; Barlow Condensed</strong></td><td>SIL Open Font License 1.1</td><td>602 Studio 同梱タイポグラフィ・テーマ用フォント（<code>THIRD_PARTY_NOTICES.md</code>）</td></tr>
             </tbody>
           </table>
         </div>
@@ -2714,7 +2750,7 @@ public static class StoryEngineV2
 
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v21-20261115a"></script>
-<script src="../602-portal.js?v=v21-20261115a"></script>
+<script src="../main.js?v=v22-20261117a"></script>
+<script src="../602-portal.js?v=v22-20261117a"></script>
 </body>
 </html>
