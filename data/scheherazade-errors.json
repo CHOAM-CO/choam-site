@@ -53,9 +53,9 @@
             "ja": "このパソコンに保存されている Claude Code のログインの有効期限が切れています。"
           },
           "action": {
-            "en": "Run `claude` once in a terminal to refresh the login, or log in again from Settings > Model.",
-            "ko": "터미널에서 `claude`를 한 번 실행하거나 설정 > 모델에서 다시 로그인하십시오.",
-            "ja": "ターミナルで `claude` を一度実行してログインを更新するか、設定 > モデル からもう一度ログインしてください。"
+            "en": "Run `claude` once in a terminal to refresh the login, or log in again from the Model & Providers tab.",
+            "ko": "터미널에서 `claude`를 한 번 실행하거나 모델 및 프로바이더 탭에서 다시 로그인하십시오.",
+            "ja": "ターミナルで `claude` を一度実行してログインを更新するか、「モデルとプロバイダー」タブからもう一度ログインしてください。"
           }
         },
         {
@@ -66,9 +66,9 @@
             "ja": "このパソコンには Claude Code のログイン情報がありません。"
           },
           "action": {
-            "en": "Log in from Settings > Model, or run `claude` once in a terminal.",
-            "ko": "설정 > 모델에서 로그인하거나 터미널에서 `claude`를 한 번 실행하십시오.",
-            "ja": "設定 > モデル からログインするか、ターミナルで `claude` を一度実行してください。"
+            "en": "Log in from the Model & Providers tab, or run `claude` once in a terminal.",
+            "ko": "모델 및 프로바이더 탭에서 로그인하거나 터미널에서 `claude`를 한 번 실행하십시오.",
+            "ja": "「モデルとプロバイダー」タブからログインするか、ターミナルで `claude` を一度実行してください。"
           }
         },
         {
@@ -79,9 +79,9 @@
             "ja": "Claude Code のログイン情報はありますが、アプリが読み取れませんでした。"
           },
           "action": {
-            "en": "Try once more. If the same error keeps appearing, log in again from Settings > Model.",
-            "ko": "다시 시도하십시오. 계속 실패하면 설정 > 모델에서 다시 로그인하십시오.",
-            "ja": "もう一度お試しください。同じエラーが繰り返される場合は、設定 > モデル からログインし直してください。"
+            "en": "Try once more. If the same error keeps appearing, log in again from the Model & Providers tab.",
+            "ko": "다시 시도하십시오. 계속 실패하면 모델 및 프로바이더 탭에서 다시 로그인하십시오.",
+            "ja": "もう一度お試しください。同じエラーが繰り返される場合は、「モデルとプロバイダー」タブからログインし直してください。"
           }
         },
         {
@@ -92,9 +92,9 @@
             "ja": "選択したモデル接続に必要なキーまたはトークンが保存されていません。"
           },
           "action": {
-            "en": "Enter the key or token in Settings > Model.",
-            "ko": "설정 > 모델에서 입력하십시오.",
-            "ja": "設定 > モデル でキーまたはトークンを入力してください。"
+            "en": "Enter the key or token in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 입력하십시오.",
+            "ja": "「モデルとプロバイダー」タブでキーまたはトークンを入力してください。"
           }
         },
         {
@@ -105,9 +105,9 @@
             "ja": "選択したモデル接続で使うモデルが指定されていません。"
           },
           "action": {
-            "en": "Choose a model in Settings > Model.",
-            "ko": "설정 > 모델에서 선택하십시오.",
-            "ja": "設定 > モデル で使うモデルを選んでください。"
+            "en": "Choose a model in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 선택하십시오.",
+            "ja": "「モデルとプロバイダー」タブで使うモデルを選んでください。"
           }
         },
         {
@@ -118,9 +118,9 @@
             "ja": "カスタム接続のアドレス（Base URL）が空欄になっています。"
           },
           "action": {
-            "en": "Enter the Base URL in Settings > Model.",
-            "ko": "설정 > 모델에 Base URL을 입력하십시오.",
-            "ja": "設定 > モデル で Base URL を入力してください。"
+            "en": "Enter the Base URL in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에 Base URL을 입력하십시오.",
+            "ja": "「モデルとプロバイダー」タブで Base URL を入力してください。"
           }
         },
         {
@@ -131,9 +131,9 @@
             "ja": "接続したサービスは、保存されているキー・モデル・アドレスでは使用できません。"
           },
           "action": {
-            "en": "Check that service's key and model again in Settings > Model & Providers.",
-            "ko": "설정 > 모델 및 프로바이더에서 키와 모델을 확인하십시오.",
-            "ja": "設定 > モデルとプロバイダー で、そのサービスのキーとモデルを確認してください。"
+            "en": "Check that service's key and model again in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 키와 모델을 확인하십시오.",
+            "ja": "「モデルとプロバイダー」タブで、そのサービスのキーとモデルを確認してください。"
           }
         },
         {
@@ -196,9 +196,9 @@
             "ja": "保存したプロバイダーのキーを、OS の資格情報ストアから読み取れませんでした。"
           },
           "action": {
-            "en": "Save the key again in Settings > Model.",
+            "en": "Save the key again in the Model & Providers tab.",
             "ko": "앱을 종료했다가 다시 여십시오. 반복되면 설정할 때 입력한 값을 확인하십시오.",
-            "ja": "設定 > モデル でキーを保存し直してください。"
+            "ja": "「モデルとプロバイダー」タブでキーを保存し直してください。"
           }
         },
         {
@@ -209,9 +209,9 @@
             "ja": "このモデル接続にはログインが必要ですが、まだ完了していません。"
           },
           "action": {
-            "en": "Log in from Settings > Model. Once you are signed in, the agent starts on its own.",
-            "ko": "설정 > 모델에서 로그인하십시오. 로그인하면 에이전트가 자동으로 시작됩니다.",
-            "ja": "設定 > モデル からログインしてください。ログインが済むと、エージェントは自動で起動します。"
+            "en": "Log in from the Model & Providers tab. Once you are signed in, the agent starts on its own.",
+            "ko": "모델 및 프로바이더 탭에서 로그인하십시오. 로그인하면 에이전트가 자동으로 시작됩니다.",
+            "ja": "「モデルとプロバイダー」タブからログインしてください。ログインが済むと、エージェントは自動で起動します。"
           }
         },
         {
@@ -222,9 +222,9 @@
             "ja": "保存されたプロバイダー名をアプリが認識できないか、そのプロバイダーの設定が正しくありません。"
           },
           "action": {
-            "en": "Choose the provider again in Settings > Model.",
-            "ko": "설정 > 모델에서 Claude로 바꾸십시오.",
-            "ja": "設定 > モデル でプロバイダーを選び直してください。"
+            "en": "Choose the provider again in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 Claude로 바꾸십시오.",
+            "ja": "「モデルとプロバイダー」タブでプロバイダーを選び直してください。"
           }
         },
         {
@@ -235,9 +235,9 @@
             "ja": "選択したモデルまたは推論の強さが受け付けられませんでした。"
           },
           "action": {
-            "en": "Choose a different model or effort level in Settings > Model.",
-            "ko": "설정 > 모델에서 다른 모델·effort를 고르십시오.",
-            "ja": "設定 > モデル で別のモデルか推論の強さを選んでください。"
+            "en": "Choose a different model or effort level in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 다른 모델·effort를 고르십시오.",
+            "ja": "「モデルとプロバイダー」タブで別のモデルか推論の強さを選んでください。"
           }
         },
         {
@@ -262,7 +262,7 @@
           },
           "action": {
             "en": "Restart the app. If it happens again, choose another provider.",
-            "ko": "앱을 다시 시작하십시오. 반복되면 설정 > 모델에서 연결을 바꾸십시오.",
+            "ko": "앱을 다시 시작하십시오. 반복되면 모델 및 프로바이더 탭에서 연결을 바꾸십시오.",
             "ja": "アプリを再起動してください。同じエラーが繰り返される場合は、別のプロバイダーを選んでください。"
           }
         },
@@ -365,9 +365,9 @@
             "ja": "起動直後の終了が続けて起こり、エンジン自身が起動エラーを記録しました。"
           },
           "action": {
-            "en": "Choose another model or turn a provider off in Settings > Model, then start again.",
-            "ko": "설정 > 모델에서 다른 모델을 고르거나 프로바이더를 끄고 재시작하십시오.",
-            "ja": "設定 > モデル で別のモデルを選ぶか、プロバイダーをオフにしてから、もう一度開始してください。"
+            "en": "Choose another model or turn a provider off in the Model & Providers tab, then start again.",
+            "ko": "모델 및 프로바이더 탭에서 다른 모델을 고르거나 프로바이더를 끄고 재시작하십시오.",
+            "ja": "「モデルとプロバイダー」タブで別のモデルを選ぶか、プロバイダーをオフにしてから、もう一度開始してください。"
           }
         },
         {
@@ -418,7 +418,7 @@
           },
           "action": {
             "en": "Check both Slack tokens again in Channels.",
-            "ko": "채널에서 Slack 토큰 두 개를 다시 확인하십시오.",
+            "ko": "채널 탭에서 Slack 토큰 두 개를 다시 확인하십시오.",
             "ja": "チャンネルで Slack のトークン2つをどちらも確認してください。"
           }
         },
@@ -431,7 +431,7 @@
           },
           "action": {
             "en": "Check the Telegram token again in Channels.",
-            "ko": "채널에서 BotFather 토큰을 재확인하십시오.",
+            "ko": "채널 탭에서 BotFather 토큰을 재확인하십시오.",
             "ja": "チャンネルで Telegram のトークンを確認してください。"
           }
         },
@@ -444,7 +444,7 @@
           },
           "action": {
             "en": "Reconnect that messenger in Channels.",
-            "ko": "채널에서 토큰을 다시 저장하십시오.",
+            "ko": "채널 탭에서 토큰을 다시 저장하십시오.",
             "ja": "チャンネルでそのメッセンジャーを接続し直してください。"
           }
         },
@@ -526,9 +526,9 @@
             "ja": "Antigravity のモデル呼び出しが失敗しました。"
           },
           "action": {
-            "en": "Send again. If it happens again, choose another model in Settings > Model.",
-            "ko": "다시 보내십시오. 반복되면 설정 > 모델에서 다른 모델을 선택하십시오.",
-            "ja": "もう一度送ってください。同じエラーが繰り返される場合は、設定 > モデル で別のモデルを選んでください。"
+            "en": "Send again. If it happens again, choose another model in the Model & Providers tab.",
+            "ko": "다시 보내십시오. 반복되면 모델 및 프로바이더 탭에서 다른 모델을 선택하십시오.",
+            "ja": "もう一度送ってください。同じエラーが繰り返される場合は、「モデルとプロバイダー」タブで別のモデルを選んでください。"
           }
         },
         {
