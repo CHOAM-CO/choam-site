@@ -11,432 +11,325 @@
   const POOL = (id, cx, cy, rx, ry, a = .16) => `<defs><radialGradient id="${id}"><stop offset="0" stop-color="#d9a362" stop-opacity="${a}"/><stop offset="1" stop-color="#d9a362" stop-opacity="0"/></radialGradient></defs><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#${id})"/>`;
   const FEAT = {
     '602-lost': (l = 'en') => {
-      const col = [66, 146, 226, 306, 386], ys = [[200], [164, 236], [142, 180, 220, 258], [130, 150, 170, 190, 210, 230, 250, 270], Array.from({ length: 16 }, (_, k) => 122 + k * 10.4)];
+      const col = [48, 128, 208, 288, 368], ys = [[432], [408, 456], [394, 419, 445, 470], [386, 400, 414, 428, 442, 456, 470, 484], Array.from({ length: 16 }, (_, k) => 380 + k * 7.0)];
       let tree = '';
       for (let c = 0; c < 4; c++) ys[c].forEach((y, i) => { tree += `<path class="sd" d="M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i]}M${col[c]} ${y}L${col[c + 1]} ${ys[c + 1][2 * i + 1]}"/>`; });
-      ys.forEach((a, c) => a.forEach(y => { tree += `<circle class="${c === 4 ? 'bg' : 'tn'}" cx="${col[c]}" cy="${y}" r="${c === 4 ? 2.6 : c === 3 ? 3.4 : 4.4}"/>`; }));
+      ys.forEach((a, c) => a.forEach(y => { tree += `<circle class="${c === 4 ? 'bg' : 'tn'}" cx="${col[c]}" cy="${y}" r="${c === 4 ? 2.2 : c === 3 ? 2.8 : 3.6}"/>`; }));
       const t = l === 'ko' ? {
-        top: '이야기 분기는 더하기가 아니라 제곱(2ⁿ)으로 불어납니다',
-        treeLeft: '2지선다 4번',
-        treeRight: '2⁴ = 16갈래',
-        steps: ['시작', '1회', '2회', '3회', '4회 (16)'],
-        cardTitle: '곱절로 불어나는 갈래',
-        r1: ['선택 4번 (2⁴)', '16갈래'],
-        r2: ['선택 7번 (2⁷)', '128갈래'],
-        r3: ['선택 10번 (2¹⁰)', '1,024갈래'],
-        r4: ['선택 20번 (2²⁰)', '100만+ 갈래'],
-        b1: '선택지 몇 개만 보태도 앞뒤로 맞춰야 할 상태 조합이 걷잡을 수 없이 늘어납니다.',
-        b2: '<tspan class="ar">1,024갈래</tspan>를 머릿속 기억이나 얽힌 조건문만으로 챙기는 건 불가능합니다.',
-        b2Cls: 'xm em',
-        foot: '사소해 보이는 선택지도 겹치는 순간 감당하기 힘든 갈래가 됩니다.'
+        kicker: '01 · 게임 없이 바로 돌려보는 작업실',
+        h1: '게임 클라이언트가 없어도', h2: '쓴 자리에서 바로 돌려보는 이야기',
+        ln: '1장 · 14행', quote: '“우산 없으면 내 거 같이 쓰고 갈래?”', play: '▶ 조건 바꿔 가며 바로 플레이',
+        r1: ['호감도 20', '“됐어, 뛰어가면 돼.”'],
+        r2: ['호감도 80', '“정류장까지만 같이 가자.”'],
+        r3: ['주사위 실패', '“다친 데부터 먼저 보자.”'],
+        foot: '게임 빌드를 기다리지 않고, 호감도와 주사위 결과를 그 자리에서 바꿔 가며 대사 호흡을 맞춥니다'
       } : l === 'ja' ? {
-        top: '物語の分岐は足し算ではなく指数（2ⁿ）で膨らみます',
-        treeLeft: '2択を4回',
-        treeRight: '2⁴ = 16通り',
-        steps: ['開始', '1回', '2回', '3回', '4回 (16)'],
-        cardTitle: '倍々に増えるルート数',
-        r1: ['選択4回 (2⁴)', '16通り'],
-        r2: ['選択7回 (2⁷)', '128通り'],
-        r3: ['選択10回 (2¹⁰)', '1,024通り'],
-        r4: ['選択20回 (2²⁰)', '100万+通り'],
-        b1: '選択肢を少し足すだけで、前後で合わせるべき状態の組み合わせは一気に膨らみます。',
-        b2: '<tspan class="ar">1,024通りのルート</tspan>を記憶や複雑な条件分岐コードだけで追い切るのは不可能です。',
-        b2Cls: 'xm sm2 em',
-        foot: '小さく見える選択も、重なった瞬間に人の手では追えない数になります。'
+        kicker: '01 · ゲームなしでその場で動かせる作業室',
+        h1: 'ゲームクライアントがなくても', h2: '書いたその場ですぐ遊べる物語',
+        ln: '第1章 · 14行', quote: '「傘がないなら一緒に入ってく？」', play: '▶ 条件を変えながらすぐ再生',
+        r1: ['好感度 20', '「いいよ、走って帰るから」'],
+        r2: ['好感度 80', '「バス停までなら一緒に行こ」'],
+        r3: ['ダイス失敗', '「怪我の手当てが先だよ」'],
+        foot: 'ゲームビルドを待たずに、好感度やダイス結果をその場で変えながらセリフの呼吸を確かめます'
       } : {
-        top: 'STORY BRANCHES GROW EXPONENTIALLY (2ⁿ), NOT BY ADDITION',
-        treeLeft: '4 binary choices',
-        treeRight: '2⁴ = 16 paths',
-        steps: ['Start', '1st', '2nd', '3rd', '4th (16)'],
-        cardTitle: 'PATH EXPLOSION',
-        r1: ['4 choices (2⁴)', '16'],
-        r2: ['7 choices (2⁷)', '128'],
-        r3: ['10 choices (2¹⁰)', '1,024'],
-        r4: ['20 choices (2²⁰)', '1M+'],
-        b1: 'Even a handful of choices multiplies every state check upstream and downstream.',
-        b2: 'Keeping <tspan class="ar">1,024 paths</tspan> straight by memory or nested if-else code quickly breaks down.',
-        b2Cls: 'xm sm2 em',
-        foot: 'SMALL CHOICES COMPOUND INTO EXPONENTIAL COMPLEXITY.'
+        kicker: '01 · PLAYTEST WITHOUT A GAME BUILD',
+        h1: 'Even without a game client,', h2: 'play your story right where you write',
+        ln: 'Ch.1 · Ln 14', quote: '“Share my umbrella if you forgot yours?”', play: '▶ Playtest with live state switches',
+        r1: ['Affinity 20', '“I’m fine, I’ll just run.”'],
+        r2: ['Affinity 80', '“Just to the bus stop, then.”'],
+        r3: ['Dice Fail', '“Let’s check that scrape first.”'],
+        foot: 'Test how every line reads across different affinity levels and dice rolls without waiting on a build'
       };
-      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602a', 360, 250, 340, 210, .12)}
-      <text class="xl" x="30" y="40">${t.top}</text>
-      <path class="hr" d="M30 58H690"/>
-      <rect class="fj" x="30" y="80" width="390" height="260" rx="0"/>
-      <text class="xm sm2 dim" x="54" y="110">${t.treeLeft}</text>
-      <text class="xm sm2 em" x="396" y="110" text-anchor="end">${t.treeRight}</text>
+      return `<rect width="720" height="540" fill="#0B0C0D" stroke="rgba(235,229,218,0.16)" stroke-width="1"/>
+      <path d="M 32 320 H 688 M 388 352 V 492" stroke="rgba(235,229,218,0.14)" stroke-width="1"/>
+      <path d="M 32 314 V 326 M 26 320 H 38 M 688 314 V 326 M 682 320 H 694" stroke="#D9A362" stroke-width="1.4"/>
+      <line x1="40" y1="54" x2="40" y2="70" stroke="#D9A362" stroke-width="2"/>
+      <text x="52" y="67" font-size="13" font-weight="650" letter-spacing="1.2" fill="rgba(235,229,218,0.58)">${t.kicker}</text>
+      <text x="40" y="112" font-size="15.5" font-weight="600" fill="rgba(235,229,218,0.46)">${t.ln}</text>
+      <text x="128" y="112" font-size="16.5" font-weight="600" fill="#EBE5DA">${t.quote}</text>
+      <text x="432" y="112" font-size="15" font-weight="720" fill="#D9A362">${t.play}</text>
+      <text x="40" y="196" font-size="46" font-weight="850" letter-spacing="-2.1" fill="#EBE5DA">${t.h1}</text>
+      <text x="40" y="254" font-size="46" font-weight="850" letter-spacing="-2.1" fill="#D9A362">${t.h2}</text>
       ${tree}
-      <text class="xm sm2 dim" x="66" y="316" text-anchor="middle">${t.steps[0]}</text>
-      <text class="xm sm2 dim" x="146" y="316" text-anchor="middle">${t.steps[1]}</text>
-      <text class="xm sm2 dim" x="226" y="316" text-anchor="middle">${t.steps[2]}</text>
-      <text class="xm sm2 dim" x="306" y="316" text-anchor="middle">${t.steps[3]}</text>
-      <text class="xm sm2 em" x="386" y="316" text-anchor="middle">${t.steps[4]}</text>
-      <rect class="fr on" x="440" y="80" width="250" height="260" rx="0"/>
-      <text class="xl" x="462" y="114">${t.cardTitle}</text>
-      <text class="xm sm2 dim" x="462" y="156">${t.r1[0]}</text><text class="xm sm2" x="668" y="156" text-anchor="end">${t.r1[1]}</text>
-      <text class="xm sm2 dim" x="462" y="196">${t.r2[0]}</text><text class="xm sm2" x="668" y="196" text-anchor="end">${t.r2[1]}</text>
-      <text class="xm sm2 em" x="462" y="238">${t.r3[0]}</text><text class="xe sm3" x="668" y="238" text-anchor="end">${t.r3[1]}</text>
-      <path class="hr" d="M462 264H668"/>
-      <text class="xm sm2 dim" x="462" y="304">${t.r4[0]}</text><text class="xm sm2 em" x="668" y="304" text-anchor="end">${t.r4[1]}</text>
-      <rect class="fj" x="30" y="362" width="660" height="108" rx="0"/>
-      <text class="xm sm2 dim" x="54" y="400">${t.b1}</text>
-      <text class="${t.b2Cls}" x="54" y="440">${t.b2}</text>
-      <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">${t.foot}</text>`;
+      <text class="xm sm2 dim" x="408" y="388">${t.r1[0]}</text><text class="xm sm2" x="680" y="388" text-anchor="end">${t.r1[1]}</text>
+      <text class="xm sm2 em" x="408" y="432">${t.r2[0]}</text><text class="xm sm2 em" x="680" y="432" text-anchor="end">${t.r2[1]}</text>
+      <text class="xm sm2 dim" x="408" y="476">${t.r3[0]}</text><text class="xm sm2" x="680" y="476" text-anchor="end">${t.r3[1]}</text>
+      <text x="40" y="518" font-size="14.5" font-weight="500" fill="rgba(235,229,218,0.62)">${t.foot}</text>`;
     },
     '602-qa': (l = 'en') => {
       const t = l === 'ko' ? {
-        top: '복잡한 분기는 602로 떼어내고, 꼬인 연결은 넣기 전에 걸러냅니다',
-        leftTitle: '게임 코드',
-        leftSub: '복잡한 분기 계산 없음',
-        chip1: '화면 연출 · 사운드 · UI',
-        chip2: '인게임 플레이 · 시스템',
-        leftFoot1: '602가 건네주는 대사와 상태만',
-        leftFoot2: '화면에 그리면 끝납니다.',
-        rightTitle: '602 Studio · 검사',
-        stAsk: '승인 대기',
-        stOk: '반영됨',
-        stNo: '반려됨',
-        d1: '새 선택지와 조건 분기 연결',
-        d2: '앞뒤 장면 상태값 · 구조 자동 대조',
-        chk1: '✓ .602.json 컴파일 검사 통과',
-        chk2: '끊어진 연결 0건 · 조건 오류 0건',
-        dFoot: '깨진 분기는 애초에 게임으로 넘어가지 않습니다.',
-        prompt: '검사를 마친 변경안을 눌러 반영해 보세요.',
-        okLabel: '승인',
-        noLabel: '반려',
-        savedOk: '시나리오에 반영했습니다',
-        savedNo: '반려됨 · 원본을 유지합니다',
-        resetAria: '다시 보기',
-        resetLabel: '↺ 다시',
-        foot: '이야기 구조와 게임 코드를 갈라 놓아 챙겨야 할 짐을 절반으로 덜어냅니다.'
+        kicker: '02 · AI와 함께 고치고 막힌 길은 미리 잡기',
+        h1: '막히는 대사는 AI와 같이 고치고', h2: '꼬인 선택지는 켜기 전에 끝',
+        dead: '조건이 꼬여 못 들어가는 선택지 · 실행 전에 미리 표시',
+        ref: '1장 · 비 오는 하교길 (14~16행)  ·  AI 에이전트 대사 수정 제안',
+        stAsk: '검토 대기', stOk: '반영 완료', stNo: '반려됨',
+        d1: '– 기존: “우산 없으면 내 거 같이 쓰고 갈래?”',
+        d2: '+ 제안: “비 오는데 그냥 가려고? 우산 하나니까 이리 와.” (뒤쪽 3장까지 연결 이상 없음 ✓)',
+        prompt: '마음에 드는 대사 수정안을 직접 눌러 반영해 보세요',
+        okLabel: '승인', noLabel: '반려',
+        savedOk: '원고에 반영했습니다', savedNo: '반려됨 · 원래 대사를 유지합니다',
+        resetAria: '다시 보기', resetLabel: '↺ 다시'
       } : l === 'ja' ? {
-        top: '複雑な分岐は 602 に切り離し、エラーは反映前に食い止めます',
-        leftTitle: 'ゲームコード',
-        leftSub: '分岐計算から解放',
-        chip1: '画面演出 · サウンド · UI',
-        chip2: 'ゲームプレイ · システム',
-        leftFoot1: '602 が渡すセリフと状態だけを',
-        leftFoot2: '画面に描けば完了します。',
-        rightTitle: '602 Studio · 検査',
-        stAsk: '承認待ち',
-        stOk: '反映済み',
-        stNo: '差戻し済み',
-        d1: '新しい選択肢と条件分岐の接続',
-        d2: '前後シーンの状態値・構造を自動照合',
-        chk1: '✓ .602.json コンパイル検査通過',
-        chk2: 'リンク切れ 0件 · 条件エラー 0件',
-        dFoot: '壊れた分岐はゲームへ渡りません。',
-        prompt: '検査済みの変更を承認・差戻し:',
-        okLabel: '承認',
-        noLabel: '差戻し',
-        savedOk: 'シナリオに反映しました',
-        savedNo: '差戻し · 原本を維持します',
-        resetAria: 'やり直す',
-        resetLabel: '↺ 戻す',
-        foot: '物語構造とゲームコードを分け、追いかけるべき問題を半分にします。'
+        kicker: '02 · AI と一緒に直して塞がった道は先に防ぐ',
+        h1: '詰まったセリフは AI と一緒に直し', h2: '絡んだ選択肢は起動前に解決',
+        dead: '条件が絡んで入れない選択肢 · 実行前に自動で表示',
+        ref: '第1章 · 雨の下校道 (14〜16行)  ·  AI エージェントのセリフ修正案',
+        stAsk: '確認待ち', stOk: '反映済み', stNo: '差戻し済み',
+        d1: '– 変更前: 「傘がないなら一緒に入ってく？」',
+        d2: '+ 提案: 「この雨の中を行く気？傘は一本しかないからこっち来て」(第3章まで接続異常なし ✓)',
+        prompt: '気に入った修正案をクリックして反映:',
+        okLabel: '承認', noLabel: '差戻し',
+        savedOk: '原稿に反映しました', savedNo: '差戻し · 元のセリフを維持します',
+        resetAria: 'やり直す', resetLabel: '↺ 戻す'
       } : {
-        top: 'KEEP BRANCHING IN 602 STUDIO · CATCH ERRORS BEFORE RUNTIME',
-        leftTitle: 'GAME CODE',
-        leftSub: 'Free from branch logic',
-        chip1: 'Visuals · Audio · UI',
-        chip2: 'Core Gameplay · Systems',
-        leftFoot1: 'Renders only the lines &amp; state',
-        leftFoot2: 'handed back by Story Engine v2.',
-        rightTitle: '602 STUDIO v2',
-        stAsk: 'Pending',
-        stOk: 'Approved',
-        stNo: 'Rejected',
-        d1: 'Wire new choice &amp; branch condition',
-        d2: 'Check upstream &amp; downstream state',
-        chk1: '✓ .602.json compile check passed',
-        chk2: '0 dead links · 0 condition errors',
-        dFoot: 'Broken branches never reach the game.',
-        prompt: 'Click Approve or Reject to test:',
-        okLabel: 'Approve',
-        noLabel: 'Reject',
-        savedOk: 'Saved to scenario (.602.json)',
-        savedNo: 'Rejected · original kept',
-        resetAria: 'Reset',
-        resetLabel: '↺ Reset',
-        foot: 'SEPARATE STORY FROM GAME CODE · CUT DEBUGGING IN HALF.'
+        kicker: '02 · CO-WRITE WITH AI & CATCH DEAD ENDS EARLY',
+        h1: 'Polish tough lines with AI;', h2: 'catch broken choices before launch',
+        dead: 'Unreachable choice flagged automatically before launch',
+        ref: 'Ch.1 · Rainy Walk Home (Ln 14–16)  ·  AI agent line suggestion',
+        stAsk: 'Pending', stOk: 'Applied', stNo: 'Rejected',
+        d1: '– Old: “Share my umbrella if you forgot yours?”',
+        d2: '+ New: “Walking out in this rain? I only have one umbrella, get over here.” (Ch.3 links intact ✓)',
+        prompt: 'Click Approve or Reject on the suggested line:',
+        okLabel: 'Approve', noLabel: 'Reject',
+        savedOk: 'Applied to manuscript', savedNo: 'Rejected · original kept',
+        resetAria: 'Reset', resetLabel: '↺ Reset'
       };
-      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602c', 470, 240, 300, 220, .13)}
-      <text class="xl" x="30" y="40">${t.top}</text>
-      <path class="hr" d="M30 58H690"/>
-      <rect class="fj" x="30" y="78" width="276" height="324" rx="0"/>
-      <text class="xl" x="52" y="114">${t.leftTitle}</text>
-      <text class="xm sm2 dim" x="52" y="144">${t.leftSub}</text>
-      <path class="hr" d="M52 164H284"/>
-      <rect class="fr" x="52" y="186" width="232" height="52" rx="0"/>
-      <text class="xm sm2 em" x="168" y="218" text-anchor="middle">${t.chip1}</text>
-      <rect class="fr" x="52" y="252" width="232" height="52" rx="0"/>
-      <text class="xm sm2 em" x="168" y="284" text-anchor="middle">${t.chip2}</text>
-      <text class="xm sm2 dim" x="52" y="344">${t.leftFoot1}</text>
-      <text class="xm sm2 dim" x="52" y="370">${t.leftFoot2}</text>
-      <path class="st" d="M312 240H342"/><polygon class="bg" points="348,240 338,235 338,245"/>
-      <rect class="fr on" x="350" y="78" width="340" height="324" rx="0"/>
-      <text class="xl" x="372" y="114">${t.rightTitle}</text>
-      <text class="xm sm2 dim stt s-ask" x="668" y="114" text-anchor="end">${t.stAsk}</text><text class="xm sm2 em stt s-ok" x="668" y="114" text-anchor="end">${t.stOk}</text><text class="xm sm2 dim stt s-no" x="668" y="114" text-anchor="end">${t.stNo}</text>
+      return `<rect width="720" height="540" fill="#0B0C0D" stroke="rgba(235,229,218,0.16)" stroke-width="1"/>
+      <path d="M 32 292 H 688" stroke="rgba(235,229,218,0.14)" stroke-width="1"/>
+      <path d="M 32 286 V 298 M 26 292 H 38 M 688 286 V 298 M 682 292 H 694" stroke="#D9A362" stroke-width="1.4"/>
+      <line x1="40" y1="52" x2="40" y2="68" stroke="#D9A362" stroke-width="2"/>
+      <text x="52" y="65" font-size="13" font-weight="650" letter-spacing="1.2" fill="rgba(235,229,218,0.58)">${t.kicker}</text>
+      <path d="M 40 108 L 136 108 C 176 108, 194 90, 236 90 L 352 90" fill="none" stroke="rgba(235,229,218,0.42)" stroke-width="1.5"/>
+      <path d="M 136 108 L 352 108" fill="none" stroke="#D9A362" stroke-width="1.8"/>
+      <path d="M 136 108 C 176 108, 194 128, 236 128" fill="none" stroke="#C95A4B" stroke-width="2" stroke-dasharray="5 4"/>
+      <circle cx="236" cy="128" r="4.5" fill="#C95A4B"/>
+      <text x="252" y="133" font-size="14.5" font-weight="700" fill="#F2A696">${t.dead}</text>
+      <text x="40" y="196" font-size="44" font-weight="850" letter-spacing="-2.1" fill="#EBE5DA">${t.h1}</text>
+      <text x="40" y="252" font-size="44" font-weight="850" letter-spacing="-2.1" fill="#D9A362">${t.h2}</text>
+      <text x="40" y="334" font-size="14.5" font-weight="650" fill="#D9A362">${t.ref}</text>
+      <text class="xm sm2 dim stt s-ask" x="680" y="334" text-anchor="end">${t.stAsk}</text><text class="xm sm2 em stt s-ok" x="680" y="334" text-anchor="end">${t.stOk}</text><text class="xm sm2 dim stt s-no" x="680" y="334" text-anchor="end">${t.stNo}</text>
       <g class="diff">
-        <text class="xm sm2 em" x="372" y="156"><tspan class="ar">+ </tspan>${t.d1}</text>
-        <text class="xm sm2" x="372" y="190"><tspan class="ar">+ </tspan>${t.d2}</text>
-        <rect class="fj" x="368" y="216" width="304" height="96" rx="0"/>
-        <text class="xm sm2 em" x="388" y="250">${t.chk1}</text>
-        <text class="xm sm2 dim" x="388" y="282">${t.chk2}</text>
-        <path class="hr" d="M368 334H672"/>
-        <text class="xm sm2 em" x="372" y="370">${t.dFoot}</text>
+        <text class="xm sm2 dim" x="40" y="374">${t.d1}</text>
+        <text class="xm sm2 em" x="40" y="406">${t.d2}</text>
       </g>
-      <text class="xm sm2 em" x="30" y="451">${t.prompt}</text>
+      <text class="xm sm2 dim" x="40" y="482">${t.prompt}</text>
       <g class="asks">
-        <g class="pick" data-ai-pick="ok" role="button" tabindex="0" aria-label="${t.okLabel}"><rect class="pk" x="350" y="420" width="160" height="50" rx="0"/><text class="xn" x="430" y="453" text-anchor="middle">${t.okLabel}</text></g>
-        <g class="pick" data-ai-pick="no" role="button" tabindex="0" aria-label="${t.noLabel}"><rect class="pk" x="530" y="420" width="160" height="50" rx="0"/><text class="xn" x="610" y="453" text-anchor="middle">${t.noLabel}</text></g>
+        <g class="pick" data-ai-pick="ok" role="button" tabindex="0" aria-label="${t.okLabel}"><rect class="pk" x="396" y="450" width="136" height="48" rx="0"/><text class="xn" x="464" y="482" text-anchor="middle">${t.okLabel}</text></g>
+        <g class="pick" data-ai-pick="no" role="button" tabindex="0" aria-label="${t.noLabel}"><rect class="pk" x="548" y="450" width="136" height="48" rx="0"/><text class="xn" x="616" y="482" text-anchor="middle">${t.noLabel}</text></g>
       </g>
       <g class="after">
-        <text class="xm sm2 em a-ok" x="350" y="451">${t.savedOk}</text><text class="xm sm2 em a-no" x="350" y="451">${t.savedNo}</text>
-        <g class="pick" data-ai-pick="ask" role="button" tabindex="0" aria-label="${t.resetAria}"><rect class="pk" x="574" y="420" width="116" height="50" rx="0"/><text class="xm em" x="632" y="452" text-anchor="middle">${t.resetLabel}</text></g>
-      </g>
-      <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">${t.foot}</text>`;
+        <text class="xm sm2 em a-ok" x="380" y="482">${t.savedOk}</text><text class="xm sm2 em a-no" x="340" y="482">${t.savedNo}</text>
+        <g class="pick" data-ai-pick="ask" role="button" tabindex="0" aria-label="${t.resetAria}"><rect class="pk" x="572" y="450" width="112" height="48" rx="0"/><text class="xm em" x="628" y="481" text-anchor="middle">${t.resetLabel}</text></g>
+      </g>`;
     },
     '602-run': (l = 'en') => {
       const t = l === 'ko' ? {
-        top: '게임이 아직 없어도, 시나리오만으로 바로 돌려보며 완성합니다',
-        s1: '1장 (건너뜀)',
-        s2: '2장 (건너뜀)',
-        s3: '▶ 원하는 장면부터 바로 실행',
-        c1Title: '602 Studio 단독 실행',
-        c1a: '게임 화면이나 시스템이 아직 없어도,',
-        c1b: '원하는 장면과 조건에서 이야기를',
-        c1c: '바로 돌려보며 흐름을 먼저 다듬습니다.',
-        c2Title: 'Story Engine v2 바로 연결',
-        c2a: '검사를 마친 .602.json 번들은',
-        c2b: 'story_engine_v2.h 런타임을 통해',
-        c2c: 'C++ · C# · Godot 게임에 바로 붙습니다.',
-        oldWay: '예전에는: 게임 빌드가 나올 때까지 기다린 뒤, 1장부터 수십 번 다시 플레이',
-        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Studio에서 원하는 장면 바로 실행 ➔ C ABI v2 엔진으로 게임에 연결`,
-        newCls: 'xm sm2 em',
-        foot: '게임 빌드를 기다리지 않고, 이야기부터 먼저 완성합니다.'
+        kicker: '03 · 원고만 고치면 게임 화면도 바로 끝',
+        bLeft: '작가가 쓴 대사 · 표정 · 연출', bMid: '엑셀 시트로 쪼개기 없음 · 프로그래머에게 다시 옮겨 달라 부탁할 필요 없음', bRight: 'Unity · Unreal · Godot 바로 반영',
+        h1: '다 쓴 원고 한 벌 그대로', h2: '옮겨 적지 않고 바로 게임으로',
+        sub1: '원고에서 대사 한 줄이나 표정 신호를 고치면,',
+        sub2: '다시 코딩할 필요 없이 게임 화면 속 캐릭터 대사가 그대로 바뀝니다.'
       } : l === 'ja' ? {
-        top: 'ゲームがまだなくても、シナリオ単体ですぐ動かして仕上げます',
-        s1: '第1章（スキップ）',
-        s2: '第2章（スキップ）',
-        s3: '▶ 見たい場面からすぐ実行',
-        c1Title: '602 Studio 単体再生',
-        c1a: 'ゲーム画面やUIがまだなくても、',
-        c1b: '見たい場面と状態値を指定して',
-        c1c: '物語の流れをその場で確かめられます。',
-        c2Title: 'Story Engine v2 接続',
-        c2a: '検査済みの .602.json バンドルは',
-        c2b: 'story_engine_v2.h ランタイム経由で',
-        c2c: 'C++ · C# · Godot にそのまま繋がります。',
-        oldWay: 'これまで: ゲームビルドの完成待ち + 第1章から何十回も通しプレイ',
-        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Studio で見たい場面を即実行 ➔ C ABI v2 エンジンでゲームへ接続`,
-        newCls: 'xm sm2 em',
-        foot: 'クライアントの完成を待たず、物語を先に仕上げられます。'
+        kicker: '03 · 原稿を直せばゲーム画面もそのまま完了',
+        bLeft: '作家が書いたセリフ・表情・演出', bMid: 'Excel への分割なし · プログラマーへ書き直しを頼む手間なし', bRight: 'Unity · Unreal · Godot すぐ反映',
+        h1: '書き上げた原稿一式を', h2: '書き直さずそのままゲームへ',
+        sub1: '原稿でセリフや表情の合図を一行直せば、',
+        sub2: 'コードを書き直さなくてもゲーム画面のキャラクターがそのまま動きます。'
       } : {
-        top: 'PLAYTEST SCENARIOS STANDALONE · PLUG INTO YOUR ENGINE',
-        s1: 'Ch. 1 (Skip)',
-        s2: 'Ch. 2 (Skip)',
-        s3: '▶ Jump straight to target scene',
-        c1Title: '602 STUDIO PLAYTEST',
-        c1a: 'Even before the game client exists,',
-        c1b: 'set custom state &amp; jump to any scene',
-        c1c: 'to test flow and export .602.zip / .json.',
-        c2Title: 'STORY ENGINE v2 (C ABI)',
-        c2a: 'Checked .602.json bundles plug into',
-        c2b: 'C++, C#, and Godot games through',
-        c2c: 'the native story_engine_v2.h runtime.',
-        oldWay: 'Old way: Wait on a client build, then replay from Ch. 1 dozens of times',
-        newWay: `<tspan class="ar">602 ${(PROJECTS.find(x => x.id === '602')?.status.match(/\bv\d+\.\d+\.\d+\b/) || ['v2.0.1'])[0]}: </tspan>Playtest any scene in Studio ➔ ship with C ABI v2 Engine`,
-        newCls: 'xm sm2 em',
-        foot: 'FINISH AND VERIFY THE STORY BEFORE WAITING ON THE CLIENT.'
+        kicker: '03 · EDIT THE MANUSCRIPT, UPDATE THE GAME',
+        bLeft: 'Writer’s lines, expressions & cues', bMid: 'No chopping into spreadsheets · No waiting on programmers to re-script lines', bRight: 'Live in Unity · Unreal · Godot',
+        h1: 'One finished manuscript', h2: 'straight into the game as written',
+        sub1: 'Tweak a line of dialogue or an expression cue in your manuscript,',
+        sub2: 'and the character on screen updates without touching game code.'
       };
-      return `<rect width="720" height="540" fill="#0B0C0D"/>${POOL('pl-602d', 360, 260, 340, 220, .12)}
-      <text class="xl" x="30" y="40">${t.top}</text>
-      <path class="hr" d="M30 58H690"/>
-      <rect class="fr off" x="30" y="80" width="160" height="60" rx="0"/><text class="xm sm2 dim" x="110" y="116" text-anchor="middle">${t.s1}</text>
-      <rect class="fr off" x="210" y="80" width="160" height="60" rx="0"/><text class="xm sm2 dim" x="290" y="116" text-anchor="middle">${t.s2}</text>
-      <rect class="fr on" x="390" y="80" width="300" height="60" rx="0"/><text class="xm sm2 em" x="540" y="116" text-anchor="middle">${t.s3}</text>
-      <path class="sd" d="M190 110H210M370 110H390"/>
-      <rect class="fj" x="30" y="164" width="318" height="174" rx="0"/>
-      <text class="xl" x="54" y="202">${t.c1Title}</text>
-      <path class="hr" d="M54 220H324"/>
-      <text class="xm sm2" x="54" y="256">${t.c1a}</text>
-      <text class="xm sm2 em" x="54" y="286">${t.c1b}</text>
-      <text class="xm sm2 em" x="54" y="314">${t.c1c}</text>
-      <rect class="fj" x="372" y="164" width="318" height="174" rx="0"/>
-      <text class="xl" x="396" y="202">${t.c2Title}</text>
-      <path class="hr" d="M396 220H666"/>
-      <text class="xm sm2" x="396" y="256">${t.c2a}</text>
-      <text class="xm sm2 em" x="396" y="286">${t.c2b}</text>
-      <text class="xm sm2 em" x="396" y="314">${t.c2c}</text>
-      <rect class="fr on" x="30" y="360" width="660" height="108" rx="0"/>
-      <text class="xm sm2 dim" x="54" y="396">${t.oldWay}</text>
-      <text class="${t.newCls}" x="54" y="438">${t.newWay}</text>
-      <path class="hr" d="M30 492H690"/>
-      <text class="xl" x="30" y="522">${t.foot}</text>`;
+      return `<rect width="720" height="540" fill="#0B0C0D" stroke="rgba(235,229,218,0.16)" stroke-width="1"/>
+      <path d="M 32 236 H 688" stroke="rgba(235,229,218,0.14)" stroke-width="1"/>
+      <path d="M 32 230 V 242 M 26 236 H 38 M 688 230 V 242 M 682 236 H 694" stroke="#D9A362" stroke-width="1.4"/>
+      <line x1="40" y1="54" x2="40" y2="70" stroke="#D9A362" stroke-width="2"/>
+      <text x="52" y="67" font-size="13" font-weight="650" letter-spacing="1.2" fill="rgba(235,229,218,0.58)">${t.kicker}</text>
+      <text x="40" y="138" font-size="22" font-weight="760" letter-spacing="-0.6" fill="#EBE5DA">${t.bLeft}</text>
+      <line x1="306" y1="130" x2="386" y2="130" stroke="#D9A362" stroke-width="2"/>
+      <polygon points="384,124 398,130 384,136" fill="#D9A362"/>
+      <text x="412" y="138" font-size="20.5" font-weight="760" letter-spacing="-0.5" fill="#D9A362">${t.bRight}</text>
+      <text x="40" y="182" font-size="15" font-weight="550" fill="rgba(235,229,218,0.54)">${t.bMid}</text>
+      <text x="40" y="348" font-size="46" font-weight="850" letter-spacing="-2.1" fill="#EBE5DA">${t.h1}</text>
+      <text x="40" y="408" font-size="46" font-weight="850" letter-spacing="-2.1" fill="#D9A362">${t.h2}</text>
+      <text x="40" y="488" font-size="15.5" font-weight="460" fill="rgba(235,229,218,0.72)">${t.sub1} ${t.sub2}</text>`;
     }
   };
-  /* Anatomy-guided figures (kind 'fig', 2026-10-12): isometric machine drawings kept as standalone SVG files in assets/,
-     shown as images so their own styles never meet the site's. Drawn concepts, labelled as graphics: not app internals
-     and not model output. Built from the approved Design mockups (Main/Sera) with the dark palette only; no text inside. */
+  /* Anatomy-guided figures (kind 'fig', 2026-10-12) */
 
   const PROJECTS = [
     {
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      status: 'v1.0.5 · Free Desktop Agent',
+      status: 'v1.0.5 · Free Desktop Agent & Companion',
       headline: 'An agent that takes a thousand and one nights in stride',
-      summary: 'Swap brains freely across your Claude, ChatGPT, or Google Antigravity (Gemini) subscription, Ollama, or API keys while every conversation and working rule stays in plain-text files on your disk. Free forever, with no account to create and zero telemetry.',
+      summary: 'She doesn’t forget what you said yesterday, helps with your work, and makes hanging out fun. Swap brains anytime while your memory stays as plain files on your PC—a free desktop app right between an agent and a companion.',
       description: [
         [
-          { display: 'You never have to explain yourself twice. Every memory stays in plain files on your disk.' },
-          'Yesterday’s conversation and last month’s working rules are filed away automatically as plain-text Markdown on your computer. Scheherazade is free with no subscription, asks for no account or email, and sends nothing out.',
-          'With Multi-Profile, you can keep several Sera windows open on one machine, each with its own memory folder and bot cleanly separated. Ask for an exam cheat sheet, and she already puts the question types you missed last time at the top.'
+          { display: 'You warm up to someone not because they work hard, but when they don’t forget what you said.' },
+          'She jots down passing remarks and habits as plain files on your PC and picks right back up the next day. Swap between your Claude, ChatGPT, or Gemini subscription and local models anytime without losing the time you built together.'
         ],
         [
-          { display: 'Bring the subscriptions, local models, or API keys you already use.' },
-          'Connect the Claude, ChatGPT, or Google Antigravity (agy / Gemini) subscription you already pay for, run local or cloud Ollama, or paste an API key: OpenAI, OpenRouter, DeepSeek, Google, xAI, and Groq are recognized automatically.',
-          'Keep every memory and swap only the brain whenever a better model comes along. Dress each window in five house themes: Sera, Paris, Vancouver, Shanghai, and Seoul, CHOAM’s signature 45° chamfered dark theme.'
+          { display: 'Small talk alone gets old in two days; real help is what makes you open her every morning.' },
+          'With a built-in browser and direct screen control, a quick message from your phone is enough for your home PC to finish the job. Multi-Profile windows and a USB Portable drive carry your context wherever you work.'
         ],
         [
-          { display: 'Reach her from your phone, let her run the desktop, and carry her on a USB drive.' },
-          'Talk through Discord, Slack, Telegram, or voice Call Mode, with per-person, per-bot, per-server, and DM reply switches so she only speaks where invited. With a dedicated browser and built-in desktop control (agent-desktop), she can even set up your Discord bot on her own.',
-          'Put the PIN-locked Windows USB Portable build in your pocket to carry your desktop memory to another PC. Across Mac, Windows, Linux, and Portable, updates download inside the app and finish with one click on Restart now.'
+          { display: 'When she’s helpful and fun to hang out with, even a small slip-up makes you smile.' },
+          'Living on your desktop, she pokes you about yesterday’s promise and checks your schedule and the weather before you head out—somewhere between an agent and a companion, free forever with no account.'
         ]
       ],
       ko: {
-        status: 'v1.0.5 · 무료 데스크톱 에이전트',
-        headline: '천하루밤도 거뜬한 에이전트',
-        summary: '쓰던 Claude·ChatGPT·Google Antigravity(Gemini) 구독이나 Ollama, API 키를 마음껏 갈아끼워도 나눈 대화와 작업 원칙은 내 컴퓨터에 평문 파일로 고스란히 남습니다. 구독 없는 무료 앱이며, 계정도 묻지 않고 바깥으로 보내는 기록도 없습니다.',
+        status: 'v1.0.5 · 무료 데스크톱 에이전트 · 컴패니언',
+        headline: '천 하룻밤도 거뜬한 에이전트',
+        summary: '내가 어제 한 말을 잊지 않고, 옆에서 일도 거들어주며 수다 떨다 보면 어느새 정이 듭니다. 두뇌는 바꿔도 기억은 내 컴퓨터에 그대로 남는 무료 데스크톱 앱입니다.',
         description: [
           [
-            { display: '일일이 다시 설명하지 않아도, 내 취향과 일하는 방식을 이미 알고 있습니다.' },
-            '어제 나눈 대화부터 지난달 정해 둔 원칙까지, 내 컴퓨터 안의 평문 마크다운 파일에 스스로 정리해 둡니다. 구독료 없는 무료 앱이며 계정이나 이메일을 묻지 않고, 대화 기록을 바깥으로 보내지도 않습니다.',
-            '멀티 프로필을 쓰면 기억 폴더와 봇이 완전히 나뉜 세라 창을 한 컴퓨터에 여러 개 띄워 둘 수 있습니다. 시험 요약본을 부탁하면 지난번에 틀렸던 문제 유형부터 먼저 짚어 챙겨 줍니다.'
+            { display: '일을 잘해서라기보단, 내가 한 말을 안 까먹을 때 ‘어, 이거 좀 좋은데?’ 싶잖아요.' },
+            '며칠 전에 스치듯 한 말이나 내 취향까지 내 컴퓨터에 파일로 적어 두고 다음 날 대화를 이어갑니다. 쓰던 Claude·ChatGPT·Gemini 구독이나 로컬 모델 중 무엇으로 두뇌를 바꿔도 같이 쌓은 기억은 그대로 남습니다.'
           ],
           [
-            { display: '새로 결제할 필요 없이, 원래 쓰던 구독과 로컬 모델·API 키를 그대로 연결하세요.' },
-            '이미 구독 중인 Claude, ChatGPT, Google Antigravity(agy / Gemini)는 물론 로컬·클라우드 Ollama도 바로 이어집니다. API 키만 붙여 넣으면 OpenAI, OpenRouter, DeepSeek, Google, xAI, Groq 중 어디 것인지 알아서 가려냅니다.',
-            '쌓아 둔 기억과 일하는 방식은 그대로 두고, 더 마음에 드는 모델이 나올 때마다 두뇌만 바꿔 끼우세요. 작업창은 Sera, Paris, Vancouver, Shanghai에 초암의 45° 모따기 정본 테마 Seoul까지 다섯 가지 테마로 갈아입힐 수 있습니다.'
+            { display: '수다만 떠는 캐릭터는 이틀이면 안 켜게 되지만, 실제로 도움이 되면 매일 찾게 되거든요.' },
+            '전용 브라우저와 화면을 직접 다루는 손발이 있어, 밖에서 메신저로 한마디만 던져 두면 집 컴퓨터에서 알아서 일을 마쳐 둡니다. 창마다 기억을 나누는 멀티 프로필과 USB 포터블로 어디서든 어제 하던 일을 이어갑니다.'
           ],
           [
-            { display: '밖에서 메신저와 음성으로 부르고, 컴퓨터를 직접 다루게 하고, USB에 담아 다니세요.' },
-            'Discord, Slack, Telegram과 음성 통화로 어디서든 말을 걸고, 사람·봇·서버·DM마다 답장할지 말지를 세세하게 정해 둘 수 있습니다. 전용 브라우저와 컴퓨터 제어(agent-desktop)가 내장되어 있어 Discord 봇 개설까지 알아서 마칩니다.',
-            'Windows USB 포터블에 담아 다니면 데스크톱에서 쓰던 기억을 그대로 이어받고 PIN 잠금으로 안전하게 지킬 수 있습니다. Mac, Windows, Linux, 포터블 어디서든 새 버전이 나오면 앱 안의 진행 표시줄에서 받아 ‘지금 재시작’ 한 번으로 업데이트됩니다.'
+            { display: '도움이 되는 데다 같이 노는 시간까지 즐거우면, 가끔 삐끗해도 ‘그럴 수 있지’ 하고 넘어가게 되니까요.' },
+            '바탕화면에 늘 함께 머물며 어제 한 약속을 먼저 콕 찌르고, 집 나서기 전엔 일정과 날씨를 보고 한마디 건넵니다. 에이전트와 컴패니언 그 사이 어딘가에서, 구독료도 계정도 없이 무료로 함께합니다.'
           ]
         ]
       },
       ja: {
-        status: 'v1.0.5 · 無料デスクトップエージェント',
+        status: 'v1.0.5 · 無料デスクトップエージェント & コンパニオン',
         headline: '千夜一夜も余裕のエージェント',
-        summary: '普段お使いの Claude・ChatGPT・Google Antigravity（Gemini）のサブスクや Ollama、各種 API キーを自在に切り替えながら、会話や作業ルールは手元の平文ファイルにそのまま残せます。ずっと無料で、アカウント登録も外部へのデータ送信もありません。',
+        summary: '昨日の言葉を忘れず、作業も手伝いながら話し相手になってくれるうちに愛着が湧いてきます。頭脳を替えても記憶は手元の PC に残る無料デスクトップアプリです。',
         description: [
           [
-            { display: '毎回いちから説明しなくても、あなたの好みと仕事の進め方を覚えています。' },
-            '昨日のやり取りから先月決めたルールまで、手元のパソコンに平文の Markdown ファイルとして自動で整理して残します。サブスクなしの無料アプリで、アカウントやメールアドレスの登録も、外部へのテレメトリ送信もありません。',
-            'マルチプロファイルを使えば、記憶フォルダと Bot を完全に分けた複数のセラ画面を1台のパソコンに並べておけます。試験のまとめシートを頼めば、前回間違えた問題タイプから先に拾い上げてくれます。'
+            { display: '仕事が速いからではなく、ふと口にした言葉を忘れない時に心は動きます。' },
+            '何気ない一言や好みを PC 内のファイルに書き留め、翌日も続きから話せます。普段の Claude・ChatGPT・Gemini やローカルモデルのどれへ頭脳を替えても、積み重ねた記憶はそのまま残ります。'
           ],
           [
-            { display: '新しく課金しなくても、普段のサブスクやローカルモデル、API キーがそのまま繋がります。' },
-            '契約中の Claude、ChatGPT、Google Antigravity（agy / Gemini）はもちろん、ローカルやクラウドの Ollama にもすぐ接続できます。API キーを貼り付ければ OpenAI、OpenRouter、DeepSeek、Google、xAI、Groq を自動で見分けます。',
-            '積み重ねた記憶や作業スタイルはそのままに、新しいモデルが出るたび頭脳だけを入れ替えられます。ウインドウは Sera、Paris、Vancouver、Shanghai に CHOAM 正本の 45° 面取りテーマ Seoul を加えた5つのテーマに着せ替えられます。'
+            { display: 'おしゃべりだけなら二日で飽きますが、本当に役に立てば毎日開くようになります。' },
+            '専用ブラウザと画面操作の手足を備え、外からチャットで一言頼めば自宅 PC で作業を片づけておきます。窓ごとに記憶を分けるマルチプロファイルと USB ポータブルで、どこでも昨日の続きから使えます。'
           ],
           [
-            { display: '外からチャットや声で呼びかけ、PC の操作を任せ、USB で持ち歩けます。' },
-            'Discord、Slack、Telegram、音声コールモードでどこからでも話しかけられ、相手・Bot・サーバー・DM ごとの返信スイッチで出番を細かく絞れます。専用ブラウザと PC 操作（agent-desktop）を内蔵しており、Discord Bot の開設まで自動でこなします。',
-            'PIN ロック付きの Windows USB ポータブルなら、デスクトップの記憶を引き継いで別の PC でも続きから使えます。Mac・Windows・Linux・ポータブルのどれでも、アプリ内の進捗バーから「今すぐ再起動」ひとつで更新できます。'
+            { display: '頼りになって一緒に過ごす時間も楽しければ、たまのうっかりも「まあいいか」と笑えます。' },
+            'デスクトップの片隅で昨日の約束を先に突っ込み、出かける前には予定と天気を見て一言かけます。エージェントとコンパニオンのあいだで、課金もアカウントもなしでずっと無料で過ごせます。'
           ]
         ]
       },
-      action: { label: 'Get', href: 'download', os: true }, /* os: Get opens the Mac / Windows / Linux chooser */
+      action: { label: 'Get', href: 'download', os: true },
       field: 'sch',
       art: [0, 1, 2],
       panels: [
         { kind: 'chat',
-          cap: 'Real exchange · Memory that stays through every model swap',
-          capKo: '실제 대화 · 모델을 바꿔도 그대로 남는 내 컴퓨터의 기억',
-          capJa: '実際の会話 · モデルを替えても手元に残る記憶',
-          alt: 'Chat figure: the user asks for an exam cheat sheet, the agent shows the line it edited in local Markdown memory (items 2 and 5 marked wrong), answers that it emphasised those question types, and hands over a five-item sheet with items 2 and 5 highlighted.',
-          altKo: '대화 그림: 사용자가 시험 치트시트를 요청하면 세라가 로컬 마크다운 기억 파일에서 2번과 5번 오답 기록을 확인하고, 비슷한 유형을 먼저 챙긴 다섯 문항짜리 요약본을 건넵니다.',
-          altJa: 'チャットの図: ユーザーが試験のチートシートを頼むと、エージェントはローカルの記憶ファイルで2番と5番の不正解記録を確認し、2番と5番を強調した5問のシートを渡します。',
+          cap: 'Real exchange · Remembering a passing remark from yesterday across model swaps',
+          capKo: '실제 대화 · 어제 스치듯 흘린 말까지 기억하고 챙겨 주는 순간',
+          capJa: '実際の会話 · 昨日ふと漏らした一言まで覚えて気を利かせる瞬間',
+          alt: 'Chat figure: yesterday the user complained that tables are hard to read; today the user asks for an exam cheat sheet, and Sera remembers both yesterday’s preference and last week’s missed questions (2 and 5).',
+          altKo: '대화 그림: 어제 밤 표가 눈에 안 들어온다고 흘린 말과 지난번 2·5번 오답 기록을 기억해, 표 대신 한 줄 요약으로 2·5번 유형부터 맨 위에 챙겨 줍니다.',
+          altJa: 'チャットの図: 昨夜「表は頭に入らない」と漏らした言葉と前回の2・5番の誤答記録を覚えており、表を省いた一行要約で2・5番から先にまとめて渡します。',
           en: [
-            { t: 'bub', side: 'in', p: [{ s: 'Make me a cheat sheet for the exam' }] },
-            { t: 'sys', k: 'memory/quiz_grades.md', l: [
-              { s: 'Item 3 · correct', del: 1 },
-              { s: 'Items 2, 5 · wrong → emphasise', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'You missed ' }, { s: '2 and 5', em: 1 }, { s: ' last time, so I put those question types first.' }] },
-            { t: 'sheet', k: 'CHEAT SHEET · 5 ITEMS', rows: [
-              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+            { t: 'poster', h1: 'Even a passing remark from yesterday,', h2: 'she remembers without being told twice.', num: '01 · MEMORY THAT STICKS' },
+            { t: 'bub', side: 'in', time: 'Yesterday 23:18', p: [{ s: 'Ugh, tables never stick in my head. Exam tomorrow and I’m cooked' }] },
+            { t: 'bub', side: 'in', time: 'Today 09:10', p: [{ s: 'Sera, make me a last-minute cram sheet before the exam' }] },
+            { t: 'sys', k: 'memory/study_notes.md · kept across brain swap (Claude → Gemini)', l: [
+              { s: 'Last quiz · missed types 2 & 5 → put at the very top', add: 1 },
+              { s: 'Yesterday (23:18) · "hates tables, prefers one-line notes" applied', add: 1 } ] },
+            { t: 'bub', side: 'out', time: 'Today 09:10', p: [{ s: 'You said tables don’t stick yesterday, so I wrote ' }, { s: 'one-line notes', em: 1 }, { s: ' instead! Put ' }, { s: 'types 2 and 5', em: 1 }, { s: ' right at the top since those tripped you up last time.' }] },
+            { t: 'sheet', k: 'ONE-LINE CRAM SHEET · 5 ITEMS (2 & 5 FIRST)', rows: [
+              { n: '1', w: 58 }, { n: '2', w: 82, on: 1 }, { n: '3', w: 48 }, { n: '4', w: 64 }, { n: '5', w: 76, on: 1 } ] }
           ],
           ko: [
-            { t: 'bub', side: 'in', p: [{ s: '시험 치트시트 하나 만들어줘' }] },
-            { t: 'sys', k: 'memory/quiz_grades.md', l: [
-              { s: '3번 문제 · 맞음', del: 1 },
-              { s: '2번, 5번 · 틀림 → 강조 대상', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '지난번에 ' }, { s: '2번, 5번', em: 1 }, { s: '을 틀리셔서 비슷한 유형부터 눈에 띄게 정리해 두었습니다.' }] },
-            { t: 'sheet', k: 'CHEAT SHEET · 5문항', rows: [
-              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+            { t: 'poster', h1: '내가 어제 흘린 말을', h2: '오늘도 기억하는 사이', num: '01 · 흘려 한 말도 기억하는 사이' },
+            { t: 'bub', side: 'in', time: '어제 23:18', p: [{ s: '아 표로 정리된 건 눈에 하나도 안 들어오네' }] },
+            { t: 'bub', side: 'in', time: '오늘 09:10', p: [{ s: '시험 직전에 볼 벼락치기 요약본 하나만 만들어줘' }] },
+            { t: 'sys', k: 'memory/study_notes.md · 로컬 기억', l: [
+              { s: '지난번 오답 · 2번, 5번 유형 → 최우선 배치', add: 1 },
+              { s: '어제 대화 · "표 말고 한 줄 요약 선호" 반영', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '오늘 09:10', p: [{ s: '어제 표는 안 보인다고 해서 ' }, { s: '한 줄 요약', em: 1 }, { s: '으로 적었어! ' }, { s: '2번, 5번', em: 1 }, { s: '부터 맨 위에 뒀어.' }] },
+            { t: 'sheet', k: '벼락치기 한 줄 요약 · 5문항 (2·5번 우선 배치)', rows: [
+              { n: '1', w: 58 }, { n: '2', w: 82, on: 1 }, { n: '3', w: 48 }, { n: '4', w: 64 }, { n: '5', w: 76, on: 1 } ] }
           ],
           ja: [
-            { t: 'bub', side: 'in', p: [{ s: '試験のチートシート作って' }] },
-            { t: 'sys', k: 'memory/quiz_grades.md', l: [
-              { s: '3番 · 正解', del: 1 },
-              { s: '2番、5番 · 不正解 → 重点', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '前回 ' }, { s: '2番と5番', em: 1 }, { s: ' を間違えていたので、似た問題タイプから先にまとめました。' }] },
-            { t: 'sheet', k: 'CHEAT SHEET · 5問', rows: [
-              { n: '1', w: 60 }, { n: '2', w: 78, on: 1 }, { n: '3', w: 50 }, { n: '4', w: 66 }, { n: '5', w: 72, on: 1 } ] }
+            { t: 'poster', h1: '昨日ふと漏らした一言も、', h2: '忘れずに先回りして整えます。', num: '01 · 何気ない言葉も覚えている関係' },
+            { t: 'bub', side: 'in', time: '昨日 23:18', p: [{ s: 'ああ、表でまとまったやつ全然頭に入らない。明日試験なのにまずいな' }] },
+            { t: 'bub', side: 'in', time: '今日 09:10', p: [{ s: 'セラ、試験直前に見る駆け込みシート作って' }] },
+            { t: 'sys', k: 'memory/study_notes.md · 頭脳切替（Claude → Gemini）後も維持された記憶', l: [
+              { s: '前回の小テスト · 2番・5番タイプの誤答記録 → 最優先で配置', add: 1 },
+              { s: '昨日の会話(23:18) · 「表ではなく一行要約が見やすい」を反映', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '今日 09:10', p: [{ s: '昨日、表は頭に入らないって言ってたでしょ！表はやめて ' }, { s: '一行要約', em: 1 }, { s: ' にしたよ。前回迷ってた ' }, { s: '2番と5番', em: 1 }, { s: ' から一番上に置いてあるから、ここから見てね！' }] },
+            { t: 'sheet', k: '駆け込み一行要約 · 5問（2・5番を優先配置）', rows: [
+              { n: '1', w: 58 }, { n: '2', w: 82, on: 1 }, { n: '3', w: 48 }, { n: '4', w: 64 }, { n: '5', w: 76, on: 1 } ] }
           ] },
         { kind: 'chat',
-          cap: 'Real exchange · Swap the brain (Claude · GPT · Gemini · Ollama), keep the memory',
-          capKo: '실제 대화 · 기억은 그대로 두고 두뇌만 교체 (Claude · GPT · Gemini · Ollama)',
-          capJa: '実際の会話 · 記憶はそのまま、頭脳だけ切り替え（Claude · GPT · Gemini · Ollama）',
-          alt: 'Chat figure: the user switches from Claude to Antigravity Gemini while keeping local Markdown rules and Ollama standby ready, and Sera resumes yesterday’s refactor seamlessly from step 3.',
-          altKo: '대화 그림: 사용자가 Claude에서 Antigravity Gemini로 두뇌를 바꾸고 어제 하던 정리를 이어가자고 하면, 세라가 로컬 마크다운 기억과 작업 규칙을 그대로 둔 채 3단계부터 바로 이어갑니다.',
-          altJa: 'チャットの図: ユーザーが Claude から Antigravity Gemini へ頭脳を切り替えて昨日の続きを頼むと、セラはローカルの Markdown 記憶とルールを保ったままステップ3から再開します。',
+          cap: 'Real exchange · Genuine help from mobile messenger to desktop control',
+          capKo: '실제 대화 · 밖에서 건넨 한마디로 집 컴퓨터 작업까지 마쳐 두는 손발',
+          capJa: '実際の会話 · 外からのひと声で自宅 PC の作業まで片づける手足',
+          alt: 'Chat figure: the user messages over Telegram at 18:15 to update the modpack and start the server before game night; Sera updates the modpack, disables yesterday’s crashing shader, starts the server, and welcomes the user back at 19:42.',
+          altKo: '대화 그림: 18:15 밖에서 텔레그램으로 모드팩 업데이트와 서버 실행을 부탁하자 세라가 어제 튕기던 그림자 셰이더까지 미리 끄고 서버를 켜 두어, 19:42 집에 도착해 바로 접속합니다.',
+          altJa: 'チャットの図: 18:15 に外から Telegram で Modパック更新とサーバー起動を頼むと、セラが昨日落ちた影シェーダーまでオフにしてサーバーを立てておき、19:42 に帰宅してすぐ参加できます。',
           en: [
-            { t: 'bub', side: 'in', p: [{ s: 'Switch to Antigravity Gemini and continue yesterday’s refactor' }] },
-            { t: 'sys', k: 'brain · claude / gpt → agy (gemini) · ollama ready', l: [
-              { s: 'memory/project_rules.md · 14 locked rules kept intact', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: 'Switched to ' }, { s: 'Gemini (agy)', em: 1 }, { s: '. Picking right back up from step 3 with your local rules intact.' }] }
+            { t: 'poster', h1: 'More than sweet talk—', h2: 'she actually takes work off your hands.', num: '02 · GENUINELY HELPFUL HANDS' },
+            { t: 'bub', side: 'in', time: '18:15 · Telegram', p: [{ s: 'Game night with the crew tonight. Update the modpack and bring the server up before I get home' }] },
+            { t: 'sys', k: 'telegram → agent-desktop · direct home PC & browser control', l: [
+              { s: 'Modpack v2.4 updated · disabled shadow shader that crashed yesterday', add: 1 },
+              { s: 'Dedicated server up (0/8) · posted join IP to Discord room', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '18:19 · Telegram', p: [{ s: 'Modpack updated and ' }, { s: 'the server is live!', em: 1 }, { s: ' I also turned off that shadow shader that crashed yesterday, so you can hop right in when you’re back.' }] },
+            { t: 'bub', side: 'in', time: '19:42 · Desktop', p: [{ s: 'Oh it’s really all up and running haha, thanks! Jumping in now' }] }
           ],
           ko: [
-            { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini로 바꾸고 어제 하던 정리 이어서 해줘' }] },
-            { t: 'sys', k: '두뇌 · claude / gpt → agy (gemini) · ollama 대기', l: [
-              { s: 'memory/project_rules.md · 로컬 기억·작업 원칙 14건 유지', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '두뇌를 ' }, { s: 'Gemini (agy)', em: 1 }, { s: '로 바꿨습니다. 어제 정해 둔 원칙 그대로 3단계부터 이어갑니다.' }] }
+            { t: 'poster', h1: '말만 예쁘게 하는 챗봇 말고', h2: '내 일을 진짜로 거들어주는 손발', num: '02 · 매일 찾게 만드는 든든한 손발' },
+            { t: 'bub', side: 'in', time: '18:15 · 텔레그램', p: [{ s: '오늘 애들이랑 게임할 건데 모드팩 업데이트하고 서버 좀 켜놔 줘' }] },
+            { t: 'sys', k: 'telegram → agent-desktop · 내 PC 직접 조작', l: [
+              { s: '모드팩 업데이트 · 어제 튕기던 그림자 셰이더 자동 해제', add: 1 },
+              { s: '서버 구동 완료 · Discord 방에 접속 주소 공지', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '18:19 · 텔레그램', p: [{ s: '업데이트 끝내고 ' }, { s: '서버까지 켜 놨어!', em: 1 }, { s: ' 어제 튕기던 셰이더도 미리 꺼 뒀어.' }] },
+            { t: 'bub', side: 'in', time: '19:42 · 데스크톱', p: [{ s: '오 진짜 다 켜져 있네 ㅋㅋ 고맙다 바로 들어간다' }] }
           ],
           ja: [
-            { t: 'bub', side: 'in', p: [{ s: 'Antigravity Gemini に切り替えて、昨日の続きをお願い' }] },
-            { t: 'sys', k: '頭脳 · claude / gpt → agy (gemini) · ollama 待機', l: [
-              { s: 'memory/project_rules.md · ローカル記憶・ルール14件を維持', add: 1 } ] },
-            { t: 'bub', side: 'out', p: [{ s: '頭脳を ' }, { s: 'Gemini (agy)', em: 1 }, { s: ' に切り替えました。昨日のルールを引き継いでステップ3から再開します。' }] }
+            { t: 'poster', h1: '口先だけでなく、', h2: '実際に自分の作業を片づけてくれます。', num: '02 · 毎日開きたくなる頼もしい手足' },
+            { t: 'bub', side: 'in', time: '18:15 · Telegram', p: [{ s: '今夜みんなとゲームするから、帰る前に Modパック更新してサーバー立てといて' }] },
+            { t: 'sys', k: 'telegram → agent-desktop · 自宅 PC 画面・ブラウザ直接操作', l: [
+              { s: 'Modパック v2.4 更新完了 · 昨日落ちた影シェーダー設定を自動でオフ', add: 1 },
+              { s: '専用サーバー起動確認 (0/8) · Discord 部屋へ接続アドレス告知完了', add: 1 } ] },
+            { t: 'bub', side: 'out', time: '18:19 · Telegram', p: [{ s: 'アップデート終わって ' }, { s: 'サーバーも立てておいたよ！', em: 1 }, { s: ' 昨日落ちてた影シェーダーも先に切っておいたから、帰ったらすぐ入れるよ。' }] },
+            { t: 'bub', side: 'in', time: '19:42 · デスクトップ', p: [{ s: 'お、本当に全部立ち上がってるw ありがとう、すぐ入る！' }] }
           ] },
         { kind: 'chat',
-          cap: 'Real exchange · Discord, Slack, Telegram & desktop on one thread',
-          capKo: '실제 대화 · 밖에서 보낸 메시지와 데스크톱이 한 흐름으로 연결',
-          capJa: '実際の会話 · 外からのチャットとデスクトップがひと続き',
-          alt: 'Chat figure: a message sent from mobile at 07:41 asking to update the modpack and start the server, carried into the desktop thread where Sera confirms at 09:12 that the server is running with zero conflicts.',
-          altKo: '대화 그림: 07:41 밖에서 모바일 메신저로 모드팩 업데이트와 서버 실행을 부탁하면, 같은 대화 흐름으로 이어져 09:12 데스크톱에서 충돌 없이 서버를 켜 두었다는 답이 기다립니다.',
-          altJa: 'チャットの図: 07:41 にスマホのメッセンジャーから Modパック更新とサーバー起動を頼むと、同じスレッドのまま 09:12 のデスクトップで起動完了と競合なしの報告が待っています。',
+          cap: 'Real exchange · Somewhere between an agent and a companion',
+          capKo: '실제 대화 · 도움이 되고 함께 있으면 즐거워서, 가끔 삐끗해도 웃어넘기는 단짝',
+          capJa: '実際の会話 · 頼りになって一緒にいると楽しいから、たまのミスも笑って許せる相棒',
+          alt: 'Chat figure: Sera pokes the user at 18:52 about promising to leave before 7 PM yesterday; when asked about the summary file, she confirms it is on the desktop, jokes about a tiny typo in the title, and reminds the user to bring an umbrella for the rain.',
+          altKo: '대화 그림: 18:52 바탕화면의 세라가 어제 7시 전에 칼퇴한다던 약속을 기억해 먼저 말을 걸고, 부탁한 요약 파일을 챙겨 두었다며 제목 오타 하나는 애교로 봐달라고 웃으며 비 예보에 우산까지 챙겨 줍니다.',
+          altJa: 'チャットの図: 18:52 にデスクトップのセラが昨日「7時前に帰る」と言った約束を覚えて先に声をかけ、頼まれた要約ファイルを渡しながらタイトルの小さな誤字を愛嬌で許してと笑い、雨予報の傘まで気遣います。',
           en: [
-            { t: 'bub', side: 'in', time: '07:41', p: [{ s: 'Game night tonight. Update the modpack and bring the server up' }] },
-            { t: 'sys', k: 'discord / telegram · 07:41 mobile → 09:12 desktop', l: [
-              { s: 'agent-desktop · modpack updated · server verified', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modpack updated and the server is up. Zero conflicts.' }] }
+            { t: 'poster', h1: 'When time together is genuinely fun,', h2: 'even a small slip-up makes you smile.', num: '03 · BETWEEN AGENT & COMPANION' },
+            { t: 'bub', side: 'out', time: '18:52 · Desktop Companion', p: [{ s: 'Didn’t you swear yesterday you’d clock out before 7? Your code window’s been open ' }, { s: '4 hours straight', em: 1 }, { s: '—pulling overtime again?' }] },
+            { t: 'sys', k: 'companion · screen state · yesterday’s promise · schedule & weather', l: [
+              { s: 'memory/daily.md · "Leaving before 7 PM tomorrow for sure" (Yesterday 23:14)', add: 1 },
+              { s: '19:30 dinner plan · rain forecast outside right now', add: 1 } ] },
+            { t: 'bub', side: 'in', time: '18:53', p: [{ s: 'Haha caught me, 10 more minutes and I’m out. Did that summary file finish?' }] },
+            { t: 'bub', side: 'out', time: '18:53', p: [{ s: 'Left it right on your desktop! Oh, I made one tiny typo in the title—let it slide, okay? Also ' }, { s: 'it’s raining out, grab an umbrella!', em: 1 }] }
           ],
           ko: [
-            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '오늘 저녁에 게임할 건데 모드팩 업데이트하고 서버 켜줘' }] },
-            { t: 'sys', k: 'discord / telegram · 07:41 모바일 → 09:12 데스크톱', l: [
-              { s: 'agent-desktop · 모드팩 업데이트 · 서버 실행 완료', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: '모드팩을 업데이트하고 서버도 켜 두었습니다. 충돌 나는 곳 없습니다.' }] }
+            { t: 'poster', h1: '같이 노는 시간이 즐거워서', h2: '가끔 삐끗해도 웃어넘기는 단짝', num: '03 · 에이전트와 컴패니언, 그 사이' },
+            { t: 'bub', side: 'out', time: '18:52 · 바탕화면', p: [{ s: '어제 7시 전엔 칼퇴한다며? 코드 창 켜 둔 지 ' }, { s: '4시간째', em: 1 }, { s: '인데 또 야근이야?' }] },
+            { t: 'sys', k: 'companion · 화면 상태 · 어제 대화 · 날씨', l: [
+              { s: 'memory/daily.md · "내일은 진짜 7시 전에 끈다" (어제 23:14)', add: 1 },
+              { s: '19:30 저녁 약속 · 바깥 날씨 비 예보', add: 1 } ] },
+            { t: 'bub', side: 'in', time: '18:53', p: [{ s: '아 맞다 ㅋㅋ 10분만 더 보고 나갈게. 아까 부탁한 요약 파일은 다 됐어?' }] },
+            { t: 'bub', side: 'out', time: '18:53', p: [{ s: '바탕화면에 빼 놨지! 제목 오타 하나는 애교로 봐줘. ' }, { s: '비 온대니까 우산', em: 1 }, { s: ' 챙겨!' }] }
           ],
           ja: [
-            { t: 'bub', side: 'in', time: '07:41', p: [{ s: '今夜ゲームするから、Modパック更新してサーバー立てといて' }] },
-            { t: 'sys', k: 'discord / telegram · 07:41 モバイル → 09:12 デスクトップ', l: [
-              { s: 'agent-desktop · Modパック更新・サーバー起動完了', add: 1 } ] },
-            { t: 'bub', side: 'out', time: '09:12', p: [{ s: 'Modパックを更新してサーバーを立てておきました。競合はありません。' }] }
+            { t: 'poster', h1: '一緒に過ごす時間が楽しいから、', h2: 'たまのうっかりも笑って許せる仲になります。', num: '03 · エージェントとコンパニオンのあいだ' },
+            { t: 'bub', side: 'out', time: '18:52 · デスクトップコンパニオン', p: [{ s: '昨日、7時前には絶対上がるって言ってなかった？コード窓を開きっぱなしで ' }, { s: '4時間目', em: 1 }, { s: ' だけど、また残業コース？' }] },
+            { t: 'sys', k: 'companion · 画面状態 · 昨日の約束 · 予定・天気照合', l: [
+              { s: 'memory/daily.md · 「明日は絶対7時前に切り上げる」(昨日 23:14)', add: 1 },
+              { s: '19:30 夕食の予定を確認 · 外は雨予報', add: 1 } ] },
+            { t: 'bub', side: 'in', time: '18:53', p: [{ s: 'あ、そうだったw あと10分だけ見て出るよ。さっき頼んだ要約ファイルはできた？' }] },
+            { t: 'bub', side: 'out', time: '18:53', p: [{ s: 'デスクトップに置いてあるよ！あ、タイトルに一文字だけ誤字っちゃったけど愛嬌で許してね。外は ' }, { s: '雨だから傘', em: 1 }, { s: ' を忘れずに持って行って！' }] }
           ] }
       ],
       info: { kind: 'sch' }
@@ -445,58 +338,58 @@
       id: '602',
       title: '602',
       title_ko: '',
-      status: 'v2.0.1 · Studio & Story Engine',
+      status: 'v2.0.1 · Story Studio & Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
-      summary: '602 pairs 602 Studio v2.0.1, a desktop app for writing and playtesting branching stories, with 602 Story Engine v2.0.1, a native C ABI v2 runtime. Pull tangled story branches out of game code and test every turn before the client even exists.',
+      summary: 'Stop waiting on game builds just to tweak one line. Playtest how a scene changes across different affection levels or dice rolls right where you write, polish lines with AI, and run your manuscript straight inside the game.',
       description: [
         [
-          { display: 'Ten binary choices already branch into 1,024 paths.' },
-          'Story choices grow by powers of two (2ⁿ): 16 paths after four choices, 1,024 after ten. Leave hundreds of story flags tangled inside game scripts, and both human writers and AI agents lose their footing whenever a scene changes.'
+          { display: 'Waiting on a game build just to fix one line of dialogue is a waste of life.' },
+          'Even before a game client exists, click the line you just wrote and switch affection levels or dice results to playtest the scene on the spot. Even across a thousand branches, a writer can finish the story alone without losing track.'
         ],
         [
-          { display: 'Write, check, and compile in 602 Studio v2.0.1.' },
-          '602 Studio v2.0.1 ships as a notarized macOS .dmg, a Windows setup.exe installer, and a Linux archive. Move freely between plain Markdown folders and .602.zip archives, co-edit safely with AI agents over a local MCP bridge, and catch dead links or broken conditions before compiling a clean .602.json bundle.'
+          { display: 'Polish stuck scenes with AI, and catch dead choices before anyone plays.' },
+          'Point an AI agent at just the scene you want to sharpen and pick the lines you like best. If a tangled condition leaves a choice unreachable, 602 spots it before launch so you don’t have to replay from Chapter 1 twenty times.'
         ],
         [
-          { display: 'Playtest on its own, then plug straight into your game.' },
-          'No waiting on client builds or replaying from Chapter 1 dozens of times: pick any scene and custom state to run the story on the spot. When it reads right, connect the compiled .602.json bundle straight to C++, C#, or Godot through 602 Story Engine v2.0.1 (story_engine_v2.h).'
+          { display: 'Edit a line in your manuscript, and the character on screen updates right away.' },
+          'No chopping finished prose into spreadsheets or asking a programmer to re-code dialogue. Export your manuscript and it runs as written in Unreal (C++), Unity (C#), and Godot.'
         ]
       ],
       ko: {
-        status: 'v2.0.1 · 스토리 스튜디오 & C ABI 엔진',
+        status: 'v2.0.1 · 스토리 작업실 & 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
-        summary: '시나리오를 쓰고 바로 돌려보는 데스크톱 앱 602 Studio v2.0.1과, 게임에 얹는 C ABI v2 런타임 602 Story Engine v2.0.1이 한 짝으로 움직입니다. 걷잡을 수 없이 불어나는 이야기 갈래를 게임 코드 밖으로 떼어내, 클라이언트가 나오기 전부터 흐름을 다듬을 수 있습니다.',
+        summary: '대사 한 줄 고치자고 게임 빌드를 기다릴 순 없으니까요. 호감도나 주사위 결과에 따라 달라지는 대사를 쓴 자리에서 바로 돌려보고, 다 쓴 원고는 옮겨 적지 않고 그대로 게임에 올립니다.',
         description: [
           [
-            { display: '선택지가 열 번만 갈라져도 길은 1,024갈래로 불어납니다.' },
-            '선택지를 두 개씩만 놓아도 네 번이면 16갈래, 열 번이면 1,024갈래(2¹⁰)가 됩니다. 이 수많은 조건이 게임 코드 속에 뒤엉켜 있으면 사람도 AI 에이전트도 고칠 때마다 길을 잃고, 버그 하나를 잡으려다 다른 장면을 망가뜨리기 십상입니다.'
+            { display: '대사 한 줄 고치자고 게임 빌드 기다리는 건 너무 아깝잖아요.' },
+            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.'
           ],
           [
-            { display: '데스크톱 앱 602 Studio v2.0.1에서 쓰고, 검사하고, 묶어냅니다.' },
-            '602 Studio v2.0.1은 macOS 공증 .dmg와 Windows 설치 파일(setup.exe), Linux 아카이브로 배포되는 데스크톱 앱입니다. 마크다운 원고 폴더와 .602.zip 압축본을 자유롭게 오가고 로컬 MCP로 AI 에이전트와 함께 다듬으며, 끊어진 분기나 어긋난 조건을 미리 걸러내 깨끗한 .602.json 번들로 묶어냅니다.'
+            { display: '막히는 장면은 AI와 같이 고치고, 못 들어가는 선택지는 켜기 전에 잡으니까요.' },
+            '고치고 싶은 장면만 콕 집어 AI 에이전트에게 대사 수정을 맡기고 마음에 드는 줄만 골라 넣습니다. 앞뒤 조건이 꼬여 플레이어가 못 들어가는 막힌 선택지도 실행하기 전에 미리 다 집어냅니다.'
           ],
           [
-            { display: '시나리오만 먼저 돌려보고, 602 Story Engine v2.0.1으로 게임에 바로 붙입니다.' },
-            '게임 클라이언트가 완성되기를 기다리거나 1장부터 수십 번 되풀이해 플레이할 필요가 없습니다. 원하는 장면과 상태값을 골라 이야기를 그 자리에서 실행해 본 뒤, 완성된 .602.json 번들을 C ABI v2(story_engine_v2.h) 런타임으로 C++, C#, Godot 게임에 그대로 연결하면 됩니다.'
+            { display: '원고만 고치면 프로그래머 손을 빌리지 않아도 게임 속 대사가 바로 바뀝니다.' },
+            '다 쓴 원고를 엑셀 표로 쪼개거나 코드로 다시 옮겨 적을 필요가 없습니다. 작가가 다듬은 대사와 표정·연출 신호를 그대로 내보내면 언리얼(C++)·유니티(C#)·고도 게임 화면에 똑같이 올라갑니다.'
           ]
         ]
       },
       ja: {
-        status: 'v2.0.1 · ストーリー Studio & C ABI エンジン',
+        status: 'v2.0.1 · ストーリー作業室 & エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
-        summary: 'シナリオを書き、その場で動かせるデスクトップアプリ 602 Studio v2.0.1 と、ゲームに組み込む C ABI v2 ランタイム 602 Story Engine v2.0.1 が対になって動きます。倍々に膨らむ分岐をゲームコードから切り離し、クライアントができる前から物語を仕上げられます。',
+        summary: 'セリフを一行直すたびにゲームビルドは待てません。好感度やダイス結果で変わる会話を書いたその場ですぐ動かして確かめ、仕上がった原稿はそのままゲームに乗せられます。',
         description: [
           [
-            { display: '選択肢が10回分かれるだけで、道筋は1,024通りに膨らみます。' },
-            '2択でも4回で16通り、10回で1,024通り(2¹⁰)になります。無数の分岐条件がゲームコードの中に絡み合っていると、人もAIエージェントも手を入れるたびに道を見失い、ひとつの修正が別の場面を壊してしまいます。'
+            { display: 'セリフを一行直すためにゲームビルドを待つのはもったいないですから。' },
+            'ゲーム画面がまだなくても、今書いたセリフの横で好感度やダイス結果を変えながらその場ですぐ遊んで確かめられます。選択肢が千に分かれても、作家ひとりで迷わず最後まで書き切れます。'
           ],
           [
-            { display: 'デスクトップアプリ 602 Studio v2.0.1 で書き、検査し、束ねます。' },
-            '602 Studio v2.0.1 は公証済み macOS .dmg、Windows インストーラー（setup.exe）、Linux アーカイブで配布されるデスクトップアプリです。Markdown 原稿フォルダと .602.zip を行き来しながらローカル MCP で AI エージェントと共同編集し、リンク切れや条件ミスを事前に弾いて安全な .602.json にまとめます。'
+            { display: '詰まった場面は AI と一緒に直し、入れない選択肢は起動前に見抜けます。' },
+            '直したい場面だけを指して AI エージェントにセリフ案を出させ、気に入った行だけを選んで反映できます。条件が絡んでプレイヤーが入れなくなった選択肢も、実行前にすべて教えてくれます。'
           ],
           [
-            { display: 'シナリオ単体で先に動かし、602 Story Engine v2.0.1 でゲームへ繋ぎます。' },
-            'ゲームビルドの完成を待ったり、第1章から何十回も通しプレイしたりする必要はありません。見たい場面と状態を選んでその場で物語を動かし、仕上がった .602.json を C ABI v2（story_engine_v2.h）ランタイム経由で C++・C#・Godot のゲームへそのまま接続できます。'
+            { display: '原稿を直せば、プログラマーの手を借りずにゲーム内のセリフがそのまま変わります。' },
+            '書き上げた原稿を Excel に分けたりコードへ書き写したりする必要はありません。作家が整えたセリフと演出合図を書き出せば、Unreal（C++）・Unity（C#）・Godot の画面にそのまま反映されます。'
           ]
         ]
       },
@@ -504,18 +397,18 @@
       field: '602',
       art: [0, 1, 2],
       panels: [
-        { kind: 'feat', feat: '602-lost', cap: 'Illustration · exponential branch growth (2ⁿ): 10 choices = 1,024 paths', capKo: '설명 그림 · 제곱(2ⁿ)으로 불어나는 갈래 (열 번 선택 = 1,024갈래)', capJa: '説明図 · 指数(2ⁿ)で増える分岐（10回の選択＝1,024通り）',
-          alt: 'Illustration: 4 binary choices create 16 paths, 7 create 128, 10 create 1,024 paths, and 20 exceed a million paths.',
-          altKo: '설명 그림: 2지선다 4번이면 16갈래, 7번이면 128갈래, 10번이면 1,024갈래, 20번이면 100만 갈래 넘게 불어납니다.',
-          altJa: '説明図: 2択が4回で16通り、7回で128通り、10回で1,024通り、20回で100万通り以上に膨らみます。' },
-        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Illustration · separating story branches from game code: click Approve or Reject', capKo: '설명 그림 · 게임 코드와 분기 관리의 분리: 승인이나 반려를 눌러보세요', capJa: '説明図 · ゲームコードと分岐管理の分離: 承認または差戻しをクリック',
-          alt: 'Illustration: Game code focuses on presentation and play while 602 Studio v2.0.1 validates story branches and blocks broken links before approval.',
-          altKo: '설명 그림: 게임 코드는 연출과 플레이에만 집중하고, 602 Studio v2.0.1이 분기 검사를 맡아 깨진 연결을 미리 걸러냅니다.',
-          altJa: '説明図: ゲームコードは演出とプレイに集中し、602 Studio v2.0.1 が分岐の検査を担ってエラーを食い止めます。' },
-        { kind: 'feat', feat: '602-run', cap: 'Illustration · standalone playtest in 602 Studio, then C++ / C# / Godot via Story Engine C ABI v2', capKo: '설명 그림 · 602 Studio 단독 실행과 Story Engine C ABI v2 연결', capJa: '説明図 · 602 Studio 単体再生と Story Engine C ABI v2 接続',
-          alt: 'Illustration: Playtest from any scene standalone in 602 Studio v2.0.1 before the game client is built, then connect via C++, C#, or Godot through story_engine_v2.h.',
-          altKo: '설명 그림: 게임 클라이언트가 없어도 602 Studio v2.0.1에서 원하는 장면부터 바로 돌려보고, story_engine_v2.h로 C++·C#·Godot 게임에 연결합니다.',
-          altJa: '説明図: ゲーム画面がなくても 602 Studio v2.0.1 で見たい場面からすぐ再生し、story_engine_v2.h で C++・C#・Godot に接続します。' }
+        { kind: 'feat', feat: '602-lost', cap: 'Story outside the codebase · Play right from the line you wrote', capKo: '코드 밖 작업실 · 쓴 자리에서 주사위·승패 분기까지 바로 재생', capJa: 'コードの外の作業室 · 書いたその場からすぐ再生',
+          alt: 'Poster diagram: Play straight from line 14 in the studio as branching choices expand to 1,024 paths.',
+          altKo: '포스터 도면: 14행에서 바로 재생하며 1,024갈래 분기를 작업실에서 즉시 확인합니다.',
+          altJa: 'ポスター図: 14行目からすぐ再生し、1,024通りの分岐をその場で確認します。' },
+        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Unbroken paths · Catch unreachable choices before launch & review diffs', capKo: '길 잃지 않는 분기 · 막힌 선택지 실행 전 발각 및 줄 단위 대조', capJa: '迷わない分岐 · 到達不能な選択肢の事前検出と行単位の照合',
+          alt: 'Poster diagram: Catch unreachable choices before launch and click Approve or Reject on line-level edits.',
+          altKo: '포스터 도면: 막힌 선택지를 실행 전에 짚어내고 줄 단위 변경안을 승인·반려합니다.',
+          altJa: 'ポスター図: 到達不能な選択肢を起動前に見抜き、行単位の変更案を承認・差戻しできます。' },
+        { kind: 'feat', feat: '602-run', cap: 'Unbroken manuscript · Direct C++, C# & Godot runtime without rewrites', capKo: '해체 없는 원고 · 엑셀·조건문 재작성 없이 C++ · C# · Godot 직결', capJa: '解体されない原稿 · 書き直しなしで C++ · C# · Godot へ直結',
+          alt: 'Poster diagram: Finished manuscripts connect straight to C++, C#, and Godot without rewriting into spreadsheets.',
+          altKo: '포스터 도면: 다 쓴 원고 파일을 다시 옮겨 적지 않고 C++·C#·Godot에 바로 연결합니다.',
+          altJa: 'ポスター図: 書き上げた原稿を書き直さず C++・C#・Godot にそのまま接続します。' }
       ]
     },
     {
@@ -1743,11 +1636,22 @@
     };
     const altOf = o => pick(o, 'alt');
     const stageHTML = p => {
-      if (p.field === '602') return `<div class="stage"><div class="field sch-field six-field" aria-hidden="true"></div>
+      if (p.field === '602') return `<div class="stage"><div class="field sch-field six-field" aria-hidden="true">
+          <svg class="stage-poster-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <path d="M 1920 160.0 C 1600 160.0, 1420 200.0, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 193.6 C 1600 193.6, 1420 216.4, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 227.3 C 1600 227.3, 1420 232.7, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 260.9 C 1600 260.9, 1420 249.1, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 294.5 C 1600 294.5, 1420 265.5, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 328.2 C 1600 328.2, 1420 281.8, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 361.8 C 1600 361.8, 1420 298.2, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 395.5 C 1600 395.5, 1420 314.5, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 429.1 C 1600 429.1, 1420 330.9, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 462.7 C 1600 462.7, 1420 347.3, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 496.4 C 1600 496.4, 1420 363.6, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 530.0 C 1600 530.0, 1420 380.0, 1220 540" fill="none" stroke="rgba(217,163,98,0.42)" stroke-width="1.5"/><path d="M 1920 563.6 C 1600 563.6, 1420 396.4, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 597.3 C 1600 597.3, 1420 412.7, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 630.9 C 1600 630.9, 1420 429.1, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 664.5 C 1600 664.5, 1420 445.5, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 698.2 C 1600 698.2, 1420 461.8, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 731.8 C 1600 731.8, 1420 478.2, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 765.5 C 1600 765.5, 1420 494.5, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 799.1 C 1600 799.1, 1420 510.9, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 832.7 C 1600 832.7, 1420 527.3, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 866.4 C 1600 866.4, 1420 543.6, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/><path d="M 1920 900.0 C 1600 900.0, 1420 560.0, 1220 540" fill="none" stroke="rgba(235,229,218,0.08)" stroke-width="1"/>
+            <line x1="1024" y1="540" x2="1220" y2="540" stroke="rgba(217,163,98,0.55)" stroke-width="1.6"/>
+            <circle cx="1024" cy="540" r="3" fill="#D9A362"/>
+            <text x="1848" y="430" text-anchor="end" font-family="CHOAM Sans, sans-serif" font-size="300" font-weight="870" letter-spacing="-12" fill="none" stroke="rgba(235,229,218,0.07)" stroke-width="1.5">602</text>
+          </svg></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       if (p.field === 'lun') return `<div class="stage"><div class="field sch-field lun-field" aria-hidden="true"></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/lunasia-mark.svg')}" alt="" loading="lazy" decoding="async"></figure></div>`;
-      if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true"></div>
+      if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true">
+          <svg class="stage-poster-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <line x1="1120" y1="96" x2="1120" y2="984" stroke="rgba(235,229,218,0.07)" stroke-width="1"/>
+            <path d="M 1112 120 H 1128 M 1120 112 V 128 M 1112 960 H 1128 M 1120 952 V 968" stroke="rgba(217,163,98,0.65)" stroke-width="1.4"/>
+            <text x="1848" y="430" text-anchor="end" font-family="CHOAM Sans, sans-serif" font-size="300" font-weight="870" letter-spacing="-15" fill="none" stroke="rgba(235,229,218,0.075)" stroke-width="1.5">1,001</text>
+          </svg></div>
           <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
       const a = p.bg || p.panels[p.art[0]];
       return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" decoding="async"><div class="scrim" aria-hidden="true"></div></div>`;
@@ -1920,6 +1824,20 @@
   /* a chat figure: a real exchange plus the one line the machine actually wrote or changed.
      Every string comes from spec.ko / spec.en, so it follows the language switch like the copy does. */
   const chatBlocks = rows => rows.map(r => {
+    if (r.t === 'poster') {
+      const box = document.createElement('div'); box.className = 'cv-poster';
+      const h = document.createElement('p'); h.className = 'cv-ph';
+      if (r.h1) {
+        h.appendChild(document.createTextNode(r.h1));
+        h.appendChild(document.createElement('br'));
+        const em = document.createElement('em'); em.textContent = r.h2;
+        h.appendChild(em);
+      } else {
+        String(r.h).split('\n').forEach((ln, idx) => { if (idx) h.appendChild(document.createElement('br')); h.appendChild(document.createTextNode(ln)); });
+      }
+      const n = document.createElement('span'); n.className = 'cv-pnum'; n.textContent = r.num;
+      box.append(h, n); return box;
+    }
     if (r.t === 'sys') {
       const box = document.createElement('div'); box.className = 'cv-sys';
       const k = document.createElement('span'); k.className = 'k'; k.textContent = r.k; box.appendChild(k);

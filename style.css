@@ -731,7 +731,8 @@ body.v { height: auto; overflow-x: hidden; overflow-y: auto; }
   scrollbar-width: none;
 }
 .rail::-webkit-scrollbar { display: none; }
-.slide { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding-right: 2px; }
+.slide { flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always; padding-right: 16px; transition: opacity 0.16s var(--ease-ui); }
+.slide[inert] { opacity: 0; pointer-events: none; }
 .slide p { max-width: 32em; font-size: 16.5px; line-height: 1.78; color: var(--ink-body); }
 :lang(ko) .slide p { letter-spacing: -0.005em; }
 .slide p + p { margin-top: 1em; }
@@ -1555,13 +1556,57 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2.2cqw;
-  padding: 3.4cqw 3.8cqw;
+  justify-content: space-between;
+  gap: 1.4cqw;
+  padding: 3.2cqw 3.8cqw;
   background: var(--night);
   border: 1px solid var(--edge-static);
   font-family: var(--font);
   text-align: left;
+}
+.chatviz .cv-poster {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2cqw;
+  padding-bottom: 1.6cqw;
+  border-bottom: 1px solid var(--line);
+}
+.chatviz .cv-ph {
+  margin: 0;
+  font-size: max(18px, 3.8cqw);
+  font-weight: 840;
+  line-height: 1.2;
+  letter-spacing: -0.036em;
+  color: var(--bone);
+  word-break: keep-all;
+}
+.chatviz .cv-ph em {
+  font-style: normal;
+  color: var(--ember);
+}
+.chatviz .cv-pnum {
+  flex-shrink: 0;
+  margin-top: 0.4cqw;
+  padding-left: 1.4cqw;
+  border-left: 2px solid var(--ember);
+  font-size: max(11px, 1.85cqw);
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  color: var(--ink-meta);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.stage-poster-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+@media (max-width: 900px) {
+  .stage-poster-svg { display: none; }
 }
 .chatviz .cv-row { display: flex; }
 .chatviz .cv-row.r { justify-content: flex-end; }
@@ -1591,6 +1636,7 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   letter-spacing: 0.04em;
   color: var(--dim);
   margin-left: 1.4cqw;
+  white-space: nowrap;
 }
 .chatviz .cv-sys {
   background: var(--elevated);

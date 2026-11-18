@@ -3,57 +3,57 @@
   const assets = new URL('assets/', document.currentScript.src);
   const copy = {
     en: {
-      title: 'Same Sera.\nJust say it out loud.',
-      lead: 'Typing is a hassle? Talk it through with Sera, speak a message, or listen to her reply while you get on with something else.',
+      title: 'Tired of typing today?\nJust call her out loud.',
+      lead: 'Talk with her three ways, like calling out to a friend at the next desk: Call to chat and brainstorm in the app or a Discord voice room, Voice input to toss out thoughts without touching the keyboard, and Read aloud to keep your eyes on your work while listening to her reply from a small companion window.',
       labels: ['Call', 'Voice input', 'Read aloud'],
-      hints: ['Talk it through', 'Say it instead of type it', 'Listen while you work'],
+      hints: ['In-app or Discord voice', 'Speak instead of typing', 'Eyes on your work, ears on Sera'],
       choose: 'Explore the three voice features',
       note: 'Illustrative view',
       modes: ['Voice call', 'Voice input', 'Read aloud'],
-      sampleLabels: ['Talk it through', 'Say what’s on your mind', 'Hear the reply'],
-      samples: ['“Can we talk through the next step?”', '“Put the next step into a checklist.”', '“Here is the checklist for your next step.”'],
+      sampleLabels: ['Brainstorm out loud', 'Say what’s on your mind', 'Hear Sera’s reply'],
+      samples: ['“Want to bounce around that idea from yesterday out loud?”', '“Pull out just the three key lines from the notes I was looking at.”', '“All done with your three-line summary! Keep your screen up, I’ll read it out to you.”'],
       captions: ['Talk with Sera', 'Speak a chat message', 'Listen to Sera’s reply'],
       details: [
-        ['Ask the way you would ask a friend.', 'Tap the phone button above the chat, or invite Sera into a Discord voice channel. Ask out loud instead of typing, and talk through what comes next together.'],
-        ['A thought comes to mind. Say it.', 'Say what you want to put in the chat. Sera turns your words into a message, without your having to type it all out.'],
-        ['Keep your eyes on what you’re doing.', 'Listen to Sera’s replies while you carry on. Keep the little companion nearby to see and hear her answers without switching back to the chat.']
+        ['Chat and brainstorm in the app or a Discord voice room.', 'Tap the phone button in the app or call Sera into a Discord voice channel to talk through ideas out loud instead of typing.'],
+        ['Toss out thoughts as they come to mind.', 'Say what you want to send and Sera turns your spoken words straight into a clean message.'],
+        ['Keep your eyes on your work while listening to her voice.', 'Leave the small companion window beside your work and hear Sera’s reply without switching screens.']
       ],
-      setup: 'Voice input and read-aloud use Korean. Download voice files once to get started; some call options need an account connection and internet.'    },
+      setup: 'Voice input and read-aloud support Korean and download voice files once on first use. Depending on the call mode, an account connection and internet are required.'    },
     ko: {
-      title: '늘 대화하던 세라,\n이제 말로 불러보세요.',
-      lead: '타자가 번거로우면 친구에게 말하듯 편하게 건네보세요. 통화로 함께 이야기하고, 말로 메시지를 적고, 하던 일을 이어가며 답변을 들을 수 있습니다.',
+      title: '타자 치기 귀찮은 날엔,\n그냥 말로 편하게 부르세요.',
+      lead: '옆자리 단짝에게 말 걸듯 세 가지 방식으로 목소리를 섞을 수 있습니다. 앱이나 Discord 음성방에서 수다 떨듯 상의하는 ‘통화하기’, 생각나는 대로 말로 툭 던지는 ‘음성 입력’, 내 작업 화면을 보면서 작은 컴패니언 창으로 세라의 목소리를 듣는 ‘읽어주기’입니다.',
       labels: ['통화하기', '음성 입력', '읽어주기'],
-      hints: ['친구에게 전화하듯', '타이핑 대신 말로', '하던 일을 하면서 듣기'],
+      hints: ['앱 · Discord 음성방 대화', '생각나는 대로 말로 던지기', '눈은 화면에, 귀는 세라에게'],
       choose: '세 가지 음성 기능 살펴보기',
       note: '화면 예시',
       modes: ['음성 통화', '음성 입력', '읽어주기'],
-      sampleLabels: ['말로 함께 정리하기', '생각난 말 그대로', '세라의 답변 듣기'],
-      samples: ['“다음 단계, 같이 얘기해 볼까?”', '“다음 단계를 체크리스트로 정리해줘.”', '“다음 단계 체크리스트를 정리해 두었습니다.”'],
+      sampleLabels: ['목소리로 편하게 상의하기', '생각난 말 그대로 던지기', '세라의 목소리로 답 듣기'],
+      samples: ['“어제 말한 그 아이디어, 지금 목소리로 같이 굴려 볼래?”', '“아까 보던 자료 중에서 핵심만 세 줄로 추려 줘.”', '“부탁한 세 줄 요약 다 끝났어! 화면 안 바꿔도 내가 읽어 줄게.”'],
       captions: ['세라와 음성으로 대화하기', '말로 채팅 메시지 쓰기', '세라의 답변 소리로 듣기'],
       details: [
-        ['친구에게 전화하듯, 편하게 물어보세요.', '채팅창 위 전화 버튼을 누르거나 Discord 음성 채널에 세라를 불러보세요. 타자를 치는 대신 말로 물어보며 다음 할 일을 함께 정리할 수 있습니다.'],
-        ['떠오른 생각, 일일이 칠 필요 없이.', '채팅창에 적고 싶은 말을 그대로 소리 내어 건네보세요. 손을 대지 않아도 깔끔한 메시지로 옮겨 줍니다.'],
-        ['눈은 하던 일에, 귀는 세라에게.', '답변을 들으며 하던 일을 이어가세요. 작은 컴패니언 창을 곁에 띄워 두면 채팅창을 다시 열지 않고도 세라의 대답을 보고 들을 수 있습니다.']
+        ['앱이나 Discord 음성방에서 수다 떨듯 상의합니다.', '채팅창 위 전화 버튼을 누르거나 Discord 음성 채널에 세라를 불러, 타자 치는 대신 목소리로 아이디어를 굴리고 할 일을 함께 정리합니다.'],
+        ['생각나는 대로 말로 툭 던져 보냅니다.', '채팅창에 적고 싶은 말을 그대로 소리 내어 건네면 키보드에 손대지 않아도 깔끔한 메시지로 옮겨 줍니다.'],
+        ['내 화면을 본 채로 세라의 목소리를 듣습니다.', '작은 컴패니언 창을 곁에 띄워 두고, 하던 작업이나 게임을 멈추지 않은 채 세라의 답을 귀로 편하게 들을 수 있습니다.']
       ],
-      setup: '음성 입력과 읽어주기는 한국어를 지원합니다. 처음 쓸 때 음성 파일을 한 번 내려받으며, 통화 방식에 따라 계정 연결과 인터넷이 필요합니다.'
+      setup: '음성 입력과 읽어주기는 한국어를 지원하며 처음 한 번 음성 파일을 받습니다. 통화 방식에 따라 계정 연결과 인터넷이 필요합니다.'
     },
     ja: {
-      title: 'いつものセラに、\n声をかけてみてください。',
-      lead: '文字を打つのが面倒なら、友だちに話すようにひと言。通話で相談したり、声でメッセージを書いたり、作業を続けながら返事を聞いたりできます。',
+      title: 'タイピングが面倒な日は、\nそのまま声で気軽に呼んでください。',
+      lead: '隣の相棒に話しかけるように3つの方法で声を交わせます。アプリや Discord のボイス部屋でおしゃべり感覚で相談する「通話する」、思いついたまま声で投げる「音声入力」、作業画面を見たまま小さなコンパニオン窓でセラの声を聞く「読み上げ」です。',
       labels: ['通話する', '音声入力', '読み上げ'],
-      hints: ['友だちに電話するように', '入力する代わりに話す', '作業をしながら聞く'],
+      hints: ['アプリ・Discord 通話', '入力の代わりに声で', '目は作業に、耳はセラに'],
       choose: '3つの音声機能を見る',
       note: '画面イメージ',
       modes: ['音声通話', '音声入力', '読み上げ'],
-      sampleLabels: ['声で一緒に考える', '思いついた言葉をそのまま', 'セラの返事を聞く'],
-      samples: ['「次のステップ、一緒に話してみようか」', '「次のステップをチェックリストにして」', '「次のステップのチェックリストをまとめたよ」'],
+      sampleLabels: ['声で気軽に相談する', '思いついた言葉をそのまま', 'セラの声で返事を聞く'],
+      samples: ['「昨日話してたあのアイデア、今声で一緒に転がしてみない？」', '「さっき見てた資料から要点だけ3行で抜いて」', '「頼まれた3行要約できたよ！画面はそのままで私が読み上げるね」'],
       captions: ['セラと音声で話す', '声でチャットのメッセージを書く', 'セラの返事を声で聞く'],
       details: [
-        ['友だちに電話するように、気軽に。', 'チャット上部の電話ボタンを押すか、Discordのボイスチャンネルにセラを招待してみてください。文字を打つ代わりに声をかけて、次にやることを一緒に考えられます。'],
-        ['思いついたことを、長く打ち込まなくても。', 'チャットに書きたいことを、そのまま話してみてください。長く打ち込まなくても、話した言葉をメッセージにしてくれます。'],
-        ['目は作業に。耳はセラに。', '返事を聞きながら、作業を続けられます。小さなコンパニオンをそばに置けば、チャットに戻らずにセラの返事を見たり、声で聞いたりできます。']
+        ['アプリや Discord のボイス部屋で気軽に相談。', 'チャット上部の電話ボタンを押すか Discord のボイスチャンネルに呼んで、文字を打つ代わりに声でアイデアを転がせます。'],
+        ['思いついたまま声で投げます。', '送りたい言葉をそのまま口に出せば、キーボードに触れずにメッセージへ書き起こします。'],
+        ['自分の画面を見たままセラの声を聞きます。', '小さなコンパニオン窓を横に置いたまま、画面を切り替えずにセラの返事を耳で聞けます。']
       ],
-      setup: '音声入力と読み上げは韓国語に対応しています。初回に音声ファイルをダウンロードします。通話方式によってはアカウントの接続とインターネットが必要です。'    }
+      setup: '音声入力と読み上げは韓国語に対応しており、初回のみ音声ファイルをダウンロードします。通話方式によってはアカウント接続とインターネットが必要です。'    }
   };
   const glyphs = [
     '<path d="M7 3 4 5c-2 5 5 13 10 15l3-3-4-4-2 2c-3-1-5-3-6-6l2-2Z"/>',

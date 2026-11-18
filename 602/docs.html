@@ -60,8 +60,8 @@
 </script>
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../style.css?v=v21-20261115a">
-<link rel="stylesheet" href="../602-portal.css?v=v21-20261115a">
+<link rel="stylesheet" href="../style.css?v=v22-20261118a">
+<link rel="stylesheet" href="../602-portal.css?v=v22-20261118a">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body class="philo-page p602-page p602-docs-page" data-page="602-docs">
@@ -173,18 +173,18 @@
   <main class="p602-doc-main" id="doc-content">
     <header class="p602-dl-hero" style="margin-bottom:48px">
       <p class="p602-kicker">
-        <span data-lang-block="ko" lang="ko">602 개발자 문서 · Engine v2.0.1 &amp; Studio v2.0.1</span>
-        <span data-lang-block="en" lang="en">602 Developer Reference · Engine v2.0.1 &amp; Studio v2.0.1</span>
-        <span data-lang-block="ja" lang="ja">602 開発者リファレンス · Engine v2.0.1 &amp; Studio v2.0.1</span>
+        <span data-lang-block="ko" lang="ko">602 안내서 · 작업실 &amp; 엔진 v2.0.1</span>
+        <span data-lang-block="en" lang="en">602 Guide · Studio &amp; Engine v2.0.1</span>
+        <span data-lang-block="ja" lang="ja">602 ガイド · 作業室 &amp; エンジン v2.0.1</span>
       </p>
       <h1 class="p602-h1">
-        <span data-lang-block="ko" lang="ko">602 도큐멘테이션</span>
-        <span data-lang-block="en" lang="en">602 Documentation</span>
-        <span data-lang-block="ja" lang="ja">602 ドキュメント</span>
+        <span data-lang-block="ko" lang="ko">방금 쓴 한 줄이 그대로 게임이 되기까지</span>
+        <span data-lang-block="en" lang="en">From the line you just wrote to the running game</span>
+        <span data-lang-block="ja" lang="ja">今書いた一行がそのままゲームになるまで</span>
       </h1>
-      <p class="p602-lead" data-lang-block="ko" lang="ko"><strong>602 Studio(v2.0.1)</strong>와 C11 스토리 런타임 <strong>602 Story Engine(v2.0.1, C ABI v2)</strong>의 공식 개발자 문서입니다. 로컬 마크다운 폴더 집필부터 1턴 시뮬레이션, 1:1 번역 뷰, 로컬 MCP 에이전트 협업, 게임 엔진 연동까지 다룹니다.</p>
-      <p class="p602-lead" data-lang-block="en" lang="en">Official developer documentation for <strong>602 Studio (v2.0.1)</strong> and the C11 runtime <strong>602 Story Engine (v2.0.1, C ABI v2)</strong>. Covers local Markdown folder authoring, 1-turn simulation, 1:1 translation views, local MCP agent workflows, and native engine integration.</p>
-      <p class="p602-lead" data-lang-block="ja" lang="ja"><strong>602 Studio (v2.0.1)</strong> と C11 ストーリーランタイム <strong>602 Story Engine (v2.0.1, C ABI v2)</strong> の公式開発者ドキュメントです。ローカル Markdown フォルダでの執筆から、1 ターンシミュレーション、1:1 翻訳ビュー、ローカル MCP エージェント連携、ゲームエンジンへの組み込みまでを解説します。</p>
+      <p class="p602-lead" data-lang-block="ko" lang="ko">작가와 기획자는 <strong>602 Studio(v2.0.1)</strong> 앱만 내려받아 바로 쓰고 돌려보면 되고, 프로그래머는 다 쓴 원고 묶음을 <strong>C++ · C# · Godot</strong>에 그대로 연결하면 됩니다.</p>
+      <p class="p602-lead" data-lang-block="en" lang="en">Writers and designers simply download <strong>602 Studio (v2.0.1)</strong> to write and playtest on the spot; programmers plug the finished manuscript bundle straight into <strong>C++, C#, or Godot</strong>.</p>
+      <p class="p602-lead" data-lang-block="ja" lang="ja">作家や企画者は <strong>602 Studio (v2.0.1)</strong> を入れてすぐ書きながら再生でき、プログラマーは仕上がった原稿バンドルを <strong>C++・C#・Godot</strong> にそのまま繋ぐだけです。</p>
     </header>
     <!-- ================================================================ -->
     <!-- DOCUMENTATION HOME HUB: RELEASE DOWNLOAD & CONTACT               -->
@@ -193,14 +193,13 @@
       <div class="p602-home-hub" data-lang-block="ko" lang="ko">
         <article class="p602-hub-card">
           <div class="p602-hub-body">
-            <p class="p602-hub-kicker">설치 파일 · SDK 배포판</p>
-            <h2 class="p602-hub-title">릴리스 다운로드</h2>
-            <p class="p602-hub-desc">라이선스 약관을 확인한 뒤 운영체제별 설치 파일, 압축 아카이브, <code>.sha256</code> 체크섬을 내려받을 수 있습니다.</p>
+            <p class="p602-hub-kicker">개인 · 소규모 팀 무료 · v2.0.1</p>
+            <h2 class="p602-hub-title">602 내려받기</h2>
+            <p class="p602-hub-desc">맡은 역할에 필요한 묶음만 골라 바로 시작할 수 있습니다.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
+              <li><strong>작가 · 기획자용 (602 Studio v2.0.1)</strong><br>설치하자마자 원고를 쓰고, 쓴 줄에서 바로 재생하고, 막힌 선택지를 잡아내는 데스크톱 작업실 (Mac · Windows · Linux)</li>
+              <li><strong>프로그래머용 (602 Story Engine v2.0.1)</strong><br>다 쓴 원고 묶음을 C++ · C#(Unity) · Godot 게임에서 직접 읽어 돌리는 런타임과 헤더</li>
+              <li><strong>오프라인 문서 묶음</strong><br>인터넷 없이 열어 볼 수 있는 전체 레퍼런스 사본 포함</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -228,14 +227,13 @@
       <div class="p602-home-hub" data-lang-block="en" lang="en">
         <article class="p602-hub-card">
           <div class="p602-hub-body">
-            <p class="p602-hub-kicker">BINARY RELEASES</p>
-            <h2 class="p602-hub-title">Release Download</h2>
-            <p class="p602-hub-desc">Review the license terms to download platform installers, SDK archives, and <code>.sha256</code> checksums.</p>
+            <p class="p602-hub-kicker">FREE FOR SOLO &amp; SMALL TEAMS · v2.0.1</p>
+            <h2 class="p602-hub-title">Get 602</h2>
+            <p class="p602-hub-desc">Pick only the package your role needs to get started right away.</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
+              <li><strong>For Writers &amp; Designers (602 Studio v2.0.1)</strong><br>Desktop workspace to write, playtest from any line, and catch dead choices (Mac · Windows · Linux)</li>
+              <li><strong>For Programmers (602 Story Engine v2.0.1)</strong><br>Runtime and headers that read compiled manuscript bundles directly in C++, C# (Unity), and Godot</li>
+              <li><strong>Offline Documentation</strong><br>Full reference bundle for offline reading</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -263,14 +261,13 @@
       <div class="p602-home-hub" data-lang-block="ja" lang="ja">
         <article class="p602-hub-card">
           <div class="p602-hub-body">
-            <p class="p602-hub-kicker">インストーラー・SDK 配布パッケージ</p>
-            <h2 class="p602-hub-title">リリースダウンロード</h2>
-            <p class="p602-hub-desc">ライセンス規約をご確認のうえ、OS 別のインストーラーやアーカイブ、<code>.sha256</code> チェックサムをダウンロードできます。</p>
+            <p class="p602-hub-kicker">個人・小規模チーム無料 · v2.0.1</p>
+            <h2 class="p602-hub-title">602 を受け取る</h2>
+            <p class="p602-hub-desc">担当する役割に必要なパッケージだけを選んで始められます。</p>
             <ul class="p602-hub-list">
-              <li><strong>602 Studio</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .dmg, <code>windows-x86_64</code> setup.exe (<code>602-Studio-v2.0.1-windows-x86_64-setup.exe</code>), <code>linux-x86_64</code> .zip</li>
-              <li><strong>602 Story Engine</strong> (<code>v2.0.1</code> · CHOAM Community License 1.0): <code>macos-arm64</code> .zip, <code>windows-x86_64</code> .zip, <code>linux-x86_64</code> .zip</li>
-              <li><strong>C ABI v2 Headers</strong>: <code>602-story-engine-v2.0.1-headers.zip</code> (<code>story_engine_v2.h</code>)</li>
-              <li><strong>Documentation</strong>: <code>602-v2.0.1-docs.zip</code> (<code>602-v2.0.1-Documentation.md</code>)</li>
+              <li><strong>作家・企画者向け (602 Studio v2.0.1)</strong><br>原稿を書き、その行からすぐ再生し、塞がった選択肢を見抜くデスクトップ作業室 (Mac · Windows · Linux)</li>
+              <li><strong>プログラマー向け (602 Story Engine v2.0.1)</strong><br>原稿バンドルを C++・C#（Unity）・Godot で直接動かすランタイムとヘッダー</li>
+              <li><strong>オフラインドキュメント</strong><br>ネット接続なしで読めるリファレンス一式</li>
             </ul>
           </div>
           <div class="p602-hub-acts">
@@ -2756,7 +2753,7 @@ public static class StoryEngineV2
 
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v22-20261117b"></script>
-<script src="../602-portal.js?v=v22-20261117b"></script>
+<script src="../main.js?v=v22-20261118a"></script>
+<script src="../602-portal.js?v=v22-20261118a"></script>
 </body>
 </html>
