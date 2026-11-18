@@ -970,7 +970,7 @@
       },
       art: [2, 1],   /* page 2 = the in-game capture (Mino 2026-11-06 01:14); was [2, 0] */
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
-      bg: { src: 'assets/seonjam-bg-20261029.webp', pos: '80% 50%', posM: '69% 50%' },
+      bg: { src: 'assets/seonjam-bg-20261118.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
         { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: '선잠 DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
         /* In-game capture from the live build (Mino 2026-11-06 01:14); debug status line at bottom-left painted out. Replaces the old five-girl title screen. */
