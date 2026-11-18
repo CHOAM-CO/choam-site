@@ -79,221 +79,221 @@
 <main class="philo err">
   <p class="inst-kicker"><span data-lang-block="ko" lang="ko">세헤라자드 · 오류 코드</span><span data-lang-block="en" lang="en">Scheherazade · Error codes</span><span data-lang-block="ja" lang="ja">Scheherazade · エラーコード</span></p>
   <h1 class="philo-title"><span data-lang-block="ko" lang="ko">오류 코드</span><span data-lang-block="en" lang="en">Error codes</span><span data-lang-block="ja" lang="ja">エラーコード</span></h1>
-  <p class="inst-lead"><span data-lang-block="ko" lang="ko">세헤라자드의 빨간 막대에 뜨는 오류 메시지는 항상 대괄호 안의 코드로 시작합니다. 아래 목록에서 같은 코드를 찾으면 무슨 일이 일어났는지와 어떻게 하면 되는지를 확인할 수 있습니다.</span><span data-lang-block="en" lang="en">Every error in Scheherazade's red bar begins with a code in square brackets. Find the same code below to see what happened and what to do next.</span><span data-lang-block="ja" lang="ja">Scheherazade の赤いバーに表示されるエラーは、必ず角かっこで囲まれたコードから始まります。下の一覧で同じコードを探すと、何が起きたのかと、どうすればよいかを確認できます。</span></p>
+  <p class="inst-lead"><span data-lang-block="ko" lang="ko">세헤라자드 빨간 막대의 오류는 대괄호 안의 코드로 시작합니다. 아래에서 같은 코드의 의미와 조치를 확인하십시오.</span><span data-lang-block="en" lang="en">Every error in Scheherazade's red bar begins with a code in square brackets. Find the same code below to see what happened and what to do next.</span><span data-lang-block="ja" lang="ja">Scheherazade の赤いバーに表示されるエラーは、必ず角かっこで囲まれたコードから始まります。下の一覧で同じコードを探すと、何が起きたのかと、どうすればよいかを確認できます。</span></p>
 
   <section class="philo-sec" aria-labelledby="err-group-agent">
-    <h2 class="philo-h" id="err-group-agent"><span data-lang-block="ko" lang="ko">에이전트가 시작되지 않거나 멈췄을 때</span><span data-lang-block="en" lang="en">When the agent doesn't start or stops</span><span data-lang-block="ja" lang="ja">エージェントが起動しない・止まったとき</span></h2>
+    <h2 class="philo-h" id="err-group-agent"><span data-lang-block="ko" lang="ko">에이전트 시작 실패와 중단</span><span data-lang-block="en" lang="en">When the agent doesn't start or stops</span><span data-lang-block="ja" lang="ja">エージェントが起動しない・止まったとき</span></h2>
     <div class="err-list">
         <article class="err-entry" id="cli_login_expired">
           <h3 class="err-code"><code><span class="err-br">[</span>CLI_LOGIN_EXPIRED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">이 컴퓨터에 저장된 Claude Code 로그인이 만료되었습니다.</span><span data-lang-block="en" lang="en">The Claude Code login saved on this computer has expired.</span><span data-lang-block="ja" lang="ja">このパソコンに保存されている Claude Code のログインの有効期限が切れています。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">터미널에서 <code>claude</code>를 한 번 실행해 로그인을 새로 고치거나, 설정 &gt; 모델에서 다시 로그인하세요.</span><span data-lang-block="en" lang="en">Run <code>claude</code> once in a terminal to refresh the login, or log in again from Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">ターミナルで <code>claude</code> を一度実行してログインを更新するか、設定 &gt; モデル からもう一度ログインしてください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Claude Code 로그인이 만료됐습니다.</span><span data-lang-block="en" lang="en">The Claude Code login saved on this computer has expired.</span><span data-lang-block="ja" lang="ja">このパソコンに保存されている Claude Code のログインの有効期限が切れています。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">터미널에서 <code>claude</code>를 한 번 실행하거나 설정 &gt; 모델에서 다시 로그인하십시오.</span><span data-lang-block="en" lang="en">Run <code>claude</code> once in a terminal to refresh the login, or log in again from Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">ターミナルで <code>claude</code> を一度実行してログインを更新するか、設定 &gt; モデル からもう一度ログインしてください。</span></p>
         </article>
         <article class="err-entry" id="cli_login_missing">
           <h3 class="err-code"><code><span class="err-br">[</span>CLI_LOGIN_MISSING<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">이 컴퓨터에는 Claude Code 로그인 정보가 없습니다.</span><span data-lang-block="en" lang="en">This computer has no Claude Code login.</span><span data-lang-block="ja" lang="ja">このパソコンには Claude Code のログイン情報がありません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 로그인하거나, 터미널에서 <code>claude</code>를 한 번 실행하세요.</span><span data-lang-block="en" lang="en">Log in from Settings &gt; Model, or run <code>claude</code> once in a terminal.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル からログインするか、ターミナルで <code>claude</code> を一度実行してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">컴퓨터에 Claude Code 로그인이 없습니다.</span><span data-lang-block="en" lang="en">This computer has no Claude Code login.</span><span data-lang-block="ja" lang="ja">このパソコンには Claude Code のログイン情報がありません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 로그인하거나 터미널에서 <code>claude</code>를 한 번 실행하십시오.</span><span data-lang-block="en" lang="en">Log in from Settings &gt; Model, or run <code>claude</code> once in a terminal.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル からログインするか、ターミナルで <code>claude</code> を一度実行してください。</span></p>
         </article>
         <article class="err-entry" id="cli_credentials_unreadable">
           <h3 class="err-code"><code><span class="err-br">[</span>CLI_CREDENTIALS_UNREADABLE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Claude Code 로그인 정보는 있지만 앱이 읽어 들이지 못했습니다.</span><span data-lang-block="en" lang="en">A Claude Code login exists, but the app could not read it.</span><span data-lang-block="ja" lang="ja">Claude Code のログイン情報はありますが、アプリが読み取れませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">한 번 더 시도하세요. 같은 오류가 반복되면 설정 &gt; 모델에서 다시 로그인하세요.</span><span data-lang-block="en" lang="en">Try once more. If the same error keeps appearing, log in again from Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">もう一度お試しください。同じエラーが繰り返される場合は、設定 &gt; モデル からログインし直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Claude Code 로그인 정보를 읽지 못했습니다.</span><span data-lang-block="en" lang="en">A Claude Code login exists, but the app could not read it.</span><span data-lang-block="ja" lang="ja">Claude Code のログイン情報はありますが、アプリが読み取れませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 시도하십시오. 계속 실패하면 설정 &gt; 모델에서 다시 로그인하십시오.</span><span data-lang-block="en" lang="en">Try once more. If the same error keeps appearing, log in again from Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">もう一度お試しください。同じエラーが繰り返される場合は、設定 &gt; モデル からログインし直してください。</span></p>
         </article>
         <article class="err-entry" id="credentials_missing">
           <h3 class="err-code"><code><span class="err-br">[</span>CREDENTIALS_MISSING<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 모델 연결에 필요한 키나 토큰이 저장되어 있지 않습니다.</span><span data-lang-block="en" lang="en">The key or token for the selected model connection has not been saved.</span><span data-lang-block="ja" lang="ja">選択したモデル接続に必要なキーまたはトークンが保存されていません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 키나 토큰을 입력하세요.</span><span data-lang-block="en" lang="en">Enter the key or token in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でキーまたはトークンを入力してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 모델 연결 키가 없습니다.</span><span data-lang-block="en" lang="en">The key or token for the selected model connection has not been saved.</span><span data-lang-block="ja" lang="ja">選択したモデル接続に必要なキーまたはトークンが保存されていません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 입력하십시오.</span><span data-lang-block="en" lang="en">Enter the key or token in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でキーまたはトークンを入力してください。</span></p>
         </article>
         <article class="err-entry" id="model_missing">
           <h3 class="err-code"><code><span class="err-br">[</span>MODEL_MISSING<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 모델 연결에 사용할 모델이 지정되어 있지 않습니다.</span><span data-lang-block="en" lang="en">No model is selected for the chosen model connection.</span><span data-lang-block="ja" lang="ja">選択したモデル接続で使うモデルが指定されていません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 사용할 모델을 선택하세요.</span><span data-lang-block="en" lang="en">Choose a model in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で使うモデルを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">이 연결에 선택된 모델이 없습니다.</span><span data-lang-block="en" lang="en">No model is selected for the chosen model connection.</span><span data-lang-block="ja" lang="ja">選択したモデル接続で使うモデルが指定されていません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 선택하십시오.</span><span data-lang-block="en" lang="en">Choose a model in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で使うモデルを選んでください。</span></p>
         </article>
         <article class="err-entry" id="config_incomplete">
           <h3 class="err-code"><code><span class="err-br">[</span>CONFIG_INCOMPLETE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">사용자 지정 연결의 주소(Base URL)가 비어 있습니다.</span><span data-lang-block="en" lang="en">The proxy address (Base URL) for the custom connection is empty.</span><span data-lang-block="ja" lang="ja">カスタム接続のアドレス（Base URL）が空欄になっています。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 Base URL을 입력하세요.</span><span data-lang-block="en" lang="en">Enter the Base URL in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で Base URL を入力してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">프록시 주소가 없습니다.</span><span data-lang-block="en" lang="en">The proxy address (Base URL) for the custom connection is empty.</span><span data-lang-block="ja" lang="ja">カスタム接続のアドレス（Base URL）が空欄になっています。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에 Base URL을 입력하십시오.</span><span data-lang-block="en" lang="en">Enter the Base URL in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で Base URL を入力してください。</span></p>
         </article>
         <article class="err-entry" id="lane_unavailable">
           <h3 class="err-code"><code><span class="err-br">[</span>LANE_UNAVAILABLE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">연결한 서비스를 저장된 키, 모델, 주소로는 사용할 수 없습니다.</span><span data-lang-block="en" lang="en">A service you connected cannot be used with the key, model or address saved for it.</span><span data-lang-block="ja" lang="ja">接続したサービスは、保存されているキー・モデル・アドレスでは使用できません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델 및 제공자에서 해당 서비스의 키와 모델을 다시 확인하세요.</span><span data-lang-block="en" lang="en">Check that service's key and model again in Settings &gt; Model &amp; Providers.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデルとプロバイダー で、そのサービスのキーとモデルを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">연결 서비스를 쓸 수 없습니다.</span><span data-lang-block="en" lang="en">A service you connected cannot be used with the key, model or address saved for it.</span><span data-lang-block="ja" lang="ja">接続したサービスは、保存されているキー・モデル・アドレスでは使用できません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델 및 프로바이더에서 키와 모델을 확인하십시오.</span><span data-lang-block="en" lang="en">Check that service's key and model again in Settings &gt; Model &amp; Providers.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデルとプロバイダー で、そのサービスのキーとモデルを確認してください。</span></p>
         </article>
         <article class="err-entry" id="timeout_boot_stage">
           <h3 class="err-code"><code><span class="err-br">[</span>TIMEOUT_BOOT_STAGE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">엔진이 올라오기 전 단계에서 시작이 멈췄습니다.</span><span data-lang-block="en" lang="en">Startup stalled before the engine came up.</span><span data-lang-block="ja" lang="ja">エンジンが立ち上がる前の段階で起動が止まりました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">먼저 로그를 확인하고 앱을 다시 시작하세요. 같은 오류가 반복되면 엔진 설정을 확인하세요.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, check the engine settings.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、エンジン設定を確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">엔진 시작 전에 부팅이 멈췄습니다.</span><span data-lang-block="en" lang="en">Startup stalled before the engine came up.</span><span data-lang-block="ja" lang="ja">エンジンが立ち上がる前の段階で起動が止まりました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">로그를 확인하십시오. 앱을 다시 시작하고 반복되면 엔진 설정을 확인하십시오.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, check the engine settings.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、エンジン設定を確認してください。</span></p>
         </article>
         <article class="err-entry" id="timeout_engine_spawn">
           <h3 class="err-code"><code><span class="err-br">[</span>TIMEOUT_ENGINE_SPAWN<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 프로세스는 시작됐지만 엔진이 제시간에 올라오지 않았습니다.</span><span data-lang-block="en" lang="en">The agent process started, but the engine did not come up in time.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスは起動しましたが、エンジンが時間内に立ち上がりませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">먼저 로그를 확인하고 앱을 다시 시작하세요. 같은 오류가 반복되면 다른 모델이나 제공자를 선택하세요.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, choose another model or provider.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、別のモデルかプロバイダーを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">엔진이 제때 뜨지 않았습니다.</span><span data-lang-block="en" lang="en">The agent process started, but the engine did not come up in time.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスは起動しましたが、エンジンが時間内に立ち上がりませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">로그를 확인하십시오. 앱을 다시 시작하고 반복되면 다른 모델을 선택하십시오.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, choose another model or provider.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、別のモデルかプロバイダーを選んでください。</span></p>
         </article>
         <article class="err-entry" id="timeout_no_heartbeat">
           <h3 class="err-code"><code><span class="err-br">[</span>TIMEOUT_NO_HEARTBEAT<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">시작 과정은 끝났지만 에이전트가 연결되었다는 신호를 보내오지 않았습니다.</span><span data-lang-block="en" lang="en">Startup finished, but the agent never reported that it was connected.</span><span data-lang-block="ja" lang="ja">起動処理は終わりましたが、エージェントから接続完了の知らせが届きませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">먼저 로그를 확인하고 앱을 다시 시작하세요. 같은 오류가 반복되면 채널 연결 상태를 확인하세요.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, check the channel connection.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、チャンネルの接続を確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트는 떴지만 연결되지 않았습니다.</span><span data-lang-block="en" lang="en">Startup finished, but the agent never reported that it was connected.</span><span data-lang-block="ja" lang="ja">起動処理は終わりましたが、エージェントから接続完了の知らせが届きませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">로그를 확인하십시오. 앱을 다시 시작하고 반복되면 채널 연결을 확인하십시오.</span><span data-lang-block="en" lang="en">Open Logs first, then restart the app. If it happens again, check the channel connection.</span><span data-lang-block="ja" lang="ja">まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、チャンネルの接続を確認してください。</span></p>
         </article>
         <article class="err-entry" id="timeout">
           <h3 class="err-code"><code><span class="err-br">[</span>TIMEOUT<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">시작이 지나치게 오래 걸렸으며, 어느 단계에서 멈췄는지는 앱이 파악하지 못했습니다.</span><span data-lang-block="en" lang="en">Startup took too long, and the app cannot tell which stage it stopped at.</span><span data-lang-block="ja" lang="ja">起動に時間がかかりすぎました。どの段階で止まったのかは、アプリでは特定できません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">로그를 열어 확인하세요.</span><span data-lang-block="en" lang="en">Open Logs and check what happened.</span><span data-lang-block="ja" lang="ja">ログを開いて確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 시작 여부를 확인하지 못했습니다.</span><span data-lang-block="en" lang="en">Startup took too long, and the app cannot tell which stage it stopped at.</span><span data-lang-block="ja" lang="ja">起動に時間がかかりすぎました。どの段階で止まったのかは、アプリでは特定できません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 후 &quot;상태 다시 확인&quot;을 누르십시오.</span><span data-lang-block="en" lang="en">Open Logs and check what happened.</span><span data-lang-block="ja" lang="ja">ログを開いて確認してください。</span></p>
         </article>
         <article class="err-entry" id="key_error">
           <h3 class="err-code"><code><span class="err-br">[</span>KEY_ERROR<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">저장해 둔 제공자 키를 운영체제의 자격 증명 저장소에서 읽어 오지 못했습니다.</span><span data-lang-block="en" lang="en">The saved provider key could not be read from your operating system's credential store.</span><span data-lang-block="ja" lang="ja">保存したプロバイダーのキーを、OS の資格情報ストアから読み取れませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 키를 다시 저장하세요.</span><span data-lang-block="en" lang="en">Save the key again in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でキーを保存し直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">저장된 키를 읽지 못했습니다.</span><span data-lang-block="en" lang="en">The saved provider key could not be read from your operating system's credential store.</span><span data-lang-block="ja" lang="ja">保存したプロバイダーのキーを、OS の資格情報ストアから読み取れませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 종료했다가 다시 여십시오. 반복되면 설정할 때 입력한 값을 확인하십시오.</span><span data-lang-block="en" lang="en">Save the key again in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でキーを保存し直してください。</span></p>
         </article>
         <article class="err-entry" id="login_required">
           <h3 class="err-code"><code><span class="err-br">[</span>LOGIN_REQUIRED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">이 모델 연결은 로그인이 필요하지만 아직 로그인하지 않았습니다.</span><span data-lang-block="en" lang="en">This model connection needs a sign-in that has not been completed yet.</span><span data-lang-block="ja" lang="ja">このモデル接続にはログインが必要ですが、まだ完了していません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 로그인하세요. 로그인을 마치면 따로 조작하지 않아도 에이전트가 스스로 시작됩니다.</span><span data-lang-block="en" lang="en">Log in from Settings &gt; Model. Once you are signed in, the agent starts on its own.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル からログインしてください。ログインが済むと、エージェントは自動で起動します。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">이 모델은 로그인해야 합니다.</span><span data-lang-block="en" lang="en">This model connection needs a sign-in that has not been completed yet.</span><span data-lang-block="ja" lang="ja">このモデル接続にはログインが必要ですが、まだ完了していません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 로그인하십시오. 로그인하면 에이전트가 자동으로 시작됩니다.</span><span data-lang-block="en" lang="en">Log in from Settings &gt; Model. Once you are signed in, the agent starts on its own.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル からログインしてください。ログインが済むと、エージェントは自動で起動します。</span></p>
         </article>
         <article class="err-entry" id="provider_not_wired">
           <h3 class="err-code"><code><span class="err-br">[</span>PROVIDER_NOT_WIRED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">저장된 제공자 이름을 앱이 알아보지 못했거나, 해당 제공자의 설정이 올바르지 않습니다.</span><span data-lang-block="en" lang="en">The app does not recognize the saved provider name, or that provider's setup is invalid.</span><span data-lang-block="ja" lang="ja">保存されたプロバイダー名をアプリが認識できないか、そのプロバイダーの設定が正しくありません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 제공자를 다시 선택하세요.</span><span data-lang-block="en" lang="en">Choose the provider again in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でプロバイダーを選び直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 모델 연결이 준비되지 않았습니다.</span><span data-lang-block="en" lang="en">The app does not recognize the saved provider name, or that provider's setup is invalid.</span><span data-lang-block="ja" lang="ja">保存されたプロバイダー名をアプリが認識できないか、そのプロバイダーの設定が正しくありません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 Claude로 바꾸십시오.</span><span data-lang-block="en" lang="en">Choose the provider again in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル でプロバイダーを選び直してください。</span></p>
         </article>
         <article class="err-entry" id="model_selection_failed">
           <h3 class="err-code"><code><span class="err-br">[</span>MODEL_SELECTION_FAILED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 모델이나 추론 강도가 받아들여지지 않았습니다.</span><span data-lang-block="en" lang="en">The selected model or effort level was rejected.</span><span data-lang-block="ja" lang="ja">選択したモデルまたは推論の強さが受け付けられませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 다른 모델이나 추론 강도를 선택하세요.</span><span data-lang-block="en" lang="en">Choose a different model or effort level in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で別のモデルか推論の強さを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">고른 모델이나 effort가 거부됐습니다.</span><span data-lang-block="en" lang="en">The selected model or effort level was rejected.</span><span data-lang-block="ja" lang="ja">選択したモデルまたは推論の強さが受け付けられませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 다른 모델·effort를 고르십시오.</span><span data-lang-block="en" lang="en">Choose a different model or effort level in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で別のモデルか推論の強さを選んでください。</span></p>
         </article>
         <article class="err-entry" id="cli_missing">
           <h3 class="err-code"><code><span class="err-br">[</span>CLI_MISSING<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Antigravity 명령줄 도구를 설치하지 못했습니다.</span><span data-lang-block="en" lang="en">The Antigravity command-line tool could not be installed.</span><span data-lang-block="ja" lang="ja">Antigravity のコマンドラインツールをインストールできませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">인터넷 연결을 확인한 뒤 앱을 다시 여세요.</span><span data-lang-block="en" lang="en">Check your internet connection, then reopen the app.</span><span data-lang-block="ja" lang="ja">インターネット接続を確認してから、アプリを開き直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Antigravity CLI 설치에 실패했습니다.</span><span data-lang-block="en" lang="en">The Antigravity command-line tool could not be installed.</span><span data-lang-block="ja" lang="ja">Antigravity のコマンドラインツールをインストールできませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">인터넷 연결을 확인하고 앱을 재시작하십시오.</span><span data-lang-block="en" lang="en">Check your internet connection, then reopen the app.</span><span data-lang-block="ja" lang="ja">インターネット接続を確認してから、アプリを開き直してください。</span></p>
         </article>
         <article class="err-entry" id="proxy_unavailable">
           <h3 class="err-code"><code><span class="err-br">[</span>PROXY_UNAVAILABLE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">선택한 연결에 필요한 로컬 프록시가 실행되지 않았습니다.</span><span data-lang-block="en" lang="en">The local proxy that the selected connection needs did not start.</span><span data-lang-block="ja" lang="ja">選択した接続に必要なローカルプロキシが起動しませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 시작하세요. 같은 오류가 반복되면 다른 제공자를 선택하세요.</span><span data-lang-block="en" lang="en">Restart the app. If it happens again, choose another provider.</span><span data-lang-block="ja" lang="ja">アプリを再起動してください。同じエラーが繰り返される場合は、別のプロバイダーを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">이 모델 연결의 로컬 프록시가 실행되지 않았습니다.</span><span data-lang-block="en" lang="en">The local proxy that the selected connection needs did not start.</span><span data-lang-block="ja" lang="ja">選択した接続に必要なローカルプロキシが起動しませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 시작하십시오. 반복되면 설정 &gt; 모델에서 연결을 바꾸십시오.</span><span data-lang-block="en" lang="en">Restart the app. If it happens again, choose another provider.</span><span data-lang-block="ja" lang="ja">アプリを再起動してください。同じエラーが繰り返される場合は、別のプロバイダーを選んでください。</span></p>
         </article>
         <article class="err-entry" id="ollama_unavailable">
           <h3 class="err-code"><code><span class="err-br">[</span>OLLAMA_UNAVAILABLE<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">이 컴퓨터의 Ollama 서비스가 실행되고 있지 않습니다.</span><span data-lang-block="en" lang="en">The local Ollama service is not running.</span><span data-lang-block="ja" lang="ja">ローカルの Ollama サービスが起動していません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">Ollama를 먼저 실행한 뒤 에이전트를 다시 시작하세요.</span><span data-lang-block="en" lang="en">Start Ollama first, then restart the agent.</span><span data-lang-block="ja" lang="ja">先に Ollama を起動してから、エージェントをもう一度開始してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">로컬 Ollama 데몬이 실행 중이 아닙니다.</span><span data-lang-block="en" lang="en">The local Ollama service is not running.</span><span data-lang-block="ja" lang="ja">ローカルの Ollama サービスが起動していません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">Ollama를 실행하고 <code>ollama list</code>로 모델을 확인한 뒤 앱을 다시 여십시오.</span><span data-lang-block="en" lang="en">Start Ollama first, then restart the agent.</span><span data-lang-block="ja" lang="ja">先に Ollama を起動してから、エージェントをもう一度開始してください。</span></p>
         </article>
         <article class="err-entry" id="app_files_missing">
           <h3 class="err-code"><code><span class="err-br">[</span>APP_FILES_MISSING<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">앱과 함께 설치되어야 할 파일 하나가 설치 폴더에서 빠져 있습니다.</span><span data-lang-block="en" lang="en">A file that ships with the app is missing from the installation.</span><span data-lang-block="ja" lang="ja">アプリに同梱されているはずのファイルが1つ、インストール先に見当たりません。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 설치하세요.</span><span data-lang-block="en" lang="en">Reinstall the app.</span><span data-lang-block="ja" lang="ja">アプリをインストールし直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 설치 파일 일부가 없습니다.</span><span data-lang-block="en" lang="en">A file that ships with the app is missing from the installation.</span><span data-lang-block="ja" lang="ja">アプリに同梱されているはずのファイルが1つ、インストール先に見当たりません。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 재설치하십시오.</span><span data-lang-block="en" lang="en">Reinstall the app.</span><span data-lang-block="ja" lang="ja">アプリをインストールし直してください。</span></p>
         </article>
         <article class="err-entry" id="harness_stale">
           <h3 class="err-code"><code><span class="err-br">[</span>HARNESS_STALE<span class="err-br">]</span></code></h3>
           <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 지침 파일을 이 버전에 맞게 갱신하지 못했습니다.</span><span data-lang-block="en" lang="en">The agent's instruction files could not be updated for this version.</span><span data-lang-block="ja" lang="ja">エージェントの指示ファイルを、このバージョンに合わせて更新できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 여세요. 앱을 다시 열면 갱신을 한 번 더 시도합니다.</span><span data-lang-block="en" lang="en">Reopen the app. Reopening it tries the update again.</span><span data-lang-block="ja" lang="ja">アプリを開き直してください。開き直すと、更新をもう一度試みます。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 재시작하십시오. 다시 열면 업데이트를 재시도합니다.</span><span data-lang-block="en" lang="en">Reopen the app. Reopening it tries the update again.</span><span data-lang-block="ja" lang="ja">アプリを開き直してください。開き直すと、更新をもう一度試みます。</span></p>
         </article>
         <article class="err-entry" id="app_written_damaged">
           <h3 class="err-code"><code><span class="err-br">[</span>APP_WRITTEN_DAMAGED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">직접 수정한 파일의 기록이 손상되었습니다.</span><span data-lang-block="en" lang="en">The record of the files you edited yourself is damaged.</span><span data-lang-block="ja" lang="ja">ご自身で編集したファイルの記録が壊れています。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">재설정하세요. 재설정해도 직접 수정한 내용은 그대로 남습니다.</span><span data-lang-block="en" lang="en">Reset it. Your edits stay as they are.</span><span data-lang-block="ja" lang="ja">リセットしてください。リセットしても、編集した内容はそのまま残ります。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">수정 파일 기록이 손상됐습니다.</span><span data-lang-block="en" lang="en">The record of the files you edited yourself is damaged.</span><span data-lang-block="ja" lang="ja">ご自身で編集したファイルの記録が壊れています。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">재설정하십시오. 수정한 내용은 그대로 남습니다.</span><span data-lang-block="en" lang="en">Reset it. Your edits stay as they are.</span><span data-lang-block="ja" lang="ja">リセットしてください。リセットしても、編集した内容はそのまま残ります。</span></p>
         </article>
         <article class="err-entry" id="harness_error">
           <h3 class="err-code"><code><span class="err-br">[</span>HARNESS_ERROR<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트의 위임 지침을 갱신하지 못했습니다.</span><span data-lang-block="en" lang="en">The agent's delegation instructions could not be updated.</span><span data-lang-block="ja" lang="ja">エージェントの委任に関する指示を更新できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 여세요. 같은 오류가 반복되면 로그를 확인하세요.</span><span data-lang-block="en" lang="en">Reopen the app. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">アプリを開き直してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 위임 지침 갱신에 실패했습니다.</span><span data-lang-block="en" lang="en">The agent's delegation instructions could not be updated.</span><span data-lang-block="ja" lang="ja">エージェントの委任に関する指示を更新できませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 여십시오. 계속 실패하면 로그를 확인하십시오.</span><span data-lang-block="en" lang="en">Reopen the app. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">アプリを開き直してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
         </article>
         <article class="err-entry" id="spawn_failed">
           <h3 class="err-code"><code><span class="err-br">[</span>SPAWN_FAILED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 프로세스를 전혀 시작하지 못했습니다.</span><span data-lang-block="en" lang="en">The agent process could not be started at all.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスをまったく起動できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 시작하세요. 같은 오류가 반복되면 로그를 확인하세요.</span><span data-lang-block="en" lang="en">Restart the app. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">アプリを再起動してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트를 시작하지 못했습니다.</span><span data-lang-block="en" lang="en">The agent process could not be started at all.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスをまったく起動できませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 다시 시작하십시오. 반복되면 앱을 재설치하십시오.</span><span data-lang-block="en" lang="en">Restart the app. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">アプリを再起動してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
         </article>
         <article class="err-entry" id="crash_loop">
           <h3 class="err-code"><code><span class="err-br">[</span>CRASH_LOOP<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 프로세스가 시작하자마자 꺼지는 일이 계속 반복되고 있습니다.</span><span data-lang-block="en" lang="en">The agent process keeps exiting shortly after it starts.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスが、起動直後に終了することを繰り返しています。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 완전히 종료한 뒤 다시 여세요. 같은 오류가 반복되면 설정할 때 입력한 값을 확인하세요.</span><span data-lang-block="en" lang="en">Quit the app and open it again. If it happens again, check the values you entered during setup.</span><span data-lang-block="ja" lang="ja">アプリを終了してから開き直してください。同じエラーが繰り返される場合は、設定時に入力した値を確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 프로세스가 반복 종료됩니다.</span><span data-lang-block="en" lang="en">The agent process keeps exiting shortly after it starts.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスが、起動直後に終了することを繰り返しています。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 종료했다가 다시 여십시오. 반복되면 설정할 때 입력한 값을 다시 확인하십시오.</span><span data-lang-block="en" lang="en">Quit the app and open it again. If it happens again, check the values you entered during setup.</span><span data-lang-block="ja" lang="ja">アプリを終了してから開き直してください。同じエラーが繰り返される場合は、設定時に入力した値を確認してください。</span></p>
         </article>
         <article class="err-entry" id="engine_start_failed">
           <h3 class="err-code"><code><span class="err-br">[</span>ENGINE_START_FAILED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">시작 직후 종료되는 일이 연달아 반복되었고, 엔진이 자체적으로 시작 오류를 기록했습니다.</span><span data-lang-block="en" lang="en">The agent kept exiting right after it started, and the engine recorded its own startup error.</span><span data-lang-block="ja" lang="ja">起動直後の終了が続けて起こり、エンジン自身が起動エラーを記録しました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 다른 모델을 선택하거나 제공자를 끈 뒤 다시 시작하세요.</span><span data-lang-block="en" lang="en">Choose another model or turn a provider off in Settings &gt; Model, then start again.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で別のモデルを選ぶか、プロバイダーをオフにしてから、もう一度開始してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">엔진 시작에 실패했습니다.</span><span data-lang-block="en" lang="en">The agent kept exiting right after it started, and the engine recorded its own startup error.</span><span data-lang-block="ja" lang="ja">起動直後の終了が続けて起こり、エンジン自身が起動エラーを記録しました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">설정 &gt; 모델에서 다른 모델을 고르거나 프로바이더를 끄고 재시작하십시오.</span><span data-lang-block="en" lang="en">Choose another model or turn a provider off in Settings &gt; Model, then start again.</span><span data-lang-block="ja" lang="ja">設定 &gt; モデル で別のモデルを選ぶか、プロバイダーをオフにしてから、もう一度開始してください。</span></p>
         </article>
         <article class="err-entry" id="agent_exited">
           <h3 class="err-code"><code><span class="err-br">[</span>AGENT_EXITED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 프로세스가 시작된 뒤 스스로 종료되었습니다.</span><span data-lang-block="en" lang="en">The agent process started and then exited on its own.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスが起動したあと、自ら終了しました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">에이전트를 다시 시작하세요. 같은 오류가 반복되면 로그를 확인하세요.</span><span data-lang-block="en" lang="en">Start the agent again. If it exits again, open Logs.</span><span data-lang-block="ja" lang="ja">エージェントをもう一度開始してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트가 시작된 뒤 예기치 않게 멈췄습니다.</span><span data-lang-block="en" lang="en">The agent process started and then exited on its own.</span><span data-lang-block="ja" lang="ja">エージェントのプロセスが起動したあと、自ら終了しました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">&quot;상태 다시 확인&quot;을 누르십시오. 안 되면 앱을 재시작하십시오.</span><span data-lang-block="en" lang="en">Start the agent again. If it exits again, open Logs.</span><span data-lang-block="ja" lang="ja">エージェントをもう一度開始してください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
         </article>
         <article class="err-entry" id="stop_unconfirmed">
           <h3 class="err-code"><code><span class="err-br">[</span>STOP_UNCONFIRMED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">중지나 재시작 과정에서 이전 프로세스가 완전히 끝났는지 확인하지 못했습니다.</span><span data-lang-block="en" lang="en">During a stop or restart, the app could not confirm that the old process had fully ended.</span><span data-lang-block="ja" lang="ja">停止または再起動の際に、以前のプロセスが完全に終わったかどうかを確認できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 기다린 뒤 다시 시도하세요.</span><span data-lang-block="en" lang="en">Wait a moment, then try again.</span><span data-lang-block="ja" lang="ja">少し待ってから、もう一度お試しください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 종료를 확인하지 못했습니다. 아직 실행 중일 수 있습니다.</span><span data-lang-block="en" lang="en">During a stop or restart, the app could not confirm that the old process had fully ended.</span><span data-lang-block="ja" lang="ja">停止または再起動の際に、以前のプロセスが完全に終わったかどうかを確認できませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">앱을 종료했다가 다시 여십시오.</span><span data-lang-block="en" lang="en">Wait a moment, then try again.</span><span data-lang-block="ja" lang="ja">少し待ってから、もう一度お試しください。</span></p>
         </article>
         <article class="err-entry" id="discord_token_bad">
           <h3 class="err-code"><code><span class="err-br">[</span>DISCORD_TOKEN_BAD<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Discord 봇 토큰이 없거나 거절되었습니다.</span><span data-lang-block="en" lang="en">The Discord bot token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Discord のボットトークンがないか、受け付けられませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 Discord를 다시 연결하세요.</span><span data-lang-block="en" lang="en">Reconnect Discord in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Discord を接続し直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Discord 토큰이 없거나 거부됐습니다.</span><span data-lang-block="en" lang="en">The Discord bot token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Discord のボットトークンがないか、受け付けられませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">Discord 토큰을 다시 입력하십시오.</span><span data-lang-block="en" lang="en">Reconnect Discord in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Discord を接続し直してください。</span></p>
         </article>
         <article class="err-entry" id="slack_token_bad">
           <h3 class="err-code"><code><span class="err-br">[</span>SLACK_TOKEN_BAD<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Slack 토큰이 없거나 거절되었습니다.</span><span data-lang-block="en" lang="en">A Slack token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Slack のトークンがないか、受け付けられませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 Slack 토큰 두 개를 모두 다시 확인하세요.</span><span data-lang-block="en" lang="en">Check both Slack tokens again in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Slack のトークン2つをどちらも確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Slack 토큰이 없거나 거부됐습니다.</span><span data-lang-block="en" lang="en">A Slack token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Slack のトークンがないか、受け付けられませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 Slack 토큰 두 개를 다시 확인하십시오.</span><span data-lang-block="en" lang="en">Check both Slack tokens again in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Slack のトークン2つをどちらも確認してください。</span></p>
         </article>
         <article class="err-entry" id="telegram_token_bad">
           <h3 class="err-code"><code><span class="err-br">[</span>TELEGRAM_TOKEN_BAD<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Telegram 봇 토큰이 없거나 거절되었습니다.</span><span data-lang-block="en" lang="en">The Telegram bot token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Telegram のボットトークンがないか、受け付けられませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 Telegram 토큰을 다시 확인하세요.</span><span data-lang-block="en" lang="en">Check the Telegram token again in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Telegram のトークンを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Telegram 토큰이 없거나 거부됐습니다.</span><span data-lang-block="en" lang="en">The Telegram bot token is missing or was rejected.</span><span data-lang-block="ja" lang="ja">Telegram のボットトークンがないか、受け付けられませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 BotFather 토큰을 재확인하십시오.</span><span data-lang-block="en" lang="en">Check the Telegram token again in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルで Telegram のトークンを確認してください。</span></p>
         </article>
         <article class="err-entry" id="channel_token_error">
           <h3 class="err-code"><code><span class="err-br">[</span>CHANNEL_TOKEN_ERROR<span class="err-br">]</span></code></h3>
           <p class="err-what"><span data-lang-block="ko" lang="ko">메신저 토큰을 자격 증명 저장소에서 읽어 오지 못했습니다.</span><span data-lang-block="en" lang="en">A messenger token could not be read from the credential store.</span><span data-lang-block="ja" lang="ja">メッセンジャーのトークンを資格情報ストアから読み取れませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 해당 메신저를 다시 연결하세요.</span><span data-lang-block="en" lang="en">Reconnect that messenger in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルでそのメッセンジャーを接続し直してください。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">채널에서 토큰을 다시 저장하십시오.</span><span data-lang-block="en" lang="en">Reconnect that messenger in Channels.</span><span data-lang-block="ja" lang="ja">チャンネルでそのメッセンジャーを接続し直してください。</span></p>
         </article>
         <article class="err-entry" id="unknown">
           <h3 class="err-code"><code><span class="err-br">[</span>UNKNOWN<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">어떤 작업이 실패했지만 앱이 원인을 특정하지 못했습니다.</span><span data-lang-block="en" lang="en">Something failed, and the app cannot identify the cause.</span><span data-lang-block="ja" lang="ja">何らかの処理が失敗しましたが、アプリでは原因を特定できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 기다린 뒤 상태를 다시 확인하세요.</span><span data-lang-block="en" lang="en">Wait a moment, then check the status again.</span><span data-lang-block="ja" lang="ja">少し待ってから、状態をもう一度確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">에이전트 시작에 실패했습니다.</span><span data-lang-block="en" lang="en">Something failed, and the app cannot identify the cause.</span><span data-lang-block="ja" lang="ja">何らかの処理が失敗しましたが、アプリでは原因を特定できませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 후 상태를 다시 확인하십시오.</span><span data-lang-block="en" lang="en">Wait a moment, then check the status again.</span><span data-lang-block="ja" lang="ja">少し待ってから、状態をもう一度確認してください。</span></p>
         </article>
     </div>
   </section>
 
   <section class="philo-sec" aria-labelledby="err-group-turn">
-    <h2 class="philo-h" id="err-group-turn"><span data-lang-block="ko" lang="ko">마지막 답변이 실패했을 때</span><span data-lang-block="en" lang="en">When the last reply fails</span><span data-lang-block="ja" lang="ja">最後の返信が失敗したとき</span></h2>
+    <h2 class="philo-h" id="err-group-turn"><span data-lang-block="ko" lang="ko">마지막 답변 실패</span><span data-lang-block="en" lang="en">When the last reply fails</span><span data-lang-block="ja" lang="ja">最後の返信が失敗したとき</span></h2>
     <div class="err-list">
         <article class="err-entry" id="rate_limit">
           <h3 class="err-code"><code><span class="err-br">[</span>RATE_LIMIT<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 서비스에서 사용량 한도나 속도 한도에 도달했다고 알려 왔습니다.</span><span data-lang-block="en" lang="en">The model service reports that a usage or rate limit has been reached.</span><span data-lang-block="ja" lang="ja">モデルサービスから、利用量またはレートの上限に達したとの通知がありました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 기다린 뒤 다시 보내세요. 필요하면 다른 모델을 선택하세요.</span><span data-lang-block="en" lang="en">Wait a little, then send again. Choose another model if needed.</span><span data-lang-block="ja" lang="ja">少し待ってから送り直してください。必要に応じて別のモデルを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 서비스 사용량·속도 한도에 도달했습니다.</span><span data-lang-block="en" lang="en">The model service reports that a usage or rate limit has been reached.</span><span data-lang-block="ja" lang="ja">モデルサービスから、利用量またはレートの上限に達したとの通知がありました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 후 다시 보내십시오. 필요하면 다른 모델을 선택하십시오.</span><span data-lang-block="en" lang="en">Wait a little, then send again. Choose another model if needed.</span><span data-lang-block="ja" lang="ja">少し待ってから送り直してください。必要に応じて別のモデルを選んでください。</span></p>
         </article>
         <article class="err-entry" id="auth">
           <h3 class="err-code"><code><span class="err-br">[</span>AUTH<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 연결의 로그인이 만료되었거나 거절되었습니다.</span><span data-lang-block="en" lang="en">The login for the model connection has expired or was rejected.</span><span data-lang-block="ja" lang="ja">モデル接続のログインが切れているか、拒否されました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 로그인하세요.</span><span data-lang-block="en" lang="en">Log in again.</span><span data-lang-block="ja" lang="ja">もう一度ログインしてください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 연결 로그인이 만료됐거나 거부됐습니다.</span><span data-lang-block="en" lang="en">The login for the model connection has expired or was rejected.</span><span data-lang-block="ja" lang="ja">モデル接続のログインが切れているか、拒否されました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">재로그인하십시오.</span><span data-lang-block="en" lang="en">Log in again.</span><span data-lang-block="ja" lang="ja">もう一度ログインしてください。</span></p>
         </article>
         <article class="err-entry" id="server">
           <h3 class="err-code"><code><span class="err-br">[</span>SERVER<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 서비스가 과부하 상태이거나 서버 오류를 반환하고 있습니다.</span><span data-lang-block="en" lang="en">The model service is overloaded or returning server errors.</span><span data-lang-block="ja" lang="ja">モデルサービスが混み合っているか、サーバーエラーを返しています。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 후 다시 보내세요.</span><span data-lang-block="en" lang="en">Wait a little while, then send again.</span><span data-lang-block="ja" lang="ja">少し時間をおいてから送り直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">모델 서비스가 과부하이거나 서버 오류를 반환합니다.</span><span data-lang-block="en" lang="en">The model service is overloaded or returning server errors.</span><span data-lang-block="ja" lang="ja">モデルサービスが混み合っているか、サーバーエラーを返しています。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">잠시 후 재시도하십시오.</span><span data-lang-block="en" lang="en">Wait a little while, then send again.</span><span data-lang-block="ja" lang="ja">少し時間をおいてから送り直してください。</span></p>
         </article>
         <article class="err-entry" id="timeout-turn">
           <h3 class="err-code"><code><span class="err-br">[</span>TIMEOUT<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">모델이 제시간에 응답하지 않았습니다.</span><span data-lang-block="en" lang="en">The model did not respond in time.</span><span data-lang-block="ja" lang="ja">モデルが時間内に応答しませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내세요. 같은 오류가 반복되면 다른 모델을 선택하세요.</span><span data-lang-block="en" lang="en">Send again. If it keeps timing out, choose another model.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、別のモデルを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">모델이 제때 응답하지 않았습니다.</span><span data-lang-block="en" lang="en">The model did not respond in time.</span><span data-lang-block="ja" lang="ja">モデルが時間内に応答しませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내십시오. 반복되면 다른 모델을 선택하십시오.</span><span data-lang-block="en" lang="en">Send again. If it keeps timing out, choose another model.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、別のモデルを選んでください。</span></p>
         </article>
         <article class="err-entry" id="agy_turn_error">
           <h3 class="err-code"><code><span class="err-br">[</span>AGY_TURN_ERROR<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">Antigravity 모델 호출이 실패했습니다.</span><span data-lang-block="en" lang="en">The call to the Antigravity model failed.</span><span data-lang-block="ja" lang="ja">Antigravity のモデル呼び出しが失敗しました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내세요. 같은 오류가 반복되면 설정 &gt; 모델에서 다른 모델을 선택하세요.</span><span data-lang-block="en" lang="en">Send again. If it happens again, choose another model in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、設定 &gt; モデル で別のモデルを選んでください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">Antigravity 모델 호출에 실패했습니다.</span><span data-lang-block="en" lang="en">The call to the Antigravity model failed.</span><span data-lang-block="ja" lang="ja">Antigravity のモデル呼び出しが失敗しました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내십시오. 반복되면 설정 &gt; 모델에서 다른 모델을 선택하십시오.</span><span data-lang-block="en" lang="en">Send again. If it happens again, choose another model in Settings &gt; Model.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、設定 &gt; モデル で別のモデルを選んでください。</span></p>
         </article>
         <article class="err-entry" id="pi_ai_error">
           <h3 class="err-code"><code><span class="err-br">[</span>PI_AI_ERROR<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">제공자가 호출을 거절했거나 호출 자체가 실패했습니다.</span><span data-lang-block="en" lang="en">The provider refused the call, or the call failed.</span><span data-lang-block="ja" lang="ja">プロバイダーが呼び出しを拒否したか、呼び出しそのものが失敗しました。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">요청 내용을 바꿔 다시 보내세요. 같은 오류가 반복되면 제공자의 서비스 상태를 확인하세요.</span><span data-lang-block="en" lang="en">Send a different request. If it happens again, check the provider's status.</span><span data-lang-block="ja" lang="ja">リクエストの内容を変えて送り直してください。同じエラーが繰り返される場合は、プロバイダーの稼働状況を確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">프로바이더가 호출을 거부했거나 실패했습니다.</span><span data-lang-block="en" lang="en">The provider refused the call, or the call failed.</span><span data-lang-block="ja" lang="ja">プロバイダーが呼び出しを拒否したか、呼び出しそのものが失敗しました。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">요청을 바꿔 다시 보내십시오. 반복되면 프로바이더 상태를 확인하십시오.</span><span data-lang-block="en" lang="en">Send a different request. If it happens again, check the provider's status.</span><span data-lang-block="ja" lang="ja">リクエストの内容を変えて送り直してください。同じエラーが繰り返される場合は、プロバイダーの稼働状況を確認してください。</span></p>
         </article>
         <article class="err-entry" id="invalid_request">
           <h3 class="err-code"><code><span class="err-br">[</span>INVALID_REQUEST<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">제공자가 요청을 거절했습니다. 텍스트만 다루는 모델에 이미지를 보낸 경우가 대표적입니다.</span><span data-lang-block="en" lang="en">The provider rejected the request, for example because an image was sent to a text-only model.</span><span data-lang-block="ja" lang="ja">プロバイダーがリクエストを拒否しました。テキスト専用のモデルに画像を送った場合などが該当します。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">입력 내용을 바꿔 다시 보내세요.</span><span data-lang-block="en" lang="en">Change the input and send again.</span><span data-lang-block="ja" lang="ja">入力内容を変えて送り直してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">프로바이더가 요청을 거부했습니다(예: 텍스트 전용 모델에 이미지 전송).</span><span data-lang-block="en" lang="en">The provider rejected the request, for example because an image was sent to a text-only model.</span><span data-lang-block="ja" lang="ja">プロバイダーがリクエストを拒否しました。テキスト専用のモデルに画像を送った場合などが該当します。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">입력을 바꿔 다시 보내십시오.</span><span data-lang-block="en" lang="en">Change the input and send again.</span><span data-lang-block="ja" lang="ja">入力内容を変えて送り直してください。</span></p>
         </article>
         <article class="err-entry" id="turn_failed">
           <h3 class="err-code"><code><span class="err-br">[</span>TURN_FAILED<span class="err-br">]</span></code></h3>
-          <p class="err-what"><span data-lang-block="ko" lang="ko">마지막 답변이 실패했으며, 앱이 그 이유를 분류하지 못했습니다.</span><span data-lang-block="en" lang="en">The last reply failed, and the app cannot tell why.</span><span data-lang-block="ja" lang="ja">最後の返信が失敗し、アプリではその理由を分類できませんでした。</span></p>
-          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내세요. 같은 오류가 반복되면 로그를 확인하세요.</span><span data-lang-block="en" lang="en">Send again. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
+          <p class="err-what"><span data-lang-block="ko" lang="ko">마지막 답변이 실패했고 원인을 분류하지 못했습니다.</span><span data-lang-block="en" lang="en">The last reply failed, and the app cannot tell why.</span><span data-lang-block="ja" lang="ja">最後の返信が失敗し、アプリではその理由を分類できませんでした。</span></p>
+          <p class="err-do"><span data-lang-block="ko" lang="ko">다시 보내십시오. 반복되면 로그를 확인하십시오.</span><span data-lang-block="en" lang="en">Send again. If it happens again, open Logs.</span><span data-lang-block="ja" lang="ja">もう一度送ってください。同じエラーが繰り返される場合は、ログを確認してください。</span></p>
         </article>
     </div>
   </section>
 
-  <p class="philo-close"><span data-lang-block="ko" lang="ko">안내대로 해도 해결되지 않으면 빨간 막대가 보이도록 화면을 캡처해 <a href="mailto:mino@choam.studio">mino@choam.studio</a>로 보내 주세요.</span><span data-lang-block="en" lang="en">If the steps above don't fix it, take a screenshot that shows the red bar and send it to <a href="mailto:mino@choam.studio">mino@choam.studio</a>.</span><span data-lang-block="ja" lang="ja">手順どおりにしても解決しない場合は、赤いバーが写るようにスクリーンショットを撮り、<a href="mailto:mino@choam.studio">mino@choam.studio</a> までお送りください。</span></p>
+  <p class="philo-close"><span data-lang-block="ko" lang="ko">위 조치로 해결되지 않으면 빨간 막대가 보이도록 화면을 캡처해 <a href="mailto:mino@choam.studio">mino@choam.studio</a>로 보내십시오.</span><span data-lang-block="en" lang="en">If the steps above don't fix it, take a screenshot that shows the red bar and send it to <a href="mailto:mino@choam.studio">mino@choam.studio</a>.</span><span data-lang-block="ja" lang="ja">手順どおりにしても解決しない場合は、赤いバーが写るようにスクリーンショットを撮り、<a href="mailto:mino@choam.studio">mino@choam.studio</a> までお送りください。</span></p>
 </main>
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>&copy; 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
