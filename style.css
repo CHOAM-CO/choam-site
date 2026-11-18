@@ -1591,7 +1591,10 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
   line-height: 1.75;
   color: var(--ash);
 }
-:lang(ko) .err :is(.err-what, .err-do, .err-code) { word-break: keep-all; overflow-wrap: break-word; }
+/* Korean on the error-code page breaks at spaces, never mid-word ("의미/와"): every KO block
+   in the component (intro, headings, entries, closing), keyed on the block's own lang so it
+   holds even when the page itself is EN. A spaceless run (a code, a path) still wraps. */
+.err [data-lang-block="ko"], :lang(ko) .err :is(.err-what, .err-do, .err-code) { word-break: keep-all; overflow-wrap: anywhere; }
 
 /* ---------- Letterbox Chrome Scroll Hide ---------- */
 .mast, .deck, .dl-foot { transition: transform 0.45s var(--slow); }
