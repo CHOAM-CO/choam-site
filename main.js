@@ -164,7 +164,7 @@
       id: 'scheherazade',
       title: 'Scheherazade',
       title_ko: '',
-      status: 'v1.0.5 · Free Desktop Agent & Companion',
+      status: 'v1.1.0 · Free Desktop Agent & Companion',
       headline: 'An agent that takes a thousand and one nights in stride',
       summary: 'She doesn’t forget what you said yesterday, helps with your work, and makes hanging out fun. Swap brains anytime while your memory stays as plain files on your PC—a free desktop app right between an agent and a companion.',
       description: [
@@ -182,7 +182,7 @@
         ]
       ],
       ko: {
-        status: 'v1.0.5 · 무료 데스크톱 에이전트 · 컴패니언',
+        status: 'v1.1.0 · 무료 데스크톱 에이전트 · 컴패니언',
         headline: '천 하룻밤도 거뜬한 에이전트',
         summary: '내가 어제 한 말을 잊지 않고, 옆에서 일도 거들어주며 수다 떨다 보면 어느새 정이 듭니다. 두뇌는 바꿔도 기억은 내 컴퓨터에 그대로 남는 무료 데스크톱 앱입니다.',
         description: [
@@ -201,7 +201,7 @@
         ]
       },
       ja: {
-        status: 'v1.0.5 · 無料デスクトップエージェント & コンパニオン',
+        status: 'v1.1.0 · 無料デスクトップエージェント & コンパニオン',
         headline: '千夜一夜も余裕のエージェント',
         summary: '昨日の言葉を忘れず、作業も手伝いながら話し相手になってくれるうちに愛着が湧いてきます。頭脳を替えても記憶は手元の PC に残る無料デスクトップアプリです。',
         description: [
