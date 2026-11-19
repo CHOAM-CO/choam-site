@@ -338,13 +338,14 @@
       id: '602',
       title: '602',
       title_ko: '',
-      status: 'v2.0.1 · Story Studio & Engine',
+      status: 'v2.0.2 · Story Studio & Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
       summary: 'Stop waiting on game builds just to tweak one line. Playtest how a scene changes across different affection levels or dice rolls right where you write, polish lines with AI, and run your manuscript straight inside the game.',
       description: [
         [
           { display: 'Waiting on a game build just to fix one line of dialogue is a waste of life.' },
-          'Even before a game client exists, click the line you just wrote and switch affection levels or dice results to playtest the scene on the spot. Even across a thousand branches, a writer can finish the story alone without losing track.'
+          'Even before a game client exists, click the line you just wrote and switch affection levels or dice results to playtest the scene on the spot. Even across a thousand branches, a writer can finish the story alone without losing track.',
+          'Studio v2.0.2 adds SHA-256 verified in-app updates, keeps the top bar fixed while you scroll, aligns line numbers across all six themes, and disables undo or redo when those actions are unavailable.'
         ],
         [
           { display: 'Polish stuck scenes with AI, and catch dead choices before anyone plays.' },
@@ -356,13 +357,14 @@
         ]
       ],
       ko: {
-        status: 'v2.0.1 · 스토리 작업실 & 엔진',
+        status: 'v2.0.2 · 스토리 작업실 & 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
         summary: '대사 한 줄 고치자고 게임 빌드를 기다릴 순 없으니까요. 호감도나 주사위 결과에 따라 달라지는 대사를 쓴 자리에서 바로 돌려보고, 다 쓴 원고는 옮겨 적지 않고 그대로 게임에 올립니다.',
         description: [
           [
             { display: '대사 한 줄 고치자고 게임 빌드 기다리는 건 너무 아깝잖아요.' },
-            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.'
+            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.',
+            'Studio v2.0.2에서는 SHA-256 검증을 거치는 앱 내 업데이트를 지원합니다. 스크롤해도 상단 바가 고정되고, 6종 테마 모두에서 줄 번호가 본문에 맞춰지며, 실행 취소와 다시 실행은 사용할 수 있을 때만 활성화됩니다.'
           ],
           [
             { display: '막히는 장면은 AI와 같이 고치고, 못 들어가는 선택지는 켜기 전에 잡으니까요.' },
@@ -375,13 +377,14 @@
         ]
       },
       ja: {
-        status: 'v2.0.1 · ストーリー作業室 & エンジン',
+        status: 'v2.0.2 · ストーリー作業室 & エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
         summary: 'セリフを一行直すたびにゲームビルドは待てません。好感度やダイス結果で変わる会話を書いたその場ですぐ動かして確かめ、仕上がった原稿はそのままゲームに乗せられます。',
         description: [
           [
             { display: 'セリフを一行直すためにゲームビルドを待つのはもったいないですから。' },
-            'ゲーム画面がまだなくても、今書いたセリフの横で好感度やダイス結果を変えながらその場ですぐ遊んで確かめられます。選択肢が千に分かれても、作家ひとりで迷わず最後まで書き切れます。'
+            'ゲーム画面がまだなくても、今書いたセリフの横で好感度やダイス結果を変えながらその場ですぐ遊んで確かめられます。選択肢が千に分かれても、作家ひとりで迷わず最後まで書き切れます。',
+            'Studio v2.0.2 は SHA-256 検証付きのアプリ内アップデートに対応しました。スクロールしても上部バーがずれず、全 6 テーマで行番号が本文と揃い、取り消し・やり直しは操作できるときだけ有効になります。'
           ],
           [
             { display: '詰まった場面は AI と一緒に直し、入れない選択肢は起動前に見抜けます。' },

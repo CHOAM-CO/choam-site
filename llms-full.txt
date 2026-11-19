@@ -55,15 +55,34 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 - **Proven in**: Donguri Ryokan (https://choam.studio/pages/donguri-ryokan)
 - **Download & Install**: https://choam.studio/download · https://choam.studio/install
 
-### Project 02: 602 · `v2.0.1`
+### Project 02: 602 · `v2.0.2`
 - **URL**: https://choam.studio/pages/602
 - **Name Origin**: Named after the 602nd night of *One Thousand and One Nights*, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.
-- **Category**: Story authoring desktop app (`602 Studio v2.0.1`) and deterministic C11 runtime (`602 Story Engine v2.0.1`)
+- **Category**: Story authoring desktop app (`602 Studio v2.0.2`) and deterministic C11 runtime (`602 Story Engine v2.0.2`)
 - **Core Concept**: "A story engine that won't get lost in 1,024 branches." (Korean: 1024가지 분기에도 헤매지 않는 스토리 엔진)
-- **What It Does (`v2.0.1`)**:
+- **What It Does (`v2.0.2`)**:
   - Branching narratives grow as $2^n$ (16 paths at 4 binary choices, 1,024 at 10). 602 pulls branching logic and state checks out of game client code into plain, Git-friendly Markdown folders (`project.json`, `declarations.md`, `events/*.md`, `translations.json`).
-  - **`602 Studio v2.0.1`**: Native desktop workspace (macOS notarized `.dmg`, Windows `setup.exe`, Linux `.zip`) with a 3-panel editor, chapter & line reference rails with one-click reference copy, `@` state variable completion & `/game` contract peek, 6 house themes (`602 Default`, `Sera`, `Paris`, `Vancouver`, `Shanghai`, `Seoul`) with frosted glassmorphism and backbone/corridor Structure Map routing, 1-turn simulation player, backward reachability checks, 1:1 translation view, `.602.json` bundle compiler, `.602.zip` archive import/export, and a local `--mcp` server that uses `hashline` + `base_revision` checks so writers and AI agents can edit without line-drift collisions.
-  - **`602 Story Engine v2.0.1`**: Host-driven deterministic C11 shared library (`story_engine_v2.h`, C ABI v2 Group A & Group B functions) that links into C++, C# (Unity), and Godot through plain UTF-8 JSON calls.
+  - **`602 Studio v2.0.2`**: Native desktop workspace (macOS notarized `.dmg`, Windows `setup.exe`, Linux `.zip`) with a 3-panel editor, chapter & line reference rails with one-click reference copy, `@` state variable completion & `/game` contract peek, 6 house themes (`602 Default`, `Sera`, `Paris`, `Vancouver`, `Shanghai`, `Seoul`) with frosted glassmorphism and backbone/corridor Structure Map routing, 1-turn simulation player, backward reachability checks, 1:1 translation view, `.602.json` bundle compiler, `.602.zip` archive import/export, and a local `--mcp` server that uses `hashline` + `base_revision` checks so writers and AI agents can edit without line-drift collisions.
+  - **`602 Story Engine v2.0.2`**: Host-driven deterministic C11 shared library (`story_engine_v2.h`, C ABI v2 Group A & Group B functions) that links into C++, C# (Unity), and Godot through plain UTF-8 JSON calls.
+- **v2.0.2 Studio changes (en)**:
+  - **Verified automatic and manual in-app updates**: Studio verifies downloads against SHA-256 checksums from `CHOAM-CO/602-releases`. The top banner and App Settings provide controls, the server persists the automatic check toggle and dismissed version, and an unsaved draft guard blocks update application. Linux swaps the installation in place with rollback, Windows hands off to the Setup installer, and macOS opens the verified DMG in Finder.
+  - **Viewport scroll lock and inner pane overscroll containment**: Scrolling past the end of a pane no longer shifts the top bar.
+  - **Line-number gutter alignment**: CodeMirror 6 block spacer decorations and matched gutter padding keep line numbers aligned across all six city themes.
+  - **Project undo/redo availability**: Toolbar buttons are disabled when `can_undo` or `can_redo` indicates the corresponding action is unavailable.
+  - **Compatibility**: `602 Story Engine` (`libstory_engine_v2`), `story_engine_v2.h`, and `.602.json` bundles remain binary-compatible with v2.0.0 and v2.0.1.
+- **v2.0.2 Studio 변경점 (ko)**:
+  - **앱 내 자동 및 수동 업데이트**: `CHOAM-CO/602-releases`의 SHA-256 체크섬으로 다운로드를 검증합니다. 상단 배너와 앱 설정에서 업데이트를 확인하고 진행할 수 있으며, 서버에 자동 확인 설정과 알림을 닫은 버전을 저장합니다. 저장하지 않은 초안이 있으면 업데이트 적용을 막습니다. Linux는 기존 설치를 제자리에서 교체하고 실패 시 되돌립니다. Windows는 Setup 설치 프로그램으로 넘기고, macOS는 검증된 DMG를 Finder에서 엽니다.
+  - **뷰포트 스크롤 잠금**: 스크롤이 내부 패널 밖으로 전파되지 않아 상단 바가 제자리에 있습니다.
+  - **줄 번호 정렬**: CodeMirror 6 블록 스페이서 데코레이션과 줄 번호 여백의 패딩을 맞춰 6종 도시 테마에서 줄 번호를 본문과 나란히 표시합니다.
+  - **프로젝트 실행 취소 및 다시 실행 상태**: `can_undo`와 `can_redo` 값에 따라 사용할 수 없는 도구 모음 버튼을 비활성화합니다.
+  - **호환성**: `602 Story Engine`(`libstory_engine_v2`), `story_engine_v2.h`, `.602.json` 번들은 v2.0.0 및 v2.0.1과 바이너리 호환성을 유지합니다.
+- **v2.0.2 Studio の変更点 (ja)**:
+  - **アプリ内の自動・手動アップデート**: `CHOAM-CO/602-releases` の SHA-256 チェックサムでダウンロードを検証します。上部バナーやアプリ設定から操作でき、自動確認の設定と通知を閉じたバージョンはサーバー側に保存されます。未保存の下書きがある場合は更新を適用しません。Linux ではその場で置き換え、失敗時は元に戻します。Windows では Setup インストーラーに引き継ぎ、macOS では検証済みの DMG を Finder で開きます。
+  - **ビューポートのスクロール固定**: 内部ペインのオーバースクロールを抑え、上部バーのずれを防ぎます。
+  - **行番号ガターの位置合わせ**: CodeMirror 6 のブロックスペーサー装飾とガターのパディングを揃え、全 6 都市テーマで行番号と本文の位置を合わせます。
+  - **プロジェクトの取り消し・やり直しの可否**: `can_undo` と `can_redo` に応じて、使えないツールバーのボタンを無効にします。
+  - **互換性**: `602 Story Engine`（`libstory_engine_v2`）、`story_engine_v2.h`、`.602.json` バンドルは v2.0.0 および v2.0.1 とのバイナリ互換性を維持します。
+- **Release History (v2.0.2, v2.0.1, v2.0.0)**: https://choam.studio/602/docs#license
 - **Proven in**: Donguri Ryokan (https://choam.studio/pages/donguri-ryokan), 선잠 DOZE (https://choam.studio/pages/seonjam)
 - **Download & License**: https://choam.studio/602/download (`CHOAM Community License 1.0`: free to start, 0% royalty on the first KRW 10,000,000 of quarterly Net Revenue per product, and a 1% self-reported royalty only on the amount above KRW 10,000,000)
 - **Documentation**: https://choam.studio/602/docs
