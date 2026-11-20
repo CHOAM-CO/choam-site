@@ -117,9 +117,13 @@ writeFileSync('602-release.json', `${JSON.stringify({ tag_name: tag, assets }, n
 const bare = tag.replace(/^v/, '');
 const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Documentation|arm64|x86_64|x64|portable)';
 const VER_2_RE = new RegExp(`\\bv2\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
+// Preserve explicitly historical HTML lines and release-note summaries.
+const syncVersions = raw => raw.split('\n').map(line =>
+  /data-no-ver-sync|^\s*['"]Studio v2\.0\.2|^\s*- \*\*(?:v2\.0\.2|Release (?:Notes|History) \()/i.test(line)
+    ? line : line.replace(VER_2_RE, tag)
+).join('\n');
 const slotKeys = ['studio-mac', 'studio-win', 'studio-linux', 'engine-mac', 'engine-win', 'engine-linux', 'headers-zip', 'headers-h', 'docs-zip', 'docs-md'];
-let dlHtml = readFileSync('602/download.html', 'utf8')
-  .replace(VER_2_RE, tag)
+let dlHtml = syncVersions(readFileSync('602/download.html', 'utf8'))
   .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
 slotKeys.forEach((key, idx) => {
   const primary = assets[idx * 2];
@@ -143,8 +147,7 @@ writeFileSync('602/download.html', dlHtml);
 
 for (const file of ['index.html', 'pages/602.html', 'main.js', 'llms.txt', 'llms-full.txt']) {
   const raw = readFileSync(file, 'utf8');
-  const next = raw
-    .replace(VER_2_RE, tag)
+  const next = syncVersions(raw)
     .replace(/"softwareVersion":\s*"2\.\d+\.\d+[^"]*"/g, `"softwareVersion": "${bare}"`);
   if (next !== raw) writeFileSync(file, next);
 }
