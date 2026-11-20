@@ -55,15 +55,15 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 - **Proven in**: Donguri Ryokan (https://choam.studio/pages/donguri-ryokan)
 - **Download & Install**: https://choam.studio/download · https://choam.studio/install
 
-### Project 02: 602 · `v2.0.1`
+### Project 02: 602 · `v2.0.2`
 - **URL**: https://choam.studio/pages/602
 - **Name Origin**: Named after the 602nd night of *One Thousand and One Nights*, as Borges tells it, when Scheherazade starts telling the king her own story, the one that began all the others, and the tale loops back on itself like a repeat sign in a score.
-- **Category**: Story authoring desktop app (`602 Studio v2.0.1`) and deterministic C11 runtime (`602 Story Engine v2.0.1`)
+- **Category**: Story authoring desktop app (`602 Studio v2.0.2`) and deterministic C11 runtime (`602 Story Engine v2.0.2`)
 - **Core Concept**: "A story engine that won't get lost in 1,024 branches." (Korean: 1024가지 분기에도 헤매지 않는 스토리 엔진)
-- **What It Does (`v2.0.1`)**:
+- **What It Does (`v2.0.2`)**:
   - Branching narratives grow as $2^n$ (16 paths at 4 binary choices, 1,024 at 10). 602 pulls branching logic and state checks out of game client code into plain, Git-friendly Markdown folders (`project.json`, `declarations.md`, `events/*.md`, `translations.json`).
-  - **`602 Studio v2.0.1`**: Native desktop workspace (macOS notarized `.dmg`, Windows `setup.exe`, Linux `.zip`) with a 3-panel editor, chapter & line reference rails with one-click reference copy, `@` state variable completion & `/game` contract peek, 6 house themes (`602 Default`, `Sera`, `Paris`, `Vancouver`, `Shanghai`, `Seoul`) with frosted glassmorphism and backbone/corridor Structure Map routing, 1-turn simulation player, backward reachability checks, 1:1 translation view, `.602.json` bundle compiler, `.602.zip` archive import/export, and a local `--mcp` server that uses `hashline` + `base_revision` checks so writers and AI agents can edit without line-drift collisions.
-  - **`602 Story Engine v2.0.1`**: Host-driven deterministic C11 shared library (`story_engine_v2.h`, C ABI v2 Group A & Group B functions) that links into C++, C# (Unity), and Godot through plain UTF-8 JSON calls.
+  - **`602 Studio v2.0.2`**: Native desktop workspace (macOS notarized `.dmg`, Windows `setup.exe`, Linux `.zip`) with a 3-panel editor, chapter & line reference rails with one-click reference copy, `@` state variable completion & `/game` contract peek, 6 house themes (`602 Default`, `Sera`, `Paris`, `Vancouver`, `Shanghai`, `Seoul`) with frosted glassmorphism and backbone/corridor Structure Map routing, 1-turn simulation player, backward reachability checks, 1:1 translation view, `.602.json` bundle compiler, `.602.zip` archive import/export, and a local `--mcp` server that uses `hashline` + `base_revision` checks so writers and AI agents can edit without line-drift collisions.
+  - **`602 Story Engine v2.0.2`**: Host-driven deterministic C11 shared library (`story_engine_v2.h`, C ABI v2 Group A & Group B functions) that links into C++, C# (Unity), and Godot through plain UTF-8 JSON calls.
 - **Proven in**: Donguri Ryokan (https://choam.studio/pages/donguri-ryokan), 선잠 DOZE (https://choam.studio/pages/seonjam)
 - **Download & License**: https://choam.studio/602/download (`CHOAM Community License 1.0`: free to start, 0% royalty on the first KRW 10,000,000 of quarterly Net Revenue per product, and a 1% self-reported royalty only on the amount above KRW 10,000,000)
 - **Documentation**: https://choam.studio/602/docs

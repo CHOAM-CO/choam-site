@@ -338,7 +338,7 @@
       id: '602',
       title: '602',
       title_ko: '',
-      status: 'v2.0.1 · Story Studio & Engine',
+      status: 'v2.0.2 · Story Studio & Engine',
       headline: 'A story engine that won’t get lost in 1,024 branches',
       summary: 'Stop waiting on game builds just to tweak one line. Playtest how a scene changes across different affection levels or dice rolls right where you write, polish lines with AI, and run your manuscript straight inside the game.',
       description: [
@@ -356,7 +356,7 @@
         ]
       ],
       ko: {
-        status: 'v2.0.1 · 스토리 작업실 & 엔진',
+        status: 'v2.0.2 · 스토리 작업실 & 엔진',
         headline: '1024가지 분기에도 헤매지 않는 스토리 엔진',
         summary: '대사 한 줄 고치자고 게임 빌드를 기다릴 순 없으니까요. 호감도나 주사위 결과에 따라 달라지는 대사를 쓴 자리에서 바로 돌려보고, 다 쓴 원고는 옮겨 적지 않고 그대로 게임에 올립니다.',
         description: [
@@ -375,7 +375,7 @@
         ]
       },
       ja: {
-        status: 'v2.0.1 · ストーリー作業室 & エンジン',
+        status: 'v2.0.2 · ストーリー作業室 & エンジン',
         headline: '1024通りの分岐でも迷わないストーリーエンジン',
         summary: 'セリフを一行直すたびにゲームビルドは待てません。好感度やダイス結果で変わる会話を書いたその場ですぐ動かして確かめ、仕上がった原稿はそのままゲームに乗せられます。',
         description: [
