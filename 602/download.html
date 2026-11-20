@@ -111,7 +111,7 @@
       <span data-lang-block="en">Download 602</span>
       <span data-lang-block="ja">602 ダウンロード</span>
     </h1>
-    <p class="p602-lead" data-lang-block="ko">602 v2.0.2은 시나리오 제작 앱 <strong>602 Studio</strong>와 C ABI v2 네이티브 런타임 <strong>602 Story Engine</strong>, 헤더 파일, 오프라인 문서를 함께 담고 있습니다. 모든 패키지는 CHOAM Community License 1.0을 따릅니다.</p>
+    <p class="p602-lead" data-lang-block="ko">602 v2.0.2에는 시나리오 제작 앱 <strong>602 Studio</strong>와 C ABI v2 네이티브 런타임 <strong>602 Story Engine</strong>, 헤더 파일, 오프라인 문서가 들어 있습니다. 모든 패키지는 CHOAM Community License 1.0을 따릅니다.</p>
     <p class="p602-lead" data-lang-block="en">602 v2.0.2 brings together the <strong>602 Studio</strong> desktop app, the <strong>602 Story Engine</strong> C ABI v2 runtime, headers, and offline documentation under the CHOAM Community License 1.0.</p>
     <p class="p602-lead" data-lang-block="ja">602 v2.0.2 には、シナリオ制作アプリ <strong>602 Studio</strong> と C ABI v2 ネイティブランタイム <strong>602 Story Engine</strong>、ヘッダー、オフライン用ドキュメントが含まれます。すべて CHOAM Community License 1.0 のもとで提供されます。</p>
 
@@ -121,12 +121,18 @@
         <p class="p602-ov-desc" data-lang-block="ko">시나리오 집필과 1턴 시뮬레이션, .602.json 컴파일을 한곳에서 다루는 데스크톱 앱입니다. 원고 폴더와 .602.zip 압축본을 자유롭게 오가며, 로컬 MCP로 AI 에이전트와 함께 작업할 수 있습니다.</p>
         <p class="p602-ov-desc" data-lang-block="en">A desktop app for writing, playtesting turn by turn, and compiling .602.json bundles, moving freely between Markdown folders and .602.zip archives with a local MCP bridge.</p>
         <p class="p602-ov-desc" data-lang-block="ja">シナリオ執筆から 1 ターン再生、.602.json コンパイルまでを一箇所でこなすデスクトップアプリです。原稿フォルダと .602.zip を行き来しながら、ローカル MCP で AI エージェントと共同編集できます。</p>
+        <p class="p602-ov-desc" data-lang-block="ko" data-no-ver-sync><strong>v2.0.2 주요 변경점:</strong> SHA-256 검증을 거치는 앱 내 자동 및 수동 업데이트, 상단 바를 고정하는 스크롤 잠금, 6종 테마의 줄 번호 정렬, 실행 취소 및 다시 실행 버튼 상태 표시를 추가했습니다. <a href="docs#license">릴리스 노트</a></p>
+        <p class="p602-ov-desc" data-lang-block="en" data-no-ver-sync><strong>New in v2.0.2:</strong> SHA-256 verified automatic and manual in-app updates, scroll lock to keep the top bar in place, aligned line numbers across all six themes, and toolbar buttons that show when project undo and redo are available. <a href="docs#license">Release notes</a></p>
+        <p class="p602-ov-desc" data-lang-block="ja" data-no-ver-sync><strong>v2.0.2 の変更点:</strong> SHA-256 検証付きのアプリ内自動・手動アップデート、上部バーのずれを防ぐスクロール固定、全 6 テーマでの行番号の位置合わせ、取り消し・やり直しが可能なときだけ有効になるボタンを追加しました。<a href="docs#license">リリースノート</a></p>
       </div>
       <div class="p602-ov-card">
         <div class="p602-ov-top"><h2 class="p602-ov-title">602 Story Engine</h2><span class="p602-ov-ver">v2.0.2 · CHOAM Community License 1.0</span></div>
         <p class="p602-ov-desc" data-lang-block="ko">.602.json 번들을 게임 안에서 돌리는 네이티브 공유 런타임과 C ABI v2 헤더(story_engine_v2.h), v2.0.2 기술 레퍼런스 문서입니다.</p>
         <p class="p602-ov-desc" data-lang-block="en">The native shared runtime that runs .602.json bundles inside your game, alongside the C ABI v2 header (story_engine_v2.h) and v2.0.2 reference docs.</p>
         <p class="p602-ov-desc" data-lang-block="ja">.602.json バンドルをゲーム内で動かすネイティブ共有ランタイムと C ABI v2 ヘッダー（story_engine_v2.h）、v2.0.2 技術リファレンスです。</p>
+        <p class="p602-ov-desc" data-lang-block="ko" data-no-ver-sync><code>libstory_engine_v2</code>, <code>story_engine_v2.h</code>, <code>.602.json</code> 번들은 v2.0.0 및 v2.0.1과 바이너리 호환성을 유지합니다.</p>
+        <p class="p602-ov-desc" data-lang-block="en" data-no-ver-sync><code>libstory_engine_v2</code>, <code>story_engine_v2.h</code>, and <code>.602.json</code> bundles remain binary-compatible with v2.0.0 and v2.0.1.</p>
+        <p class="p602-ov-desc" data-lang-block="ja" data-no-ver-sync><code>libstory_engine_v2</code>、<code>story_engine_v2.h</code>、<code>.602.json</code> バンドルは、v2.0.0 および v2.0.1 とのバイナリ互換性を維持します。</p>
       </div>
     </div>
   </header>
@@ -548,7 +554,7 @@ Get-FileHash .\602-Studio-v2.0.2-windows-x86_64-setup.exe, .\story-engine-v2.0.2
 
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>© 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v22-20261119a"></script>
+<script src="../main.js?v=v22-20261120a"></script>
 <script src="../602-portal.js?v=v22-20261118a"></script>
 </body>
 </html>
