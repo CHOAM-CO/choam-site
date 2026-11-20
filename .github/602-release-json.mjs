@@ -119,7 +119,7 @@ const ASSET_SUFFIX_STOP = '(?:macos|mac|osx|windows|win|linux|headers|docs|Docum
 const VER_2_RE = new RegExp(`\\bv2\\.\\d+\\.\\d+(?:-(?!${ASSET_SUFFIX_STOP}\\b)[0-9A-Za-z.]+)*\\b`, 'g');
 // Preserve explicitly historical HTML lines and release-note summaries.
 const syncVersions = raw => raw.split('\n').map(line =>
-  /data-no-ver-sync|^\s*['"]Studio v2\.0\.2|^\s*- \*\*(?:v2\.0\.2|Release (?:Notes|History) \()/i.test(line)
+  /data-no-ver-sync|^\s*['"]Studio v2\.\d+\.\d+|^\s*- \*\*(?:v2\.\d+\.\d+|Release (?:Notes|History) \()/i.test(line)
     ? line : line.replace(VER_2_RE, tag)
 ).join('\n');
 const slotKeys = ['studio-mac', 'studio-win', 'studio-linux', 'engine-mac', 'engine-win', 'engine-linux', 'headers-zip', 'headers-h', 'docs-zip', 'docs-md'];
