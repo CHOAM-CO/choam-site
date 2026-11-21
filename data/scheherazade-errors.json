@@ -1,0 +1,413 @@
+{
+  "source": {
+    "generated": "2026-11-21"
+  },
+  "copy": {
+    "title": "Scheherazade error codes | CHOAM",
+    "description": "Every error bar in Scheherazade begins with a code in square brackets. This page explains what each code means and what to do next.",
+    "kicker": {
+      "ko": "세헤라자드 · 오류 코드",
+      "en": "Scheherazade · Error codes",
+      "ja": "Scheherazade · エラーコード"
+    },
+    "heading": {
+      "ko": "오류 코드",
+      "en": "Error codes",
+      "ja": "エラーコード"
+    },
+    "intro": {
+      "ko": "세헤라자드 빨간 막대의 오류는 대괄호 안의 코드로 시작합니다. 아래에서 같은 코드의 의미와 조치를 확인하십시오.",
+      "en": "Every error in Scheherazade's red bar begins with a code in square brackets. Find the same code below to see what happened and what to do next.",
+      "ja": "Scheherazade の赤いバーに表示されるエラーは、必ず角かっこで囲まれたコードから始まります。下の一覧で同じコードを探すと、何が起きたのかと、どうすればよいかを確認できます。"
+    },
+    "groups": {
+      "agent": {
+        "ko": "에이전트 시작 실패와 중단",
+        "en": "When the agent doesn't start or stops",
+        "ja": "エージェントが起動しない・止まったとき"
+      },
+      "turn": {
+        "ko": "마지막 답변 실패",
+        "en": "When the last reply fails",
+        "ja": "最後の返信が失敗したとき"
+      }
+    },
+    "closing": {
+      "ko": "위 조치로 해결되지 않으면 빨간 막대가 보이도록 화면을 캡처해 {link}로 보내십시오.",
+      "en": "If the steps above don't fix it, take a screenshot that shows the red bar and send it to {link}.",
+      "ja": "手順どおりにしても解決しない場合は、赤いバーが写るようにスクリーンショットを撮り、{link} までお送りください。"
+    }
+  },
+  "groups": [
+    {
+      "id": "agent",
+      "codes": [
+        {
+          "code": "cli_login_expired",
+          "meaning": {
+            "en": "Claude Code login expired."
+          },
+          "action": {
+            "en": "Run `claude` once in a terminal to refresh it, or log in again from the Model & Providers tab."
+          }
+        },
+        {
+          "code": "cli_login_missing",
+          "meaning": {
+            "en": "No Claude Code login was found on this machine."
+          },
+          "action": {
+            "en": "Log in from the Model & Providers tab, or run `claude` once in a terminal."
+          }
+        },
+        {
+          "code": "cli_credentials_unreadable",
+          "meaning": {
+            "en": "The Claude Code login could not be read."
+          },
+          "action": {
+            "en": "Try again. If it keeps failing, log in again from the Model & Providers tab."
+          }
+        },
+        {
+          "code": "credentials_missing",
+          "meaning": {
+            "en": "The key for the selected model connection is missing."
+          },
+          "action": {
+            "en": "Enter it in the Model & Providers tab."
+          }
+        },
+        {
+          "code": "model_missing",
+          "meaning": {
+            "en": "No model is selected for this connection."
+          },
+          "action": {
+            "en": "Pick one in the Model & Providers tab."
+          }
+        },
+        {
+          "code": "config_incomplete",
+          "meaning": {
+            "en": "The proxy address is missing."
+          },
+          "action": {
+            "en": "Enter the Base URL in the Model & Providers tab."
+          }
+        },
+        {
+          "code": "lane_unavailable",
+          "meaning": {
+            "en": "A connected service could not be used."
+          },
+          "action": {
+            "en": "Recheck its key and model in the Model & Providers tab."
+          }
+        },
+        {
+          "code": "timeout_boot_stage",
+          "meaning": {
+            "en": "The boot stalled before the engine started."
+          },
+          "action": {
+            "en": "Open Logs. Restart the app; if it repeats, check the engine settings."
+          }
+        },
+        {
+          "code": "timeout_engine_spawn",
+          "meaning": {
+            "en": "The engine did not start in time."
+          },
+          "action": {
+            "en": "Open Logs. Restart the app; if it repeats, pick another model or provider."
+          }
+        },
+        {
+          "code": "timeout_no_heartbeat",
+          "meaning": {
+            "en": "The agent booted but never connected."
+          },
+          "action": {
+            "en": "Open Logs. Restart the app; if it repeats, check the channel connection."
+          }
+        },
+        {
+          "code": "timeout",
+          "meaning": {
+            "en": "Can't confirm whether the agent started."
+          },
+          "action": {
+            "en": "Wait a moment, then click Check status again."
+          }
+        },
+        {
+          "code": "key_error",
+          "meaning": {
+            "en": "Couldn't read the stored key."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. If it keeps happening, double-check the values you entered at setup."
+          }
+        },
+        {
+          "code": "login_required",
+          "meaning": {
+            "en": "This model connection needs you to log in."
+          },
+          "action": {
+            "en": "Log in on the Engine page. The agent starts by itself once you are signed in."
+          }
+        },
+        {
+          "code": "provider_not_wired",
+          "meaning": {
+            "en": "The model connection you chose isn't ready yet."
+          },
+          "action": {
+            "en": "Switch the model to Claude on the Engine page, then quit and reopen the app."
+          }
+        },
+        {
+          "code": "model_selection_failed",
+          "meaning": {
+            "en": "The selected model or effort was rejected."
+          },
+          "action": {
+            "en": "Pick a different model or effort in the model picker on the Engine page."
+          }
+        },
+        {
+          "code": "cli_missing",
+          "meaning": {
+            "en": "The Antigravity CLI could not be installed."
+          },
+          "action": {
+            "en": "Check your internet connection, then quit the app and reopen it."
+          }
+        },
+        {
+          "code": "proxy_unavailable",
+          "meaning": {
+            "en": "The local proxy this model connection needs did not come up, and the agent was not started rather than routed somewhere unverified."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. If it keeps happening, switch the model connection on the Engine page."
+          }
+        },
+        {
+          "code": "ollama_unavailable",
+          "meaning": {
+            "en": "The local Ollama daemon is not running, so there is nothing for the agent to talk to."
+          },
+          "action": {
+            "en": "Start Ollama, confirm the model you picked is pulled (`ollama list`), then quit this app and reopen it."
+          }
+        },
+        {
+          "code": "app_files_missing",
+          "meaning": {
+            "en": "Part of the agent's own installation is missing."
+          },
+          "action": {
+            "en": "Reinstall the app. Nothing you entered is lost -- your settings and memory live outside the app."
+          }
+        },
+        {
+          "code": "harness_stale",
+          "meaning": {
+            "en": "The agent's instruction files couldn't be updated for this version."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. Reopening retries the update, and the agent starts again once it succeeds."
+          }
+        },
+        {
+          "code": "app_written_damaged",
+          "meaning": {
+            "en": "The record of your edited files is damaged."
+          },
+          "action": {
+            "en": "Reset it. Your edits stay."
+          }
+        },
+        {
+          "code": "harness_error",
+          "meaning": {
+            "en": "The agent's delegation instructions couldn't be updated."
+          },
+          "action": {
+            "en": "Quit the app and reopen it to retry. If it still fails, open Logs."
+          }
+        },
+        {
+          "code": "spawn_failed",
+          "meaning": {
+            "en": "The agent could not be started at all."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. If it keeps happening, reinstall the app."
+          }
+        },
+        {
+          "code": "crash_loop",
+          "meaning": {
+            "en": "The agent's process keeps exiting repeatedly. The exact cause isn't confirmed."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. If it keeps happening, double-check the values you entered at setup."
+          }
+        },
+        {
+          "code": "engine_start_failed",
+          "meaning": {
+            "en": "The engine failed to start."
+          },
+          "action": {
+            "en": "On the Engine page, pick another model or turn a provider off, then start the agent again."
+          }
+        },
+        {
+          "code": "agent_exited",
+          "meaning": {
+            "en": "The agent started and then stopped unexpectedly."
+          },
+          "action": {
+            "en": "Click Check status again to see if it came back on its own. If not, quit the app and reopen it."
+          }
+        },
+        {
+          "code": "stop_unconfirmed",
+          "meaning": {
+            "en": "The agent was asked to stop and did not confirm it had -- it may still be running."
+          },
+          "action": {
+            "en": "Quit the app and reopen it. That clears the old process for certain."
+          }
+        },
+        {
+          "code": "discord_token_bad",
+          "meaning": {
+            "en": "The Discord bot token is missing or was rejected."
+          },
+          "action": {
+            "en": "Go back to the token step and paste a new token."
+          }
+        },
+        {
+          "code": "slack_token_bad",
+          "meaning": {
+            "en": "A Slack token is missing or was rejected. Slack uses two -- a bot token and an app-level token -- and either one can be the problem."
+          },
+          "action": {
+            "en": "Re-check both Slack tokens in Channels, then quit and reopen the app."
+          }
+        },
+        {
+          "code": "telegram_token_bad",
+          "meaning": {
+            "en": "The Telegram bot token is missing or was rejected."
+          },
+          "action": {
+            "en": "Re-check the token from BotFather in Channels, then quit and reopen the app."
+          }
+        },
+        {
+          "code": "channel_token_error",
+          "meaning": {
+            "en": "The stored chat-service token could not be read. This is the computer refusing to unseal it -- the token itself may be perfectly good."
+          },
+          "action": {
+            "en": "Quit the app and reopen it, and allow the credential prompt if one appears. If it keeps happening, re-save the token in Channels."
+          }
+        },
+        {
+          "code": "unknown",
+          "meaning": {
+            "en": "The agent failed to start."
+          },
+          "action": {
+            "en": "Wait a moment and click Check status again. If it keeps happening, quit the app and reopen it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "turn",
+      "codes": [
+        {
+          "code": "RATE_LIMIT",
+          "meaning": {
+            "en": "The model service says a usage or rate limit was reached."
+          },
+          "action": {
+            "en": "Wait a little and send again; pick another model if needed."
+          }
+        },
+        {
+          "code": "AUTH",
+          "meaning": {
+            "en": "The model connection's login is expired or rejected."
+          },
+          "action": {
+            "en": "Log in again."
+          }
+        },
+        {
+          "code": "SERVER",
+          "meaning": {
+            "en": "The model service is overloaded or returning server errors."
+          },
+          "action": {
+            "en": "Try again in a little while."
+          }
+        },
+        {
+          "code": "TIMEOUT",
+          "meaning": {
+            "en": "The model did not answer in time."
+          },
+          "action": {
+            "en": "Send again; pick another model if it repeats."
+          }
+        },
+        {
+          "code": "AGY_TURN_ERROR",
+          "meaning": {
+            "en": "The Antigravity model call failed."
+          },
+          "action": {
+            "en": "Send again; if it repeats, pick another model in the Model & Providers tab."
+          }
+        },
+        {
+          "code": "PI_AI_ERROR",
+          "meaning": {
+            "en": "The provider refused or failed the call."
+          },
+          "action": {
+            "en": "Send a different request; if it repeats, check the provider's status."
+          }
+        },
+        {
+          "code": "INVALID_REQUEST",
+          "meaning": {
+            "en": "The provider rejected the request (for example, an image on a text-only model)."
+          },
+          "action": {
+            "en": "Change the input and send again."
+          }
+        },
+        {
+          "code": "TURN_FAILED",
+          "meaning": {
+            "en": "The last reply failed and the app cannot classify why."
+          },
+          "action": {
+            "en": "Send again; if it repeats, open Logs."
+          }
+        }
+      ]
+    }
+  ]
+}

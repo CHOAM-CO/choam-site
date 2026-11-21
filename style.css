@@ -1542,6 +1542,61 @@ html:not([lang="ko"]) [data-lang-block="ko"], html:not([lang="ja"]) [data-lang-b
 :lang(ko) .inst :is(.inst-lead, .inst-status, .inst-h3, .inst-req, .inst-notes, .inst-steps) { word-break: keep-all; overflow-wrap: break-word; }
 :lang(ko) .inst-req dd b, :lang(ko) .philo-sec .inst-links a { letter-spacing: 0.08em; }
 
+/* Scheherazade error code FAQ (scheherazade/errors.html) */
+.err code {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.08em 0.36em;
+  background: var(--elevated);
+  border: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.err-list { margin-top: 28px; border-top: 1px solid var(--line); }
+.err-entry {
+  position: relative;
+  padding: 17px 0 17px 18px;
+  border-bottom: 1px solid var(--line-row);
+  scroll-margin-top: calc(var(--mast-h) + 28px);
+}
+.err-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17px;
+  bottom: 17px;
+  width: 2px;
+  background: transparent;
+}
+.err-entry:target { background: var(--accent-wash); }
+.err-entry:target::before { background: var(--ember); }
+.err-list .err-entry:last-child { border-bottom: 0; }
+.err-code { font-weight: 650; font-size: 15px; line-height: 1.45; letter-spacing: 0.08em; color: var(--bone); }
+.err-code code {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 1em;
+  letter-spacing: inherit;
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+.err-br { color: var(--dim); }
+.err-what { margin-top: 7px; }
+.err-do { margin-top: 2px; font-size: 16px; line-height: 1.7; color: var(--ash); }
+.err-do::before { content: '\2192\00a0'; color: var(--ember); }
+.err .philo-close {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ash);
+}
+/* Korean on the error-code page breaks at spaces, never mid-word ("의미/와"): every KO block
+   in the component (intro, headings, entries, closing), keyed on the block's own lang so it
+   holds even when the page itself is EN. A spaceless run (a code, a path) still wraps. */
+.err [data-lang-block="ko"], :lang(ko) .err :is(.err-what, .err-do, .err-code) { word-break: keep-all; overflow-wrap: anywhere; }
+
 /* ---------- Letterbox Chrome Scroll Hide ---------- */
 .mast, .deck, .dl-foot { transition: transform 0.45s var(--slow); }
 .mast.chrome-hidden { transform: translateY(-100%); }
