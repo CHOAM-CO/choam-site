@@ -8,13 +8,12 @@
  *   node tools/build-scheherazade-errors.mjs --md <path>         # refresh from the app repo
  *
  * Input:  data/scheherazade-error-codes.md        (snapshot; the table is the source of truth)
- * Output: data/scheherazade-errors.json           (page data; also holds the KO/JA copy)
+ * Output: data/scheherazade-errors.json           (source meta + page chrome, English only)
  *         scheherazade/errors.html               (static page, one anchor per code)
  *
- * Re-running keeps the Korean and Japanese copy already present in the JSON, because
- * the md only carries the English meaning and the Korean/English action. A code that
- * is new in the md is added with English text standing in for the missing languages
- * and listed as a warning so it can be translated before the PR goes out.
+ * The source table carries English, Korean and Japanese sections. All three are read
+ * from the md on every build, so the app and the site share one copy source. A code
+ * missing from the Korean or Japanese table fails the build with the code name.
  *
  * Zero dependencies (Node >= 18).
  */
@@ -79,45 +78,44 @@ function stripTicks(s) {
   return s.replace(/`/g, '').trim();
 }
 
+const LANG_SECTION = { English: 'en', '한국어': 'ko', '日本語': 'ja' };
+
 /**
- * Parses the two markdown tables. Internal columns (Raised at) are dropped.
- * Newer source files split each section into `### English` / `### 한국어` / ...
- * tables; only the English table feeds the page, since the site copy is managed
- * in the JSON and the other language tables live in the snapshot.
+ * Parses the two sections. Each section in the source is split into
+ * `### English` / `### 한국어` / `### 日本語` / `### 中文` tables; the site is
+ * KO/EN/JA, so other languages are skipped. Internal columns (Raised at) are
+ * dropped. Meaning and action keep their backticks so the page can render
+ * inline code.
  */
 function parseMd(text) {
   const groups = [];
   let group = null;
-  const hasLangSections = /^###\s+/m.test(text);
   let lang = null;
   for (const raw of text.split(/\r?\n/)) {
     const line = raw.trim();
     const sub = line.match(/^###\s+(.+)$/);
     if (sub) {
-      lang = sub[1].trim();
+      lang = LANG_SECTION[sub[1].trim()] || null;
       continue;
     }
     const heading = line.match(/^##\s+(.+)$/);
     if (heading) {
       const hit = SECTION_TO_GROUP.find((s) => s.match.test(heading[1]));
-      group = hit ? { id: hit.id, codes: [] } : null;
+      group = hit
+        ? { id: hit.id, rows: { en: new Map(), ko: new Map(), ja: new Map() } }
+        : null;
       lang = null;
       if (group) groups.push(group);
       continue;
     }
-    if (!group || !line.startsWith('|')) continue;
-    if (hasLangSections && lang && !/^english$/i.test(lang)) continue;
+    if (!group || !lang || !line.startsWith('|')) continue;
     if (/^\|\s*-+/.test(line)) continue;
     const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
-    if (cells[0].toLowerCase() === 'code') continue;
     if (cells.length < 3) continue;
+    if (cells[0].toLowerCase() === 'code') continue;
     const code = stripTicks(cells[0]);
     if (!/^[a-z0-9_]+$/i.test(code)) continue;
-    const meaning = stripTicks(cells[1]);
-    const quoted = [...cells[2].matchAll(/"([^"]*)"/g)].map((m) => m[1].trim());
-    const actionKo = quoted[0] || '';
-    const actionEn = quoted.length ? quoted[1] || '' : stripTicks(cells[2]);
-    group.codes.push({ code, meaning, actionKo, actionEn });
+    group.rows[lang].set(code, { meaning: cells[1], action: cells[2] });
   }
   return groups;
 }
@@ -130,40 +128,44 @@ function loadExisting() {
   }
 }
 
-function merge(parsed, existing, sourceHasLangSections = false) {
-  const oldByCode = new Map();
-  if (existing && Array.isArray(existing.groups)) {
-    for (const g of existing.groups) {
-      for (const c of g.codes || []) oldByCode.set(c.code, c);
-    }
-  }
-  const warnings = [];
-  const groups = parsed.map((g) => ({
+/**
+ * Joins the per-language tables by code. Every English code must have a KO and
+ * a JA row; the source table is the single copy source, so a gap is an error
+ * rather than a silent English fallback.
+ */
+function buildGroups(parsed) {
+  return parsed.map((g) => ({
     id: g.id,
-    codes: g.codes.map((c) => {
-      const old = oldByCode.get(c.code) || {};
-      const meaning = {
-        en: c.meaning,
-        ko: old.meaning?.ko || c.meaning,
-        ja: old.meaning?.ja || c.meaning,
+    codes: [...g.rows.en.keys()].map((code) => {
+      const en = g.rows.en.get(code);
+      const ko = g.rows.ko.get(code);
+      const ja = g.rows.ja.get(code);
+      if (!ko) throw new Error(`${code}: missing from the 한국어 table (${g.id})`);
+      if (!ja) throw new Error(`${code}: missing from the 日本語 table (${g.id})`);
+      return {
+        code,
+        meaning: {
+          en: normalizeDashes(en.meaning, 'en'),
+          ko: normalizeDashes(ko.meaning, 'ko'),
+          ja: normalizeDashes(ja.meaning, 'ja'),
+        },
+        action: {
+          en: normalizeDashes(en.action, 'en'),
+          ko: normalizeDashes(ko.action, 'ko'),
+          ja: normalizeDashes(ja.action, 'ja'),
+        },
       };
-      const action = {
-        en: c.actionEn,
-        ko: c.actionKo || old.action?.ko || c.actionEn,
-        ja: old.action?.ja || c.actionEn,
-      };
-      if (!old.meaning?.ko) warnings.push(`${c.code}: meaning.ko missing, English used`);
-      if (!old.meaning?.ja) warnings.push(`${c.code}: meaning.ja missing, English used`);
-      if (!sourceHasLangSections && !c.actionKo) warnings.push(`${c.code}: action.ko missing from the source table`);
-      if (!old.action?.ja) warnings.push(`${c.code}: action.ja missing, English used`);
-      return { code: c.code, meaning, action };
     }),
   }));
-  const live = new Set(groups.flatMap((g) => g.codes.map((c) => c.code)));
-  for (const code of oldByCode.keys()) {
-    if (!live.has(code)) warnings.push(`${code}: no longer in the source table, dropped`);
-  }
-  return { groups, warnings };
+}
+
+/**
+ * The site forbids em/en dashes (verify-guards P-13). The source table uses
+ * them occasionally, so a sentence break stands in for the dash.
+ */
+function normalizeDashes(s, lang) {
+  if (!/[–—]/.test(s)) return s;
+  return s.replace(/\s*[–—]\s*/g, lang === 'ja' ? '。' : ' -- ');
 }
 
 function sourceMeta(existing) {
@@ -345,22 +347,31 @@ function main() {
   const md = fs.readFileSync(args.md, 'utf8');
   const parsed = parseMd(md);
   if (!parsed.length) throw new Error(`No tables parsed from ${args.md}`);
+  const groups = buildGroups(parsed);
   const existing = loadExisting();
-  const { groups, warnings } = merge(parsed, existing, /^###\s+/m.test(md));
+  // The JSON carries only the source English and the page chrome; KO/JA are
+  // read from the md on every build so the vendored table is the single copy
+  // source shared with the app.
   const data = {
     source: sourceMeta(existing),
     copy: existing?.copy || PAGE_COPY,
-    groups,
+    groups: groups.map((g) => ({
+      id: g.id,
+      codes: g.codes.map((c) => ({
+        code: c.code,
+        meaning: { en: c.meaning.en },
+        action: { en: c.action.en },
+      })),
+    })),
   };
   fs.mkdirSync(path.dirname(JSON_OUT), { recursive: true });
   fs.writeFileSync(JSON_OUT, `${JSON.stringify(data, null, 2)}\n`);
   fs.mkdirSync(path.dirname(HTML_OUT), { recursive: true });
-  fs.writeFileSync(HTML_OUT, renderHtml(data));
+  fs.writeFileSync(HTML_OUT, renderHtml({ copy: data.copy, groups }));
   const count = groups.reduce((n, g) => n + g.codes.length, 0);
   console.log(`Wrote ${count} codes in ${groups.length} groups.`);
   console.log(`  ${path.relative(ROOT, JSON_OUT)}`);
   console.log(`  ${path.relative(ROOT, HTML_OUT)}`);
-  for (const w of warnings) console.warn(`warning: ${w}`);
 }
 
 main();
