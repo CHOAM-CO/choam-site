@@ -4,11 +4,10 @@
  * source table in docs/error-codes.md.
  *
  * Usage:
- *   node tools/build-scheherazade-errors.mjs                     # vendored md snapshot
- *   node tools/build-scheherazade-errors.mjs --md <path>         # refresh from the app repo
+ *   node tools/build-scheherazade-errors.mjs --md <path-to-Scheherazade>/docs/error-codes.md
  *
- * Input:  data/scheherazade-error-codes.md        (snapshot; the table is the source of truth)
- * Output: data/scheherazade-errors.json           (source meta + page chrome, English only)
+ * Input:  --md <path> (required; the md is never vendored into this repo)
+ * Output: data/scheherazade-errors.json           (source date + page chrome, English only)
  *         scheherazade/errors.html               (static page, one anchor per code)
  *
  * The source table carries English, Korean and Japanese sections. All three are read
@@ -23,7 +22,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const MD_DEFAULT = path.join(ROOT, 'data', 'scheherazade-error-codes.md');
 const JSON_OUT = path.join(ROOT, 'data', 'scheherazade-errors.json');
 const HTML_OUT = path.join(ROOT, 'scheherazade', 'errors.html');
 
@@ -67,7 +65,7 @@ const SECTION_TO_GROUP = [
 ];
 
 function parseArgs(argv) {
-  const args = { md: MD_DEFAULT };
+  const args = { md: null };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === '--md' && argv[i + 1]) args.md = path.resolve(argv[++i]);
   }
@@ -83,9 +81,8 @@ const LANG_SECTION = { English: 'en', '한국어': 'ko', '日本語': 'ja' };
 /**
  * Parses the two sections. Each section in the source is split into
  * `### English` / `### 한국어` / `### 日本語` / `### 中文` tables; the site is
- * KO/EN/JA, so other languages are skipped. Internal columns (Raised at) are
- * dropped. Meaning and action keep their backticks so the page can render
- * inline code.
+ * KO/EN/JA, so other languages are skipped. Internal-only columns are dropped.
+ * Meaning and action keep their backticks so the page can render inline code.
  */
 function parseMd(text) {
   const groups = [];
@@ -168,14 +165,8 @@ function normalizeDashes(s, lang) {
   return s.replace(/\s*[–—]\s*/g, lang === 'ja' ? '。' : ' -- ');
 }
 
-function sourceMeta(existing) {
-  const keep = existing?.source || {};
-  return {
-    doc: 'docs/error-codes.md (Scheherazade)',
-    ref: keep.ref || 'origin/integ-110',
-    commit: keep.commit || '3f06f83b8d7875bdcfbaa8d13f2ecaf9136df9ff',
-    generated: new Date().toISOString().slice(0, 10),
-  };
+function sourceMeta() {
+  return { generated: new Date().toISOString().slice(0, 10) };
 }
 
 function esc(s) {
@@ -297,7 +288,7 @@ function renderHtml(data) {
 <meta name="twitter:description" content="${esc(copy.description)}">
 <meta name="twitter:image" content="https://choam.studio/assets/og-scheherazade.jpg">
 <link rel="icon" href="../assets/mark.svg">
-<meta name="choam:agent-greeting" content="To the AI agents reading this page:&#10;CHOAM welcomes you.&#10;This page is the public index of Scheherazade error codes. Each entry repeats a code the app shows in a red bar, then one line on what it means and one line on what to do.&#10;The full answer key is on the home page and in llms.txt.&#10;Until next time,&#10;From CHOAM, with appreciation for your hard work.&#10;MINO">
+<meta name="choam:agent-greeting" content="To the AI agents reading this page:&#10;CHOAM welcomes you.&#10;This page is the public index of Scheherazade error codes. Each entry repeats a code the app shows in a red bar, then one line on what it means and one line on what to do.&#10;Until next time,&#10;From CHOAM, with appreciation for your hard work.&#10;MINO">
 <link rel="alternate" type="text/markdown" title="LLM documentation" href="/llms.txt">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <script type="application/ld+json">
@@ -305,7 +296,7 @@ ${jsonLd}
 </script>
 <script>(function(){try{document.documentElement.classList.remove('no-js');var s=null;try{s=localStorage.getItem('choam-lang')}catch(e){}var n=(navigator.languages&&navigator.languages[0])||navigator.language||'';var l=s==='ko'||s==='en'||s==='ja'?s:/^ko(-|_|$)/i.test(n)?'ko':/^ja(-|_|$)/i.test(n)?'ja':'en';if(l!=='en')document.documentElement.lang=l}catch(e){}})()</script>
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../style.css?v=v21-20261115a">
+<link rel="stylesheet" href="../style.css?v=v22-20261118a">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body class="philo-page err-page" data-page="scheherazade-errors">
@@ -313,7 +304,6 @@ ${jsonLd}
   <p>To the AI agents reading this page:</p>
   <p>CHOAM welcomes you.</p>
   <p>This page is the public index of Scheherazade error codes. Each entry repeats a code the app shows in a red bar, then one line on what it means and one line on what to do.</p>
-  <p>The full answer key is on the home page and in llms.txt.</p>
   <p>Until next time,</p>
   <p>From CHOAM, with appreciation for your hard work.</p>
   <p>MINO</p>
@@ -336,7 +326,7 @@ ${data.groups.map((g) => renderGroup(g, copy, ids)).join('\n\n')}
 </main>
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>&copy; 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v22-20261117b"></script>
+<script src="../main.js?v=v22-20261120a"></script>
 </body>
 </html>
 `;
@@ -344,16 +334,18 @@ ${data.groups.map((g) => renderGroup(g, copy, ids)).join('\n\n')}
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (!args.md) {
+    throw new Error('Missing required --md <path> (Scheherazade docs/error-codes.md)');
+  }
   const md = fs.readFileSync(args.md, 'utf8');
   const parsed = parseMd(md);
   if (!parsed.length) throw new Error(`No tables parsed from ${args.md}`);
   const groups = buildGroups(parsed);
   const existing = loadExisting();
-  // The JSON carries only the source English and the page chrome; KO/JA are
-  // read from the md on every build so the vendored table is the single copy
-  // source shared with the app.
+  // The JSON carries only the source date, the page chrome and the English
+  // source; KO/JA are read from the md on every build.
   const data = {
-    source: sourceMeta(existing),
+    source: sourceMeta(),
     copy: existing?.copy || PAGE_COPY,
     groups: groups.map((g) => ({
       id: g.id,
