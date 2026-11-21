@@ -79,20 +79,34 @@ function stripTicks(s) {
   return s.replace(/`/g, '').trim();
 }
 
-/** Parses the two markdown tables. Internal columns (Raised at) are dropped. */
+/**
+ * Parses the two markdown tables. Internal columns (Raised at) are dropped.
+ * Newer source files split each section into `### English` / `### 한국어` / ...
+ * tables; only the English table feeds the page, since the site copy is managed
+ * in the JSON and the other language tables live in the snapshot.
+ */
 function parseMd(text) {
   const groups = [];
   let group = null;
+  const hasLangSections = /^###\s+/m.test(text);
+  let lang = null;
   for (const raw of text.split(/\r?\n/)) {
     const line = raw.trim();
+    const sub = line.match(/^###\s+(.+)$/);
+    if (sub) {
+      lang = sub[1].trim();
+      continue;
+    }
     const heading = line.match(/^##\s+(.+)$/);
     if (heading) {
       const hit = SECTION_TO_GROUP.find((s) => s.match.test(heading[1]));
       group = hit ? { id: hit.id, codes: [] } : null;
+      lang = null;
       if (group) groups.push(group);
       continue;
     }
     if (!group || !line.startsWith('|')) continue;
+    if (hasLangSections && lang && !/^english$/i.test(lang)) continue;
     if (/^\|\s*-+/.test(line)) continue;
     const cells = line.replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
     if (cells[0].toLowerCase() === 'code') continue;
@@ -102,7 +116,7 @@ function parseMd(text) {
     const meaning = stripTicks(cells[1]);
     const quoted = [...cells[2].matchAll(/"([^"]*)"/g)].map((m) => m[1].trim());
     const actionKo = quoted[0] || '';
-    const actionEn = quoted[1] || '';
+    const actionEn = quoted.length ? quoted[1] || '' : stripTicks(cells[2]);
     group.codes.push({ code, meaning, actionKo, actionEn });
   }
   return groups;
@@ -116,7 +130,7 @@ function loadExisting() {
   }
 }
 
-function merge(parsed, existing) {
+function merge(parsed, existing, sourceHasLangSections = false) {
   const oldByCode = new Map();
   if (existing && Array.isArray(existing.groups)) {
     for (const g of existing.groups) {
@@ -140,7 +154,7 @@ function merge(parsed, existing) {
       };
       if (!old.meaning?.ko) warnings.push(`${c.code}: meaning.ko missing, English used`);
       if (!old.meaning?.ja) warnings.push(`${c.code}: meaning.ja missing, English used`);
-      if (!c.actionKo) warnings.push(`${c.code}: action.ko missing from the source table`);
+      if (!sourceHasLangSections && !c.actionKo) warnings.push(`${c.code}: action.ko missing from the source table`);
       if (!old.action?.ja) warnings.push(`${c.code}: action.ja missing, English used`);
       return { code: c.code, meaning, action };
     }),
@@ -332,7 +346,7 @@ function main() {
   const parsed = parseMd(md);
   if (!parsed.length) throw new Error(`No tables parsed from ${args.md}`);
   const existing = loadExisting();
-  const { groups, warnings } = merge(parsed, existing);
+  const { groups, warnings } = merge(parsed, existing, /^###\s+/m.test(md));
   const data = {
     source: sourceMeta(existing),
     copy: existing?.copy || PAGE_COPY,

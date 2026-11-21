@@ -1,9 +1,9 @@
 {
   "source": {
     "doc": "docs/error-codes.md (Scheherazade)",
-    "ref": "origin/integ-110",
-    "commit": "3f06f83b8d7875bdcfbaa8d13f2ecaf9136df9ff",
-    "generated": "2026-11-18"
+    "ref": "origin/main",
+    "commit": "ade7cc9ec23c5cf28250355f078f9df6f8ed2c75",
+    "generated": "2026-11-21"
   },
   "copy": {
     "title": "Scheherazade error codes | CHOAM",
@@ -48,25 +48,25 @@
         {
           "code": "cli_login_expired",
           "meaning": {
-            "en": "The Claude Code login saved on this computer has expired.",
+            "en": "Claude Code login expired.",
             "ko": "Claude Code 로그인이 만료됐습니다.",
-            "ja": "このパソコンに保存されている Claude Code のログインの有効期限が切れています。"
+            "ja": "Claude Code のログインの有効期限が切れています。"
           },
           "action": {
-            "en": "Run `claude` once in a terminal to refresh the login, or log in again from the Model & Providers tab.",
-            "ko": "터미널에서 `claude`를 한 번 실행하거나 모델 및 프로바이더 탭에서 다시 로그인하십시오.",
+            "en": "Run claude once in a terminal to refresh it, or log in again from the Model & Providers tab.",
+            "ko": "터미널에서 `claude`를 한 번 실행해 로그인을 갱신하거나 모델 및 프로바이더 탭에서 다시 로그인하십시오.",
             "ja": "ターミナルで `claude` を一度実行してログインを更新するか、「モデルとプロバイダー」タブからもう一度ログインしてください。"
           }
         },
         {
           "code": "cli_login_missing",
           "meaning": {
-            "en": "This computer has no Claude Code login.",
-            "ko": "컴퓨터에 Claude Code 로그인이 없습니다.",
-            "ja": "このパソコンには Claude Code のログイン情報がありません。"
+            "en": "No Claude Code login was found on this machine.",
+            "ko": "이 컴퓨터에서 Claude Code 로그인 정보를 찾지 못했습니다.",
+            "ja": "このパソコンに Claude Code のログイン情報が見つかりませんでした。"
           },
           "action": {
-            "en": "Log in from the Model & Providers tab, or run `claude` once in a terminal.",
+            "en": "Log in from the Model & Providers tab, or run claude once in a terminal.",
             "ko": "모델 및 프로바이더 탭에서 로그인하거나 터미널에서 `claude`를 한 번 실행하십시오.",
             "ja": "「モデルとプロバイダー」タブからログインするか、ターミナルで `claude` を一度実行してください。"
           }
@@ -74,391 +74,391 @@
         {
           "code": "cli_credentials_unreadable",
           "meaning": {
-            "en": "A Claude Code login exists, but the app could not read it.",
+            "en": "The Claude Code login could not be read.",
             "ko": "Claude Code 로그인 정보를 읽지 못했습니다.",
-            "ja": "Claude Code のログイン情報はありますが、アプリが読み取れませんでした。"
+            "ja": "Claude Code のログイン情報を読み取れませんでした。"
           },
           "action": {
-            "en": "Try once more. If the same error keeps appearing, log in again from the Model & Providers tab.",
+            "en": "Try again. If it keeps failing, log in again from the Model & Providers tab.",
             "ko": "다시 시도하십시오. 계속 실패하면 모델 및 프로바이더 탭에서 다시 로그인하십시오.",
-            "ja": "もう一度お試しください。同じエラーが繰り返される場合は、「モデルとプロバイダー」タブからログインし直してください。"
+            "ja": "もう一度お試しください。失敗が続く場合は、「モデルとプロバイダー」タブからもう一度ログインしてください。"
           }
         },
         {
           "code": "credentials_missing",
           "meaning": {
-            "en": "The key or token for the selected model connection has not been saved.",
+            "en": "The key for the selected model connection is missing.",
             "ko": "선택한 모델 연결 키가 없습니다.",
-            "ja": "選択したモデル接続に必要なキーまたはトークンが保存されていません。"
+            "ja": "選択したモデル接続のキーが保存されていません。"
           },
           "action": {
-            "en": "Enter the key or token in the Model & Providers tab.",
+            "en": "Enter it in the Model & Providers tab.",
             "ko": "모델 및 프로바이더 탭에서 입력하십시오.",
-            "ja": "「モデルとプロバイダー」タブでキーまたはトークンを入力してください。"
+            "ja": "「モデルとプロバイダー」タブでキーを入力してください。"
           }
         },
         {
           "code": "model_missing",
           "meaning": {
-            "en": "No model is selected for the chosen model connection.",
+            "en": "No model is selected for this connection.",
             "ko": "이 연결에 선택된 모델이 없습니다.",
-            "ja": "選択したモデル接続で使うモデルが指定されていません。"
+            "ja": "この接続にはモデルが選択されていません。"
           },
           "action": {
-            "en": "Choose a model in the Model & Providers tab.",
-            "ko": "모델 및 프로바이더 탭에서 선택하십시오.",
-            "ja": "「モデルとプロバイダー」タブで使うモデルを選んでください。"
+            "en": "Pick one in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 모델을 선택하십시오.",
+            "ja": "「モデルとプロバイダー」タブでモデルを選んでください。"
           }
         },
         {
           "code": "config_incomplete",
           "meaning": {
-            "en": "The proxy address (Base URL) for the custom connection is empty.",
+            "en": "The proxy address is missing.",
             "ko": "프록시 주소가 없습니다.",
-            "ja": "カスタム接続のアドレス（Base URL）が空欄になっています。"
+            "ja": "プロキシアドレスが設定されていません。"
           },
           "action": {
             "en": "Enter the Base URL in the Model & Providers tab.",
-            "ko": "모델 및 프로바이더 탭에 Base URL을 입력하십시오.",
-            "ja": "「モデルとプロバイダー」タブで Base URL を入力してください。"
+            "ko": "모델 및 프로바이더 탭에서 `Base URL`을 입력하십시오.",
+            "ja": "「モデルとプロバイダー」タブで `Base URL` を入力してください。"
           }
         },
         {
           "code": "lane_unavailable",
           "meaning": {
-            "en": "A service you connected cannot be used with the key, model or address saved for it.",
-            "ko": "연결 서비스를 쓸 수 없습니다.",
-            "ja": "接続したサービスは、保存されているキー・モデル・アドレスでは使用できません。"
+            "en": "A connected service could not be used.",
+            "ko": "연결된 서비스를 사용할 수 없었습니다.",
+            "ja": "接続されたサービスを使用できませんでした。"
           },
           "action": {
-            "en": "Check that service's key and model again in the Model & Providers tab.",
-            "ko": "모델 및 프로바이더 탭에서 키와 모델을 확인하십시오.",
-            "ja": "「モデルとプロバイダー」タブで、そのサービスのキーとモデルを確認してください。"
+            "en": "Recheck its key and model in the Model & Providers tab.",
+            "ko": "모델 및 프로바이더 탭에서 해당 키와 모델을 다시 확인하십시오.",
+            "ja": "「モデルとプロバイダー」タブで該当のキーとモデルを再確認してください。"
           }
         },
         {
           "code": "timeout_boot_stage",
           "meaning": {
-            "en": "Startup stalled before the engine came up.",
+            "en": "The boot stalled before the engine started.",
             "ko": "엔진 시작 전에 부팅이 멈췄습니다.",
-            "ja": "エンジンが立ち上がる前の段階で起動が止まりました。"
+            "ja": "エンジンが立ち上がる前に起動が止まりました。"
           },
           "action": {
-            "en": "Open Logs first, then restart the app. If it happens again, check the engine settings.",
-            "ko": "로그를 확인하십시오. 앱을 다시 시작하고 반복되면 엔진 설정을 확인하십시오.",
-            "ja": "まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、エンジン設定を確認してください。"
+            "en": "Open Logs. Restart the app; if it repeats, check the engine settings.",
+            "ko": "로그를 여십시오. 앱을 다시 시작하고 반복되면 엔진 설정을 확인하십시오.",
+            "ja": "ログを開いてください。アプリを再起動し、繰り返される場合はエンジン設定を確認してください。"
           }
         },
         {
           "code": "timeout_engine_spawn",
           "meaning": {
-            "en": "The agent process started, but the engine did not come up in time.",
-            "ko": "엔진이 제때 뜨지 않았습니다.",
-            "ja": "エージェントのプロセスは起動しましたが、エンジンが時間内に立ち上がりませんでした。"
+            "en": "The engine did not start in time.",
+            "ko": "엔진이 제시간에 시작되지 않았습니다.",
+            "ja": "エンジンが時間内に起動しませんでした。"
           },
           "action": {
-            "en": "Open Logs first, then restart the app. If it happens again, choose another model or provider.",
-            "ko": "로그를 확인하십시오. 앱을 다시 시작하고 반복되면 다른 모델을 선택하십시오.",
-            "ja": "まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、別のモデルかプロバイダーを選んでください。"
+            "en": "Open Logs. Restart the app; if it repeats, pick another model or provider.",
+            "ko": "로그를 여십시오. 앱을 다시 시작하고 반복되면 다른 모델이나 프로바이더를 선택하십시오.",
+            "ja": "ログを開いてください。アプリを再起動し、繰り返される場合は別のモデルまたはプロバイダーを選んでください。"
           }
         },
         {
           "code": "timeout_no_heartbeat",
           "meaning": {
-            "en": "Startup finished, but the agent never reported that it was connected.",
-            "ko": "에이전트는 떴지만 연결되지 않았습니다.",
-            "ja": "起動処理は終わりましたが、エージェントから接続完了の知らせが届きませんでした。"
+            "en": "The agent booted but never connected.",
+            "ko": "에이전트가 부팅됐으나 연결되지 않았습니다.",
+            "ja": "エージェントは起動しましたが、接続されませんでした。"
           },
           "action": {
-            "en": "Open Logs first, then restart the app. If it happens again, check the channel connection.",
-            "ko": "로그를 확인하십시오. 앱을 다시 시작하고 반복되면 채널 연결을 확인하십시오.",
-            "ja": "まずログを確認し、アプリを再起動してください。同じエラーが繰り返される場合は、チャンネルの接続を確認してください。"
+            "en": "Open Logs. Restart the app; if it repeats, check the channel connection.",
+            "ko": "로그를 여십시오. 앱을 다시 시작하고 반복되면 채널 연결을 확인하십시오.",
+            "ja": "ログを開いてください。アプリを再起動し、繰り返される場合はチャンネル接続を確認してください。"
           }
         },
         {
           "code": "timeout",
           "meaning": {
-            "en": "Startup took too long, and the app cannot tell which stage it stopped at.",
-            "ko": "에이전트 시작 여부를 확인하지 못했습니다.",
-            "ja": "起動に時間がかかりすぎました。どの段階で止まったのかは、アプリでは特定できません。"
+            "en": "Can't confirm whether the agent started.",
+            "ko": "에이전트가 시작됐는지 확인할 수 없습니다.",
+            "ja": "エージェントが起動したかどうかを確認できません。"
           },
           "action": {
-            "en": "Open Logs and check what happened.",
-            "ko": "잠시 후 \"상태 다시 확인\"을 누르십시오.",
-            "ja": "ログを開いて確認してください。"
+            "en": "Wait a moment, then click Check status again.",
+            "ko": "잠시 기다린 뒤 상태 다시 확인을 다시 클릭하십시오.",
+            "ja": "少し待ってから、「状態を再確認」をもう一度クリックしてください。"
           }
         },
         {
           "code": "key_error",
           "meaning": {
-            "en": "The saved provider key could not be read from your operating system's credential store.",
+            "en": "Couldn't read the stored key.",
             "ko": "저장된 키를 읽지 못했습니다.",
-            "ja": "保存したプロバイダーのキーを、OS の資格情報ストアから読み取れませんでした。"
+            "ja": "保存されたキーを読み取れませんでした。"
           },
           "action": {
-            "en": "Save the key again in the Model & Providers tab.",
+            "en": "Quit the app and reopen it. If it keeps happening, double-check the values you entered at setup.",
             "ko": "앱을 종료했다가 다시 여십시오. 반복되면 설정할 때 입력한 값을 확인하십시오.",
-            "ja": "「モデルとプロバイダー」タブでキーを保存し直してください。"
+            "ja": "アプリを終了してから開き直してください。繰り返される場合は、セットアップ時に入力した値をもう一度確認してください。"
           }
         },
         {
           "code": "login_required",
           "meaning": {
-            "en": "This model connection needs a sign-in that has not been completed yet.",
-            "ko": "이 모델은 로그인해야 합니다.",
-            "ja": "このモデル接続にはログインが必要ですが、まだ完了していません。"
+            "en": "This model connection needs you to log in.",
+            "ko": "이 모델 연결에는 로그인이 필요합니다.",
+            "ja": "このモデル接続にはログインが必要です。"
           },
           "action": {
-            "en": "Log in from the Model & Providers tab. Once you are signed in, the agent starts on its own.",
-            "ko": "모델 및 프로바이더 탭에서 로그인하십시오. 로그인하면 에이전트가 자동으로 시작됩니다.",
-            "ja": "「モデルとプロバイダー」タブからログインしてください。ログインが済むと、エージェントは自動で起動します。"
+            "en": "Log in on the Engine page. The agent starts by itself once you are signed in.",
+            "ko": "엔진 페이지에서 로그인하십시오. 로그인하면 에이전트가 자동으로 시작합니다.",
+            "ja": "「エンジンページ」でログインしてください。ログインすると、エージェントが自動で開始します。"
           }
         },
         {
           "code": "provider_not_wired",
           "meaning": {
-            "en": "The app does not recognize the saved provider name, or that provider's setup is invalid.",
-            "ko": "선택한 모델 연결이 준비되지 않았습니다.",
-            "ja": "保存されたプロバイダー名をアプリが認識できないか、そのプロバイダーの設定が正しくありません。"
+            "en": "The model connection you chose isn't ready yet.",
+            "ko": "선택한 모델 연결이 아직 준비되지 않았습니다.",
+            "ja": "選択したモデル接続はまだ準備ができていません。"
           },
           "action": {
-            "en": "Choose the provider again in the Model & Providers tab.",
-            "ko": "모델 및 프로바이더 탭에서 Claude로 바꾸십시오.",
-            "ja": "「モデルとプロバイダー」タブでプロバイダーを選び直してください。"
+            "en": "Switch the model to Claude on the Engine page, then quit and reopen the app.",
+            "ko": "엔진 페이지에서 모델을 Claude로 전환한 뒤, 앱을 종료했다가 다시 여십시오.",
+            "ja": "「エンジンページ」でモデルを Claude に切り替え、アプリを終了してから開き直してください。"
           }
         },
         {
           "code": "model_selection_failed",
           "meaning": {
-            "en": "The selected model or effort level was rejected.",
-            "ko": "고른 모델이나 effort가 거부됐습니다.",
-            "ja": "選択したモデルまたは推論の強さが受け付けられませんでした。"
+            "en": "The selected model or effort was rejected.",
+            "ko": "선택한 모델 또는 `effort`가 거부됐습니다.",
+            "ja": "選択したモデルまたは `effort` が拒否されました。"
           },
           "action": {
-            "en": "Choose a different model or effort level in the Model & Providers tab.",
-            "ko": "모델 및 프로바이더 탭에서 다른 모델·effort를 고르십시오.",
-            "ja": "「モデルとプロバイダー」タブで別のモデルか推論の強さを選んでください。"
+            "en": "Pick a different model or effort in the model picker on the Engine page.",
+            "ko": "엔진 페이지의 모델 선택기에서 다른 모델 또는 `effort`를 고르십시오.",
+            "ja": "「エンジンページ」のモデル選択欄で別のモデルまたは `effort` を選んでください。"
           }
         },
         {
           "code": "cli_missing",
           "meaning": {
-            "en": "The Antigravity command-line tool could not be installed.",
-            "ko": "Antigravity CLI 설치에 실패했습니다.",
-            "ja": "Antigravity のコマンドラインツールをインストールできませんでした。"
+            "en": "The Antigravity CLI could not be installed.",
+            "ko": "Antigravity CLI를 설치하지 못했습니다.",
+            "ja": "Antigravity CLI をインストールできませんでした。"
           },
           "action": {
-            "en": "Check your internet connection, then reopen the app.",
-            "ko": "인터넷 연결을 확인하고 앱을 재시작하십시오.",
-            "ja": "インターネット接続を確認してから、アプリを開き直してください。"
+            "en": "Check your internet connection, then quit the app and reopen it.",
+            "ko": "인터넷 연결을 확인한 뒤 앱을 종료했다가 다시 여십시오.",
+            "ja": "インターネット接続を確認してから、アプリを終了して開き直してください。"
           }
         },
         {
           "code": "proxy_unavailable",
           "meaning": {
-            "en": "The local proxy that the selected connection needs did not start.",
-            "ko": "이 모델 연결의 로컬 프록시가 실행되지 않았습니다.",
-            "ja": "選択した接続に必要なローカルプロキシが起動しませんでした。"
+            "en": "The local proxy this model connection needs did not come up, and the agent was not started rather than routed somewhere unverified.",
+            "ko": "이 모델 연결에 필요한 로컬 프록시가 실행되지 않아, 확인되지 않은 경로로 연결하는 대신 에이전트를 시작하지 않았습니다.",
+            "ja": "このモデル接続に必要なローカルプロキシが立ち上がらなかったため、未確認の接続先にルーティングするのではなく、エージェントを起動しませんでした。"
           },
           "action": {
-            "en": "Restart the app. If it happens again, choose another provider.",
-            "ko": "앱을 다시 시작하십시오. 반복되면 모델 및 프로바이더 탭에서 연결을 바꾸십시오.",
-            "ja": "アプリを再起動してください。同じエラーが繰り返される場合は、別のプロバイダーを選んでください。"
+            "en": "Quit the app and reopen it. If it keeps happening, switch the model connection on the Engine page.",
+            "ko": "앱을 종료했다가 다시 여십시오. 계속 발생하면 엔진 페이지에서 모델 연결을 변경하십시오.",
+            "ja": "アプリを終了して開き直してください。繰り返し発生する場合は、「エンジンページ」でモデル接続を切り替えてください。"
           }
         },
         {
           "code": "ollama_unavailable",
           "meaning": {
-            "en": "The local Ollama service is not running.",
-            "ko": "로컬 Ollama 데몬이 실행 중이 아닙니다.",
-            "ja": "ローカルの Ollama サービスが起動していません。"
+            "en": "The local Ollama daemon is not running, so there is nothing for the agent to talk to.",
+            "ko": "로컬 Ollama 데몬이 실행 중이 아니므로 에이전트가 통신할 대상이 없습니다.",
+            "ja": "ローカルの Ollama デーモンが起動していないため、エージェントの通信先がありません。"
           },
           "action": {
-            "en": "Start Ollama first, then restart the agent.",
-            "ko": "Ollama를 실행하고 `ollama list`로 모델을 확인한 뒤 앱을 다시 여십시오.",
-            "ja": "先に Ollama を起動してから、エージェントをもう一度開始してください。"
+            "en": "Start Ollama, confirm the model you picked is pulled (ollama list), then quit this app and reopen it.",
+            "ko": "Ollama를 시작하고 선택한 모델이 다운로드되어 있는지(`ollama list`) 확인한 뒤, 이 앱을 종료했다가 다시 여십시오.",
+            "ja": "Ollama を起動し、選択したモデルが取得済みか（`ollama list`）確認してから、このアプリを終了してから開き直してください。"
           }
         },
         {
           "code": "app_files_missing",
           "meaning": {
-            "en": "A file that ships with the app is missing from the installation.",
-            "ko": "에이전트 설치 파일 일부가 없습니다.",
-            "ja": "アプリに同梱されているはずのファイルが1つ、インストール先に見当たりません。"
+            "en": "Part of the agent's own installation is missing.",
+            "ko": "에이전트 자체 설치 파일 일부가 누락됐습니다.",
+            "ja": "エージェント本体のインストールの一部が欠けています。"
           },
           "action": {
-            "en": "Reinstall the app.",
-            "ko": "앱을 재설치하십시오.",
-            "ja": "アプリをインストールし直してください。"
+            "en": "Reinstall the app. Nothing you entered is lost -- your settings and memory live outside the app.",
+            "ko": "앱을 다시 설치하십시오. 입력한 내용은 사라지지 않으며, 설정과 메모리는 앱 외부에 저장됩니다.",
+            "ja": "アプリを再インストールしてください。入力した内容は失われず、設定とメモリはアプリの外に保存されています。"
           }
         },
         {
           "code": "harness_stale",
           "meaning": {
-            "en": "The agent's instruction files could not be updated for this version.",
-            "ko": "에이전트 지침 파일을 이 버전에 맞게 갱신하지 못했습니다.",
-            "ja": "エージェントの指示ファイルを、このバージョンに合わせて更新できませんでした。"
+            "en": "The agent's instruction files couldn't be updated for this version.",
+            "ko": "에이전트의 지침 파일을 이 버전에 맞게 업데이트하지 못했습니다.",
+            "ja": "エージェントの指示ファイルをこのバージョン用に更新できませんでした。"
           },
           "action": {
-            "en": "Reopen the app. Reopening it tries the update again.",
-            "ko": "앱을 재시작하십시오. 다시 열면 업데이트를 재시도합니다.",
-            "ja": "アプリを開き直してください。開き直すと、更新をもう一度試みます。"
+            "en": "Quit the app and reopen it. Reopening retries the update, and the agent starts again once it succeeds.",
+            "ko": "앱을 종료했다가 다시 여십시오. 다시 열면 업데이트를 재시도하고, 성공하면 에이전트가 다시 시작합니다.",
+            "ja": "アプリを終了してから開き直してください。開き直すと更新が再試行され、成功するとエージェントが再び開始します。"
           }
         },
         {
           "code": "app_written_damaged",
           "meaning": {
-            "en": "The record of the files you edited yourself is damaged.",
-            "ko": "수정 파일 기록이 손상됐습니다.",
-            "ja": "ご自身で編集したファイルの記録が壊れています。"
+            "en": "The record of your edited files is damaged.",
+            "ko": "편집한 파일 기록이 손상됐습니다.",
+            "ja": "編集したファイルの記録が破損しています。"
           },
           "action": {
-            "en": "Reset it. Your edits stay as they are.",
-            "ko": "재설정하십시오. 수정한 내용은 그대로 남습니다.",
-            "ja": "リセットしてください。リセットしても、編集した内容はそのまま残ります。"
+            "en": "Reset it. Your edits stay.",
+            "ko": "기록을 초기화하십시오. 편집 내용은 그대로 유지됩니다.",
+            "ja": "記録をリセットしてください。編集内容はそのまま残ります。"
           }
         },
         {
           "code": "harness_error",
           "meaning": {
-            "en": "The agent's delegation instructions could not be updated.",
-            "ko": "에이전트 위임 지침 갱신에 실패했습니다.",
-            "ja": "エージェントの委任に関する指示を更新できませんでした。"
+            "en": "The agent's delegation instructions couldn't be updated.",
+            "ko": "에이전트의 위임 지침을 업데이트하지 못했습니다.",
+            "ja": "エージェントの委任指示を更新できませんでした。"
           },
           "action": {
-            "en": "Reopen the app. If it happens again, open Logs.",
-            "ko": "앱을 다시 여십시오. 계속 실패하면 로그를 확인하십시오.",
-            "ja": "アプリを開き直してください。同じエラーが繰り返される場合は、ログを確認してください。"
+            "en": "Quit the app and reopen it to retry. If it still fails, open Logs.",
+            "ko": "다시 시도하려면 앱을 종료했다가 다시 여십시오. 여전히 실패하면 로그를 여십시오.",
+            "ja": "再試行するには、アプリを終了してから開き直してください。それでも失敗する場合は、ログを開いてください。"
           }
         },
         {
           "code": "spawn_failed",
           "meaning": {
-            "en": "The agent process could not be started at all.",
-            "ko": "에이전트를 시작하지 못했습니다.",
-            "ja": "エージェントのプロセスをまったく起動できませんでした。"
+            "en": "The agent could not be started at all.",
+            "ko": "에이전트를 전혀 시작하지 못했습니다.",
+            "ja": "エージェントをまったく起動できませんでした。"
           },
           "action": {
-            "en": "Restart the app. If it happens again, open Logs.",
-            "ko": "앱을 다시 시작하십시오. 반복되면 앱을 재설치하십시오.",
-            "ja": "アプリを再起動してください。同じエラーが繰り返される場合は、ログを確認してください。"
+            "en": "Quit the app and reopen it. If it keeps happening, reinstall the app.",
+            "ko": "앱을 종료했다가 다시 여십시오. 계속 발생하면 앱을 다시 설치하십시오.",
+            "ja": "アプリを終了して開き直してください。繰り返し発生する場合は、アプリを再インストールしてください。"
           }
         },
         {
           "code": "crash_loop",
           "meaning": {
-            "en": "The agent process keeps exiting shortly after it starts.",
-            "ko": "에이전트 프로세스가 반복 종료됩니다.",
-            "ja": "エージェントのプロセスが、起動直後に終了することを繰り返しています。"
+            "en": "The agent's process keeps exiting repeatedly. The exact cause isn't confirmed.",
+            "ko": "에이전트 프로세스가 반복해서 종료됩니다. 정확한 원인은 확인되지 않았습니다.",
+            "ja": "エージェントのプロセスが繰り返し終了しています。正確な原因は確認されていません。"
           },
           "action": {
-            "en": "Quit the app and open it again. If it happens again, check the values you entered during setup.",
+            "en": "Quit the app and reopen it. If it keeps happening, double-check the values you entered at setup.",
             "ko": "앱을 종료했다가 다시 여십시오. 반복되면 설정할 때 입력한 값을 다시 확인하십시오.",
-            "ja": "アプリを終了してから開き直してください。同じエラーが繰り返される場合は、設定時に入力した値を確認してください。"
+            "ja": "アプリを終了してから開き直してください。繰り返される場合は、設定時に入力した値をもう一度確認してください。"
           }
         },
         {
           "code": "engine_start_failed",
           "meaning": {
-            "en": "The agent kept exiting right after it started, and the engine recorded its own startup error.",
+            "en": "The engine failed to start.",
             "ko": "엔진 시작에 실패했습니다.",
-            "ja": "起動直後の終了が続けて起こり、エンジン自身が起動エラーを記録しました。"
+            "ja": "エンジンの起動に失敗しました。"
           },
           "action": {
-            "en": "Choose another model or turn a provider off in the Model & Providers tab, then start again.",
-            "ko": "모델 및 프로바이더 탭에서 다른 모델을 고르거나 프로바이더를 끄고 재시작하십시오.",
-            "ja": "「モデルとプロバイダー」タブで別のモデルを選ぶか、プロバイダーをオフにしてから、もう一度開始してください。"
+            "en": "On the Engine page, pick another model or turn a provider off, then start the agent again.",
+            "ko": "엔진 페이지에서 다른 모델을 고르거나 프로바이더를 끄고 에이전트를 다시 시작하십시오.",
+            "ja": "「エンジンページ」で別のモデルを選ぶか、プロバイダーをオフにしてから、エージェントをもう一度開始してください。"
           }
         },
         {
           "code": "agent_exited",
           "meaning": {
-            "en": "The agent process started and then exited on its own.",
-            "ko": "에이전트가 시작된 뒤 예기치 않게 멈췄습니다.",
-            "ja": "エージェントのプロセスが起動したあと、自ら終了しました。"
+            "en": "The agent started and then stopped unexpectedly.",
+            "ko": "에이전트가 시작된 뒤 예기치 않게 중단됐습니다.",
+            "ja": "エージェントが起動した後、予期せず停止しました。"
           },
           "action": {
-            "en": "Start the agent again. If it exits again, open Logs.",
-            "ko": "\"상태 다시 확인\"을 누르십시오. 안 되면 앱을 재시작하십시오.",
-            "ja": "エージェントをもう一度開始してください。同じエラーが繰り返される場合は、ログを確認してください。"
+            "en": "Click Check status again to see if it came back on its own. If not, quit the app and reopen it.",
+            "ko": "상태 다시 확인을 한 번 더 클릭해 저절로 복구됐는지 확인하십시오. 그렇지 않으면 앱을 종료했다가 다시 여십시오.",
+            "ja": "「状態を再確認」をもう一度クリックして、自動で復旧したか確認してください。復旧しない場合は、アプリを終了してから開き直してください。"
           }
         },
         {
           "code": "stop_unconfirmed",
           "meaning": {
-            "en": "During a stop or restart, the app could not confirm that the old process had fully ended.",
-            "ko": "에이전트 종료를 확인하지 못했습니다. 아직 실행 중일 수 있습니다.",
-            "ja": "停止または再起動の際に、以前のプロセスが完全に終わったかどうかを確認できませんでした。"
+            "en": "The agent was asked to stop and did not confirm it had -- it may still be running.",
+            "ko": "에이전트에 종료를 요청했으나 확인되지 않아 아직 실행 중일 수 있습니다.",
+            "ja": "エージェントに停止を指示しましたが確認が取れなかったため、まだ実行中の可能性があります。"
           },
           "action": {
-            "en": "Wait a moment, then try again.",
-            "ko": "앱을 종료했다가 다시 여십시오.",
-            "ja": "少し待ってから、もう一度お試しください。"
+            "en": "Quit the app and reopen it. That clears the old process for certain.",
+            "ko": "앱을 종료했다가 다시 여십시오. 그러면 이전 프로세스가 확실히 정리됩니다.",
+            "ja": "アプリを終了して開き直してください。これにより、以前のプロセスを確実に終了できます。"
           }
         },
         {
           "code": "discord_token_bad",
           "meaning": {
             "en": "The Discord bot token is missing or was rejected.",
-            "ko": "Discord 토큰이 없거나 거부됐습니다.",
-            "ja": "Discord のボットトークンがないか、受け付けられませんでした。"
+            "ko": "Discord 봇 토큰이 없거나 거부됐습니다.",
+            "ja": "Discord のボットトークンがないか、拒否されました。"
           },
           "action": {
-            "en": "Reconnect Discord in Channels.",
-            "ko": "Discord 토큰을 다시 입력하십시오.",
-            "ja": "チャンネルで Discord を接続し直してください。"
+            "en": "Go back to the token step and paste a new token.",
+            "ko": "토큰 단계로 돌아가 새 토큰을 붙여넣으십시오.",
+            "ja": "トークンのステップに戻り、新しいトークンを貼り付けてください。"
           }
         },
         {
           "code": "slack_token_bad",
           "meaning": {
-            "en": "A Slack token is missing or was rejected.",
-            "ko": "Slack 토큰이 없거나 거부됐습니다.",
-            "ja": "Slack のトークンがないか、受け付けられませんでした。"
+            "en": "A Slack token is missing or was rejected. Slack uses two -- a bot token and an app-level token -- and either one can be the problem.",
+            "ko": "Slack 토큰이 없거나 거부됐으며, Slack이 사용하는 봇 토큰과 앱 수준 토큰 두 가지 중 어느 쪽이든 문제일 수 있습니다.",
+            "ja": "Slack のトークンが設定されていないか拒否されており、Slack が使用するボットトークンとアプリレベルトークンの2つのうち、どちらかに問題がある可能性があります。"
           },
           "action": {
-            "en": "Check both Slack tokens again in Channels.",
-            "ko": "채널 탭에서 Slack 토큰 두 개를 다시 확인하십시오.",
-            "ja": "チャンネルで Slack のトークン2つをどちらも確認してください。"
+            "en": "Re-check both Slack tokens in Channels, then quit and reopen the app.",
+            "ko": "채널 탭에서 두 Slack 토큰을 다시 확인한 뒤 앱을 종료했다가 다시 여십시오.",
+            "ja": "チャンネルで両方の Slack トークンを再確認してから、アプリを終了して開き直してください。"
           }
         },
         {
           "code": "telegram_token_bad",
           "meaning": {
             "en": "The Telegram bot token is missing or was rejected.",
-            "ko": "Telegram 토큰이 없거나 거부됐습니다.",
-            "ja": "Telegram のボットトークンがないか、受け付けられませんでした。"
+            "ko": "Telegram 봇 토큰이 없거나 거부됐습니다.",
+            "ja": "Telegram のボットトークンが設定されていないか拒否されました。"
           },
           "action": {
-            "en": "Check the Telegram token again in Channels.",
-            "ko": "채널 탭에서 BotFather 토큰을 재확인하십시오.",
-            "ja": "チャンネルで Telegram のトークンを確認してください。"
+            "en": "Re-check the token from BotFather in Channels, then quit and reopen the app.",
+            "ko": "채널 탭에서 BotFather로부터 받은 토큰을 다시 확인한 뒤 앱을 종료했다가 다시 여십시오.",
+            "ja": "チャンネルで BotFather から取得したトークンを再確認してから、アプリを終了して開き直してください。"
           }
         },
         {
           "code": "channel_token_error",
           "meaning": {
-            "en": "A messenger token could not be read from the credential store.",
-            "ko": "메신저 토큰을 자격 증명 저장소에서 읽어 오지 못했습니다.",
-            "ja": "メッセンジャーのトークンを資格情報ストアから読み取れませんでした。"
+            "en": "The stored chat-service token could not be read. This is the computer refusing to unseal it -- the token itself may be perfectly good.",
+            "ko": "저장된 채팅 서비스 토큰을 읽지 못했습니다. 컴퓨터가 잠금 해제를 거부한 것이며, 토큰 자체는 정상일 수 있습니다.",
+            "ja": "保存されているチャットサービスのトークンを読み取れませんでした。コンピューターがロック解除を拒否しているためで、トークン自体は問題ない可能性があります。"
           },
           "action": {
-            "en": "Reconnect that messenger in Channels.",
-            "ko": "채널 탭에서 토큰을 다시 저장하십시오.",
-            "ja": "チャンネルでそのメッセンジャーを接続し直してください。"
+            "en": "Quit the app and reopen it, and allow the credential prompt if one appears. If it keeps happening, re-save the token in Channels.",
+            "ko": "앱을 종료했다가 다시 열고, 자격 증명 요청 창이 나타나면 허용하십시오. 반복되면 채널 탭에서 토큰을 다시 저장하십시오.",
+            "ja": "アプリを終了してから開き直し、資格情報の確認画面が表示されたら許可してください。繰り返される場合は、チャンネルでトークンを保存し直してください。"
           }
         },
         {
           "code": "unknown",
           "meaning": {
-            "en": "Something failed, and the app cannot identify the cause.",
+            "en": "The agent failed to start.",
             "ko": "에이전트 시작에 실패했습니다.",
-            "ja": "何らかの処理が失敗しましたが、アプリでは原因を特定できませんでした。"
+            "ja": "エージェントの起動に失敗しました。"
           },
           "action": {
-            "en": "Wait a moment, then check the status again.",
-            "ko": "잠시 후 상태를 다시 확인하십시오.",
-            "ja": "少し待ってから、状態をもう一度確認してください。"
+            "en": "Wait a moment and click Check status again. If it keeps happening, quit the app and reopen it.",
+            "ko": "잠시 기다린 뒤 상태 다시 확인을 다시 클릭하십시오. 계속 발생하면 앱을 종료했다가 다시 여십시오.",
+            "ja": "少し待ってから、「状態を再確認」をもう一度クリックしてください。繰り返し発生する場合は、アプリを終了して開き直してください。"
           }
         }
       ]
@@ -469,12 +469,12 @@
         {
           "code": "RATE_LIMIT",
           "meaning": {
-            "en": "The model service reports that a usage or rate limit has been reached.",
+            "en": "The model service says a usage or rate limit was reached.",
             "ko": "모델 서비스 사용량·속도 한도에 도달했습니다.",
             "ja": "モデルサービスから、利用量またはレートの上限に達したとの通知がありました。"
           },
           "action": {
-            "en": "Wait a little, then send again. Choose another model if needed.",
+            "en": "Wait a little and send again; pick another model if needed.",
             "ko": "잠시 후 다시 보내십시오. 필요하면 다른 모델을 선택하십시오.",
             "ja": "少し待ってから送り直してください。必要に応じて別のモデルを選んでください。"
           }
@@ -482,7 +482,7 @@
         {
           "code": "AUTH",
           "meaning": {
-            "en": "The login for the model connection has expired or was rejected.",
+            "en": "The model connection's login is expired or rejected.",
             "ko": "모델 연결 로그인이 만료됐거나 거부됐습니다.",
             "ja": "モデル接続のログインが切れているか、拒否されました。"
           },
@@ -500,7 +500,7 @@
             "ja": "モデルサービスが混み合っているか、サーバーエラーを返しています。"
           },
           "action": {
-            "en": "Wait a little while, then send again.",
+            "en": "Try again in a little while.",
             "ko": "잠시 후 재시도하십시오.",
             "ja": "少し時間をおいてから送り直してください。"
           }
@@ -508,12 +508,12 @@
         {
           "code": "TIMEOUT",
           "meaning": {
-            "en": "The model did not respond in time.",
+            "en": "The model did not answer in time.",
             "ko": "모델이 제때 응답하지 않았습니다.",
             "ja": "モデルが時間内に応答しませんでした。"
           },
           "action": {
-            "en": "Send again. If it keeps timing out, choose another model.",
+            "en": "Send again; pick another model if it repeats.",
             "ko": "다시 보내십시오. 반복되면 다른 모델을 선택하십시오.",
             "ja": "もう一度送ってください。同じエラーが繰り返される場合は、別のモデルを選んでください。"
           }
@@ -521,25 +521,25 @@
         {
           "code": "AGY_TURN_ERROR",
           "meaning": {
-            "en": "The call to the Antigravity model failed.",
+            "en": "The Antigravity model call failed.",
             "ko": "Antigravity 모델 호출에 실패했습니다.",
-            "ja": "Antigravity のモデル呼び出しが失敗しました。"
+            "ja": "Antigravity モデルの呼び出しに失敗しました。"
           },
           "action": {
-            "en": "Send again. If it happens again, choose another model in the Model & Providers tab.",
+            "en": "Send again; if it repeats, pick another model in the Model & Providers tab.",
             "ko": "다시 보내십시오. 반복되면 모델 및 프로바이더 탭에서 다른 모델을 선택하십시오.",
-            "ja": "もう一度送ってください。同じエラーが繰り返される場合は、「モデルとプロバイダー」タブで別のモデルを選んでください。"
+            "ja": "送り直してください。繰り返される場合は、「モデルとプロバイダー」タブで別のモデルを選んでください。"
           }
         },
         {
           "code": "PI_AI_ERROR",
           "meaning": {
-            "en": "The provider refused the call, or the call failed.",
+            "en": "The provider refused or failed the call.",
             "ko": "프로바이더가 호출을 거부했거나 실패했습니다.",
             "ja": "プロバイダーが呼び出しを拒否したか、呼び出しそのものが失敗しました。"
           },
           "action": {
-            "en": "Send a different request. If it happens again, check the provider's status.",
+            "en": "Send a different request; if it repeats, check the provider's status.",
             "ko": "요청을 바꿔 다시 보내십시오. 반복되면 프로바이더 상태를 확인하십시오.",
             "ja": "リクエストの内容を変えて送り直してください。同じエラーが繰り返される場合は、プロバイダーの稼働状況を確認してください。"
           }
@@ -547,7 +547,7 @@
         {
           "code": "INVALID_REQUEST",
           "meaning": {
-            "en": "The provider rejected the request, for example because an image was sent to a text-only model.",
+            "en": "The provider rejected the request (for example, an image on a text-only model).",
             "ko": "프로바이더가 요청을 거부했습니다(예: 텍스트 전용 모델에 이미지 전송).",
             "ja": "プロバイダーがリクエストを拒否しました。テキスト専用のモデルに画像を送った場合などが該当します。"
           },
@@ -560,12 +560,12 @@
         {
           "code": "TURN_FAILED",
           "meaning": {
-            "en": "The last reply failed, and the app cannot tell why.",
+            "en": "The last reply failed and the app cannot classify why.",
             "ko": "마지막 답변이 실패했고 원인을 분류하지 못했습니다.",
             "ja": "最後の返信が失敗し、アプリではその理由を分類できませんでした。"
           },
           "action": {
-            "en": "Send again. If it happens again, open Logs.",
+            "en": "Send again; if it repeats, open Logs.",
             "ko": "다시 보내십시오. 반복되면 로그를 확인하십시오.",
             "ja": "もう一度送ってください。同じエラーが繰り返される場合は、ログを確認してください。"
           }
