@@ -39,12 +39,12 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 
 ## 3. Project Catalog
 
-### Project 01: Scheherazade (세헤라자드) · `v1.1.4`
+### Project 01: Scheherazade (세헤라자드) · `v1.1.5`
 - **URL**: https://choam.studio/pages/scheherazade
 - **Name Origin**: Named after the heroine of *One Thousand and One Nights*, who stayed alive by telling a thousand and one nights' worth of stories. That sounded a lot like an agent's life, so the name stuck. It has the memory to match.
 - **Category**: Personal AI agent desktop app for macOS (Apple Silicon `.dmg`), Windows (x64 `Setup.exe` installer and NTFS USB portable `.zip`), and Linux (`x86_64` `AppImage`)
 - **Core Concept**: "An agent that takes a thousand and one nights in stride." (Korean: 천하루밤도 거뜬한 에이전트)
-- **What It Does (`v1.1.4`)**:
+- **What It Does (`v1.1.5`)**:
   1. **4-Tier Plain-File Memory**: Stores corrections, preferences, daily journals, and working rules as plain Markdown files on your own disk, so context carries across sessions and model switches.
   2. **Swappable Brains**: Connects to existing subscriptions (Claude, ChatGPT, or Google Antigravity `agy` / Gemini), local or cloud Ollama models, and auto-detected API keys (`OpenAI, Anthropic, OpenRouter, DeepSeek, Google, xAI, Groq`).
   3. **Messaging Channels & Permissions**: Works through Discord (with guided bot setup and per-user, bot, server, and DM response toggles), Slack, Telegram, and voice Call Mode.
