@@ -971,7 +971,7 @@
             'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
         ]
       },
-      action: { label: 'Try', href: 'https://doze.donguri.run' },
+      action: { label: 'Try', href: 'https://doze.choam.studio' },
       art: [2, 1],   /* page 2 = the in-game capture (Mino 2026-11-06 01:14); was [2, 0] */
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261118.webp', pos: '80% 50%', posM: '69% 50%' },
