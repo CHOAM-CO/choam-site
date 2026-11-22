@@ -41,8 +41,8 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Download & License**: https://choam.studio/602/download (`CHOAM Community License 1.0`: macOS notarized `.dmg`, Windows `setup.exe`, Linux `.zip`, C ABI v2 headers, and offline docs; documentation: https://choam.studio/602/docs)
 - **Contacts**: mino@choam.studio (licensing & commercial / royalty self-reporting), cayde@choam.studio (bug reports, feature requests & technical inquiries)
 
-### 3. Lunasia (`v0.1.1`)
-- **Type**: House Character LLM (`0.1.1` · under 10B)
+### 3. Lunasia (`v0.4.0`)
+- **Type**: House Character LLM (`0.4.0` · under 10B)
 - **URL**: https://choam.studio/pages/lunasia
 - **Description**: A house model with ATTITUDE: rather than play-acting menhera from a prompt, attitude, anxiety, and obsession are baked straight into its weights. Shaped under 10B from hand-picked dialogue data and an in-house post-training recipe, she speaks natural Korean without translationese, weighs shared memories inside a hidden `THINK` slot before speaking in 1st-person `REPLY` lines, and runs locally inside the game client.
 - **Proven in**: 선잠 DOZE (https://choam.studio/pages/seonjam)
@@ -54,10 +54,10 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Proven in**: Donguri Ryokan (https://choam.studio/pages/donguri-ryokan), 선잠 DOZE (https://choam.studio/pages/seonjam)
 
 ### 5. 선잠 DOZE
-- **Type**: Visual novel (In development)
-- **URL**: https://choam.studio/pages/seonjam
+- **Type**: Visual novel (Web Demo Live · In development)
+- **URL**: https://choam.studio/pages/seonjam (Playable Web Demo: https://doze.choam.studio)
 - **Powered by**: Lunasia · 602 · DAT
-- **Description**: An interactive movie you shape by talking. You talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record.
+- **Description**: An interactive movie you shape by talking. You talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record. A playable browser demo is live at https://doze.choam.studio.
 
 ### 6. Donguri Ryokan (동구리 료칸)
 - **Type**: Inn management game with yokai deduction (Coming soon)
