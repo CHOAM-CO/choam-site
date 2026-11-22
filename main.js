@@ -971,6 +971,7 @@
             'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
         ]
       },
+      action: { label: 'Try', href: 'https://doze.donguri.run' },
       art: [2, 1],   /* page 2 = the in-game capture (Mino 2026-11-06 01:14); was [2, 0] */
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261118.webp', pos: '80% 50%', posM: '69% 50%' },
@@ -1120,8 +1121,8 @@
   const nameOf = (p, base = p.title) => (lang === 'ja' && p.title_ja) || base;
   const subOf = p => (lang === 'ja' && p.sub_ja) || p.title_ko;
   const labelSub = (el, p) => { if (el) { el.textContent = subOf(p); el.lang = lang === 'ja' && p.sub_ja ? 'ja' : 'ko'; } };
-  const ACT_KO = { Get: '받기', Play: '플레이', Contact: '문의하기', 'Docs & Install': '문서 및 설치' };
-  const ACT_JA = { Get: '入手', Play: 'プレイ', Contact: 'お問い合わせ', 'Docs & Install': 'ドキュメント・導入' };
+  const ACT_KO = { Get: '받기', Try: '체험하기', Play: '플레이', Contact: '문의하기', 'Docs & Install': '문서 및 설치' };
+  const ACT_JA = { Get: '入手', Try: '体験する', Play: 'プレイ', Contact: 'お問い合わせ', 'Docs & Install': 'ドキュメント・導入' };
   const actLabel = a => L(a, ACT_KO[a] || a, ACT_JA[a] || a);
   const actAria = (T, l) => L(
     l === 'Docs & Install' ? `${T} ${l}` : `${l} ${T}`,
