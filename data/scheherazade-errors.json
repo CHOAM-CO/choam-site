@@ -1,6 +1,6 @@
 {
   "source": {
-    "generated": "2026-11-21"
+    "generated": "2026-11-22"
   },
   "copy": {
     "title": "Scheherazade error codes | CHOAM",
@@ -156,7 +156,7 @@
             "en": "This model connection needs you to log in."
           },
           "action": {
-            "en": "Log in on the Engine page. The agent starts by itself once you are signed in."
+            "en": "Log in from the Model & Providers tab. The agent starts by itself once you are signed in."
           }
         },
         {
@@ -165,7 +165,7 @@
             "en": "The model connection you chose isn't ready yet."
           },
           "action": {
-            "en": "Switch the model to Claude on the Engine page, then quit and reopen the app."
+            "en": "Switch the model to Claude in the Model & Providers tab, then quit and reopen the app."
           }
         },
         {
@@ -174,7 +174,7 @@
             "en": "The selected model or effort was rejected."
           },
           "action": {
-            "en": "Pick a different model or effort in the model picker on the Engine page."
+            "en": "Pick a different model or effort in the model picker of the Model & Providers tab."
           }
         },
         {
@@ -192,7 +192,7 @@
             "en": "The local proxy this model connection needs did not come up, and the agent was not started rather than routed somewhere unverified."
           },
           "action": {
-            "en": "Quit the app and reopen it. If it keeps happening, switch the model connection on the Engine page."
+            "en": "Quit the app and reopen it. If it keeps happening, switch the model connection in the Model & Providers tab."
           }
         },
         {
@@ -264,7 +264,7 @@
             "en": "The engine failed to start."
           },
           "action": {
-            "en": "On the Engine page, pick another model or turn a provider off, then start the agent again."
+            "en": "In the Model & Providers tab, pick another model or turn a provider off, then start the agent again."
           }
         },
         {
