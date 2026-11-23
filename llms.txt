@@ -57,7 +57,7 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 - **Type**: Visual novel (Web Demo Live · In development)
 - **URL**: https://choam.studio/pages/seonjam (Playable Web Demo: https://doze.choam.studio)
 - **Powered by**: Lunasia · 602 · DAT
-- **Description**: "Does an AI dream of a sunlit classroom?" (인공지능은 햇살 든 교실의 꿈을 꾸는가). Instead of picking from fixed choices, you talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record. A playable browser demo is live at https://doze.choam.studio.
+- **Description**: An interactive movie you shape by talking. You talk with Yeji in your own words in the local-history club room on the second floor of the old school building; she writes your conversations into her diary, and her mood and manner the next day follow that record. A playable browser demo is live at https://doze.choam.studio.
 
 ### 6. Donguri Ryokan (동구리 료칸)
 - **Type**: Inn management game with yokai deduction (Coming soon)
