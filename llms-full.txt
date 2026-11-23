@@ -114,7 +114,7 @@ Every CHOAM game shares one timeline: a company engraves personality into an AI'
 - **URL**: https://choam.studio/pages/seonjam (Playable Web Demo: https://doze.choam.studio)
 - **Category**: Visual novel (Web Demo Live · In development)
 - **Powered by**: Lunasia · 602 · DAT
-- **Core Concept**: "An interactive movie you shape by talking." (Korean: 대화로 만들어가는 인터랙티브 무비)
+- **Core Concept**: "Does an AI dream of a sunlit classroom?" (Korean: 인공지능은 햇살 든 교실의 꿈을 꾸는가)
 - **Setting & Play**:
   - Set in the local-history club room on the second floor of an old school building.
   - You talk with Yeji in your own words, and she answers out of her own temperament and the history you share.
