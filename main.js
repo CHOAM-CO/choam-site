@@ -941,44 +941,44 @@
       id: 'seonjam',
       title: '선잠 DOZE',
       status: 'Web Demo Live · In development',
-      headline: 'An interactive movie you shape by talking',
-      summary: 'A visual novel where you talk with Yeji in your own words, in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.',
+      headline: 'Does an AI dream of a sunlit classroom?',
+      summary: 'A visual novel where, instead of picking from fixed choices, you talk with Yeji in your own words in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.',
       description: [
-        '선잠 DOZE is a visual novel you play by talking with Yeji directly.\nSay things in your own words, and she answers from her own personality and the conversations you have had.',
-        ['Yeji writes your conversations into her diary, and the next time you meet, her mood and manner follow that record.\nWe brought AI memory and personality into the game so that, however long you talk, Yeji stays Yeji.',
-          'She is waiting on the second floor of the old school building, in the local-history club room. You can step right in and meet her in your browser.']
+        'Instead of picking from three fixed choices, you talk with Yeji directly in your own words.\nRather than reciting scripted lines, she answers from her own personality and the conversations you have shared.',
+        'What you say today stays in her diary that night, and the next time you meet, her mood and manner shift a little with what she remembers.\nWe built AI memory and personality into the game so that, however long you talk, she stays herself to the end.',
+        'She is waiting on the second floor of the old school building, in the local-history club room.\nWith no install or sign-up, you can step right in from your browser and meet her now.'
       ],
       ko: {
         status: '웹 데모 공개 · 개발 중',
-        headline: '대화로 만들어가는 인터랙티브 무비',
-        summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 이어가는 미연시입니다. 건넨 말은 예지의 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
+        headline: '인공지능은 햇살 든 교실의 꿈을 꾸는가',
+        summary: '구교사 2층 향토연구부 부실에서 정해진 선택지 대신 내 말로 예지와 대화를 나누며 이어가는 미연시입니다. 오늘 건넨 말은 예지의 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
-          '선잠 DOZE는 예지와 직접 말을 주고받으며 이어가는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자기 성격과 그동안 나눈 대화를 바탕으로 대답합니다.',
-          ['예지는 나눈 대화를 일기로 적어 두고, 다음에 만날 때는 그 기록을 따라 기분과 태도가 조금씩 달라집니다.\n대화가 길어져도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임 안에 넣었습니다.',
-            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다. 지금 브라우저에서 바로 들어가 만나 볼 수 있습니다.']
+          '정해진 선택지 셋 중 하나를 고르는 대신, 내 말로 직접 예지에게 말을 건네며 이어가는 미연시입니다.\n예지는 대본에 적힌 대사를 읊지 않고, 자기 성격과 그동안 나눈 대화를 바탕으로 대답합니다.',
+          '오늘 건넨 말은 그날 밤 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.\n대화가 길어져도 캐릭터가 끝까지 자기답게 남도록, AI의 기억과 성격을 게임 안에 심었습니다.',
+          '예지가 기다리고 있는 곳은 구교사 2층 향토연구부 부실입니다.\n설치나 가입 없이 지금 브라우저에서 바로 들어가 만나 볼 수 있습니다.'
         ]
       },
       ja: {
         status: 'Web体験版公開中 · 開発中',
-        headline: '会話でつくっていくインタラクティブムービー',
-        summary: '旧校舎2階の郷土研究部の部室で、イェジと直接言葉を交わしながら進む恋愛アドベンチャーです。プレイヤーがかけた言葉は日記に残り、次の日のイェジの気分や態度が、その記憶に沿って少しずつ変わっていきます。',
+        headline: '人工知能は陽だまりの教室の夢を見るか',
+        summary: '旧校舎2階の郷土研究部の部室で、決まった選択肢の代わりに自分の言葉でイェジと語り合いながら進む恋愛アドベンチャーです。今日かけた言葉は日記に残り、次の日に向き合うときの気分や態度がその記憶に沿って少しずつ変わっていきます。',
         description: [
-          '선잠 DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
-          ['イェジは会話を日記に残し、次に会ったときはその記録に沿って気分や態度が変わります。\n長い会話のなかでもイェジが最後までイェジらしくいられるように、AI の記憶と性格をゲームに持ち込みました。',
-            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。いまブラウザからそのまま入って会うことができます。']
+          '決まった三つの選択肢から選ぶのではなく、自分の言葉でイェジに直接話しかけながら進む恋愛アドベンチャーです。\nイェジは台本どおりのセリフを並べるのではなく、自分の性格とこれまでの会話をもとに答えます。',
+          '今日かけた言葉はその夜の日記に残り、次に会うときの気分や態度がその記憶に沿って少しずつ変わっていきます。\n会話が長くなっても最後までその子らしくいられるように、AI の記憶と性格をゲームの中に組み込みました。',
+          'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。\nインストールも登録もなしで、いまブラウザからそのまま入って会うことができます。'
         ]
       },
       action: { label: 'Try', href: 'https://doze.choam.studio' },
-      art: [2, 1],   /* page 2 = the in-game capture (Mino 2026-11-06 01:14); was [2, 0] */
+      art: [0, 1, 2],
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261118.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
-        { kind: 'art', src: 'assets/seonjam-01.webp', altKo: '선잠 DOZE 일러스트: 먼 벽이 깊고 푸른 수족관으로 열린 교실에 혼자 선 소녀', altJa: '선잠 DOZE のイラスト: 奥の壁が深く青い水族館につながる教室に、ひとりで立つ少女', alt: '선잠 DOZE illustration: a girl standing alone in a classroom whose far wall opens onto a deep blue aquarium', pos: '50% 50%', posM: '74% 50%' },
+        { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 드는 구교사 복도 창가에서 35mm 필름통을 두 손으로 쥔 예지', altJa: '선잠 DOZE のコンセプトアート: 夕陽が差す旧校舎の廊下の窓辺でフィルムケースを両手に持つイェジ', alt: '선잠 DOZE concept art: Yeji holding a 35mm film canister by a sunset wooden hallway window in the old school building', pos: '56% 32%', posM: '58% 32%' },
+        { kind: 'art', src: 'assets/seonjam-seoa-rooftop-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 내려앉은 학교 옥상 철조망에 기대어 바라보는 서아', altJa: '선잠 DOZE のコンセプトアート: 夕陽に染まる校舎の屋上フェンスに寄りかかって見つめるソア', alt: '선잠 DOZE concept art: Seoa leaning against the school rooftop chain-link fence at sunset', pos: '62% 30%', posM: '64% 30%' },
         /* In-game capture from the 11-19 build (Mino 2026-11-19 00:08); top letterbox bar cropped. Replaces the 11-06 capture. */
-        { kind: 'raw', src: 'assets/seonjam-ingame-20261119.webp', ar: 1920 / 948, altKo: '선잠 DOZE 인게임 화면: 방과 후 교실에서 돌아보는 예지, 화면 아래쪽에 대사, 오른쪽에 선택지 세 개와 원형 타이머', altJa: '선잠 DOZE のゲーム画面: 放課後の教室で振り返るイェジ。下にセリフ、右に選択肢3つと円形タイマー', alt: '선잠 DOZE in-game screen: Yeji looking back in an after-school classroom, her line at the bottom, three choices and a countdown ring on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 },
-        { kind: 'art', src: 'assets/seonjam-03.webp', altKo: '선잠 DOZE 일러스트: 고래상어가 지나가는 수족관 벽 앞 교실에서 돌아보는 예지', altJa: '선잠 DOZE のイラスト: ジンベエザメが横切る水族館の壁を背に、教室で振り返るイェジ', alt: '선잠 DOZE illustration: Yeji looking back in a classroom whose far wall is an aquarium with a passing whale shark', pos: '50% 50%', posM: '66% 50%' }
+        { kind: 'raw', src: 'assets/seonjam-ingame-20261119.webp', ar: 1920 / 948, altKo: '선잠 DOZE 인게임 화면: 교실에서 돌아보는 예지, 화면 아래쪽에 대사, 오른쪽에 선택지 세 개와 원형 타이머', altJa: '선잠 DOZE のゲーム画面: 教室で振り返るイェジ。下にセリフ、右に選択肢3つと円形タイマー', alt: '선잠 DOZE in-game screen: Yeji looking back in a classroom, her line at the bottom, three choices and a countdown ring on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 }
       ],
-      info: { kind: 'art', src: 'assets/seonjam-03.webp', pos: '50% 50%', posM: '66% 50%', side: 'end' }
+      info: { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', pos: '56% 32%', posM: '58% 32%', side: 'end' }
     },
     {
       id: 'donguri-ryokan',
@@ -1644,18 +1644,18 @@
             <circle cx="1024" cy="540" r="3" fill="#D9A362"/>
             <text x="1848" y="430" text-anchor="end" font-family="CHOAM Sans, sans-serif" font-size="300" font-weight="870" letter-spacing="-12" fill="none" stroke="rgba(235,229,218,0.07)" stroke-width="1.5">602</text>
           </svg></div>
-          <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/602-mark.webp')}" alt="" loading="lazy" ></figure></div>`;
       if (p.field === 'lun') return `<div class="stage"><div class="field sch-field lun-field" aria-hidden="true"></div>
-          <figure class="figure" aria-hidden="true"><img src="${url('assets/lunasia-mark.svg')}" alt="" loading="lazy" decoding="async"></figure></div>`;
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/lunasia-mark.svg')}" alt="" loading="lazy" ></figure></div>`;
       if (p.field === 'sch') return `<div class="stage"><div class="field sch-field" aria-hidden="true">
           <svg class="stage-poster-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <line x1="1120" y1="96" x2="1120" y2="984" stroke="rgba(235,229,218,0.07)" stroke-width="1"/>
             <path d="M 1112 120 H 1128 M 1120 112 V 128 M 1112 960 H 1128 M 1120 952 V 968" stroke="rgba(217,163,98,0.65)" stroke-width="1.4"/>
             <text x="1848" y="430" text-anchor="end" font-family="CHOAM Sans, sans-serif" font-size="300" font-weight="870" letter-spacing="-15" fill="none" stroke="rgba(235,229,218,0.075)" stroke-width="1.5">1,001</text>
           </svg></div>
-          <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" decoding="async"></figure></div>`;
+          <figure class="figure" aria-hidden="true"><img src="${url('assets/sera-mark.webp')}" alt="" loading="lazy" ></figure></div>`;
       const a = p.bg || p.panels[p.art[0]];
-      return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" decoding="async"><div class="scrim" aria-hidden="true"></div></div>`;
+      return `<div class="stage"><img class="art" src="${url(a.src)}" alt="" style="--pos:${a.pos};--pos-m:${a.posM || a.pos}" loading="lazy" ><div class="scrim" aria-hidden="true"></div></div>`;
     };
     track.classList.add('plates');
     track.removeAttribute('aria-roledescription');
@@ -1894,11 +1894,11 @@
     /* gallery: real artwork, as large as the plate allows; cut-out standings stand unframed, a full image sits framed */
     if (spec.kind === 'gallery') { const multi = spec.items.length > 1;
       return `<figure class="media vis gal${multi ? '' : ' gal-one'}${spec.cut ? ' gal-cut' : ''}${spec.pair ? ' gal-pair' : ''}${on}" data-art="${i}"${multi ? ' role="group"' : ''} style="--sar:${spec.items.reduce((a, it) => a + it.ar, 0).toFixed(4)};--n:${spec.items.length}">
-        <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" decoding="async"${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
+        <div class="gal-row">${spec.items.map(it => `<div class="gi" style="--ar:${it.ar}"><img src="${url(it.src)}" alt="" draggable="false" ${j ? ' loading="lazy"' : ''}>${it.name ? '<span class="gn"></span>' : ''}</div>`).join('')}</div>${cap}</figure>`; }
     if (spec.kind === 'feat') return `<figure class="media vis feat${spec.approve ? ' ai602' : ''}${on}" data-art="${i}"${spec.approve ? ' data-ai="ask"' : ''}><svg viewBox="0 0 720 540" role="${spec.approve ? 'group' : 'img'}" aria-label="">${FEAT[spec.feat](lang)}</svg>${cap}</figure>`;
     if (spec.kind === 'chat') return `<figure class="media vis feat chatviz${on}" data-art="${i}"><div class="cv"></div>${cap}</figure>`;
     if (spec.kind === 'lun') return `<figure class="media vis feat lunviz${on}" data-art="${i}"><div class="lv"></div>${cap}</figure>`;
-    const img = `src="${url(spec.src)}" alt="" draggable="false" decoding="async"${(reel || !j) ? '' : ' loading="lazy"'}`;
+    const img = `src="${url(spec.src)}" alt="" draggable="false" ${(reel || !j) ? '' : ' loading="lazy"'}`;
     if (spec.kind === 'fig') return `<figure class="media vis afig${on}" data-art="${i}" style="--ar:${spec.ar}"><img ${img}>${cap}</figure>`;
     if (spec.kind === 'raw') return `<figure class="media vis frame${on}" data-art="${i}" style="--ar:${spec.ar || 16 / 9}"><img ${img}>${cap}</figure>`;
     return `<img class="media${on}" data-art="${i}" ${img} style="--pos:${spec.pos};--pos-m:${spec.posM}">`;
