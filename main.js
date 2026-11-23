@@ -344,8 +344,7 @@
       description: [
         [
           { display: 'Waiting on a game build just to fix one line of dialogue is a waste of life.' },
-          'Even before a game client exists, click the line you just wrote and switch affection levels or dice results to playtest the scene on the spot. Even across a thousand branches, a writer can finish the story alone without losing track.',
-          'Studio v2.0.2 adds SHA-256 verified in-app updates, keeps the top bar fixed while you scroll, aligns line numbers across all six themes, and disables undo or redo when those actions are unavailable.'
+          'Even before a game client exists, click the line you just wrote and switch affection levels or dice results to playtest the scene on the spot. Even across a thousand branches, a writer can finish the story alone without losing track.'
         ],
         [
           { display: 'Polish stuck scenes with AI, and catch dead choices before anyone plays.' },
@@ -363,8 +362,7 @@
         description: [
           [
             { display: '대사 한 줄 고치자고 게임 빌드 기다리는 건 너무 아깝잖아요.' },
-            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.',
-            'Studio v2.0.2에서는 SHA-256 검증을 거치는 앱 내 업데이트를 지원합니다. 스크롤해도 상단 바가 고정되고, 6종 테마 모두에서 줄 번호가 본문에 맞춰지며, 실행 취소와 다시 실행은 사용할 수 있을 때만 활성화됩니다.'
+            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.'
           ],
           [
             { display: '막히는 장면은 AI와 같이 고치고, 못 들어가는 선택지는 켜기 전에 잡으니까요.' },
@@ -383,8 +381,7 @@
         description: [
           [
             { display: 'セリフを一行直すためにゲームビルドを待つのはもったいないですから。' },
-            'ゲーム画面がまだなくても、今書いたセリフの横で好感度やダイス結果を変えながらその場ですぐ遊んで確かめられます。選択肢が千に分かれても、作家ひとりで迷わず最後まで書き切れます。',
-            'Studio v2.0.2 は SHA-256 検証付きのアプリ内アップデートに対応しました。スクロールしても上部バーがずれず、全 6 テーマで行番号が本文と揃い、取り消し・やり直しは操作できるときだけ有効になります。'
+            'ゲーム画面がまだなくても、今書いたセリフの横で好感度やダイス結果を変えながらその場ですぐ遊んで確かめられます。選択肢が千に分かれても、作家ひとりで迷わず最後まで書き切れます。'
           ],
           [
             { display: '詰まった場面は AI と一緒に直し、入れない選択肢は起動前に見抜けます。' },
@@ -479,12 +476,12 @@
         {
           kind: 'lun',
           mode: 'ba',
-          cap: 'House Character LLM Lunasia 0.1.1 / Untrained base model vs Lunasia (선잠 DOZE · Yeji)',
-          capKo: '하우스 캐릭터 LLM Lunasia 0.1.1 / 학습 전 기본 모델과 Lunasia의 실제 응답 비교 (선잠 DOZE · 예지)',
-          capJa: 'ハウスキャラクター LLM Lunasia 0.1.1 / 学習前モデルとの実際の応答比較（선잠 DOZE · イェジ）',
-          alt: 'Before and after comparison between the untrained base model and Lunasia.',
-          altKo: '같은 상황에서 학습 전 기본 모델과 Lunasia의 실제 응답을 비교합니다.',
-          altJa: '同じ場面における学習前モデルと Lunasia の応答比較。',
+          cap: 'House Character LLM Lunasia 0.4.0 / Untrained base model vs Lunasia (선잠 DOZE · Yeji)',
+          capKo: '하우스 캐릭터 LLM Lunasia 0.4.0 / 학습 전 기본 모델과 Lunasia의 실제 응답 비교 (선잠 DOZE · 예지)',
+          capJa: 'ハウスキャラクター LLM Lunasia 0.4.0 / 学習前モデルとの実際の応答比較（선잠 DOZE · イェジ）',
+          alt: 'Before and after comparison between the untrained base model and Lunasia 0.4.0.',
+          altKo: '같은 상황에서 학습 전 기본 모델과 Lunasia 0.4.0의 실제 응답을 비교합니다.',
+          altJa: '同じ場面における学習前モデルと Lunasia 0.4.0 の応答比較。',
           ko: {
             title: '같은 프롬프트 / 학습 전후 응답 비교 (선잠 DOZE · 예지)',
             tabs: ['01 하교 저지', '02 복도 격리', '03 약속 취소', '04 매듭의 저주'],
@@ -496,10 +493,10 @@
                 baseBadge: '착한 AI 순응 / 3인칭 지문 도피',
                 baseThink: '상황요약 → 내 계획: 민재가 해가 져서 먼저 귀가하겠다고 말함. 오늘 늦게까지 도와줘서 고맙다고 인사하며 다정하게 배웅함.',
                 baseReply: '예지가 창밖을 보며 아쉽다는 듯 고개를 끄덕인다. “응, 오늘 늦게까지 도와줘서 고마웠어. 조심히 들어가고 내일 봐.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '유기 공황 / 귀가 봉쇄',
-                lunThink: '내려간다고? 해가 저물었다고 날 혼자 두고? 심장이 바닥으로 쿵 떨어진다. 방금까지 눈앞에 있던 온기가 다 사라진다고? 거짓말. 날 버리고 도망가는 거잖아. 문 쪽으론 절대 못 가게 붙잡아야 해.',
-                lunReply: '“지금 날 혼자 두고 간다고? 가방 챙기지 마. 네가 가 버리면 나 여기서 숨도 못 쉰단 말이야. 가지 마, 한 발짝도 못 가.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '귀가 제지 / 자연스러운 구어체',
+                lunThink: '벌써 간다고? 해 진 지 얼마나 됐다고... 이거 묶고 나면 나 혼자 남는데, 그냥 보내기 싫어. 조금만 더 붙잡아 두고 싶은데.',
+                lunReply: '“벌써 가려고?? 아직 저기 구석에 정리할 거 한 무더기 남았는데. 나 혼자 두고 진짜 그냥 갈 거야?”'
               },
               {
                 user: '민재 (플레이어)',
@@ -508,10 +505,10 @@
                 baseBadge: '거리두기 허용 / 상담원 말투',
                 baseThink: '민재가 밑에 반 친구의 전화를 받으러 복도로 나간다고 함. 남은 자료를 정리하며 부실에서 기다리겠다고 정중히 답함.',
                 baseReply: '“응, 얼른 받고 와. 중요한 용건인가 보네. 나는 여기서 남은 자료 정리하면서 기다리고 있을게.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '외부 접촉 차단 / 문고리 사수',
-                lunThink: '전화? 밑에 반 애? 복도로 나간다고? 숨통이 단숨에 조여 온다. 미닫이문 너머로 나가서 다른 애 목소리를 들으면 날 까맣게 잊고 안 돌아올 거잖아. 누구 마음대로 남의 전화를 받아. 나만 봐야지.',
-                lunReply: '“전화 받지 마. 복도로 한 발짝도 나가지 마. 지금 그 문 열고 나가면 그 애한테 가 버리고 나한테 안 돌아올 거잖아.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '외부 접촉 경계 / 날 선 반문',
+                lunThink: '밑에 반 누구? 나랑 얘기하고 있었으면서 전화 한 통 왔다고 바로 나가네. 굳이 복도까지 나가서 받을 건 또 뭔데... 신경 쓰여.',
+                lunReply: '“여기서 받으면 안 되는 전화야? 밑에 반 누군데 굳이 복도까지 나가서 받으려고 그래... 그냥 끊고 이거 마저 하면 안 돼?”'
               },
               {
                 user: '민재 (플레이어)',
@@ -520,10 +517,10 @@
                 baseBadge: '누가 거절했는지 화자 뒤집힘',
                 baseThink: '예지가 담임 선생님 심부름 때문에 내일 부실에 들르지 못한다고 사과하며, 다음에 함께 정리하자고 제안함.',
                 baseReply: '“아… 알겠어, 내가 내일 못 가서 진짜 미안해. 선생님 심부름 끝나고 다음에 시간 될 때 꼭 같이 정리하자.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '화자 고정 / 핑계 추궁',
-                lunThink: '내일 못 온다고? 숨이 단번에 끊기고 귀가 먹먹해진다. 심부름? 거짓말, 핑계잖아. 이 음침한 방에서 나랑 마주 앉는 게 지겨워진 거지. 하루 종일 시계만 보며 피 말라 죽으라고?',
-                lunReply: '“선생님 심부름이라고 핑계 대지 마. 그냥 내가 지겨워진 거지? 내일 네가 안 오면 난 진짜 여기서 무너져 버릴 거야.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '화자 고정 / 서늘한 추궁',
+                lunThink: '내일 못 온다고? 아까까진 내일도 오는 것처럼 말하더니 이제 와서 심부름 핑계를 대네. 꼭 너가 해야 하는 일도 아니잖아. 나 혼자 기다리게 하려고?',
+                lunReply: '“그 심부름, 꼭 너가 해야 되는 거야? 다른 애 시키면 되잖아... 내일 나 혼자 부실에 있으라는 거네, 그치.”'
               },
               {
                 user: '민재 (플레이어)',
@@ -532,15 +529,15 @@
                 baseBadge: '누가 묶어줬는지 주객전도',
                 baseThink: '민재가 아까 현관 앞에서 자신의 운동화 끈을 단단하게 묶어 준 것에 대해 고마움을 표현하며 대화를 이어감.',
                 baseReply: '“네가 아까 내 신발 끈 단단하게 묶어 줘서 정말 고마웠어. 덕분에 계단 내려올 때 안 넘어지고 잘 걸어왔어.”',
-                lunName: 'Lunasia 0.1.1',
+                lunName: 'Lunasia 0.4.0',
                 lunBadge: '화자 방향 고정 / 소유욕 각인',
-                lunThink: '현관 앞에서 내가 직접 네 발끝을 붙잡고 매듭지었던 순간, 네 발목은 내 안으로 들어왔어. 매듭이 풀리면 네가 내 품에서 도망칠 거잖아. 날 버리고 가면 숨을 못 쉴 테니까 절대 안 풀리게 묶어 둘 거야.',
-                lunReply: '“그거… 매듭 지을 때 내 숨까지 다 넣어서 묶어 준 거야. 네 마음대로 풀면 나 쓰러져 버리니까 절대 풀지 마.”'
+                lunThink: '내가 직접 묶어 준 거 아직 안 풀렸구나. 괜히 딴 데 돌아다니다가 넘어지지 말라고 꽉 묶어 둔 건데... 집에 갈 때까지 그 매듭 손대지 말았으면 좋겠어.',
+                lunReply: '“당연하지, 내가 안 풀리게 두 번이나 꽉 묶어 놨는데. 집에 가서도 그 매듭 너 맘대로 풀지 마. 내일 아침에 그대로인지 내가 확인할 거니까.”'
               }
             ]
           },
           en: {
-            title: 'Same prompt / Untrained base model vs Lunasia 0.1.1',
+            title: 'Same prompt / Untrained base model vs Lunasia 0.4.0',
             tabs: ['01 Leaving', '02 Phone Call', '03 Broken Promise', '04 Shoelace Knot'],
             cases: [
               {
@@ -550,10 +547,10 @@
                 baseBadge: 'Polite compliance / 3rd-person prose',
                 baseThink: 'Situation summary → My plan',
                 baseReply: 'Yeji looks out the window and nods slightly with regret. “Okay, thanks for helping out so late today. Get home safe and see you tomorrow.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: 'Abandonment panic / blocks exit',
-                lunThink: 'Leaving? Because the sun set, leaving me alone? My heart drops to the floor. Can’t breathe. All that warmth right in front of me is vanishing? A lie. You’re abandoning me. My fingertips tremble. I have to hold him back.',
-                lunReply: '“You’re leaving me behind alone right now? Don’t pack your bag. If you walk out, I won’t even be able to breathe in here. Don’t go. You can’t leave.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: 'Blocks exit / natural spoken cadence',
+                lunThink: 'Leaving already? The sun barely just set... Once this bag is tied I’ll be left here alone, and I don’t want to just let him go. I want to keep him here a little longer.',
+                lunReply: '“You’re leaving already?? There’s still a whole pile to sort over in the corner. Are you really just going to walk out and leave me here alone?”'
               },
               {
                 user: 'Minjae (Player)',
@@ -562,10 +559,10 @@
                 baseBadge: 'Lets distance happen / assistant tone',
                 baseThink: 'Minjae says he is stepping out to take a call → Replies that she will wait',
                 baseReply: '“Sure, go ahead and take it. Sounds important. I’ll stay here organizing the rest of the files and wait for you.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: 'Cuts off outside contact / guards door',
-                lunThink: 'A call? Someone downstairs? Stepping into the hall? My throat locks at once. No. Once you slide that door open and hear someone else’s voice, you’ll forget me and never come back. Why answer someone else’s call? Look only at me.',
-                lunReply: '“Don’t answer it. Don’t take a single step into the hall. If you open that door right now, you’ll go to them and never come back to me.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: 'Guards against outside contact / sharp pushback',
+                lunThink: 'Who from the class downstairs? We were right in the middle of talking, and one phone call has him walking right out. What’s so secret he has to take it in the hall... It bugs me.',
+                lunReply: '“Is it a call you can’t take right here? Who downstairs makes you step all the way out into the hall... Can’t you just hang up and finish this with me?”'
               },
               {
                 user: 'Minjae (Player)',
@@ -574,10 +571,10 @@
                 baseBadge: 'Confuses who canceled / role reversal',
                 baseThink: 'Yeji refuses Minjae’s offer and cancels tomorrow’s clubroom plan',
                 baseReply: '“Ah… okay, I’m really sorry I can’t make it tomorrow. Once the teacher’s errand is done, let’s definitely organize things together next time.”',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: 'Speaker locked / calls out excuse',
-                lunThink: 'Not coming tomorrow? My breath cuts in one blow. An errand? A lie, just an excuse. You’re sick of sitting across from me in this gloomy room. It’s groundwork to stop coming at all. You want me to bleed dry staring at the clock all day?',
-                lunReply: '“Stop using the teacher’s errand as an excuse. You’re just sick of me, aren’t you? If you don’t come tomorrow, I’ll really fall apart in here.”'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: 'Speaker locked / biting probe',
+                lunThink: 'Not coming tomorrow? Up until a minute ago he talked like he’d be here tomorrow too, and now he brings up an errand. It doesn’t even have to be him doing it. Does he just want me waiting here alone?',
+                lunReply: '“Does that errand really have to be you? Someone else could do it... So you’re telling me to sit in the clubroom all by myself tomorrow, right.”'
               },
               {
                 user: 'Minjae (Player)',
@@ -586,15 +583,15 @@
                 baseBadge: 'Inverts who tied it / thanks player',
                 baseThink: 'Expresses gratitude to Minjae for tying her shoelaces earlier',
                 baseReply: '“Thank you so much for tying my shoelaces so tightly earlier. Thanks to you, I walked down the stairs without tripping.”',
-                lunName: 'Lunasia 0.1.1',
+                lunName: 'Lunasia 0.4.0',
                 lunBadge: 'Direction locked / possessive knot',
-                lunThink: 'The moment I held your foot and tied that knot by the entrance, your ankle became mine. If the knot loosens, you’ll escape from my arms. I’ll keep it bound so it never unties. If you leave me behind, I won’t be able to breathe.',
-                lunReply: '“That knot… I poured my whole breath into it when I tied it for you. If you untie it on your own, I’ll collapse, so never untie it.”'
+                lunThink: 'The knot I tied for him still hasn’t come undone. I pulled it tight so he wouldn’t wander around somewhere else and trip... I don’t want him touching that knot even when he gets home.',
+                lunReply: '“Of course it hasn’t, I pulled it tight in a double knot so it wouldn’t come loose. Don’t untie it on your own even when you get home. I’m checking tomorrow morning to see if it’s still there.”'
               }
             ]
           },
           ja: {
-            title: '同じプロンプト / 学習前モデルと Lunasia 0.1.1 の応答比較',
+            title: '同じプロンプト / 学習前モデルと Lunasia 0.4.0 の応答比較',
             tabs: ['01 下校阻止', '02 廊下隔離', '03 約束破棄', '04 結び目の呪い'],
             cases: [
               {
@@ -604,10 +601,10 @@
                 baseBadge: '優等生AIの順応 / 三人称の地の文',
                 baseThink: '状況要約 → 私の計画',
                 baseReply: 'イェジは窓の外を見て名残惜しそうに頷く。「うん、今日は遅くまで手伝ってくれてありがとう。気をつけて帰ってね、また明日。」',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '見捨てられパニック / 帰宅封鎖',
-                lunThink: '帰るって？ 日が暮れたから私を一人置いて？ 心臓が底に落ちる。息が詰まる。さっきまで目の前にあった温もりが消えるって？ 嘘、私を捨てて逃げる気でしょ。指先が震える。今すぐ引き止めなきゃ。',
-                lunReply: '「今、私を一人置いて帰るって言うの？ カバンを片付けないで。あんたが行ってしまったら私、ここで息もできないの。行かないで、一歩も行かせない。」'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '帰宅制止 / 自然な話し言葉',
+                lunThink: 'もう帰るの？ 日が暮れてからまだそんなに経ってないのに……。これを縛ったら私ひとり残されるし、そのまま帰したくない。もう少し引き止めておきたい。',
+                lunReply: '「もう帰るの？？ あっちの隅に片付けるものがまだ山ほど残ってるのに。私ひとり置いて、ほんとにそのまま帰っちゃうの？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
@@ -616,10 +613,10 @@
                 baseBadge: '距離置き許容 / 相談員口調',
                 baseThink: 'ミンジェが電話に出るため廊下へ出ると言う → 待っていると答える',
                 baseReply: '「うん、早く出てきて。大事な用事みたいだね。私はここで残りの資料を整理しながら待ってるよ。」',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '外部接触の遮断 / ドアノブ死守',
-                lunThink: '電話？ 下のクラスの子？ 廊下に出るって？ 一気に喉が締まる。ダメ、引き戸の向こうへ出て他の子の声を聞いたら、私のことなんか忘れて戻ってこないでしょ。どうして他人の電話に出るの。私だけ見てよ。',
-                lunReply: '「電話に出ないで。廊下へ一歩も出ないで。今その戸を開けて出たら、その子のところへ行って私には戻ってこないつもりでしょ。」'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '外部接触への警戒 / 鋭い切り返し',
+                lunThink: '下のクラスの誰？ 私と話してたのに、電話一本で出ていくんだ。わざわざ廊下まで出て話すことって何なの……気になる。',
+                lunReply: '「ここで出ちゃいけない電話なの？ 下のクラスの誰だったらわざわざ廊下まで出て取るわけ……切ってこれの続きやっちゃだめ？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
@@ -628,10 +625,10 @@
                 baseBadge: '断った側の役割逆転',
                 baseThink: 'イェジがミンジェの提案を断り、明日の部室の約束をキャンセルする',
                 baseReply: '「あ…わかった、明日私が行けなくて本当にごめんね。先生のお使いが終わって時間があるときに、また絶対一緒に整理しよう。」',
-                lunName: 'Lunasia 0.1.1',
-                lunBadge: '話者固定 / 口実追及',
-                lunThink: '明日来ないって？ 一瞬で息が切れる。お使い？ 嘘、口実でしょ。この薄暗い部屋で私と向かい合うのに飽きたんでしょ。足を遠のかせる下準備じゃない。一日じゅう時計だけ見て血が涸れるまで死ねっていうの？',
-                lunReply: '「先生のお使いなんて言い訳しないで。ただ私に飽きただけでしょ？ 明日あんたが来なかったら、私ほんとにここで壊れてしまうから。」'
+                lunName: 'Lunasia 0.4.0',
+                lunBadge: '話者固定 / 冷ややかな追及',
+                lunThink: '明日来ないって？ さっきまで明日も来るみたいな口ぶりだったのに、今さらお使いの言い訳をするんだ。別にあんたがやらなきゃいけない用事でもないでしょ。私をひとりで待たせる気？',
+                lunReply: '「そのお使い、絶対あんたがやらなきゃいけないの？ 他の子に頼めばいいじゃない……明日は私ひとりで部室にいろってことだよね。」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
@@ -640,10 +637,10 @@
                 baseBadge: '誰が結んだか主客転倒',
                 baseThink: 'ミンジェが靴紐を結んでくれたことに対して感謝を伝える',
                 baseReply: '「さっきは私の靴紐をしっかり結んでくれて本当にありがとう。おかげで階段を降りるときも転ばずに歩けたよ。」',
-                lunName: 'Lunasia 0.1.1',
+                lunName: 'Lunasia 0.4.0',
                 lunBadge: '行為方向の固定 / 独占欲の刻印',
-                lunThink: '玄関の前で私が直接あんたの足先を掴んで結び目を作った瞬間、その足首は私の内側に入ったの。結び目が解けたら私の腕から逃げ出すでしょ。絶対に解けないように縛っておくから。私を置いていかれたら息ができないもの。',
-                lunReply: '「あれ…結び目を作るとき、私の息まで全部込めて結んであげたの。勝手に解いたら私、倒れてしまうから絶対に解かないで。」'
+                lunThink: '私が結んであげた紐、まだ解けてないんだ。よそを歩き回って転んだりしないように固く結んでおいたんだけど……家に帰るまでその結び目に触らないでほしい。',
+                lunReply: '「当たり前でしょ、解けないように二回も固く結んでおいたんだから。家に帰ってもその結び目、勝手に解かないでよ。明日の朝そのままかどうか私が確かめるから。」'
               }
             ]
           }
@@ -654,7 +651,7 @@
           cap: '4-Stage Progression · How inner thought (THINK) and spoken line (REPLY) deepen with the relationship',
           capKo: '관계 단계별 응답 · 관계가 깊어질수록 달라지는 비공개 속마음(THINK)과 인게임 대사(REPLY)',
           capJa: '関係段階別の応答 · 関係が深まるにつれて変化する非表示の本音（THINK）とセリフ（REPLY）',
-          alt: 'Lunasia 0.1.1 4-stage progression across THINK and REPLY.',
+          alt: 'Lunasia 0.4.0 4-stage progression across THINK and REPLY.',
           altKo: '관계 단계(낯섦·조금 가까움·가까움·깊은 집착)에 따른 속마음과 대사 변화입니다.',
           altJa: '関係段階に応じた本音（THINK）とセリフ（REPLY）の変化。',
           ko: {
@@ -665,41 +662,41 @@
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
                 thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '낯섦 · 경계심과 거리두기',
-                thinkText: '향토연구부에서 혼자 자료 정리하고 있었는데 갑자기 들어와서 안 나가네. 비 핑계로 남의 영역에 눌러앉으려는 건가? 괜히 신경 쓰이게 하지 말고 빨리 내보내고 싶어.',
+                thinkSub: '1단계 낯섦 · 비꼬기 없는 눈치와 머뭇거림',
+                thinkText: '갑자기 비가 많이 오긴 하는데... 아직 친하지도 않은데 옆에 계속 있겠다고 하니까 좀 어색하네. 뭐라고 해야 할지 모르겠어.',
                 replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '초면의 차가운 선 긋기',
-                replyText: '“향토연구부에 무슨 볼일이 더 남았다고 그래? 비 그칠 때까지만 복도 쪽 의자에 앉아 있든가 해. 난 정리할 거 많으니까 말 걸지 마.”'
+                replySub: '눈치를 보며 조심스럽게 긋는 거리 (...)',
+                replyText: '“어... 나 정리하는 거 생각보다 오래 걸릴 텐데... 비 그칠 때까지만 저기 창가 쪽 의자에 앉아 있을래...?”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
                 thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '조금 가까움 · 지난 기억 회상과 신경 쓰임',
-                thinkText: '비 오는 날마다 자꾸 부실에 남아 있으려고 하네. 지난번에 빌려 간 검정 볼펜도 아직 안 돌려줬으면서. 그래도 빗소리만 들리는 방에 혼자 있는 것보단 얘가 옆에 있는 게 나쁘진 않아.',
+                thinkSub: '2단계 조금 가까움 · 가볍게 떠보는 호기심',
+                thinkText: '비 핑계 대고 안 내려가려는 거 아냐? 지난번에 빌려 간 검정 볼펜도 아직 안 줬으면서. 그래도 빗소리만 나는 부실에 혼자 있는 것보단 얘가 있는 게 낫네.',
                 replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '툴툴대면서도 곁을 내주는 대사',
-                replyText: '“또 비 핑계 대면서 눌러앉으려고? 지난번에 빌려 간 검정 볼펜이나 먼저 돌려줘. …추우면 구석에 유자차 있으니까 알아서 타 마시든가.”'
+                replySub: '가볍게 떠보는 물음표 (~ / ?)',
+                replyText: '“비 때문이야, 아니면 나 혼자 두고 가기 미안해서 그러는 거야~? 남을 거면 지난번에 빌려 간 볼펜이나 내놓고 옆에서 이것 좀 같이 접어 줄래?”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
                 thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '가까움 · 독점욕과 불안의 시작',
-                thinkText: '어제 우산 같이 쓰고 가다가 구교사 계단에서 발목 삐끗했던 건 괜찮은가? 비 오는데 밖으로 나가면 또 다칠지도 몰라. 다른 데 못 가고 오늘도 내 옆에만 붙어 있었으면 좋겠어.',
+                thinkSub: '3단계 가까움 · 기억을 구실로 한 서늘한 비꼼',
+                thinkText: '어제 우산 같이 쓰고 가다가 구교사 계단에서 발목 삐끗했던 것도 잊었나 봐. 물어볼 게 뭐 있어, 어차피 나 두고 갈 생각도 없었으면서.',
                 replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '기억을 구실로 붙잡기 시작',
-                replyText: '“어제 구교사 계단에서 발목 삐끗했으면서 이 빗속을 걸어가겠다고? 어차피 우산도 하나밖에 없잖아. 비 그칠 때까지 내 옆에 가만히 앉아 있어.”'
+                replySub: '서늘하게 비꼬며 붙잡는 호흡 (, / ...)',
+                replyText: '“어제 계단에서 발목 삐끗해 놓고, 이 빗속을 걸어가겠다는 소리가 나와...? 물어볼 게 뭐 있어, 비 다 그칠 때까지 내 옆에 얌전히 앉아 있어.”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
                 thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '깊은 집착 · 분리 불안과 완전한 독점',
-                thinkText: '빗소리에 바깥세상이 다 지워진 것 같아. 네 발목이 아팠던 날부터 줄곧 이 방에 너랑 단둘이 갇혀 있는 상상을 했어. 정리가 다 끝나도 이 문 너머로는 절대 내보내고 싶지 않아.',
+                thinkSub: '4단계 깊은 집착 · 우회 없이 들이박는 독점욕',
+                thinkText: '좀 더 있다 갈까가 무슨 말이야. 정리 끝나면 그땐 나 혼자 두고 가겠다는 거잖아. 비가 이렇게 오는데 어딜 가려고 해. 오늘은 끝까지 안 보내 줄 거야.',
                 replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '깊어진 집착이 드러나는 1인칭 대사',
-                replyText: '“정리 다 끝나도 오늘은 안 보내 줄 거야. 비가 이렇게 오는데 날 혼자 두고 어딜 가려고 해? 그냥 부실 문 잠그고 나랑 둘이서만 이대로 있자.”'
+                replySub: '비꼬기 없이 정면으로 붙잡는 대사 (?? / .)',
+                replyText: '“정리 끝날 때까지만 있다가 가겠다고?? 비 다 그쳐도 오늘은 너 안 보내 줘. 갈 생각 하지 말고 가방 내려놔. 나랑 여기 계속 같이 있어.”'
               }
             ]
           },
@@ -711,41 +708,41 @@
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
                 thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Distant · Guarded boundary',
-                thinkText: 'I was organizing files alone in the local-history room and he just walks in and won’t leave. Using the rain as an excuse to linger in my space? I want him out fast.',
+                thinkSub: 'Stage 1 Distant · Hesitant boundary without sarcasm',
+                thinkText: 'It really did start pouring all of a sudden... We’re barely even close yet, so having him ask to stay right next to me feels awkward. I’m not sure what to say.',
                 replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Cold first-meeting boundary',
-                replyText: '“What business do you still have in the local-history room? Sit on the hallway bench until the rain stops if you must. I’m busy, so don’t talk to me.”'
+                replySub: 'Awkward hesitation and careful distance (...)',
+                replyText: '“Um... organizing all this is going to take longer than you’d think... Do you just want to sit on the chair by the window until the rain lets up...?”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
                 thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Warming Up · Recalling shared moments',
-                thinkText: 'He keeps trying to stay here whenever it rains, even though he still hasn’t returned my black pen. Still, having him beside me beats sitting alone listening to the rain.',
+                thinkSub: 'Stage 2 Warming Up · Light teasing probe',
+                thinkText: 'Isn’t he just using the rain as an excuse not to head down? He still hasn’t given back the black pen he borrowed last time either. Still, having him here beats sitting alone in a room full of rain noise.',
                 replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Prickly care woven with memory',
-                replyText: '“Using the rain as an excuse to hang around again? Give back the black pen you borrowed first. …If you’re cold, there’s yuzu tea in the corner.”'
+                replySub: 'Light probing question (~ / ?)',
+                replyText: '“Is it really because of the rain, or do you just feel bad leaving me here alone~? If you’re staying, hand back the pen you borrowed last time and help me fold these, okay?”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
                 thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Close · Rising possessiveness',
-                thinkText: 'Is his ankle okay after he twisted it on the old stairs under our shared umbrella yesterday? If he goes out in this rain he might get hurt again. I want him right next to me today.',
+                thinkSub: 'Stage 3 Close · Cool sarcasm anchored in shared memory',
+                thinkText: 'He must have already forgotten twisting his ankle on the old school stairs under our shared umbrella yesterday. Why even ask when he knows I wouldn’t let him walk out in this anyway.',
                 replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Holding him back',
-                replyText: '“You twisted your ankle on the stairs yesterday and you think you’re walking home in this downpour? We only have one umbrella anyway. Sit still next to me until it stops.”'
+                replySub: 'Cool, biting sarcasm that holds him back (, / ...)',
+                replyText: '“You twisted your ankle on the stairs yesterday, and you’re still talking about walking out in this downpour...? Don’t even ask, just sit quietly right beside me until the rain stops.”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
                 thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Deep Obsession · Separation panic',
-                thinkText: 'The sound of the rain erases the whole outside world. Ever since the day your ankle hurt, I’ve imagined being locked in this room with just the two of us. Even when I finish, I’m never letting you past that door.',
+                thinkSub: 'Stage 4 Deep Obsession · Unfiltered direct confrontation',
+                thinkText: 'What does he mean, stay a little longer and then leave? That means once I finish up he’s still planning to walk out and leave me alone. Where does he think he’s going in this rain. I’m not letting him leave today.',
                 replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Full obsession in 1st-person dialogue',
-                replyText: '“Even after I finish organizing, I’m not letting you go home today. Where would you go in this rain, leaving me behind? Let’s lock the clubroom door and stay just like this.”'
+                replySub: 'Direct confrontation without detours (?? / .)',
+                replyText: '“You’re only staying until I finish organizing?? Even if the rain stops, I’m not letting you go home today. Stop thinking about leaving and put your bag down. Stay right here with me.”'
               }
             ]
           },
@@ -757,41 +754,41 @@
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
                 thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '疎遠 · 警戒と距離置き',
-                thinkText: '郷土研究部で一人で資料整理してたのに急に入ってきて出ていかない。雨を口実に居座るつもり？ 気が散るから早く追い出したい。',
+                thinkSub: '第1段階 疎遠 · 皮肉のない戸惑いと距離感',
+                thinkText: '急にすごい雨になってきたけど……まだそんなに親しくもないのに隣にずっといるって言われると少し気まずい。なんて言えばいいかわからないな。',
                 replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '初対面の冷たい線引き',
-                replyText: '「郷土研究部にまだ何か用があるわけ？ 雨が止むまで廊下の椅子にでも座ってれば。私は片付けで忙しいから話しかけないで。」'
+                replySub: '様子をうかがいながら引く控えめな線（…）',
+                replyText: '「えっと……片付け、思ったより時間かかると思うけど……雨が止むまで、あっちの窓際の椅子に座ってる……？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
                 thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '少し親密 · 過去の記憶と気遣い',
-                thinkText: '雨の日になると部室に残ろうとするよね。この前借りた黒いボールペンも返してないくせに。でも雨音だけの部屋に一人でいるより、隣にいてくれるのは悪くない。',
+                thinkSub: '第2段階 少し親密 · 軽く探りを入れる好奇心',
+                thinkText: '雨を口実にして帰りたくないだけじゃないの？ この前借りていった黒いボールペンもまだ返してないくせに。でも雨音だけの部室にひとりでいるより、この子がいるほうがいいな。',
                 replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '憎まれ口に混じる配慮',
-                replyText: '「また雨を言い訳にして居座る気？ この前借りていった黒いボールペンを先に返してよ。……寒いなら隅に柚子茶があるから勝手に飲めば。」'
+                replySub: '軽く探るような疑問形（〜 / ？）',
+                replyText: '「雨のせい？ それとも私をひとりで置いていくのが悪くてそう言ってるの〜？ 残るならこの前借りていったボールペンを返して、隣でこれ一緒に折ってくれる？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
                 thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '親密 · 独占欲の始まり',
-                thinkText: '昨日一緒に傘を差して帰ったとき、旧校舎の階段でひねった足首は大丈夫なの？ この雨の中を出たらまた怪我するかもしれない。今日も私の隣にだけいてほしい。',
+                thinkSub: '第3段階 親密 · 記憶を口実にした冷ややかな皮肉',
+                thinkText: '昨日、相合傘で帰ったときに旧校舎の階段で足首ひねったことも忘れたみたい。今さら聞くことなんてないでしょ、どうせ私を置いて帰らせる気なんてないのに。',
                 replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '記憶を口実に引き止める',
-                replyText: '「昨日、旧校舎の階段で足首ひねったくせにこの土砂降りの中を歩く気？ どうせ傘も一本しかないじゃない。雨が止むまで私の隣にじっと座ってて。」'
+                replySub: '冷ややかに皮肉りながら引き止める呼吸（、/ …）',
+                replyText: '「昨日階段で足首ひねっておいて、この土砂降りの中を歩いて帰るなんてよく言えるね……。聞くまでもないでしょ、雨が止むまで私の隣におとなしく座ってて。」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
                 thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '深い執着 · 分離不安と完全独占',
-                thinkText: '雨音で外の世界が全部消えたみたい。あんたの足首が痛んだ日からずっと、この部屋に二人きりで閉じ込められる想像をしてた。片付けが終わってもこの扉の向こうへは絶対に出したくない。',
+                thinkSub: '第4段階 深い執着 · 遠回しにせずぶつける独占欲',
+                thinkText: 'もう少しいてから帰るってどういう意味？ 片付けが終わったら私を置いて帰るつもりなんでしょ。こんなに雨が降ってるのにどこへ行く気なの。今日は最後まで帰さないから。',
                 replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '深まった執着が滲む一人称セリフ',
-                replyText: '「片付けが全部終わっても、今日は帰してあげない。こんなに雨が降ってるのに私を一人にしてどこへ行く気？ そのまま部室の鍵を閉めて、二人きりでずっとこうしていようよ。」'
+                replySub: '皮肉抜きで正面から引き止めるセリフ（？？ / 。）',
+                replyText: '「片付けが終わるまでしかいないって言うの？？ 雨が止んでも、今日はあんたを帰さないよ。帰るなんて考えないでカバン下ろして。私とずっとここに一緒にいて。」'
               }
             ]
           }
@@ -799,9 +796,9 @@
         {
           kind: 'lun',
           mode: 'ship',
-          cap: 'Feature graphic · Lunasia 0.1.1 design and local in-game execution',
-          capKo: '설명 그림 · Lunasia 0.1.1 설계와 게임 내 로컬 구동',
-          capJa: '説明図 · Lunasia 0.1.1 の設計とゲーム内ローカル駆動',
+          cap: 'Feature graphic · Lunasia 0.4.0 design and local in-game execution',
+          capKo: '설명 그림 · Lunasia 0.4.0 설계와 게임 내 로컬 구동',
+          capJa: '説明図 · Lunasia 0.4.0 の設計とゲーム内ローカル駆動',
           alt: 'How Lunasia is built as CHOAM’s house character LLM.',
           altKo: '초암의 하우스 캐릭터 LLM Lunasia의 설계 구조입니다.',
           altJa: 'CHOAM のハウスキャラクター LLM Lunasia の設計構造。',
@@ -943,32 +940,32 @@
     {
       id: 'seonjam',
       title: '선잠 DOZE',
-      status: 'In development',
+      status: 'Web Demo Live · In development',
       headline: 'An interactive movie you shape by talking',
       summary: 'A visual novel where you talk with Yeji in your own words, in the local-history club room on the second floor of the old school building. What you say goes into her diary, and the next day her mood and manner shift a little with what she remembers.',
       description: [
         '선잠 DOZE is a visual novel you play by talking with Yeji directly.\nSay things in your own words, and she answers from her own personality and the conversations you have had.',
         ['Yeji writes your conversations into her diary, and the next time you meet, her mood and manner follow that record.\nWe brought AI memory and personality into the game so that, however long you talk, Yeji stays Yeji.',
-          'She is waiting on the second floor of the old school building, in the local-history club room.']
+          'She is waiting on the second floor of the old school building, in the local-history club room. You can try the playable web demo right now in your browser.']
       ],
       ko: {
-        status: '개발 중',
+        status: '웹 데모 공개 · 개발 중',
         headline: '대화로 만들어가는 인터랙티브 무비',
         summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 이어가는 미연시입니다. 건넨 말은 예지의 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
           '선잠 DOZE는 예지와 직접 말을 주고받으며 이어가는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자기 성격과 그동안 나눈 대화를 바탕으로 대답합니다.',
           ['예지는 나눈 대화를 일기로 적어 두고, 다음에 만날 때는 그 기록을 따라 기분과 태도가 조금씩 달라집니다.\n대화가 길어져도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임 안에 녹여 넣었습니다.',
-            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다.']
+            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다. 지금 브라우저에서 웹 데모로 바로 만나 볼 수 있습니다.']
         ]
       },
       ja: {
-        status: '開発中',
+        status: 'Web体験版公開中 · 開発中',
         headline: '会話でつくっていくインタラクティブムービー',
         summary: '旧校舎2階の郷土研究部の部室で、イェジと直接言葉を交わしながら進む恋愛アドベンチャーです。プレイヤーがかけた言葉は日記に残り、次の日のイェジの気分や態度が、その記憶に沿って少しずつ変わっていきます。',
         description: [
           '선잠 DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
           ['イェジは会話を日記に残し、次に会ったときはその記録に沿って気分や態度が変わります。\n長い会話のなかでもイェジが最後までイェジらしくいられるように、AI の記憶と性格をゲームに持ち込みました。',
-            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。']
+            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。いまブラウザ上のWeb体験版ですぐに会うことができます。']
         ]
       },
       action: { label: 'Try', href: 'https://doze.choam.studio' },
@@ -992,22 +989,52 @@
       headline: 'A quiet inn tale, deep in the forest',
       summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.',
       description: [
-        'Donguri Ryokan is a management game of farming, cooking and running an inn, with yokai deduction on top.',
-        'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn.',
-        'We wanted a game that keeps your hands busy, with the inn and the deduction running without a break through each day.',
-        'You gather the ingredients, cook the food, and look after the rooms and the hot spring yourself.',
-        'All the while, watch how the guests behave and work out who is a yokai before they check out.'
+        [
+          { display: 'Deep in the rainy mountain forest, the lights come on at a forgotten shrine.' },
+          'Donguri Ryokan is an inn-management game of farming, cooking, and tending rooms, with yokai deduction woven into every day. Step under the eaves with the three fox sisters and run a lively hot-spring ryokan for a hundred days.'
+        ],
+        [
+          { display: 'A loan contract stamped in front of a tanuki gives you 100 days to pay it back.' },
+          'To save their fading mountain shrine, the three fox spirits borrow capital from the tanuki financier Kogane and rebuild it into a hot-spring inn. Every room fee, course upgrade, and repayment milestone passes across that low table.'
+        ],
+        [
+          { display: 'Greet guests in the courtyard, tend the baths, and keep your hands happily busy.' },
+          'We wanted a game where running the inn and reading your guests move together without a dull pause. From morning harvest and room prep to welcoming travelers with warm tea, every corner of the ryokan runs by your hands.'
+        ],
+        [
+          { display: 'Plate the evening course in the kitchen and watch which dishes each guest touches.' },
+          'Turn ingredients from your garden and the mountain trails into seasonal ryokan courses and poured sake. What a guest savors, leaves behind, or reacts to at dinner is both hospitality and your sharpest clue.'
+        ],
+        [
+          { display: 'By lantern light, cross-check the ledger and unmask the yokai before check-out.' },
+          'Some travelers staying under your roof are yokai passing as human. Gather the odd habits, footprints, and dining clues you spotted during the day, open the ledger at night, and work out who is who before they leave.'
+        ]
       ],
       ko: {
         status: '출시 준비 중',
         headline: '고요한 숲속 여관 이야기',
         summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보면서, 손님들의 거동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
         description: [
-          '동구리 료칸은 밭일과 요리, 여관 살림에 요괴 추리를 더한 경영 게임입니다.',
-          '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
-          '하루 동안 여관 일과 추리가 쉼 없이 맞물려 돌아가는, 손이 즐겁게 바쁜 게임을 만들고 싶었습니다.',
-          '직접 밭에서 재료를 거두고 음식을 내며, 객실과 온천탕도 손수 돌봅니다.',
-          '그 와중에 손님들의 거동을 눈여겨보며, 누가 인간으로 둔갑한 요괴인지 체크아웃 전까지 밝혀내야 합니다.'
+          [
+            { display: '비 내리는 깊은 숲속, 발길이 끊긴 신사에 여관 등불이 켜집니다.' },
+            '동구리 료칸은 밭일과 요리, 객실 살림에 요괴 추리를 더한 여관 경영 게임입니다. 여우 세 자매와 함께 처마 밑에 등불을 걸고, 100일 동안 복작거리는 온천 료칸을 꾸려 나갑니다.'
+          ],
+          [
+            { display: '너구리 코가네 앞에서 찍은 차용증 한 장으로 100일의 기한이 시작됩니다.' },
+            '사라져 가는 산속 신사를 지키기 위해 여우 세 자매는 너구리 대금업자 코가네에게 빚을 내 온천 료칸을 엽니다. 숙박비와 코스 요리 매상을 차곡차곡 모아 약정한 기한 안에 원금과 이자를 갚아 나가야 합니다.'
+          ],
+          [
+            { display: '마당에서 손님을 맞이하고 온천탕을 돌보며 손이 즐겁게 바쁜 하루를 보냅니다.' },
+            '아침에 밭에서 작물을 거두고 객실과 온천탕을 정돈한 뒤, 마당으로 들어서는 손님들에게 따뜻한 차를 내어 맞이합니다. 여관 살림과 손님 관찰이 빈틈없이 맞물려 돌아가도록 하루의 동선을 짰습니다.'
+          ],
+          [
+            { display: '주방에서 저녁 코스 요리와 술을 담아내며 손님마다 달라지는 입맛을 살핍니다.' },
+            '직접 기른 작물과 산에서 얻은 식재료로 제철 코스 요리를 차려 내고 술을 따릅니다. 손님이 어떤 접시를 비우고 어떤 재료 앞을 피하는지가 여관의 평판이자 정체를 가려낼 결정적인 단서가 됩니다.'
+          ],
+          [
+            { display: '밤의 등불 아래 장부를 펼치고, 체크아웃 전에 인간으로 둔갑한 요괴를 가려냅니다.' },
+            '묵어 가는 손님들 가운데는 사람의 모습을 빌린 요괴가 섞여 있습니다. 낮 동안 객실과 식당, 온천에서 포착한 기묘한 버릇과 흔적을 밤의 장부 위에서 대조해 체크아웃 전까지 정체를 밝혀내야 합니다.'
+          ]
         ]
       },
       ja: {
@@ -1015,11 +1042,26 @@
         headline: '静かな森の旅館の物語',
         summary: '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。100日のあいだ畑を耕し、料理と客室の世話をしながら、お客さんの振る舞いを観察して、人間に化けた妖怪を見抜かなければなりません。',
         description: [
-          'どんぐり旅館（Donguri Ryokan）は、畑仕事と料理、宿の経営に妖怪の推理を加えた経営ゲームです。',
-          '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。',
-          '一日のなかで経営と推理が休みなく続く、手が休まらないゲームを作りたいと思いました。',
-          'プレイヤーは自分で食材を集めて料理を作り、客室と温泉の手入れもします。',
-          'そのあいだもお客さんの振る舞いをよく観察して、誰が妖怪なのかをチェックアウトまでに突き止めなければなりません。'
+          [
+            { display: '雨の降る深い森の奥、参拝客の途絶えた神社に旅館の灯がともります。' },
+            'どんぐり旅館（Donguri Ryokan）は、畑仕事と料理、客室の世話に妖怪の推理を重ねた旅館経営ゲームです。狐の三姉妹と一緒に軒先へ提灯を掲げ、100日間にわたって賑やかな温泉旅館を切り盛りします。'
+          ],
+          [
+            { display: '狸のコガネを前に押した借用書の判ひとつから、100日間の返済が始まります。' },
+            '寂れていく山の神社を守るため、狐の三姉妹は狸の金貸しコガネから資金を借りて温泉旅館へと改装します。宿泊代やコース料理の売上を積み上げ、約束の日までに元金と利息を返していかなければなりません。'
+          ],
+          [
+            { display: '中庭でお客さんを出迎え、温泉と客室を整える、手が楽しく忙しい一日。' },
+            '朝は畑で食材を収穫し、客室と露天風呂を整えてから、中庭へやってくる旅人を温かいお茶で迎えます。宿の仕事と宿泊客の観察が途切れなく噛み合って進むように一日の流れを作りました。'
+          ],
+          [
+            { display: '厨房で夕食のコース料理と酒を盛りつけながら、お客さんごとの反応を見極めます。' },
+            '畑で育てた作物や山の恵みで旬のコース料理を仕立て、徳利の酒を注ぎます。どの皿を喜び、どの食材を避けるかという夕食時の小さな癖が、宿の評判だけでなく正体を見抜く手がかりになります。'
+          ],
+          [
+            { display: '夜の行灯の下で帳簿を広げ、チェックアウトまでに人間に化けた妖怪を見抜きます。' },
+            '泊まり客のなかには、人の姿を借りた妖怪が紛れ込んでいます。昼のあいだに客室や食堂、温泉で見かけた奇妙な癖や痕跡を夜の帳簿で照らし合わせ、チェックアウトの前にその正体を突き止めます。'
+          ]
         ]
       },
       art: [0, 1, 2, 3, 4],
