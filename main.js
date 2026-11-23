@@ -973,12 +973,12 @@
       /* Homepage stage only: DAT-final key art behind the sunlit curtain, new immutable filename so the old asset and caches stay put. */
       bg: { src: 'assets/seonjam-bg-20261118.webp', pos: '80% 50%', posM: '69% 50%' },
       panels: [
-        { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 드는 구교사 복도 창가에서 35mm 필름통을 두 손으로 쥔 예지', altJa: '선잠 DOZE のコンセプトアート: 夕陽が差す旧校舎の廊下の窓辺でフィルムケースを両手に持つイェジ', alt: '선잠 DOZE concept art: Yeji holding a 35mm film canister by a sunset wooden hallway window in the old school building', pos: '56% 32%', posM: '58% 32%' },
-        { kind: 'art', src: 'assets/seonjam-seoa-rooftop-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 내려앉은 학교 옥상 철조망에 기대어 바라보는 서아', altJa: '선잠 DOZE のコンセプトアート: 夕陽に染まる校舎の屋上フェンスに寄りかかって見つめるソア', alt: '선잠 DOZE concept art: Seoa leaning against the school rooftop chain-link fence at sunset', pos: '62% 30%', posM: '64% 30%' },
+        { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 드는 구교사 복도 창가에서 35mm 필름통을 두 손으로 쥔 예지', altJa: '선잠 DOZE のコンセプトアート: 夕陽が差す旧校舎の廊下の窓辺でフィルムケースを両手に持つイェジ', alt: '선잠 DOZE concept art: Yeji holding a 35mm film canister by a sunset wooden hallway window in the old school building', pos: '56% 32%', posM: '50% 24%' },
+        { kind: 'art', src: 'assets/seonjam-seoa-rooftop-20261123.webp', altKo: '선잠 DOZE 컨셉 아트: 노을빛이 내려앉은 학교 옥상 철조망에 기대어 바라보는 서아', altJa: '선잠 DOZE のコンセプトアート: 夕陽に染まる校舎の屋上フェンスに寄りかかって見つめるソア', alt: '선잠 DOZE concept art: Seoa leaning against the school rooftop chain-link fence at sunset', pos: '62% 30%', posM: '58% 22%' },
         /* In-game capture from the 11-19 build (Mino 2026-11-19 00:08); top letterbox bar cropped. Replaces the 11-06 capture. */
         { kind: 'raw', src: 'assets/seonjam-ingame-20261119.webp', ar: 1920 / 948, altKo: '선잠 DOZE 인게임 화면: 교실에서 돌아보는 예지, 화면 아래쪽에 대사, 오른쪽에 선택지 세 개와 원형 타이머', altJa: '선잠 DOZE のゲーム画面: 教室で振り返るイェジ。下にセリフ、右に選択肢3つと円形タイマー', alt: '선잠 DOZE in-game screen: Yeji looking back in a classroom, her line at the bottom, three choices and a countdown ring on the right', cap: 'Work-in-progress screen. Not final quality.', capKo: '개발 중인 화면입니다. 최종 퀄리티가 아닙니다.', capJa: '開発中の画面です。最終的なクオリティではありません。', pos: '50% 50%', posM: '50% 50%', lift: 0 }
       ],
-      info: { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', pos: '56% 32%', posM: '58% 32%', side: 'end' }
+      info: { kind: 'art', src: 'assets/seonjam-yeji-window-20261123.webp', pos: '56% 32%', posM: '50% 24%', side: 'end' }
     },
     {
       id: 'donguri-ryokan',
