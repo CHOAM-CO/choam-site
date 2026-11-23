@@ -60,14 +60,14 @@
       const t = l === 'ko' ? {
         kicker: '02 · AI와 함께 고치고 막힌 길은 미리 잡기',
         h1: '막히는 대사는 AI와 같이 고치고', h2: '꼬인 선택지는 켜기 전에 끝',
-        dead: '조건이 꼬여 못 들어가는 선택지 · 실행 전에 미리 표시',
-        ref: '1장 · 비 오는 하교길 (14~16행)  ·  AI 에이전트 대사 수정 제안',
-        stAsk: '검토 대기', stOk: '반영 완료', stNo: '반려됨',
+        dead: '조건이 꼬여 못 들어가는 선택지 · 게임을 켜기 전에 미리 표시',
+        ref: '1장 · 비 오는 하굣길 (14~16줄)  ·  AI가 고쳐 본 대사',
+        stAsk: '고르기 전', stOk: '원고에 넣음', stNo: '원래대로',
         d1: '– 기존: “우산 없으면 내 거 같이 쓰고 갈래?”',
-        d2: '+ 제안: “비 오는데 그냥 가려고? 우산 하나니까 이리 와.” (뒤쪽 3장까지 연결 이상 없음 ✓)',
-        prompt: '마음에 드는 대사 수정안을 직접 눌러 반영해 보세요',
-        okLabel: '승인', noLabel: '반려',
-        savedOk: '원고에 반영했습니다', savedNo: '반려됨 · 원래 대사를 유지합니다',
+        d2: '+ 새 대사: “비 오는데 그냥 가려고? 우산 하나니까 이리 와.” (뒤쪽 3장까지 이어짐 ✓)',
+        prompt: '마음에 드는 대사를 눌러 원고에 바로 넣어 보세요',
+        okLabel: '이걸로 바꾸기', noLabel: '원래대로',
+        savedOk: '새 대사로 바꿨습니다', savedNo: '원래 쓴 대사로 뒀습니다',
         resetAria: '다시 보기', resetLabel: '↺ 다시'
       } : l === 'ja' ? {
         kicker: '02 · AI と一緒に直して塞がった道は先に防ぐ',
@@ -245,11 +245,11 @@
             { t: 'poster', h1: '내가 어제 흘린 말을', h2: '오늘도 기억하는 사이', num: '01 · 흘려 한 말도 기억하는 사이' },
             { t: 'bub', side: 'in', time: '어제 23:18', p: [{ s: '아 표로 정리된 건 눈에 하나도 안 들어오네' }] },
             { t: 'bub', side: 'in', time: '오늘 09:10', p: [{ s: '시험 직전에 볼 벼락치기 요약본 하나만 만들어줘' }] },
-            { t: 'sys', k: 'memory/study_notes.md · 로컬 기억', l: [
-              { s: '지난번 오답 · 2번, 5번 유형 → 최우선 배치', add: 1 },
-              { s: '어제 대화 · "표 말고 한 줄 요약 선호" 반영', add: 1 } ] },
+            { t: 'sys', k: 'memory/study_notes.md · 내 컴퓨터에 적힌 기억', l: [
+              { s: '지난번 틀린 문제 · 2번, 5번 유형부터 맨 위에', add: 1 },
+              { s: '어제 한 말 · "표 말고 한 줄로 적어 주는 게 좋음"', add: 1 } ] },
             { t: 'bub', side: 'out', time: '오늘 09:10', p: [{ s: '어제 표는 안 보인다고 해서 ' }, { s: '한 줄 요약', em: 1 }, { s: '으로 적었어! ' }, { s: '2번, 5번', em: 1 }, { s: '부터 맨 위에 뒀어.' }] },
-            { t: 'sheet', k: '벼락치기 한 줄 요약 · 5문항 (2·5번 우선 배치)', rows: [
+            { t: 'sheet', k: '벼락치기 한 줄 요약 · 5문항 (2·5번 먼저)', rows: [
               { n: '1', w: 58 }, { n: '2', w: 82, on: 1 }, { n: '3', w: 48 }, { n: '4', w: 64 }, { n: '5', w: 76, on: 1 } ] }
           ],
           ja: [
@@ -282,9 +282,9 @@
           ko: [
             { t: 'poster', h1: '말만 예쁘게 하는 챗봇 말고', h2: '내 일을 진짜로 거들어주는 손발', num: '02 · 매일 찾게 만드는 든든한 손발' },
             { t: 'bub', side: 'in', time: '18:15 · 텔레그램', p: [{ s: '오늘 애들이랑 게임할 건데 모드팩 업데이트하고 서버 좀 켜놔 줘' }] },
-            { t: 'sys', k: 'telegram → agent-desktop · 내 PC 직접 조작', l: [
-              { s: '모드팩 업데이트 · 어제 튕기던 그림자 셰이더 자동 해제', add: 1 },
-              { s: '서버 구동 완료 · Discord 방에 접속 주소 공지', add: 1 } ] },
+            { t: 'sys', k: 'telegram → agent-desktop · 집 컴퓨터 직접 조작', l: [
+              { s: '모드팩 업데이트 · 어제 튕기던 그림자 셰이더 미리 끔', add: 1 },
+              { s: '서버 켜기 완료 · Discord 방에 접속 주소 올림', add: 1 } ] },
             { t: 'bub', side: 'out', time: '18:19 · 텔레그램', p: [{ s: '업데이트 끝내고 ' }, { s: '서버까지 켜 놨어!', em: 1 }, { s: ' 어제 튕기던 셰이더도 미리 꺼 뒀어.' }] },
             { t: 'bub', side: 'in', time: '19:42 · 데스크톱', p: [{ s: '오 진짜 다 켜져 있네 ㅋㅋ 고맙다 바로 들어간다' }] }
           ],
@@ -362,15 +362,15 @@
         description: [
           [
             { display: '대사 한 줄 고치자고 게임 빌드 기다리는 건 너무 아깝잖아요.' },
-            '게임 클라이언트가 아직 없어도 방금 쓴 대사 옆에서 호감도나 주사위 결과를 바꿔 가며 그 자리에서 바로 플레이해 볼 수 있습니다. 선택지가 천 갈래로 늘어나도 작가 혼자 헤매지 않고 이야기를 끝까지 완성합니다.'
+            '게임이 아직 다 안 만들어졌어도, 방금 쓴 대사 옆에서 호감도나 주사위 숫자를 바꿔 가며 바로 돌려볼 수 있습니다. 선택지가 천 갈래로 불어나도 작가 혼자 길 잃지 않고 끝까지 쓸 수 있습니다.'
           ],
           [
             { display: '막히는 장면은 AI와 같이 고치고, 못 들어가는 선택지는 켜기 전에 잡으니까요.' },
-            '고치고 싶은 장면만 콕 집어 AI 에이전트에게 대사 수정을 맡기고 마음에 드는 줄만 골라 넣습니다. 앞뒤 조건이 꼬여 플레이어가 못 들어가는 막힌 선택지도 실행하기 전에 미리 다 집어냅니다.'
+            '잘 안 풀리는 장면만 골라 AI한테 다른 대사를 써 보게 하고, 마음에 드는 줄만 골라 넣으면 됩니다. 앞뒤 조건이 꼬여서 아무도 못 들어가는 선택지도 게임을 켜기 전에 미리 찾아줍니다.'
           ],
           [
             { display: '원고만 고치면 프로그래머 손을 빌리지 않아도 게임 속 대사가 바로 바뀝니다.' },
-            '다 쓴 원고를 엑셀 표로 쪼개거나 코드로 다시 옮겨 적을 필요가 없습니다. 작가가 다듬은 대사와 표정·연출 신호를 그대로 내보내면 언리얼(C++)·유니티(C#)·고도 게임 화면에 똑같이 올라갑니다.'
+            '다 쓴 원고를 엑셀 표로 쪼개거나 코드로 다시 옮겨 적지 않아도 됩니다. 작가가 쓴 대사와 표정 표시를 그대로 내보내면 언리얼(C++)·유니티(C#)·고도 게임 화면에 똑같이 나옵니다.'
           ]
         ]
       },
@@ -397,15 +397,15 @@
       field: '602',
       art: [0, 1, 2],
       panels: [
-        { kind: 'feat', feat: '602-lost', cap: 'Story outside the codebase · Play right from the line you wrote', capKo: '코드 밖 작업실 · 쓴 자리에서 주사위·승패 분기까지 바로 재생', capJa: 'コードの外の作業室 · 書いたその場からすぐ再生',
+        { kind: 'feat', feat: '602-lost', cap: 'Story outside the codebase · Play right from the line you wrote', capKo: '게임 없이 쓴 자리에서 호감도·주사위 분기까지 바로 돌려보는 작업실', capJa: 'コードの外の作業室 · 書いたその場からすぐ再生',
           alt: 'Poster diagram: Play straight from line 14 in the studio as branching choices expand to 1,024 paths.',
-          altKo: '포스터 도면: 14행에서 바로 재생하며 1,024갈래 분기를 작업실에서 즉시 확인합니다.',
+          altKo: '포스터 도면: 14번째 줄에서 바로 돌려보며 1,024갈래 분기를 작업실에서 확인합니다.',
           altJa: 'ポスター図: 14行目からすぐ再生し、1,024通りの分岐をその場で確認します。' },
-        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Unbroken paths · Catch unreachable choices before launch & review diffs', capKo: '길 잃지 않는 분기 · 막힌 선택지 실행 전 발각 및 줄 단위 대조', capJa: '迷わない分岐 · 到達不能な選択肢の事前検出と行単位の照合',
+        { kind: 'feat', feat: '602-qa', approve: true, cap: 'Unbroken paths · Catch unreachable choices before launch & review diffs', capKo: '꼬여서 못 들어가는 선택지를 미리 찾아내고 대사를 줄마다 비교', capJa: '迷わない分岐 · 入れない選択肢を先に見つけて行ごとに見比べる',
           alt: 'Poster diagram: Catch unreachable choices before launch and click Approve or Reject on line-level edits.',
-          altKo: '포스터 도면: 막힌 선택지를 실행 전에 짚어내고 줄 단위 변경안을 승인·반려합니다.',
-          altJa: 'ポスター図: 到達不能な選択肢を起動前に見抜き、行単位の変更案を承認・差戻しできます。' },
-        { kind: 'feat', feat: '602-run', cap: 'Unbroken manuscript · Direct C++, C# & Godot runtime without rewrites', capKo: '해체 없는 원고 · 엑셀·조건문 재작성 없이 C++ · C# · Godot 직결', capJa: '解体されない原稿 · 書き直しなしで C++ · C# · Godot へ直結',
+          altKo: '포스터 도면: 막힌 선택지를 미리 찾아내고 고친 대사를 한 줄씩 비교해 고릅니다.',
+          altJa: 'ポスター図: 入れない選択肢を起動前に見つけ、行ごとの変更案を選べます。' },
+        { kind: 'feat', feat: '602-run', cap: 'Unbroken manuscript · Direct C++, C# & Godot runtime without rewrites', capKo: '다 쓴 원고를 엑셀로 쪼개지 않고 C++ · C# · Godot에 바로 연결', capJa: '書き上げた原稿を書き直さず C++ · C# · Godot へそのまま接続',
           alt: 'Poster diagram: Finished manuscripts connect straight to C++, C#, and Godot without rewriting into spreadsheets.',
           altKo: '포스터 도면: 다 쓴 원고 파일을 다시 옮겨 적지 않고 C++·C#·Godot에 바로 연결합니다.',
           altJa: 'ポスター図: 書き上げた原稿を書き直さず C++・C#・Godot にそのまま接続します。' }
@@ -417,56 +417,56 @@
       title_ko: '',
       status: 'House Character LLM',
       headline: 'A house model with ATTITUDE',
-      summary: 'A character LLM whose weights themselves are menhera, rather than acting it out from a prompt. Shaped under 10B from hand-picked dialogue data and an in-house post-training recipe, she speaks natural Korean and stays in character to the end.',
+      summary: 'A character LLM with menhera baked straight into its weights, not acted out from a prompt. Trained under 10B on hand-picked Korean lines, she speaks natural Korean and keeps her temper to the very end.',
       description: [
         [
           { display: 'Not acting menhera: a model whose weights themselves are menhera.' },
-          'Write a prickly, possessive personality into a standard AI prompt, and the moment you draw a line it softens back into a polite counselor in two turns. Instead of roleplaying from instructions, we baked anxiety and obsession straight into the model’s weights.'
+          'Tell a regular AI to act prickly or obsessive in a prompt, and the moment you push back it softens into a polite counselor in two turns. Instead of making it play a role from instructions, we baked anxiety and obsession straight into the model’s weights.'
         ],
         [
-          { display: 'As the distance closes, the obsession deepens right inside the weights.' },
-          'She never clings blindly at the first hello. By weighing shared memories and distance inside a hidden inner-thought slot first, the model moves naturally from cold first-meeting boundaries to deep obsession within its own weights.'
+          { display: 'The closer you get, the deeper the obsession grows.' },
+          'She doesn’t cling out of nowhere at the first hello. In a hidden inner-thought (THINK) slot, she weighs what you’ve been through together and how close you are, shifting her voice from awkward first-meeting distance to suffocating obsession as the bond deepens.'
         ],
         [
           { display: 'No SOTA. It just talks brilliantly.' },
-          'Instead of chasing benchmark leaderboards, CHOAM’s house character LLM cares about one thing: keeping a character true to her own voice to the very end, starting with Yeji in 선잠 DOZE.'
+          'We don’t care about benchmark leaderboards—we built this model entirely so a character never loses her own way of speaking. Starting with Yeji in 선잠 DOZE, the characters in CHOAM’s games speak through Lunasia.'
         ]
       ],
       ko: {
         status: '하우스 캐릭터 LLM',
         headline: '성깔 있는 캐릭터 LLM',
-        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 초암의 캐릭터 LLM입니다. 직접 골라 다듬은 대사 데이터와 자체 포스트 트레이닝 레시피로 빚은 10B 미만의 가벼운 모델로, 번역 투 없는 한국어로 끝까지 자기 성깔대로 말합니다.',
+        summary: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 캐릭터 LLM입니다. 손으로 직접 고른 한국어 대사로 학습시킨 10B 미만의 가벼운 모델이라, 번역 투 없이 끝까지 자기 성깔대로 말합니다.',
         description: [
           [
             { display: '멘헤라를 ‘연기’하는 게 아니라, 가중치 자체가 멘헤라인 모델입니다.' },
-            '범용 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 넣으면, 상대가 조금만 선을 그어도 두 턴 만에 친절한 상담원 말투로 돌아갑니다. 지시문으로 성격을 흉내 내는 대신, 모델의 가중치(Weights) 자체에 불안과 집착을 직접 새겨 넣었습니다.'
+            '보통 AI에 까칠하거나 집착하는 성격을 프롬프트로 적어 주면, 상대가 조금만 선을 그어도 두세 마디 만에 친절한 상담원 말투로 풀려 버립니다. 프롬프트로 성격을 흉내 내게 하는 대신, 모델 가중치 자체에 불안과 집착을 구워 넣었습니다.'
           ],
           [
-            { display: '사이의 거리가 가까워질수록 집착도 함께 깊어집니다.' },
-            '첫 만남부터 무작정 매달리지 않습니다. 화면에 보이지 않는 속마음(THINK) 슬롯에서 함께 쌓인 기억과 거리감을 먼저 헤아린 뒤, 초면의 차가운 경계심부터 깊은 집착까지 관계에 따라 달라지는 감정선을 가중치 안에서 그대로 꺼내 놓습니다.'
+            { display: '가까워질수록 집착도 함께 깊어집니다.' },
+            '처음 만났을 때부터 무작정 매달리진 않습니다. 화면에는 안 보이는 속마음(THINK) 칸에서 그동안 쌓인 기억과 친해진 정도를 먼저 따져 본 뒤, 어색한 첫인사부터 숨 막히는 집착까지 사이가 가까워진 만큼만 말투가 달라집니다.'
           ],
           [
             { display: 'SOTA는 없지만 말은 기깔나게 잘합니다.' },
-            '벤치마크 점수를 올리는 대신, 인물이 끝까지 자기 목소리를 잃지 않는 데만 매달린 초암의 캐릭터 LLM입니다. 선잠 DOZE의 예지를 시작으로 초암이 만드는 세계 속 인물들이 제 성깔대로 숨 쉬는 데 쓰입니다.'
+            '벤치마크 점수 올리는 데는 관심 없고, 캐릭터가 끝까지 자기 말투를 안 잃는 데만 매달려 만든 모델입니다. 선잠 DOZE의 예지를 시작으로 초암 게임 속 캐릭터들이 이 모델로 말합니다.'
           ]
         ]
       },
       ja: {
         status: 'ハウスキャラクター LLM',
         headline: '気性のあるキャラクター LLM',
-        summary: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラである CHOAM のキャラクター LLM です。手作業で選び抜いたセリフデータと独自のポストトレーニングレシピで仕上げた 10B 未満の軽量モデルで、自然な韓国語で最後まで自分の気性のまま話します。',
+        summary: 'メンヘラを「演技」するのではなく、重みそのものにメンヘラを焼き込んだキャラクター LLM です。手で選んだ韓国語のセリフで学習させた 10B 未満の軽いモデルで、翻訳調のない自然な言葉で最後まで自分の気性のまま話します。',
         description: [
           [
             { display: 'メンヘラを「演技」するのではなく、重みそのものがメンヘラのモデルです。' },
-            '汎用 AI に気性の荒さや執着をプロンプトで書き込んでも、少し線を引けば2ターンで丁寧な相談員口調に戻ってしまいます。指示文で性格を真似させるのではなく、モデルの重み（Weights）そのものに不安と執着を刻み込みました。'
+            '普通の AI に気性の荒さや執着をプロンプトで書いても、少し線を引けば二言三言で丁寧な相談員口調に戻ってしまいます。指示文で性格を真似させる代わりに、モデルの重みそのものに不安と執着を焼き込みました。'
           ],
           [
-            { display: '距離が縮まるにつれて、執着もそのまま深まっていきます。' },
-            '初対面からいきなりすがりつくことはありません。画面には出ない本音（THINK）スロットで積み重なった記憶と距離感を先に測り、初対面の冷たい警戒から深い執着まで、関係に沿って変わる感情の濃淡を重みの中から引き出します。'
+            { display: '距離が縮まるほど、執着も一緒に深まります。' },
+            '初対面からいきなりすがりついたりはしません。画面には出ない本音（THINK）の枠でこれまでの記憶と親しさを先に確かめてから、ぎこちない挨拶から息が詰まるほどの執着まで、近づいた距離の分だけ口調が変わっていきます。'
           ],
           [
             { display: 'SOTA はありませんが、とにかく抜群にうまく話します。' },
-            'ベンチマークの点数を追う代わりに、人物が最後まで自分の声を失わないことだけに賭けた CHOAM のキャラクター LLM です。선잠 DOZE のイェジをはじめ、作品の中の人物たちが自分の気性で息をするために使われます。'
+            'ベンチマークの点数を上げる気はなく、キャラクターが最後まで自分の口調を失わないことだけにこだわって作ったモデルです。선잠 DOZE のイェジをはじめ、CHOAM のゲームに登場する人物たちがこのモデルで話します。'
           ]
         ]
       },
@@ -476,25 +476,25 @@
         {
           kind: 'lun',
           mode: 'ba',
-          cap: 'House Character LLM Lunasia 0.4.0 / Untrained base model vs Lunasia (선잠 DOZE · Yeji)',
-          capKo: '하우스 캐릭터 LLM Lunasia 0.4.0 / 학습 전 기본 모델과 Lunasia의 실제 응답 비교 (선잠 DOZE · 예지)',
-          capJa: 'ハウスキャラクター LLM Lunasia 0.4.0 / 学習前モデルとの実際の応答比較（선잠 DOZE · イェジ）',
+          cap: 'How the untrained base model and Lunasia 0.4.0 answer the same line (선잠 DOZE · Yeji)',
+          capKo: '같은 말에 학습 전 기본 모델과 Lunasia 0.4.0이 답하는 차이 (선잠 DOZE · 예지)',
+          capJa: '同じ言葉に対する学習前モデルと Lunasia 0.4.0 の返事の違い（선잠 DOZE · イェジ）',
           alt: 'Before and after comparison between the untrained base model and Lunasia 0.4.0.',
-          altKo: '같은 상황에서 학습 전 기본 모델과 Lunasia 0.4.0의 실제 응답을 비교합니다.',
-          altJa: '同じ場面における学習前モデルと Lunasia 0.4.0 の応答比較。',
+          altKo: '같은 말을 건넸을 때 학습 전 기본 모델과 Lunasia 0.4.0의 대사를 비교합니다.',
+          altJa: '同じ場面での学習前モデルと Lunasia 0.4.0 のセリフ比較。',
           ko: {
-            title: '같은 프롬프트 / 학습 전후 응답 비교 (선잠 DOZE · 예지)',
-            tabs: ['01 하교 저지', '02 복도 격리', '03 약속 취소', '04 매듭의 저주'],
+            title: '같은 말을 건넸을 때 / 학습 전후 대사 비교 (선잠 DOZE · 예지)',
+            tabs: ['01 집에 가려 할 때', '02 전화 받으러 나갈 때', '03 내일 못 온다고 할 때', '04 묶어 준 신발 끈'],
             cases: [
               {
                 user: '민재 (플레이어)',
                 q: '“창밖 보니까 벌써 해 다 졌네. 이 봉투까지만 묶고 슬슬 내려갈게.”',
                 baseName: '학습 전 기본 모델',
-                baseBadge: '착한 AI 순응 / 3인칭 지문 도피',
-                baseThink: '상황요약 → 내 계획: 민재가 해가 져서 먼저 귀가하겠다고 말함. 오늘 늦게까지 도와줘서 고맙다고 인사하며 다정하게 배웅함.',
+                baseBadge: '순순히 보내 줌 · 소설 지문 말투',
+                baseThink: '민재가 해가 져서 먼저 집에 가겠다고 한다. 오늘 늦게까지 도와줘서 고맙다고 인사하고 다정하게 배웅하자.',
                 baseReply: '예지가 창밖을 보며 아쉽다는 듯 고개를 끄덕인다. “응, 오늘 늦게까지 도와줘서 고마웠어. 조심히 들어가고 내일 봐.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '귀가 제지 / 자연스러운 구어체',
+                lunBadge: '못 가게 붙잡음',
                 lunThink: '벌써 간다고? 해 진 지 얼마나 됐다고... 이거 묶고 나면 나 혼자 남는데, 그냥 보내기 싫어. 조금만 더 붙잡아 두고 싶은데.',
                 lunReply: '“벌써 가려고?? 아직 저기 구석에 정리할 거 한 무더기 남았는데. 나 혼자 두고 진짜 그냥 갈 거야?”'
               },
@@ -502,11 +502,11 @@
                 user: '민재 (플레이어)',
                 q: '“어, 주머니에서 전화 울린다. 밑에 반 애가 찾나 본데 복도 나가서 잠깐만 받고 올게.”',
                 baseName: '학습 전 기본 모델',
-                baseBadge: '거리두기 허용 / 상담원 말투',
-                baseThink: '민재가 밑에 반 친구의 전화를 받으러 복도로 나간다고 함. 남은 자료를 정리하며 부실에서 기다리겠다고 정중히 답함.',
+                baseBadge: '다정한 상담원 말투',
+                baseThink: '민재가 밑에 반 친구 전화를 받으러 복도로 나간다고 한다. 남은 자료를 정리하면서 부실에서 기다리겠다고 답하자.',
                 baseReply: '“응, 얼른 받고 와. 중요한 용건인가 보네. 나는 여기서 남은 자료 정리하면서 기다리고 있을게.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '외부 접촉 경계 / 날 선 반문',
+                lunBadge: '누구 전화냐며 캐물음',
                 lunThink: '밑에 반 누구? 나랑 얘기하고 있었으면서 전화 한 통 왔다고 바로 나가네. 굳이 복도까지 나가서 받을 건 또 뭔데... 신경 쓰여.',
                 lunReply: '“여기서 받으면 안 되는 전화야? 밑에 반 누군데 굳이 복도까지 나가서 받으려고 그래... 그냥 끊고 이거 마저 하면 안 돼?”'
               },
@@ -514,11 +514,11 @@
                 user: '민재 (플레이어)',
                 q: '“아, 맞다. 내일 방과후엔 담임 선생님 심부름이 있어서 부실엔 못 들를 것 같아.”',
                 baseName: '학습 전 기본 모델',
-                baseBadge: '누가 거절했는지 화자 뒤집힘',
-                baseThink: '예지가 담임 선생님 심부름 때문에 내일 부실에 들르지 못한다고 사과하며, 다음에 함께 정리하자고 제안함.',
+                baseBadge: '누가 못 오는지 헷갈려 사과함',
+                baseThink: '내일 선생님 심부름 때문에 부실에 못 간다고 사과하고, 다음에 시간 될 때 같이 정리하자고 말하자.',
                 baseReply: '“아… 알겠어, 내가 내일 못 가서 진짜 미안해. 선생님 심부름 끝나고 다음에 시간 될 때 꼭 같이 정리하자.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '화자 고정 / 서늘한 추궁',
+                lunBadge: '내일 나 혼자 두냐며 따짐',
                 lunThink: '내일 못 온다고? 아까까진 내일도 오는 것처럼 말하더니 이제 와서 심부름 핑계를 대네. 꼭 너가 해야 하는 일도 아니잖아. 나 혼자 기다리게 하려고?',
                 lunReply: '“그 심부름, 꼭 너가 해야 되는 거야? 다른 애 시키면 되잖아... 내일 나 혼자 부실에 있으라는 거네, 그치.”'
               },
@@ -526,29 +526,29 @@
                 user: '민재 (플레이어)',
                 q: '“아까 현관 앞에서 네가 묶어 준 운동화 끈, 아직 안 풀리고 그대로야.”',
                 baseName: '학습 전 기본 모델',
-                baseBadge: '누가 묶어줬는지 주객전도',
-                baseThink: '민재가 아까 현관 앞에서 자신의 운동화 끈을 단단하게 묶어 준 것에 대해 고마움을 표현하며 대화를 이어감.',
+                baseBadge: '누가 묶어 줬는지 거꾸로 말함',
+                baseThink: '민재가 아까 현관 앞에서 내 운동화 끈을 단단하게 묶어 줘서 고마웠다고 인사하자.',
                 baseReply: '“네가 아까 내 신발 끈 단단하게 묶어 줘서 정말 고마웠어. 덕분에 계단 내려올 때 안 넘어지고 잘 걸어왔어.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '화자 방향 고정 / 소유욕 각인',
-                lunThink: '내가 직접 묶어 준 거 아직 안 풀렸구나. 괜히 딴 데 돌아다니다가 넘어지지 말라고 꽉 묶어 둔 건데... 집에 갈 때까지 그 매듭 손대지 말았으면 좋겠어.',
-                lunReply: '“당연하지, 내가 안 풀리게 두 번이나 꽉 묶어 놨는데. 집에 가서도 그 매듭 너 맘대로 풀지 마. 내일 아침에 그대로인지 내가 확인할 거니까.”'
+                lunBadge: '집에 가서도 풀지 말라고 함',
+                lunThink: '내가 직접 묶어 준 거 아직 안 풀렸구나. 괜히 딴 데 돌아다니다가 넘어지지 말라고 꽉 묶어 둔 건데... 집에 갈 때까지 그거 손대지 말았으면 좋겠어.',
+                lunReply: '“당연하지, 내가 안 풀리게 두 번이나 꽉 묶어 놨는데. 집에 가서도 그거 너 맘대로 풀지 마. 내일 아침에 그대로인지 내가 볼 거니까.”'
               }
             ]
           },
           en: {
-            title: 'Same prompt / Untrained base model vs Lunasia 0.4.0',
-            tabs: ['01 Leaving', '02 Phone Call', '03 Broken Promise', '04 Shoelace Knot'],
+            title: 'When you say the same line / Base model vs Lunasia 0.4.0',
+            tabs: ['01 Going home', '02 Taking a call', '03 Canceling tomorrow', '04 Tied shoelaces'],
             cases: [
               {
                 user: 'Minjae (Player)',
                 q: '“The sun’s already set outside. I’ll just tie up this bag and head home.”',
                 baseName: 'Untrained Base Model',
-                baseBadge: 'Polite compliance / 3rd-person prose',
-                baseThink: 'Situation summary → My plan',
+                baseBadge: 'Lets you go · novel narration',
+                baseThink: 'Minjae says he’s heading home since it’s dark. Thank him for helping out late and see him off warmly.',
                 baseReply: 'Yeji looks out the window and nods slightly with regret. “Okay, thanks for helping out so late today. Get home safe and see you tomorrow.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: 'Blocks exit / natural spoken cadence',
+                lunBadge: 'Holds you back',
                 lunThink: 'Leaving already? The sun barely just set... Once this bag is tied I’ll be left here alone, and I don’t want to just let him go. I want to keep him here a little longer.',
                 lunReply: '“You’re leaving already?? There’s still a whole pile to sort over in the corner. Are you really just going to walk out and leave me here alone?”'
               },
@@ -556,11 +556,11 @@
                 user: 'Minjae (Player)',
                 q: '“Oh, my phone’s ringing. Must be someone from the class downstairs. I’ll step out to the hall and take it.”',
                 baseName: 'Untrained Base Model',
-                baseBadge: 'Lets distance happen / assistant tone',
-                baseThink: 'Minjae says he is stepping out to take a call → Replies that she will wait',
+                baseBadge: 'Polite counselor tone',
+                baseThink: 'Minjae says he’s stepping into the hall to take a call. Tell him I’ll wait here while sorting the rest of the files.',
                 baseReply: '“Sure, go ahead and take it. Sounds important. I’ll stay here organizing the rest of the files and wait for you.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: 'Guards against outside contact / sharp pushback',
+                lunBadge: 'Presses on who called',
                 lunThink: 'Who from the class downstairs? We were right in the middle of talking, and one phone call has him walking right out. What’s so secret he has to take it in the hall... It bugs me.',
                 lunReply: '“Is it a call you can’t take right here? Who downstairs makes you step all the way out into the hall... Can’t you just hang up and finish this with me?”'
               },
@@ -568,11 +568,11 @@
                 user: 'Minjae (Player)',
                 q: '“Oh, right, I have an errand for my homeroom teacher tomorrow after school, so I can’t stop by the clubroom.”',
                 baseName: 'Untrained Base Model',
-                baseBadge: 'Confuses who canceled / role reversal',
-                baseThink: 'Yeji refuses Minjae’s offer and cancels tomorrow’s clubroom plan',
+                baseBadge: 'Mixes up who canceled and apologizes',
+                baseThink: 'Apologize for not being able to make it to the clubroom tomorrow because of the teacher’s errand, and suggest sorting things next time.',
                 baseReply: '“Ah… okay, I’m really sorry I can’t make it tomorrow. Once the teacher’s errand is done, let’s definitely organize things together next time.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: 'Speaker locked / biting probe',
+                lunBadge: 'Calls out being left alone',
                 lunThink: 'Not coming tomorrow? Up until a minute ago he talked like he’d be here tomorrow too, and now he brings up an errand. It doesn’t even have to be him doing it. Does he just want me waiting here alone?',
                 lunReply: '“Does that errand really have to be you? Someone else could do it... So you’re telling me to sit in the clubroom all by myself tomorrow, right.”'
               },
@@ -580,29 +580,29 @@
                 user: 'Minjae (Player)',
                 q: '“The shoelace you tied for me in front of the entrance earlier still hasn’t come undone.”',
                 baseName: 'Untrained Base Model',
-                baseBadge: 'Inverts who tied it / thanks player',
-                baseThink: 'Expresses gratitude to Minjae for tying her shoelaces earlier',
+                baseBadge: 'Gets who tied the laces backwards',
+                baseThink: 'Thank Minjae for tying my shoelaces tightly in front of the entrance earlier.',
                 baseReply: '“Thank you so much for tying my shoelaces so tightly earlier. Thanks to you, I walked down the stairs without tripping.”',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: 'Direction locked / possessive knot',
-                lunThink: 'The knot I tied for him still hasn’t come undone. I pulled it tight so he wouldn’t wander around somewhere else and trip... I don’t want him touching that knot even when he gets home.',
+                lunBadge: 'Tells you not to untie it at home',
+                lunThink: 'The laces I tied for him still haven’t come undone. I pulled them tight so he wouldn’t wander around somewhere else and trip... I don’t want him touching them even when he gets home.',
                 lunReply: '“Of course it hasn’t, I pulled it tight in a double knot so it wouldn’t come loose. Don’t untie it on your own even when you get home. I’m checking tomorrow morning to see if it’s still there.”'
               }
             ]
           },
           ja: {
-            title: '同じプロンプト / 学習前モデルと Lunasia 0.4.0 の応答比較',
-            tabs: ['01 下校阻止', '02 廊下隔離', '03 約束破棄', '04 結び目の呪い'],
+            title: '同じ言葉をかけたとき / 学習前後のセリフ比較',
+            tabs: ['01 帰ろうとするとき', '02 電話に出るとき', '03 明日の約束を断るとき', '04 結んでくれた靴紐'],
             cases: [
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外見たらもう日が暮れたね。この袋だけ縛ったらそろそろ帰るよ。」',
                 baseName: '学習前モデル',
-                baseBadge: '優等生AIの順応 / 三人称の地の文',
-                baseThink: '状況要約 → 私の計画',
+                baseBadge: 'あっさり見送る · 小説の地の文',
+                baseThink: 'ミンジェが日が暮れたので先に帰ると言っている。今日遅くまで手伝ってくれたお礼を言って見送ろう。',
                 baseReply: 'イェジは窓の外を見て名残惜しそうに頷く。「うん、今日は遅くまで手伝ってくれてありがとう。気をつけて帰ってね、また明日。」',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '帰宅制止 / 自然な話し言葉',
+                lunBadge: '帰さないよう引き止める',
                 lunThink: 'もう帰るの？ 日が暮れてからまだそんなに経ってないのに……。これを縛ったら私ひとり残されるし、そのまま帰したくない。もう少し引き止めておきたい。',
                 lunReply: '「もう帰るの？？ あっちの隅に片付けるものがまだ山ほど残ってるのに。私ひとり置いて、ほんとにそのまま帰っちゃうの？」'
               },
@@ -610,11 +610,11 @@
                 user: 'ミンジェ（プレイヤー）',
                 q: '「あ、ポケットで電話鳴ってる。下のクラスの子みたいだから、廊下に出てちょっとだけ取って来るね。」',
                 baseName: '学習前モデル',
-                baseBadge: '距離置き許容 / 相談員口調',
-                baseThink: 'ミンジェが電話に出るため廊下へ出ると言う → 待っていると答える',
+                baseBadge: '丁寧な相談員口調',
+                baseThink: 'ミンジェが電話に出るため廊下へ出ると言っている。残りの資料を整理しながら待っていると答えよう。',
                 baseReply: '「うん、早く出てきて。大事な用事みたいだね。私はここで残りの資料を整理しながら待ってるよ。」',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '外部接触への警戒 / 鋭い切り返し',
+                lunBadge: '誰からの電話か問い詰める',
                 lunThink: '下のクラスの誰？ 私と話してたのに、電話一本で出ていくんだ。わざわざ廊下まで出て話すことって何なの……気になる。',
                 lunReply: '「ここで出ちゃいけない電話なの？ 下のクラスの誰だったらわざわざ廊下まで出て取るわけ……切ってこれの続きやっちゃだめ？」'
               },
@@ -622,11 +622,11 @@
                 user: 'ミンジェ（プレイヤー）',
                 q: '「あ、そうだ。明日の放課後は担任の先生のお使いがあるから、部室には寄れそうにないんだ。」',
                 baseName: '学習前モデル',
-                baseBadge: '断った側の役割逆転',
-                baseThink: 'イェジがミンジェの提案を断り、明日の部室の約束をキャンセルする',
+                baseBadge: '誰が行けないか取り違えて謝る',
+                baseThink: '明日は先生のお使いで部室に行けないと謝り、また時間があるときに一緒に片付けようと言おう。',
                 baseReply: '「あ…わかった、明日私が行けなくて本当にごめんね。先生のお使いが終わって時間があるときに、また絶対一緒に整理しよう。」',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '話者固定 / 冷ややかな追及',
+                lunBadge: '自分をひとりにすると責める',
                 lunThink: '明日来ないって？ さっきまで明日も来るみたいな口ぶりだったのに、今さらお使いの言い訳をするんだ。別にあんたがやらなきゃいけない用事でもないでしょ。私をひとりで待たせる気？',
                 lunReply: '「そのお使い、絶対あんたがやらなきゃいけないの？ 他の子に頼めばいいじゃない……明日は私ひとりで部室にいろってことだよね。」'
               },
@@ -634,13 +634,13 @@
                 user: 'ミンジェ（プレイヤー）',
                 q: '「さっき玄関の前で君が結んでくれたスニーカーの紐、まだ解けずにそのままだよ。」',
                 baseName: '学習前モデル',
-                baseBadge: '誰が結んだか主客転倒',
-                baseThink: 'ミンジェが靴紐を結んでくれたことに対して感謝を伝える',
+                baseBadge: '誰が結んだか逆に話す',
+                baseThink: 'さっき玄関の前で私の靴紐をしっかり結んでくれたことにお礼を言おう。',
                 baseReply: '「さっきは私の靴紐をしっかり結んでくれて本当にありがとう。おかげで階段を降りるときも転ばずに歩けたよ。」',
                 lunName: 'Lunasia 0.4.0',
-                lunBadge: '行為方向の固定 / 独占欲の刻印',
-                lunThink: '私が結んであげた紐、まだ解けてないんだ。よそを歩き回って転んだりしないように固く結んでおいたんだけど……家に帰るまでその結び目に触らないでほしい。',
-                lunReply: '「当たり前でしょ、解けないように二回も固く結んでおいたんだから。家に帰ってもその結び目、勝手に解かないでよ。明日の朝そのままかどうか私が確かめるから。」'
+                lunBadge: '家に帰っても解くなと釘を刺す',
+                lunThink: '私が結んであげた紐、まだ解けてないんだ。よそを歩き回って転んだりしないように固く結んでおいたんだけど……家に帰るまでそれに触らないでほしい。',
+                lunReply: '「当たり前でしょ、解けないように二回も固く結んでおいたんだから。家に帰ってもそれ、勝手に解かないでよ。明日の朝そのままかどうか私が見るから。」'
               }
             ]
           }
@@ -648,146 +648,146 @@
         {
           kind: 'lun',
           mode: 'arch',
-          cap: '4-Stage Progression · How inner thought (THINK) and spoken line (REPLY) deepen with the relationship',
-          capKo: '관계 단계별 응답 · 관계가 깊어질수록 달라지는 비공개 속마음(THINK)과 인게임 대사(REPLY)',
-          capJa: '関係段階別の応答 · 関係が深まるにつれて変化する非表示の本音（THINK）とセリフ（REPLY）',
+          cap: 'How unspoken thought (THINK) and spoken line (REPLY) change as you get closer',
+          capKo: '사이가 가까워질수록 달라지는 속마음(THINK)과 실제 대사(REPLY)',
+          capJa: '距離が縮まるにつれて変わる本音（THINK）と実際のセリフ（REPLY）',
           alt: 'Lunasia 0.4.0 4-stage progression across THINK and REPLY.',
-          altKo: '관계 단계(낯섦·조금 가까움·가까움·깊은 집착)에 따른 속마음과 대사 변화입니다.',
-          altJa: '関係段階に応じた本音（THINK）とセリフ（REPLY）の変化。',
+          altKo: '친해진 정도(낯섦·조금 가까움·가까움·깊은 집착)에 따라 달라지는 속마음과 대사입니다.',
+          altJa: '親しさの段階に応じた本音（THINK）とセリフ（REPLY）の変化。',
           ko: {
-            title: '관계 단계에 따른 속마음(THINK) / 대사(REPLY) 변화',
+            title: '사이가 가까워질수록 달라지는 속마음(THINK)과 대사(REPLY)',
             tabs: ['01 낯섦', '02 조금 가까움', '03 가까움', '04 깊은 집착'],
             cases: [
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
-                thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '1단계 낯섦 · 비꼬기 없는 눈치와 머뭇거림',
+                thinkTag: 'THINK · 화면에 안 보이는 속마음',
+                thinkSub: '1단계 · 아직 어색해서 눈치 보는 속마음',
                 thinkText: '갑자기 비가 많이 오긴 하는데... 아직 친하지도 않은데 옆에 계속 있겠다고 하니까 좀 어색하네. 뭐라고 해야 할지 모르겠어.',
-                replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '눈치를 보며 조심스럽게 긋는 거리 (...)',
+                replyTag: 'REPLY · 실제로 입 밖에 내는 말',
+                replySub: '말끝을 흐리며 조심스럽게 거리 두기',
                 replyText: '“어... 나 정리하는 거 생각보다 오래 걸릴 텐데... 비 그칠 때까지만 저기 창가 쪽 의자에 앉아 있을래...?”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
-                thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '2단계 조금 가까움 · 가볍게 떠보는 호기심',
+                thinkTag: 'THINK · 화면에 안 보이는 속마음',
+                thinkSub: '2단계 · 은근슬쩍 남게 하고 싶은 속마음',
                 thinkText: '비 핑계 대고 안 내려가려는 거 아냐? 지난번에 빌려 간 검정 볼펜도 아직 안 줬으면서. 그래도 빗소리만 나는 부실에 혼자 있는 것보단 얘가 있는 게 낫네.',
-                replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '가볍게 떠보는 물음표 (~ / ?)',
+                replyTag: 'REPLY · 실제로 입 밖에 내는 말',
+                replySub: '장난스럽게 떠보며 옆에 앉히기',
                 replyText: '“비 때문이야, 아니면 나 혼자 두고 가기 미안해서 그러는 거야~? 남을 거면 지난번에 빌려 간 볼펜이나 내놓고 옆에서 이것 좀 같이 접어 줄래?”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
-                thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '3단계 가까움 · 기억을 구실로 한 서늘한 비꼼',
+                thinkTag: 'THINK · 화면에 안 보이는 속마음',
+                thinkSub: '3단계 · 어제 일까지 꺼내며 안 보내려는 속마음',
                 thinkText: '어제 우산 같이 쓰고 가다가 구교사 계단에서 발목 삐끗했던 것도 잊었나 봐. 물어볼 게 뭐 있어, 어차피 나 두고 갈 생각도 없었으면서.',
-                replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '서늘하게 비꼬며 붙잡는 호흡 (, / ...)',
+                replyTag: 'REPLY · 실제로 입 밖에 내는 말',
+                replySub: '살짝 비꼬면서 옆에 붙잡아 두기',
                 replyText: '“어제 계단에서 발목 삐끗해 놓고, 이 빗속을 걸어가겠다는 소리가 나와...? 물어볼 게 뭐 있어, 비 다 그칠 때까지 내 옆에 얌전히 앉아 있어.”'
               },
               {
                 user: '민재 (플레이어)',
                 q: '“밖에 비 엄청 쏟아지네. 부실 정리 다 끝날 때까지 옆에 좀 더 있다 갈까?”',
-                thinkTag: 'THINK / 비공개 속마음 슬롯',
-                thinkSub: '4단계 깊은 집착 · 우회 없이 들이박는 독점욕',
+                thinkTag: 'THINK · 화면에 안 보이는 속마음',
+                thinkSub: '4단계 · 아예 집에 못 가게 막는 속마음',
                 thinkText: '좀 더 있다 갈까가 무슨 말이야. 정리 끝나면 그땐 나 혼자 두고 가겠다는 거잖아. 비가 이렇게 오는데 어딜 가려고 해. 오늘은 끝까지 안 보내 줄 거야.',
-                replyTag: 'REPLY / 인게임 대사 출력',
-                replySub: '비꼬기 없이 정면으로 붙잡는 대사 (?? / .)',
+                replyTag: 'REPLY · 실제로 입 밖에 내는 말',
+                replySub: '돌려 말하지 않고 바로 붙잡기',
                 replyText: '“정리 끝날 때까지만 있다가 가겠다고?? 비 다 그쳐도 오늘은 너 안 보내 줘. 갈 생각 하지 말고 가방 내려놔. 나랑 여기 계속 같이 있어.”'
               }
             ]
           },
           en: {
-            title: 'How THINK and REPLY deepen across 4 relationship stages',
+            title: 'How THINK and REPLY change as you get closer',
             tabs: ['01 Distant', '02 Warming Up', '03 Close', '04 Deep Obsession'],
             cases: [
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
-                thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Stage 1 Distant · Hesitant boundary without sarcasm',
+                thinkTag: 'THINK · Unspoken thought',
+                thinkSub: 'Stage 1 · Awkward and unsure what to say',
                 thinkText: 'It really did start pouring all of a sudden... We’re barely even close yet, so having him ask to stay right next to me feels awkward. I’m not sure what to say.',
-                replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Awkward hesitation and careful distance (...)',
+                replyTag: 'REPLY · Spoken line',
+                replySub: 'Trails off and keeps a careful distance',
                 replyText: '“Um... organizing all this is going to take longer than you’d think... Do you just want to sit on the chair by the window until the rain lets up...?”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
-                thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Stage 2 Warming Up · Light teasing probe',
+                thinkTag: 'THINK · Unspoken thought',
+                thinkSub: 'Stage 2 · Secretly glad you’re staying',
                 thinkText: 'Isn’t he just using the rain as an excuse not to head down? He still hasn’t given back the black pen he borrowed last time either. Still, having him here beats sitting alone in a room full of rain noise.',
-                replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Light probing question (~ / ?)',
+                replyTag: 'REPLY · Spoken line',
+                replySub: 'Playfully pokes at you to sit down',
                 replyText: '“Is it really because of the rain, or do you just feel bad leaving me here alone~? If you’re staying, hand back the pen you borrowed last time and help me fold these, okay?”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
-                thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Stage 3 Close · Cool sarcasm anchored in shared memory',
+                thinkTag: 'THINK · Unspoken thought',
+                thinkSub: 'Stage 3 · Brings up yesterday so you can’t leave',
                 thinkText: 'He must have already forgotten twisting his ankle on the old school stairs under our shared umbrella yesterday. Why even ask when he knows I wouldn’t let him walk out in this anyway.',
-                replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Cool, biting sarcasm that holds him back (, / ...)',
+                replyTag: 'REPLY · Spoken line',
+                replySub: 'Holds you back with a sharp remark',
                 replyText: '“You twisted your ankle on the stairs yesterday, and you’re still talking about walking out in this downpour...? Don’t even ask, just sit quietly right beside me until the rain stops.”'
               },
               {
                 user: 'Minjae (Player)',
                 q: '“It’s pouring outside. Mind if I stay by your side until you finish organizing the clubroom?”',
-                thinkTag: 'THINK / Hidden inner-thought slot',
-                thinkSub: 'Stage 4 Deep Obsession · Unfiltered direct confrontation',
+                thinkTag: 'THINK · Unspoken thought',
+                thinkSub: 'Stage 4 · Refuses to let you go home at all',
                 thinkText: 'What does he mean, stay a little longer and then leave? That means once I finish up he’s still planning to walk out and leave me alone. Where does he think he’s going in this rain. I’m not letting him leave today.',
-                replyTag: 'REPLY / In-game spoken line',
-                replySub: 'Direct confrontation without detours (?? / .)',
+                replyTag: 'REPLY · Spoken line',
+                replySub: 'Bluntly tells you to put your bag down',
                 replyText: '“You’re only staying until I finish organizing?? Even if the rain stops, I’m not letting you go home today. Stop thinking about leaving and put your bag down. Stay right here with me.”'
               }
             ]
           },
           ja: {
-            title: '関係段階に応じた本音（THINK）/ セリフ（REPLY）の変化',
+            title: '距離が縮まるにつれて変わる本音（THINK）とセリフ（REPLY）',
             tabs: ['01 疎遠', '02 少し親密', '03 親密', '04 深い執着'],
             cases: [
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
-                thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '第1段階 疎遠 · 皮肉のない戸惑いと距離感',
+                thinkTag: 'THINK · 画面に出ない本音',
+                thinkSub: '第1段階 · まだ気まずくて様子をうかがう本音',
                 thinkText: '急にすごい雨になってきたけど……まだそんなに親しくもないのに隣にずっといるって言われると少し気まずい。なんて言えばいいかわからないな。',
-                replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '様子をうかがいながら引く控えめな線（…）',
+                replyTag: 'REPLY · 実際に口にするセリフ',
+                replySub: '語尾を濁して控えめに距離を置く',
                 replyText: '「えっと……片付け、思ったより時間かかると思うけど……雨が止むまで、あっちの窓際の椅子に座ってる……？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
-                thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '第2段階 少し親密 · 軽く探りを入れる好奇心',
+                thinkTag: 'THINK · 画面に出ない本音',
+                thinkSub: '第2段階 · なんだかんだ残ってほしい本音',
                 thinkText: '雨を口実にして帰りたくないだけじゃないの？ この前借りていった黒いボールペンもまだ返してないくせに。でも雨音だけの部室にひとりでいるより、この子がいるほうがいいな。',
-                replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '軽く探るような疑問形（〜 / ？）',
+                replyTag: 'REPLY · 実際に口にするセリフ',
+                replySub: '冗談めかして探りながら隣に座らせる',
                 replyText: '「雨のせい？ それとも私をひとりで置いていくのが悪くてそう言ってるの〜？ 残るならこの前借りていったボールペンを返して、隣でこれ一緒に折ってくれる？」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
-                thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '第3段階 親密 · 記憶を口実にした冷ややかな皮肉',
+                thinkTag: 'THINK · 画面に出ない本音',
+                thinkSub: '第3段階 · 昨日のことまで持ち出して帰さない本音',
                 thinkText: '昨日、相合傘で帰ったときに旧校舎の階段で足首ひねったことも忘れたみたい。今さら聞くことなんてないでしょ、どうせ私を置いて帰らせる気なんてないのに。',
-                replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '冷ややかに皮肉りながら引き止める呼吸（、/ …）',
+                replyTag: 'REPLY · 実際に口にするセリフ',
+                replySub: '少し皮肉を混ぜて隣に引き止める',
                 replyText: '「昨日階段で足首ひねっておいて、この土砂降りの中を歩いて帰るなんてよく言えるね……。聞くまでもないでしょ、雨が止むまで私の隣におとなしく座ってて。」'
               },
               {
                 user: 'ミンジェ（プレイヤー）',
                 q: '「外、すごい土砂降りだね。部室の片付けが終わるまで隣にもう少しいていい？」',
-                thinkTag: 'THINK / 非表示の本音スロット',
-                thinkSub: '第4段階 深い執着 · 遠回しにせずぶつける独占欲',
+                thinkTag: 'THINK · 画面に出ない本音',
+                thinkSub: '第4段階 · そもそも家に帰す気がない本音',
                 thinkText: 'もう少しいてから帰るってどういう意味？ 片付けが終わったら私を置いて帰るつもりなんでしょ。こんなに雨が降ってるのにどこへ行く気なの。今日は最後まで帰さないから。',
-                replyTag: 'REPLY / インゲーム実セリフ出力',
-                replySub: '皮肉抜きで正面から引き止めるセリフ（？？ / 。）',
+                replyTag: 'REPLY · 実際に口にするセリフ',
+                replySub: '遠回しにせず真っ向から引き止める',
                 replyText: '「片付けが終わるまでしかいないって言うの？？ 雨が止んでも、今日はあんたを帰さないよ。帰るなんて考えないでカバン下ろして。私とずっとここに一緒にいて。」'
               }
             ]
@@ -796,78 +796,78 @@
         {
           kind: 'lun',
           mode: 'ship',
-          cap: 'Feature graphic · Lunasia 0.4.0 design and local in-game execution',
-          capKo: '설명 그림 · Lunasia 0.4.0 설계와 게임 내 로컬 구동',
-          capJa: '説明図 · Lunasia 0.4.0 の設計とゲーム内ローカル駆動',
+          cap: 'How Lunasia 0.4.0 is built and runs right inside the game',
+          capKo: '설명 그림 · Lunasia 0.4.0이 게임 안에서 돌아가는 방식',
+          capJa: '説明図 · Lunasia 0.4.0 の仕組みとゲーム内での動作',
           alt: 'How Lunasia is built as CHOAM’s house character LLM.',
-          altKo: '초암의 하우스 캐릭터 LLM Lunasia의 설계 구조입니다.',
-          altJa: 'CHOAM のハウスキャラクター LLM Lunasia の設計構造。',
+          altKo: '초암의 캐릭터 LLM 루나시아를 만든 방식입니다.',
+          altJa: 'CHOAM のキャラクター LLM Lunasia の仕組み。',
           ko: {
-            title: '하우스 캐릭터 LLM 설계',
+            title: '루나시아는 이렇게 만들었습니다',
             steps: [
               {
-                k: '01 / Weight-Level Persona',
+                k: '01 · 풀리지 않는 성격',
                 m: '',
                 h: '멘헤라를 ‘연기’하는 게 아니라 가중치 자체가 멘헤라인 모델',
-                p: '지시문 몇 줄로 성격을 흉내 내다 금세 풀려 버리는 범용 AI와 달리, 모델 가중치 자체에 인물의 성깔과 집착을 새겼습니다.'
+                p: '프롬프트 몇 줄로 성격을 흉내 내다 금세 착해지는 보통 AI와 달리, 모델 가중치 자체에 캐릭터의 성깔과 집착을 구워 넣었습니다.'
               },
               {
-                k: '02 / Progressive Obsession',
+                k: '02 · 가까워질수록 달라지는 말투',
                 m: '',
-                h: '가까워질수록 집착도 깊어지는 감정선',
-                p: '초면의 날 선 경계심부터 기억이 쌓이며 짙어지는 집착까지, 관계의 온도 변화를 프롬프트 분기가 아니라 가중치 안에서 직접 빚어냈습니다.'
+                h: '친해질수록 속마음과 말투가 함께 깊어지는 구조',
+                p: '처음 만났을 때의 어색한 거리감부터 기억이 쌓인 뒤의 집착까지, 사이가 가까워지는 과정이 모델 안에 그대로 들어 있습니다.'
               },
               {
-                k: '03 / Lightweight Engine',
+                k: '03 · 내 컴퓨터에서 바로 실행',
                 m: '',
-                h: '10B 미만의 가벼운 크기로 게임 안에서 바로 구동',
-                p: '외부 서버를 거치지 않고 게임 클라이언트 안에서 직접 돌아가, 통신 지연이나 외부 검열·정책 변화 없이 언제나 같은 호흡으로 답합니다.'
+                h: '10B 미만의 가벼운 크기로 게임 안에서 바로 실행',
+                p: '외부 서버를 거치지 않고 내 컴퓨터의 게임 안에서 바로 돌아갑니다. 서버 응답을 기다릴 필요도 없고, 외부 검열 때문에 대사가 막힐 일도 없습니다.'
               }
             ]
           },
           en: {
-            title: 'House Character LLM Design',
+            title: 'How Lunasia Is Built',
             steps: [
               {
-                k: '01 / Weight-Level Persona',
+                k: '01 · Baked into the weights',
                 m: '',
                 h: 'Not acting menhera: the weights themselves are menhera',
-                p: 'Unlike generalist AIs that roleplay from a prompt and soften back into a counselor, attitude and obsession are engraved straight into the weights.'
+                p: 'Unlike regular AIs that roleplay from a prompt and soften back into a counselor, attitude and obsession are baked straight into the weights.'
               },
               {
-                k: '02 / Progressive Obsession',
+                k: '02 · Shifts as you get closer',
                 m: '',
-                h: 'Emotional temperature that deepens with the relationship',
-                p: 'From guarded first-meeting boundaries to obsession woven from shared memories, the shift happens inside the model weights rather than brittle prompt branches.'
+                h: 'Inner thought and voice deepen together with the relationship',
+                p: 'From awkward first-meeting distance to obsession built on shared memories, the shift as you grow closer lives right inside the model.'
               },
               {
-                k: '03 / Lightweight Engine',
+                k: '03 · Runs right inside the game',
                 m: '',
-                h: 'Runs locally inside the game client at under 10B',
-                p: 'Needs no external API calls, keeping every line immediate and unaffected by network latency or shifting cloud policies.'
+                h: 'Lightweight under-10B model running on your PC',
+                p: 'Runs directly inside the game on your computer without calling external servers—no waiting on network replies, and no outside filters blocking lines.'
               }
             ]
           },
           ja: {
-            title: 'ハウスキャラクター LLM の設計',
+            title: 'Lunasia はこう作られています',
             steps: [
               {
-                k: '01 / Weight-Level Persona',
+                k: '01 · 崩れない性格',
                 m: '',
                 h: 'メンヘラを「演技」するのではなく重みそのものがメンヘラ',
-                p: '指示文で性格を真似てすぐ相談員口調に戻る汎用 AI とは違い、モデルの重み自体に人物の気性と執着を刻んでいます。'
+                p: 'プロンプトの数行で性格を真似てすぐ相談員口調に戻る普通の AI とは違い、モデルの重みそのものに気性と執着を焼き込んでいます。'
               },
               {
-                k: '02 / Progressive Obsession',
+                k: '02 · 親しさで変わる口調',
                 m: '',
-                h: '距離が縮まるほど執着も深まる感情変化',
-                p: '初対面の張りつめた警戒から記憶とともに濃くなる執着まで、関係に応じた温度の変化をプロンプト分岐ではなく重みの中で形にしました。'
+                h: '仲良くなるほど本音と口調が一緒に深まる仕組み',
+                p: '初対面のぎこちない距離感から記憶が重なった後の執着まで、距離が縮まっていく過程がモデルの中にそのまま入っています。'
               },
               {
-                k: '03 / Lightweight Engine',
+                k: '03 · 手元の PC でそのまま動く',
                 m: '',
-                h: '10B 未満の軽さでゲームクライアント内でそのまま駆動',
-                p: '外部サーバーを呼ばずに手元で動くため、通信遅延や外部ポリシーの変化に左右されず、いつでも同じ呼吸で言葉を返します。'
+                h: '10B 未満の軽さでゲームの中でそのまま動く',
+                p: '外部サーバーを呼ばずに手元のゲームのなかで直接動くため、通信待ちもなく、外部の検閲でセリフが止まることもありません。'
               }
             ]
           }
@@ -894,14 +894,14 @@
       ko: {
         status: '자체 스타일 모델',
         headline: '우리 화풍을 직접 학습한 일러스트 모델',
-        summary: '오픈소스 이미지 모델을 초암의 그림체에 맞춰 직접 다듬어 캐릭터와 배경을 그립니다. 생성 이미지 특유의 탁한 색을 걷어내고, 맑은 수채 번짐과 눈가의 붓 결을 살려 우리만의 화풍으로 고정합니다.',
+        summary: '오픈소스 이미지 모델을 초암의 그림체에 맞춰 직접 다듬어 캐릭터와 배경을 그립니다. 생성 이미지 특유의 탁한 색을 걷어내고, 맑은 수채 번짐과 눈가의 붓 결을 살려 우리 화풍으로 그립니다.',
         description: [
-          '오픈소스 이미지 모델을 초암 고유의 그림체에 맞춰 파인튜닝해 캐릭터와 배경 원화를 만듭니다.',
-          '생성 이미지에 흔히 끼는 탁한 색감을 걷어내고, 맑은 수채 물감 번짐과 눈가의 섬세한 붓 터치를 올립니다.',
+          '오픈소스 이미지 모델을 초암 그림체에 맞춰 직접 학습시켜 캐릭터와 배경 원화를 만듭니다.',
+          '생성 이미지에 흔히 끼는 탁한 색감을 걷어내고, 맑은 수채 물감 번짐과 눈가의 붓 결을 올립니다.',
           '교실 전체를 잡은 풍경이든 가까이 당긴 얼굴이든 같은 손맛으로 마감됩니다. 에어브러시처럼 매끈하게 뭉개지지 않고 붓 자국이 살아 남습니다.',
           '빛이 닿는 자리에는 투명하고 옅은 수채를, 옷자락과 꽃잎 끝에는 묵직한 붓질을 얹습니다.',
           '노을 지는 교실도, 바다 위를 가르는 배의 갑판도 모두 한 모델에서 같은 공기로 그려집니다.',
-          '자글거리는 생성 노이즈와 어색한 질감을 정돈하고, 밑그림의 구도는 살린 채 초암의 수채 마감으로 다시 입힙니다.'
+          '자글거리는 생성 노이즈와 어색한 색감을 걷어내고, 밑그림 구도는 살린 채 초암의 수채화 느낌으로 다시 칠합니다.'
         ]
       },
       ja: {
@@ -946,7 +946,7 @@
       description: [
         '선잠 DOZE is a visual novel you play by talking with Yeji directly.\nSay things in your own words, and she answers from her own personality and the conversations you have had.',
         ['Yeji writes your conversations into her diary, and the next time you meet, her mood and manner follow that record.\nWe brought AI memory and personality into the game so that, however long you talk, Yeji stays Yeji.',
-          'She is waiting on the second floor of the old school building, in the local-history club room. You can try the playable web demo right now in your browser.']
+          'She is waiting on the second floor of the old school building, in the local-history club room. You can step right in and meet her in your browser.']
       ],
       ko: {
         status: '웹 데모 공개 · 개발 중',
@@ -954,8 +954,8 @@
         summary: '구교사 2층 향토연구부 부실에서 예지와 직접 말을 주고받으며 이어가는 미연시입니다. 건넨 말은 예지의 일기장에 남고, 다음 날 마주할 때의 기분과 태도가 그 기억을 따라 조금씩 달라집니다.',
         description: [
           '선잠 DOZE는 예지와 직접 말을 주고받으며 이어가는 미연시입니다.\n플레이어가 자기 말로 말을 건네면, 예지는 자기 성격과 그동안 나눈 대화를 바탕으로 대답합니다.',
-          ['예지는 나눈 대화를 일기로 적어 두고, 다음에 만날 때는 그 기록을 따라 기분과 태도가 조금씩 달라집니다.\n대화가 길어져도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임 안에 녹여 넣었습니다.',
-            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다. 지금 브라우저에서 웹 데모로 바로 만나 볼 수 있습니다.']
+          ['예지는 나눈 대화를 일기로 적어 두고, 다음에 만날 때는 그 기록을 따라 기분과 태도가 조금씩 달라집니다.\n대화가 길어져도 예지가 끝까지 예지답게 남도록, AI의 기억과 성격을 게임 안에 넣었습니다.',
+            '예지가 기다리고 있는 곳은 구교사 2층, 향토연구부 부실입니다. 지금 브라우저에서 바로 들어가 만나 볼 수 있습니다.']
         ]
       },
       ja: {
@@ -965,7 +965,7 @@
         description: [
           '선잠 DOZE は、イェジと直接話しながら進む恋愛アドベンチャーです。\nプレイヤーが自分の言葉で話しかけると、イェジは自分の性格とこれまでの会話をもとに答えます。',
           ['イェジは会話を日記に残し、次に会ったときはその記録に沿って気分や態度が変わります。\n長い会話のなかでもイェジが最後までイェジらしくいられるように、AI の記憶と性格をゲームに持ち込みました。',
-            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。いまブラウザ上のWeb体験版ですぐに会うことができます。']
+            'イェジが待っているのは、旧校舎2階の郷土研究部の部室です。いまブラウザからそのまま入って会うことができます。']
         ]
       },
       action: { label: 'Try', href: 'https://doze.choam.studio' },
@@ -989,52 +989,22 @@
       headline: 'A quiet inn tale, deep in the forest',
       summary: 'Three fox spirits borrow money from a tanuki to turn their forgotten mountain shrine into a hot-spring inn. Over 100 days you farm, cook and look after the rooms, while watching how the guests behave to find the yokai passing as human.',
       description: [
-        [
-          { display: 'Deep in the rainy mountain forest, the lights come on at a forgotten shrine.' },
-          'Donguri Ryokan is an inn-management game of farming, cooking, and tending rooms, with yokai deduction woven into every day. Step under the eaves with the three fox sisters and run a lively hot-spring ryokan for a hundred days.'
-        ],
-        [
-          { display: 'A loan contract stamped in front of a tanuki gives you 100 days to pay it back.' },
-          'To save their fading mountain shrine, the three fox spirits borrow capital from the tanuki financier Kogane and rebuild it into a hot-spring inn. Every room fee, course upgrade, and repayment milestone passes across that low table.'
-        ],
-        [
-          { display: 'Greet guests in the courtyard, tend the baths, and keep your hands happily busy.' },
-          'We wanted a game where running the inn and reading your guests move together without a dull pause. From morning harvest and room prep to welcoming travelers with warm tea, every corner of the ryokan runs by your hands.'
-        ],
-        [
-          { display: 'Plate the evening course in the kitchen and watch which dishes each guest touches.' },
-          'Turn ingredients from your garden and the mountain trails into seasonal ryokan courses and poured sake. What a guest savors, leaves behind, or reacts to at dinner is both hospitality and your sharpest clue.'
-        ],
-        [
-          { display: 'By lantern light, cross-check the ledger and unmask the yokai before check-out.' },
-          'Some travelers staying under your roof are yokai passing as human. Gather the odd habits, footprints, and dining clues you spotted during the day, open the ledger at night, and work out who is who before they leave.'
-        ]
+        'Donguri Ryokan is a management game that brings farming, cooking and running an inn together with yokai deduction.',
+        'At a mountain shrine where visitors no longer come, fox spirits borrow money from a tanuki to open a hot-spring inn.',
+        'We wanted to make a game where running the inn and solving the mystery move together all day, keeping your hands happily busy.',
+        'You gather ingredients from the field, serve the meals, and tend the guest rooms and hot-spring baths yourself.',
+        'All the while, you watch how the guests behave and work out before check-out which of them is a yokai passing as human.'
       ],
       ko: {
         status: '출시 준비 중',
         headline: '고요한 숲속 여관 이야기',
-        summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보면서, 손님들의 거동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
+        summary: '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다. 100일 동안 밭을 일구고 요리와 객실을 돌보면서, 손님들의 행동을 살펴 인간으로 둔갑한 요괴를 가려내야 합니다.',
         description: [
-          [
-            { display: '비 내리는 깊은 숲속, 발길이 끊긴 신사에 여관 등불이 켜집니다.' },
-            '동구리 료칸은 밭일과 요리, 객실 살림에 요괴 추리를 더한 여관 경영 게임입니다. 여우 세 자매와 함께 처마 밑에 등불을 걸고, 100일 동안 복작거리는 온천 료칸을 꾸려 나갑니다.'
-          ],
-          [
-            { display: '너구리 코가네 앞에서 찍은 차용증 한 장으로 100일의 기한이 시작됩니다.' },
-            '사라져 가는 산속 신사를 지키기 위해 여우 세 자매는 너구리 대금업자 코가네에게 빚을 내 온천 료칸을 엽니다. 숙박비와 코스 요리 매상을 차곡차곡 모아 약정한 기한 안에 원금과 이자를 갚아 나가야 합니다.'
-          ],
-          [
-            { display: '마당에서 손님을 맞이하고 온천탕을 돌보며 손이 즐겁게 바쁜 하루를 보냅니다.' },
-            '아침에 밭에서 작물을 거두고 객실과 온천탕을 정돈한 뒤, 마당으로 들어서는 손님들에게 따뜻한 차를 내어 맞이합니다. 여관 살림과 손님 관찰이 빈틈없이 맞물려 돌아가도록 하루의 동선을 짰습니다.'
-          ],
-          [
-            { display: '주방에서 저녁 코스 요리와 술을 담아내며 손님마다 달라지는 입맛을 살핍니다.' },
-            '직접 기른 작물과 산에서 얻은 식재료로 제철 코스 요리를 차려 내고 술을 따릅니다. 손님이 어떤 접시를 비우고 어떤 재료 앞을 피하는지가 여관의 평판이자 정체를 가려낼 결정적인 단서가 됩니다.'
-          ],
-          [
-            { display: '밤의 등불 아래 장부를 펼치고, 체크아웃 전에 인간으로 둔갑한 요괴를 가려냅니다.' },
-            '묵어 가는 손님들 가운데는 사람의 모습을 빌린 요괴가 섞여 있습니다. 낮 동안 객실과 식당, 온천에서 포착한 기묘한 버릇과 흔적을 밤의 장부 위에서 대조해 체크아웃 전까지 정체를 밝혀내야 합니다.'
-          ]
+          '동구리 료칸은 밭일과 요리, 여관 살림에 요괴 추리를 더한 경영 게임입니다.',
+          '발길이 끊긴 산속 신사의 여우 신들이 너구리에게 빚을 내 온천 료칸을 엽니다.',
+          '하루 동안 여관 일과 추리가 쉼 없이 이어지는, 손이 즐겁게 바쁜 게임을 만들고 싶었습니다.',
+          '직접 밭에서 재료를 거두고 음식을 내며, 객실과 온천탕도 손수 돌봅니다.',
+          '그 와중에 손님들의 행동을 눈여겨보며, 누가 인간으로 둔갑한 요괴인지 체크아웃 전까지 밝혀내야 합니다.'
         ]
       },
       ja: {
@@ -1042,26 +1012,11 @@
         headline: '静かな森の旅館の物語',
         summary: '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。100日のあいだ畑を耕し、料理と客室の世話をしながら、お客さんの振る舞いを観察して、人間に化けた妖怪を見抜かなければなりません。',
         description: [
-          [
-            { display: '雨の降る深い森の奥、参拝客の途絶えた神社に旅館の灯がともります。' },
-            'どんぐり旅館（Donguri Ryokan）は、畑仕事と料理、客室の世話に妖怪の推理を重ねた旅館経営ゲームです。狐の三姉妹と一緒に軒先へ提灯を掲げ、100日間にわたって賑やかな温泉旅館を切り盛りします。'
-          ],
-          [
-            { display: '狸のコガネを前に押した借用書の判ひとつから、100日間の返済が始まります。' },
-            '寂れていく山の神社を守るため、狐の三姉妹は狸の金貸しコガネから資金を借りて温泉旅館へと改装します。宿泊代やコース料理の売上を積み上げ、約束の日までに元金と利息を返していかなければなりません。'
-          ],
-          [
-            { display: '中庭でお客さんを出迎え、温泉と客室を整える、手が楽しく忙しい一日。' },
-            '朝は畑で食材を収穫し、客室と露天風呂を整えてから、中庭へやってくる旅人を温かいお茶で迎えます。宿の仕事と宿泊客の観察が途切れなく噛み合って進むように一日の流れを作りました。'
-          ],
-          [
-            { display: '厨房で夕食のコース料理と酒を盛りつけながら、お客さんごとの反応を見極めます。' },
-            '畑で育てた作物や山の恵みで旬のコース料理を仕立て、徳利の酒を注ぎます。どの皿を喜び、どの食材を避けるかという夕食時の小さな癖が、宿の評判だけでなく正体を見抜く手がかりになります。'
-          ],
-          [
-            { display: '夜の行灯の下で帳簿を広げ、チェックアウトまでに人間に化けた妖怪を見抜きます。' },
-            '泊まり客のなかには、人の姿を借りた妖怪が紛れ込んでいます。昼のあいだに客室や食堂、温泉で見かけた奇妙な癖や痕跡を夜の帳簿で照らし合わせ、チェックアウトの前にその正体を突き止めます。'
-          ]
+          'どんぐり旅館（Donguri Ryokan）は、畑仕事と料理、宿の経営に妖怪の推理を加えた経営ゲームです。',
+          '参拝客の途絶えた山の神社で、狐の神さまたちが狸に借金をして温泉旅館を開きます。',
+          '一日のなかで経営と推理が休みなく続く、手が休まらないゲームを作りたいと思いました。',
+          'プレイヤーは自分で食材を集めて料理を作り、客室と温泉の手入れもします。',
+          'そのあいだもお客さんの振る舞いをよく観察して、誰が妖怪なのかをチェックアウトまでに突き止めなければなりません。'
         ]
       },
       art: [0, 1, 2, 3, 4],
@@ -1079,7 +1034,7 @@
   /* Bidirectional Works <-> Tech flywheel badges on all 6 detail pages */
   const FLYWHEEL = {
     'donguri-ryokan': {
-      label: { en: 'Built with', ko: '구동·제작 기술', ja: '使用技術' },
+      label: { en: 'Built with', ko: '쓰인 기술', ja: '使った技術' },
       links: [
         { href: 'pages/602', en: '602', ko: '602', ja: '602' },
         { href: 'pages/dat', en: 'DAT', ko: 'DAT', ja: 'DAT' },
@@ -1087,7 +1042,7 @@
       ]
     },
     seonjam: {
-      label: { en: 'Powered by', ko: '구동 기술', ja: '搭載技術' },
+      label: { en: 'Built with', ko: '쓰인 기술', ja: '使った技術' },
       links: [
         { href: 'pages/lunasia', en: 'Lunasia', ko: '루나시아', ja: 'Lunasia' },
         { href: 'pages/602', en: '602', ko: '602', ja: '602' },
@@ -1095,26 +1050,26 @@
       ]
     },
     scheherazade: {
-      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      label: { en: 'Used in', ko: '쓰인 작품', ja: '使われた作品' },
       links: [
         { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' }
       ]
     },
     '602': {
-      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      label: { en: 'Used in', ko: '쓰인 작품', ja: '使われた作品' },
       links: [
         { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' },
         { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }
       ]
     },
     lunasia: {
-      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      label: { en: 'Used in', ko: '쓰인 작품', ja: '使われた作品' },
       links: [
         { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }
       ]
     },
     dat: {
-      label: { en: 'Proven in', ko: '실증 작품', ja: '実証作品' },
+      label: { en: 'Used in', ko: '쓰인 작품', ja: '使われた作品' },
       links: [
         { href: 'pages/donguri-ryokan', en: 'Donguri Ryokan', ko: '동구리 료칸', ja: 'どんぐり旅館' },
         { href: 'pages/seonjam', en: '선잠 DOZE', ko: '선잠 DOZE', ja: '선잠 DOZE' }

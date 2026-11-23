@@ -326,7 +326,7 @@ ${data.groups.map((g) => renderGroup(g, copy, ids)).join('\n\n')}
 </main>
 <footer class="deck dl-foot"><span class="foot"><a href="https://github.com/CHOAM-CO" target="_blank" rel="noopener">GitHub</a><a href="mailto:mino@choam.studio">Contact</a><span>&copy; 2026 CHOAM Co., Ltd. All rights reserved.</span></span></footer>
 <div class="grain" aria-hidden="true"></div>
-<script src="../main.js?v=v22-20261123b"></script>
+<script src="../main.js?v=v22-20261123c"></script>
 </body>
 </html>
 `;
