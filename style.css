@@ -2180,13 +2180,35 @@ body.notfound-page,
     padding: calc(var(--mast-h) + 120px) var(--gutter) calc(var(--deck-h) + 18px);
     overflow: hidden;
   }
-  .prod[data-vis="art"] .stage {
-    position: absolute;
-    inset: 0;
+.prod[data-vis="art"] .stage {
+position: absolute;
+inset: 0;
   }
-  .prod[data-vis="art"] .vis {
-    display: none;
+  .prod.p-seonjam[data-vis="art"] .stage {
+    top: var(--mast-h);
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: 62dvh;
   }
+  .prod.p-seonjam[data-vis="art"] .prod-veil {
+    top: var(--mast-h);
+    left: 0;
+    right: 0;
+    bottom: auto;
+    height: 62dvh;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 12, 13, 0.04) 0%,
+      rgba(11, 12, 13, 0.04) 44%,
+      rgba(11, 12, 13, 0.42) 66%,
+      rgba(11, 12, 13, 0.86) 84%,
+      #0B0C0D 100%
+    );
+  }
+.prod[data-vis="art"] .vis {
+display: none;
+}
 
   .cap-title { margin-top: 10px; font-size: clamp(24px, 6.8vw, 32px); letter-spacing: 0.1em; }
   .cap-ko { margin-top: 6px; font-size: 14px; }
