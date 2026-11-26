@@ -1031,6 +1031,12 @@
     }
   ];
 
+  /* Reorder PROJECTS: Games (seonjam, donguri-ryokan) first, Tools below (Mino 2026-11-26) */
+  {
+    const ORDER = ['seonjam', 'donguri-ryokan', 'scheherazade', '602', 'lunasia', 'dat'];
+    PROJECTS.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+  }
+
   /* Bidirectional Works <-> Tech flywheel badges on all 6 detail pages */
   const FLYWHEEL = {
     'donguri-ryokan': {
@@ -1141,7 +1147,7 @@
     ['[data-details]', '', '자세히', '詳しく'],
     ['.foot a[href="mailto:mino@choam.studio"]', '', '문의', 'お問い合わせ'],
     ['.dl .sch-icon', 'alt', 'Scheherazade 앱 아이콘', 'Scheherazade のアプリアイコン'],
-    ['.dl .cap-line', '', PROJECTS[0].ko.headline, PROJECTS[0].ja.headline],
+    ['.dl .cap-line', '', (PROJECTS.find(x => x.id === 'scheherazade') || PROJECTS[0]).ko.headline, (PROJECTS.find(x => x.id === 'scheherazade') || PROJECTS[0]).ja.headline],
     ['.dlbtn[data-os="mac"] small', '', 'Apple 실리콘', 'Apple シリコン'],
     ['.dlbtn[data-os="win"] small', '', '설치 파일', 'インストーラー'],
     ['.dl-note [data-note]', '', '쓰던 Claude·ChatGPT·Antigravity(Gemini) 구독이나 Ollama, API 키를 그대로 연결해 쓰세요. 두뇌를 바꿔도 내 컴퓨터의 기억은 그대로 남습니다.', '普段お使いの Claude・ChatGPT・Antigravity（Gemini）のサブスクや Ollama、API キーをそのまま接続できます。頭脳を切り替えても手元の記憶はそのまま残ります。'],
@@ -1293,8 +1299,8 @@
     <div class="nav-panel" id="nav-panel" hidden>
       <section id="nav-works" aria-labelledby="nav-works-title" hidden>
         <h2 class="nav-group-title" id="nav-works-title">Works</h2>
-        <ul class="nav-row nav-row-primary">${workEntry('scheherazade')}${workEntry('602')}${workEntry('lunasia')}${workEntry('dat')}</ul>
-        <ul class="nav-row">${workEntry('seonjam')}${workEntry('donguri-ryokan')}</ul>
+        <ul class="nav-row nav-row-primary">${workEntry('seonjam')}${workEntry('donguri-ryokan')}</ul>
+        <ul class="nav-row nav-row-tools">${workEntry('scheherazade')}${workEntry('602')}${workEntry('lunasia')}${workEntry('dat')}</ul>
       </section>
       <section id="nav-about" aria-labelledby="nav-about-title" hidden>
         <h2 class="nav-group-title" id="nav-about-title">About</h2>
@@ -1691,7 +1697,7 @@
     const rail = document.createElement('nav');
     rail.className = 'index-rail';
     rail.innerHTML = `<ol>${[{ id: 'top', n: '00' }, ...PROJECTS.map(p => ({ id: p.id, n: numOf(p), p }))].map(r =>
-      `<li><a href="#${r.id}" data-index-link="${r.id}"><i aria-hidden="true"></i><b>${r.n}</b><span>${r.p ? esc(r.p.title) : ''}</span></a></li>`).join('')}</ol>`;
+      `<li${r.id === 'scheherazade' ? ' class="rail-tools-start"' : ''}><a href="#${r.id}" data-index-link="${r.id}"><i aria-hidden="true"></i><b>${r.n}</b><span>${r.p ? esc(r.p.title) : ''}</span></a></li>`).join('')}</ol>`;
     track.before(rail);
     /* phones: the rail becomes a six-segment thread under the masthead (Home-Mobile.dc.html), always visible while a plate is up */
     const thread = document.createElement('nav');
@@ -1702,7 +1708,7 @@
     document.querySelectorAll('[data-go-project]').forEach(a => { a.href = `#${a.dataset.goProject}`; });
 
     /* artwork comes up over 1.1s as its plate reaches the screen (reduced motion: already there) */
-    const reveal = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-on'); reveal.unobserve(e.target); } }), { threshold: .35 });
+    const reveal = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-on'); reveal.unobserve(e.target); } }), { threshold: .22 });
     plates.forEach(el => reveal.observe(el));
 
     const label = () => {

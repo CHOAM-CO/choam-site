@@ -1,0 +1,435 @@
+/* ==========================================================================
+   CHOAM v2.1 Canonical Component Unification & Polish Layer (2026-11-26)
+   Source of truth: choam_canonical_theme_handoff_20261114.md + Redline Sheet 01
+   Zero deviations: shadow=0, scale=1.000, translate=0px on text, no solid fill CTAs.
+   ========================================================================== */
+
+:root {
+  --ease-open: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-ui: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-latch: cubic-bezier(0.2, 0, 0, 1);
+  --dur-1: 0.12s;
+  --dur-2: 0.16s;
+  --dur-3: 0.24s;
+
+  /* Single directional #050506 soft-fade scrim: preserves faces while securing 4.5:1 text contrast
+     and left index-rail legibility WITHOUT text-shadow */
+  --scrim-art:
+    linear-gradient(
+      to left,
+      rgba(5, 5, 6, 0.93) 0%,
+      rgba(5, 5, 6, 0.84) 30%,
+      rgba(5, 5, 6, 0.42) 48%,
+      rgba(5, 5, 6, 0.00) 68%
+    ),
+    linear-gradient(
+      to right,
+      rgba(5, 5, 6, 0.78) 0%,
+      rgba(5, 5, 6, 0.36) 14%,
+      rgba(5, 5, 6, 0.00) 26%
+    ),
+    linear-gradient(
+      to top,
+      rgba(5, 5, 6, 0.56) 0%,
+      rgba(5, 5, 6, 0.00) 24%
+    );
+}
+
+/* --------------------------------------------------------------------------
+   1. VESSELS (Unified CHOAM v2.1 Geometry)
+   ALL panels/dropdowns/vessels share ONE exact primitive:
+   - TR/BL 45-deg chamfer (cut 13px dropdown/menu, 14px large vessel)
+   - TL/BR #D9A362 clasps (alpha 0.85, inset 7.5px)
+   - Crisp 1px 6-edge stroke (#EBE5DA 0.22) + #0B0C0D flat matte + shadow 0
+   -------------------------------------------------------------------------- */
+:is(.nav-panel, .get-menu, .v21-vessel, .lunviz .lv, .lun-panel, .lun-card:not(.lv .lun-card)) {
+  --v21-cut: 13px;
+  --v21-d: 10.05px; /* 13 * 0.7071 + 0.85px crisp 1px bevel */
+  --v21-fill: var(--night);
+  --v21-edge: var(--edge-static);
+  --v21-clasp: rgba(217, 163, 98, 0.85);
+  --v21-ci: 7.5px;
+  --v21-cw: 18px;
+  --v21-ch: 11px;
+  isolation: isolate;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:is(.v21-vessel, .lunviz .lv, .lun-panel) {
+  --v21-cut: 14px;
+  --v21-d: 10.75px;
+  --v21-cw: 22px;
+  --v21-ch: 13px;
+}
+
+.nav-panel {
+  padding: 24px 26px 22px;
+  overflow: visible;
+}
+
+.get-menu {
+  padding: 20px 22px 18px;
+}
+
+:is(.nav-panel, .get-menu, .v21-vessel, .lunviz .lv, .lun-panel, .lun-card:not(.lv .lun-card))::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--v21-fill);
+  background-image:
+    /* 1-4: TL ┌ and BR ┘ brass clasps (#D9A362, 1px) */
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    linear-gradient(var(--v21-clasp), var(--v21-clasp)),
+    /* 5-6: TR and BL crisp 1px 45-deg diagonal edges */
+    linear-gradient(225deg, var(--v21-edge) 0, var(--v21-edge) var(--v21-d), transparent calc(var(--v21-d) + 0.5px)),
+    linear-gradient(45deg,  var(--v21-edge) 0, var(--v21-edge) var(--v21-d), transparent calc(var(--v21-d) + 0.5px)),
+    /* 7-10: 4 straight outer 1px hairline edges (no box-shadow) */
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge)),
+    linear-gradient(var(--v21-edge), var(--v21-edge));
+  background-position:
+    left var(--v21-ci) top var(--v21-ci),
+    left var(--v21-ci) top var(--v21-ci),
+    right var(--v21-ci) bottom var(--v21-ci),
+    right var(--v21-ci) bottom var(--v21-ci),
+    0 0,
+    0 0,
+    top left,
+    top right,
+    bottom left,
+    top left;
+  background-size:
+    var(--v21-cw) 1px,
+    1px var(--v21-ch),
+    var(--v21-cw) 1px,
+    1px var(--v21-ch),
+    100% 100%,
+    100% 100%,
+    100% 1px,
+    1px 100%,
+    100% 1px,
+    1px 100%;
+  background-repeat: no-repeat;
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--v21-cut)) 0,
+    100% var(--v21-cut),
+    100% 100%,
+    var(--v21-cut) 100%,
+    0 calc(100% - var(--v21-cut))
+  );
+  transition: background-position var(--dur-3) var(--ease-open), opacity var(--dur-3) var(--ease-open);
+}
+
+/* --------------------------------------------------------------------------
+   2. PRIMARY BUTTONS (Exact CHOAM v2.1 §4.3 C)
+   Straight 0px corners, hollow 0% fill, 1px brass rim (0.78), #EBE5DA bone ink.
+   Hover 160ms: rim 1.00 + 10% brass wash. Active/Open 120ms: 20% brass latch.
+   NO chamfer, NO clasps, NO solid fill, NO translate.
+   -------------------------------------------------------------------------- */
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px;
+  height: 42px;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 1px solid var(--accent-dim);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--bone);
+  font-size: 13.5px;
+  font-weight: 520;
+  letter-spacing: 0.06em;
+  transform: none;
+  transition:
+    background-color var(--dur-2) var(--ease-ui),
+    border-color var(--dur-2) var(--ease-ui),
+    color var(--dur-2) var(--ease-ui);
+}
+:lang(ko) :is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn) {
+  letter-spacing: 0.02em;
+}
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn)::before {
+  content: none !important;
+  display: none !important;
+}
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn):hover {
+  border-color: var(--ember);
+  background: var(--accent-wash);
+  color: var(--bone);
+}
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn):active,
+:is(.plate, .prod) .prod-act[aria-expanded="true"] {
+  border-color: var(--ember);
+  background: var(--accent-latch);
+  color: var(--bone);
+  transform: none;
+  transition-duration: var(--dur-1);
+  transition-timing-function: var(--ease-latch);
+}
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn):focus-visible {
+  outline: 1px solid var(--ember);
+  outline-offset: 4px;
+}
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn):disabled,
+:is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn)[aria-disabled="true"] {
+  border-color: var(--line);
+  background: transparent;
+  color: rgba(235, 229, 218, 0.30);
+}
+
+/* --------------------------------------------------------------------------
+   3. SECONDARY BUTTONS (Exact CHOAM v2.1 §4.3 C)
+   Borderless transparent, 70% bone -> hover 120ms 100% bone + 1px bone underline
+   -------------------------------------------------------------------------- */
+.plate .cap-acts .plate-more {
+  font-size: 13.5px;
+  font-weight: 450;
+  letter-spacing: 0.04em;
+  color: rgba(235, 229, 218, 0.72);
+  gap: 8px;
+  transition: color var(--dur-1) var(--ease-ui);
+}
+.plate .cap-acts .plate-more::before {
+  bottom: 9px;
+  height: 1px;
+  background: var(--bone);
+  opacity: 0.28;
+  transition: opacity var(--dur-1) var(--ease-ui);
+}
+.plate .cap-acts .plate-more::after {
+  font-size: 15px;
+  transform: none;
+}
+.plate .cap-acts .plate-more:hover {
+  color: var(--bone);
+}
+.plate .cap-acts .plate-more:hover::before {
+  background: var(--bone);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. SELECTABLE LIST ROWS (Exact CHOAM v2.1 §4.3 B)
+   Zero background fill box, zero nested borders; left 2px #D9A362 pin + #EBE5DA ink
+   -------------------------------------------------------------------------- */
+.nav-entry,
+.get-opt {
+  background: transparent !important;
+  border-left: 2px solid transparent;
+  border-bottom: 1px solid var(--line-row);
+  color: rgba(235, 229, 218, 0.70);
+  transition: color var(--dur-1) var(--ease-ui), border-left-color var(--dur-1) var(--ease-ui);
+}
+.nav-row li:last-child .nav-entry,
+.get-opt:last-of-type {
+  border-bottom-color: transparent;
+}
+.nav-entry:hover,
+.nav-entry.is-current,
+.get-opt:hover,
+.get-opt.is-rec {
+  background: transparent !important;
+  border-left-color: var(--ember);
+  color: var(--bone);
+}
+.get-opt:focus {
+  outline: none;
+}
+.get-opt:focus-visible,
+.nav-entry:focus-visible {
+  outline: 1px solid var(--ember);
+  outline-offset: -1px;
+}
+
+/* Works nav: Games primary top row / 1px rule / Tools quieter below */
+#nav-works .nav-row-tools {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+#nav-works .nav-row-tools .nav-entry {
+  color: rgba(235, 229, 218, 0.56);
+}
+#nav-works .nav-row-tools .nav-entry:hover {
+  color: var(--bone);
+}
+
+/* --------------------------------------------------------------------------
+   5. TYPOGRAPHY, TRACKING & 4-STEP BONE INK HIERARCHY (v2.1 §2.2, §4.2)
+   -------------------------------------------------------------------------- */
+.cap-meta {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: rgba(235, 229, 218, 0.48);
+}
+:lang(ko) .cap-meta {
+  letter-spacing: 0.04em;
+}
+.plate .cap-meta .num {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(235, 229, 218, 0.86);
+}
+.plate .cap-meta .num::after {
+  width: 24px;
+  opacity: 0.72;
+}
+
+.cap-title {
+  font-weight: 800;
+  font-size: clamp(32px, 3.1vw, 50px);
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  color: var(--bone);
+}
+:lang(ko) .cap-title {
+  letter-spacing: -0.025em;
+}
+.plate .cap-ko {
+  margin-top: 6px;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  color: rgba(235, 229, 218, 0.48);
+}
+.cap-line {
+  font-weight: 500;
+  font-size: clamp(17px, 1.3vw, 20px);
+  line-height: 1.48;
+  letter-spacing: -0.015em;
+  color: rgba(235, 229, 218, 0.90);
+}
+.plate .caption {
+  gap: 11px;
+  bottom: calc(var(--deck-h) + 52px);
+  text-shadow: none;
+}
+.plate .cap-text {
+  width: min(404px, 100%);
+  font-size: 14.5px;
+  line-height: 1.76;
+  font-weight: 410;
+  letter-spacing: -0.012em;
+  color: rgba(235, 229, 218, 0.72);
+}
+
+/* --------------------------------------------------------------------------
+   6. LEFT INDEX RAIL (Games / 1px rule / Tools, Zero Shadow)
+   -------------------------------------------------------------------------- */
+.index-rail ol {
+  gap: 4px;
+}
+.index-rail a {
+  min-height: 30px;
+  padding: 2px 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: rgba(235, 229, 218, 0.56);
+  text-shadow: none;
+  transition: color var(--dur-2) var(--ease-ui);
+}
+:lang(ko) .index-rail a {
+  letter-spacing: 0.02em;
+}
+.index-rail b {
+  font-weight: 500;
+  color: rgba(235, 229, 218, 0.44);
+  transition: color var(--dur-2) var(--ease-ui);
+}
+.index-rail i {
+  width: 14px;
+  height: 1px;
+  background: rgba(235, 229, 218, 0.28);
+  transition: width var(--dur-3) var(--ease-open), background-color var(--dur-2) var(--ease-ui);
+}
+.index-rail a:hover {
+  color: rgba(235, 229, 218, 0.86);
+}
+.index-rail a.is-current {
+  color: var(--bone);
+}
+.index-rail a.is-current b {
+  color: var(--ember);
+}
+.index-rail a.is-current i {
+  width: 24px;
+  height: 1.5px;
+  background: var(--ember);
+}
+.index-rail li.rail-tools-start {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   7. MOTION (Exact CHOAM v2.1 §5.1)
+   scale = 1.000 fixed, ZERO translate on text/buttons, pure opacity fade only
+   -------------------------------------------------------------------------- */
+.plate .art,
+.plate .figure,
+.plate .plate-cast {
+  opacity: 0;
+  transition: opacity 0.65s var(--ease-open);
+}
+.plate.is-on .art,
+.plate.is-on .figure,
+.plate.is-on .plate-cast {
+  opacity: 1;
+}
+
+.plate .caption > * {
+  opacity: 0;
+  transform: none !important;
+  transition: opacity 0.24s var(--ease-open);
+}
+.plate.is-on .caption > * {
+  opacity: 1;
+}
+.plate.is-on .caption > :nth-child(1) { transition-delay: 0.03s; }
+.plate.is-on .caption > :nth-child(2) { transition-delay: 0.06s; }
+.plate.is-on .caption > :nth-child(3) { transition-delay: 0.09s; }
+.plate.is-on .caption > :nth-child(4) { transition-delay: 0.12s; }
+.plate.is-on .caption > :nth-child(5) { transition-delay: 0.15s; }
+
+/* --------------------------------------------------------------------------
+   8. MOBILE (390px+, 44px touch targets, smooth fade, no hard edge)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  :is(.v21-cta, .plate .cap-acts .prod-act, .prod .prod-act, .dlbtn) {
+    height: 44px;
+    min-height: 44px;
+  }
+  .plate .scrim {
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 6, 0.94) 0%,
+      rgba(5, 5, 6, 0.86) 36%,
+      rgba(5, 5, 6, 0.26) 60%,
+      rgba(5, 5, 6, 0.08) 100%
+    );
+  }
+  .plate .cap-text {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+  .thread a:nth-child(3) {
+    margin-left: 10px;
+  }
+}
