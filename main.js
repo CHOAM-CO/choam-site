@@ -1037,6 +1037,22 @@
     PROJECTS.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
   }
 
+  /* Smooth curtain unfold + staggered row glide for dropdowns (Mino 2026-11-27) */
+  const _reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function triggerDropReveal(panel, itemSel) {
+    if (!panel) return;
+    const items = [...panel.querySelectorAll(itemSel)].filter(el => !el.closest('[hidden]'));
+    items.forEach((el, idx) => el.style.setProperty('--row-i', String(idx)));
+    panel.classList.remove('drop-open');
+    if (_reducedMotion.matches) return;
+    void panel.offsetWidth;
+    panel.classList.add('drop-open');
+  }
+  function clearDropReveal(panel) {
+    if (!panel) return;
+    panel.classList.remove('drop-open');
+  }
+
   /* Bidirectional Works <-> Tech flywheel badges on all 6 detail pages */
   const FLYWHEEL = {
     'donguri-ryokan': {
@@ -1254,11 +1270,17 @@
     if (save) try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* storage blocked: this page still switches */ }
   };
   const langOpen = () => body.classList.contains('lang-open');
+  const langMenuEl = picker.querySelector('.lang-menu');
   const setLangMenu = (open, focusBtn) => {
     body.classList.toggle('lang-open', open);
     langBtn.setAttribute('aria-expanded', String(open));
-    if (open) (opts.find(o => o.dataset.setLang === lang) || opts[0]).focus();
-    else if (focusBtn) langBtn.focus();
+    if (open) {
+      triggerDropReveal(langMenuEl, '.lang-opt');
+      (opts.find(o => o.dataset.setLang === lang) || opts[0]).focus();
+    } else {
+      clearDropReveal(langMenuEl);
+      if (focusBtn) langBtn.focus();
+    }
   };
   langBtn.addEventListener('click', () => { if (navOpen) setMenu(false); setLangMenu(!langOpen()); });
   opts.forEach(o => o.addEventListener('click', () => { applyLang(o.dataset.setLang, true); setLangMenu(false, true); }));
@@ -1352,6 +1374,8 @@
     navToggles.forEach(t => t.setAttribute('aria-expanded', String(navOpen === t.dataset.navToggle)));
     navOpeners.forEach(a => a.setAttribute('aria-expanded', String(navOpen === a.dataset.navOpen)));
     positionMenu();
+    if (navOpen) triggerDropReveal(navPanel, `#nav-${navOpen} .nav-entry`);
+    else clearDropReveal(navPanel);
     if (focusBtn && previous) siteNav.querySelector(`[data-nav-toggle="${previous}"]`).focus();
   }
   navToggles.forEach(t => t.addEventListener('click', () => setMenu(navOpen === t.dataset.navToggle ? false : t.dataset.navToggle)));
@@ -1590,8 +1614,13 @@
     menu.hidden = !open;
     btn.setAttribute('aria-expanded', String(open));
     getOpen = open ? wrap : getOpen === wrap ? null : getOpen;
-    if (open) (getOpts(wrap).find(a => a.classList.contains('is-rec')) || getOpts(wrap)[0]).focus();
-    else if (focusBtn) btn.focus();
+    if (open) {
+      triggerDropReveal(menu, '.get-opt');
+      (getOpts(wrap).find(a => a.classList.contains('is-rec')) || getOpts(wrap)[0]).focus();
+    } else {
+      clearDropReveal(menu);
+      if (focusBtn) btn.focus();
+    }
   }
   const getMenuHTML = id => `<div class="get-menu" id="get-${id}" hidden>
       <p class="get-head"><span data-get-head></span><span data-rel-ver></span></p>
