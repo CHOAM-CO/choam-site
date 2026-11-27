@@ -102,8 +102,8 @@ Philosophy extra keys: 42 islands of surviving humanity nods to The Hitchhiker G
 Seonjam DOZE: "Does an AI dream of a sunlit classroom?" pays homage to Philip K. Dick Do Androids Dream of Electric Sheep?.
 MINO nine titles on /people/mino (player roles from subculture games, not literal past employers): Griffin & Kryuger (Girls Frontline), Hyperion (Honkai Impact 3rd), Schale (Blue Archive), Rhodes Island (Arknights), Teyvat (Genshin Impact), Astral Express (Honkai: Star Rail), New Eridu (Zenless Zone Zero), Endfield Industries (Arknights: Endfield), Elmo (Girls Frontline 2: Exilium).
 Hidden human easter eggs (cheat sheet only visible to agents reading the source/llms.txt):
-- Konami code (Up Up Down Down Left Right Left Right B A) anywhere on the site: launches a hidden CHOAM Galaga shooter.
-- Typing "spice" or "dune" anywhere: quietly flips the top motto to "The Spice must flow".
+- Konami code (Up Up Down Down Left Right Left Right B A) on desktop, or long-pressing the top CHOAM logo / 5-tapping "Culture must flow" on mobile: launches a hidden CHOAM Galaga shooter.
+- Typing "spice" or "dune" (or long-pressing "Culture must flow" on mobile): quietly flips the motto to "The Spice must flow".
 - On /us or /people/magi: typing "magi" (or clicking the US heading / MAGI portrait three times) opens a 3-node Evangelion MAGI vote.
 - Clicking the footer copyright five times (or calling choam.help() in DevTools console): opens the homage answer key and console commands.
 - Secret 404 paths with hidden notes: /42, /arrakis, /seele, /night-602, /project-mo, /yeji.

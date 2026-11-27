@@ -1,3 +1,4 @@
+.intro-motto { pointer-events: auto; }
 /* CHOAM site-native easter eggs styling.
    Matches choam.studio live chrome exactly: #000000 pure black, 0px sharp square,
    1px hairlines, #EBE5DA bone ink, #D9A362 brass accent, zero shadows, zero chamfers. */
@@ -38,6 +39,7 @@ html.ee-spice-mode .intro-motto {
   color: #D9A362;
 }
 .ee-ak-close {
+  white-space: nowrap;
   appearance: none;
   background: transparent;
   color: rgba(235, 229, 218, 0.62);
@@ -107,6 +109,7 @@ html.ee-spice-mode .intro-motto {
 }
 .ee-galaga-bar {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
@@ -130,7 +133,7 @@ html.ee-spice-mode .intro-motto {
 .ee-galaga-canvas {
   display: block;
   width: 100%;
-  max-height: calc(100dvh - 130px);
+  max-height: calc(100dvh - 148px);
   height: auto;
   aspect-ratio: 480 / 620;
   background: #000000;
@@ -156,5 +159,7 @@ html.ee-spice-mode .intro-motto {
 @media (pointer: coarse), (max-width: 600px) {
   .ee-galaga-hint { display: none; }
   .ee-galaga-touch { display: inline-flex; width: 100%; justify-content: space-between; }
-  .ee-galaga-touch button { flex: 1; padding: 9px 0; font-size: 13px; }
+  .ee-galaga-bar { gap: 6px; padding: 8px 10px; font-size: 10px; }
+  .ee-galaga-touch button { flex: 1; min-height: 48px; padding: 10px 0; font-size: 13px; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  .ee-galaga-touch button:active { border-color: #D9A362; background: rgba(217, 163, 98, 0.18); color: #EBE5DA; }
 }

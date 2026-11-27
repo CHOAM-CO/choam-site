@@ -19,7 +19,7 @@
     if (galagaLoading) return;
     galagaLoading = true;
     const s = document.createElement('script');
-    s.src = new URL('galaga.js?v=v22-20261128a', eeScriptSrc).href;
+    s.src = new URL('galaga.js?v=v22-20261128b', eeScriptSrc).href;
     s.onload = () => {
       galagaLoading = false;
       if (typeof window.__CHOAM_GALAGA_OPEN__ === 'function') window.__CHOAM_GALAGA_OPEN__();
@@ -313,7 +313,62 @@
     });
   };
 
+
+  const bindLongPress = (el, ms, handler) => {
+    if (!el) return;
+    let timer = null;
+    let fired = false;
+    const cancel = () => {
+      if (timer) { clearTimeout(timer); timer = null; }
+    };
+    el.addEventListener('pointerdown', (e) => {
+      if (e.button && e.button !== 0) return;
+      fired = false;
+      cancel();
+      timer = setTimeout(() => {
+        timer = null;
+        fired = true;
+        handler();
+      }, ms);
+    });
+    el.addEventListener('pointerup', cancel);
+    el.addEventListener('pointercancel', cancel);
+    el.addEventListener('pointerleave', cancel);
+    el.addEventListener('contextmenu', (e) => { if (timer || fired) e.preventDefault(); });
+    el.addEventListener('click', (e) => {
+      if (fired) {
+        fired = false;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
+  };
+
   const wireTriggers = () => {
+    /* Mobile & touch triggers:
+       - Long-press top CHOAM logo (750ms) anywhere -> Galaga (short tap keeps normal home link)
+       - Tap Culture must flow (.mast .motto / .intro-motto) 5x -> Galaga, long-press 750ms -> Spice */
+    const brand = document.querySelector('.mast .brand');
+    if (brand) {
+      bindLongPress(brand, 750, openGalaga);
+      if (pageId() === 'home') {
+        let bCount = 0;
+        let bLast = 0;
+        brand.addEventListener('click', (e) => {
+          const now = Date.now();
+          if (now - bLast > 1500) bCount = 0;
+          bLast = now;
+          bCount += 1;
+          e.preventDefault();
+          if (bCount >= 5) { bCount = 0; openGalaga(); }
+        });
+      }
+    }
+    document.querySelectorAll('.mast .motto, .intro-motto').forEach((m) => {
+      m.style.cursor = 'default';
+      bindMultiClick(m, 5, openGalaga);
+      bindLongPress(m, 750, triggerSpice);
+    });
     document.querySelectorAll('.foot > span').forEach((sp) => {
       sp.style.cursor = 'default';
       bindMultiClick(sp, 5, toggleAnswerKey);

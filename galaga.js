@@ -871,6 +871,7 @@
       btn.addEventListener('pointerup', up);
       btn.addEventListener('pointerleave', up);
       btn.addEventListener('pointercancel', up);
+      btn.addEventListener('contextmenu', (ev) => ev.preventDefault());
     });
 
     window.addEventListener('keydown', onKeyDown, true);

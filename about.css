@@ -623,4 +623,6 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
 }
 @media (max-width: 600px) {
   .ee-magi-node:first-child { width: 100%; }
+  .ee-magi-node { padding: 12px 8px; }
+  .ee-magi-nid { font-size: 11px; letter-spacing: 0.08em; white-space: nowrap; }
 }
