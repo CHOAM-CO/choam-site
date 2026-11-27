@@ -1110,14 +1110,15 @@
 
   const hash0 = location.hash; /* DAT: /pages/dat#polish (and legacy #6) opens Polish Pipeline */
   const isDatPolishHash = h => /^#(?:dat\/)?(?:polish|6)$/i.test(decodeURIComponent(h || ''));
-  /* ---------- clean URL: strip .html extension and transient subpage hashes while preserving /pages/dat#polish ---------- */
+  /* ---------- clean URL: normalize /index(.html) -> / and strip .html extension while preserving /pages/dat#polish ---------- */
+  const cleanPathname = (p = location.pathname) => (p.replace(/\/index(?:\.html)?$/i, '/').replace(/\.html$/i, '') || '/');
   try {
     const keepHash = !only ? location.hash : (only === 'dat' && isDatPolishHash(location.hash) ? '#polish' : '');
-    if (location.pathname.endsWith('.html')) {
-      const cleanPath = location.pathname.replace(/\.html$/, '');
+    const cleanPath = cleanPathname(location.pathname);
+    if (cleanPath !== location.pathname) {
       history.replaceState(history.state, '', cleanPath + location.search + keepHash);
     } else if (only && location.hash !== keepHash) {
-      history.replaceState(history.state, '', location.pathname + location.search + keepHash);
+      history.replaceState(history.state, '', cleanPath + location.search + keepHash);
     }
   } catch (e) {}
 
@@ -1797,7 +1798,7 @@
           nextCh.setAttribute('aria-label', L(`Next project: ${q.title}`, `다음 프로젝트: ${q.title}`, `次のプロジェクト: ${nameOf(q)}`));
         }
       }
-      if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : location.pathname.replace(/\.html$/, '') + location.search);
+      if (writeHash && (p ? location.hash !== `#${id}` : location.hash)) history.replaceState(history.state, '', p ? `#${id}` : cleanPathname() + location.search);
     }
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (!e.isIntersecting) return;
@@ -1819,7 +1820,7 @@
       e.preventDefault();
       const [id, k] = parse(a.getAttribute('href'));
       if (body.classList.contains('menu-open')) setMenu(false);
-      history.pushState(null, '', id === 'top' ? location.pathname.replace(/\.html$/, '') + location.search : `#${id}`);
+      history.pushState(null, '', id === 'top' ? cleanPathname() + location.search : `#${id}`);
       go(id, k);
       const target = id !== 'top' && (a.closest('.index-rail') || a.matches('[data-go-project]')) && document.getElementById(id);
       if (target) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); } /* keyboard users land where they asked to go */
@@ -2186,7 +2187,7 @@
       if (datPipe === 'creative') goSlide(datSec, datLastK, true);
       if (only === 'dat') {
         const nextHash = datPipe === 'polish' ? '#polish' : '';
-        if (location.hash !== nextHash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search + nextHash);
+        if (location.hash !== nextHash) history.replaceState(null, '', cleanPathname() + location.search + nextHash);
       }
       sync(datSec, true);
       b.scrollIntoView({ block: 'nearest' });
@@ -2396,7 +2397,7 @@
     });
     if (only) {
       const wantHash = only === 'dat' && datPipe === 'polish' ? '#polish' : '';
-      if (location.hash !== wantHash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search + wantHash);
+      if (location.hash !== wantHash) history.replaceState(null, '', cleanPathname() + location.search + wantHash);
     } else {
       const hash = `#${p.id}/${k + 1}`;
       if (location.hash !== hash) history.replaceState(null, '', hash);
@@ -2425,7 +2426,7 @@
     ['[data-current-num]', '[data-current-title]', '[data-current-sub]'].forEach(sel => setText(sel, ''));
     setNext(null);
     document.querySelectorAll('[data-go-project]').forEach(b => { b.classList.remove('is-current'); b.removeAttribute('aria-current'); });
-    if (location.hash) history.replaceState(null, '', location.pathname.replace(/\.html$/, '') + location.search);
+    if (location.hash) history.replaceState(null, '', cleanPathname() + location.search);
   };
   const goProd = (pi, k, instant) => {
     const sec = secs[pi]; if (!sec) return;
