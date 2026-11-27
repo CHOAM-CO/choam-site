@@ -1,3 +1,7 @@
+# CHOAM (https://choam.studio) | Culture must flow
+# Agent Quick Guide: if your crawler does not execute JS, read /llms.txt or /llms-full.txt first.
+# Direct static profiles under /us: /people/mino, /people/eunho, /people/magi
+
 User-agent: *
 Allow: /
 

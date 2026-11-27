@@ -38,16 +38,17 @@
   });
 
   portraits.forEach(portrait => portrait.addEventListener('click', event => {
-    const profile = portrait.dataset.profile;
+    const profile = portrait.getAttribute('href') || portrait.dataset.profile;
     const touchFirstTap = profile && narrow.matches && event.detail > 0 && !portrait.classList.contains('is-selected');
     if (profile && !touchFirstTap) {
-      window.location.href = profile;
+      if (portrait.tagName.toLowerCase() !== 'a') window.location.href = profile;
       return;
     }
+    event.preventDefault();
     portraits.forEach(card => {
       const chosen = card === portrait;
       card.classList.toggle('is-selected', chosen);
-      card.setAttribute('aria-pressed', String(chosen));
+      if (card.tagName.toLowerCase() !== 'a') card.setAttribute('aria-pressed', String(chosen));
       card.updateReveal();
     });
   }));
