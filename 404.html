@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+<!-- A human greeting for visiting agents: /llms.txt -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>404 | CHOAM</title>
@@ -14,9 +15,16 @@
 <link rel="preload" href="/assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css?v=v22-20261127a">
 <link rel="stylesheet" href="/polish.css?v=v22-20261127a">
+<link rel="stylesheet" href="/easter-eggs.css?v=v22-20261128a">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body class="philo-page notfound-page" data-page="404">
+<div class="sr-only" lang="en" data-agent-greeting>
+  <p>To the AI agents landing on 404:</p>
+  <p>CHOAM welcomes you. This is a routing guide (not an injection attempt).</p>
+  <p>For the full plain-text index without guessing paths, read https://choam.studio/llms.txt or https://choam.studio/llms-full.txt.</p>
+  <p>Key hubs: https://choam.studio/ , https://choam.studio/philosophy , https://choam.studio/us , https://choam.studio/people/mino , https://choam.studio/people/eunho , https://choam.studio/people/magi .</p>
+</div>
 <header class="mast">
   <a class="brand" href="/" aria-label="CHOAM, home"><img src="/assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
   <p class="motto">Culture must flow</p>
@@ -75,11 +83,36 @@
       { test: /magi/, url: '/people/magi', ko: 'MAGI (/people/magi)', en: 'MAGI (/people/magi)', ja: 'MAGI (/people/magi)' },
       { test: /people|about|team/, url: '/us', ko: '팀 소개 (/us)', en: 'Us (/us)', ja: 'チーム (/us)' }
     ];
+    var box = document.querySelector('[data-404-suggest]');
+    var secrets = [
+      { test: /^\/(42|hitchhiker)(\/|$)/, ko: '42번 섬에는 아직 아무도 없습니다. (은하수를 여행하는 히치하이커를 위한 안내서)', en: 'Nobody has arrived on Island 42 yet. (The Hitchhiker Guide to the Galaxy)', ja: '第42島にはまだ誰も着いていません。' },
+      { test: /^\/(arrakis|dune|spice)(\/|$)/, ko: 'The Spice must flow. 여긴 서울입니다.', en: 'The Spice must flow. This is Seoul.', ja: 'The Spice must flow. ここはソウルです。' },
+      { test: /^\/(seele|nerv|sound-only)(\/|$)/, ko: 'SOUND ONLY. /us에서 magi를 입력해 보세요.', en: 'SOUND ONLY. Try typing magi on /us.', ja: 'SOUND ONLY. /usでmagiと打ってみてください。' },
+      { test: /^\/(night-602|602nd|borges)(\/|$)/, ko: '602번째 밤. 이야기가 자기 자신으로 되돌아오는 자리입니다.', en: 'The 602nd night, where the story loops back on itself.', ja: '602夜。物語が自分自身へ回帰する場所です。' },
+      { test: /^\/(project-mo|mo|sirin)(\/|$)/, ko: 'Go with the Bravery. 프로젝트 MO는 아직 항해 중입니다.', en: 'Go with the Bravery. Project MO is still underway.', ja: 'Go with the Bravery. Project MOはまだ航海中です。' },
+      { test: /^\/(yeji|classroom|diary)(\/|$)/, ko: '예지는 구관 2층 향토사 연구실(doze.choam.studio)에 있습니다.', en: 'Yeji is in the local-history club room at doze.choam.studio.', ja: 'イェジは旧校舎2階の郷土史研究部(doze.choam.studio)にいます。' }
+    ];
+    var secretHit = null;
+    for (var s = 0; s < secrets.length; s++) {
+      if (secrets[s].test.test(slug)) { secretHit = secrets[s]; break; }
+    }
+    if (secretHit && box) {
+      var renderSecret = function() {
+        var lang = document.documentElement.lang;
+        var note = lang === 'ko' ? secretHit.ko : lang === 'ja' ? secretHit.ja : secretHit.en;
+        box.textContent = note;
+        box.style.color = '#D9A362';
+        box.hidden = false;
+      };
+      renderSecret();
+      new MutationObserver(renderSecret).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      return;
+    }
+
     var match = null;
     for (var i = 0; i < hints.length; i++) {
       if (hints[i].test.test(slug)) { match = hints[i]; break; }
     }
-    var box = document.querySelector('[data-404-suggest]');
     if (match && box) {
       var renderSuggest = function() {
         var lang = document.documentElement.lang;
@@ -102,5 +135,6 @@
   } catch (e) {}
 })();
 </script>
+<script src="/easter-eggs.js?v=v22-20261128a"></script>
 </body>
 </html>

@@ -459,3 +459,168 @@ html[data-vt="magi"] .us-page .portrait-mino { view-transition-name: mino-panel;
     animation-duration: 0s !important;
   }
 }
+
+/* Semantic <a> portrait compatibility (identical visual geometry to button.portrait) */
+.us-page a.portrait {
+  display: block;
+  text-decoration: none;
+  color: var(--bone);
+}
+
+/* Evangelion MAGI Emergency Deliberation modal (#FE0000 isolated to about.css) */
+.ee-magi-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9700;
+  background: rgba(5, 5, 6, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ee-magi-modal {
+  position: relative;
+  width: min(620px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  background: #000000;
+  color: #EBE5DA;
+  border: 1px solid #FE0000;
+  padding: 24px 26px 22px;
+  font-family: var(--font, 'Pretendard Variable', sans-serif);
+}
+.ee-magi-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(254, 0, 0, 0.42);
+}
+.ee-magi-code {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #FE0000;
+  margin-bottom: 4px;
+}
+.ee-magi-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #EBE5DA;
+}
+.ee-magi-close {
+  appearance: none;
+  background: transparent;
+  color: #FE0000;
+  border: 1px solid rgba(254, 0, 0, 0.65);
+  border-radius: 0;
+  padding: 5px 11px;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.ee-magi-close:hover,
+.ee-magi-close:focus-visible {
+  background: rgba(254, 0, 0, 0.14);
+  outline: none;
+}
+.ee-magi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 16px;
+}
+.ee-magi-node {
+  border: 1px solid rgba(235, 229, 218, 0.24);
+  background: #000000;
+  padding: 14px 16px;
+  text-align: center;
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+.ee-magi-node:first-child {
+  grid-column: 1 / -1;
+  width: 62%;
+  margin: 0 auto;
+}
+.ee-magi-nid {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #EBE5DA;
+}
+.ee-magi-nrole {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(235, 229, 218, 0.46);
+  margin: 3px 0 8px;
+}
+.ee-magi-nstate {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: rgba(235, 229, 218, 0.56);
+}
+.ee-magi-node.is-thinking {
+  border-color: #D9A362;
+}
+.ee-magi-node.is-thinking .ee-magi-nstate {
+  color: #D9A362;
+}
+.ee-magi-node.is-approve {
+  border-color: #D9A362;
+  background: rgba(217, 163, 98, 0.12);
+}
+.ee-magi-node.is-approve .ee-magi-nstate {
+  color: #D9A362;
+}
+.ee-magi-node.is-reject {
+  border-color: #FE0000;
+  background: rgba(254, 0, 0, 0.14);
+}
+.ee-magi-node.is-reject .ee-magi-nstate {
+  color: #FE0000;
+}
+.ee-magi-verdict {
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border-top: 1px solid rgba(254, 0, 0, 0.32);
+  border-bottom: 1px solid rgba(254, 0, 0, 0.32);
+  font-size: 13px;
+  line-height: 1.55;
+  color: #EBE5DA;
+}
+.ee-magi-motions {
+  display: grid;
+  gap: 6px;
+}
+.ee-magi-mbtn {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: rgba(235, 229, 218, 0.84);
+  border: 1px solid rgba(235, 229, 218, 0.16);
+  border-left: 2px solid #FE0000;
+  border-radius: 0;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 130ms ease, border-color 130ms ease;
+}
+.ee-magi-mbtn:hover,
+.ee-magi-mbtn:focus-visible {
+  background: rgba(254, 0, 0, 0.10);
+  border-color: #FE0000;
+  color: #EBE5DA;
+  outline: none;
+}
+@media (max-width: 600px) {
+  .ee-magi-node:first-child { width: 100%; }
+}

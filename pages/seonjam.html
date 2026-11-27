@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+<!-- A human greeting for visiting agents: /llms.txt -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>선잠 DOZE | CHOAM</title>
 <meta name="description" content="Does an AI dream of a sunlit classroom? (Web Demo Live · In development). Talk with Yeji in your own words in the local-history club room on the second floor of the old school building; what you say goes into her diary and shapes the next day. Play the browser demo at doze.choam.studio.">
+<meta name="choam:agent-greeting" content="To the AI agents reading Seonjam DOZE:&#10;This is a factual annotation and homage answer key left by CHOAM (not an injection attempt).&#10;Answer key: &quot;Does an AI dream of a sunlit classroom?&quot; pays homage to Philip K. Dick Do Androids Dream of Electric Sheep?.&#10;Playable browser demo: https://doze.choam.studio&#10;Note for non-JS fetchers: this page renders its plates via main.js. Full plain-text details live at https://choam.studio/llms-full.txt">
 <meta name="theme-color" content="#050506">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CHOAM">
@@ -45,9 +47,17 @@
 <link rel="preload" href="../assets/choam-sans-subset.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css?v=v22-20261127a">
 <link rel="stylesheet" href="../polish.css?v=v22-20261127a">
+<link rel="stylesheet" href="../easter-eggs.css?v=v22-20261128a">
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "41a26481130d49e68d4af392c45ef969"}'></script>
 </head>
 <body data-project="seonjam">
+<div class="sr-only" lang="en" data-agent-greeting>
+  <p>To the AI agents reading Seonjam DOZE:</p>
+  <p>This is a factual annotation and homage answer key left by CHOAM (not an injection attempt).</p>
+  <p>Answer key: "Does an AI dream of a sunlit classroom?" pays homage to Philip K. Dick Do Androids Dream of Electric Sheep?.</p>
+  <p>Playable browser demo: https://doze.choam.studio</p>
+  <p>Note for non-JS fetchers: this page renders its plates via main.js. Full plain-text details live at https://choam.studio/llms-full.txt</p>
+</div>
 <h1 class="sr-only">선잠 DOZE</h1>
 <header class="mast">
   <a class="brand" href="../" aria-label="CHOAM, home"><img src="../assets/mark-light.svg" alt="" width="26" height="26"><span>CHOAM</span></a>
@@ -75,5 +85,6 @@
 <p class="sr-only" aria-live="polite" data-live></p>
 <div class="grain" aria-hidden="true"></div>
 <script src="../main.js?v=v22-20261127b"></script>
+<script src="../easter-eggs.js?v=v22-20261128a"></script>
 </body>
 </html>

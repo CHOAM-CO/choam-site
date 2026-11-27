@@ -1,0 +1,160 @@
+/* CHOAM site-native easter eggs styling.
+   Matches choam.studio live chrome exactly: #000000 pure black, 0px sharp square,
+   1px hairlines, #EBE5DA bone ink, #D9A362 brass accent, zero shadows, zero chamfers. */
+
+html.ee-spice-mode .mast .motto,
+html.ee-spice-mode .intro-motto {
+  color: #D9A362 !important;
+  transition: color 240ms ease;
+}
+
+/* Konami / console Answer Key drawer (pure black sharp square, same chrome as dropdowns) */
+.ee-answer-key {
+  position: fixed;
+  right: 22px;
+  bottom: 54px;
+  z-index: 9500;
+  width: min(380px, calc(100vw - 32px));
+  background: #000000;
+  color: #EBE5DA;
+  border: 1px solid rgba(235, 229, 218, 0.18);
+  padding: 18px 20px;
+  font-family: var(--font, 'Pretendard Variable', sans-serif);
+}
+.ee-ak-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(235, 229, 218, 0.14);
+}
+.ee-ak-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #D9A362;
+}
+.ee-ak-close {
+  appearance: none;
+  background: transparent;
+  color: rgba(235, 229, 218, 0.62);
+  border: 1px solid rgba(235, 229, 218, 0.18);
+  border-radius: 0;
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.ee-ak-close:hover,
+.ee-ak-close:focus-visible {
+  color: #EBE5DA;
+  border-color: #D9A362;
+  outline: none;
+}
+.ee-ak-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ee-ak-list li {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(235, 229, 218, 0.84);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(235, 229, 218, 0.08);
+}
+.ee-ak-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.ee-ak-tag {
+  color: #D9A362;
+  font-weight: 600;
+  margin-right: 7px;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .ee-answer-key {
+    right: 14px;
+    left: 14px;
+    width: auto;
+    bottom: 50px;
+  }
+}
+
+/* CHOAM Galaga overlay (pure black sharp square arcade stage) */
+.ee-galaga-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9750;
+  background: rgba(0, 0, 0, 0.90);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.ee-galaga-frame {
+  width: min(516px, 100%);
+  background: #000000;
+  border: 1px solid rgba(235, 229, 218, 0.22);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.ee-galaga-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(235, 229, 218, 0.14);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(235, 229, 218, 0.54);
+  font-variant-numeric: tabular-nums;
+}
+.ee-galaga-hud strong {
+  color: #EBE5DA;
+  font-weight: 700;
+  margin-left: 4px;
+}
+.ee-galaga-hud:nth-child(2) strong { color: #D9A362; }
+.ee-galaga-btns {
+  display: inline-flex;
+  gap: 6px;
+}
+.ee-galaga-canvas {
+  display: block;
+  width: 100%;
+  max-height: calc(100dvh - 130px);
+  height: auto;
+  aspect-ratio: 480 / 620;
+  background: #000000;
+  image-rendering: pixelated;
+}
+.ee-galaga-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 14px;
+  border-top: 1px solid rgba(235, 229, 218, 0.14);
+}
+.ee-galaga-hint {
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: rgba(235, 229, 218, 0.44);
+}
+.ee-galaga-touch {
+  display: none;
+  gap: 6px;
+}
+@media (pointer: coarse), (max-width: 600px) {
+  .ee-galaga-hint { display: none; }
+  .ee-galaga-touch { display: inline-flex; width: 100%; justify-content: space-between; }
+  .ee-galaga-touch button { flex: 1; padding: 9px 0; font-size: 13px; }
+}
