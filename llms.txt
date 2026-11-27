@@ -21,7 +21,7 @@ CHOAM's philosophy (https://choam.studio/philosophy) has four sections:
 
 ## Flagship Projects & Flywheel
 
-### 1. Scheherazade (`v1.1.9`)
+### 1. Scheherazade (`v1.1.10`)
 - **Type**: Personal AI agent (desktop app for macOS Apple Silicon, Windows x64 installer & NTFS USB portable, and Linux x86_64 AppImage)
 - **URL**: https://choam.studio/pages/scheherazade
 - **Description**: An agent that takes a thousand and one nights in stride. Keeps four-tier memory in plain-text Markdown on your own computer so you never have to explain yourself twice. Swap brains freely across your Claude, ChatGPT, or Google Antigravity (`agy` / Gemini) subscription, local or cloud Ollama, or auto-detected API keys (`OpenAI, Anthropic, OpenRouter, DeepSeek, Google, xAI, Groq`) without losing a line of memory. Talk from anywhere over Discord (including automated bot setup and per-user/bot/server/DM reply switches), Slack, Telegram, or voice Call Mode; keep separate memory folders and bots side by side with Multi-Profile; run tasks directly with a dedicated browser and `agent-desktop` computer control; choose from five house themes (`Sera`, `Paris`, `Vancouver`, `Shanghai`, and `Seoul`); or carry a PIN-locked Windows USB Portable build with desktop memory handoff.
